@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Create directories if they don't exist
+mkdir -p out/js/
+mkdir -p out/css/
+
+# Copy everything in the web folder
+rsync -a assets/ out/

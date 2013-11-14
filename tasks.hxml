@@ -1,0 +1,15 @@
+-lib ufront-uftasks
+-lib ufront
+
+-cp src 
+-D server 
+-D getter_support
+-D haxeJSON
+--remap php:neko
+
+-dce no
+-debug
+
+-main tasks.Tasks
+-neko out/tasks.n
+

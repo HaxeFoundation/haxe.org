@@ -1,0 +1,8 @@
+{
+	"host": "localhost",
+	"port": null,
+	"database": "haxeorg",
+	"user": "",
+	"pass": "",
+	"socket": null
+}

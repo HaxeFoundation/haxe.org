@@ -1,0 +1,56 @@
+##########################
+# Documentation Generation
+##########################
+
+#
+# Common
+#
+
+-lib ufront 
+-lib compiletime
+-lib detox
+-cp src/
+-D haxeJSON
+
+
+--each
+
+#
+# Client JS
+#
+
+-D client
+-D embed_js
+-dce full
+
+-main client.Client
+--macro "include('app')"
+--macro "include('client')"
+
+-xml dox/js.xml
+-js dox/doc.js 
+--no-output 
+
+--next
+
+#
+# Server Neko
+#
+
+-lib tink_core
+-lib random
+-lib markdown
+-D server 
+-D getter_support
+-dce no
+
+-main server.Server
+--macro "include('app')"
+--macro "include('server')"
+--macro "include('tasks')"
+
+-xml dox/neko.xml
+-neko dox/doc.n
+--no-output 
+
+# Then build with: haxelib run dox -r / -o dox/api/ -i dox/

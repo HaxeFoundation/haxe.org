@@ -1,0 +1,22 @@
+-lib ufront
+-lib tink_core
+-lib compiletime
+-lib markdown
+-main server.Server
+-cp src
+-D server 
+-dce no
+
+--each 
+
+# Neko
+--remap php:neko
+-D neko_v2
+-neko out/index.n
+
+--next 
+
+# PHP
+--remap neko:php
+--php-lib php
+-php out

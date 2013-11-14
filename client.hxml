@@ -1,0 +1,22 @@
+#
+# Compile the Client
+#
+ 
+-lib detox
+-lib pushstate
+-lib ufront
+-lib compiletime
+# haxelib git promhx git://github.com/jasononeil/promhx.git haxe3 haxelib
+-lib promhx
+-cp src
+
+# Compile flags
+-D client
+-D embed_js
+-dce full
+-debug
+
+# Output
+-main client.Client 
+-js out/js/client.js
+
