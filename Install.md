@@ -9,14 +9,14 @@ Update haxelib
 
 	sudo haxelib selfupdate
 
-Clone the ufblog repo, install all dependencies
+Clone the haxe.org repo, install all dependencies
 
-	git clone https://github.com/jasononeil/ufblog.git
+	git clone https://github.com/jasononeil/haxe.org.git
 	haxelib install all
 
 For now we need a fork of minject, until @dpeek accepts my pull request:
 
-	haxelib git minject git@github.com:jasononeil/minject.git master src/
+	haxelib git minject https://github.com/jasononeil/minject.git master src/
 
 Run ufront setup
 
@@ -29,7 +29,9 @@ Add your mysql JSON
 
 Compile the site files (in debug mode)
 
-	ufront b -d
+	mkdir out
+	mkdir out/js
+	ufront b --debug
 
 Set up a uf-content directory on the server
 
