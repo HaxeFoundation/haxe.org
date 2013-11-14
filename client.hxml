@@ -6,8 +6,6 @@
 -lib pushstate
 -lib ufront
 -lib compiletime
-# haxelib git promhx git://github.com/jasononeil/promhx.git haxe3 haxelib
--lib promhx
 -cp src
 
 # Compile flags
