@@ -47,12 +47,12 @@ class PageController extends Controller {
 				ViewResult.create({
 					title: 'Updated the manual', 
 					content: out
-				});
+				}, "page/default.html");
 			case Failure(err): 
 				ViewResult.create({
 					title: 'Failed to update the manual', 
 					content: err
-				});
+				}, "page/default.html");
 		}
 	}
 
