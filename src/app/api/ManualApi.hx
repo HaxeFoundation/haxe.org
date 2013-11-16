@@ -4,9 +4,9 @@ package app.api;
 	import sys.FileSystem;
 	import sys.io.File;
 	import sys.io.Process;
+	import latexparser.LatexParser;
 #end
 
-import latexparser.LatexParser;
 import app.model.ManualNavItem;
 using StringTools;
 using Lambda;
@@ -46,7 +46,7 @@ class ManualApi extends ufront.api.UFApi {
 				return s.toLowerCase().replace( " ", "-" );
 			}
 			function url( sec:Section ) {
-				return linkBase + sec.label + ".html";
+				return linkBase + sec.label.toLowerCase() + ".html";
 			}
 			function link( sec:Section ) {
 				return '<a href="${url(sec)}">${sec.title}</a>';

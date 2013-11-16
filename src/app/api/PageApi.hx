@@ -7,7 +7,6 @@ package app.api;
 #end
 import app.Config;
 import haxe.Json;
-import app.model.Manual;
 import ufront.web.HttpError;
 using haxe.io.Path;
 using tink.CoreApi;

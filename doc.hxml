@@ -40,6 +40,7 @@
 -lib tink_core
 -lib random
 -lib markdown
+-lib hxparse
 -D server 
 -D getter_support
 -dce no
