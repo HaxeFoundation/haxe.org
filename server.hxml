@@ -2,6 +2,7 @@
 -lib tink_core
 -lib compiletime
 -lib markdown
+-lib hxparse
 -main server.Server
 -cp src
 -D server 

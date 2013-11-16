@@ -14,68 +14,58 @@ using tink.CoreApi;
 using StringTools;
 using Detox;
 
-class PageApi extends ufront.api.UFApi
-{
+class PageApi extends ufront.api.UFApi {
+
 	@inject("contentDirectory") public var contentDir:String;
 
 	/**
-		Given a page path (which does not contain an extension), find the appropriate page, and prepare it's HTML.
+		Load a given page from the given repo.
 
-		Return `Success( Pair(html,filename) )` if found, or `Failure(HttpError)` if not
+		@param `repo` absolute path to page repo.  Should not include trailing slash
+		@param `path` no leading slash, should include extension
+
+		Return `Success( html )` if found, or `Failure(HttpError)` if not
 	**/
-	public function getPage( path:String ):Outcome<Pair<String, String>,HttpError> {
-		var repo = contentDir+Config.app.pages.name;
-		var filename:String = '$repo/$path.html';
+	public function getPage( repo:String, path:String ):Outcome<String,HttpError> {
 
-		return
-			readFile( filename )
-			.map( function (html) return new Pair(html, filename.substr(repo.length+1)) )
-		;
-	}
-
-	public function getManualPage( path:String ):Outcome<{ title:String, html:String, nextPage:Null<ManualPage>, prevPage:Null<ManualPage>, editLink:String },HttpError> {
-		var repo = contentDir+Config.app.manual.name+'/';
-		var mdFiles = repo+Config.app.manual.subdir;
-		var infoFile = repo+Config.app.manual.contents;
+		var filename:String = '$repo/$path';
 		
-		var manual:Manual = null;
-		var page:ManualPage = null;
-		var prevPage:Null<ManualPage> = null;
-		var nextPage:Null<ManualPage> = null;
-
-		return
-			getManualInfo( infoFile )
-			.flatMap( function ( manualInfo ) {
-				
-				manual = manualInfo;
-				page = 
-					try manualInfo.pageFromUrl( path ).sure() 
-					catch (e:HttpError) return Failure(e);
-				prevPage = manualInfo.pageBefore( page ).toOutcome().orUse( null );
-				nextPage = manualInfo.pageAfter( page ).toOutcome().orUse( null );
-
-				return Success( mdFiles+'/'+page.filename );
-			})
-			.flatMap( readFile )
-			.flatMap( markdownToHtml )
-			.map( transformHtml.bind(manual) )
-			.map( function(html) return {
-				"title": page.title,
-				"html": html,
-				"nextPage": nextPage,
-				"prevPage": prevPage,
-				"editLink": Config.app.manual.editLink
-			})
-		;
+		return 
+			if ( !FileSystem.exists(filename) ) {
+				ufError('Could not find page $filename');
+				Failure( HttpError.pageNotFound() );
+			}
+			else
+				try Success( File.getContent(filename) )
+				catch (e:Dynamic) Failure( HttpError.internalServerError('Could not read $filename', e) );
 	}
 
+	/**
+		Clone a repo from a git address into our `contentDirectory`, with a given name
+
+		If the folder already exists, `git pull` will be attempted.  Otherwise, `git clone` will be attempted.
+		
+		@param `gitPath` the path of the git repo to clone. 
+		@param `intoDir` the name of the folder to name the clone.
+		@return Success( outputOfCommand ) or Failure( outputOfCommand )
+	**/
 	public function cloneRepo( gitPath:String, intoDir:String ):Outcome<String,String> {
 		
 		var oldCwd = Sys.getCwd();
 		try Sys.setCwd( contentDir ) catch(e:String) return Failure(e);
-		
-		// git clone https://github.com/Simn/HaxeManual.git manual
-		var p = new Process( "git", ["clone",gitPath,intoDir] );
+
+		var p:Process;
+
+		if ( FileSystem.exists(intoDir) ) {
+			// Pull update
+			try Sys.setCwd( intoDir ) catch(e:String) return Failure(e);
+			p = new Process( "git", ["pull"] );
+		}
+		else {
+			// Clone
+			p = new Process( "git", ["clone",gitPath,intoDir] );
+		}
+
 		var result = switch p.exitCode() {
 			case 0: Success( p.stdout.readAll().toString() );
 			case exitCode:
@@ -94,60 +84,4 @@ class PageApi extends ufront.api.UFApi
 
 		return result;
 	}
-
-	/**
-		Takes a path, and returns `Success( content )`, or `Failure( HttpError )` if it could not be read.
-	**/
-	function readFile( path:String ):Outcome<String,HttpError> {
-		return 
-			if ( !FileSystem.exists(path) ) 
-				Failure( HttpError.pageNotFound() );
-			else
-				try Success( File.getContent(path) )
-				catch (e:Dynamic) Failure( HttpError.internalServerError('Could not read $path', e) );
-	}
-
-	/**
-		Will convert markdown to HTML.  Returns a `Success( html )`, or `Failure( err )`
-	**/
-	function markdownToHtml( md:String ):Outcome<String,HttpError> {
-		return
-			try Success( Markdown.markdownToHtml( md ) ) 
-			catch (e:Dynamic) Failure( HttpError.internalServerError('Unable to parse markdown into HTML',e) );
-	}
-
-	/**
-		Will take the HTML, change the 
-	**/
-	function transformHtml( manual:Manual, html:String ):String {
-		var page = ('<div id="content">$html</div>').parse();
-		page.find("h2").removeFromDOM();
-		for ( link in page.find("a") ) {
-			var newHref = manual.urlFromFilename( link.attr('href') ).orUse("#");
-			if (newHref!="#") newHref = '/manual/$newHref';
-			link.setAttr( 'href', newHref );
-		}
-		return page.html();
-	}
-
-	/**
-		Fetch the JSON info containing all the manual pages
-	**/
-	function getManualInfo( infoFile:String ):Outcome<Manual,HttpError> {
-		if ( manual==null ) {
-			if ( !FileSystem.exists(infoFile) ) return Failure( HttpError.internalServerError('Manual info file $infoFile does not exist') );
-			var json = 
-				try File.getContent(infoFile)
-				catch (e:Dynamic) return Failure( HttpError.internalServerError('Could not read manual info at $infoFile', e) );
-			manual = 
-				try Json.parse( json )
-				catch (e:Dynamic) return Failure( HttpError.internalServerError('Could not parse JSON file $infoFile', e) );
-		}
-		return Success( manual );
-	}
-
-	/**
-		Keep the manual cached in a static var for future requests
-	**/
-	static var manual:Manual;
 }

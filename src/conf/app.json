@@ -8,9 +8,8 @@
 	"manual": {
 		"name": "manual",
 		"repo": "https://github.com/Simn/HaxeManual.git",
-		"editLink": "https://github.com/Simn/HaxeManual/blob/master/HaxeDoc.tex",
-		"subdir": "md/manual/",
-		"contents": "md/manual/sections.txt"
+		"latex": "HaxeDoc.tex",
+		"editLink": "https://github.com/Simn/HaxeManual/blob/master/HaxeDoc.tex"
 	},
 	"templateVars": {
 		"siteTitle": "Haxe - The Cross-Platform Toolkit",

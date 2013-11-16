@@ -192,3 +192,47 @@ a.anch {
 .section.hf ul li {
 	margin-bottom : 5px;
 }
+.prev-next-links {
+	clear: both;
+	border-top: 1px solid #DDD;
+	padding-top: 10px;
+}
+.prev-link {
+	float: left;
+}
+.prev-link:before {
+	content: "Previous Page: ";
+}
+.next-link {
+	float: right;
+}
+.next-link:before {
+	content: "Next Page: ";
+}
+
+/**
+	Code Highlighting
+**/
+
+pre, div.pre {
+	font-family : "Source Code Pro", "Courier New";
+	font-size : 20px;
+	color : #333;
+	background-color : #f3f3f3;
+	border : 1px solid #bbb;
+	margin : 15px;
+	padding : 5px;
+	padding-left: 20px;
+}
+pre .kwd, div.pre .kwd {
+	color : #008;
+}
+pre .val, div.pre .val {
+	color : #448;
+}
+pre .str, div.pre .str {
+	color : #800;
+}
+pre .cmt, div.pre .cmt {
+	color : #080;
+}

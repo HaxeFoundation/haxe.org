@@ -1,0 +1,2 @@
+# Block External Access
+deny from all
