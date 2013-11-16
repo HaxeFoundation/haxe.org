@@ -17,7 +17,7 @@ Clone the haxe.org repo, install all dependencies
 
 For now we need a fork of minject, until @dpeek releases a new version with my pull request included.  We also need the latest tink_core:
 
-	haxelib git minject https://github.com/jasononeil/minject.git master src/
+	haxelib git minject https://github.com/jasononeil/minject.git master src
 	haxelib git tink_core https://github.com/haxetink/tink_core.git
 
 Not only that, but tink_macro depends on an exact version dependency of `tink_core`, so it breaks when we try to use the dev version.  GAH.  Need fuzzy version matching in Haxelib.
