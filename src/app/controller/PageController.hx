@@ -33,7 +33,6 @@ class PageController extends Controller {
 
 	public function doManual( d:Dispatch ) {
 		var path = (d.parts.length>1 || d.parts[0]!="") ? d.parts.join("/") : "introduction.html";
-		trace (path);
 		var repo = contentDir+Config.app.manual.name;
 
 		var result = api.getPage( repo, path ).sure();
