@@ -7,13 +7,33 @@ import latexparser.LatexCommand;
 
 using StringTools;
 
+enum State {
+	/**
+		Section is not meant to have any content (for aggregating chapters/sections).
+	**/
+	NoContent;
+	/**
+		Section is new and was not edited yet (default)
+	**/
+	New;
+	/**
+		Section was edited in the past but got modified afterwards.
+	**/
+	Modified;
+	/**
+		Section is edited.
+	**/
+	Edited;
+}
+
 typedef Section = {
 	title: String,
 	label: String,
 	content: String,
 	sub: Array<Section>,
 	index: Int,
-	id: String
+	id: String,
+	state: State
 }
 
 enum ListMode {
@@ -36,6 +56,7 @@ typedef Label = {
 class LatexParser extends hxparse.Parser<LatexLexer, LatexToken> implements hxparse.ParserBuilder {
 	public var labelMap:Map<String, Label>;
 	public var definitionMap:Map<String, String>;
+	public var todos:Array<String>;
 	
 	var sections:Array<Section>;
 	var lastSection:Section;
@@ -51,6 +72,7 @@ class LatexParser extends hxparse.Parser<LatexLexer, LatexToken> implements hxpa
 	public function new(input, sourceName) {
 		super(new LatexLexer(input, sourceName), LatexLexer.tok);
 		buffer = new StringBuf();
+		todos = [];
 		sections = [];
 		labelMap = new Map();
 		definitionMap = new Map();
@@ -110,6 +132,15 @@ class LatexParser extends hxparse.Parser<LatexLexer, LatexToken> implements hxpa
 				case [TEnd("lstlisting")]:
 					codeMode = false;
 					buffer.add("```");
+				case [TBegin("figure")]:
+					// TODO
+				case [TEnd("figure")]:
+					// TODO
+				case [TCommand(CCentering)]:
+				case [TCommand(CIncludegraphics), options = popt(bracketArg), TBrOpen, s = text(), TBrClose]:
+					// TODO
+				case [TCommand(CCaption), TBrOpen, s = text(), TBrClose]:
+					// TODO
 				case [TCustomCommand("haxe"), options = popt(bracketArg), TBrOpen, s = text(), TBrClose]:
 					var f = sys.io.File.getContent(s);
 					var validate = false;
@@ -159,10 +190,19 @@ class LatexParser extends hxparse.Parser<LatexLexer, LatexToken> implements hxpa
 					buffer.add('>\n');
 					s2 = s2.replace("\r", "").split("\n").join("\n> ");
 					buffer.add('> $s2');
-				case [TCustomCommand("todo"), options = popt(bracketArg), TBrOpen, s = text(), TBrClose]: buffer.add('\n>TODO: $s\n\n');
+				case [TCustomCommand("todo"), options = popt(bracketArg), TBrOpen, s = text(), TBrClose]:
+					todos.push('${lastSection.id} - ${lastSection.title}: $s');
+					buffer.add('\n>TODO: $s\n\n');
 				case [TCustomCommand("missingfigure"), TBrOpen, s = text(), TBrClose]: buffer.add('> $s');
 				case [TCustomCommand("since"), TBrOpen, s = text(), TBrClose]: buffer.add('##### since Haxe $s\n\n');
-					
+				case [TCustomCommand("state"), TBrOpen, s = text(), TBrClose]:
+					var state = switch(s) {
+						case "Modified": Modified;
+						case "Edited": Edited;
+						case "NoContent": NoContent;
+						case _: throw 'Invalid state string: $s';
+					}
+					lastSection.state = state;
 				// section
 				case [TCommand(CPart), TBrOpen, s = text(), TBrClose]:
 					// TODO: handle this
@@ -211,11 +251,12 @@ class LatexParser extends hxparse.Parser<LatexLexer, LatexToken> implements hxpa
 			case [TCommand(CTextasciitilde)]: "~";
 			case [TCommand(CTextbackslash)]: "\\\\";
 			case [TCommand(CEmph), TBrOpen, s = text(), TBrClose]: '**$s**';
+			case [TCommand(CTextwidth)]: "";
 			//I think \it{} is obsolete.  Added \textit{}
 			case [TCommand(CTextit), TBrOpen, s = text(), TBrClose]:'*$s*';
 			case [TCommand(CIt), TBrOpen, s = text(), TBrClose]: '*$s*';
 			case [TCommand(CTextbf), TBrOpen, s = text(), TBrClose]:'**$s**';
-			case [TCommand(CTextsuperscript), TBrOpen, s = text(), TBrClose]:'<sup>$s<sup>';
+			case [TCommand(CTextsuperscript), TBrOpen, s = text(), TBrClose]:'<sup>$s</sup>';
 			case [TBrOpen && codeMode]: "{";
 			case [TBrClose && codeMode]: "}";
 			case [TBkOpen && (codeMode || exprMode)]: "[";
@@ -241,6 +282,7 @@ class LatexParser extends hxparse.Parser<LatexLexer, LatexToken> implements hxpa
 			case [TCustomCommand("type"), TBrOpen, s = text(), TBrClose]: '`$s`';
 			case [TCustomCommand("ic"), TBrOpen, s = text(), TBrClose]: '`$s`';
 			case [s = ref()]: s;
+			case [TCustomCommand("href"), TBrOpen, s1 = text(), TBrClose, TBrOpen, s2 = text(), TBrClose]: '[$s1]($s2)';
 			case [TCommand(CUrl), TBrOpen, s = text(), TBrClose]: '[$s]($s)';
 			case [TCommand(CLabel), TBrOpen, s = text(), TBrClose]:
 				var name = switch(lastLabelTarget) {
@@ -271,6 +313,7 @@ class LatexParser extends hxparse.Parser<LatexLexer, LatexToken> implements hxpa
 			case [TCommand(CTextless), dummy = popt(emptyBraces)]: "&lt;";
 			case [TCommand(CTextgreater), dummy = popt(emptyBraces)]: "&gt;";
 			case [TCommand(CLdots), dummy = popt(emptyBraces)]: "...";
+			case [TCommand(CTextasciicircum)]: "^";
 		}
 	}
 	
@@ -364,7 +407,7 @@ class LatexParser extends hxparse.Parser<LatexLexer, LatexToken> implements hxpa
 			buffer = new StringBuf();
 		}
 		var id = (parent != null ? parent.id + "." : "") + index;
-		lastSection = {title: title, label: null, content: "", sub: [], index:index, id: id};
+		lastSection = {title: title, label: null, content: "", sub: [], index:index, id: id, state: New};
 		lastLabelTarget = Section(lastSection);
 		return lastSection;
 	}
