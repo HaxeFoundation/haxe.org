@@ -72,14 +72,14 @@ class SiteApi extends ufront.api.UFApi {
 	/**
 		Out of the download/API versions available on the site, get the version string of the current version
 	**/
-	public function getCurrentVersion( versionDir:String ) {
+	public function getCurrentVersion( versionDir:String ):String {
 		return getVersionInfo( versionDir ).current;
 	}
 
 	/**
 		Get a list of all the download versions available on the site
 	**/
-	public function getVersions( versionDir:String ) {
+	public function getVersions( versionDir:String ):Array<{ version:String, api:Bool, tag:String }> {
 		return getVersionInfo( versionDir ).versions;
 	}
 

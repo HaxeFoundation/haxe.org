@@ -1,12 +1,13 @@
 package app.api;
 
 #if server
-	import haxe.Json;
 	import sys.FileSystem;
 	import sys.io.File;
 	import sys.io.Process;
 #end
 
+import app.model.Download;
+import haxe.Json;
 using StringTools;
 using Lambda;
 using tink.CoreApi;
@@ -22,7 +23,7 @@ class DownloadApi extends ufront.api.UFApi {
 		@param repo - absolute path to the folder containing all our versions.
 		@return Success( Pair(current, [versions]) ) or Failure( errMsg )
 	**/
-	public function getDownloadList( repo:String ) {
+	public function getDownloadList( repo:String ):Outcome<CurrentVersionAndList,String> {
 		var versionFile = repo.addTrailingSlash()+'versions.json';
 		try {
 			var versionJson = File.getContent( versionFile );
@@ -35,12 +36,12 @@ class DownloadApi extends ufront.api.UFApi {
 	/**
 		Retrieve information about a specific download
 	**/
-	public function getDownloadVersion( repo:String, version:String ) {
+	public function getDownloadVersion( repo:String, version:String ):Outcome<VersionInfo, String> {
 		var version = version.replace( '.', ',' );
 		var versionFile = repo.addTrailingSlash()+'$version/download.json';
 		try {
 			var versionJson = File.getContent( versionFile );
-			var versionsInfo = haxe.Json.parse( versionJson );
+			var versionsInfo:VersionInfo = haxe.Json.parse( versionJson );
 			return Success( versionsInfo );
 		}
 		catch ( e:Dynamic ) return Failure( 'Failed to read $versionFile: $e' );
@@ -91,7 +92,7 @@ class DownloadApi extends ufront.api.UFApi {
 				var prevVersion = (i>0) ? versions[i-1].version : null;
 				var nextVersion = (i<versions.length-1) ? versions[i+1].version : null;
 
-				var downloadInfo = {
+				var downloadInfo:VersionInfo = {
 					downloads: downloads,
 					changes: changes,
 					releaseNotes: releaseNotes,
@@ -136,7 +137,7 @@ class DownloadApi extends ufront.api.UFApi {
 
 		Return a pair, the first part containing the current version string, the second part, an array of info about each version.
 	**/
-	function readVersionInfo( versionFile:String, errorMessages:Array<String> ):Pair<String, Array<{ version:String, api:Bool, tag:String }>> {
+	function readVersionInfo( versionFile:String, errorMessages:Array<String> ):Pair<String, DownloadList> {
 		
 		var versions:Array<{ version:String, api:Bool, tag:String }> = [];
 		var currentVersion:String = null;
@@ -160,7 +161,7 @@ class DownloadApi extends ufront.api.UFApi {
 		@param errorMessages an array to add to if we encounter messages
 		@return { osx: [ {title,filename,size} ], windows: ..., linux: ... }
 	**/
-	function getDownloadInfo( downloadDir:String, errorMessages:Array<String> ):Dynamic<Array<{ title:String, filename:String, size:Int }>> {
+	function getDownloadInfo( downloadDir:String, errorMessages:Array<String> ):DownloadFileInfo {
 
 		var downloads = {
 			"osx": [],

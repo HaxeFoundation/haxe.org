@@ -75,7 +75,7 @@ class ManualApi extends ufront.api.UFApi {
 			parser = new LatexParser( input, inFile );
 			sections = parser.parse();
 		}
-		catch ( e:Dynamic ) return Failure( 'Failed to parse $inFile with our LatexParser' );
+		catch ( e:Dynamic ) return Failure( 'Failed to parse $inFile with our LatexParser: $e' );
 
 		// Small helper functions for conversion (mostly to do with links/anchors)
 

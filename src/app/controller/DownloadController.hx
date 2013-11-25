@@ -27,12 +27,15 @@ class DownloadController extends Controller {
 
 	public function doList() {
 		var result = apiDownload.getDownloadList( contentDir+versionRepo() ).sure();
-		result.versions.reverse();
+		var versions = result.b;
+		versions.reverse();
 		return ViewResult.create({
 			title: 'Haxe Download List', 
 			tagBaseUrl: Config.app.siteContent.versions.tagBaseUrl,
-			editLink: Config.app.siteContent.versions.versionsBaseUrl
-		}).setVars( result );
+			editLink: Config.app.siteContent.versions.versionsBaseUrl,
+			versions: versions,
+			currentViewion: result.a
+		});
 	}
 
 	public function doVersion( version:String ) {
