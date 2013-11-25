@@ -1,0 +1,67 @@
+<div class="section">	
+	<div class="container">
+
+		<h1>::title::</h1>
+
+		<div class='prev-next-links top clearfix'>
+			::if (prev != null)::<a href="/download/version/::prev::/" class="prev-link">::prev::</a>::end::
+			::if (next != null)::<a href="/download/version/::next::/" class="next-link">::next::</a>::end::
+			<a href="/download/list/">(View all versions)</a>
+		</div>
+
+		::if (releaseNotes != null)::
+			<h3>Release Notes</h3>
+			::releaseNotes::
+		::end::
+
+		<h3>Downloads</h3>
+		
+		<div class="row downloads">
+			<div class="span4">
+				<ul class="nav nav-tabs nav-stacked">
+					<li class="header"><i class="fa fa-windows" title="Windows"></i></li>
+					::foreach downloads.windows::
+						<li><a href="/download/file/::version::/::filename::"><i class="fa fa-windows"></i> ::title::</a></li>
+					::end::
+				</ul>
+			</div>
+			<div class="span4">
+				<ul class="nav nav-tabs nav-stacked">
+					<li class="header"><i class="fa fa-apple" title="Mac OSX"></i></li>
+					::foreach downloads.osx::
+						<li><a href="/download/file/::version::/::filename::"><i class="fa fa-apple"></i> ::title::</a></li>
+					::end::
+				</ul>
+			</div>
+			<div class="span4">
+				<ul class="nav nav-tabs nav-stacked">
+					<li class="header"><i class="fa fa-linux" title="Linux"></i></li>
+					::foreach downloads.linux::
+						<li><a href="/download/file/::version::/::filename::"><i class="fa fa-linux"></i> ::title::</a></li>
+					::end::
+				</ul>
+			</div>
+		</div>
+
+		<p class="alert alert-info download-source">
+			<strong><i class="fa fa-github"></i> Source Code: </strong> The source code for this release is <a href="::tagBaseUrl::/::tag::">available on Github under the ::tag:: tag</a>.
+		</p>
+
+		::if (api)::
+			<p class="alert alert-success">
+				<strong><i class="fa fa-book"></i> API Documentation: </strong> <a href="http://api.haxe.org/">API documentation for Haxe ::version:: is available here</a>.
+			</p>
+		::end::
+
+		<h3>Change Log</h3>
+
+		::changes::
+
+		<div class='prev-next-links bottom clearfix'>
+			::if (prev != null)::<a href="/download/version/::prev::/" class="prev-link">::prev::</a>::end::
+			::if (next != null)::<a href="/download/version/::next::/" class="next-link">::next::</a>::end::
+			<a href="/download/list/">(View all versions)</a>
+		</div>
+
+	</div>
+</div>

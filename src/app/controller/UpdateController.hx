@@ -1,7 +1,6 @@
 package app.controller;
 
-import app.api.ManualApi;
-import app.api.PageApi;
+import app.api.*;
 import app.Config;
 import ufront.web.Controller;
 import ufront.web.Dispatch;
@@ -13,41 +12,33 @@ using haxe.io.Path;
 
 class UpdateController extends Controller {
 	
-	@inject public var pageApi:PageApi;
-	@inject public var manualApi:ManualApi;
 	@inject("contentDirectory") public var contentDir:String;
+	@inject public var apiSite:SiteApi;
+	@inject public var apiManual:ManualApi;
+	@inject public var apiDox:DoxApi;
+	@inject public var apiDownload:DownloadApi;
 
-	public function doPages() {
-		return switch pageApi.cloneRepo( Config.app.manual.repo, Config.app.manual.name+"-repo" ) {
-			case Success(out): 
-				ViewResult.create({
-					title: 'Updated the site pages', 
-					content: out
-				}, "page/default.html");
-			case Failure(err): 
-				ViewResult.create({
-					title: 'Failed to update the site pages', 
-					content: err
-				}, "page/default.html");
-		}
-	}
+	public function doDefault() {
+		var gitRepo = Config.app.siteContent.repo;
+		var siteContentDir = contentDir+Config.app.siteContent.folder;
+		var manualLatexFile = siteContentDir+'/'+Config.app.siteContent.manual.file;
+		var manualOutDir = siteContentDir+'/'+Config.app.siteContent.manual.out;
+		var versionsDir = siteContentDir+'/'+Config.app.siteContent.versions.folder;
 
-	public function doManual() {
-		var gitRepo = Config.app.manual.repo;
-		var latex = contentDir+Config.app.manual.name+'-repo/'+Config.app.manual.latex;
-		var outDir = contentDir+Config.app.manual.name;
 		var result = 
-			pageApi
-				.cloneRepo( gitRepo, Config.app.manual.name+'-repo' )
-				.flatMap( function (_) return manualApi.convertLatex(latex,outDir) )
-				.map( function(_) return "Updated manual successfully" )
+			apiSite
+				.cloneRepo( gitRepo, siteContentDir )
+				.flatMap( function (_) return apiManual.convertLatexToHtml(manualLatexFile,manualOutDir) )
+				.flatMap( function (_) return apiDownload.prepareDownloadJson(versionsDir) )
+				.flatMap( function (_) return apiDox.convertDoxForAllVersions(versionsDir) )
+				.map( function(_) return "Updated website content successfully" )
 		;
 
 		return switch result {
 			case Success(out): 
 				ViewResult.create({
-					title: 'Updated the manual', 
-					content: out
+					title: 'Updated the website content succesfully', 
+					content: 'Updated the website content successfully.'
 				}, "page/default.html");
 			case Failure(err): 
 				trace (err);

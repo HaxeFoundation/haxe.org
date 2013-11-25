@@ -54,6 +54,11 @@ html, body {
 		margin-top: 20px;
 	}
 }
+@media (max-width: 979px) {
+	.page-wrap .section:first-child .container {
+		padding-top : 10px !important;
+	}
+}
 
 /**
 	Main styles
@@ -64,6 +69,12 @@ body {
 }
 b, strong {
 	font-weight : 400;
+}
+a {
+	color : #FF9900;
+}
+a:hover {
+	color : #CC7A00;
 }
 h1, h2, h3 {
 	font-family : "Dosis", sans-serif;
@@ -95,7 +106,7 @@ a.anch {
 	margin : 50px 20px;
 }
 .section .row {
-	text-align : justify;
+	text-align : left;
 }
 .section .row h3 {
 	text-align : center;
@@ -107,6 +118,20 @@ a.anch {
 .section .row.component .title {
 	text-align : right;
 	font-weight : 400;
+}
+.btn-haxe {
+	background : #FF9900;
+	background : -moz-linear-gradient(top,#FF9900 0%,#E68A00 100%);
+	background : -o-linear-gradient(top,#FF9900 0%,#E68A00 100%);
+	background : -webkit-gradient(linear,left top,left bottom,color-stop(0%,#FF9900),color-stop(100%,#E68A00));
+	background : linear-gradient(#FF9900,#E68A00);
+	background-color : transparent\9;
+	filter : progid:DXImageTransform.Microsoft.gradient(startColorstr=#FF9900, endColorstr=#E68A00);
+	zoom : 1;
+	color : white;
+}
+.btn-haxe:hover {
+	background : #E68A00;
 }
 .section.black {
 	background : #222;
@@ -123,7 +148,7 @@ a.anch {
 	color : white;
 }
 .section.black a {
-	color : #6CF;
+	color : #FFB666;
 }
 .section.site-footer {
 	background : #222;
@@ -174,9 +199,16 @@ a.anch {
 .section.head p.tagLine b {
 	color : #666;
 }
+.section.head ul.logos {
+	border-radius : 10px;
+	-moz-border-radius : 10px;
+	-webkit-border-radius : 10px;
+	background-color : #eee;
+	padding : 10px;
+}
 .section.head ul.logos li {
 	list-style : none;
-	width : 100px;
+	width : 80px;
 	display : inline-block;
 	zoom : 1;
 	*display : inline;
@@ -184,7 +216,13 @@ a.anch {
 	margin-bottom: 20px;
 }
 .section.head ul.logos li img {
-	max-height : 64px;
+	max-height : 48px;
+}
+.section.head ul.logos li.arr {
+	width : 20px;
+	font-size : 32px;
+	font-weight : bold;
+	margin-right : 30px;
 }
 .section.head a.start {
 	margin-top : 30px;
@@ -192,22 +230,32 @@ a.anch {
 .section.hf ul li {
 	margin-bottom : 5px;
 }
+/**
+	Prev / Next links
+**/
 .prev-next-links {
 	clear: both;
-	border-top: 1px solid #DDD;
+	text-align: center;
+}
+.prev-next-links.top {
+	border-bottom: #DDD solid 1px;
+	padding-bottom: 10px;
+}
+.prev-next-links.bottom {
+	border-top: #DDD solid 1px;
 	padding-top: 10px;
 }
 .prev-link {
 	float: left;
 }
 .prev-link:before {
-	content: "Previous Page: ";
+	content: "« ";
 }
 .next-link {
 	float: right;
 }
-.next-link:before {
-	content: "Next Page: ";
+.next-link:after {
+	content: " »";
 }
 
 /**
@@ -235,4 +283,138 @@ pre .str, div.pre .str {
 }
 pre .cmt, div.pre .cmt {
 	color : #080;
+}
+
+/**
+	Downloads page
+**/
+.downloads .header i.fa {
+	font-size: 48px;
+	text-align: center;
+	display: block;
+	margin: 10px 0;
+	cursor: default;
+}
+
+/**
+	Manual / API nav
+**/
+.tree-nav h5 {
+	color: rgb(130,130,130);
+	font-weight: 200;
+}
+.tree-nav ul {
+	list-style: none;
+	margin-left: 0;
+}
+.tree-nav li {
+	height: 19px;
+	overflow: hidden;
+}
+.tree-nav li i.fa {
+	height: 14px;
+	width: 14px;
+	color: rgb(200,200,200);
+}
+.tree-nav li i.fa:hover {
+	color: rgb(150,150,150);
+}
+.tree-nav li.parent > i.fa:before {
+	content: "\f18e"; /* fa-arrow-circle-o-right */
+	cursor: pointer;
+}
+.tree-nav li.active {
+	height: auto;
+	overflow: auto;
+}
+.tree-nav li.parent.active > i.fa:before {
+	content: "\f01a"; /* fa-arrow-circle-o-down */
+	cursor: pointer;
+}
+.tree-nav a.active {
+	font-weight: bold;
+}
+.tree-nav li ul {
+	margin-left: 10px;
+	display: none;
+}
+.tree-nav li.active > ul {
+	margin-left: 10px;
+	display: block;
+}
+
+/**
+	Misc
+**/
+
+html code {
+	color: rgb(75,75,75)
+}
+.download-source {
+	margin-top: 16px;
+}
+.prev-next-links+p {
+	margin-top: 20px;
+}
+.nav-stacked li a i.fa {
+	color: rgb(200,200,200);
+	margin-right: 7px;
+}
+table.table.table-bordered.features, table.table.table-bordered.features td, table.table.table-bordered.features th {
+	border-color: rgb(91,91,91);
+}
+
+/**
+	Pull-out blockquotes
+**/
+.manual blockquote {
+	position: relative;
+	padding-left: 45px;
+	border-left: 0;
+}
+.manual blockquote:before {
+	display: block;
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1;
+	font-size: 30px;
+	width: 35px;
+	height: 100%;
+	position: absolute;
+	left: 0px;
+	top: 0;
+	bottom: 0;
+}
+blockquote.define:before {
+	border-right: 3px solid rgb(247, 148, 30);
+	content: "\f05a"; /*fa-info.circle*/
+	color: rgb(247, 148, 30);
+}
+blockquote.trivia:before {
+	border-right: 3px solid rgb(190, 190, 190);
+	content: "\f02d"; /*fa-book*/
+	color: rgb(190, 190, 190);
+}
+
+/**
+	Search
+**/
+.gsc-search-box input.gsc-search-button {
+	box-shadow: 0px 1px 2px 0px rgb(194, 193, 190);
+	background: -moz-linear-gradient(center top , rgb(249, 183, 39) 5%, rgb(248, 162, 34) 100%) repeat scroll 0% 0% rgb(249, 183, 39);
+	border-radius: 5px;
+	border: 1px solid rgb(182, 111, 24);
+	display: inline-block;
+	color: rgb(41, 41, 41);
+	padding: 6px 18px;
+	text-decoration: none;
+	text-shadow: 1px 1px 0px rgb(251, 207, 124);
+	font-size: 8pt;
+}
+html input.gsc-input {
+	font-size: inherit;
+}
+.navbar-inner .gsc-input-box {
+	width: 175px;
 }

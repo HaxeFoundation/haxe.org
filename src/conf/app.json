@@ -1,18 +1,22 @@
 {
 	"title": "Haxe - The Cross-Platform Toolkit",
-	"pages": {
-		"name": "pages",
+	"siteContent": {
+		"folder": "website-content",
 		"repo": "...",
-		"subdir": ""
-	},
-	"manual": {
-		"name": "manual",
-		"repo": "https://github.com/Simn/HaxeManual.git",
-		"latex": "HaxeDoc.tex",
-		"editLink": "https://github.com/Simn/HaxeManual/blob/master/HaxeDoc.tex"
-	},
-	"templateVars": {
-		"siteTitle": "Haxe - The Cross-Platform Toolkit",
-		"siteUrl": "http://jason-samsung-laptop:2987/"
+		"editBaseUrl": "https://github.com/HaxeFoundation/haxe.org/blob/master/pages/",
+		"pages": {
+			"folder": "pages",
+			"extensions": ["html","md"]
+		},
+		"manual": {
+			"file": "manual/HaxeDoc.tex",
+			"out": "manual/html",
+			"editLink": "https://github.com/Simn/HaxeManual/blob/master/HaxeDoc.tex"
+		},
+		"versions": {
+			"folder": "versions",
+			"tagBaseUrl": "https://github.com/HaxeFoundation/haxe/releases/tag",
+			"versionsBaseUrl": "https://github.com/HaxeFoundation/haxe.org/blob/master/versions/"
+		}
 	}
 }

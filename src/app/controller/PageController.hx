@@ -1,11 +1,11 @@
 package app.controller;
 
-import app.api.ManualApi;
+import app.api.SiteApi;
 import app.api.PageApi;
 import app.Config;
 import ufront.web.Controller;
 import ufront.web.Dispatch;
-import ufront.web.result.ViewResult;
+import ufront.web.result.*;
 import ufront.view.TemplateData;
 using Strings;
 using tink.CoreApi;
@@ -13,38 +13,40 @@ using haxe.io.Path;
 
 class PageController extends Controller {
 	
-	@inject public var api:PageApi;
-	@inject public var manualApi:ManualApi;
+	@inject public var pageApi:PageApi;
+	@inject public var siteApi:SiteApi;
 	@inject("contentDirectory") public var contentDir:String;
 
-	public function doDefault( d:Dispatch ) {
+	public function doDefault( d:Dispatch ):ActionResult {
 
-		var page = (d.parts.length>0) ? d.parts.join("/") : "index.html";
-		var repo = contentDir+Config.app.pages.name;
-		var content = api.getPage( repo, page ).sure();
+		var repo = contentDir+Config.app.siteContent.folder+"/"+Config.app.siteContent.pages.folder;
+		
+		var page = d.parts.join("/");
+		if ( page=="" ) page = "index.html";
+		
+		switch pageApi.getPage( repo, page ) {
+			case Success( result ):
+				var filename = result.a;
+				var content = result.b;
 
-		return ViewResult.create({
-			title: guessTitle( page ),
-			content: content,
-			topNav: getTopNavName( d ),
-			editLink: 'http://github.com/HaxeFoundation/WebsiteContent/${Config.app.pages.name}/$page'
-		});
-	}
+				var viewFile = "page/default.html";
+				if ( filename.extension()=="md" ) {
+					content = Markdown.markdownToHtml( content );
+					viewFile = "page/markdown.html";
+				}
 
-	public function doManual( d:Dispatch ) {
-		var path = (d.parts.length>1 || d.parts[0]!="") ? d.parts.join("/") : "introduction.html";
-		var repo = contentDir+Config.app.manual.name;
-
-		var result = api.getPage( repo, path ).sure();
-		var nav = manualApi.getNavigation( repo ).sure();
-
-		return ViewResult.create({
-			title: guessTitle( path ) + " - Manual",
-			content: result,
-			topNav: '/manual/',
-			manualTOC: nav,
-			editLink: Config.app.manual.editLink
-		});
+				return ViewResult.create({
+					title: guessTitle( page ),
+					content: content,
+					topNav: getTopNavName( d ),
+					editLink: '${Config.app.siteContent.editBaseUrl}$filename'
+				}, viewFile);
+			case Failure( error ):
+				return switch pageApi.attachmentExists( repo,page ) {
+					case Some(filePath): new FilePathResult( filePath );
+					case None: error.throwSelf();
+				}
+		}
 	}
 
 	function guessTitle( fileName:String ) {

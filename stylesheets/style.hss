@@ -7,6 +7,14 @@ body {
 	font-weight : 300;
 }
 
+a {
+	color : #FF9900;
+}
+
+a:hover {
+	color : #FF9900 * 0.8;
+}
+
 b, strong {
 	font-weight : 400;
 }
@@ -67,12 +75,21 @@ a.anch {
 
 }
 
+.btn-haxe {
+	background : linear-gradient(#FF9900,#FF9900*0.9);
+	color : white;
+}
+
+.btn-haxe:hover {
+	background : #FF9900 * 0.9;
+}
+
 .section.black {
 	background : linear-gradient(#222,#333);
 	box-shadow : 0px 0px 4px #000;
 	color : white;
 	a {
-		color : #6CF;
+		color : #FFB666;
 	}
 }
 
@@ -117,14 +134,23 @@ a.anch {
 	}
 	
 	ul.logos {
+		border-radius : 10px;
+		background-color : #eee;
+		padding : 10px;
 		li {
 			list-style : none;
-			width : 100px;
+			width : 80px;
 			display : inline-block;
 			text-align : center;
 			img {
-				max-height : 64px;
+				max-height : 48px;
 			}
+		}
+		li.arr {
+			width : 20px;
+			font-size: 32px;
+			font-weight : bold;
+			margin-right : 30px;
 		}
 	}
 	
