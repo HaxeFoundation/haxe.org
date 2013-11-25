@@ -9,6 +9,7 @@
 -lib ufront 
 -lib compiletime
 -lib detox
+-lib markdown
 -cp src/
 -D haxeJSON
 
@@ -39,7 +40,6 @@
 
 -lib tink_core
 -lib random
--lib markdown
 -lib hxparse
 -D server 
 -D getter_support
