@@ -57,6 +57,11 @@
 
 		::changes::
 
+		::if (prev != null)::
+			<p class="alert alert-info compare-versions">
+				<strong><i class="fa fa-github"></i> Full Changelog: </strong> <a href="::compareBaseUrl::/::prevTag::...::tag::">See all commits between tags ::prevTag:: and ::tag:: on Haxe's Github account</a>.
+		::end::
+
 		<div class='prev-next-links bottom clearfix'>
 			::if (prev != null)::<a href="/download/version/::prev::/" class="prev-link">::prev::</a>::end::
 			::if (next != null)::<a href="/download/version/::next::/" class="next-link">::next::</a>::end::

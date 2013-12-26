@@ -27,14 +27,14 @@ class DownloadController extends Controller {
 
 	public function doList() {
 		var result = apiDownload.getDownloadList( contentDir+versionRepo() ).sure();
-		var versions = result.b;
+		var versions = result.versions;
 		versions.reverse();
 		return ViewResult.create({
 			title: 'Haxe Download List', 
 			tagBaseUrl: Config.app.siteContent.versions.tagBaseUrl,
 			editLink: Config.app.siteContent.versions.versionsBaseUrl,
 			versions: versions,
-			currentViewion: result.a
+			currentViewion: result.current
 		});
 	}
 
@@ -43,6 +43,7 @@ class DownloadController extends Controller {
 		return ViewResult.create({
 			title: 'Haxe $version',
 			tagBaseUrl: Config.app.siteContent.versions.tagBaseUrl,
+			compareBaseUrl: Config.app.siteContent.versions.compareBaseUrl,
 			editLink: Config.app.siteContent.versions.versionsBaseUrl + '$version/'
 		}).setVars( result );
 	}

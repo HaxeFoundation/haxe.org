@@ -16,6 +16,7 @@
 		"versions": {
 			"folder": "versions",
 			"tagBaseUrl": "https://github.com/HaxeFoundation/haxe/releases/tag",
+			"compareBaseUrl": "https://github.com/HaxeFoundation/haxe/compare",
 			"versionsBaseUrl": "https://github.com/HaxeFoundation/haxe.org/blob/master/versions/"
 		}
 	}

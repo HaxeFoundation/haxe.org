@@ -90,6 +90,7 @@ class DownloadApi extends ufront.api.UFApi {
 				var releaseNotes = readAndConvertMdFile( versionDir+'/RELEASE.md', errorMessages );
 
 				var prevVersion = (i>0) ? versions[i-1].version : null;
+				var prevTag = (i>0) ? versions[i-1].tag : null;
 				var nextVersion = (i<versions.length-1) ? versions[i+1].version : null;
 
 				var downloadInfo:VersionInfo = {
@@ -100,6 +101,7 @@ class DownloadApi extends ufront.api.UFApi {
 					version: version.version,
 					api: version.api,
 					prev: prevVersion,
+					prevTag: prevTag,
 					next: nextVersion
 				};
 				var json = Json.stringify( downloadInfo );
