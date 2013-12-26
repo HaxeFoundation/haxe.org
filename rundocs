@@ -1,7 +1,0 @@
-#!/bin/sh
-
-mkdir -p dox/api/
-
-cd dox
-haxelib run dox -r /api -i . -o api/ --title "Transition" -in . -ex Test$
-nekotools server -rewrite -p 2001
