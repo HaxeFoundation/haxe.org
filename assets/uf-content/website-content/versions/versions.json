@@ -15,7 +15,7 @@
 		{ "version": "2.9.0", "api": false, "tag": "v2-09" },
 		{ "version": "2.10.0-rc.1", "api": false, "tag": "v2-10" },
 		{ "version": "2.10.0", "api": false, "tag": "v2-10" },
-		{ "version": "3.0.0-rc.1", "api": false, "tag": "v3.0.0-rc1" },
+		{ "version": "3.0.0-rc.1", "api": false, "tag": "v3-00-rc1" },
 		{ "version": "3.0.0-rc.2", "api": false, "tag": "v3.0.0-rc2" },
 		{ "version": "3.0.0", "api": false, "tag": "v3-00" },
 		{ "version": "3.0.1", "api": true, "tag": "v3.0.1" }
