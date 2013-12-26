@@ -212,7 +212,7 @@ a.anch {
 	zoom : 1;
 	*display : inline;
 	text-align : center;
-	margin-bottom: 20px;
+	margin: 10px 0;
 }
 .section.head ul.logos li img {
 	max-height : 48px;
@@ -222,6 +222,9 @@ a.anch {
 	font-size : 32px;
 	font-weight : bold;
 	margin-right : 30px;
+	position: relative;
+	top: 5px;
+	left: 13px;
 }
 .section.head a.start {
 	margin-top : 30px;
