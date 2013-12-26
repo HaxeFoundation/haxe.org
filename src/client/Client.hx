@@ -80,7 +80,7 @@ class Client
 	}
 
 	static function tableStyling() {
-		J( '.manual table' ).addClass( 'table' );
+		J( '.manual table, .markdown table' ).addClass( 'table' );
 	}
 
 	static function setupBootstrap() {
