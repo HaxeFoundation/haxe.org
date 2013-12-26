@@ -1,0 +1,100 @@
+<!doctype html>
+<html id="page">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title>$title</title>
+	<link href='http://fonts.googleapis.com/css?family=Nunito:400,300,200' rel='stylesheet' type='text/css'/>
+	<link href='http://fonts.googleapis.com/css?family=Dosis:300,400' rel='stylesheet' type='text/css'/>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap-responsive.min.css"/>
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="/css/style.css"/>
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+</head>
+
+<body>
+
+<div class="section nav">
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				
+				<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+
+				<a class="brand" href="/"><img src="/img/logo_small.png"/> Haxe</a>
+				<div class="nav-collapse collapse">
+					<ul class="nav">
+						<li ><a href="/">Home</a></li>
+						<li ><a href="/download/">Download</a></li>
+						<li ><a href="/manual/">Manual</a></li>
+						<li ><a href="http://api.haxe.org/">API</a></li>
+						<li ><a href="/support.html">Support</a></li>
+					</ul>
+					
+					<form class="navbar-search pull-right">
+						<!-- <input type="text" class="search-query" placeholder="Search" onkeyup="_.filter(this.value)"/> -->
+						<div class="search">
+							<div id="cse-search-form" style="width: 100%;"></div>
+							<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+							<script type="text/javascript">
+							google.load('search', '1', {language : 'en', style : google.loader.themes.V2_DEFAULT});
+							google.setOnLoadCallback(function() {
+								var customSearchOptions = {};  var customSearchControl = new google.search.CustomSearchControl(
+								'008143996983163686627:ohovhuovssi', customSearchOptions);
+								customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+								var options = new google.search.DrawOptions();
+								options.setAutoComplete(true);
+								customSearchControl.setAutoCompletionId('008143996983163686627:ohovhuovssi+qptype:1');
+								options.enableSearchboxOnly("/search", "s");
+								customSearchControl.draw('cse-search-form', options);
+							}, true);
+							</script>
+						</div>
+					</form>
+				</div>
+				
+	
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="page-wrap">
+	<div class="section">	
+	<div class="container">
+
+		$content
+
+	</div>
+</div>
+</div>
+
+<footer class="section site-footer">
+	<div class="container">
+		<p>&copy;2013 
+		<a href="http://haxe-foundation.org" title="Haxe Foundation Website">Haxe Foundation</a>
+	</div>
+</footer>
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/client.js"></script>
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-30943311-1']);
+	_gaq.push(['_setDomainName', 'haxe.org']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+</body>
+</html>

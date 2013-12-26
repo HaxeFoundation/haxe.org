@@ -1,7 +1,9 @@
 package server;
 
+import app.OldSiteRedirectHandler;
 import sys.db.Mysql;
 import ufront.app.UfrontApplication;
+import ufront.handler.ErrorPageHandler;
 import ufront.view.TemplatingEngines;
 import ufront.view.UFTemplate;
 import ufront.ufadmin.controller.*;
@@ -35,10 +37,18 @@ class Server
 			// EasyAuth.sessionLength = 3600 * 24 * 7;
 			// UFAdminController.addModule("db","Database",new DBAdminController());
 
+			// Set up the error handlers
+
+			var errorPageHandler = new ErrorPageHandler();
+			errorPageHandler.renderErrorPage = function( title, content ) return CompileTime.interpolateFile( 'app/view/error.html' );
+
+			var oldSiteRedirectHandler = new OldSiteRedirectHandler();
+
 			// Set up the dispatcher and routing
 			ufrontApp = 
 				new UfrontApplication({
 					logFile: "log/haxeorg.log",
+					errorHandlers: [oldSiteRedirectHandler,errorPageHandler],
 					// authFactory: EasyAuth.getFactory( "haxe_org_user_id" )
 				})
 				.loadRoutesConfig( Dispatch.make(new Routes()) )
