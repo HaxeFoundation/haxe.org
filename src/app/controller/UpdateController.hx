@@ -20,17 +20,21 @@ class UpdateController extends Controller {
 
 	public function doDefault() {
 		var gitRepo = Config.app.siteContent.repo;
-		var siteContentDir = contentDir+Config.app.siteContent.folder;
-		var manualLatexFile = siteContentDir+'/'+Config.app.siteContent.manual.file;
-		var manualOutDir = siteContentDir+'/'+Config.app.siteContent.manual.out;
-		var versionsDir = siteContentDir+'/'+Config.app.siteContent.versions.folder;
+		var siteUfContentDir = contentDir+Config.app.siteContent.folder;
+		var siteContentDir = context.request.scriptDirectory+Config.app.siteContent.folder;
+		var manualLatexFile = siteUfContentDir+'/'+Config.app.siteContent.manual.file;
+		var manualOutDir = siteUfContentDir+'/'+Config.app.siteContent.manual.out;
+		var downloadInDir = siteContentDir+'/'+Config.app.siteContent.versions.folder;
+		var downloadOutDir = siteUfContentDir+'/'+Config.app.siteContent.versions.folder;
+		ufTrace( downloadInDir );
+		ufTrace( downloadOutDir );
 
 		var result = 
 			apiSite
-				.cloneRepo( gitRepo, siteContentDir )
+				.cloneRepo( gitRepo, siteUfContentDir )
 				.flatMap( function (_) return apiManual.convertLatexToHtml(manualLatexFile,manualOutDir) )
-				.flatMap( function (_) return apiDownload.prepareDownloadJson(versionsDir) )
-				.flatMap( function (_) return apiDox.convertDoxForAllVersions(versionsDir) )
+				.flatMap( function (_) return apiDownload.prepareDownloadJson(downloadInDir,downloadOutDir) )
+				.flatMap( function (_) return apiDox.convertDoxForAllVersions(downloadInDir,downloadOutDir) )
 				.map( function(_) return "Updated website content successfully" )
 		;
 
