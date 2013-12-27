@@ -1,5 +1,7 @@
 package app;
 
+#if server
+
 import sys.io.File;
 import ufront.app.UFErrorHandler;
 import ufront.core.Sync;
@@ -66,3 +68,5 @@ class OldSiteRedirectHandler implements UFErrorHandler {
 		}
 	}
 }
+
+#end
