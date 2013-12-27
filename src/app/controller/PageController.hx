@@ -3,6 +3,7 @@ package app.controller;
 import app.api.SiteApi;
 import app.api.PageApi;
 import app.Config;
+import ufront.web.context.HttpContext;
 import ufront.web.Controller;
 import ufront.web.Dispatch;
 import ufront.web.result.*;
@@ -15,11 +16,10 @@ class PageController extends Controller {
 	
 	@inject public var pageApi:PageApi;
 	@inject public var siteApi:SiteApi;
-	@inject("contentDirectory") public var contentDir:String;
 
 	public function doDefault( d:Dispatch ):ActionResult {
 
-		var repo = contentDir+Config.app.siteContent.folder+"/"+Config.app.siteContent.pages.folder;
+		var repo = context.request.scriptDirectory+Config.app.siteContent.folder+"/"+Config.app.siteContent.pages.folder;
 		
 		var page = d.parts.join("/");
 		if ( page=="" ) page = "index.html";
