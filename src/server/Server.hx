@@ -49,7 +49,7 @@ class Server
 				new UfrontApplication({
 					logFile: "log/haxeorg.log",
 					errorHandlers: [oldSiteRedirectHandler,errorPageHandler],
-					contentDirectory: "../uf-content",
+					contentDirectory: "../uf-content/",
 					// authFactory: EasyAuth.getFactory( "haxe_org_user_id" )
 				})
 				.loadRoutesConfig( Dispatch.make(new Routes()) )
