@@ -58,7 +58,7 @@ class OldSiteRedirectHandler implements UFErrorHandler {
 
 	function loadRedirects( ctx:HttpContext ) {
 		if ( redirects==null ) {
-			var csvFile = ctx.contentDirectory+'website-content/oldwiki.csv';
+			var csvFile = ctx.request.scriptDirectory+'website-content/oldwiki.csv';
 			try {
 				redirects = File.getContent( csvFile );
 			}
