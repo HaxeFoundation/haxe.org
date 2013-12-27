@@ -1,5 +1,6 @@
 import sys.FileSystem;
 import sys.io.File;
+using haxe.io.Path;
 
 class RunDocs {
 	static function main() {
@@ -18,6 +19,14 @@ class RunDocs {
 	}
 }
 
+class RunSync {
+	static function main() {
+		Helpers.makeDir( "out/js" );
+		Helpers.makeDir( "out/css" );
+		Helpers.copyDir( "assets", "out" );
+	}
+}
+
 class Helpers {
 	public static function makeDir( file:String ) {
 		var originalCwd = Sys.getCwd();
@@ -31,7 +40,32 @@ class Helpers {
 		Sys.setCwd( originalCwd );
 	}
 
-	public static function copyFile(inFile,outFile) {
+	public static function isFileSame(file1,file2) {
+		if ( FileSystem.exists(file1) && FileSystem.exists(file2) ) {
+			var stat1 = FileSystem.stat( file1 );
+			var stat2 = FileSystem.stat( file2 );
+			return stat1.size==stat2.size && stat1.mtime.getTime()==stat2.mtime.getTime();
+		}
+		return false;
+	}
 
+	public static function copyDir(inDir,outDir) {
+		var inDir = Path.removeTrailingSlash(inDir);
+		var outDir = Path.removeTrailingSlash(outDir);
+		makeDir( outDir );
+
+		var files = FileSystem.readDirectory(inDir);
+		for ( file in files ) {
+			var fullInPath = '$inDir/$file';
+			var fullOutPath = '$outDir/$file';
+			
+			if ( FileSystem.isDirectory(fullInPath) ) {
+				copyDir( fullInPath, fullOutPath );
+			}
+			else if ( !isFileSame(fullInPath,fullOutPath) ) {
+				File.copy( fullInPath, fullOutPath );
+			}
+		}
+		Sys.println( 'Copied ${files.length} files from $inDir to $outDir' );
 	}
 }
