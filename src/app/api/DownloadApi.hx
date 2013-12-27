@@ -38,7 +38,7 @@ class DownloadApi extends ufront.api.UFApi {
 	**/
 	public function getDownloadVersion( repo:String, version:String ):Outcome<VersionInfo, String> {
 		var version = version.replace( '.', ',' );
-		var versionFile = repo.addTrailingSlash()+'$version/download.json';
+		var versionFile = repo.addTrailingSlash()+'$version.json';
 		try {
 			var versionJson = File.getContent( versionFile );
 			var versionsInfo:VersionInfo = haxe.Json.parse( versionJson );
@@ -68,7 +68,7 @@ class DownloadApi extends ufront.api.UFApi {
 		@param `linkBase` the absolute http path to use as the base for links.  Default "" (relative links)
 		@return Success(Noise), or Failure([errorMessages])
 	**/
-	public function prepareDownloadJson( inDir:String ):Outcome<Noise,Array<String>> {
+	public function prepareDownloadJson( inDir:String, outDir:String ):Outcome<Noise,Array<String>> {
 		
 		var errorMessages = [];
 		var versionInfo = readVersionInfo( inDir.addTrailingSlash()+'versions.json', errorMessages );
@@ -81,13 +81,13 @@ class DownloadApi extends ufront.api.UFApi {
 		for ( version in versions ) {
 			try {
 				var commaVersion = version.version.replace( '.', ',' );
-				var versionDir = inDir.addTrailingSlash() + commaVersion;
+				var versionInDir = inDir.addTrailingSlash() + commaVersion;
 				
-				var downloadDir = versionDir + '/downloads/';
+				var downloadDir = versionInDir + '/downloads/';
 				var downloads = getDownloadInfo( downloadDir, errorMessages );
 
-				var changes = readAndConvertMdFile( versionDir+'/CHANGES.md', errorMessages );
-				var releaseNotes = readAndConvertMdFile( versionDir+'/RELEASE.md', errorMessages );
+				var changes = readAndConvertMdFile( versionInDir+'/CHANGES.md', errorMessages );
+				var releaseNotes = readAndConvertMdFile( versionInDir+'/RELEASE.md', errorMessages );
 
 				var prevVersion = (i>0) ? versions[i-1].version : null;
 				var prevTag = (i>0) ? versions[i-1].tag : null;
@@ -105,7 +105,7 @@ class DownloadApi extends ufront.api.UFApi {
 					next: nextVersion
 				};
 				var json = Json.stringify( downloadInfo );
-				File.saveContent( versionDir.addTrailingSlash()+'download.json', json );
+				File.saveContent( outDir.addTrailingSlash()+commaVersion+'.json', json );
 			} catch ( e:Dynamic ) errorMessages.push( 'Failed to process download ${version.version}: $e $i ${versions.length}' );
 
 			i++;

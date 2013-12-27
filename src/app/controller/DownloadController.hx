@@ -26,7 +26,7 @@ class DownloadController extends Controller {
 	}
 
 	public function doList() {
-		var result = apiDownload.getDownloadList( contentDir+versionRepo() ).sure();
+		var result = apiDownload.getDownloadList( context.request.scriptDirectory+versionRepo() ).sure();
 		var versions = result.versions;
 		versions.reverse();
 		return ViewResult.create({
@@ -50,6 +50,7 @@ class DownloadController extends Controller {
 
 	public function doFile( version:String, file:String ) {
 		version = version.replace( '.', ',' );
-		return new FilePathResult( contentDir+versionRepo()+'/$version/downloads/$file', null, file );
+		var scriptDir = context.request.scriptDirectory;
+		return new FilePathResult( scriptDir+versionRepo()+'/$version/downloads/$file', null, file );
 	}
 }

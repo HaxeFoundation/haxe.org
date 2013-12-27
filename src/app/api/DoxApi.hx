@@ -19,7 +19,7 @@ class DoxApi extends ufront.api.UFApi {
 	/**
 		Run `convertDoxToHtml` for every version that has documentation files
 	**/
-	public function convertDoxForAllVersions( versionsDir:String ):Outcome<Noise,String> {
+	public function convertDoxForAllVersions( inDir:String, outDir:String ):Outcome<Noise,String> {
 		return Success( Noise );
 	}
 

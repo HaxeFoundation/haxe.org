@@ -14,7 +14,7 @@
 			"editLink": "https://github.com/Simn/HaxeManual/blob/master/HaxeDoc.tex"
 		},
 		"versions": {
-			"folder": "versions",
+			"folder": "downloads",
 			"tagBaseUrl": "https://github.com/HaxeFoundation/haxe/releases/tag",
 			"compareBaseUrl": "https://github.com/HaxeFoundation/haxe/compare",
 			"versionsBaseUrl": "https://github.com/HaxeFoundation/haxe.org/blob/master/versions/"

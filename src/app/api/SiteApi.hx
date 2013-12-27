@@ -16,6 +16,7 @@ using haxe.io.Path;
 class SiteApi extends ufront.api.UFApi {
 
 	@inject("contentDirectory") public var contentDir:String;
+	@inject("scriptDirectory") public var scriptDir:String;
 
 	/**
 		Clone a repo from a git address into our `contentDirectory`, with a given name
@@ -93,7 +94,7 @@ class SiteApi extends ufront.api.UFApi {
 	static var versionInfo:Map<String,{ current:String, versions:Array<{ version:String, api:Bool, tag:String }> }> = new Map();
 	function getVersionInfo( versionDir:String ) {
 		if ( versionInfo.exists(versionDir)==false ) {
-			var versionsFile = contentDir + versionDir.addTrailingSlash() + 'versions.json';
+			var versionsFile = scriptDir + versionDir.addTrailingSlash() + 'versions.json';
 			var version = 
 				try Json.parse( File.getContent(versionsFile) )
 				catch ( e:Dynamic ) { 
