@@ -55,17 +55,20 @@ class Helpers {
 		makeDir( outDir );
 
 		var files = FileSystem.readDirectory(inDir);
+		var filesCopied = 0;
 		for ( file in files ) {
 			var fullInPath = '$inDir/$file';
 			var fullOutPath = '$outDir/$file';
 			
 			if ( FileSystem.isDirectory(fullInPath) ) {
 				copyDir( fullInPath, fullOutPath );
+				filesCopied++;
 			}
 			else if ( !isFileSame(fullInPath,fullOutPath) ) {
 				File.copy( fullInPath, fullOutPath );
+				filesCopied++;
 			}
 		}
-		Sys.println( 'Copied ${files.length} files from $inDir to $outDir' );
+		Sys.println( 'Copied $filesCopied/${files.length} files from $inDir to $outDir' );
 	}
 }
