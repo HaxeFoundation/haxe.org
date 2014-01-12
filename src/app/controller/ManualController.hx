@@ -18,7 +18,7 @@ class ManualController extends Controller {
 	@inject("contentDirectory") public var contentDir:String;
 
 	public function doDefault( d:Dispatch ) {
-		var repo = contentDir+Config.app.siteContent.folder+"/"+Config.app.siteContent.manual.out;
+		var repo = contentDir+Config.app.manual.dir+"/"+Config.app.manual.out;
 
 		var path = d.parts.join("/");
 		if ( path=="" ) path = "introduction.html";
@@ -30,7 +30,7 @@ class ManualController extends Controller {
 		return ViewResult.create({
 			topNav: '/manual/',
 			manualTOC: nav,
-			editLink: Config.app.siteContent.manual.editLink
+			editLink: Config.app.manual.editLink
 		}).setVars( content );
 	}
 

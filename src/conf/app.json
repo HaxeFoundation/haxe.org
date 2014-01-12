@@ -2,16 +2,10 @@
 	"title": "Haxe - The Cross-Platform Toolkit",
 	"siteContent": {
 		"folder": "website-content",
-		"repo": "...",
 		"editBaseUrl": "https://github.com/HaxeFoundation/haxe.org/blob/master/pages/",
 		"pages": {
 			"folder": "pages",
 			"extensions": ["html","md"]
-		},
-		"manual": {
-			"file": "manual/HaxeDoc.tex",
-			"out": "manual/html",
-			"editLink": "https://github.com/Simn/HaxeManual/blob/master/HaxeDoc.tex"
 		},
 		"versions": {
 			"folder": "downloads",
@@ -19,5 +13,12 @@
 			"compareBaseUrl": "https://github.com/HaxeFoundation/haxe/compare",
 			"versionsBaseUrl": "https://github.com/HaxeFoundation/haxe.org/blob/master/versions/"
 		}
+	},
+	"manual": {
+		"dir": "manual",
+		"file": "HaxeDoc.tex",
+		"repo": "https://github.com/Simn/HaxeManual.git",
+		"out": "html",
+		"editLink": "https://github.com/Simn/HaxeManual/blob/master/HaxeDoc.tex"
 	}
 }

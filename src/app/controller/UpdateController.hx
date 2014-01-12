@@ -18,22 +18,16 @@ class UpdateController extends Controller {
 	@inject public var apiDox:DoxApi;
 	@inject public var apiDownload:DownloadApi;
 
-	public function doDefault() {
-		var gitRepo = Config.app.siteContent.repo;
-		var siteUfContentDir = contentDir+Config.app.siteContent.folder;
-		var siteContentDir = context.request.scriptDirectory+Config.app.siteContent.folder;
-		var manualLatexFile = siteUfContentDir+'/'+Config.app.siteContent.manual.file;
-		var manualOutDir = siteUfContentDir+'/'+Config.app.siteContent.manual.out;
-		var downloadInDir = siteContentDir+'/'+Config.app.siteContent.versions.folder;
-		var downloadOutDir = siteUfContentDir+'/'+Config.app.siteContent.versions.folder;
-		ufTrace( downloadInDir );
-		ufTrace( downloadOutDir );
+	public function doSite() {
+		var manualDir = contentDir+Config.app.siteContent.folder;
+		var assetSiteContent = context.request.scriptDirectory+Config.app.siteContent.folder;
+		var ufSiteContent = contentDir+Config.app.siteContent.folder;
+		var downloadInDir = assetSiteContent+'/'+Config.app.siteContent.versions.folder;
+		var downloadOutDir = ufSiteContent+'/'+Config.app.siteContent.versions.folder;
 
 		var result = 
-			apiSite
-				.cloneRepo( gitRepo, siteUfContentDir )
-				.flatMap( function (_) return apiManual.convertLatexToHtml(manualLatexFile,manualOutDir) )
-				.flatMap( function (_) return apiDownload.prepareDownloadJson(downloadInDir,downloadOutDir) )
+			apiDownload
+				.prepareDownloadJson(downloadInDir,downloadOutDir)
 				.flatMap( function (_) return apiDox.convertDoxForAllVersions(downloadInDir,downloadOutDir) )
 				.map( function(_) return "Updated website content successfully" )
 		;
@@ -42,14 +36,42 @@ class UpdateController extends Controller {
 			case Success(out): 
 				ViewResult.create({
 					title: 'Updated the website content succesfully', 
-					content: 'Updated the website content successfully.'
-				}, "page/default.html");
+					content: '<h1>Updated the website content successfully.</h1>'
+				}, "page/markdown.html");
+			case Failure(err): 
+				trace (err);
+				ViewResult.create({
+					title: 'Failed to update the website content', 
+					content: '<h1>$err</h1>'
+				}, "page/markdown.html");
+		}
+	}
+
+	public function doManual() {
+		var gitRepo = Config.app.manual.repo;
+		var manualDir = contentDir+Config.app.manual.dir;
+		var manualLatexFile = manualDir+'/'+Config.app.manual.file;
+		var manualOutDir = manualDir+'/'+Config.app.manual.out;
+		
+		var result = 
+			apiSite
+				.cloneRepo( gitRepo, manualDir )
+				.flatMap( function (_) return apiManual.convertLatexToHtml(manualLatexFile,manualOutDir) )
+				.map( function(_) return "Updated manual successfully" )
+		;
+
+		return switch result {
+			case Success(out): 
+				ViewResult.create({
+					title: 'Updated the manual succesfully', 
+					content: '<h1>Updated the manual successfully.</h1>'
+				}, "page/markdown.html");
 			case Failure(err): 
 				trace (err);
 				ViewResult.create({
 					title: 'Failed to update the manual', 
-					content: err
-				}, "page/default.html");
+					content: '<h1>$err</h1>'
+				}, "page/markdown.html");
 		}
 	}
 }

@@ -6,6 +6,8 @@ package app.api;
 	import sys.io.File;
 	import sys.io.Process;
 	import latexparser.LatexParser;
+	import latexparser.LatexLexer;
+	import latexparser.FlowchartHandler;
 #end
 
 import app.model.Manual;
@@ -61,21 +63,29 @@ class ManualApi extends ufront.api.UFApi {
 	public function convertLatexToHtml( inFile:String, outDir:String, ?linkBase:String="" ):Outcome<Noise,String> {
 
 		ufTrace( 'Convert Latex manual $inFile into HTML at $outDir' );
-		var tmpOutDir = outDir.withoutExtension()+'-tmp/';
+		var tmpOutDir = outDir.removeTrailingSlash()+'-tmp/';
 
 		var oldCwd = Sys.getCwd();
 		var repo = inFile.directory();
 		try Sys.setCwd( repo ) catch(e:String) return Failure(e);
 
+
 		// Do initial parse
 
 		var parser, sections;
+		var input = byte.ByteData.ofString( sys.io.File.getContent(inFile) );
 		try {
-			var input = byte.ByteData.ofString( sys.io.File.getContent(inFile) );
+			LatexLexer.customEnvironments["flowchart"] = FlowchartHandler.handle;
 			parser = new LatexParser( input, inFile );
 			sections = parser.parse();
 		}
-		catch ( e:Dynamic ) return Failure( 'Failed to parse $inFile with our LatexParser: $e' );
+		catch(e:hxparse.NoMatch<Dynamic>) {
+			return Failure( 'Failed to parse $inFile @ ' + e.pos.format(input) + ": Unexpected " +e.token );
+		}
+		catch(e:hxparse.Unexpected<Dynamic>) {
+			return Failure( 'Failed to parse $inFile @ ' + e.pos.format(input) + ": Unexpected " +e.token );
+		}
+		catch ( e:Dynamic ) return Failure( 'Failed to parse $inFile: $e' );
 
 		// Small helper functions for conversion (mostly to do with links/anchors)
 
@@ -126,6 +136,9 @@ class ManualApi extends ufront.api.UFApi {
 		// Process each section
 
 		var allSections = [];
+		var unreviewed = [];
+		var modified = [];
+		var noContent = [];
 		var nav = [];
 		function add( sec:Section ):ManualNavItem {
 			if ( sec.label==null ) {
@@ -134,8 +147,16 @@ class ManualApi extends ufront.api.UFApi {
 			}
 			sec.content = process( sec.content.trim() );
 			if( sec.content.length==0 ) {
-				if (sec.sub.length==0 ) return null;
+				if (sec.state != NoContent) {
+					noContent.push('${sec.id} - ${sec.title}');
+				}
+				if (sec.sub.length == 0) return null;
 				sec.content = sec.sub.map( function(sec) return sec.id + ": " +link(sec) ).join( "\n\n" );
+			}
+			else switch(sec.state) {
+				case New: unreviewed.push('${sec.id} - ${sec.title}');
+				case Modified: modified.push('${sec.id} - ${sec.title}');
+				case Edited | NoContent:
 			}
 			allSections.push(sec);
 			if ( sec.sub.length>0 ) {
@@ -212,6 +233,21 @@ class ManualApi extends ufront.api.UFApi {
 		catch ( e:Dynamic ) 
 			return Failure( 'Failed to save navigation menu from manual $navFile: $e' );
 
+		// Create the TODO file
+
+		var todoFile = '$tmpOutDir/todo.html';
+		var todo = "This file is generated, do not edit!\n\n"
+			+ "# Todo:\n\n" + parser.todos.join("\n - ") + "\n\n"
+			+ "## Missing Content:\n\n" + noContent.join("\n - ") + "\n\n"
+			+ "## Unreviewed:\n\n" + unreviewed.join("\n - ") + "\n\n"
+			+ "## Modified:\n\n" + modified.join("\n - ");
+		try {
+			var html = Markdown.markdownToHtml( todo );
+			File.saveContent( todoFile, html );
+		}
+		catch ( e:Dynamic ) 
+			return Failure( 'Failed to save navigation menu from manual $navFile: $e' );
+
 		// Move the tmp directory into place as our new manual dir
 
 		try SiteApi.unlink( outDir ) catch ( e:Dynamic ) return Failure( 'Failed to remove existing directory $outDir: $e' );
@@ -220,7 +256,5 @@ class ManualApi extends ufront.api.UFApi {
 		try Sys.setCwd( oldCwd ) catch ( e:Dynamic ) return Failure( 'Failed to set CWD to $oldCwd' );
 
 		return Success( Noise );
-
-		// catch ( e:Dynamic ) return Failure( 'Failed to convert latex: $e' );
 	}
 }
