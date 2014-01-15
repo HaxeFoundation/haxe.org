@@ -5,7 +5,7 @@ Haxe Language Features
 Abstract types
 -------
 
-An abstract type is a compile-time construct which is represented in a different way at runtime. This allows giving a whole new meaning to existing types. [Abstract]](/manual/types-abstract.html)
+An abstract type is a compile-time construct which is represented in a different way at runtime. This allows giving a whole new meaning to existing types. [Abstract](/manual/types-abstract.html)
 
 Anonymous structures
 -------
