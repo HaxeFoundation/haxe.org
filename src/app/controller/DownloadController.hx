@@ -31,6 +31,7 @@ class DownloadController extends Controller {
 		versions.reverse();
 		return ViewResult.create({
 			title: 'Haxe Download List', 
+			topNav: '/download/',
 			tagBaseUrl: Config.app.siteContent.versions.tagBaseUrl,
 			editLink: Config.app.siteContent.versions.versionsBaseUrl,
 			versions: versions,
@@ -42,9 +43,10 @@ class DownloadController extends Controller {
 		var result = apiDownload.getDownloadVersion( contentDir+versionRepo(), version ).sure();
 		return ViewResult.create({
 			title: 'Haxe $version',
+			topNav: '/download/',
 			tagBaseUrl: Config.app.siteContent.versions.tagBaseUrl,
 			compareBaseUrl: Config.app.siteContent.versions.compareBaseUrl,
-			editLink: Config.app.siteContent.versions.versionsBaseUrl + '$version/'
+			editLink: Config.app.siteContent.versions.versionsBaseUrl + version.replace(".",",") + '/'
 		}).setVars( result );
 	}
 
