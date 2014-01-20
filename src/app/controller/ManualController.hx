@@ -33,9 +33,4 @@ class ManualController extends Controller {
 			editLink: Config.app.manual.editLink
 		}).setVars( content );
 	}
-
-	function getTopNavName( d:Dispatch ) {
-		var name = (d!=null && d.parts.length>0) ? d.parts[0] : '';
-		return "/" + name;
-	}
 }
