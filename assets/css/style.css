@@ -286,6 +286,10 @@ pre .str, div.pre .str {
 pre .cmt, div.pre .cmt {
 	color : #080;
 }
+/* Make sure keywords inside comments are not highlighted*/
+pre .cmt .kwd, pre .cmt .str, pre .cmt .val {
+	color : #080;
+}
 
 /**
 	Downloads page
