@@ -1,5 +1,4 @@
 import app.OldSiteRedirectHandler;
-import sys.db.Mysql;
 import ufront.app.UfrontApplication;
 import ufront.handler.ErrorPageHandler;
 import ufront.view.TemplatingEngines;
@@ -36,13 +35,12 @@ class Server
 			var oldSiteRedirectHandler = new OldSiteRedirectHandler();
 
 			// Set up the dispatcher and routing
-			
+
 			ufrontApp = 
 				new UfrontApplication({
 					logFile: "log/haxeorg.log",
 					errorHandlers: [oldSiteRedirectHandler,errorPageHandler],
 					contentDirectory: "../uf-content/",
-					// authFactory: EasyAuth.getFactory( "haxe_org_user_id" )
 				})
 				.loadRoutesConfig( Dispatch.make(new Routes()) )
 				.loadApi( Api )

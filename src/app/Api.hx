@@ -5,7 +5,6 @@ import ufront.api.UFApiContext;
 
 import app.api.*;
 
-/** Seems to require explicit imports... */
 class Api extends UFApiContext
 {
 	// App specific
@@ -13,7 +12,4 @@ class Api extends UFApiContext
 	public var pageApi:PageApi;
 	public var downloadApi:DownloadApi;
 	public var manualApi:ManualApi;
-
-	// Vendor
-	public var clientDsApi:ClientDsApi;
 }

@@ -15,7 +15,6 @@ class UpdateController extends Controller {
 	@inject("contentDirectory") public var contentDir:String;
 	@inject public var apiSite:SiteApi;
 	@inject public var apiManual:ManualApi;
-	@inject public var apiDox:DoxApi;
 	@inject public var apiDownload:DownloadApi;
 
 	public function doSite() {
@@ -28,7 +27,6 @@ class UpdateController extends Controller {
 		var result = 
 			apiDownload
 				.prepareDownloadJson(downloadInDir,downloadOutDir)
-				.flatMap( function (_) return apiDox.convertDoxForAllVersions(downloadInDir,downloadOutDir) )
 				.map( function(_) return "Updated website content successfully" )
 		;
 
