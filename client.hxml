@@ -15,6 +15,6 @@
 -debug
 
 # Output
--main client.Client 
+-main Client 
 -js out/js/client.js
 

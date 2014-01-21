@@ -3,7 +3,7 @@
 -lib compiletime
 -lib markdown
 -lib hxparse
--main server.Server
+-main Server
 -cp src
 -D server 
 -dce no

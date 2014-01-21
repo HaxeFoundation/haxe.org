@@ -1,5 +1,3 @@
-package server;
-
 import app.OldSiteRedirectHandler;
 import sys.db.Mysql;
 import ufront.app.UfrontApplication;
@@ -23,19 +21,12 @@ class Server
 	}
 
 	static function run() {
-		// Currently we are not using a Mysql database.  If we start using it, uncomment this line.
-		// sys.db.Transaction.main( Mysql.connect(Config.db), function() {
-			init(); // If caching is enabled, init() will only need to run once
-			ufrontApp.execute(); // execute the current request
-		// });
+		init(); // If caching is enabled, init() will only need to run once
+		ufrontApp.execute(); // execute the current request
 	}
 
 	static function init() {
 		if ( ufrontApp==null ) {
-
-			// Not in use on Haxe.org site
-			// EasyAuth.sessionLength = 3600 * 24 * 7;
-			// UFAdminController.addModule("db","Database",new DBAdminController());
 
 			// Set up the error handlers
 
@@ -45,6 +36,7 @@ class Server
 			var oldSiteRedirectHandler = new OldSiteRedirectHandler();
 
 			// Set up the dispatcher and routing
+			
 			ufrontApp = 
 				new UfrontApplication({
 					logFile: "log/haxeorg.log",
@@ -57,9 +49,6 @@ class Server
 				.addTemplatingEngine( TemplatingEngines.haxe )
 				.inject( String, "layout.html", "defaultLayout" )
 			;
-
-			// Include all the models, so none are DCE'd (we need them for our DBAdminController...)
-			// CompileTime.getAllClasses(ufront.db.Object);
 		}
 	}
 }

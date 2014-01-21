@@ -10,6 +10,6 @@
 -dce no
 -debug
 
--main tasks.Tasks
+-main Tasks
 -neko out/tasks.n
 

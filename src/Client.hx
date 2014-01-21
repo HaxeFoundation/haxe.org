@@ -1,5 +1,3 @@
-package client;
-
 import js.Browser;
 import js.JQuery.JQueryHelper.*;
 using haxe.io.Path;

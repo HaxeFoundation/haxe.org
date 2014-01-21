@@ -24,7 +24,7 @@
 -D embed_js
 -dce full
 
--main client.Client
+-main Client
 --macro "include('app')"
 --macro "include('client')"
 
@@ -45,7 +45,7 @@
 -D getter_support
 -dce no
 
--main server.Server
+-main Server
 --macro "include('app')"
 --macro "include('server')"
 --macro "include('tasks')"
