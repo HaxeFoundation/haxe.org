@@ -144,6 +144,12 @@ class LatexParser extends hxparse.Parser<LatexLexer, LatexToken> implements hxpa
 					if (s != null) {
 						buffer.add(s);
 					}
+				case [TCommand(CInput), TBrOpen, s = text(), TBrClose]:
+					var old = stream;
+					var input = byte.ByteData.ofString(sys.io.File.getContent(s));
+					stream = new LatexLexer(input, s);
+					document();
+					stream = old;
 				case [TCommand(CCaption), TBrOpen, s = text(), TBrClose]:
 					// TODO
 				case [TCustomCommand("haxe"), options = popt(bracketArg), TBrOpen, s = text(), TBrClose]:
@@ -227,7 +233,7 @@ class LatexParser extends hxparse.Parser<LatexLexer, LatexToken> implements hxpa
 					hlineCount = 0;
 				
 				case [TEnd("document")]: break;
-				case [TEof]: throw "Found eof before \\end{document}";
+				case [TEof]: break;
 			}
 		}
 	}

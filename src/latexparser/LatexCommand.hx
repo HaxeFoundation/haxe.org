@@ -38,6 +38,7 @@ enum LatexCommand {
 	CIncludegraphics;
 	CTextwidth;
 	CCaption;
+	CInput;
 	
 	CTextless;
 	CTextgreater;

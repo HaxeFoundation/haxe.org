@@ -2,6 +2,7 @@ package app.api;
 
 #if server
 	import haxe.Json;
+	import neko.Web;
 	import sys.FileSystem;
 	import sys.io.File;
 	import sys.io.Process;
@@ -60,14 +61,14 @@ class ManualApi extends ufront.api.UFApi {
 		@param `linkBase` the absolute http path to use as the base for links.  Default "" (relative links)
 		@return Success(Noise), or Failure(errorMsg)
 	**/
-	public function convertLatexToHtml( inFile:String, outDir:String, ?linkBase:String="" ):Outcome<Noise,String> {
+	public function convertLatexToHtml( inFile:String, outDir:String, ?linkBase:String="" ):Outcome<Noise,Error> {
 
 		ufTrace( 'Convert Latex manual $inFile into HTML at $outDir' );
 		var tmpOutDir = outDir.removeTrailingSlash()+'-tmp/';
 
-		var oldCwd = Sys.getCwd();
+		var oldCwd = Web.getCwd();
 		var repo = inFile.directory();
-		try Sys.setCwd( repo ) catch(e:String) return Failure(e);
+		try Sys.setCwd( repo ) catch(e:String) return Failure( new Error(e) );
 
 
 		// Do initial parse
@@ -80,12 +81,12 @@ class ManualApi extends ufront.api.UFApi {
 			sections = parser.parse();
 		}
 		catch(e:hxparse.NoMatch<Dynamic>) {
-			return Failure( 'Failed to parse $inFile @ ' + e.pos.format(input) + ": Unexpected " +e.token );
+			return Failure( new Error('Failed to parse $inFile @ ' + e.pos.format(input) + ": Unexpected " +e.token) );
 		}
 		catch(e:hxparse.Unexpected<Dynamic>) {
-			return Failure( 'Failed to parse $inFile @ ' + e.pos.format(input) + ": Unexpected " +e.token );
+			return Failure( new Error('Failed to parse $inFile @ ' + e.pos.format(input) + ": Unexpected " +e.token) );
 		}
-		catch ( e:Dynamic ) return Failure( 'Failed to parse $inFile: $e' );
+		catch ( e:Dynamic ) return Failure( new Error('Failed to parse $inFile: $e') );
 
 		// Small helper functions for conversion (mostly to do with links/anchors)
 
@@ -130,8 +131,8 @@ class ManualApi extends ufront.api.UFApi {
 
 		// Delete existing export
 
-		try SiteApi.unlink( tmpOutDir ) catch ( e:Dynamic ) return Failure( 'Failed to delete existing tmp directory $tmpOutDir: $e' );
-		try FileSystem.createDirectory( tmpOutDir ) catch ( e:Dynamic ) return Failure( 'Failed to create tmp directory $tmpOutDir: $e' );
+		try SiteApi.unlink( tmpOutDir ) catch ( e:Dynamic ) return Failure( new Error('Failed to delete existing tmp directory $tmpOutDir: $e') );
+		try FileSystem.createDirectory( tmpOutDir ) catch ( e:Dynamic ) return Failure( new Error('Failed to create tmp directory $tmpOutDir: $e') );
 
 		// Process each section
 
@@ -176,7 +177,7 @@ class ManualApi extends ufront.api.UFApi {
 		for ( i in 0...allSections.length ) {
 
 			var sec = allSections[i];
-			var content = try Markdown.markdownToHtml( sec.content ) catch ( e:Dynamic ) return Failure( 'Failed to convert Markdown from manual [${sec.id}:${sec.title}]: $e' );
+			var content = try Markdown.markdownToHtml( sec.content ) catch ( e:Dynamic ) return Failure( new Error('Failed to convert Markdown from manual [${sec.id}:${sec.title}]: $e') );
 			
 			var prevSection = (i!=0) ? allSections[i-1] : null;
 			var nextSection = (i!=allSections.length-1) ? allSections[i+1] : null;
@@ -196,7 +197,7 @@ class ManualApi extends ufront.api.UFApi {
 			try 
 				File.saveContent( manualPage, pageJson )
 			catch ( e:Dynamic ) 
-				return Failure( 'Failed to save manual page $manualPage: $e' );
+				return Failure( new Error('Failed to save manual page $manualPage: $e') );
 		}
 
 		// Create the dictionary
@@ -207,7 +208,7 @@ class ManualApi extends ufront.api.UFApi {
 		try
 			File.saveContent( dictionaryFile, a.map(function(v) return '<h5 id="${escapeAnchor(v.k)}">${v.k}</a></h5>\n${process(v.v)}').join("\n\n") )
 		catch ( e:Dynamic )
-			return Failure( 'Failed to save manual dictionary $dictionaryFile: $e' );
+			return Failure( new Error('Failed to save manual dictionary $dictionaryFile: $e') );
 
 		// Create the nav file
 
@@ -231,7 +232,7 @@ class ManualApi extends ufront.api.UFApi {
 		try
 			File.saveContent( navFile, navOutput.toString() )
 		catch ( e:Dynamic ) 
-			return Failure( 'Failed to save navigation menu from manual $navFile: $e' );
+			return Failure( new Error('Failed to save navigation menu from manual $navFile: $e') );
 
 		// Create the TODO file
 
@@ -246,14 +247,14 @@ class ManualApi extends ufront.api.UFApi {
 			File.saveContent( todoFile, html );
 		}
 		catch ( e:Dynamic ) 
-			return Failure( 'Failed to save navigation menu from manual $navFile: $e' );
+			return Failure( new Error('Failed to save navigation menu from manual $navFile: $e') );
 
 		// Move the tmp directory into place as our new manual dir
 
-		try SiteApi.unlink( outDir ) catch ( e:Dynamic ) return Failure( 'Failed to remove existing directory $outDir: $e' );
-		try FileSystem.rename( tmpOutDir, outDir ) catch ( e:Dynamic ) return Failure( 'Failed to move temporary dir $tmpOutDir to permanent location $outDir: $e' );
+		try SiteApi.unlink( outDir ) catch ( e:Dynamic ) return Failure( new Error('Failed to remove existing directory $outDir: $e') );
+		try FileSystem.rename( tmpOutDir, outDir ) catch ( e:Dynamic ) return Failure( new Error('Failed to move temporary dir $tmpOutDir to permanent location $outDir: $e') );
 		
-		try Sys.setCwd( oldCwd ) catch ( e:Dynamic ) return Failure( 'Failed to set CWD to $oldCwd' );
+		try Sys.setCwd( oldCwd ) catch ( e:Dynamic ) return Failure( new Error('Failed to set CWD to $oldCwd') );
 
 		return Success( Noise );
 	}

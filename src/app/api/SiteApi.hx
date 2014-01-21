@@ -2,6 +2,7 @@ package app.api;
 
 #if server
 	import haxe.Json;
+	import neko.Web;
 	import sys.FileSystem;
 	import sys.io.File;
 	import sys.io.Process;
@@ -27,47 +28,58 @@ class SiteApi extends ufront.api.UFApi {
 		@param `intoDir` the name of the folder to name the clone.
 		@return Success( outputOfCommand ) or Failure( outputOfCommand )
 	**/
-	public function cloneRepo( gitPath:String, intoDir:String ):Outcome<String,String> {
+	public function cloneRepo( gitPath:String, intoDir:String, branch:String, ?removeFirst:Bool=false ):Outcome<String,Error> {
 		
 		ufTrace( 'Clone $gitPath into $intoDir' );
 
-		var oldCwd = Sys.getCwd();
-		try Sys.setCwd( contentDir ) catch(e:String) return Failure(e);
+		var oldCwd = Web.getCwd();
+		try Sys.setCwd( contentDir ) catch(e:String) return Failure( 'Failed to setCwd into $contentDir before cloning $gitPath'.withData(e) );
 
 		var p:Process;
 
 		if ( FileSystem.exists(intoDir) ) {
-			if ( !FileSystem.exists(intoDir.addTrailingSlash()+'.git') ) {
-				// File exists, but isn't git.
-				return Success( "Not a git repo, no need to update" );
+			if ( removeFirst ) {
+				try unlink(intoDir) catch(e:Dynamic) return Failure( 'Failed to delete existing directory $intoDir'.withData(e) );
 			}
+			else {
+				if ( !FileSystem.exists(intoDir.addTrailingSlash()+'.git') ) {
+					// File exists, but isn't git.
+					return Success( "Not a git repo, no need to update" );
+				}
 
-			// Pull update
-			try Sys.setCwd( intoDir ) catch(e:String) return Failure(e);
-			p = new Process( "git", ["pull"] );
+				// Pull update
+				try Sys.setCwd( intoDir ) catch(e:String) return Failure( 'Failed to setCwd into $intoDir before doing git pull'.withData(e) );
+				try process( "git", ["checkout",branch] ) catch(e:String) return Failure( 'Failed to checkout branch $branch'.withData(e) );
+				try process( "git", ["pull"] ) catch(e:String) return Failure( 'Failed to run `git pull` in $intoDir'.withData(e) );
+			}
 		}
-		else {
+
+		if ( FileSystem.exists(intoDir)==false ) {
 			// Clone
-			p = new Process( "git", ["clone",gitPath,intoDir] );
+			try process( "git", ["clone",gitPath,intoDir] ) catch(e:String) return Failure( 'Failed to run `git clone $gitPath $intoDir`'.withData(e) );
+			try Sys.setCwd( intoDir ) catch(e:String) return Failure( 'Failed to setCwd into $intoDir after doing git pull'.withData(e) );
+			try process( "git", ["checkout",branch] ) catch(e:String) return Failure( 'Failed to checkout branch $branch'.withData(e) );
 		}
 
-		var result = switch p.exitCode() {
-			case 0: Success( p.stdout.readAll().toString() );
-			case exitCode:
-				var msg = 'Failed to clone git clone $gitPath $intoDir, exited with $exitCode.';
-				var stdErr = p.stderr.readAll().toString();
-				Failure([
-					'cloneRepo failed:',
-					'Command: git clone $gitPath $intoDir',
-					'CWD: ${Sys.getCwd()}',
-					'ExitCode: $exitCode',
-					'Stderr:\n$stdErr'
-				].join("\n<br/>  "));
+		try Sys.setCwd( oldCwd ) catch(e:String) return Failure( 'Failed to setCwd back to $oldCwd after cloning $gitPath'.withData(e) );
+
+		return Success( "Repository cloned successfully" );
+	}
+
+	function process( cmd:String, args:Array<String> ) {
+		var p = new Process( cmd, args );
+		var exitCode = p.exitCode();
+		if (exitCode!=0) {
+			var stdErr = p.stderr.readAll().toString();
+			var failureMessage = [
+				'cloneRepo failed:',
+				'Command: $cmd ' + args.join(' '),
+				'CWD: ${Web.getCwd()}',
+				'ExitCode: $exitCode',
+				'Stderr:\n$stdErr'
+			].join("\n<br/>  ");
+			throw failureMessage;
 		}
-
-		try Sys.setCwd( oldCwd ) catch(e:String) return Failure(e);
-
-		return result;
 	}
 
 	/**

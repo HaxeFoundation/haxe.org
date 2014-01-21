@@ -47,7 +47,7 @@ class UpdateController extends Controller {
 		}
 	}
 
-	public function doManual() {
+	public function doManual( ?forceDelete=false ) {
 		var gitRepo = Config.app.manual.repo;
 		var manualDir = contentDir+Config.app.manual.dir;
 		var manualLatexFile = manualDir+'/'+Config.app.manual.file;
@@ -55,23 +55,15 @@ class UpdateController extends Controller {
 		
 		var result = 
 			apiSite
-				.cloneRepo( gitRepo, manualDir )
+				.cloneRepo( gitRepo, Config.app.manual.dir, Config.app.manual.branch, forceDelete )
 				.flatMap( function (_) return apiManual.convertLatexToHtml(manualLatexFile,manualOutDir) )
 				.map( function(_) return "Updated manual successfully" )
 		;
 
-		return switch result {
-			case Success(out): 
-				ViewResult.create({
-					title: 'Updated the manual succesfully', 
-					content: '<h1>Updated the manual successfully.</h1>'
-				}, "page/markdown.html");
-			case Failure(err): 
-				trace (err);
-				ViewResult.create({
-					title: 'Failed to update the manual', 
-					content: '<h1>$err</h1>'
-				}, "page/markdown.html");
-		}
+		result.sure();
+		return ViewResult.create({
+			title: 'Updated the manual succesfully', 
+			content: '<h1>Updated the manual successfully.</h1>'
+		}, "page/markdown.html");
 	}
 }
