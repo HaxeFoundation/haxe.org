@@ -98,7 +98,7 @@ a.anch {
 .section .container :first-child {
 	margin-top : 0px;
 }
-.section .container :last-child {
+.section .container > :last-child {
 	margin-bottom : 0px;
 }
 .section blockquote {
