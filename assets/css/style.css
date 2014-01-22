@@ -325,11 +325,15 @@ pre .cmt .kwd, pre .cmt .str, pre .cmt .val {
 .tree-nav li i.fa:hover {
 	color: rgb(150,150,150);
 }
+.tree-nav li > i.fa:before {
+	content: "\f016"; /* fa-file-o */
+	cursor: pointer;
+}
 .tree-nav li.parent > i.fa:before {
 	content: "\f18e"; /* fa-arrow-circle-o-right */
 	cursor: pointer;
 }
-.tree-nav li.active {
+.tree-nav li.parent.active {
 	height: auto;
 	overflow: auto;
 }
@@ -347,6 +351,10 @@ pre .cmt .kwd, pre .cmt .str, pre .cmt .val {
 .tree-nav li.active > ul {
 	margin-left: 10px;
 	display: block;
+}
+.tree-nav li {
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 /**
