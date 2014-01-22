@@ -2,7 +2,7 @@
 	"title": "Haxe - The Cross-Platform Toolkit",
 	"siteContent": {
 		"folder": "website-content",
-		"editBaseUrl": "https://github.com/jasononeil/haxe.org/tree/master/assets/website-content/pages/",
+		"editBaseUrl": "https://github.com/HaxeFoundation/haxe.org/tree/development/assets/website-content/pages/",
 		"pages": {
 			"folder": "pages",
 			"extensions": ["html","md"]
@@ -11,7 +11,7 @@
 			"folder": "downloads",
 			"tagBaseUrl": "https://github.com/HaxeFoundation/haxe/releases/tag",
 			"compareBaseUrl": "https://github.com/HaxeFoundation/haxe/compare",
-			"versionsBaseUrl": "https://github.com/jasononeil/haxe.org/tree/master/assets/website-content/downloads/"
+			"versionsBaseUrl": "https://github.com/HaxeFoundation/haxe.org/tree/development/assets/website-content/downloads/"
 		}
 	},
 	"manual": {
