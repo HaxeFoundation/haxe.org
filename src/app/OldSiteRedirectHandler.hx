@@ -23,7 +23,7 @@ class OldSiteRedirectHandler implements UFErrorHandler {
 		if ( !ctx.completion.has(CRequestHandlersComplete) && err.code==404 ) {
 			
 			var oldDomain = 'http://old.haxe.org';
-			var uri = ctx.request.uri.removeTrailingSlash();
+			var uri = removeTrailingSlash( ctx.request.uri );
 			var queryString = ctx.request.queryString;
 			
 			var csvSearchString = '\n$uri,';
@@ -65,6 +65,13 @@ class OldSiteRedirectHandler implements UFErrorHandler {
 			catch ( e:Dynamic ) {
 				ctx.ufLog( "Unable to load redirect CSV File" );
 			}
+		}
+	}
+
+	static function removeTrailingSlash ( path : String ) : String {
+		return switch(path.charCodeAt(path.length - 1)) {
+			case '/'.code | '\\'.code: path.substr(0, -1);
+			case _: path;
 		}
 	}
 }

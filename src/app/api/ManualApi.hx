@@ -64,7 +64,7 @@ class ManualApi extends ufront.api.UFApi {
 	public function convertLatexToHtml( inFile:String, outDir:String, ?linkBase:String="" ):Outcome<Noise,Error> {
 
 		ufTrace( 'Convert Latex manual $inFile into HTML at $outDir' );
-		var tmpOutDir = outDir.removeTrailingSlash()+'-tmp/';
+		var tmpOutDir = removeTrailingSlash( outDir ) +'-tmp/';
 
 		var oldCwd = Web.getCwd();
 		var repo = inFile.directory();
@@ -257,5 +257,12 @@ class ManualApi extends ufront.api.UFApi {
 		try Sys.setCwd( oldCwd ) catch ( e:Dynamic ) return Failure( new Error('Failed to set CWD to $oldCwd') );
 
 		return Success( Noise );
+	}
+
+	static function removeTrailingSlash ( path : String ) : String {
+		return switch(path.charCodeAt(path.length - 1)) {
+			case '/'.code | '\\'.code: path.substr(0, -1);
+			case _: path;
+		}
 	}
 }
