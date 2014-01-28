@@ -1,4 +1,4 @@
--lib ufront
+-lib ufront-mvc
 -lib tink_core
 -lib compiletime
 -lib markdown
