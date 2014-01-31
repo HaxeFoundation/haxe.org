@@ -6,9 +6,8 @@
 # Common
 #
 
--lib ufront 
+-lib ufront-mvc
 -lib compiletime
--lib detox
 -lib markdown
 -cp src/
 -D haxeJSON

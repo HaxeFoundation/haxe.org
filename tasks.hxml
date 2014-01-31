@@ -1,5 +1,5 @@
 -lib ufront-uftasks
--lib ufront
+-lib ufront-mvc
 
 -cp src 
 -D server 

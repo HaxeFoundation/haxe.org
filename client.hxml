@@ -2,9 +2,7 @@
 # Compile the Client
 #
  
--lib detox
--lib pushstate
--lib ufront
+-lib ufront-mvc
 -lib compiletime
 -cp src
 
