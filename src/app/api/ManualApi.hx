@@ -13,10 +13,11 @@ package app.api;
 
 import app.model.Manual;
 import ufront.web.HttpError;
-using StringTools;
 using Lambda;
 using tink.CoreApi;
 using haxe.io.Path;
+using Strings;
+using StringTools;
 
 class ManualApi extends ufront.api.UFApi {
 
@@ -31,26 +32,47 @@ class ManualApi extends ufront.api.UFApi {
 	**/
 	public function getPage( repo:String, path:String ):Outcome<Pair<ManualPage,String>,HttpError> {
 
-		var filePath = '$repo/$path'.withoutExtension().withExtension("json");
-		var navPath = '$repo/navigation.html';
-		return
+		var content:ManualPage = null;
+		var staticFiles = [ "dictionary.html", "todo.html" ];
+
+		if ( staticFiles.indexOf(path)>-1 ) {
+			var filePath = '$repo/$path';
+			if ( FileSystem.exists(filePath) ) {
+				var html = 
+					try File.getContent( filePath ) 
+					catch ( e:Dynamic ) return Failure( HttpError.internalServerError('Failed to read manual static page $filePath: $e') );
+				content = {
+					id: '',
+					title: path.withoutExtension().ucfirst(),
+					content: html,
+					prevTitle: null, prev: null, nextTitle: null, next: null
+				}
+			}
+		}
+		else {
+			var filePath = '$repo/$path'.withoutExtension().withExtension("json");
 			if ( FileSystem.exists(filePath) ) {
 				var json = 
 					try File.getContent( filePath ) 
 					catch ( e:Dynamic ) return Failure( HttpError.internalServerError('Failed to read manual page $filePath: $e') );
-				var content:ManualPage = 
+				content = 
 					try Json.parse( json )
 					catch ( e:Dynamic ) return Failure( HttpError.internalServerError('Failed to parse manual json $filePath: $e') );
-				var nav = 
-					try File.getContent( navPath ) 
-					catch ( e:Dynamic ) return Failure( HttpError.internalServerError('Failed to read manual nav $navPath: $e') );
-				return Success( new Pair(content,nav) );
 			}
-			else {
-				ufError('Could not find manual page $filePath');
-				Failure( HttpError.pageNotFound() );
-			}
-		
+		}
+
+		var navPath = '$repo/navigation.html';
+		var nav = 
+			try File.getContent( navPath ) 
+			catch ( e:Dynamic ) return Failure( HttpError.internalServerError('Failed to read manual nav $navPath: $e') );
+
+		if ( content!=null ) {
+			return Success( new Pair(content,nav) );
+		}
+		else {
+			ufError('Could not find manual page $path');
+			return Failure( HttpError.pageNotFound() );
+		}
 	}
 
 	/**
