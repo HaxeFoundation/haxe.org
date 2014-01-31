@@ -17,7 +17,7 @@ html, body {
 }
 .site-footer, .page-wrap:after {
 	/* .push must be the same height as footer */
-	height: 26px; 
+	height: 26px;
 }
 
 /**
@@ -50,7 +50,7 @@ html, body {
 	.navbar-fixed-top, .navbar-fixed-bottom, .navbar-static-top {
 		margin: 0 0 20px 0 !important;
 	}
-	.section.head ul.logos {
+	ul.logos {
 		margin-top: 20px;
 	}
 }
@@ -198,26 +198,31 @@ a.anch {
 .section.head p.tagLine b {
 	color : #666;
 }
-.section.head ul.logos {
+ul.logos {
+	margin: 0;
+}
+.head ul.logos {
+	padding : 10px;
 	border-radius : 10px;
 	-moz-border-radius : 10px;
 	-webkit-border-radius : 10px;
 	background-color : #eee;
-	padding : 10px;
 }
-.section.head ul.logos li {
+ul.logos li {
 	list-style : none;
-	width : 80px;
 	display : inline-block;
 	zoom : 1;
 	*display : inline;
 	text-align : center;
 	margin: 10px 0;
 }
-.section.head ul.logos li img {
+ul.logos li.target {
+	width : 80px;
+}
+ul.logos li.target img {
 	max-height : 48px;
 }
-.section.head ul.logos li.arr {
+ul.logos li.arr {
 	width : 20px;
 	font-size : 32px;
 	font-weight : bold;
@@ -375,8 +380,11 @@ html code {
 	margin-right: 7px;
 }
 table.table.table-bordered.features, table.table.table-bordered.features td, table.table.table-bordered.features th {
-	border-color: rgb(40,40,40);
-	background: rgb(30,30,30);
+	/*border-color: rgb(40,40,40);*/
+	/*background: rgb(30,30,30);*/
+}
+ul ul, ul ol, ol ol, ol ul {
+	/*margin-bottom: 10px;*/
 }
 
 /**
