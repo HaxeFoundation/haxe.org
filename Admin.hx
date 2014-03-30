@@ -8,7 +8,6 @@ class RunDocs {
 		Sys.setCwd( "dox" );
 		Sys.command( "haxelib", [
 			"run","dox",
-			"-r","/api",
 			"-i",".",
 			"-o","api/",
 			"--title","'haxe.org API'",
@@ -50,8 +49,8 @@ class Helpers {
 	}
 
 	public static function copyDir(inDir,outDir) {
-		var inDir = Path.removeTrailingSlash(inDir);
-		var outDir = Path.removeTrailingSlash(outDir);
+		var inDir = Path.removeTrailingSlashes(inDir);
+		var outDir = Path.removeTrailingSlashes(outDir);
 		makeDir( outDir );
 
 		var files = FileSystem.readDirectory(inDir);
