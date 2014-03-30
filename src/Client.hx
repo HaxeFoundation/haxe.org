@@ -51,17 +51,8 @@ class Client
 	}
 
 	static function menuExpandCollapse() {
-		J(".tree-nav li").each( function () {
-			var li = JTHIS;
-			var icon = J( "<i class='fa'></i>" );
-			li.prepend( icon );
-
-			if ( li.find( "ul" ).length>0 ) {
-				li.addClass( "parent" );
-				icon.click( function() {
-					li.toggleClass('active');
-				});
-			}
+		J(".tree-nav li i.fa").click( function () {
+			JTHIS.parent().toggleClass('active');
 		});
 	}
 
@@ -78,7 +69,7 @@ class Client
 	}
 
 	static function tableStyling() {
-		J( '.manual table, .markdown table' ).addClass( 'table' );
+		J( '.site-content' ).addClass( 'table' );
 	}
 
 	static function setupBootstrap() {

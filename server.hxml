@@ -3,6 +3,7 @@
 -lib compiletime
 -lib markdown
 -lib hxparse
+-lib detox
 -main Server
 -cp src
 -D server 
@@ -12,7 +13,6 @@
 
 # Neko
 --remap php:neko
--D neko_v2
 -neko out/index.n
 
 --next 

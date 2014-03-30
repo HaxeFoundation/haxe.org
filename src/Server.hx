@@ -1,4 +1,5 @@
 import app.OldSiteRedirectHandler;
+import ufront.app.DispatchApplication;
 import ufront.app.UfrontApplication;
 import ufront.handler.ErrorPageHandler;
 import ufront.view.TemplatingEngines;
@@ -38,12 +39,12 @@ class Server
 
 			ufrontApp = 
 				new UfrontApplication({
+					indexController: Routes,
+					remotingApi: Api,
 					logFile: "log/haxeorg.log",
 					errorHandlers: [oldSiteRedirectHandler,errorPageHandler],
 					contentDirectory: "../uf-content/",
 				})
-				.loadRoutesConfig( Dispatch.make(new Routes()) )
-				.loadApi( Api )
 				.addTemplatingEngine( TemplatingEngines.haxe )
 				.inject( String, "layout.html", "defaultLayout" )
 			;

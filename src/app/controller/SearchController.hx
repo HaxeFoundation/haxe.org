@@ -7,6 +7,7 @@ import ufront.web.result.*;
 
 class SearchController extends Controller {
 	
+	@:route("/")
 	public function doDefault():ActionResult {
 
 		var q = context.request.params['s'];

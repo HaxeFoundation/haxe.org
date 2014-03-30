@@ -21,30 +21,29 @@ class DownloadApi extends ufront.api.UFApi {
 		Retrieve a list (and basic metadata) of all downloads in the repo.  Basically returns the `versions.json` file
 
 		@param repo - absolute path to the folder containing all our versions.
-		@return Success( Pair(current, [versions]) ) or Failure( errMsg )
+		@return Pair(current, [versions])
+		@throws String if versions.json could not be loaded or parsed.
 	**/
-	public function getDownloadList( repo:String ):Outcome<CurrentVersionAndList,String> {
+	public function getDownloadList( repo:String ):CurrentVersionAndList {
 		var versionFile = repo.addTrailingSlash()+'versions.json';
-		try {
-			var versionJson = File.getContent( versionFile );
-			var versionsInfo = haxe.Json.parse( versionJson );
-			return Success( versionsInfo );
-		}
-		catch ( e:Dynamic ) return Failure( 'Failed to read $versionFile: $e' );
+		var versionJson = File.getContent( versionFile );
+		return haxe.Json.parse( versionJson );
 	}
 
 	/**
 		Retrieve information about a specific download
+
+		@param repo - absolute path to the folder containing all our versions.
+		@param version - the version string to collect information about
+		@return version info for the current version
+		@throws String if version file could not be read or parsed.
 	**/
-	public function getDownloadVersion( repo:String, version:String ):Outcome<VersionInfo, String> {
+	public function getDownloadVersion( repo:String, version:String ):VersionInfo {
 		var version = version.replace( '.', ',' );
 		var versionFile = repo.addTrailingSlash()+'$version.json';
-		try {
-			var versionJson = File.getContent( versionFile );
-			var versionsInfo:VersionInfo = haxe.Json.parse( versionJson );
-			return Success( versionsInfo );
-		}
-		catch ( e:Dynamic ) return Failure( 'Failed to read $versionFile: $e' );
+		var versionJson = File.getContent( versionFile );
+		var versionsInfo:VersionInfo = haxe.Json.parse( versionJson );
+		return versionsInfo;
 	}
 
 	/**
@@ -66,9 +65,9 @@ class DownloadApi extends ufront.api.UFApi {
 		
 		@param `inDir` the absolute path to the directory containing the different Haxe versions
 		@param `linkBase` the absolute http path to use as the base for links.  Default "" (relative links)
-		@return Success(Noise), or Failure([errorMessages])
+		@throw An array of error messages if there were failures.  All remaining files will be attempted before error is thrown.
 	**/
-	public function prepareDownloadJson( inDir:String, outDir:String ):Outcome<Noise,Array<String>> {
+	public function prepareDownloadJson( inDir:String, outDir:String ) {
 		
 		var errorMessages = [];
 		var versionInfo = readVersionInfo( inDir.addTrailingSlash()+'versions.json', errorMessages );
@@ -111,9 +110,7 @@ class DownloadApi extends ufront.api.UFApi {
 			i++;
 		}
 
-		return 
-			if ( errorMessages.length>0 ) Failure( errorMessages );
-			else Success( Noise );
+		if ( errorMessages.length>0 ) throw errorMessages;
 	}
 
 	/**
@@ -187,6 +184,7 @@ class DownloadApi extends ufront.api.UFApi {
 
 				if ( filename.endsWith("-linux32.tar.gz") || filename.endsWith("-linux.tar.gz") ) downloads.linux.unshift( getInfo("Linux 32-bit Binaries", filename) );
 				else if ( filename.endsWith("-linux64.tar.gz") ) downloads.linux.push( getInfo("Linux 64-bit Binaries", filename) );
+				else if ( filename.endsWith("-raspi.tar.gz") ) downloads.linux.push( getInfo("Raspberry Pi", filename) );
 				else if ( filename.endsWith("-osx-installer.pkg") || filename.endsWith("-osx-installer.dmg") ) downloads.osx.unshift( getInfo("OSX Installer", filename) );
 				else if ( filename.endsWith("-osx.tar.gz") ) downloads.osx.push( getInfo("OSX Binaries", filename) );
 				else if ( filename.endsWith("-win.exe") ) downloads.windows.unshift( getInfo("Windows Installer", filename) );

@@ -8,54 +8,81 @@ import ufront.web.Controller;
 import ufront.web.Dispatch;
 import ufront.web.result.*;
 import ufront.view.TemplateData;
+import ufront.web.HttpError;
 using Strings;
 using tink.CoreApi;
 using haxe.io.Path;
+using app.model.SiteMap;
 
 class PageController extends Controller {
 	
 	@inject public var pageApi:PageApi;
 	@inject public var siteApi:SiteApi;
 
-	public function doDefault( d:Dispatch ):ActionResult {
+	@:route("/")
+	public function doHomepage() {
+		var siteContentDir = context.request.scriptDirectory+Config.app.siteContent.folder;
+		var repo = siteContentDir+"/"+Config.app.siteContent.pages.folder;
+		return showContent( null, "/", "index.html", repo, repo, null );
+	}
 
-		var repo = context.request.scriptDirectory+Config.app.siteContent.folder+"/"+Config.app.siteContent.pages.folder;
-		
-		var page = d.parts.join("/");
+	@:route( "/manual/$page" ) 
+	public function doManual( ?page:String="introduction.html" ) {
+		var repo = context.httpContext.contentDirectory+Config.app.manual.dir+"/"+Config.app.manual.htmlDir;
+		var attachmentsRepo = context.httpContext.contentDirectory+Config.app.manual.dir+"/"+Config.app.manual.imagesDir;
+		var sidebar = pageApi.getSitemap( repo );
+		var title = sidebar.getPageForUrl( page ).title;
+		return showContent( title, "/manual/", page, repo, attachmentsRepo, sidebar );
+	}
+
+	@:route( "/$folder/*" )
+	public function doDefault( folder:String, rest:Array<String> ) {
+		var siteContentDir = context.request.scriptDirectory+Config.app.siteContent.folder;
+		var repo = siteContentDir+"/"+Config.app.siteContent.pages.folder+"/"+folder;
+
+		// If it's not a top-level page, we will need to load a side-menu.
+		var sitemap = pageApi.getSitemap( siteContentDir );
+		var sidebar = 
+			try sitemap.getPageForUrl( folder ).sub
+			catch ( e:Dynamic ) null;
+
+		var page = rest.join("/");
+
+		var title = 
+			try sitemap.getPageForUrl( '$folder/$page' ).title
+			catch ( e:Dynamic ) null;
+
 		if ( page=="" ) page = "index.html";
-		
-		switch pageApi.getPage( repo, page ) {
-			case Success( result ):
-				var filename = result.a;
-				var content = result.b;
+		if ( page.extension()=="" ) page += "/index.html";
 
-				var viewFile = "page/default.html";
-				if ( filename.extension()=="md" ) {
-					content = Markdown.markdownToHtml( content );
-					viewFile = "page/markdown.html";
-				}
+		return showContent( title, "/", page, repo, repo, sidebar );
+	}
+
+	function showContent( title:String, baseUrl:String, file:String, repo:String, attachmentsRepo:String, sidebar:SiteMap ):ActionResult {
+		if ( attachmentsRepo==null )
+			attachmentsRepo = repo;
+
+		switch file.extension() {
+			case "html": 
+				var filename = pageApi.locatePage( repo, file );	
+				var content = pageApi.loadPage( filename );
+				var nav:String = (sidebar!=null) ? sidebar.printSitemap( SideBar, baseUrl, context.request.uri ) : null;
+
+				var viewFile = (sidebar!=null) ? "page/page-with-sidebar.html" : "page/raw.html";
 
 				return ViewResult.create({
-					title: guessTitle( page ),
+					title: title,
 					content: content,
-					topNav: getTopNavName( d ),
-					editLink: '${Config.app.siteContent.editBaseUrl}$filename'
+					sideNav: nav,
+					editLink: Config.app.siteContent.editBaseUrl+filename
 				}, viewFile);
-			case Failure( error ):
-				return switch pageApi.attachmentExists( repo,page ) {
-					case Some(filePath): new FilePathResult( filePath );
-					case None: error.throwSelf();
-				}
+			case _:
+				var attachment = pageApi.getAttachment( attachmentsRepo, file );
+				var bytes = attachment.a;
+				var filename = attachment.b;
+				var result = new BytesResult( bytes, filename );
+				result.setContentTypeByFilename( filename );
+				return result;
 		}
-	}
-
-	function guessTitle( fileName:String ) {
-		if ( fileName=="index.html" ) return "";
-		return fileName.withoutExtension().replace("-"," ").capitalize();
-	}
-
-	function getTopNavName( d:Dispatch ) {
-		var name = (d!=null && d.parts.length>0) ? d.parts[0] : '';
-		return "/" + name;
 	}
 }

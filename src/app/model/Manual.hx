@@ -28,3 +28,12 @@ enum ManualNavItem {
 	Item( link:String );
 	ParentItem( link:String, children:Array<ManualNavItem> );
 }
+
+typedef ManualSectionJson = {
+	var label:String;
+	var id:String;
+	var sub:Array<ManualSectionJson>;
+	var state:Int;
+	var title:String;
+	var index:Int;
+}

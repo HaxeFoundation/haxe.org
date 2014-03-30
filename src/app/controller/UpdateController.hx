@@ -9,14 +9,16 @@ import ufront.view.TemplateData;
 using StringTools;
 using tink.CoreApi;
 using haxe.io.Path;
+using Detox;
 
 class UpdateController extends Controller {
 	
 	@inject("contentDirectory") public var contentDir:String;
-	@inject public var apiSite:SiteApi;
-	@inject public var apiManual:ManualApi;
-	@inject public var apiDownload:DownloadApi;
+	@inject public var siteApi:SiteApi;
+	@inject public var manualApi:ManualUpdateApi;
+	@inject public var downloadApi:DownloadApi;
 
+	@:route("/site/")
 	public function doSite() {
 		var manualDir = contentDir+Config.app.siteContent.folder;
 		var assetSiteContent = context.request.scriptDirectory+Config.app.siteContent.folder;
@@ -24,44 +26,30 @@ class UpdateController extends Controller {
 		var downloadInDir = assetSiteContent+'/'+Config.app.siteContent.versions.folder;
 		var downloadOutDir = ufSiteContent+'/'+Config.app.siteContent.versions.folder;
 
-		var result = 
-			apiDownload
-				.prepareDownloadJson(downloadInDir,downloadOutDir)
-				.map( function(_) return "Updated website content successfully" )
-		;
+		downloadApi.prepareDownloadJson(downloadInDir,downloadOutDir);
 
-		return switch result {
-			case Success(out): 
-				ViewResult.create({
-					title: 'Updated the website content succesfully', 
-					content: '<h1>Updated the website content successfully.</h1>'
-				}, "page/markdown.html");
-			case Failure(err): 
-				trace (err);
-				ViewResult.create({
-					title: 'Failed to update the website content', 
-					content: '<h1>$err</h1>'
-				}, "page/markdown.html");
-		}
+		ViewResult.create({
+			title: 'Updated the website content succesfully', 
+			content: '<h1>Updated the website content successfully.</h1>'
+		}, "page/page-without-sidebar.html");
 	}
 
-	public function doManual( ?forceDelete=false ) {
-		var gitRepo = Config.app.manual.repo;
-		var manualDir = contentDir+Config.app.manual.dir;
-		var manualLatexFile = manualDir+'/'+Config.app.manual.file;
-		var manualOutDir = manualDir+'/'+Config.app.manual.out;
-		
-		var result = 
-			apiSite
-				.cloneRepo( gitRepo, Config.app.manual.dir, Config.app.manual.branch, forceDelete )
-				.flatMap( function (_) return apiManual.convertLatexToHtml(manualLatexFile,manualOutDir) )
-				.map( function(_) return "Updated manual successfully" )
-		;
+	@:route("/manual/")
+	public function doManual( ?args:{ forceDelete:Bool } ) {
 
-		result.sure();
+		if ( args.forceDelete==null ) args.forceDelete = false;
+		var gitRepo = Config.app.manual.repo;
+		var branch = Config.app.manual.branch;
+		var manualDir = contentDir+Config.app.manual.dir+'/';
+		var manualMdDir = manualDir+Config.app.manual.mdDir;
+		var manualHtmlDir = manualDir+Config.app.manual.htmlDir;
+		
+		siteApi.cloneRepo( gitRepo, manualDir, branch, args.forceDelete );
+		manualApi.convertMarkdownToHtml(manualMdDir,manualHtmlDir);
+
 		return ViewResult.create({
 			title: 'Updated the manual succesfully', 
 			content: '<h1>Updated the manual successfully.</h1>'
-		}, "page/markdown.html");
+		}, "page/page-without-sidebar.html");
 	}
 }

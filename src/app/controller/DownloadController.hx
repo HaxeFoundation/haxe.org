@@ -20,13 +20,15 @@ class DownloadController extends Controller {
 
 	static inline function versionRepo() return Config.app.siteContent.folder+'/'+Config.app.siteContent.versions.folder;
 
+	@:route("")
 	public function doDefault(  ) {
 		var currentVersion = apiSite.getCurrentVersion( versionRepo() );
 		return doVersion( currentVersion );
 	}
 
+	@:route("list/")
 	public function doList() {
-		var result = apiDownload.getDownloadList( context.request.scriptDirectory+versionRepo() ).sure();
+		var result = apiDownload.getDownloadList( context.request.scriptDirectory+versionRepo() );
 		var versions = result.versions;
 		versions.reverse();
 		return ViewResult.create({
@@ -39,8 +41,9 @@ class DownloadController extends Controller {
 		});
 	}
 
+	@:route("version/$version")
 	public function doVersion( version:String ) {
-		var result = apiDownload.getDownloadVersion( contentDir+versionRepo(), version ).sure();
+		var result = apiDownload.getDownloadVersion( contentDir+versionRepo(), version );
 		return ViewResult.create({
 			title: 'Haxe $version',
 			topNav: '/download/',
@@ -50,6 +53,7 @@ class DownloadController extends Controller {
 		}).setVars( result );
 	}
 
+	@:route("file/$version/$file")
 	public function doFile( version:String, file:String ) {
 		version = version.replace( '.', ',' );
 		var scriptDir = context.request.scriptDirectory;

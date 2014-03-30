@@ -1,4 +1,8 @@
+# Generated content
 out/
-src/conf/mysql.json
+dump/
 dox/
+
+# Private content
+src/conf/mysql.json
 uf-content/

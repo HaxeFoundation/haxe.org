@@ -15,11 +15,12 @@
 		}
 	},
 	"manual": {
-		"dir": "manual",
-		"file": "HaxeDoc.tex",
 		"repo": "https://github.com/HaxeFoundation/HaxeManual.git",
-		"branch": "development",
-		"out": "html",
-		"editLink": "https://github.com/HaxeFoundation/HaxeManual/blob/development/HaxeDoc.tex"
+		"branch": "master",
+		"dir": "manual",
+		"mdDir": "md/manual",
+		"htmlDir": "html",
+		"imagesDir": "assets/graphics/generated",
+		"editLink": "https://github.com/HaxeFoundation/HaxeManual/blob/master/HaxeDoc.tex"
 	}
 }

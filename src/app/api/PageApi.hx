@@ -5,10 +5,12 @@ package app.api;
 	import sys.io.File;
 	import sys.io.Process;
 #end
+import haxe.io.Bytes;
 import haxe.ds.Option;
 import app.Config;
 import haxe.Json;
 import ufront.web.HttpError;
+import app.model.SiteMap;
 using haxe.io.Path;
 using tink.CoreApi;
 using StringTools;
@@ -16,52 +18,93 @@ using Lambda;
 
 class PageApi extends ufront.api.UFApi {
 
-	@inject("contentDirectory") public var contentDir:String;
-
 	/**
-		Load a given page from the given repo.
+		Given a URL facing name (eg "support.html", look for the actual file (eg "support.md")
 
-		Will ignore the provided extension, and check instead for each extension provided in `Config.app.siteContent.pages.extensions`, in order, and take the first match.
-
-		@param `repo` absolute path to page repo.  Should not include trailing slash
-		@param `path` no leading slash, extension will be ignored.
-		@return `Success( Pair(filename,html) )` if found, or `Failure(HttpError)` if not
+		@param repo - An absolute path to the repository of files to search in.
+		@param path - The filename we are searching for.
+		@return - An absolute url to the file if found.  Throws PageNotFound if not found...
+		@throws - HttpError.pageNotFound()
 	**/
-	public function getPage( repo:String, path:String ):Outcome<Pair<String,String>,HttpError> {
-
+	public function locatePage( repo:String, path:String ) {
 		var extensions = Config.app.siteContent.pages.extensions;
 
 		for ( ext in extensions ) {
-			var fileName = path.withoutExtension().withExtension( ext );
-			var filePath = '$repo/$fileName';
+			var filename = path.withoutExtension().withExtension( ext );
+			var filePath = '$repo/$filename';
 			if ( FileSystem.exists(filePath) ) {
-				return 
-					try Success( new Pair(fileName,File.getContent(filePath)) )
-					catch (e:Dynamic) Failure( HttpError.internalServerError('Could not read $filePath', e) );
+				return filePath;
 			}
 		}
 		
 		ufError('Could not find page $repo/${path.withoutExtension()}.$extensions');
-		return Failure( HttpError.pageNotFound() );
+		return throw HttpError.pageNotFound();
 	}
 
 	/**
-		Check if a file exists, and is not one of the files we would normally process (markdown, html etc)
+		Given an exact filepath, return the content of that file.
 
-		This is probably an image or other kind of attachment.  
-
-		This just checks it exists and returns the file path if it does
-
-		@param `repo` absolute path to page repo.  Should not include trailing slash
-		@param `path` no leading slash, should include extension
-		@return `Some( filepath )` if found, or `None` if not
+		If the file is markdown, it will be converted to HTML before returning.
+	
+		@param filePath The absolute path to the file we are trying to load.
+		@return String containing the html content
+		@throws HttpError.internalServerError() if file could not be read.
 	**/
-	public function attachmentExists( repo:String, path:String ):Option<String> {
-		var extensions = Config.app.siteContent.pages.extensions;
-		var fileName = '$repo/$path';
-		if ( FileSystem.exists(fileName) && extensions.has(fileName.extension())==false ) {
-			return Some( fileName );
+	public function loadPage( filePath:String ) {
+		var content = 
+			try File.getContent(filePath)
+			catch (e:Dynamic) throw HttpError.internalServerError('Could not read $filePath', e)
+		;
+		if ( filePath.extension()=="md" ) {
+			content = Markdown.markdownToHtml( content );
 		}
-		return None;
+		return content;
+	}
+
+	/**
+		Get attachment content from a repository, or throw 404 if it does not exist.
+
+		@param repo Absolute path to page repo.  Should not include trailing slash.
+		@param path Should not include leading slash.
+		@return A pair containing the file content and filename.
+		@throw HttpError 400 if attachment is not found.
+	**/
+	public function getAttachment( repo:String, path:String ):Pair<Bytes,String> {
+		var filename = '$repo/$path';
+		if ( FileSystem.exists(filename) ) {
+			var content = 
+				try File.read(filename).readAll() 
+				catch(e:Dynamic) throw HttpError.internalServerError( 'Failed to read file $filename: $e' )
+			;
+			return new Pair( content, filename.withoutDirectory() );
+		}
+		else return throw HttpError.pageNotFound();
+	}
+
+	/**
+		Get the sitemap for a repo.
+
+		This does not validate that the parsed JSON matches our typedef, just that the sitemap exists and is valid JSON.
+
+		@param repo Absolute path to page repo.  Should not include trailing slash.
+		@return The loaded and parsed SiteMap.
+		@throws `HttpError.internalServerError` if an error occured.
+	**/
+	public function getSitemap( repo:String ):SiteMap {
+		var filename = '$repo/sitemap.json';
+		
+		if ( !FileSystem.exists(filename) ) {
+			return throw HttpError.internalServerError('The sitemap needed to render the menu for this page could not be found');
+		}
+
+		var content = 
+			try File.getContent(filename)
+			catch (e:Dynamic) throw HttpError.internalServerError('The sitemap needed to render the menu for this page existed, but could not be read.', e)
+		;
+		var sitemap:SiteMap = 
+			try Json.parse(content)
+			catch (e:Dynamic) throw HttpError.internalServerError('The sitemap needed to render the menu for this page was not valid JSON', e)
+		;
+		return sitemap;
 	}
 }
