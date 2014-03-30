@@ -3,9 +3,10 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-	<title>::if (title != "")::::title:: - ::end::Haxe - The Cross-platform Toolkit</title>
+	<meta name="viewport" content="width=device-width" />
+	<title>::if (title != null)::::title:: - ::end::Haxe - The Cross-platform Toolkit</title>
 	<link href='http://fonts.googleapis.com/css?family=Nunito:400,300,200' rel='stylesheet' type='text/css'/>
-	<link href='http://fonts.googleapis.com/css?family=Dosis:300,400' rel='stylesheet' type='text/css'/>
+	<link href='http://fonts.googleapis.com/css?family=Dosis:300,400,700' rel='stylesheet' type='text/css'/>
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap-responsive.min.css"/>
 	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
@@ -16,7 +17,7 @@
 <body>
 
 <div class="section nav">
-	<div class="navbar navbar-inverse navbar-fixed-top">
+	<div class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container">
 				
@@ -26,15 +27,9 @@
 					<span class="icon-bar"></span>
 				</button>
 
-				<a class="brand" href="/"><img src="/img/logo_small.png"/> Haxe</a>
+				<a class="brand" href="/"><img src="/img/haxe-logo.svg" width="20" height="20" /> Haxe</a>
 				<div class="nav-collapse collapse">
-					<ul class="nav">
-						<li ::if (topNav == "/"):: class="active"::end::><a href="/">Home</a></li>
-						<li ::if (topNav == "/download/"):: class="active"::end::><a href="/download/">Download</a></li>
-						<li ::if (topNav == "/manual/"):: class="active"::end::><a href="/manual/">Manual</a></li>
-						<li ::if (topNav == "/api.html"):: class="active"::end::><a href="http://api.haxe.org/" target="_BLANK">API</a></li>
-						<li ::if (topNav == "/support.html"):: class="active"::end::><a href="/support.html">Support</a></li>
-					</ul>
+					::navBar::
 					
 					<form class="navbar-search pull-right">
 						<!-- <input type="text" class="search-query" placeholder="Search" onkeyup="_.filter(this.value)"/> -->
@@ -68,13 +63,18 @@
 	::viewContent::
 </div>
 
-<footer class="section site-footer">
+<footer class="section site-footer inset">
 	<div class="container">
-		<p>&copy;2013 
-		<a href="http://haxe-foundation.org" title="Haxe Foundation Website">Haxe Foundation</a>
-		::if (editLink != null)::
-		| <a href="::editLink::" class="edit-link" title="Use Github to suggest an edit to this page">Contribute to this page</a>
-		::end::
+		<div class="sitemap clearfix">
+			::siteMap::
+		</div>
+		<div class="copyright">
+			<p>&copy;2013 
+			<a href="http://haxe-foundation.org" title="Haxe Foundation Website">Haxe Foundation</a>
+			::if (editLink != null)::
+			| <a href="::editLink::" class="edit-link" title="Use Github to suggest an edit to this page">Contribute to this page</a>
+			::end::
+		</div>
 	</div>
 </footer>
 

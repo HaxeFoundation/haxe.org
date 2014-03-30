@@ -9,11 +9,6 @@
 			<a href="/download/list/">(View all versions)</a>
 		</div>
 
-		::if (releaseNotes != null)::
-			<h3>Release Notes</h3>
-			::releaseNotes::
-		::end::
-
 		<h3>Downloads</h3>
 		
 		<div class="row downloads">
@@ -51,6 +46,11 @@
 			<p class="alert alert-success">
 				<strong><i class="fa fa-book"></i> API Documentation: </strong> <a href="http://api.haxe.org/">API documentation for Haxe ::version:: is available here</a>.
 			</p>
+		::end::
+
+		::if (releaseNotes != null)::
+			<h3>Release Notes</h3>
+			::releaseNotes::
 		::end::
 
 		<h3>Change Log</h3>
