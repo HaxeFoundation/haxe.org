@@ -1,1 +1,0 @@
-# If we chose, we could link a "showcase" from here too, perhaps with a case study write up.
