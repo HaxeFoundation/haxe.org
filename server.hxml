@@ -2,7 +2,6 @@
 -lib tink_core
 -lib compiletime
 -lib markdown
--lib hxparse
 -lib detox
 -main Server
 -cp src

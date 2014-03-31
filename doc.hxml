@@ -9,6 +9,7 @@
 -lib ufront-mvc
 -lib compiletime
 -lib markdown
+-lib detox
 -cp src/
 -D haxeJSON
 
@@ -24,7 +25,7 @@
 -dce full
 
 -main Client
---macro "include('app')"
+# --macro "include('app')"
 --macro "include('client')"
 
 -xml dox/js.xml
@@ -39,7 +40,6 @@
 
 -lib tink_core
 -lib random
--lib hxparse
 -D server 
 -D getter_support
 -dce no

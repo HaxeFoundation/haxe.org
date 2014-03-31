@@ -6,7 +6,6 @@ package app.api;
 	import sys.FileSystem;
 	import sys.io.File;
 	import sys.io.Process;
-	import latexparser.LatexParser;
 #end
 
 using StringTools;
