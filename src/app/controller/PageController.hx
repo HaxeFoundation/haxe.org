@@ -30,9 +30,11 @@ class PageController extends Controller {
 	public function doManual( ?page:String="introduction.html" ) {
 		var repo = context.httpContext.contentDirectory+Config.app.manual.dir+"/"+Config.app.manual.htmlDir;
 		var attachmentsRepo = context.httpContext.contentDirectory+Config.app.manual.dir+"/"+Config.app.manual.imagesDir;
-		var sidebar = pageApi.getSitemap( repo );
-		var title = sidebar.getPageForUrl( page ).title;
-		return showContent( title, "/manual/", page, repo, attachmentsRepo, sidebar );
+		var sitemap = pageApi.getSitemap( repo );
+		var title = 
+			try sitemap.getPageForUrl( '$page' ).title
+			catch ( e:Dynamic ) null;
+		return showContent( title, "/manual/", page, repo, attachmentsRepo, sitemap );
 	}
 
 	@:route( "/$folder/*" )

@@ -179,8 +179,10 @@ class ManualUpdateApi extends ufront.api.UFApi {
 					node.setAttr( "href", node.attr("href").replace(".md",".html") );
 				case "table":
 					node.addClass( "table table-bordered" );
-				case "img": 
-					ufTrace( '  Processing image asset ' + node.html() );
+				case "img":
+					var src = node.attr( 'src' );
+					src = "/manual/"+src.withoutDirectory();
+					node.setAttr( 'src', src );
 				default:
 			}
 		}
