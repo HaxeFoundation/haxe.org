@@ -1,0 +1,38 @@
+{
+	"files": [
+		"favicon.ico",
+		"tasks.n",
+		"index.n",
+		"js/",
+		"css/",
+		"img/",
+		"website-content"
+	],
+	"targets": [
+		{
+			"name": "new.haxe.org",
+			"gitRepo": "ssh://joneil@haxe.org/data/newhaxe/repo.git",
+			"defines": [],
+		"hxmls": ["server","client","tasks"],
+			"debug": false,
+			"servers": [{
+				"name": "new.haxe.org",
+				"user": "joneil",
+				"host": "haxe.org",
+				"port": 22,
+				"remoteDir": "/data/newhaxe/www/"
+			}]
+		}
+	],
+	"hooks": {
+		"beforeBuild": [],
+		"afterBuild": [],
+		"beforeCopy": [],
+		"afterCopy": [],
+		"beforePush": [],
+		"afterPush": [],
+		"beforePull": ["halt!"],
+		"afterPull": [],
+		"afterComplete": []
+	}
+}

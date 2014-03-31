@@ -1,7 +1,12 @@
 # Generated content
-out/
+out/php
+out/*.php
+out/*.n
+out/js/client.js
+out/js/client.js.map
 dump/
 dox/
+deploy/
 
 # Private content
 src/conf/mysql.json

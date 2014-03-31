@@ -64,7 +64,7 @@ class PageController extends Controller {
 
 		switch file.extension() {
 			case "html": 
-				var filename = pageApi.locatePage( repo, file );	
+				var filename = pageApi.locatePage( repo, file );
 				var content = pageApi.loadPage( filename );
 				var nav:String = (sidebar!=null) ? sidebar.printSitemap( SideBar, baseUrl, context.request.uri ) : null;
 
