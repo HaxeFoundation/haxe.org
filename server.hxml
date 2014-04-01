@@ -12,11 +12,11 @@
 
 # Neko
 --remap php:neko
--neko out/index.n
+-neko www/index.n
 
 --next 
 
 # PHP
 --remap neko:php
 --php-lib php
--php out
+-php www

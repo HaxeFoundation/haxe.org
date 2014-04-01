@@ -11,5 +11,5 @@
 -debug
 
 -main Tasks
--neko out/tasks.n
+-neko www/tasks.n
 

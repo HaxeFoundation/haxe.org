@@ -34,42 +34,24 @@ Run ufront setup
 
 	sudo haxelib run ufront --setup
 
-Add your mysql JSON
-
-	cp src/conf/mysql.json.sample src/conf/mysql.json
-	nano src/conf/mysql.json  // Edit your details
-
 Compile the site files (in debug mode)
 
-	mkdir out
-	mkdir out/js
+	mkdir www
+	mkdir www/js
 	mkdir dox
 	ufront b --debug
 
 Set up a uf-content directory on the server
 
-	mkdir out/uf-content/
-	mkdir out/uf-content/log/
-	mkdir out/uf-content/sessions/
-
-Copy the assets
-
-	./runrsync
-
-	# Or copy paste contents of "/assets" into "/out"
+	mkdir uf-content/
+	mkdir uf-content/log/
+	mkdir uf-content/sessions/
 
 Run the server
 
 	ufront s
 
-If we were doing DB stuff, you would go to your address and install tables (but we're not)
+Import the initial content:
 
-	http://jason-samsung-laptop:2987/ufadmin/
-
-Set up a default user:
-
-	ufront task initialSetup jason password
-
-Copy the manual from Simn's github:
-
-	http://jason-samsung-laptop:2987/updatemanual/
+	http://jason-samsung-laptop:2987/update/site/
+	http://jason-samsung-laptop:2987/update/manual/

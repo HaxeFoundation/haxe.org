@@ -1,5 +1,7 @@
 {
 	"files": [
+		".htaccess",
+		".htaccess-newhaxe",
 		"favicon.ico",
 		"tasks.n",
 		"index.n",
@@ -20,7 +22,7 @@
 				"user": "joneil",
 				"host": "haxe.org",
 				"port": 22,
-				"remoteDir": "/data/newhaxe/www/"
+				"remoteDir": "/data/newhaxe/www1/"
 			}]
 		}
 	],
@@ -31,8 +33,8 @@
 		"afterCopy": [],
 		"beforePush": [],
 		"afterPush": [],
-		"beforePull": ["halt!"],
-		"afterPull": [],
+		"beforePull": [],
+		"afterPull": ["cp .htaccess-newhaxe .htaccess"],
 		"afterComplete": []
 	}
 }

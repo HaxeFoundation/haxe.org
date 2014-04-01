@@ -1,9 +1,9 @@
 # Generated content
-out/php
-out/*.php
-out/*.n
-out/js/client.js
-out/js/client.js.map
+www/php
+www/*.php
+www/*.n
+www/js/client.js
+www/js/client.js.map
 dump/
 dox/
 deploy/

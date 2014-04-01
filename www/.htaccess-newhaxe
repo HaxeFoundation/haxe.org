@@ -1,7 +1,7 @@
 # Temporary password
 AuthType Basic
 AuthName "New Haxe Website"
-AuthUserFile /data/newhaxe/www/.htpasswd
+AuthUserFile /data/newhaxe/.htpasswd
 Require valid-user
 
 # Set index.n to come before index.php
