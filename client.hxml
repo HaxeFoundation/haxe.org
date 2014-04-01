@@ -14,5 +14,5 @@
 
 # Output
 -main Client 
--js out/js/client.js
+-js www/js/client.js
 
