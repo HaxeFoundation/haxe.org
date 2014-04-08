@@ -23,7 +23,7 @@ class PageController extends Controller {
 	public function doHomepage() {
 		var siteContentDir = context.request.scriptDirectory+Config.app.siteContent.folder;
 		var repo = siteContentDir+"/"+Config.app.siteContent.pages.folder;
-		return showContent( null, "/", "index.html", repo, repo, null );
+		return showContent( null, "/", "index.html", repo, repo, null, false );
 	}
 
 	@:route( "/manual/$page" ) 
@@ -34,7 +34,7 @@ class PageController extends Controller {
 		var title = 
 			try sitemap.getPageForUrl( '$page' ).title
 			catch ( e:Dynamic ) null;
-		return showContent( title, "/manual/", page, repo, attachmentsRepo, sitemap );
+		return showContent( title, "/manual/", page, repo, attachmentsRepo, sitemap, true );
 	}
 
 	@:route( "/$folder/*" )
@@ -57,10 +57,10 @@ class PageController extends Controller {
 		if ( page=="" ) page = "index.html";
 		if ( page.extension()=="" ) page += "/index.html";
 
-		return showContent( title, "/", page, repo, repo, sidebar );
+		return showContent( title, "/", page, repo, repo, sidebar, true );
 	}
 
-	function showContent( title:String, baseUrl:String, file:String, repo:String, attachmentsRepo:String, sidebar:SiteMap ):ActionResult {
+	function showContent( title:String, baseUrl:String, file:String, repo:String, attachmentsRepo:String, sidebar:SiteMap, createPrevNextNav:Bool ):ActionResult {
 		if ( attachmentsRepo==null )
 			attachmentsRepo = repo;
 
@@ -68,7 +68,10 @@ class PageController extends Controller {
 			case "html": 
 				var filename = pageApi.locatePage( repo, file );
 				var content = pageApi.loadPage( filename );
-				var nav:String = (sidebar!=null) ? sidebar.printSitemap( SideBar, baseUrl, context.request.uri ) : null;
+				var nav:String = (sidebar!=null) ? sidebar.printSitemap( SideBar, baseUrl, context.httpContext.getRequestUri() ) : null;
+				var prevNextLinks = 
+					if (createPrevNextNav) sidebar.getPrevNextLinks( baseUrl, context.httpContext.getRequestUri() );
+					else null;
 
 				var viewFile = (sidebar!=null) ? "page/page-with-sidebar.html" : "page/raw.html";
 
@@ -76,6 +79,7 @@ class PageController extends Controller {
 					title: title,
 					content: content,
 					sideNav: nav,
+					prevNextLinks: prevNextLinks,
 					editLink: Config.app.siteContent.editBaseUrl+filename
 				}, viewFile);
 			case _:

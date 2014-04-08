@@ -37,6 +37,70 @@ class SiteMapHelper {
 	}
 
 	/**
+		Get prev/next links for a given URL on the sitemap.
+
+		@param sitemap The sitemap to search.
+		@param baseUrl The base URL of all links in the SiteMap.
+		@param currentUri The current uri to match against. (base URL included).
+		@return `{ prevUrl:String, prevTitle:String, nextUrl:String, nextTitle:String }`
+	**/
+	public static function getPrevNextLinks( sitemap:SiteMap, baseUrl:String, currentUri:String ) {
+		var prevNextLinks = {
+			prevUrl:null, 
+			prevTitle:null, 
+			nextUrl:null, 
+			nextTitle:null 
+		};
+		if ( sitemap!=null ) {
+			var previousPage:SitePage = null;
+			var currentPage:SitePage = null;
+			var nextPage:SitePage = null;
+
+			var collapsedSitemap = collapseSitemap(sitemap);
+
+			for ( page in collapsedSitemap ) {
+				trace( 'Check $baseUrl${page.url}==$currentUri' );
+				if ( baseUrl+page.url==currentUri ) {
+					// This is the active page.  
+					// We'll leave `previousPage` whatever it was on the previous iteration.
+					currentPage = page;
+				}
+				else if ( currentPage==null ) {
+					// No current page found yet, keep setting `previousPage` until we find it.
+					previousPage = page;
+				}
+				else if ( currentPage!=null ) {
+					// The previous page was current, so set this one to "next page" and exit the loop.
+					nextPage = page;
+					break;
+				}
+			}
+			if ( currentPage==null ) previousPage=null;
+
+			if ( previousPage!=null ) {
+				prevNextLinks.prevUrl = baseUrl+previousPage.url;
+				prevNextLinks.prevTitle = previousPage.title;
+			}
+			if ( nextPage!=null ) {
+				prevNextLinks.nextUrl = baseUrl+nextPage.url;
+				prevNextLinks.nextTitle = nextPage.title;
+			}
+		}
+		return prevNextLinks;
+	}
+
+	static function collapseSitemap( sitemap:SiteMap, ?array:Array<SitePage> ):Array<SitePage> {
+		if ( array==null ) array = [];
+
+		for ( page in sitemap ) {
+			array.push( page );
+			if ( page.sub!=null ) collapseSitemap( page.sub, array );
+		}
+
+		return array;
+	}
+
+	/**
 		See if the URI belongs to this page.
 
 		@param page The current page in the SiteMap.

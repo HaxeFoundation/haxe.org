@@ -5,7 +5,23 @@
 				::sideNav::
 			</div>
 			<div class="span9">
+
+				::if (prevNextLinks != null)::
+					<div class="prev-next-links clearfix top">
+						::if (prevNextLinks.prevUrl != null)::<a href="::prevNextLinks.prevUrl::" class="prev-link">::prevNextLinks.prevTitle::</a>::end::
+						::if (prevNextLinks.nextUrl != null)::<a href="::prevNextLinks.nextUrl::" class="next-link">::prevNextLinks.nextTitle::</a>::end::
+					</div>
+				::end::
+
 				::content::
+
+				::if (prevNextLinks != null)::
+					<div class="prev-next-links clearfix bottom">
+						::if (prevNextLinks.prevUrl != null)::<a href="::prevNextLinks.prevUrl::" class="prev-link">::prevNextLinks.prevTitle::</a>::end::
+						::if (editLink != null)::<a href="::editLink::">Contribute to this page</a>::end::
+						::if (prevNextLinks.nextUrl != null)::<a href="::prevNextLinks.nextUrl::" class="next-link">::prevNextLinks.nextTitle::</a>::end::
+					</div>
+				::end::
 			</div>
 		</div>
 	</div>

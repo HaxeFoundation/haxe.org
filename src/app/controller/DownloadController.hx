@@ -50,7 +50,7 @@ class DownloadController extends Controller {
 			tagBaseUrl: Config.app.siteContent.versions.tagBaseUrl,
 			compareBaseUrl: Config.app.siteContent.versions.compareBaseUrl,
 			editLink: Config.app.siteContent.versions.versionsBaseUrl + version.replace(".",",") + '/'
-		}).setVars( result );
+		}, "download/version.html" ).setVars( result );
 	}
 
 	@:route("file/$version/$file")
