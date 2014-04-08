@@ -189,26 +189,28 @@ class ManualUpdateApi extends ufront.api.UFApi {
 	}
 
 	function addPrevNextEditLinks( prevLink:DOMNode, nextLink:DOMNode, titleNode:DOMNode, endOfContentNode:DOMNode ) {
-		var header = "div".create().addClass( "prev-next-links clearfix top" );
-		var footer = "div".create().addClass( "prev-next-links clearfix bottom" );
+		// var header = "div".create().addClass( "prev-next-links clearfix top" );
+		// var footer = "div".create().addClass( "prev-next-links clearfix bottom" );
 
-		if ( prevLink!=null ) {
-			prevLink.addClass( "prev-link" ).setAttr( "href", prevLink.attr("href").replace(".md",".html") );
-			header.append( prevLink );
-			footer.append( prevLink.clone() );
-		}
+		// if ( prevLink!=null ) {
+		// 	prevLink.addClass( "prev-link" ).setAttr( "href", prevLink.attr("href").replace(".md",".html") );
+		// 	header.append( prevLink );
+		// 	footer.append( prevLink.clone() );
+		// }
 		
-		var contributeLink = '<a href="${app.Config.app.manual.editLink}">Contribute to this page</a>'.parse();
-		footer.append( contributeLink );
+		// var contributeLink = '<a href="${app.Config.app.manual.editLink}">Contribute to this page</a>'.parse();
+		// footer.append( contributeLink );
 
-		if ( nextLink!=null ) {
-			nextLink.addClass( "next-link" ).setAttr( "href", nextLink.attr("href").replace(".md",".html") );
-			header.append( nextLink );
-			footer.append( nextLink.clone() );
-		}
+		// if ( nextLink!=null ) {
+		// 	nextLink.addClass( "next-link" ).setAttr( "href", nextLink.attr("href").replace(".md",".html") );
+		// 	header.append( nextLink );
+		// 	footer.append( nextLink.clone() );
+		// }
 
-		titleNode.afterThisInsert( header );
-		endOfContentNode.afterThisInsert( footer );
+		// titleNode.afterThisInsert( header );
+		// endOfContentNode.afterThisInsert( footer );
 		endOfContentNode.removeFromDOM();
+		prevLink.removeFromDOM();
+		nextLink.removeFromDOM();
 	}
 }
