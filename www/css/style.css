@@ -543,9 +543,12 @@ html .gsc-search-box .gsc-input > input:focus, html .gsc-input-box-focus {
 	letter-spacing: -2px;
 }
 
-.marketing-row i.fa {
+.marketing-row a.fa {
 	font-size: 80px;
 	display: block;
 	text-align: center;
 	color: #bbb;
+}
+.marketing-row a.fa:hover {
+	text-decoration: none;
 }
