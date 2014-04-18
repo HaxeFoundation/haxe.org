@@ -26,6 +26,12 @@ class PageController extends Controller {
 		return showContent( null, "/", "index.html", repo, repo, null, false );
 	}
 
+	@:route("/documentation/")
+	inline public function documentationRedirect() return new RedirectResult( "/documentation/introduction/" );
+
+	@:route("/manual/")
+	inline public function manualRedirect() return new RedirectResult( "/manual/introduction.html" );
+
 	@:route( "/manual/$page" ) 
 	public function doManual( ?page:String="introduction.html" ) {
 		var repo = context.httpContext.contentDirectory+Config.app.manual.dir+"/"+Config.app.manual.htmlDir;
