@@ -53,8 +53,16 @@ class DownloadController extends Controller {
 		}, "download/version.html" ).setVars( result );
 	}
 
+	@:route("api/$version/api.zip")
+	public function doApiDownload( version:String ) {
+		var versionDir = version.replace( '.', ',' );
+		var scriptDir = context.request.scriptDirectory;
+		var file = 'api-$version.zip';
+		return new FilePathResult( scriptDir+versionRepo()+'/$versionDir/$file', null, file );
+	}
+
 	@:route("file/$version/$file")
-	public function doFile( version:String, file:String ) {
+	public function doFileDownload( version:String, file:String ) {
 		version = version.replace( '.', ',' );
 		var scriptDir = context.request.scriptDirectory;
 		return new FilePathResult( scriptDir+versionRepo()+'/$version/downloads/$file', null, file );
