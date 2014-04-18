@@ -542,3 +542,10 @@ html .gsc-search-box .gsc-input > input:focus, html .gsc-input-box-focus {
 	font-weight: bold;
 	letter-spacing: -2px;
 }
+
+.marketing-row i.fa {
+	font-size: 80px;
+	display: block;
+	text-align: center;
+	color: #bbb;
+}
