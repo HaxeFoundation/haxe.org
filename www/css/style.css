@@ -228,14 +228,14 @@ ul.logos {
 	margin: 0;
 }
 ul.logos {
+	text-align: center;
 }
 ul.logos li {
 	list-style: none;
 	display: inline-block;
 	zoom: 1;
 	*display: inline;
-	text-align: center;
-	margin: 10px 0;
+	margin: 10px 20px 0 0;
 }
 ul.logos li.target {
 	width: 80px;
