@@ -67,6 +67,10 @@
 		"url": "use-cases/",
 		"sub": [
 			{
+				"title": "Overview",
+				"url": "use-cases/"
+			},
+			{
 				"title": "Games",
 				"url": "use-cases/games/"
 			},
@@ -91,6 +95,10 @@
 			{
 				"title": "Desktop",
 				"url": "use-cases/desktop/"
+			},
+			{
+				"title": "Command Line",
+				"url": "use-cases/cli/"
 			},
 			{
 				"title": "Cross Platform APIs",
