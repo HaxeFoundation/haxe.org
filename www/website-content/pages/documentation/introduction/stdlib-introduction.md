@@ -7,7 +7,7 @@ The Haxe Standard Library provides common purpose tools without trying to be an 
 * [**System**](#sys-api): The `sys` sub-directory contains APIs related to file systems and database. Additionally, the `Sys` top-level class allows various interaction with the operating system. They can only be accessed when compiling to a target of the `sys`-category (C++, C#, Java, Neko, PHP).
 * [**Target specific**](#target-apis): Each Haxe target has a distinct sub-directory containing target-specific APIs. These can only be accessed when compiling to the given target.
 
-<a id="general-purpose-api"></a>
+<a class="anch" id="general-purpose-api"></a>
 
 General purpose API:
 --------------
@@ -66,7 +66,7 @@ The haxe.io package:
 * [haxe.io.BytesBuffer](http://api.haxe.org/haxe/io/BytesData.html): Optimized for building Bytes
 * [haxe.io.Path](http://api.haxe.org/haxe/io/Path.html): Operations on path strings
 
-<a id="sys-api"></a>
+<a class="anch" id="sys-api"></a>
 
 System API:
 --------------
@@ -79,7 +79,7 @@ Available on C++, C#, Java, Neko and PHP.
 * [sys.io.File](http://api.haxe.org/sys/io/File.html): Read and write file content; copy files
 * [sys.io.Process](http://api.haxe.org/sys/io/Process.html): Use native processes
 
-<a id="target-apis"></a>
+<a class="anch" id="target-apis"></a>
 
 Target Specific APIs:
 --------------------------------
