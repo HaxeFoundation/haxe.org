@@ -118,7 +118,7 @@ a.anch {
 	font-style: italic;
 }
 @media (min-width: 979px) {
-	.section blockquote {
+	.homepage .section blockquote {
 		margin: 100px 20px 100px 20px !important;
 	}
 }
