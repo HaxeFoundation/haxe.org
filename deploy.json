@@ -8,6 +8,7 @@
 		"js/",
 		"css/",
 		"img/",
+		"view/",
 		"website-content"
 	],
 	"targets": [
@@ -22,7 +23,7 @@
 				"user": "joneil",
 				"host": "haxe.org",
 				"port": 22,
-				"remoteDir": "/data/newhaxe/www1/"
+				"remoteDir": "/data/newhaxe/www/"
 			}]
 		}
 	],
