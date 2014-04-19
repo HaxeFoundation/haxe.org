@@ -268,10 +268,13 @@ ul.logos li.arr {
 .prev-next-links.top {
 	border-bottom: #DDD solid 1px;
 	padding-bottom: 10px;
+	margin-top: -30px !important;
+	margin-bottom: 20px;
 }
 .prev-next-links.bottom {
 	border-top: #DDD solid 1px;
 	padding-top: 10px;
+	margin-top: 20px;
 }
 .prev-link {
 	float: left;
