@@ -1,6 +1,6 @@
 Dear community,
 
-We just released Haxe 3.1.3 with various fixes. It is available at http://haxe.org/download
+We just released Haxe 3.1.3 with various fixes. It is available at <http://haxe.org/download>
 
 Make sure to check out the changelog (<http://haxe.org/file/CHANGES.txt>). In particular, this release fixes a standard library compatibility issue with OpenFL.
 
