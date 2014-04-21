@@ -76,17 +76,7 @@
 			},
 			{
 				"title": "Web",
-				"url": "use-cases/web/",
-				"sub": [
-					{
-						"title": "Tutorials",
-						"url": "use-cases/web/tutorials.html"
-					},
-					{
-						"title": "Showcase",
-						"url": "use-cases/web/showcase.html"
-					}
-				]
+				"url": "use-cases/web/"
 			},
 			{
 				"title": "Mobile",
