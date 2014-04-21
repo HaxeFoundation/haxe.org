@@ -39,13 +39,6 @@ html, body {
 		width: auto;
 		margin: 0 !important;
 	}
-	.section.head h1 img, .section.head h1 b {
-		display: block;
-		margin: 0 auto 10px;
-	}
-	.section.head h1 span {
-		display: none; /* hide the hyphen */
-	}
 	.page-wrap .section:first-child .container {
 		padding-top: 40px !important;
 	}
@@ -197,24 +190,72 @@ a.anch {
 .page-wrap .section:first-child .container {
 	padding-top: 80px;
 }
-.section.head {
-	text-align: center;
+
+/**
+	Billboard / head on homepage
+**/
+@media (max-width: 767px) {
+	.head .head-logo {
+		margin: 0 auto;
+	}
+	.head .head-content {
+		text-align: center;
+	}
+	.head .head-content .btn-toolbar .btn {
+		margin-bottom: 9px;
+	}
 }
-.section.head h1 {
+@media (min-width: 768px) {
+	.head .head-logo {
+		float: left;
+	}
+	.head .head-content {
+		width: 50%;
+		float: right;
+		text-align: right;
+		min-height: 314px;
+	}
+	.head .head-content .btn-toolbar .btn {
+		vertical-align: baseline;
+	}
+}
+@media (min-width: 1200px) {
+	.head .head-content {
+		width: 40%;
+		position: relative;
+	}
+	.head .head-content .btn-toolbar {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		width: 100%;
+		margin-bottom: 0;
+	}
+}
+.head .head-logo {
+	display: block;
+	width: 230px;
+	max-width: 100%;
+}
+.head .head-content h1 {
 	color: #666;
-	text-align: left;
 	font-weight: bold;
 	letter-spacing: -1px;
 }
-.section.head .lead {
+.head .head-content .lead {
 	color: #999;
-	text-align: left;
 }
-@media (min-width: 979px) {
-	.section.head .lead {
-		width: 50%;
-	}
+.btn-huge {
+	padding: 16.5px 28.5px;
+	font-size: 26.5px;
+	border-radius: 9px;
+	position: relative;
+	bottom: 3px;
 }
+
+
+
+
 .section p.tag-line {
 	margin-top: 20px;
 	font-weight: 200;
@@ -252,12 +293,11 @@ ul.logos li.arr {
 	top: 5px;
 	left: 13px;
 }
-.section.head a.start {
-	margin-top: 9px;
-}
 .section.hf ul li {
 	margin-bottom: 5px;
 }
+
+
 /**
 	Prev / Next links
 **/
