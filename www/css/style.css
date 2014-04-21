@@ -28,6 +28,16 @@ html, body {
 /**
 	Responsive fixes
 **/
+@media (max-width: 1199px) {
+	.visible-desktop-large {
+		display: none !important;
+	}
+}
+@media (min-width: 1200px) {
+	.hidden-desktop-large {
+		display: none !important;
+	}
+}
 @media (max-width: 767px) {
 	body {
 		padding-left: 0px !important;
