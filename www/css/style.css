@@ -81,12 +81,6 @@ body {
 b, strong {
 	font-weight: 400;
 }
-a {
-	color: #f98510;
-}
-a:hover {
-	color: #f56e19;
-}
 h1, h2, h3 {
 	font-family: "Dosis", sans-serif;
 	font-weight: 400;
