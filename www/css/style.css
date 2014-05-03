@@ -94,6 +94,7 @@ body p, body li p, body td p {
 }
 body li {
 	margin-bottom: 2px;
+	padding-left: 10px;
 }
 body li ul {
 	margin-top: 2px;
@@ -130,9 +131,6 @@ h5 {
 h6 {
 	font-size: 16px;
 }
-ul {
-	list-style: square;
-}
 a.anch {
 	position: relative;
 	top: -30px;
@@ -149,8 +147,11 @@ a.anch {
 	margin-bottom: 0px;
 }
 .section blockquote {
-	padding: 30px 20px;
 	margin: 20px 20px 20px 20px;
+	padding: 0 20px;
+}
+.homepage .section blockquote {
+	padding: 30px 20px;
 }
 .section blockquote p {
 	font-size: 18px;
@@ -373,10 +374,10 @@ ul.logos li.arr {
 
 html pre, html code {
 	font-family: "Source Sans Pro", "Courier New";
-	font-size: 14px;
+	font-size: 16px;
+	line-height: 24px;
 }
 pre, div.pre {
-	font-size: 20px;
 	color: #333;
 	background-color: #f3f3f3;
 	border: 1px solid #bbb;
@@ -628,6 +629,7 @@ html .gsc-search-box .gsc-input > input:focus, html .gsc-input-box-focus {
 }
 .navbar .nav li {
 	margin-bottom: 0;
+	padding-left: 0;
 }
 
 .marketing-row a.fa {
