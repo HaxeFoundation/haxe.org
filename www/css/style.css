@@ -75,21 +75,63 @@ html, body {
 	Main styles
 **/
 body {
-	font-family: "Nunito", sans-serif;
-	font-weight: 300;
+	font-family: "Open Sans", sans-serif;
+	font-weight: 400;
+	font-size: 16px;
+	color: #1e1e1e;
 }
 b, strong {
-	font-weight: 400;
+	font-weight: 700;
 }
-h1, h2, h3 {
-	font-family: "Dosis", sans-serif;
-	font-weight: 400;
+a {
+	color: #3369bc;
+}
+body, body p, body td {
+	line-height: 24px;
+}
+body p, body li p, body td p {
+	margin-bottom: 12px;
+}
+body li {
+	margin-bottom: 2px;
+}
+body li ul {
+	margin-top: 2px;
+}
+body li p {
+	margin-bottom: 10px;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Source Sans Pro", sans-serif;
+	font-weight: 600;
+}
+h1 {
+	font-size: 36px;
+	color: #171717;
+}
+h1 small {
+	display: block;
+	font-size: 50px;
+	color: #a1a1a1;
+	font-weight: 200;
+}
+h2 {
+	font-size: 30px;
+}
+h3 {
+	font-size: 24px;
+}
+h4 {
+	font-size: 20px;
+}
+h5 {
+	font-size: 18px;
+}
+h6 {
+	font-size: 16px;
 }
 ul {
 	list-style: square;
-}
-h1 {
-	font-weight: 300;
 }
 a.anch {
 	position: relative;
@@ -118,17 +160,6 @@ a.anch {
 	.homepage .section blockquote {
 		margin: 100px 20px 100px 20px !important;
 	}
-}
-.section .row {
-	text-align: left;
-}
-.section h2 {
-	text-align: center;
-	letter-spacing: -1px;
-}
-.section .row h3 {
-	text-align: center;
-	font-weight: 300;
 }
 .section .row.component {
 	margin-bottom: 20px;
@@ -180,7 +211,7 @@ a.anch {
 	padding: 0;
 }
 .section.site-footer a {
-	color: rgb(160,160,160);
+	color: #3369bc;
 }
 .section.site-footer a:hover {
 	color: rgb(100,100,100);
@@ -244,7 +275,6 @@ a.anch {
 .head .head-content h1 {
 	color: #666;
 	font-weight: bold;
-	letter-spacing: -1px;
 }
 .head .head-content .lead {
 	color: #999;
@@ -341,8 +371,11 @@ ul.logos li.arr {
 	Code Highlighting
 **/
 
+html pre, html code {
+	font-family: "Source Sans Pro", "Courier New";
+	font-size: 14px;
+}
 pre, div.pre {
-	font-family: "Source Code Pro", "Courier New";
 	font-size: 20px;
 	color: #333;
 	background-color: #f3f3f3;
@@ -391,12 +424,12 @@ pre .cmt .kwd, pre .cmt .str, pre .cmt .val {
 	margin-left: 0;
 }
 .tree-nav li {
-	height: 19px;
+	height: 24px;
 	overflow: hidden;
 }
 .tree-nav li i.fa {
-	height: 14px;
-	width: 14px;
+	height: 16px;
+	width: 16px;
 	color: rgb(200,200,200);
 }
 .tree-nav li i.fa:hover {
@@ -585,13 +618,16 @@ html .gsc-search-box .gsc-input > input:focus, html .gsc-input-box-focus {
 	display: block;
 }
 .section.site-footer .sitemap h5 a {
-	color: rgb(140,140,140);
-	letter-spacing: -1px;
+	color: #3369bc;
 }
 
 .navbar .brand {
 	font-weight: bold;
-	letter-spacing: -2px;
+	line-height: 16px;
+	padding-top: 9px;
+}
+.navbar .nav li {
+	margin-bottom: 0;
 }
 
 .marketing-row a.fa {
