@@ -17,7 +17,7 @@
 
 <body>
 
-<div class="section nav">
+<div class="section nav dark">
 	<div class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container">
@@ -28,12 +28,11 @@
 					<span class="icon-bar"></span>
 				</button>
 
-				<a class="brand" href="/"><img src="/img/haxe-logo-horizontal.svg" width="107" height="21" alt="Haxe" /></a>
+				<a class="brand" href="/"><img src="/img/haxe-logo-horizontal-on-dark.svg" width="107" height="21" alt="Haxe" /></a>
 				<div class="nav-collapse collapse">
 					::navBar::
 					
 					<form class="navbar-search pull-right visible-desktop-large">
-						<!-- <input type="text" class="search-query" placeholder="Search" onkeyup="_.filter(this.value)"/> -->
 						<div class="search">
 							<div id="cse-search-form" style="width: 100%;"></div>
 							<script src="http://www.google.com/jsapi" type="text/javascript"></script>
@@ -52,8 +51,8 @@
 							</script>
 						</div>
 					</form>
-					<ul class="nav pull-right hidden-desktop-large">
-						<li><a href="/search">Search</a></li>
+					<ul class="nav pull-right search-link-menu">
+						<li><a href="/search"><i class="fa fa-search"></i> Search</a></li>
 					</ul>
 				</div>
 				
@@ -67,14 +66,14 @@
 	::viewContent::
 </div>
 
-<footer class="section site-footer inset">
+<footer class="section dark site-footer">
 	<div class="container">
 		<div class="sitemap clearfix">
 			::siteMap::
 		</div>
 		<div class="copyright">
-			<p>&copy;2013 
-			<a href="http://haxe-foundation.org" title="Haxe Foundation Website">Haxe Foundation</a>
+			<p>&copy;2014
+			<a href="http://haxe-foundation.org" title="Haxe Foundation Website" class="hf-link">Haxe Foundation</a>
 			::if (editLink != null)::
 			| <a href="::editLink::" class="edit-link" title="Use Github to suggest an edit to this page">Contribute to this page</a>
 			::end::
