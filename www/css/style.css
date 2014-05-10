@@ -186,11 +186,18 @@ a.anch {
 	height: 54px;
 	line-height: 54px;
 	text-shadow: none;
+	padding-right: 33px; /* 12px default + some space for our caret */
 }
 .section.head .btn-haxe:hover, .section.head .btn-haxe:active {
 	color: rgb(208, 116, 28);
 	border-color: rgb(208, 116, 28);
 	background: rgba(0,0,0,0.1);
+}
+.section.head .btn-haxe .fa {
+	position: absolute;
+	right: 15px;
+	top: 23px;
+	font-size: 16px;
 }
 
 
