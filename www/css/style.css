@@ -421,14 +421,23 @@ pre .cmt .kwd, pre .cmt .str, pre .cmt .val {
 }
 
 /**
-	Downloads page
+	Icon headers
 **/
-.downloads .header i.fa {
+.header .fa {
 	font-size: 48px;
 	text-align: center;
 	display: block;
-	margin: 10px 0;
+	margin: 10px 0 30px;
+	color: rgb(200,200,200);
 	cursor: default;
+}
+.header a.fa {
+	text-decoration: none;
+	cursor: pointer;
+}
+.header a.fa:hover {
+	color: #3369BC;
+	text-decoration: none;
 }
 
 /**
@@ -730,14 +739,4 @@ html .gsc-search-box .gsc-input > input:focus, html .gsc-input-box-focus {
 		/** Hide the "Home" menu item on small screens **/
 		display: none;
 	}
-}
-
-.marketing-row a.fa {
-	font-size: 80px;
-	display: block;
-	text-align: center;
-	color: #bbb;
-}
-.marketing-row a.fa:hover {
-	text-decoration: none;
 }
