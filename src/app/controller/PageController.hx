@@ -23,7 +23,15 @@ class PageController extends Controller {
 	public function doHomepage() {
 		var siteContentDir = context.request.scriptDirectory+Config.app.siteContent.folder;
 		var repo = siteContentDir+"/"+Config.app.siteContent.pages.folder;
-		return showContent( null, "/", "index.html", repo, repo, null, false );
+		return showContent({
+			title: null,
+			baseUrl: "/",
+			file: "index.html",
+			repo: repo,
+			attachmentsRepo: repo,
+			sidebar: null,
+			editLink: null
+		});
 	}
 
 	@:route("/documentation/")
@@ -43,7 +51,15 @@ class PageController extends Controller {
 		var title = 
 			try sitemap.getPageForUrl( '$page' ).title
 			catch ( e:Dynamic ) null;
-		return showContent( title, "/manual/", page, repo, attachmentsRepo, sitemap, true );
+		return showContent({
+			title: title,
+			baseUrl: "/manual/",
+			file: page,
+			repo: repo,
+			attachmentsRepo: attachmentsRepo,
+			sidebar: sitemap,
+			editLink: Config.app.manual.editLink
+		});
 	}
 
 	@:route( "/$folder/*" )
@@ -66,33 +82,54 @@ class PageController extends Controller {
 		if ( page=="" ) page = "index.html";
 		if ( page.extension()=="" ) page += "/index.html";
 
-		return showContent( title, "/", page, repo, repo, sidebar, true );
+		return showContent({
+			title: title,
+			baseUrl: "/",
+			file: page,
+			repo: repo,
+			attachmentsRepo: repo,
+			sidebar: sidebar,
+			editLink: null
+		});
 	}
 
-	function showContent( title:String, baseUrl:String, file:String, repo:String, attachmentsRepo:String, sidebar:SiteMap, createPrevNextNav:Bool ):ActionResult {
-		if ( attachmentsRepo==null )
-			attachmentsRepo = repo;
-
-		switch file.extension() {
+	function showContent( params:{ title:String, baseUrl:String, file:String, repo:String, attachmentsRepo:String, sidebar:SiteMap, editLink:Null<String> } ):ActionResult {
+		switch params.file.extension() {
 			case "html": 
-				var filename = pageApi.locatePage( repo, file );
-				var content = pageApi.loadPage( filename );
-				var nav:String = (sidebar!=null) ? sidebar.printSitemap( SideBar, baseUrl, context.httpContext.getRequestUri() ) : null;
-				var prevNextLinks = 
-					if (createPrevNextNav) sidebar.getPrevNextLinks( baseUrl, context.httpContext.getRequestUri() );
-					else null;
 
-				var viewFile = (sidebar!=null) ? "page/page-with-sidebar.html" : "page/raw.html";
+				var nav = null,
+				    prevNextLinks = null,
+				    viewFile:String;
+
+				var filename = pageApi.locatePage( params.repo, params.file );
+				var content = pageApi.loadPage( filename );
+
+				if ( params.sidebar!=null ) {
+					nav = params.sidebar.printSitemap( SideBar, params.baseUrl, context.httpContext.getRequestUri() );
+					prevNextLinks = params.sidebar.getPrevNextLinks( params.baseUrl, context.httpContext.getRequestUri() );
+					viewFile = "page/page-with-sidebar.html";
+				}
+				else {
+					viewFile = "page/raw.html";
+				}
+
+				if ( params.editLink==null ) {
+					var siteContentDir = context.request.scriptDirectory+Config.app.siteContent.folder+"/"+Config.app.siteContent.pages.folder;
+					var relativeFilename = filename.substr( siteContentDir.length+1 );
+					params.editLink = Config.app.siteContent.editBaseUrl+relativeFilename;
+				}
 
 				return ViewResult.create({
-					title: title,
+					title: params.title,
 					content: content,
 					sideNav: nav,
 					prevNextLinks: prevNextLinks,
-					editLink: Config.app.siteContent.editBaseUrl+filename
+					editLink: params.editLink
 				}, viewFile);
+
 			case _:
-				var attachment = pageApi.getAttachment( attachmentsRepo, file );
+
+				var attachment = pageApi.getAttachment( params.attachmentsRepo, params.file );
 				var bytes = attachment.a;
 				var filename = attachment.b;
 				var result = new BytesResult( bytes, filename );
