@@ -89,6 +89,12 @@ b, strong {
 a {
 	color: #3369bc;
 }
+a[href="#"] {
+	/** Non-existent link **/
+	color: red;
+	cursor: default;
+	text-decoration: none;
+}
 body, body p, body td {
 	line-height: 24px;
 }
@@ -390,8 +396,8 @@ ul.logos li.arr {
 
 html pre, html pre code {
 	font-family: "Source Code Pro", "Courier New";
-	font-size: 16px;
-	line-height: 24px;
+	font-size: 14px;
+	line-height: 20px;
 	white-space: pre;
 	overflow-x: auto;
 }

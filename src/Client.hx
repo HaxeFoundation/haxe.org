@@ -11,6 +11,7 @@ class Client
 			syntaxHighlight();
 			pullOutStyling();
 			tableStyling();
+			emptyLinks();
 		});
 	}
 
@@ -75,5 +76,9 @@ class Client
 	static function setupBootstrap() {
 		var popoverLinks = J( '.popover-icon' );
 		untyped popoverLinks.popover();
+	}
+
+	static function emptyLinks() {
+		J( 'a[href="#"]' ).click( function() return false ).attr("title","This page has not been created yet");
 	}
 }
