@@ -14,7 +14,7 @@
    id="svg3238"
    version="1.1"
    inkscape:version="0.48.3.1 r9886"
-   sodipodi:docname="haxe-logo-horizontal.svg">
+   sodipodi:docname="haxe-logo-horizontal-on-dark.svg">
   <defs
      id="defs3240" />
   <sodipodi:namedview
@@ -25,7 +25,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="5.6"
-     inkscape:cx="106.13024"
+     inkscape:cx="84.88024"
      inkscape:cy="-8.7364518"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -47,7 +47,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -127,7 +127,7 @@
     </g>
     <g
        id="g3347"
-       transform="matrix(0.94971056,0,0,0.94971056,14.894649,-13.858092)"
+       transform="matrix(0.63314038,0,0,0.63314038,21.66293,338.04867)"
        style="fill:#ffffff">
       <path
          d="m 9.5343166,1100.5672 6.8142754,0 0,7.6782 6.378705,0 0,-7.6782 6.81431,0 0,22.112 -6.81431,0 0,-8.7639 -6.378705,0 0,8.7639 -6.8142754,0 0,-22.112"
