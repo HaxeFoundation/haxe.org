@@ -35,13 +35,14 @@ class SiteApi extends ufront.api.UFApi {
 		var oldCwd = Web.getCwd();
 		try Sys.setCwd( contentDir ) catch(e:String) throw 'Failed to setCwd into $contentDir before cloning $gitPath'.withData(e);
 
-		var p:Process;
-
 		if ( FileSystem.exists(intoDir) ) {
+			ufTrace('Already existed');
 			if ( removeFirst ) {
+				ufTrace('Remove');
 				try unlink(intoDir) catch(e:Dynamic) throw 'Failed to delete existing directory $intoDir'.withData(e);
 			}
 			else {
+				ufTrace('We will try update it');
 				if ( !FileSystem.exists(intoDir.addTrailingSlash()+'.git') ) {
 					// File exists, but isn't git.
 					return "Not a git repo, no need to update";
@@ -55,6 +56,7 @@ class SiteApi extends ufront.api.UFApi {
 		}
 
 		if ( FileSystem.exists(intoDir)==false ) {
+			ufTrace("Did not exist, let's clone it");
 			// Clone
 			try process( "git", ["clone",gitPath,intoDir] ) catch(e:String) throw 'Failed to run `git clone $gitPath $intoDir`'.withData(e);
 			try Sys.setCwd( intoDir ) catch(e:String) throw 'Failed to setCwd into $intoDir after doing git pull'.withData(e);

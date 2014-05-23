@@ -17,8 +17,8 @@
 		"repo": "https://github.com/HaxeFoundation/HaxeManual.git",
 		"branch": "master",
 		"dir": "manual",
-		"mdDir": "md/manual",
-		"htmlDir": "html",
-		"imagesDir": "assets/graphics/generated"
+		"mdDir": "manual/md/manual",
+		"htmlDir": "manual-html",
+		"imagesDir": "manual/assets/graphics/generated"
 	}
 }
