@@ -42,10 +42,10 @@ class ManualUpdateApi extends ufront.api.UFApi {
 
 		var sectionsJson = File.getContent( '$mdDir/sections.txt' );
 		var sections:Array<ManualSectionJson> = Json.parse( sectionsJson );
-		sections = processSections( sections );
+		var validSections = processSections( sections );
 
 		try {
-			var sitemap = generateSiteMap( sections );
+			var sitemap = generateSiteMap( validSections );
 			File.saveContent( '$htmlDir/sitemap.json', Json.stringify(sitemap) ); 
 		}
 		catch ( e:Dynamic ) throw 'Failed to create save $htmlDir/sitemap.json';
@@ -57,7 +57,8 @@ class ManualUpdateApi extends ufront.api.UFApi {
 			sub: [],
 			state: 0,
 			title: "Dictionary",
-			index: 0
+			index: 0,
+			editLink: null
 		}
 		processSection( dictionarySection );
 	}
@@ -70,7 +71,8 @@ class ManualUpdateApi extends ufront.api.UFApi {
 		for ( section in sections ) {
 			var page:SitePage = {
 				title: section.title,
-				url: section.label+".html"
+				url: section.label+".html",
+				editLink: section.editLink
 			}
 			if ( section.sub!=null && section.sub.length>0 ) {
 				page.sub = generateSiteMap( section.sub );
@@ -115,8 +117,7 @@ class ManualUpdateApi extends ufront.api.UFApi {
 
 			var titleNode:DOMNode = null;
 			var endOfContentNode:DOMNode = null;
-			var prevLink:DOMNode = null;
-			var nextLink:DOMNode = null;
+			var editLink:Null<String> = null;
 
 			for ( node in xml.children() ) {
 				if ( endOfContentNode==null ) {
@@ -140,18 +141,13 @@ class ManualUpdateApi extends ufront.api.UFApi {
 				}
 				else {
 					if ( node.tagName()=="p" ) {
-						var pText = node.text();
-						if ( pText.startsWith("Previous section:") ) {
-							prevLink = node.firstElement();
-						}
-						else if ( pText.startsWith("Next section:") ) {
-							nextLink = node.firstElement();
+						if ( node.text().startsWith("Contribute:") ) {
+							section.editLink = node.firstElement().attr( "href" );
 						}
 					}
 					node.removeFromDOM();
 				}
 			}
-			addPrevNextEditLinks( prevLink, nextLink, titleNode, endOfContentNode );
 
 			try File.saveContent( outFilename, xml.html() ) catch ( e:Dynamic ) throw 'Failed to write to file $outFilename';
 
@@ -169,7 +165,8 @@ class ManualUpdateApi extends ufront.api.UFApi {
 		So far:
 
 		- Links, will need the `href="something.md"` transformed into `href="something.html"`
-		- Images, will need to be loaded correctly
+		- Tables will have "table table-bordered" classes added for styling.
+		- Images, will need paths altered.
 	**/
 	function processNodes( top:DOMNode ) {
 		var thisAndDescendants = top.descendants( true ).add( top );
@@ -186,31 +183,5 @@ class ManualUpdateApi extends ufront.api.UFApi {
 				default:
 			}
 		}
-	}
-
-	function addPrevNextEditLinks( prevLink:DOMNode, nextLink:DOMNode, titleNode:DOMNode, endOfContentNode:DOMNode ) {
-		// var header = "div".create().addClass( "prev-next-links clearfix top" );
-		// var footer = "div".create().addClass( "prev-next-links clearfix bottom" );
-
-		// if ( prevLink!=null ) {
-		// 	prevLink.addClass( "prev-link" ).setAttr( "href", prevLink.attr("href").replace(".md",".html") );
-		// 	header.append( prevLink );
-		// 	footer.append( prevLink.clone() );
-		// }
-		
-		// var contributeLink = '<a href="${app.Config.app.manual.editLink}">Contribute to this page</a>'.parse();
-		// footer.append( contributeLink );
-
-		// if ( nextLink!=null ) {
-		// 	nextLink.addClass( "next-link" ).setAttr( "href", nextLink.attr("href").replace(".md",".html") );
-		// 	header.append( nextLink );
-		// 	footer.append( nextLink.clone() );
-		// }
-
-		// titleNode.afterThisInsert( header );
-		// endOfContentNode.afterThisInsert( footer );
-		endOfContentNode.removeFromDOM();
-		prevLink.removeFromDOM();
-		nextLink.removeFromDOM();
 	}
 }
