@@ -12,6 +12,7 @@ class Client
 			pullOutStyling();
 			tableStyling();
 			emptyLinks();
+			externalLinks();
 		});
 	}
 
@@ -71,6 +72,11 @@ class Client
 
 	static function tableStyling() {
 		J( '.site-content' ).addClass( 'table' );
+	}
+
+	static function externalLinks() {
+		J( ".site-content a[href^='http://']" ).attr( 'target', '_blank' );
+		J( ".site-content a[href^='https://']" ).attr( 'target', '_blank' );
 	}
 
 	static function setupBootstrap() {
