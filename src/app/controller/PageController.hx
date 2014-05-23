@@ -116,7 +116,7 @@ class PageController extends Controller {
 				if ( params.editLink==null ) {
 					var siteContentDir = context.request.scriptDirectory+Config.app.siteContent.folder+"/"+Config.app.siteContent.pages.folder;
 					var relativeFilename = filename.substr( siteContentDir.length+1 );
-					params.editLink = Config.app.siteContent.editBaseUrl+relativeFilename;
+					params.editLink = Config.app.siteContent.editBaseUrl+Config.app.siteContent.pages.folder+'/'+relativeFilename;
 				}
 
 				return ViewResult.create({
