@@ -20,7 +20,6 @@ class UpdateController extends Controller {
 
 	@:route("/site/")
 	public function doSite() {
-		var manualDir = contentDir+Config.app.siteContent.folder;
 		var assetSiteContent = context.request.scriptDirectory+Config.app.siteContent.folder;
 		var ufSiteContent = contentDir+Config.app.siteContent.folder;
 		var downloadInDir = assetSiteContent+'/'+Config.app.siteContent.versions.folder;
@@ -35,16 +34,16 @@ class UpdateController extends Controller {
 	}
 
 	@:route("/manual/")
-	public function doManual( ?args:{ forceDelete:Bool } ) {
+	public function doManual() {
 
-		if ( args.forceDelete==null ) args.forceDelete = false;
+		var forceDelete = false;
 		var gitRepo = Config.app.manual.repo;
 		var branch = Config.app.manual.branch;
 		var manualDir = contentDir+Config.app.manual.dir+'/';
-		var manualMdDir = manualDir+Config.app.manual.mdDir;
-		var manualHtmlDir = manualDir+Config.app.manual.htmlDir;
+		var manualMdDir = contentDir+Config.app.manual.mdDir;
+		var manualHtmlDir = contentDir+Config.app.manual.htmlDir;
 		
-		siteApi.cloneRepo( gitRepo, manualDir, branch, args.forceDelete );
+		siteApi.cloneRepo( gitRepo, manualDir, branch, forceDelete );
 		manualApi.convertMarkdownToHtml(manualMdDir,manualHtmlDir);
 
 		return ViewResult.create({

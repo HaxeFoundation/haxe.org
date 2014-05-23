@@ -45,8 +45,8 @@ class PageController extends Controller {
 
 	@:route( "/manual/$page" ) 
 	public function doManual( ?page:String="introduction.html" ) {
-		var repo = context.httpContext.contentDirectory+Config.app.manual.dir+"/"+Config.app.manual.htmlDir;
-		var attachmentsRepo = context.httpContext.contentDirectory+Config.app.manual.dir+"/"+Config.app.manual.imagesDir;
+		var repo = context.httpContext.contentDirectory+Config.app.manual.htmlDir;
+		var attachmentsRepo = context.httpContext.contentDirectory+Config.app.manual.imagesDir;
 		var sitemap = pageApi.getSitemap( repo );
 		var pageDetails =
 			try sitemap.getPageForUrl( '$page' )
