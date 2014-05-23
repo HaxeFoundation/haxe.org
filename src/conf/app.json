@@ -19,7 +19,6 @@
 		"dir": "manual",
 		"mdDir": "md/manual",
 		"htmlDir": "html",
-		"imagesDir": "assets/graphics/generated",
-		"editLink": "https://github.com/HaxeFoundation/HaxeManual/blob/master/HaxeDoc.tex"
+		"imagesDir": "assets/graphics/generated"
 	}
 }

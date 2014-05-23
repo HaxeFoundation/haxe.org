@@ -48,9 +48,11 @@ class PageController extends Controller {
 		var repo = context.httpContext.contentDirectory+Config.app.manual.dir+"/"+Config.app.manual.htmlDir;
 		var attachmentsRepo = context.httpContext.contentDirectory+Config.app.manual.dir+"/"+Config.app.manual.imagesDir;
 		var sitemap = pageApi.getSitemap( repo );
-		var title = 
-			try sitemap.getPageForUrl( '$page' ).title
+		var pageDetails =
+			try sitemap.getPageForUrl( '$page' )
 			catch ( e:Dynamic ) null;
+		var title = (pageDetails!=null) ? pageDetails.title : null;
+		var editLink = (pageDetails!=null) ? pageDetails.editLink : null;
 		return showContent({
 			title: title,
 			baseUrl: "/manual/",
@@ -58,7 +60,7 @@ class PageController extends Controller {
 			repo: repo,
 			attachmentsRepo: attachmentsRepo,
 			sidebar: sitemap,
-			editLink: Config.app.manual.editLink
+			editLink: editLink
 		});
 	}
 

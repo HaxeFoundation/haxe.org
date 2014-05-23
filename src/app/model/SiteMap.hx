@@ -10,6 +10,7 @@ typedef SiteMap = Array<SitePage>;
 typedef SitePage = {
 	var url:String;
 	var title:String;
+	@:optional var editLink:Null<String>;
 	@:optional var sub:Null<SiteMap>;
 };
 
@@ -59,7 +60,6 @@ class SiteMapHelper {
 			var collapsedSitemap = collapseSitemap(sitemap);
 
 			for ( page in collapsedSitemap ) {
-				trace( 'Check $baseUrl${page.url}==$currentUri' );
 				if ( baseUrl+page.url==currentUri ) {
 					// This is the active page.  
 					// We'll leave `previousPage` whatever it was on the previous iteration.
