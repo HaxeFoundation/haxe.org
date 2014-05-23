@@ -19,6 +19,7 @@ class DownloadController extends Controller {
 	@inject public var apiSite:SiteApi;
 
 	static inline function versionRepo() return Config.app.siteContent.folder+'/'+Config.app.siteContent.versions.folder;
+    static inline function baseEditUrl() return Config.app.siteContent.editBaseUrl+Config.app.siteContent.versions.folder+'/';
 
 	@:route("")
 	public function doDefault(  ) {
@@ -35,7 +36,7 @@ class DownloadController extends Controller {
 			title: 'Haxe Download List', 
 			topNav: '/download/',
 			tagBaseUrl: Config.app.siteContent.versions.tagBaseUrl,
-			editLink: Config.app.siteContent.versions.versionsBaseUrl,
+			editLink: baseEditUrl(),
 			versions: versions,
 			currentViewion: result.current
 		});
@@ -49,7 +50,7 @@ class DownloadController extends Controller {
 			topNav: '/download/',
 			tagBaseUrl: Config.app.siteContent.versions.tagBaseUrl,
 			compareBaseUrl: Config.app.siteContent.versions.compareBaseUrl,
-			editLink: Config.app.siteContent.versions.versionsBaseUrl + version.replace(".",",") + '/'
+			editLink: baseEditUrl() + version.replace(".",",") + '/'
 		}, "download/version.html" ).setVars( result );
 	}
 
