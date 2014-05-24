@@ -14,6 +14,7 @@ using tink.CoreApi;
 using haxe.io.Path;
 using app.model.SiteMap;
 
+@cacheRequest
 class PageController extends Controller {
 	
 	@inject public var pageApi:PageApi;

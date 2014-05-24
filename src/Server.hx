@@ -4,6 +4,9 @@ import ufront.app.UfrontApplication;
 import ufront.handler.ErrorPageHandler;
 import ufront.view.TemplatingEngines;
 import ufront.view.UFTemplate;
+import ufront.cache.MemoryCache;
+import ufront.cache.UFCache;
+import ufront.middleware.RequestCache;
 import ufront.ufadmin.controller.*;
 import ufront.auth.*;
 import ufront.web.*;
@@ -27,13 +30,15 @@ class Server
 
 	static function init() {
 		if ( ufrontApp==null ) {
-
 			// Set up the error handlers
 
 			var errorPageHandler = new ErrorPageHandler();
 			errorPageHandler.renderErrorPage = function( title, content ) return CompileTime.interpolateFile( 'app/view/error.html' );
 
 			var oldSiteRedirectHandler = new OldSiteRedirectHandler();
+
+			// Set up cache middleware
+			var requestCache = new RequestCache();
 
 			// Set up the dispatcher and routing
 
@@ -45,9 +50,12 @@ class Server
 					errorHandlers: [oldSiteRedirectHandler,errorPageHandler],
 					contentDirectory: "../uf-content/",
 				})
+				.inject( UFCacheConnection, new MemoryCacheConnection() )
 				.addTemplatingEngine( TemplatingEngines.haxe )
 				.inject( String, "layout.html", "defaultLayout" )
 			;
+			ufrontApp.addRequestMiddleware( requestCache );
+			ufrontApp.addResponseMiddleware( requestCache );
 		}
 	}
 }
