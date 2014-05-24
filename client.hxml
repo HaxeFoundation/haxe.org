@@ -8,9 +8,7 @@
 
 # Compile flags
 -D client
--D embed_js
 -dce full
--debug
 
 # Output
 -main Client 
