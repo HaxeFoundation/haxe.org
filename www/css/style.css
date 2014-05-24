@@ -514,6 +514,9 @@ html code {
 .prev-next-links+p {
 	margin-top: 20px;
 }
+.nav-stacked > li {
+	overflow: hidden;
+}
 .nav-stacked li a i.fa {
 	color: rgb(200,200,200);
 	margin-right: 7px;
