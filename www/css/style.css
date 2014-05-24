@@ -227,7 +227,7 @@ a.anch {
 /**
 	Billboard / head on homepage
 **/
-@media (max-width: 767px) {
+@media (max-width: 979px) {
 	.head .head-logo {
 		margin: 0 auto;
 	}
