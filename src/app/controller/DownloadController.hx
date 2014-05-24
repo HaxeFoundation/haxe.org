@@ -12,6 +12,7 @@ using Strings;
 using tink.CoreApi;
 using haxe.io.Path;
 
+@cacheRequest
 class DownloadController extends Controller {
 	
 	@inject("contentDirectory") public var contentDir:String;
