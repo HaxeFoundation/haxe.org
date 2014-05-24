@@ -35,7 +35,7 @@
 		"beforePush": [],
 		"afterPush": [],
 		"beforePull": [],
-		"afterPull": ["cp .htaccess-newhaxe .htaccess"],
+		"afterPull": [],
 		"afterComplete": []
 	}
 }
