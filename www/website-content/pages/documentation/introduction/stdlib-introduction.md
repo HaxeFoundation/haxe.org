@@ -21,7 +21,7 @@ Top-level:
 * [Array](http://api.haxe.org/Array.html): Typed collection which defines several ECMA-compliant operations
 * [Date, DateTools](http://api.haxe.org/Date.html): Operations related to dates and timestamps
 * [EReg](http://api.haxe.org/EReg.html): Regular Expressions
-* [Lambda](http://api.haxe.org/Labda.html): Operations over iterables
+* [Lambda](http://api.haxe.org/Lambda.html): Operations over iterables
 * [Map](http://api.haxe.org/Map.html): Key-to-value mapping data structure
 * [Math](http://api.haxe.org/Math.html): ECMA-compliant mathematical functions
 * [Reflect](http://api.haxe.org/Reflect.html): Field-related reflection
