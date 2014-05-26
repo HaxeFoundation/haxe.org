@@ -130,7 +130,7 @@ class ManualUpdateApi extends ufront.api.UFApi {
 							titleNode = h1;
 							node.replaceWith( h1 );
 						case "blockquote":
-							var firstElm = node.firstElement();
+							var firstElm = node.firstChildren();
 							if ( firstElm.tagName()=="h5" ) {
 								if ( firstElm.text().startsWith("Define") ) node.addClass("define");
 								else if ( firstElm.text().startsWith("Trivia") ) node.addClass("trivia");
@@ -142,7 +142,7 @@ class ManualUpdateApi extends ufront.api.UFApi {
 				else {
 					if ( node.tagName()=="p" ) {
 						if ( node.text().startsWith("Contribute:") ) {
-							section.editLink = node.firstElement().attr( "href" );
+							section.editLink = node.firstChildren().attr( "href" );
 						}
 					}
 					node.removeFromDOM();
