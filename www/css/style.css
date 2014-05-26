@@ -464,6 +464,8 @@ pre .cmt .kwd, pre .cmt .str, pre .cmt .val {
 .tree-nav li i.fa {
 	height: 16px;
 	width: 16px;
+	margin-right:5px;
+	margin-bottom: 5px;
 	color: rgb(200,200,200);
 }
 .tree-nav li i.fa:hover {
