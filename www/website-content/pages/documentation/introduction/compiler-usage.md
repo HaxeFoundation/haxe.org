@@ -4,12 +4,12 @@ Using the Haxe Compiler
 Basic Usage
 -------
 
-The Haxe Compiler is typically invoked from command line with several arguments which have to answer two questions:
+The Haxe Compiler is typically invoked from the command line with several arguments which have to answer two questions:
 
 1. What should be compiled?
 2. What should the output be?
 
-To answer the first question, it is usually sufficient to provide a class path via the `-cp path` argument, along with the main class to be compiled via the `-main dot_path` argument. The Haxe Compiler then resolves the main class file and begins compilation.
+To answer the first question, it is usually sufficient to provide a classpath via the `-cp path` argument, along with the main class to be compiled via the `-main dot_path` argument. The Haxe Compiler then resolves the main class file and begins compilation.
 
 The second question usually comes down to providing an argument specifying the desired target. Each Haxe target has a dedicated command line switch, such as `-js file_name` for Javascript and `-php directory` for PHP. Depending on the nature of the target, the argument value is either a file name (for `-js`, `-swf` and `neko`) or a directory path.
 
