@@ -38,7 +38,7 @@ class OldSiteRedirectHandler implements UFErrorHandler {
 				newUrl = redirects.substring( commaPos, endOfLine );
 				straightRedirect = newUrl.length==0; // No specific redirect specified, point to same address old.haxe.org
 			}
-			else if ( uri.startsWith("/forum") || uri.startsWith("/wiki") || uri.startsWith("/api") ) {
+			else if ( uri.startsWith("/forum") || uri.startsWith("/wiki") || uri.startsWith("/api") || uri.startsWith("/file") ) {
 				straightRedirect = true;
 			}
 
