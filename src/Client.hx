@@ -46,7 +46,7 @@ class Client
 			
 			html = ~/("[^"]*")/g.replace(html, "<span class='str'>$1</span>");
 			html = ~/(\/\/[^\n]*)/g.replace(html, "<span class='cmt'>$1</span>");
-			html = ~/(\/\*[^*]*\*\/)/g.replace(html, "<span class='cmt'>$1</span>");
+			html = ~/(\/\*\*?[^*]*\*?\*\/)/g.replace(html, "<span class='cmt'>$1</span>");
 			html = html.split("\t").join("    ");
 			s.html(html);
 		}
