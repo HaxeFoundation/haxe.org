@@ -77,6 +77,7 @@ class Client
 	static function externalLinks() {
 		J( ".site-content a[href^='http://']" ).attr( 'target', '_blank' );
 		J( ".site-content a[href^='https://']" ).attr( 'target', '_blank' );
+		J( "a[href^='/api/']" ).attr( 'target', '_blank' );
 	}
 
 	static function setupBootstrap() {
