@@ -5,7 +5,7 @@ import app.api.SiteApi;
 import app.Config;
 import ufront.web.Controller;
 import ufront.web.Dispatch;
-import ufront.web.result.FilePathResult;
+import ufront.web.result.DirectFilePathResult;
 import ufront.web.result.ViewResult;
 import ufront.view.TemplateData;
 using Strings;
@@ -60,13 +60,13 @@ class DownloadController extends Controller {
 		var versionDir = version.replace( '.', ',' );
 		var scriptDir = context.request.scriptDirectory;
 		var file = 'api-$version.zip';
-		return new FilePathResult( scriptDir+versionRepo()+'/$versionDir/$file', null, file );
+		return new DirectFilePathResult( scriptDir+versionRepo()+'/$versionDir/$file' );
 	}
 
 	@:route("file/$version/$file")
 	public function doFileDownload( version:String, file:String ) {
 		version = version.replace( '.', ',' );
 		var scriptDir = context.request.scriptDirectory;
-		return new FilePathResult( scriptDir+versionRepo()+'/$version/downloads/$file', null, file );
+		return new DirectFilePathResult( scriptDir+versionRepo()+'/$version/downloads/$file' );
 	}
 }

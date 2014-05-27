@@ -131,13 +131,8 @@ class PageController extends Controller {
 				}, viewFile);
 
 			case _:
-
-				var attachment = pageApi.getAttachment( params.attachmentsRepo, params.file );
-				var bytes = attachment.a;
-				var filename = attachment.b;
-				var result = new BytesResult( bytes, filename );
-				result.setContentTypeByFilename( filename );
-				return result;
+				var filename = '${params.attachmentsRepo}/${params.file}';
+				return new DirectFilePathResult( filename );
 		}
 	}
 }

@@ -62,26 +62,6 @@ class PageApi extends ufront.api.UFApi {
 	}
 
 	/**
-		Get attachment content from a repository, or throw 404 if it does not exist.
-
-		@param repo Absolute path to page repo.  Should not include trailing slash.
-		@param path Should not include leading slash.
-		@return A pair containing the file content and filename.
-		@throw HttpError 400 if attachment is not found.
-	**/
-	public function getAttachment( repo:String, path:String ):Pair<Bytes,String> {
-		var filename = '$repo/$path';
-		if ( FileSystem.exists(filename) ) {
-			var content = 
-				try File.read(filename).readAll() 
-				catch(e:Dynamic) throw HttpError.internalServerError( 'Failed to read file $filename: $e' )
-			;
-			return new Pair( content, filename.withoutDirectory() );
-		}
-		else return throw HttpError.pageNotFound();
-	}
-
-	/**
 		Get the sitemap for a repo.
 
 		This does not validate that the parsed JSON matches our typedef, just that the sitemap exists and is valid JSON.
