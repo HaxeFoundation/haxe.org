@@ -46,7 +46,9 @@ class Server
 				new UfrontApplication({
 					indexController: Routes,
 					remotingApi: Api,
-//					logFile: "log/haxeorg.log",
+					#if debug
+						logFile: "log/haxeorg.log",
+					#end
 					errorHandlers: [oldSiteRedirectHandler,errorPageHandler],
 					contentDirectory: "../uf-content/",
 				})
