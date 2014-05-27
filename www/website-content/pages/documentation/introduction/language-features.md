@@ -42,7 +42,23 @@ __[Inlined calls](/manual/class-field-inline.html):__ Functions can be designed 
 
 __[Iterators](/manual/lf-iterators.html):__ Iterating over a set of values, e.g. the elements of an array, is very easy in Haxe courtesy of iterators. Custom classes can quickly implement iterator functionality to allow iteration. 
 
+```
+for (i in [1, 2, 3]) {
+	trace(i);
+}
+```
+
 __[Local functions and closures](/manual/expression-function.html):__ Functions in Haxe are not limited to class fields and can be declared in expressions as well, allowing powerful closures. 
+
+```
+var buffer = "";
+function append(s:String) {
+	buffer += s;
+}
+append("foo");
+append("bar");
+trace(buffer); // foobar
+```
 
 __[Metadata](/manual/lf-metadata.html):__ Add metadata to fields, classes or expressions. This can communicate information to the compiler, macros, or runtime classes.
 
@@ -68,7 +84,22 @@ trace('My name is $name and I work in ${job.industry}');
 
 __[Partial function application](/manual/lf-function-bindings.html):__ Any function can be applied partially, providing the values of some arguments and leaving the rest to be filled in later. 
 
+```
+var map = new haxe.ds.IntMap();
+var setToTwelve = map.set.bind(_, 12);
+setToTwelve(1);
+setToTwelve(2);
+```		
+
 __[Pattern Matching](/manual/lf-pattern-matching.html):__ Complex structures can be matched against patterns, extracting information from an enum or a structure and defining specific operations for specific value combination. 
+
+```
+var a = { foo: 12 };
+switch (a) {
+	case { foo: i }: trace(i);
+	default:
+}
+```
 
 __[Properties](/manual/class-field-property.html):__ Variable class fields can be designed as properties with custom read and write access, allowing fine grained access control. 
 
@@ -84,3 +115,14 @@ function set_color(c:String) {
 ```
 
 __[Type Parameters, Constraints and Variance](/manual/type-system-type-parameters.html):__ Types can be parametrized with type parameters, allowing typed containers and other complex data structures. Type parameters can also be constrained to certain types and respect variance rules. 
+
+```
+class Main<A> {
+	static function main() {
+		new Main<String>("foo");
+		new Main(12); // use type inference
+	}
+
+	function new(a:A) { }
+}
+```
