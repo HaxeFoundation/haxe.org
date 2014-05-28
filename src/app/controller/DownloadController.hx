@@ -39,7 +39,8 @@ class DownloadController extends Controller {
 			tagBaseUrl: Config.app.siteContent.versions.tagBaseUrl,
 			editLink: baseEditUrl(),
 			versions: versions,
-			currentViewion: result.current
+			currentViewion: result.current,
+			description: 'A list of versions of Haxe available for download on Windows, Mac and Linux.'
 		});
 	}
 
@@ -51,7 +52,8 @@ class DownloadController extends Controller {
 			topNav: '/download/',
 			tagBaseUrl: Config.app.siteContent.versions.tagBaseUrl,
 			compareBaseUrl: Config.app.siteContent.versions.compareBaseUrl,
-			editLink: baseEditUrl() + version.replace(".",",") + '/'
+			editLink: baseEditUrl() + version.replace(".",",") + '/',
+			description: 'Download Haxe $version for Windows, Mac or Linux.'
 		}, "download/version.html" ).setVars( result );
 	}
 
