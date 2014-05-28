@@ -34,7 +34,7 @@
 		"beforePush": [],
 		"afterPush": [],
 		"beforePull": [],
-		"afterPull": [],
+		"afterPull": ["touch index.n"],
 		"afterComplete": []
 	}
 }
