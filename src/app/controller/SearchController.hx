@@ -15,7 +15,8 @@ class SearchController extends Controller {
 
 		return ViewResult.create({
 			title: title,
-			topNav: '/search'
+			topNav: '/search',
+			description: 'Search results for `${q}` on haxe.org'
 		});
 	}
 }
