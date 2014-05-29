@@ -15,6 +15,7 @@ import app.*;
 class Server
 {
 	public static var ufrontApp:UfrontApplication;
+	public static var requestCache:RequestCache;
 
 	static function main() {
 		// enable caching if using mod_neko or mod_tora
@@ -38,7 +39,7 @@ class Server
 			var oldSiteRedirectHandler = new OldSiteRedirectHandler();
 
 			// Set up cache middleware
-			var requestCache = new RequestCache();
+			requestCache = new RequestCache();
 
 			// Set up the dispatcher and routing
 
