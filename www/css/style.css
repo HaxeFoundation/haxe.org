@@ -234,9 +234,13 @@ a.anch {
 	.head {
 		text-align: center;
 	}
-	.head .btn-toolbar .logo, .head .btn-toolbar .btn {
+	.head .btn-toolbar .btn {
 		display: block;
 		margin: 10px auto 10px;
+	}
+	.head .btn-toolbar .logo {
+		display: block;
+		margin: 10px auto 30px;
 	}
 }
 @media (min-width: 768px) {
@@ -249,7 +253,8 @@ a.anch {
 	}
 	.head .head-content {
 		width: 50%;
-		margin-bottom: 20px;
+		margin: 0 auto 30px;
+		text-align:center;
 	}
 	.head .btn-toolbar {
 		width: 754px; /* 230px logo + 232px buttons*2 + 20px padding between each */
