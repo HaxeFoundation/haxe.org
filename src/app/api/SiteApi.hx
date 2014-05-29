@@ -49,6 +49,7 @@ class SiteApi extends ufront.api.UFApi {
 				}
 
 				// Pull update
+				ufTrace( 'Currently in $contentDir, changing to $intoDir before running `git checkout $branch`' );
 				try Sys.setCwd( intoDir ) catch(e:String) throw 'Failed to setCwd into $intoDir before doing git pull'.withData(e);
 				try process( "git", ["checkout",branch] ) catch(e:String) throw 'Failed to checkout branch $branch'.withData(e);
 				try process( "git", ["pull"] ) catch(e:String) throw 'Failed to run `git pull` in $intoDir'.withData(e);
@@ -68,7 +69,7 @@ class SiteApi extends ufront.api.UFApi {
 		return "Repository cloned successfully";
 	}
 
-	function process( cmd:String, args:Array<String> ) {
+	function process( cmd:String, args:Array<String> ):String {
 		var p = new Process( cmd, args );
 		var exitCode = p.exitCode();
 		if (exitCode!=0) {
@@ -76,12 +77,13 @@ class SiteApi extends ufront.api.UFApi {
 			var failureMessage = [
 				'cloneRepo failed:',
 				'Command: $cmd ' + args.join(' '),
-				'CWD: ${Web.getCwd()}',
+				'CWD: ${Sys.getCwd()}',
 				'ExitCode: $exitCode',
 				'Stderr:\n$stdErr'
 			].join("\n<br/>  ");
 			throw failureMessage;
 		}
+		return p.stdout.readAll().toString();
 	}
 
 	/**
