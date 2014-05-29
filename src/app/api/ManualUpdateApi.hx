@@ -13,7 +13,7 @@ import ufront.web.HttpError;
 using Lambda;
 using tink.CoreApi;
 using haxe.io.Path;
-using Strings;
+using StringTools;
 using Detox;
 
 class ManualUpdateApi extends ufront.api.UFApi {
@@ -125,8 +125,11 @@ class ManualUpdateApi extends ufront.api.UFApi {
 						case "hr":
 							// A "---" in the markdown signifies the end of the page content, and the beginning of the navigation links.
 							endOfContentNode = node;
-						case "h2": 
-							var h1 = "h1".create().setInnerHTML( '<small>${section.id}</small> ${section.title}' );
+						case "h2":
+							var text = node.text().trim();
+							var id = text.substr( 0, text.indexOf(" ") );
+							var title = text.substr( text.indexOf(" ")+1 );
+							var h1 = "h1".create().setInnerHTML( '<small>$id</small> $title' );
 							titleNode = h1;
 							node.replaceWith( h1 );
 						case "blockquote":
