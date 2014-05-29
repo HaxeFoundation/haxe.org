@@ -138,6 +138,7 @@ class ManualUpdateApi extends ufront.api.UFApi {
 								if ( firstElm.text().startsWith("Define") ) node.addClass("define");
 								else if ( firstElm.text().startsWith("Trivia") ) node.addClass("trivia");
 							}
+							processNodes( node );
 						default: 
 							processNodes( node );
 					}
