@@ -19,5 +19,3 @@ I would like to thank both our old and new contributors, in particular:
 If you want to appear on this list for the next release, make sure to check us out on [GitHub](https://github.com/HaxeFoundation).
 
 Thank you for your support
-
-Simon Krajewski
