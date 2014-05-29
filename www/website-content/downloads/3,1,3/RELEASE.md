@@ -7,4 +7,3 @@ Make sure to check out the changelog (<http://haxe.org/file/CHANGES.txt>). In pa
 We haxe been working on extending our unit test coverage by running tests and samples of various libraries and projects such as Flambe, OpenFL, MassiveUnit and Polygonal DS. This allows us to detect breaking changes early. If you are interested in having other project tests added, please let us know!
 
 Thank you for your support
-Simon Krajewski
