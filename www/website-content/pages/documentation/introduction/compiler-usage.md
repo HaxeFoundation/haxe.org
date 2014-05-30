@@ -21,7 +21,8 @@ Input:
 * `-cp path`: Adds a class path where `.hx` source files or packages (sub-directories) can be found.
 * `-lib library_name`: Adds a [Haxelib](#) library.
 * `-main dot_path`: Sets the main class.
-
+* `-D no-compilation`: Only generates the source code without compiling it.
+* `-xml output_doc.xml`: Generates a XML documentation file with the javadoc information from all sources.
 
 Output:
 
@@ -34,4 +35,12 @@ Output:
 * `-cs directory`: Generates C# source code in specified directory.
 * `-java directory`: Generates Java source code in specified directory and compiles it using the Java Compiler.
 * `-python file_name`: Generates Python source code in the specified file.
+
+Java Target
+--------
+
+Input:
+
+* `-java-lib jar_file_path`: Includes a jar file with extra classes for compilation.
+
 
