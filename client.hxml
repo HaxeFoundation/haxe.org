@@ -1,9 +1,7 @@
 #
 # Compile the Client
 #
- 
--lib ufront-mvc
--lib compiletime
+
 -cp src
 
 # Compile flags
