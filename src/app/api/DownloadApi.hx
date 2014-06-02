@@ -8,6 +8,7 @@ package app.api;
 
 import app.model.Download;
 import haxe.Json;
+import ufront.sys.SysUtil;
 using StringTools;
 using Lambda;
 using tink.CoreApi;
@@ -104,6 +105,7 @@ class DownloadApi extends ufront.api.UFApi {
 					next: nextVersion
 				};
 				var json = Json.stringify( downloadInfo );
+				SysUtil.mkdir( outDir );
 				File.saveContent( outDir.addTrailingSlash()+commaVersion+'.json', json );
 			} catch ( e:Dynamic ) errorMessages.push( 'Failed to process download ${version.version}: $e $i ${versions.length}' );
 
