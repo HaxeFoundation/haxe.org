@@ -95,8 +95,8 @@ a[href="#"] {
 	cursor: default;
 	text-decoration: none;
 }
-body, body p, body td {
-	line-height: 24px;
+body, body p, body td, body li {
+	line-height: 1.5;
 }
 body p, body li p, body td p {
 	margin-bottom: 12px;
