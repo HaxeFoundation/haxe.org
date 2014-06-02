@@ -37,8 +37,8 @@ We currently use the bootstrap 2.3.2 CSS library and the Font Awesome 4.1.0 icon
 2.  `cd haxeorg`
 3.  `haxelib install all` - this will install all dependencies. Please note this may take a while.
 4.  `haxelib git markdown https://github.com/dpeek/haxe-markdown.git master src` - we need the development version of the markdown library.
-5.  `haxelib run ufront setup` - setup the "ufront" alias so you don't have to run `haxelib run ufront`
-6.  `ufront b` - builds all hxml files, alternatively, run `haxe server.hxml; haxe client.hxml; haxe tasks.hxml;`
+5.  `haxelib install ufront; haxelib run ufront setup` - setup the "ufront" alias so you don't have to run `haxelib run ufront`
+6.  `ufront b` - builds all hxml files, alternatively, run `haxe server.hxml; haxe client.hxml;`
 7.  Create a "uf-content" directory, make sure it is writeable by the web server.
 8.  `ufront s` - start a "nekotools" server in the `www` directory.
 9.  Visit `http://localhost:2987/update/manual/` to prepare the manual content.
