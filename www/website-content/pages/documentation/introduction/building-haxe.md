@@ -41,9 +41,12 @@ Building on Windows (Cygwin)
 -------
 
 1. Install a Cygwin version of OCaml: <http://protz.github.io/ocaml-installer/>
-    * To build Haxe you only need to choose `OCaml` and `Cygwin` in the install menu.
-    * In the cygwin package selection window, select `mingw64-i686-zlib` in addition to pre-selected packages. This is required to build Haxe.
+
+	* To build Haxe you only need to choose `OCaml` and `Cygwin` in the install menu.
+	* In the cygwin package selection window, select `mingw64-i686-zlib` in addition to pre-selected packages. This is required to build Haxe.
+
 2. Add the `bin` directory from Cygwin installation (e.g. `C:\cygwin\bin`) to your `PATH` environment variable. This will make unix commands, like `make` available.
+
 3. Add the `usr\i686-w64-mingw32\sys-root\mingw\bin` directory from the Cygwin installation (e.g. `C:\cygwin\usr\i686-w64-mingw32\sys-root\mingw\bin`) to your `PATH` environment variable. This makes required dynamically linked libraries, like `zlib` available for the compiled `haxe.exe` executable.
 
 
