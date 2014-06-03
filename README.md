@@ -33,7 +33,7 @@ We currently use the bootstrap 2.3.2 CSS library and the Font Awesome 4.1.0 icon
 
 ## Running a local copy
 
-1.  `git clone git@github.com:HaxeFoundation/haxe.org.git haxeorg`
+1.  `git clone https://github.com/HaxeFoundation/haxe.org.git haxeorg`
 2.  `cd haxeorg`
 3.  `haxelib install all` - this will install all dependencies. Please note this may take a while.
 4.  `haxelib git markdown https://github.com/dpeek/haxe-markdown.git master src` - we need the development version of the markdown library.
