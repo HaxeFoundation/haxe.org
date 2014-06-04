@@ -39,7 +39,7 @@ class Server
 			var oldSiteRedirectHandler = new OldSiteRedirectHandler();
 
 			// Set up cache middleware
-			requestCache = new RequestCache();
+			// requestCache = new RequestCache();
 
 			// Set up the dispatcher and routing
 
@@ -57,8 +57,8 @@ class Server
 				.addTemplatingEngine( TemplatingEngines.haxe )
 				.inject( String, "layout.html", "defaultLayout" )
 			;
-			ufrontApp.addRequestMiddleware( requestCache );
-			ufrontApp.addResponseMiddleware( requestCache );
+			// ufrontApp.addRequestMiddleware( requestCache );
+			// ufrontApp.addResponseMiddleware( requestCache );
 		}
 	}
 }
