@@ -23,7 +23,7 @@ class Client
 		var vals = ["null", "true", "false", "this"];
 		var vals = new EReg("\\b(" + vals.join("|") + ")\\b", "g");
 
-		for( s in J("pre") ) {
+		for( s in J("pre code.prettyprint.haxe") ) {
 			var html = s.html();
 			
 			// detect and remove identation
