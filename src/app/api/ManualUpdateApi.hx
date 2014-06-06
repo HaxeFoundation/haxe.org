@@ -115,41 +115,49 @@ class ManualUpdateApi extends ufront.api.UFApi {
 			var markdown = File.getContent( filename );
 			var html = Markdown.markdownToHtml( markdown );
 
-			var xml = 'div'.create().setInnerHTML( html );
+			var xml = html.parse();
 
 			var titleNode:DOMNode = null;
 			var endOfContentNode:DOMNode = null;
 
-			for ( node in xml.children() ) {
-				if ( endOfContentNode==null ) {
-					switch node.tagName() {
-						case "hr":
-							// A "---" in the markdown signifies the end of the page content, and the beginning of the navigation links.
-							endOfContentNode = node;
-						case "h2":
-							var text = node.text().trim();
-							var id = text.substr( 0, text.indexOf(" ") );
-							var title = text.substr( text.indexOf(" ")+1 );
-							var h1 = "h1".create().setInnerHTML( '<small>$id</small> $title' );
-							titleNode = h1;
-							node.replaceWith( h1 );
-						case "blockquote":
-							var firstElm = node.firstChildren();
-							if ( firstElm.tagName()=="h5" ) {
-								if ( firstElm.text().startsWith("Define") ) node.addClass("define");
-								else if ( firstElm.text().startsWith("Trivia") ) node.addClass("trivia");
-							}
-							processNodes( node );
-						default: 
-							processNodes( node );
+			if ( xml.length>0 ) {
+				for ( node in xml ) {
+					if ( endOfContentNode==null ) {
+						switch node.tagName() {
+							case "hr":
+								// A "---" in the markdown signifies the end of the page content, and the beginning of the navigation links.
+								endOfContentNode = node;
+							case "h2":
+								var text = node.text().trim();
+								var id = text.substr( 0, text.indexOf(" ") );
+								var title = text.substr( text.indexOf(" ")+1 );
+								var h1 = "h1".create().setInnerHTML( '<small>$id</small> $title' );
+								titleNode = h1;
+								node.replaceWith( h1 );
+							case "blockquote":
+								var firstElm = node.firstChildren();
+								if ( firstElm.tagName()=="h5" ) {
+									if ( firstElm.text().startsWith("Define") ) node.addClass("define");
+									else if ( firstElm.text().startsWith("Trivia") ) node.addClass("trivia");
+								}
+								processNodes( node );
+							default: 
+								processNodes( node );
+						}
+					}
+					else {
+						node.removeFromDOM();
 					}
 				}
-				else {
-					node.removeFromDOM();
+				html = xml.html();
+			}
+			else {
+				try Xml.parse( html ) catch ( e:Dynamic ) {
+					ufTrace( 'Failed to parse XML for ${section.label}, we will use it unprocessed. Error message: $e' );
 				}
 			}
 
-			try File.saveContent( outFilename, xml.html() ) catch ( e:Dynamic ) throw 'Failed to write to file $outFilename';
+			try File.saveContent( outFilename, html ) catch ( e:Dynamic ) throw 'Failed to write to file $outFilename';
 
 			return true;
 		}
