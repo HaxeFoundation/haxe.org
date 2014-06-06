@@ -7,6 +7,5 @@ typedef ManualSectionJson = {
 	var state:Int;
 	var title:String;
 	var index:Int;
-	/** We extract this from the markdown content, it is not provided in the sections.txt JSON. **/
-	var editLink:Null<String>;
+	var source:{ file:String, lineMin:Int, lineMax:Int };
 }

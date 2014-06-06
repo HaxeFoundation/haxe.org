@@ -68,11 +68,13 @@ class ManualUpdateApi extends ufront.api.UFApi {
 	**/
 	function generateSiteMap( sections:Array<ManualSectionJson> ):SiteMap {
 		var siteMap:SiteMap = [];
+		var linkBase = app.Config.app.manual.editLinkBase;
 		for ( section in sections ) {
+			var fileAndLines = '${section.source.file}#L${section.source.lineMin}-${section.source.lineMax}';
 			var page:SitePage = {
 				title: section.title,
 				url: section.label+".html",
-				editLink: section.editLink
+				editLink: '$linkBase$fileAndLines'
 			}
 			if ( section.sub!=null && section.sub.length>0 ) {
 				page.sub = generateSiteMap( section.sub );
@@ -117,7 +119,6 @@ class ManualUpdateApi extends ufront.api.UFApi {
 
 			var titleNode:DOMNode = null;
 			var endOfContentNode:DOMNode = null;
-			var editLink:Null<String> = null;
 
 			for ( node in xml.children() ) {
 				if ( endOfContentNode==null ) {
@@ -144,11 +145,6 @@ class ManualUpdateApi extends ufront.api.UFApi {
 					}
 				}
 				else {
-					if ( node.tagName()=="p" ) {
-						if ( node.text().startsWith("Contribute:") ) {
-							section.editLink = node.firstChildren().attr( "href" );
-						}
-					}
 					node.removeFromDOM();
 				}
 			}
