@@ -93,6 +93,10 @@
 			{
 				"title": "Cross Platform APIs",
 				"url": "use-cases/cross-platform-apis/"
+			},
+			{
+				"title": "Who Uses Haxe",
+				"url": "use-cases/who-uses-haxe.html"
 			}
 		]
 	},
@@ -129,10 +133,6 @@
 			{
 				"title": "Supported Projects",
 				"url": "foundation/supported-projects.html"
-			},
-			{
-				"title": "Who Uses Haxe",
-				"url": "foundation/who-uses-haxe.html"
 			},
 			{
 				"title": "Donate",
