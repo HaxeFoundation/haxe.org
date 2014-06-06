@@ -58,7 +58,7 @@ class ManualUpdateApi extends ufront.api.UFApi {
 			state: 0,
 			title: "Dictionary",
 			index: 0,
-			editLink: null
+			source: { file: "", lineMin:0, lineMax:0 }
 		}
 		processSection( dictionarySection );
 	}
