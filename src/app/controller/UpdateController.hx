@@ -24,14 +24,15 @@ class UpdateController extends Controller {
 		var ufSiteContent = contentDir+Config.app.siteContent.folder;
 		var downloadInDir = assetSiteContent+'/'+Config.app.siteContent.versions.folder;
 		var downloadOutDir = ufSiteContent+'/'+Config.app.siteContent.versions.folder;
-
-		return Server.requestCache.invalidate() >> function(_:Noise) {
-			downloadApi.prepareDownloadJson(downloadInDir,downloadOutDir);
-			return ViewResult.create({
-				title: 'Updated the website content succesfully',
-				content: '<h1>Updated the website content successfully.</h1>'
-			}, "page/page-without-sidebar.html");
-		}
+		
+		downloadApi.prepareDownloadJson(downloadInDir,downloadOutDir);
+        
+		return ViewResult.create({
+			title: 'Updated the website content succesfully',
+			content: '<h1>Updated the website content successfully.</h1>'
+		}, "page/page-without-sidebar.html");
+		// return Server.requestCache.invalidate() >> function(_:Noise) {
+		// }
 	}
 
 	@:route("/manual/")
@@ -47,11 +48,11 @@ class UpdateController extends Controller {
 		siteApi.cloneRepo( gitRepo, manualDir, branch, forceDelete );
 		manualApi.convertMarkdownToHtml(manualMdDir,manualHtmlDir);
 
-		return Server.requestCache.invalidate() >> function(_:Noise) {
-			return ViewResult.create({
-				title: 'Updated the manual succesfully',
-				content: '<h1>Updated the manual successfully.</h1>'
-			}, "page/page-without-sidebar.html");
-		}
+		return ViewResult.create({
+			title: 'Updated the manual succesfully',
+			content: '<h1>Updated the manual successfully.</h1>'
+		}, "page/page-without-sidebar.html");
+		// return Server.requestCache.invalidate() >> function(_:Noise) {
+		// }
 	}
 }
