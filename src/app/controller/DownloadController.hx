@@ -57,18 +57,25 @@ class DownloadController extends Controller {
 		}, "download/version.html" ).setVars( result );
 	}
 
+	@:route("file/$version/$file")
+	public function doFileDownload( version:String, file:String ) {
+		var versionDir = version.replace( '.', ',' );
+		var directDownloadLink = '/'+versionRepo()+'/$versionDir/downloads/$file';
+		var result = apiDownload.getDownloadVersion( contentDir+versionRepo(), version );
+		return ViewResult.create({
+			title: 'Haxe $version',
+			topNav: '/download/',
+			directDownloadLink: directDownloadLink,
+			editLink: null,
+			description: 'Downloading Haxe $version: $file'
+		} ).setVars( result );
+	}
+
 	@:route("api/$version/api.zip")
 	public function doApiDownload( version:String ) {
 		var versionDir = version.replace( '.', ',' );
 		var scriptDir = context.request.scriptDirectory;
 		var file = 'api-$version.zip';
 		return new DirectFilePathResult( scriptDir+versionRepo()+'/$versionDir/$file' );
-	}
-
-	@:route("file/$version/$file")
-	public function doFileDownload( version:String, file:String ) {
-		version = version.replace( '.', ',' );
-		var scriptDir = context.request.scriptDirectory;
-		return new DirectFilePathResult( scriptDir+versionRepo()+'/$version/downloads/$file' );
 	}
 }
