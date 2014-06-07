@@ -1,6 +1,9 @@
 {
 	"title": "Haxe - The Cross-Platform Toolkit",
 	"siteContent": {
+		"repo": "https://github.com/HaxeFoundation/haxe.org.git",
+		"branch": "master",
+		"cloneDir": "website-repo",
 		"folder": "website-content",
 		"editBaseUrl": "https://github.com/HaxeFoundation/haxe.org/tree/master/www/website-content/",
 		"pages": {
