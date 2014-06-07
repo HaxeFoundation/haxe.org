@@ -24,6 +24,12 @@ class UpdateController extends Controller {
 		var ufSiteContent = contentDir+Config.app.siteContent.folder;
 		var downloadInDir = assetSiteContent+'/'+Config.app.siteContent.versions.folder;
 		var downloadOutDir = ufSiteContent+'/'+Config.app.siteContent.versions.folder;
+
+		var gitRepo = Config.app.siteContent.repo;
+		var branch = Config.app.siteContent.branch;
+		var repoDir = contentDir+Config.app.siteContent.cloneDir+'/';
+		var forceDelete = false;
+		// siteApi.cloneRepo( gitRepo, repoDir, branch, forceDelete );
 		
 		downloadApi.prepareDownloadJson(downloadInDir,downloadOutDir);
         
