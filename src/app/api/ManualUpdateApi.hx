@@ -115,13 +115,13 @@ class ManualUpdateApi extends ufront.api.UFApi {
 			var markdown = File.getContent( filename );
 			var html = Markdown.markdownToHtml( markdown );
 
-			var xml = html.parse();
+			var xml = "div".create().setInnerHTML( html );
 
 			var titleNode:DOMNode = null;
 			var endOfContentNode:DOMNode = null;
 
-			if ( xml.length>0 ) {
-				for ( node in xml ) {
+			if ( xml.children().length>0 ) {
+				for ( node in xml.children() ) {
 					if ( endOfContentNode==null ) {
 						switch node.tagName() {
 							case "hr":
@@ -134,6 +134,13 @@ class ManualUpdateApi extends ufront.api.UFApi {
 								var h1 = "h1".create().setInnerHTML( '<small>$id</small> $title' );
 								titleNode = h1;
 								node.replaceWith( h1 );
+							case "h3", "h4", "h5", "h6":
+								var bookmarkID = node.text().trim().toLowerCase().replace(" ","-");
+								var link = 'a'.create().setAttr( 'href', '#'+bookmarkID );
+								var anchor = 'a'.create().setAttr( 'id', bookmarkID ).addClass( 'anch' );
+								link.append( node.children(false) ).appendTo( node );
+								node.beforeThisInsert( anchor );
+								processNodes( link );
 							case "blockquote":
 								var firstElm = node.firstChildren();
 								if ( firstElm.tagName()=="h5" ) {
@@ -149,7 +156,7 @@ class ManualUpdateApi extends ufront.api.UFApi {
 						node.removeFromDOM();
 					}
 				}
-				html = xml.html();
+				html = xml.innerHTML();
 			}
 			else {
 				try Xml.parse( html ) catch ( e:Dynamic ) {
