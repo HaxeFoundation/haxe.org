@@ -1,6 +1,6 @@
--lib ufront-mvc:1.0.0-beta.7
+-lib ufront-mvc:1.0.0-beta.8
 -lib tink_core:1.0.0-rc.2
--lib compiletime:2.4.0
+-lib compiletime:2.4.1
 # Please use markdown from GIT:
 # haxelib git markdown https://github.com/dpeek/haxe-markdown.git master src
 -lib markdown

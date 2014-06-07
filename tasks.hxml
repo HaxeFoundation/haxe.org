@@ -1,5 +1,5 @@
 -lib ufront-uftasks:1.0.0-beta.4
--lib ufront-mvc:1.0.0-beta.7
+-lib ufront-mvc:1.0.0-beta.8
 
 -cp src
 -D server
