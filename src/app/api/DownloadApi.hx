@@ -140,7 +140,7 @@ class DownloadApi extends ufront.api.UFApi {
 	**/
 	function readVersionInfo( versionFile:String, errorMessages:Array<String> ):Pair<String, DownloadList> {
 		
-		var versions:Array<{ version:String, api:Bool, tag:String }> = [];
+		var versions:Array<{ version:String, api:Bool, tag:String, date:String }> = [];
 		var currentVersion:String = null;
 
 		try {
