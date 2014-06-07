@@ -115,6 +115,12 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: "Source Sans Pro", sans-serif;
 	font-weight: 600;
 }
+h3, h4, h5 {
+	margin-top: 25px;
+}
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+	color: inherit;
+}
 h1 {
 	font-size: 36px;
 	color: #171717;
@@ -134,7 +140,7 @@ h3 {
 h4 {
 	font-size: 20px;
 }
-h5 {
+h5, h5 code {
 	font-size: 18px;
 }
 h6 {
