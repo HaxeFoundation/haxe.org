@@ -2,7 +2,7 @@ Introduction to the Haxe Standard Library
 =======
 
 The Haxe Standard Library provides common purpose tools without trying to be an exhaustive collection of data structures and algorithms. A Haxe distribution comes with a `std` directory containing the Haxe Standard Library. Its contents can be categorized like so:
-
+中文：
 * [**General purpose**](#general-purpose-api): The `std` directory itself contains a few top-level classes such as `Array`, `Map` or `String` which can be used on all targets. The `haxe` sub-directory provides additional data structures, input/output APIs and many more tools.
 
 * [**System**](#sys-api): The `sys` sub-directory contains APIs related to file systems and database. Additionally, the `Sys` top-level class allows various interaction with the operating system. They can only be accessed when compiling to a target of the `sys`-category (C++, C#, Java, Neko, PHP).
