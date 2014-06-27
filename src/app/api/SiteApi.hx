@@ -33,13 +33,13 @@ class SiteApi extends ufront.api.UFApi {
 		ufTrace( 'Clone $gitPath into $intoDir' );
 
 		var oldCwd = Web.getCwd();
-		try Sys.setCwd( contentDir ) catch(e:String) throw 'Failed to setCwd into $contentDir before cloning $gitPath'.withData(e);
+		try Sys.setCwd( contentDir ) catch(e:String) throw Error.withData( 'Failed to setCwd into $contentDir before cloning $gitPath', e );
 
 		if ( FileSystem.exists(intoDir) ) {
 			ufTrace('Already existed');
 			if ( removeFirst ) {
 				ufTrace('Remove');
-				try unlink(intoDir) catch(e:Dynamic) throw 'Failed to delete existing directory $intoDir'.withData(e);
+				try unlink(intoDir) catch(e:Dynamic) throw Error.withData( 'Failed to delete existing directory $intoDir', e );
 			}
 			else {
 				ufTrace('We will try update it');
@@ -50,21 +50,21 @@ class SiteApi extends ufront.api.UFApi {
 
 				// Pull update
 				ufTrace( 'Currently in $contentDir, changing to $intoDir before running `git checkout $branch`' );
-				try Sys.setCwd( intoDir ) catch(e:String) throw 'Failed to setCwd into $intoDir before doing git pull'.withData(e);
-				try process( "git", ["checkout",branch] ) catch(e:String) throw 'Failed to checkout branch $branch'.withData(e);
-				try process( "git", ["pull"] ) catch(e:String) throw 'Failed to run `git pull` in $intoDir'.withData(e);
+				try Sys.setCwd( intoDir ) catch(e:String) throw Error.withData( 'Failed to setCwd into $intoDir before doing git pull', e );
+				try process( "git", ["checkout",branch] ) catch(e:String) throw Error.withData( 'Failed to checkout branch $branch', e );
+				try process( "git", ["pull"] ) catch(e:String) throw Error.withData( 'Failed to run `git pull` in $intoDir', e );
 			}
 		}
 
 		if ( FileSystem.exists(intoDir)==false ) {
 			ufTrace("Did not exist, let's clone it");
 			// Clone
-			try process( "git", ["clone",gitPath,intoDir] ) catch(e:String) throw 'Failed to run `git clone $gitPath $intoDir`'.withData(e);
-			try Sys.setCwd( intoDir ) catch(e:String) throw 'Failed to setCwd into $intoDir after doing git pull'.withData(e);
-			try process( "git", ["checkout",branch] ) catch(e:String) throw 'Failed to checkout branch $branch'.withData(e);
+			try process( "git", ["clone",gitPath,intoDir] ) catch(e:String) throw Error.withData( 'Failed to run `git clone $gitPath $intoDir`', e );
+			try Sys.setCwd( intoDir ) catch(e:String) throw Error.withData( 'Failed to setCwd into $intoDir after doing git pull', e );
+			try process( "git", ["checkout",branch] ) catch(e:String) throw Error.withData( 'Failed to checkout branch $branch', e );
 		}
 
-		try Sys.setCwd( oldCwd ) catch(e:String) throw 'Failed to setCwd back to $oldCwd after cloning $gitPath'.withData(e);
+		try Sys.setCwd( oldCwd ) catch(e:String) throw Error.withData( 'Failed to setCwd back to $oldCwd after cloning $gitPath', e );
 
 		return "Repository cloned successfully";
 	}

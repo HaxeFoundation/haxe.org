@@ -45,7 +45,9 @@ We currently use the bootstrap 2.3.2 CSS library and the Font Awesome 4.1.0 icon
 10.  Visit `http://localhost:2987/update/manual/` to prepare the manual content.
 11.	Visit `http://localhost:2987/update/site/` to prepare some site content.
 
-These instructions were written on Linux (Ubuntu 12.04), if problems are encountered on other platforms please file an issue so it can be resolved.
+Please note, Haxe 3.1.3 will render some markdown pages incorrectly.  Using a development version of Haxe 3.2 is a workaround for this issue.
+
+These instructions were written on Linux (Ubuntu 14.04), if problems are encountered on other platforms please file an issue so it can be resolved.
 
 ## Deploying updates
 

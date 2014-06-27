@@ -46,8 +46,8 @@ class PageController extends Controller {
 
 	@:route( "/manual/$page" ) 
 	public function doManual( ?page:String="introduction.html" ) {
-		var repo = context.httpContext.contentDirectory+Config.app.manual.htmlDir;
-		var attachmentsRepo = context.httpContext.contentDirectory+Config.app.manual.imagesDir;
+		var repo = context.contentDirectory+Config.app.manual.htmlDir;
+		var attachmentsRepo = context.contentDirectory+Config.app.manual.imagesDir;
 		var sitemap = pageApi.getSitemap( repo );
 		var pageDetails =
 			try sitemap.getPageForUrl( '$page' )
@@ -108,8 +108,8 @@ class PageController extends Controller {
 				var content = pageApi.loadPage( filename );
 
 				if ( params.sidebar!=null ) {
-					nav = params.sidebar.printSitemap( SideBar, params.baseUrl, context.httpContext.getRequestUri() );
-					prevNextLinks = params.sidebar.getPrevNextLinks( params.baseUrl, context.httpContext.getRequestUri() );
+					nav = params.sidebar.printSitemap( SideBar, params.baseUrl, context.getRequestUri() );
+					prevNextLinks = params.sidebar.getPrevNextLinks( params.baseUrl, context.getRequestUri() );
 					viewFile = "page/page-with-sidebar.html";
 				}
 				else {

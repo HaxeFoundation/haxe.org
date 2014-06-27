@@ -6,7 +6,8 @@ import ufront.view.TemplatingEngines;
 import ufront.view.UFTemplate;
 import ufront.cache.MemoryCache;
 import ufront.cache.UFCache;
-import ufront.middleware.RequestCache;
+import ufront.middleware.RequestCacheMiddleware;
+import ufront.web.result.ViewResult;
 import ufront.ufadmin.controller.*;
 import ufront.auth.*;
 import ufront.web.*;
@@ -15,7 +16,7 @@ import app.*;
 class Server
 {
 	public static var ufrontApp:UfrontApplication;
-	public static var requestCache:RequestCache;
+	public static var requestCache:RequestCacheMiddleware;
 
 	static function main() {
 		// enable caching if using mod_neko or mod_tora
@@ -35,11 +36,14 @@ class Server
 
 			var errorPageHandler = new ErrorPageHandler();
 			errorPageHandler.renderErrorPage = function( title, content ) return CompileTime.interpolateFile( 'app/view/error.html' );
+			
+			// Set the default layout
+			ViewResult.setDefaultLayout( "layout.html" );
 
 			var oldSiteRedirectHandler = new OldSiteRedirectHandler();
 
 			// Set up cache middleware
-			// requestCache = new RequestCache();
+			// requestCache = new RequestCacheMiddleware();
 
 			// Set up the dispatcher and routing
 
