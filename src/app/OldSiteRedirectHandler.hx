@@ -6,7 +6,6 @@ import sys.io.File;
 import ufront.app.UFErrorHandler;
 import ufront.core.Sync;
 import ufront.web.context.HttpContext;
-import ufront.web.HttpError;
 using tink.CoreApi;
 using haxe.io.Path;
 using StringTools;
@@ -17,7 +16,7 @@ class OldSiteRedirectHandler implements UFErrorHandler {
 
 	public function new() {}
 
-	public function handleError( err:HttpError, ctx:HttpContext ):Surprise<Noise,HttpError> {
+	public function handleError( err:Error, ctx:HttpContext ):Surprise<Noise,Error> {
 		loadRedirects( ctx );
 
 		if ( !ctx.completion.has(CRequestHandlersComplete) && err.code==404 ) {
