@@ -88,10 +88,10 @@ Target Specific APIs:
 
 * [cpp](http://api.haxe.org/cpp/index.html):
 
-	* [cpp.Lib](http://api.haxe.org/neko/Lib.html): Low level interactions with cpp target
-	* [cpp.net](http://api.haxe.org/neko/net/index.html): Tools for interacting with networks and running servers
-	* [cpp.vm](http://api.haxe.org/neko/vm/index.html): Thread API, debugger, profiler etc.
-	* [cpp.zip](http://api.haxe.org/neko/zip/index.html): API for working with zip compression  
+	* [cpp.Lib](http://api.haxe.org/cpp/Lib.html): Low level interactions with cpp target
+	* [cpp.net](http://api.haxe.org/cpp/net/index.html): Tools for interacting with networks and running servers
+	* [cpp.vm](http://api.haxe.org/cpp/vm/index.html): Thread API, debugger, profiler etc.
+	* [cpp.zip](http://api.haxe.org/cpp/zip/index.html): API for working with zip compression  
 
 * [cs](http://api.haxe.org/cs/index.html): API for C# target
 
