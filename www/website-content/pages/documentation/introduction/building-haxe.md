@@ -12,8 +12,19 @@ git clone --recursive git://github.com/HaxeFoundation/haxe.git
 
 Alternatively, source .zip archives or tarballs can be obtained from the [GitHub Haxe release overview](https://github.com/HaxeFoundation/haxe/releases).
 
-Building on OSX and Linux
+Building on OSX
 -------
+
+Building on Linux
+-------
+
+1. Install OCaml: <http://ocaml.org/docs/install.html>
+2. Navigate to where the Haxe sources are and build Haxe using then install on your system:
+
+```
+make
+make install
+```
 
 Building on Windows (MSVC)
 -------
