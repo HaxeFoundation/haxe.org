@@ -27,7 +27,7 @@ Output:
 
 * `-js file_name`: Generates Javascript source code in specified file.
 * `-as3 directory`: Generates Actionscript 3 source code in specified directory.
-* `-flash file_name`: Generates the specified file as Flash .swf.
+* `-swf file_name`: Generates the specified file as Flash .swf.
 * `-neko file_name`: Generates Neko binary as specified file.
 * `-php directory`: Generates PHP source code in specified directory.
 * `-cpp directory`: Generates C++ source code in specified directory and compiles it using native C++ compiler.
