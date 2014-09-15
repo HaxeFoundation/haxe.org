@@ -15,11 +15,30 @@ Alternatively, source .zip archives or tarballs can be obtained from the [GitHub
 Building on OSX
 -------
 
+The dependencies can be easily installed by [Homebrew](http://brew.sh/). In fact, if you only want to use the latest development branch of Haxe, without modifying the source, simply run:
+
+```shell
+brew install haxe --HEAD
+```
+
+Use `brew reinstall haxe --HEAD` to upgrade in the future.
+
+If you want to start hacking the Haxe compiler, it is better to clone manually and use the Makefile:
+
+1. Install XQuartz (required by OCaml): `brew install caskroom/cask/brew-cask && brew cask install xquartz`
+2. Install OCaml: `brew install ocaml`
+3. Navigate to where the Haxe sources are and build Haxe using `make`:
+
+```
+make
+make install
+```
+
 Building on Linux
 -------
 
 1. Install OCaml: <http://ocaml.org/docs/install.html>
-2. Navigate to where the Haxe sources are and build Haxe using then install on your system:
+2. Navigate to where the Haxe sources are and build Haxe using `make`:
 
 ```
 make
