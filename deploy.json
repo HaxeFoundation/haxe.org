@@ -2,7 +2,6 @@
 	"files": [
 		".htaccess",
 		"favicon.ico",
-		"tasks.n",
 		"index.n",
 		"js/",
 		"css/",
@@ -15,7 +14,7 @@
 			"name": "new.haxe.org",
 			"gitRepo": "ssh://joneil@haxe.org/data/newhaxe/repo.git",
 			"defines": [],
-		"hxmls": ["server","client","tasks"],
+		"hxmls": ["server","client"],
 			"debug": false,
 			"servers": [{
 				"name": "new.haxe.org",
