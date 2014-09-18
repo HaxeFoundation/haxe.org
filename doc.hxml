@@ -6,7 +6,7 @@
 # Common
 #
 
--lib ufront-mvc
+-lib ufront-mvc:1.0.0-rc.2
 -lib compiletime
 -lib markdown
 -lib detox
