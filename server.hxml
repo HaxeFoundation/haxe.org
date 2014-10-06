@@ -1,9 +1,7 @@
--lib ufront-mvc:1.0.0-rc.2
+-lib ufront-mvc:1.0.0-rc.4
 -lib tink_core:1.0.0-rc.6
--lib compiletime:2.5.0
-# Please use markdown from GIT:
-# haxelib git markdown https://github.com/dpeek/haxe-markdown.git master src
--lib markdown
+-lib compiletime:2.5.1
+-lib markdown:1.0.0
 -lib detox:1.0.0-rc.6
 -main Server
 -cp src
@@ -15,6 +13,7 @@
 # Neko
 --remap php:neko
 -neko www/index.n
+-xml dox/neko.xml
 
 --next
 
@@ -22,3 +21,4 @@
 --remap neko:php
 --php-lib php
 -php www
+-xml dox/php.xml

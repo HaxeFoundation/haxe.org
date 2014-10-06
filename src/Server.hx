@@ -27,7 +27,7 @@ class Server
 
 	static function run() {
 		init(); // If caching is enabled, init() will only need to run once
-		ufrontApp.execute(); // execute the current request
+		ufrontApp.executeRequest(); // execute the current request
 	}
 
 	static function init() {
@@ -37,9 +37,6 @@ class Server
 			var errorPageHandler = new ErrorPageHandler();
 			errorPageHandler.renderErrorPage = function( title, content ) return CompileTime.interpolateFile( 'app/view/error.html' );
 			
-			// Set the default layout
-			ViewResult.setDefaultLayout( "layout.html" );
-
 			var oldSiteRedirectHandler = new OldSiteRedirectHandler();
 
 			// Set up cache middleware
@@ -56,6 +53,7 @@ class Server
 					#end
 					errorHandlers: [oldSiteRedirectHandler,errorPageHandler],
 					contentDirectory: "../uf-content/",
+					defaultLayout: "layout.html",
 				})
 				.inject( UFCacheConnection, new MemoryCacheConnection() )
 				.addTemplatingEngine( TemplatingEngines.haxe )
