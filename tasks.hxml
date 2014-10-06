@@ -1,4 +1,4 @@
--lib ufront-uftasks:1.0.0-beta.4
+-lib ufront-uftasks:1.0.0-beta.7
 
 -cp src
 -D server
@@ -11,3 +11,4 @@
 
 -main Tasks
 -neko www/tasks.n
+-xml dox/tasks.xml
