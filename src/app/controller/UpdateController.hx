@@ -32,7 +32,7 @@ class UpdateController extends Controller {
 		// siteApi.cloneRepo( gitRepo, repoDir, branch, forceDelete );
 		
 		downloadApi.prepareDownloadJson(downloadInDir,downloadOutDir);
-        
+
 		return ViewResult.create({
 			title: 'Updated the website content succesfully',
 			content: '<h1>Updated the website content successfully.</h1>'

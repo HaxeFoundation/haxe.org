@@ -22,13 +22,14 @@ class DownloadController extends Controller {
 	static inline function versionRepo() return Config.app.siteContent.folder+'/'+Config.app.siteContent.versions.folder;
     static inline function baseEditUrl() return Config.app.siteContent.editBaseUrl+Config.app.siteContent.versions.folder+'/';
 
-	@:route("")
-	public function doDefault(  ) {
+	@:route("/")
+	public function doDefault() {
+		ufTrace( contentDir );
 		var currentVersion = apiSite.getCurrentVersion( versionRepo() );
 		return doVersion( currentVersion );
 	}
 
-	@:route("list/")
+	@:route("/list/")
 	public function doList() {
 		var result = apiDownload.getDownloadList( context.request.scriptDirectory+versionRepo() );
 		var versions = result.versions;
@@ -44,7 +45,7 @@ class DownloadController extends Controller {
 		});
 	}
 
-	@:route("version/$version")
+	@:route("/version/$version")
 	public function doVersion( version:String ) {
 		var result = apiDownload.getDownloadVersion( contentDir+versionRepo(), version );
 		return ViewResult.create({
@@ -57,7 +58,7 @@ class DownloadController extends Controller {
 		}, "download/version.html" ).setVars( result );
 	}
 
-	@:route("file/$version/$file")
+	@:route("/file/$version/$file")
 	public function doFileDownload( version:String, file:String ) {
 		var versionDir = version.replace( '.', ',' );
 		var directDownloadLink = '/'+versionRepo()+'/$versionDir/downloads/$file';
@@ -71,7 +72,7 @@ class DownloadController extends Controller {
 		} ).setVars( result );
 	}
 
-	@:route("api/$version/api.zip")
+	@:route("/api/$version/api.zip")
 	public function doApiDownload( version:String ) {
 		var versionDir = version.replace( '.', ',' );
 		var scriptDir = context.request.scriptDirectory;
