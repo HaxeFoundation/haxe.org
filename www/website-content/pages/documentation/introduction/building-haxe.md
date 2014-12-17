@@ -12,7 +12,7 @@ git clone --recursive git://github.com/HaxeFoundation/haxe.git
 
 Alternatively, source .zip archives or tarballs can be obtained from the [GitHub Haxe release overview](https://github.com/HaxeFoundation/haxe/releases).
 
-Building on OSX
+Building on OS X
 -------
 
 The dependencies can be easily installed by [Homebrew](http://brew.sh/). In fact, if you only want to use the latest development branch of Haxe, without modifying the source, simply run:
