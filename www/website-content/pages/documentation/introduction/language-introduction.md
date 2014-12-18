@@ -19,7 +19,7 @@ class HelloWorld {
 }
 ```
 
-With Haxe installed, this can be compiled from the commandline, for example to javascript:
+With Haxe installed and this program saved in a file called "HelloWorld.hx", this can be compiled from the commandline, for example to javascript:
 
 	haxe -main HelloWorld -js HelloWorld.js
 
