@@ -164,3 +164,7 @@ a.anch {
 		margin-bottom : 5px;
 	}
 }
+
+.navbar .brand {
+	padding-top: 12px;
+}
