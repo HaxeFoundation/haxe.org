@@ -45,6 +45,30 @@ make
 make install
 ```
 
+Running tests (linux)
+-------
+
+You can run the tests on your machine after ```make install``` or use a [docker image](https://github.com/georgkoester/haxe_dev_dockerimage) to prevent messing with your system's setup during your trials:
+
+Either: On your (file) system:
+
+1. ```make install```
+2. ```cd tests``` (you HAVE TO go into tests before using haxelib! See HaxeFoundation/haxelib#49)
+3. ```mkdir -p ~/haxelib && haxelib setup ~/haxelib```
+4. ```haxelib git hx-yaml https://github.com/mikestead/hx-yaml master src```
+5. ```haxe -neko RunCi.n -main RunCi -lib hx-yaml```
+6. ```export TEST=neko``` or php, cs, java, js, cpp, flash9... some require additional setup, e.g. mysql needs to be set up for php (js, cpp, cs, neko, java php are setup automatically with docker image)
+7. ```neko RunCi.n```
+
+(Source: [Travis configuration](https://github.com/HaxeFoundation/haxe/blob/development/.travis.yml))
+
+Or via: [Docker image](https://github.com/georgkoester/haxe_dev_dockerimage):
+(see [docker image readme](https://github.com/georgkoester/haxe_dev_dockerimage/blob/master/README.md) for the instructions)
+
+1. create docker image 
+2. run docker image and link your haxe repository directory into docker container
+3. call ```haxe/smoke_test.sh``` - runs directly on your changes: Continue to edit them in your favorite editor. But installs the executables in the docker container, avoiding messing with your system's setup.
+
 Building on Windows (MSVC)
 -------
 
