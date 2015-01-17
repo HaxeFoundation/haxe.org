@@ -392,13 +392,13 @@ ul.logos li.arr {
 	float: left;
 }
 .prev-link:before {
-	content: "&laquo; ";
+	content: "« ";
 }
 .next-link {
 	float: right;
 }
 .next-link:after {
-	content: " &raquo;";
+	content: " »";
 }
 
 /**
