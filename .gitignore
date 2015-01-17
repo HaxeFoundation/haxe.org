@@ -5,7 +5,7 @@ www/*.n
 www/js/client.js
 www/js/client.js.map
 dump/
-dox/
+doc/
 deploy/
 
 # Private content
@@ -15,3 +15,9 @@ uf-content/
 # Editor files etc
 /.todo
 haxelibs/
+/.idea/
+
+
+# Travis stuff
+deploy_key
+deploy_key.pub

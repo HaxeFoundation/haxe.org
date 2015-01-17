@@ -1,0 +1,54 @@
+language: php
+
+# Key decryption based on instructions at:
+# http://pghalliday.com/github/ssh/travis-ci/2014/09/19/auto-build-and-deploy-github-pages-with-travis-ci.html
+
+branches:
+  only:
+    - master
+    - staging
+    - travis
+
+before_install:
+  # Install haxe 3.1.3
+  - sudo apt-get update
+  - sudo apt-get install python-software-properties -y # for the next command
+  - sudo add-apt-repository ppa:eyecreate/haxe -y
+  - sudo apt-get update
+  - sudo apt-get install haxe -y
+  # Setup haxelib
+  - mkdir ~/haxelib
+  - haxelib setup ~/haxelib
+  # Decrypt our SSH key
+  - openssl aes-256-cbc -K $encrypted_c7c1240b42e4_key -iv $encrypted_c7c1240b42e4_iv -in deploy_key.enc -out deploy_key -d
+  - chmod 600 deploy_key
+  - eval `ssh-agent -s`
+  - ssh-add deploy_key
+  # Configure git
+  - git config --global user.name "TravisCI"
+  - git config --global user.email "travisci@haxe.org"
+
+install:
+  # setup the libraries required to build
+  - cd $TRAVIS_BUILD_DIR
+  - yes | haxelib install ufront
+  - yes | haxelib install all
+  # And just to make sure we have the right versions...
+  - haxe
+  - haxelib list
+
+script:
+  - cd $TRAVIS_BUILD_DIR
+  # Create "doc/" directory so build succeeds.
+  - mkdir doc
+  # We don't really have unit tests for the website yet.  Just test that a built works.
+  - haxelib run ufront build
+
+after_success:
+  - haxelib run ufront deploy
+  - wget http://haxe.org/update/manual/
+  - wget http://haxe.org/update/site/
+
+addons:
+  ssh_known_hosts: haxe.org
+
