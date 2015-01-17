@@ -13,7 +13,7 @@ class SearchController extends Controller {
 		var q = context.request.params['s'];
 		var title = (q==null) ? "Search" : 'Search for $q';
 
-		return ViewResult.create({
+		return new ViewResult({
 			title: title,
 			topNav: '/search',
 			description: 'Search results for `${q}` on haxe.org'

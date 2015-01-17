@@ -26,7 +26,7 @@ class PageApi extends ufront.api.UFApi {
 		@return - An absolute url to the file if found.  Throws PageNotFound if not found...
 		@throws - HttpError.pageNotFound()
 	**/
-	public function locatePage( repo:String, path:String ) {
+	public function locatePage( repo:String, path:String ):String {
 		var extensions = Config.app.siteContent.pages.extensions;
 
 		for ( ext in extensions ) {
@@ -50,7 +50,7 @@ class PageApi extends ufront.api.UFApi {
 		@return String containing the html content
 		@throws HttpError.internalServerError() if file could not be read.
 	**/
-	public function loadPage( filePath:String ) {
+	public function loadPage( filePath:String ):String {
 		var content = 
 			try File.getContent(filePath)
 			catch (e:Dynamic) throw HttpError.internalServerError('Could not read $filePath', e)

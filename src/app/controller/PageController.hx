@@ -9,7 +9,7 @@ import ufront.web.Dispatch;
 import ufront.web.result.*;
 import ufront.view.TemplateData;
 import ufront.web.HttpError;
-using Strings;
+using thx.core.Strings;
 using tink.CoreApi;
 using haxe.io.Path;
 using app.model.SiteMap;
@@ -110,10 +110,10 @@ class PageController extends Controller {
 				if ( params.sidebar!=null ) {
 					nav = params.sidebar.printSitemap( SideBar, params.baseUrl, context.getRequestUri() );
 					prevNextLinks = params.sidebar.getPrevNextLinks( params.baseUrl, context.getRequestUri() );
-					viewFile = "page/page-with-sidebar.html";
+					viewFile = "page-with-sidebar.html";
 				}
 				else {
-					viewFile = "page/raw.html";
+					viewFile = "raw.html";
 				}
 
 				if ( params.editLink==null ) {
@@ -122,7 +122,7 @@ class PageController extends Controller {
 					params.editLink = Config.app.siteContent.editBaseUrl+Config.app.siteContent.pages.folder+'/'+relativeFilename;
 				}
 
-				return ViewResult.create({
+				return new ViewResult({
 					title: params.title,
 					content: content,
 					sideNav: nav,

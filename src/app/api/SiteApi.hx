@@ -7,7 +7,7 @@ package app.api;
 	import sys.io.File;
 	import sys.io.Process;
 #end
-
+import app.model.Download;
 using StringTools;
 using Lambda;
 using tink.CoreApi;
@@ -96,19 +96,19 @@ class SiteApi extends ufront.api.UFApi {
 	/**
 		Get a list of all the download versions available on the site
 	**/
-	public function getVersions( versionDir:String ):Array<{ version:String, api:Bool, tag:String }> {
+	public function getVersions( versionDir:String ):Array<Download> {
 		return getVersionInfo( versionDir ).versions;
 	}
 
 	/**
 		Get a list of all the download versions with API documentation available
 	**/
-	public function getApiDocVersions( versionDir:String ) {
+	public function getApiDocVersions( versionDir:String ):Array<Download> {
 		return getVersionInfo( versionDir ).versions.filter( function (v) return v.api );
 	}
 
-	static var versionInfo:Map<String,{ current:String, versions:Array<{ version:String, api:Bool, tag:String }> }> = new Map();
-	function getVersionInfo( versionDir:String ) {
+	static var versionInfo:Map<String,CurrentVersionAndList> = new Map();
+	function getVersionInfo( versionDir:String ):CurrentVersionAndList {
 		if ( versionInfo.exists(versionDir)==false ) {
 			var versionsFile = scriptDir + versionDir.addTrailingSlash() + 'versions.json';
 			var version = 
@@ -123,7 +123,7 @@ class SiteApi extends ufront.api.UFApi {
 		return versionInfo[versionDir];
 	}
 	
-	public static function unlink( path:String ) {
+	public static function unlink( path:String ):Void {
 		if(sys.FileSystem.exists(path)) {
 			if(sys.FileSystem.isDirectory(path)) {
 				for(entry in sys.FileSystem.readDirectory(path))  {

@@ -33,10 +33,10 @@ class UpdateController extends Controller {
 		
 		downloadApi.prepareDownloadJson(downloadInDir,downloadOutDir);
 
-		return ViewResult.create({
+		return new ViewResult({
 			title: 'Updated the website content succesfully',
 			content: '<h1>Updated the website content successfully.</h1>'
-		}, "page/page-without-sidebar.html");
+		}, "/page/page-without-sidebar.html");
 		// return Server.requestCache.invalidate() >> function(_:Noise) {
 		// }
 	}
@@ -54,10 +54,10 @@ class UpdateController extends Controller {
 		siteApi.cloneRepo( gitRepo, manualDir, branch, forceDelete );
 		manualApi.convertMarkdownToHtml(manualMdDir,manualHtmlDir);
 
-		return ViewResult.create({
+		return new ViewResult({
 			title: 'Updated the manual succesfully',
 			content: '<h1>Updated the manual successfully.</h1>'
-		}, "page/page-without-sidebar.html");
+		}, "/page/page-without-sidebar.html");
 		// return Server.requestCache.invalidate() >> function(_:Noise) {
 		// }
 	}
