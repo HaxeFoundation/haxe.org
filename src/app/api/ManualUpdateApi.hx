@@ -30,7 +30,7 @@ class ManualUpdateApi extends ufront.api.UFApi {
 		@param `htmlDir` the absolute path to the HTML output directory
 		@throw error message (String)
 	**/
-	public function convertMarkdownToHtml( mdDir:String, htmlDir:String ) {
+	public function convertMarkdownToHtml( mdDir:String, htmlDir:String ):Void {
 
 		this.mdDir = mdDir;
 		this.htmlDir = htmlDir;
@@ -89,7 +89,7 @@ class ManualUpdateApi extends ufront.api.UFApi {
 		Sometimes a section exists in the JSON but not in the markdown.  
 		Return an array of sections, but only including those that exist, so that in our menu we only display those that exist.
 	**/
-	function processSections( sections:Array<ManualSectionJson> ) {
+	function processSections( sections:Array<ManualSectionJson> ):Array<ManualSectionJson> {
 		var validSections = [];
 		for ( section in sections ) {
 			var existed = processSection( section );
@@ -107,7 +107,7 @@ class ManualUpdateApi extends ufront.api.UFApi {
 		The markdown lacks some markup we need, for example, classes on the "previous" and "next" links so we can style them appropriately.
 		We also need to redirect links (if relative, change extension from `.md` to `.html`), and we need to process images.
 	**/
-	function processSection( section:ManualSectionJson ) {
+	function processSection( section:ManualSectionJson ):Bool {
 		var filename = '$mdDir/${section.label}.md';
 		var outFilename = '$htmlDir/${section.label}.html';
 
@@ -183,7 +183,7 @@ class ManualUpdateApi extends ufront.api.UFApi {
 		- Tables will have "table table-bordered" classes added for styling.
 		- Images, will need paths altered.
 	**/
-	function processNodes( top:DOMNode ) {
+	function processNodes( top:DOMNode ):Void {
 		var thisAndDescendants = top.descendants( true ).add( top );
 		for ( node in thisAndDescendants ) if ( node.isElement() ) {
 			switch node.tagName() {

@@ -8,7 +8,7 @@ import ufront.web.Dispatch;
 import ufront.web.result.DirectFilePathResult;
 import ufront.web.result.ViewResult;
 import ufront.view.TemplateData;
-using Strings;
+using thx.core.Strings;
 using tink.CoreApi;
 using haxe.io.Path;
 
@@ -34,7 +34,7 @@ class DownloadController extends Controller {
 		var result = apiDownload.getDownloadList( context.request.scriptDirectory+versionRepo() );
 		var versions = result.versions;
 		versions.reverse();
-		return ViewResult.create({
+		return new ViewResult({
 			title: 'Haxe Download List', 
 			topNav: '/download/',
 			tagBaseUrl: Config.app.siteContent.versions.tagBaseUrl,
@@ -48,14 +48,14 @@ class DownloadController extends Controller {
 	@:route("/version/$version")
 	public function doVersion( version:String ) {
 		var result = apiDownload.getDownloadVersion( contentDir+versionRepo(), version );
-		return ViewResult.create({
+		return new ViewResult({
 			title: 'Haxe $version',
 			topNav: '/download/',
 			tagBaseUrl: Config.app.siteContent.versions.tagBaseUrl,
 			compareBaseUrl: Config.app.siteContent.versions.compareBaseUrl,
 			editLink: baseEditUrl() + version.replace(".",",") + '/',
 			description: 'Download Haxe $version for Windows, Mac or Linux.'
-		}, "download/version.html" ).setVars( result );
+		}, "version.html" ).setVars( result );
 	}
 
 	@:route("/file/$version/$file")
@@ -63,7 +63,7 @@ class DownloadController extends Controller {
 		var versionDir = version.replace( '.', ',' );
 		var directDownloadLink = '/'+versionRepo()+'/$versionDir/downloads/$file';
 		var result = apiDownload.getDownloadVersion( contentDir+versionRepo(), version );
-		return ViewResult.create({
+		return new ViewResult({
 			title: 'Haxe $version',
 			topNav: '/download/',
 			directDownloadLink: directDownloadLink,

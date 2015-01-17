@@ -68,7 +68,7 @@ class DownloadApi extends ufront.api.UFApi {
 		@param `linkBase` the absolute http path to use as the base for links.  Default "" (relative links)
 		@throw An array of error messages if there were failures.  All remaining files will be attempted before error is thrown.
 	**/
-	public function prepareDownloadJson( inDir:String, outDir:String ) {
+	public function prepareDownloadJson( inDir:String, outDir:String ):Void {
 		
 		var errorMessages = [];
 		var versionInfo = readVersionInfo( inDir.addTrailingSlash()+'versions.json', errorMessages );

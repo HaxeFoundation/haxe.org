@@ -2,7 +2,8 @@ package app.model;
 
 using tink.CoreApi;
 
-typedef DownloadList = Array<{ version:String, api:Bool, tag:String, date:String }>;
+typedef Download = { version:String, api:Bool, tag:String, ?date:String };
+typedef DownloadList = Array<Download>;
 typedef CurrentVersionAndList = { current:String, versions:DownloadList };
 typedef DownloadFileInfo = Dynamic<Array<{ title:String, filename:String, size:Int }>>;
 

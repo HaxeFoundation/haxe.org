@@ -1,5 +1,4 @@
 import app.OldSiteRedirectHandler;
-import ufront.app.DispatchApplication;
 import ufront.app.UfrontApplication;
 import ufront.handler.ErrorPageHandler;
 import ufront.view.TemplatingEngines;
