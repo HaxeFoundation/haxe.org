@@ -1,7 +1,7 @@
--lib ufront-mvc:1.0.0-rc.11
+-lib ufront-mvc:1.0.0-rc.12
 -lib compiletime:2.5.1
 -lib markdown:1.0.0
--lib detox:1.0.0-rc.7
+-lib detox:1.0.0-rc.8
 -main Server
 -cp src
 -D server
@@ -12,7 +12,7 @@
 # Neko
 --remap php:neko
 -neko www/index.n
--xml dox/neko.xml
+-xml doc/neko.xml
 
 --next
 
@@ -20,4 +20,4 @@
 --remap neko:php
 --php-lib php
 -php www
--xml dox/php.xml
+-xml doc/php.xml

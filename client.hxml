@@ -11,4 +11,4 @@
 # Output
 -main Client 
 -js www/js/client.js
--xml dox/js.xml
+-xml doc/js.xml

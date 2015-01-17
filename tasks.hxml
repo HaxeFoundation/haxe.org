@@ -11,4 +11,4 @@
 
 -main Tasks
 -neko www/tasks.n
--xml dox/tasks.xml
+-xml doc/tasks.xml
