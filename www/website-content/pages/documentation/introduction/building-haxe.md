@@ -27,6 +27,7 @@ If you want to start hacking the Haxe compiler, it is better to clone manually a
 
 1. Install XQuartz (required by OCaml): `brew install caskroom/cask/brew-cask && brew cask install xquartz`
 2. Install OCaml: `brew install ocaml`
+3. Install Camlp4: `brew install camlp4`
 3. Navigate to where the Haxe sources are and build Haxe using `make`:
 
 ```
