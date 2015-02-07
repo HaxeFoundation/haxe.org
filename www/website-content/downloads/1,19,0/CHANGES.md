@@ -289,8 +289,8 @@
 
 * fixed bug in flash -debug
 * fixed Sqlite result .length
-* fixed missing "." in OSX/Linux default classpath
-* fixed haxelib NDLL autoloading on OSX
+* fixed missing "." in OS X/Linux default classpath
+* fixed haxelib NDLL autoloading on OS X
 * fixed bug in deserialization of "\\\r" sequence
 * added inheritance and fields getter/setter to xml output
 * haxedoc 2.0
@@ -299,7 +299,7 @@
 * fixed returned value semantics in neko (prevent remoting leak)
 * more documentation
 * added haxe.rtti package (classes can implement haxe.rtti.Infos)
-* fixed windows line endings in exclude files under linux/osx
+* fixed windows line endings in exclude files under Linux/OS X
 * fixed small bug in "cast" syntax
 * added "callback" for partial function application
 * added --auto-xml for future haxeFD usage

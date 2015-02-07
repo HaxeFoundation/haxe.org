@@ -59,8 +59,8 @@ class DownloadApi extends ufront.api.UFApi {
 		- All stored in `/website-content/versions/$version/downloads/`
 		- Files ending in `-linux.tar.gz` or `-linux32.tar.gz` are Linux 32bit binaries
 		- Files ending in `-linux64.tar.gz` are Linux 64bit binaries
-		- Files ending in `-osx.tar.gz` are MacOSX binaries
-		- Files ending in `-osx-installer.pkg` are MacOSX self installers
+		- Files ending in `-osx.tar.gz` are Mac OS X binaries
+		- Files ending in `-osx-installer.pkg` are Mac OS X self installers
 		- Files ending in `-win.zip` are Windows binaries
 		- Files ending in `-win.exe` are Windows self installers
 		
@@ -187,8 +187,8 @@ class DownloadApi extends ufront.api.UFApi {
 				if ( filename.endsWith("-linux32.tar.gz") || filename.endsWith("-linux.tar.gz") ) downloads.linux.unshift( getInfo("Linux 32-bit Binaries", filename) );
 				else if ( filename.endsWith("-linux64.tar.gz") ) downloads.linux.push( getInfo("Linux 64-bit Binaries", filename) );
 				else if ( filename.endsWith("-raspi.tar.gz") ) downloads.linux.push( getInfo("Raspberry Pi", filename) );
-				else if ( filename.endsWith("-osx-installer.pkg") || filename.endsWith("-osx-installer.dmg") ) downloads.osx.unshift( getInfo("OSX Installer", filename) );
-				else if ( filename.endsWith("-osx.tar.gz") ) downloads.osx.push( getInfo("OSX Binaries", filename) );
+				else if ( filename.endsWith("-osx-installer.pkg") || filename.endsWith("-osx-installer.dmg") ) downloads.osx.unshift( getInfo("OS X Installer", filename) );
+				else if ( filename.endsWith("-osx.tar.gz") ) downloads.osx.push( getInfo("OS X Binaries", filename) );
 				else if ( filename.endsWith("-win.exe") ) downloads.windows.unshift( getInfo("Windows Installer", filename) );
 				else if ( filename.endsWith("-win.zip") ) downloads.windows.push( getInfo("Windows Binaries", filename) );
 				else errorMessages.push( 'Download file $fullFilename does not match one of our usual rules, we do not know which platform it belongs to...' );
