@@ -18,6 +18,8 @@ The license of the compiler does not affect the license of your own source code.
 
 [Click here to read the full GPLv2.0 License Text](https://www.gnu.org/licenses/gpl-2.0.html)
 
+[Click here to see Haxe Compiler source code](https://github.com/HaxeFoundation/haxe)
+
 <a name="std-library-license" class="anch"></a>
 
 ### The Haxe Standard Library: MIT
