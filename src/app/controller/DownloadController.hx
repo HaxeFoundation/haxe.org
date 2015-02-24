@@ -40,7 +40,7 @@ class DownloadController extends Controller {
 			tagBaseUrl: Config.app.siteContent.versions.tagBaseUrl,
 			editLink: baseEditUrl(),
 			versions: versions,
-			currentViewion: result.current,
+			current: result.current,
 			description: 'A list of versions of Haxe available for download on Windows, Mac and Linux.'
 		});
 	}
