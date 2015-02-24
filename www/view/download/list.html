@@ -2,7 +2,10 @@
 	<div class="container">
 		<h1>::title::</h1>
 
-		<table class="table table-striped">
+		<p>The current stable version is <a href="/download/version/::current::/">::current::</a>.</p>
+		<p>If you want to see what's coming next for Haxe, you can try <a href="http://build.haxe.org" target="_blank">the latest development builds</a>, which are created for every commit on our development branch on Github.</p>
+
+		<table class="table table-hover">
 			<thead>
 				<th>Version</th>
 				<th>Download</th>
@@ -11,8 +14,15 @@
 				<th>Tag</th>
 			</thead>
 			<tbody>
+				<tr>
+					<td><a href="http://build.haxe.org" target="_blank">Development Builds</a></td>
+					<td><a href="http://build.haxe.org" target="_blank">Download from S3</a></td>
+					<td></td>
+					<td></td>
+					<td><a href="https://github.com/HaxeFoundation/Haxe" target="_blank" title="View branch `development` on Github">development</a></td>
+				</tr>
 				::foreach versions::
-					<tr ::if (version == current):: class="active" ::end::>
+					<tr ::if (version == current):: class="success" ::end::>
 						<td><a href="/download/version/::version::/">::version::</a> ::if (version == current):: (Current Release) ::end::</td>
 						<td><a href="/download/version/::version::/">Download Page</a></td>
 						<td>::if (api)::<a href="/download/api/::version::/api.zip">API Documentation (ZIP)</a>::end::</td>
