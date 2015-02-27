@@ -24,7 +24,6 @@ class DownloadController extends Controller {
 
 	@:route("/")
 	public function doDefault() {
-		ufTrace( contentDir );
 		var currentVersion = apiSite.getCurrentVersion( versionRepo() );
 		return doVersion( currentVersion );
 	}
