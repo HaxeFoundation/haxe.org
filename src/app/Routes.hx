@@ -24,6 +24,7 @@ class Routes extends Controller
 		ViewResult.globalValues.set( "navBar", sitemap.printSitemap(NavBar,"/",r.uri) );
 		ViewResult.globalValues.set( "siteMap", sitemap.printSitemap(Footer,"/",r.uri) );
 		ViewResult.globalValues.set( "pageUrl", url );
+		ViewResult.globalValues.set( "todaysDate", Date.now() );
 		ViewResult.globalValues.set( "description", "Haxe is an open source toolkit based on a modern, high level, strictly typed programming language." );
 	}
 
