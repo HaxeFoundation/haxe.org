@@ -20,15 +20,9 @@ class DownloadApi extends ufront.api.UFApi {
 
 	/**
 		Retrieve a list (and basic metadata) of all downloads in the repo.  Basically returns the `versions.json` file
-
-		@param repo - absolute path to the folder containing all our versions.
-		@return Pair(current, [versions])
-		@throws String if versions.json could not be loaded or parsed.
 	**/
-	public function getDownloadList( repo:String ):CurrentVersionAndList {
-		var versionFile = repo.addTrailingSlash()+'versions.json';
-		var versionJson = File.getContent( versionFile );
-		return haxe.Json.parse( versionJson );
+	public function getDownloadList():CurrentVersionAndList {
+		return CompileTime.parseJsonFile( 'www/website-content/downloads/versions.json' );
 	}
 
 	/**
@@ -71,9 +65,10 @@ class DownloadApi extends ufront.api.UFApi {
 	public function prepareDownloadJson( inDir:String, outDir:String ):Void {
 		
 		var errorMessages = [];
-		var versionInfo = readVersionInfo( inDir.addTrailingSlash()+'versions.json', errorMessages );
-		var currentVersion = versionInfo.a;
-		var versions = versionInfo.b;
+
+		var versionsInfo = getDownloadList();
+		var currentVersion = versionsInfo.current;
+		var versions = versionsInfo.versions;
 
 		// For each version, create a page
 
@@ -129,28 +124,6 @@ class DownloadApi extends ufront.api.UFApi {
 				errorMessages.push( 'Failed to read or convert Markdown file $filename' );
 				return null;
 			}
-	}
-
-	/**
-		Read a `versions.json` file and return information about the versions.
-
-		Add error to array if there is an error.
-
-		Return a pair, the first part containing the current version string, the second part, an array of info about each version.
-	**/
-	function readVersionInfo( versionFile:String, errorMessages:Array<String> ):Pair<String, DownloadList> {
-		
-		var versions:Array<{ version:String, api:Bool, tag:String, date:String }> = [];
-		var currentVersion:String = null;
-
-		try {
-			var versionJson = File.getContent( versionFile );
-			var versionsInfo = haxe.Json.parse( versionJson );
-			versions = versionsInfo.versions;
-			currentVersion = versionsInfo.current;
-		} catch ( e:Dynamic ) errorMessages.push( '$e' );
-
-		return new Pair( currentVersion, versions );
 	}
 
 	/**
