@@ -30,7 +30,7 @@ class DownloadController extends Controller {
 
 	@:route("/list/")
 	public function doList() {
-		var result = apiDownload.getDownloadList( context.request.scriptDirectory+versionRepo() );
+		var result = apiDownload.getDownloadList();
 		var versions = result.versions;
 		versions.reverse();
 		return new ViewResult({

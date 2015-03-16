@@ -72,16 +72,16 @@ class PageApi extends ufront.api.UFApi {
 	**/
 	public function getSitemap( repo:String ):SiteMap {
 		var filename = '$repo/sitemap.json';
-		
+
 		if ( !FileSystem.exists(filename) ) {
 			return throw HttpError.internalServerError('The sitemap needed to render the menu for this page could not be found: $filename');
 		}
 
-		var content = 
+		var content =
 			try File.getContent(filename)
 			catch (e:Dynamic) throw HttpError.internalServerError('The sitemap needed to render the menu for this page existed, but could not be read: $filename', e)
 		;
-		var sitemap:SiteMap = 
+		var sitemap:SiteMap =
 			try Json.parse(content)
 			catch (e:Dynamic) throw HttpError.internalServerError('The sitemap needed to render the menu for this page was not valid JSON', e)
 		;

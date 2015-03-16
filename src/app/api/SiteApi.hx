@@ -107,20 +107,8 @@ class SiteApi extends ufront.api.UFApi {
 		return getVersionInfo( versionDir ).versions.filter( function (v) return v.api );
 	}
 
-	static var versionInfo:Map<String,CurrentVersionAndList> = new Map();
 	function getVersionInfo( versionDir:String ):CurrentVersionAndList {
-		if ( versionInfo.exists(versionDir)==false ) {
-			var versionsFile = scriptDir + versionDir.addTrailingSlash() + 'versions.json';
-			var version = 
-				try Json.parse( File.getContent(versionsFile) )
-				catch ( e:Dynamic ) { 
-					ufError('Was an error: $e');
-					{ current: "", versions:[] };
-				}
-			
-			versionInfo[versionDir] = version;
-		}
-		return versionInfo[versionDir];
+		return CompileTime.parseJsonFile( 'www/website-content/downloads/versions.json' );
 	}
 	
 	public static function unlink( path:String ):Void {
