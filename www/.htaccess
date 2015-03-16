@@ -14,3 +14,6 @@ RewriteRule ^(.*)$ index.n/$1
 # Get our stuff gzipped
 #SetOutputFilter DEFLATE
 #AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript
+
+# Block .git directory from Apache
+RedirectMatch 404 /\.git
