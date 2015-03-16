@@ -12,13 +12,13 @@
 	"targets": [
 		{
 			"name": "haxe.org",
-			"gitRepo": "ssh://joneil@haxe.org/data/newhaxe/repo.git",
+			"gitRepo": "ssh://www-haxe@haxe.org/data/newhaxe/repo.git",
 			"defines": [],
 			"hxmls": ["server","client"],
 			"debug": false,
 			"servers": [{
 				"name": "haxe.org",
-				"user": "joneil",
+				"user": "www-haxe",
 				"host": "haxe.org",
 				"port": 22,
 				"remoteDir": "/data/newhaxe/www/"
