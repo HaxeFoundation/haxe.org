@@ -9,7 +9,7 @@ To help you do this, the toolkit contains three main components:
 
 * the [Haxe Language](language-introduction.html) - a modern high-level, strictly typed programming language
 * the [Haxe Standard Library](stdlib-introduction.html) - a complete cross-platform standard library
-* the [Haxe Compiler](compiler-usage.html) - an incredibly fast cross-compiler 
+* the [Haxe Compiler](/manual/compiler-usage.html) - an incredibly fast cross-compiler 
 
 Apart from these features, the Haxe Toolkit also provides you with a range of additional tools that will make using Haxe even more effective.
 
