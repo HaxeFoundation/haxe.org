@@ -14,7 +14,7 @@ using haxe.io.Path;
 
 @cacheRequest
 class DownloadController extends Controller {
-	
+
 	@inject("contentDirectory") public var contentDir:String;
 	@inject public var apiDownload:DownloadApi;
 	@inject public var apiSite:SiteApi;
@@ -34,7 +34,7 @@ class DownloadController extends Controller {
 		var versions = result.versions;
 		versions.reverse();
 		return new ViewResult({
-			title: 'Haxe Download List', 
+			title: 'Haxe Download List',
 			topNav: '/download/',
 			tagBaseUrl: Config.app.siteContent.versions.tagBaseUrl,
 			editLink: baseEditUrl(),
@@ -52,15 +52,14 @@ class DownloadController extends Controller {
 			topNav: '/download/',
 			tagBaseUrl: Config.app.siteContent.versions.tagBaseUrl,
 			compareBaseUrl: Config.app.siteContent.versions.compareBaseUrl,
-			editLink: baseEditUrl() + version.replace(".",",") + '/',
+			editLink: baseEditUrl() + version + '/',
 			description: 'Download Haxe $version for Windows, Mac or Linux.'
 		}, "version.html" ).setVars( result );
 	}
 
 	@:route("/file/$version/$file")
 	public function doFileDownload( version:String, file:String ) {
-		var versionDir = version.replace( '.', ',' );
-		var directDownloadLink = '/'+versionRepo()+'/$versionDir/downloads/$file';
+		var directDownloadLink = '/'+versionRepo()+'/$version/downloads/$file';
 		var result = apiDownload.getDownloadVersion( contentDir+versionRepo(), version );
 		return new ViewResult({
 			title: 'Haxe $version',
@@ -73,9 +72,8 @@ class DownloadController extends Controller {
 
 	@:route("/api/$version/api.zip")
 	public function doApiDownload( version:String ) {
-		var versionDir = version.replace( '.', ',' );
 		var scriptDir = context.request.scriptDirectory;
 		var file = 'api-$version.zip';
-		return new DirectFilePathResult( scriptDir+versionRepo()+'/$versionDir/$file' );
+		return new DirectFilePathResult( scriptDir+versionRepo()+'/$version/$file' );
 	}
 }

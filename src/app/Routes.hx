@@ -30,14 +30,6 @@ class Routes extends Controller
 		ViewResult.globalValues.set( "description", "Haxe is an open source toolkit based on a modern, high level, strictly typed programming language." );
 	}
 
-	// Redirect for Travis/Haxe download scripts. See #119.
-	@:route("/website-content/downloads/$versionDir/downloads/$file")
-	public function redirectDownloadForTravis( versionDir:String, file:String ) {
-		versionDir = versionDir.replace(".",",");
-		file = file.replace(",",".").replace("rc.","rc");
-		return new RedirectResult( '/website-content/downloads/$versionDir/downloads/$file' );
-	}
-
 	@:route("/download/*") var download:DownloadController;
 	@:route("/update/*") var update:UpdateController;
 	@:route("/search/*") var search:SearchController;
