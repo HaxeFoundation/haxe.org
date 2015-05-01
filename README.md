@@ -23,7 +23,7 @@ Currently the css for the site is in [www/css/style.css](https://github.com/Haxe
 
 We plan to switch back to using HSS at some point in the future to make this easier to maintain.
 
-We currently use the bootstrap 2.3.2 CSS library and the Font Awesome 4.1.0 icon library. 
+We currently use the bootstrap 2.3.2 CSS library and the Font Awesome 4.1.0 icon library.
 
 ## Structure
 
@@ -33,16 +33,19 @@ We currently use the bootstrap 2.3.2 CSS library and the Font Awesome 4.1.0 icon
 
 ## Running a local copy
 
-1.  `git clone https://github.com/HaxeFoundation/haxe.org.git haxeorg`
-2.  `cd haxeorg`
-3.  `haxelib install all` - this will install all dependencies. Please note this may take a while.
-4.  `haxelib install ufront; haxelib run ufront --setup` - setup the "ufront" alias so you don't have to run `haxelib run ufront`
-5.  `mkdir dox` - this folder needs to exist for our documentation to compile.
-6.  `ufront build` - builds all hxml files, alternatively, run `haxe server.hxml; haxe client.hxml;`
-7.  Create a "uf-content" directory, make sure it is writeable by the web server.
-8.  `ufront server` - start a "nekotools" server in the `www` directory.
-9.  Visit `http://localhost:2987/update/manual/` to prepare the manual content.
-10. Visit `http://localhost:2987/update/site/` to prepare some site content.
+0.  `git clone --recursive https://github.com/HaxeFoundation/haxe.org.git haxeorg`
+0.  `cd haxeorg`
+0.  `haxelib install all` - this will install all dependencies. Please note this may take a while.
+0.  `haxelib install ufront; haxelib run ufront --setup` - setup the "ufront" alias so you don't have to run `haxelib run ufront`
+0.	`haxelib dev minject submodules/minject/src/` - use dev version of minject, until 2.0.0 is released.
+0.	`haxelib dev ufront-mvc submodules/ufront-mvc/` - use dev version of ufront-mvc, until minject:2.0.0 is released.
+0.	`haxelib dev ufront-uftasks submodules/ufront-uftasks/` - use dev version of ufront-uftasks, until minject:2.0.0 is released.
+0.  `mkdir dox` - this folder needs to exist for our documentation to compile.
+0.  `ufront build` - builds all hxml files, alternatively, run `haxe server.hxml; haxe client.hxml;`
+0.  Create a "uf-content" directory, make sure it is writeable by the web server.
+0.  `ufront server` - start a "nekotools" server in the `www` directory.
+0.  Visit `http://localhost:2987/update/manual/` to prepare the manual content.
+0. Visit `http://localhost:2987/update/site/` to prepare some site content.
 
 Please note, Haxe 3.1.3 will render some markdown pages incorrectly.  Using a development version of Haxe 3.2 is a workaround for this issue.
 

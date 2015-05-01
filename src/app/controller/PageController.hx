@@ -9,7 +9,7 @@ import ufront.web.Dispatch;
 import ufront.web.result.*;
 import ufront.view.TemplateData;
 import ufront.web.HttpError;
-using thx.core.Strings;
+using thx.Strings;
 using tink.CoreApi;
 using haxe.io.Path;
 using app.model.SiteMap;

@@ -24,6 +24,10 @@ before_install:
   - chmod 600 deploy_key
   - eval `ssh-agent -s`
   - ssh-add deploy_key
+  # We need unreleased versions of minject and thx.core for now to deal with a memory leak.
+  - haxelib dev ufront-mvc submodules/ufront-mvc/
+  - haxelib dev ufront-uftasks submodules/ufront-uftasks/
+  - haxelib dev minject submodules/minject/src/
   # Configure git
   - git config --global user.name "TravisCI"
   - git config --global user.email "travisci@haxe.org"
@@ -51,4 +55,3 @@ after_success:
 
 addons:
   ssh_known_hosts: haxe.org
-

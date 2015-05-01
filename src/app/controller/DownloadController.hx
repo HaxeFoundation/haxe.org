@@ -8,7 +8,7 @@ import ufront.web.Dispatch;
 import ufront.web.result.DirectFilePathResult;
 import ufront.web.result.ViewResult;
 import ufront.view.TemplateData;
-using thx.core.Strings;
+using thx.Strings;
 using tink.CoreApi;
 using haxe.io.Path;
 
