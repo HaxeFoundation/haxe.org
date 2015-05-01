@@ -15,7 +15,7 @@ import app.*;
 class Server
 {
 	public static var ufrontApp:UfrontApplication;
-	public static var requestCache:RequestCacheMiddleware;
+	/*public static var requestCache:RequestCacheMiddleware;*/
 
 	static function main() {
 		// enable caching if using mod_neko or mod_tora
@@ -35,7 +35,7 @@ class Server
 
 			var errorPageHandler = new ErrorPageHandler();
 			errorPageHandler.renderErrorPage = function( title, content ) return CompileTime.interpolateFile( 'app/view/error.html' );
-			
+
 			var oldSiteRedirectHandler = new OldSiteRedirectHandler();
 
 			// Set up cache middleware
@@ -43,7 +43,7 @@ class Server
 
 			// Set up the dispatcher and routing
 
-			ufrontApp = 
+			ufrontApp =
 				new UfrontApplication({
 					indexController: Routes,
 					remotingApi: Api,
@@ -54,9 +54,9 @@ class Server
 					contentDirectory: "../uf-content/",
 					defaultLayout: "layout.html",
 				})
-				.inject( UFCacheConnection, new MemoryCacheConnection() )
+				.injectValue( UFCacheConnection, new MemoryCacheConnection() )
 				.addTemplatingEngine( TemplatingEngines.haxe )
-				.inject( String, "layout.html", "defaultLayout" )
+				.injectValue( String, "layout.html", "defaultLayout" )
 			;
 			// ufrontApp.addRequestMiddleware( requestCache );
 			// ufrontApp.addResponseMiddleware( requestCache );
