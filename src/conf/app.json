@@ -21,7 +21,7 @@
 		"editLinkBase": "https://github.com/HaxeFoundation/HaxeManual/blob/master/",
 		"branch": "master",
 		"dir": "manual",
-		"mdDir": "manual/md/manual",
+		"mdDir": "manual/output/HaxeManual/website",
 		"htmlDir": "manual-html",
 		"imagesDir": "manual/assets/graphics/generated"
 	}
