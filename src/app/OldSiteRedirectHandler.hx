@@ -20,22 +20,23 @@ class OldSiteRedirectHandler implements UFErrorHandler {
 		loadRedirects( ctx );
 
 		if ( !ctx.completion.has(CRequestHandlersComplete) && err.code==404 ) {
-			
+
 			var oldDomain = 'http://old.haxe.org';
 			var uri = removeTrailingSlash( ctx.request.uri );
 			var queryString = ctx.request.queryString;
-			
-			var csvSearchString = '\n$uri,';
+
+			var csvSearchString = '\n"$uri"\t"';
 			var indexOfHit = redirects.indexOf( csvSearchString );
 
 			var newUrl = null;
 			var straightRedirect = false;
 
 			if ( indexOfHit>-1 ) {
-				var commaPos = indexOfHit+csvSearchString.length;
-				var endOfLine = redirects.indexOf( '\n', commaPos );
-				newUrl = redirects.substring( commaPos, endOfLine );
-				straightRedirect = newUrl.length==0; // No specific redirect specified, point to same address old.haxe.org
+				var tabPos = indexOfHit+csvSearchString.length;
+				var endOfLine = redirects.indexOf( '"\n', tabPos );
+				newUrl = redirects.substring( tabPos, endOfLine );
+				// If no specific redirect is specified, point to the same document, but on old.haxe.org
+				straightRedirect = newUrl.length==0;
 			}
 			else if ( uri.startsWith("/forum") || uri.startsWith("/wiki") || uri.startsWith("/api") || uri.startsWith("/file") ) {
 				straightRedirect = true;
@@ -45,10 +46,11 @@ class OldSiteRedirectHandler implements UFErrorHandler {
 				newUrl = '$oldDomain$uri';
 				if ( queryString!="" ) newUrl += '?$queryString';
 			}
-			
+
 			if ( newUrl!=null ) {
 				ctx.response.permanentRedirect( newUrl );
 				ctx.completion.set( CRequestHandlersComplete );
+				ctx.completion.set( CErrorHandlersComplete );
 			}
 		}
 

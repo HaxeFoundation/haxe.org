@@ -34,7 +34,6 @@ class DownloadApi extends ufront.api.UFApi {
 		@throws String if version file could not be read or parsed.
 	**/
 	public function getDownloadVersion( repo:String, version:String ):VersionInfo {
-		var version = version.replace( '.', ',' );
 		var versionFile = repo.addTrailingSlash()+'$version.json';
 		var versionJson = File.getContent( versionFile );
 		var versionsInfo:VersionInfo = haxe.Json.parse( versionJson );
@@ -43,8 +42,8 @@ class DownloadApi extends ufront.api.UFApi {
 
 	/**
 		Convert downloads into JSON used to render information about each Haxe version's downloads.
-		
-		Will read the "website-content/versions/versions.json" to get a list of versions.  
+
+		Will read the "website-content/versions/versions.json" to get a list of versions.
 		Will then create JSON info for the downloads, including download links, RELEASE.md, CHANGES.md and prev/next version links.
 		RELEASE.md is optional, will be parsed as Markdown.  Same for CHANGES.md
 
@@ -57,13 +56,13 @@ class DownloadApi extends ufront.api.UFApi {
 		- Files ending in `-osx-installer.pkg` are Mac OS X self installers
 		- Files ending in `-win.zip` are Windows binaries
 		- Files ending in `-win.exe` are Windows self installers
-		
+
 		@param `inDir` the absolute path to the directory containing the different Haxe versions
 		@param `linkBase` the absolute http path to use as the base for links.  Default "" (relative links)
 		@throw An array of error messages if there were failures.  All remaining files will be attempted before error is thrown.
 	**/
 	public function prepareDownloadJson( inDir:String, outDir:String ):Void {
-		
+
 		var errorMessages = [];
 
 		var versionsInfo = getDownloadList();
@@ -75,9 +74,9 @@ class DownloadApi extends ufront.api.UFApi {
 		var i = 0;
 		for ( version in versions ) {
 			try {
-				var commaVersion = version.version.replace( '.', ',' );
-				var versionInDir = inDir.addTrailingSlash() + commaVersion;
-				
+				var versionNumber = version.version;
+				var versionInDir = inDir.addTrailingSlash() + versionNumber;
+
 				var downloadDir = versionInDir + '/downloads/';
 				var downloads = getDownloadInfo( downloadDir, errorMessages );
 
@@ -101,7 +100,7 @@ class DownloadApi extends ufront.api.UFApi {
 				};
 				var json = Json.stringify( downloadInfo );
 				SysUtil.mkdir( outDir );
-				File.saveContent( outDir.addTrailingSlash()+commaVersion+'.json', json );
+				File.saveContent( outDir.addTrailingSlash()+versionNumber+'.json', json );
 			} catch ( e:Dynamic ) errorMessages.push( 'Failed to process download ${version.version}: $e $i ${versions.length}' );
 
 			i++;
@@ -118,8 +117,8 @@ class DownloadApi extends ufront.api.UFApi {
 	function readAndConvertMdFile( filename:String, errorMessages:Array<String> ):Null<String> {
 		if ( !FileSystem.exists(filename) ) return null;
 
-		try 
-			return Markdown.markdownToHtml( File.getContent(filename) ) 
+		try
+			return Markdown.markdownToHtml( File.getContent(filename) )
 			catch (e:Dynamic) {
 				errorMessages.push( 'Failed to read or convert Markdown file $filename' );
 				return null;
@@ -145,7 +144,7 @@ class DownloadApi extends ufront.api.UFApi {
 
 		function getInfo( title:String, filename:String ) {
 			var size =
-				try FileSystem.stat( downloadDir.addTrailingSlash()+filename ).size 
+				try FileSystem.stat( downloadDir.addTrailingSlash()+filename ).size
 				catch ( e:Dynamic ) {
 					errorMessages.push( 'Failed to read download size of $filename' );
 					0;
