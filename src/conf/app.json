@@ -23,6 +23,6 @@
 		"dir": "manual",
 		"mdDir": "manual/output/HaxeManual/website",
 		"htmlDir": "manual-html",
-		"imagesDir": "manual/assets/graphics/generated"
+		"imagesDir": "manual/HaxeManual/assets/graphics/generated"
 	}
 }
