@@ -10,7 +10,7 @@ If you are not familiar with TiVo’s products, let me just give you a quick run
 
 ![Diagram of TiVo's code structure when using Flash](tivo-flash-structure.png)
 
-After considering their options, TiVo decided to try Haxe, since it would address their problems as well as allow them to build on their already existing codebase. The conversion from AS3 code to Haxe code was done automatically, using an already existing converter. TiVo was able to build a working Haxe prototype of their UI which, out of the box, was already 30% faster than the Flash version. Not only did this show that Haxe was a viable solution, it showed that Haxe was a better solution.
+After considering their options, TiVo decided to try Haxe, since it would address their problems as well as allow them to build on their already existing codebase. The conversion from AS3 code to Haxe code was done automatically, using an already existing converter. TiVo was able to build a working Haxe prototype of their UI which, out of the box, was already a good deal faster than the Flash version. Not only did this show that Haxe was a viable solution, it showed that Haxe was a better solution.
 
 That was the state of things at last year’s WWX. Since then, TiVo has converted their code, shipped their product and improved upon the initial version. Last summer, the new code was successfully rolled out to over one million devices. I was – and still am – very excited about how TiVo is using Haxe, since there are not many examples of its application at such a large scale. Naturally, I was also very curious as to how things went and whether Haxe still seemed to be the right way to go one year later. It’s not often that I get to observe a project like this from the start. So, giving in to my curiosity, I went and contacted Todd for some more information and a status update. We talked about the release experience and about some more recent developments. If you are following this year’s WWX, you will get a first-hand account of some of the things we talked about, so be sure not to miss it.
 
@@ -18,11 +18,11 @@ That was the state of things at last year’s WWX. Since then, TiVo has converte
 
 ### Faster Applications Make for Happier Customers
 
-Looking at the initial results of switching to Haxe, one of the most impressive things about the switch to Haxe was that the initial prototype was already running 30% faster. Just like that, out of the box. Naturally, I wanted to know, whether those numbers held up. As it turns out, they did. According to Todd, the final release software candidate had a very similar performance profile to the initial prototype and in some important use cases, the performance was even better than expected. The new Haxe-based user interface also gave the older boxes with slower hardware a new “lease on life”, making them more performant. Those boxes became around 30% faster just by getting the new software.
+Looking at the initial results of switching to Haxe, one of the most impressive things about the switch to Haxe was that the initial prototype was already running 30% faster. Just like that, out of the box. Naturally, I wanted to know, whether those numbers held up. As it turns out, they did. According to Todd, the final release software candidate had a very similar performance profile to the initial prototype and in some important use cases, the performance was even better than expected. The new Haxe-based user interface also gave the older boxes with slower hardware a new “lease on life”, making them more performant. Those boxes became much more performant just by getting the new software.
 
 ![Diagram of TiVo's code structure when using Haxe](tivo-haxe-structure.png)
 
-Now, you might ask yourself if a 30% faster performance is a big enough change to get noticed by customers. It most certainly is.
+Now, you might ask yourself if that increase in performance was a big enough change to get noticed by customers. It most certainly was.
 
 TiVo confirmed that their users did not only notice the change, but celebrated it vocally. Everyone who sells a service-related product knows how important customer satisfactions is. Being able to deliver significant improvements, especially to customers with older hardware, is vitally important for business success. Todd Kulick, TiVo’s Vice President of Technology says:
 
@@ -53,7 +53,7 @@ _“I'm repeatedly surprised to find that many issues that we find in our work h
 
 _I am similarly impressed with the toolkit work done by both Joshua Granick and Hugh Sanderson. The numerous layers of technology built on top of their contributions shows the value that others find in their work.”_
 
-At this year’s Haxe conference, Todd and his colleagues will be back and talk about their experience and the progress made during the last year. They will also talk about their new “activities” haxelib, a recent project where they are actively looking for collaboration and input from the community. IF you are interested, make sure to look by and participate.
+At this year’s Haxe conference, Todd and his colleagues will be back and talk about their experience and the progress made during the last year. They will also talk about their new “activities” haxelib, a recent project where they are actively looking for collaboration and input from the community. If you are interested, make sure to look by and participate.
 
 * [See TiVo's "Activity" project on Github](https://github.com/TiVo/activity)
 * [See Google Group discussion](https://groups.google.com/forum/#!searchin/haxelang/activities/haxelang/yEhXuwmVV3c/vfrsmgq6xMoJ)
