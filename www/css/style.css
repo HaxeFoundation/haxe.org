@@ -812,6 +812,10 @@ a.full-size-link {
 		max-width: 133.33%;
 		width: 133.33%;
 	}
+	.article-view iframe {
+		width: 1040px !important;
+		height: 585px !important;
+	}
 	.article-view blockquote {
 		max-width: 133.33%;
 		width: 133.33%;
