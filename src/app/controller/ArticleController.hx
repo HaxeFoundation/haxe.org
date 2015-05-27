@@ -17,18 +17,12 @@ class ArticleController extends Controller {
 
 	@:route("/")
 	public function list() {
-		// var result = api.getDownloadList();
-		// var versions = result.versions;
-		// versions.reverse();
-		// return new ViewResult({
-		// 	title: 'Haxe Download List',
-		// 	topNav: '/download/',
-		// 	tagBaseUrl: Config.app.siteContent.versions.tagBaseUrl,
-		// 	editLink: baseEditUrl(),
-		// 	versions: versions,
-		// 	current: result.current,
-		// 	description: 'A list of versions of Haxe available for download on Windows, Mac and Linux.'
-		// });
+		var articles = api.getArticleList();
+		return new ViewResult({
+			title: "Haxe Articles",
+			description: "A collection of articles and posts published by the Haxe foundation",
+			articles: articles
+		});
 		return new ViewResult();
 	}
 
@@ -39,16 +33,10 @@ class ArticleController extends Controller {
 			var articleInfo = pair.a;
 			var articleHTML = pair.b;
 			var url = 'http://${context.request.hostName}${context.request.uri}';
-			return new ViewResult({
-				title: articleInfo.title,
-				author: articleInfo.author,
-				description: articleInfo.description,
-				background: articleInfo.background,
-				date: articleInfo.date,
+			return new ViewResult().setVars( articleInfo ).setVars({
 				content: articleHTML,
 				hackerNewsLink: 'https://news.ycombinator.com/submitlink?u=${url.urlEncode()}&t=${articleInfo.title.urlEncode()}'
 			});
-			return new ViewResult();
 		}
 		else {
 			var articleRepo = Config.app.siteContent.folder+'/'+Config.app.siteContent.articles.folder+"/";
