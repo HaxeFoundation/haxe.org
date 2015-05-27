@@ -58,8 +58,10 @@ At this year’s Haxe conference, Todd and his colleagues will be back and talk 
 * [See TiVo's "Activity" project on Github](https://github.com/TiVo/activity)
 * [See Google Group discussion](https://groups.google.com/forum/#!searchin/haxelang/activities/haxelang/yEhXuwmVV3c/vfrsmgq6xMoJ)
 
-![TiVo Team with Haxe celbratory cake](tivo-haxe-cake.jpg)
+<iframe width="1280" height="720" src="https://www.youtube-nocookie.com/embed/P8BpZagb6qE" frameborder="0" allowfullscreen></iframe>
 
 ### Final Thoughts
 
 To me, TiVo is a pioneer when it comes to evaluating and adopting Haxe for large-scale projects on a corporate level. During the last three years, they have made an impressive journey, from first evaluating the technology to having Haxe run on millions of devices all over the world. Making the switch has not only improved their existing products, but also opened the door for a full range of new features and platforms. Targeting mobile devices and providing modern features to already existing devices has become a lot easier. Apart from the technical benefits, discovering a new technology and connecting with the Haxe community has given their development team a huge infusion of positive energy and new ways of thinking. Connecting with TiVo and learning about their experience with Haxe has given me a very unique insight into what is involved in adopting it and making it fit on a corporate scale. This sort of feedback is extremely valuable and, hopefully, will help us take Haxe a few steps further along the way to becoming more widely used and recognized.
+
+![TiVo Team with Haxe celbratory cake](tivo-haxe-cake.jpg)
