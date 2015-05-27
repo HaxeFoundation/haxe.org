@@ -18,7 +18,7 @@
 	},
 	"manual": {
 		"repo": "https://github.com/HaxeFoundation/HaxeManual.git",
-		"editLinkBase": "https://github.com/HaxeFoundation/HaxeManual/blob/master/",
+		"editLinkBase": "https://github.com/HaxeFoundation/HaxeManual/tree/master/HaxeManual/",
 		"branch": "master",
 		"dir": "manual",
 		"mdDir": "manual/output/HaxeManual/website",
