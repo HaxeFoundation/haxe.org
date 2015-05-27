@@ -4,14 +4,15 @@ import app.Config;
 import ufront.web.Controller;
 import ufront.web.Dispatch;
 import ufront.web.result.*;
+using StringTools;
 
 class SearchController extends Controller {
-	
+
 	@:route("/")
 	public function doDefault():ActionResult {
 
 		var q = context.request.params['s'];
-		var title = (q==null) ? "Search" : 'Search for $q';
+		var title = (q==null) ? "Search" : 'Search for ${q.htmlEscape()}';
 
 		return new ViewResult({
 			title: title,
