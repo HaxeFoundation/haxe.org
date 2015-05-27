@@ -35,9 +35,9 @@ class ManualUpdateApi extends ufront.api.UFApi {
 		this.mdDir = mdDir;
 		this.htmlDir = htmlDir;
 
-		if ( !FileSystem.exists(mdDir) ) 
+		if ( !FileSystem.exists(mdDir) )
 			throw 'Markdown directory $mdDir did not exist during manual import';
-		if ( !FileSystem.exists(htmlDir) ) 
+		if ( !FileSystem.exists(htmlDir) )
 			try FileSystem.createDirectory( htmlDir ) catch ( e:Dynamic ) throw 'Failed to create directory $htmlDir during manual import';
 
 		var sectionsJson = File.getContent( '$mdDir/sections.txt' );
@@ -46,7 +46,7 @@ class ManualUpdateApi extends ufront.api.UFApi {
 
 		try {
 			var sitemap = generateSiteMap( validSections );
-			File.saveContent( '$htmlDir/sitemap.json', Json.stringify(sitemap) ); 
+			File.saveContent( '$htmlDir/sitemap.json', Json.stringify(sitemap) );
 		}
 		catch ( e:Dynamic ) throw 'Failed to create save $htmlDir/sitemap.json';
 
@@ -86,7 +86,7 @@ class ManualUpdateApi extends ufront.api.UFApi {
 
 	/**
 		Go through an array of sections and process them into HTML
-		Sometimes a section exists in the JSON but not in the markdown.  
+		Sometimes a section exists in the JSON but not in the markdown.
 		Return an array of sections, but only including those that exist, so that in our menu we only display those that exist.
 	**/
 	function processSections( sections:Array<ManualSectionJson> ):Array<ManualSectionJson> {
@@ -95,8 +95,8 @@ class ManualUpdateApi extends ufront.api.UFApi {
 			var existed = processSection( section );
 			if ( existed )
 				validSections.push( section );
-			
-			if ( section.sub!=null ) 
+
+			if ( section.sub!=null )
 				section.sub = processSections( section.sub );
 		}
 		return validSections;
@@ -148,7 +148,7 @@ class ManualUpdateApi extends ufront.api.UFApi {
 									else if ( firstElm.text().startsWith("Trivia") ) node.addClass("trivia");
 								}
 								processNodes( node );
-							default: 
+							default:
 								processNodes( node );
 						}
 					}
@@ -187,7 +187,7 @@ class ManualUpdateApi extends ufront.api.UFApi {
 		var thisAndDescendants = top.descendants( true ).add( top );
 		for ( node in thisAndDescendants ) if ( node.isElement() ) {
 			switch node.tagName() {
-				case "a": 
+				case "a":
 					node.setAttr( "href", node.attr("href").replace(".md",".html") );
 				case "table":
 					node.addClass( "table table-bordered" );

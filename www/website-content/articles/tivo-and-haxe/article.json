@@ -1,0 +1,8 @@
+{
+	"title": "TiVo: Using Haxe to improve user experience for millions of customers",
+	"author": "Josefiene Pertosa",
+	"description": "During the last three years, the development team at TiVo have had an impressive journey - from first evaluating Haxe, to having a million lines of Haxe code running on millions of devices. The experience has not only benefited the development team - but the customers - who are thrilled with the performance increases.",
+	"date": "2015-05-28",
+	"background": "tivo-bg.jpg",
+	"articleFile": "Tivo.md"
+}
