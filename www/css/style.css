@@ -767,6 +767,22 @@ html .gsc-search-box .gsc-input > input:focus, html .gsc-input-box-focus {
 /**
 Articles
 **/
+.article-list .article-thumbnail {
+	height: 200px; /** Fallback. **/
+	height: 30vh;
+	background-position: center center;
+	background-size: cover;
+	width: 100%;
+	position: relative;
+}
+a.full-size-link {
+	position: absolute;
+	display: block;
+	left: 0; right: 0; top: 0; bottom: 0;
+}
+.article-list a {
+	text-decoration: none !important;
+}
 .article-header {
 	background-position: center center;
 	background-size: cover;

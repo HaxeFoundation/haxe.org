@@ -1,1 +1,20 @@
-...
+<div class="section">
+	<div class="container">
+		<h1>Haxe Articles</h1>
+	</div>
+</div>
+<div class="article-list">
+	::foreach articles::
+		<div class="section article-thumbnail" style="background-image: url('::baseUri::::slug::/::background::')">
+			<a href="::baseUri::::slug::/" class="full-size-link"></a>
+		</div>
+		<div class="section">
+			<div class="container">
+				<h2><a href="::baseUri::::slug::/">::title::</a></h2>
+				<p class="lead">::description::</p>
+				<p class="lead"><a href="::baseUri::::slug::/">Read more...</a></p>
+				<p><small>Written by ::author:: on ::date::.</small></p>
+			</div>
+		</div>
+	::end::
+</div>
