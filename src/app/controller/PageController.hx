@@ -16,7 +16,7 @@ using app.model.SiteMap;
 
 @cacheRequest
 class PageController extends Controller {
-	
+
 	@inject public var pageApi:PageApi;
 	@inject public var siteApi:SiteApi;
 
@@ -44,7 +44,7 @@ class PageController extends Controller {
 	@:route("/community/")
 	inline public function communityRedirect() return new RedirectResult( "/community/community-support.html" );
 
-	@:route( "/manual/$page" ) 
+	@:route( "/manual/$page" )
 	public function doManual( ?page:String="introduction.html" ) {
 		var repo = context.contentDirectory+Config.app.manual.htmlDir;
 		var attachmentsRepo = context.contentDirectory+Config.app.manual.imagesDir;
@@ -72,13 +72,13 @@ class PageController extends Controller {
 
 		// If it's not a top-level page, we will need to load a side-menu.
 		var sitemap = pageApi.getSitemap( siteContentDir );
-		var sidebar = 
+		var sidebar =
 			try sitemap.getPageForUrl( folder ).sub
 			catch ( e:Dynamic ) null;
 
 		var page = rest.join("/");
 
-		var title = 
+		var title =
 			try sitemap.getPageForUrl( '$folder/$page' ).title
 			catch ( e:Dynamic ) null;
 
@@ -98,7 +98,7 @@ class PageController extends Controller {
 
 	function showContent( params:{ title:String, baseUrl:String, file:String, repo:String, attachmentsRepo:String, sidebar:SiteMap, editLink:Null<String> } ):ActionResult {
 		switch params.file.extension() {
-			case "html": 
+			case "html":
 
 				var nav = null,
 				    prevNextLinks = null,
