@@ -2,7 +2,6 @@
 -lib compiletime:2.5.1
 -lib markdown:1.0.0
 -lib detox:1.0.0-rc.9
--lib thx.core:0.20.0
 -main Server
 -cp src
 -D server
