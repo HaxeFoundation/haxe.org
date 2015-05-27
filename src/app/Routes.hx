@@ -33,5 +33,6 @@ class Routes extends Controller
 	@:route("/download/*") var download:DownloadController;
 	@:route("/update/*") var update:UpdateController;
 	@:route("/search/*") var search:SearchController;
+	@:route("/articles/*") var articles:ArticleController;
 	@:route("/*") var pages:PageController;
 }
