@@ -7,8 +7,8 @@ Name | Kind | Static typing | Sys | Use Cases | Since
 --- | --- | --- | --- | --- | ---
 Flash | byte code | Yes | No | Games, Mobile | alpha (2005)
 Neko | byte code | No | Yes | Web, CLI | alpha (2005)
-Javascript | source | No | No | Web, Desktop, API | beta (2006)
-Actionscript 3 | source | Yes | No | Games, Mobile, API | 1.12 (2007)
+JavaScript | source | No | No | Web, Desktop, API | beta (2006)
+ActionScript 3 | source | Yes | No | Games, Mobile, API | 1.12 (2007)
 PHP | source | No | Yes | Web | 2.0 (2008)
 C++ | source | Yes | Yes | Games, CLI, Mobile, Desktop | 2.04 (2009)
 Java | source | Yes | Yes | CLI, Mobile, Desktop | 2.10 (2012)
