@@ -11,7 +11,7 @@ The Haxe Compiler is typically invoked from command line with several arguments 
 
 To answer the first question, it is usually sufficient to provide a class path via the `-cp path` argument, along with the main class to be compiled via the `-main dot_path` argument. The Haxe Compiler then resolves the main class file and begins compilation.
 
-The second question usually comes down to providing an argument specifying the desired target. Each Haxe target has a dedicated command line switch, such as `-js file_name` for Javascript and `-php directory` for PHP. Depending on the nature of the target, the argument value is either a file name (for `-js`, `-swf` and `neko`) or a directory path.
+The second question usually comes down to providing an argument specifying the desired target. Each Haxe target has a dedicated command line switch, such as `-js file_name` for JavaScript and `-php directory` for PHP. Depending on the nature of the target, the argument value is either a file name (for `-js`, `-swf` and `neko`) or a directory path.
 
 Common arguments
 --------
@@ -25,8 +25,8 @@ Input:
 
 Output:
 
-* `-js file_name`: Generates Javascript source code in specified file.
-* `-as3 directory`: Generates Actionscript 3 source code in specified directory.
+* `-js file_name`: Generates JavaScript source code in specified file.
+* `-as3 directory`: Generates ActionScript 3 source code in specified directory.
 * `-swf file_name`: Generates the specified file as Flash .swf.
 * `-neko file_name`: Generates Neko binary as specified file.
 * `-php directory`: Generates PHP source code in specified directory.

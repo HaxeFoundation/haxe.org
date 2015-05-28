@@ -4,7 +4,7 @@ On behalf of the Haxe Foundation I am proud to announce that Haxe 3.2.0-rc2 is n
 
 This release introduces the new Python target which was developed by Heinz Hölzer and Dan Korostelev. As with any new target it should be considered to be in beta stage.
 
-Another new feature is the static analyzer which can be activated by compiling with -D analyzer. It applies various optimizations such as constant propagation and expression-level DCE which improves the quality of the generated code on targets such as Javascript. We plan to make this a default setting in the future once the implementation has stabilized.
+Another new feature is the static analyzer which can be activated by compiling with -D analyzer. It applies various optimizations such as constant propagation and expression-level DCE which improves the quality of the generated code on targets such as JavaScript. We plan to make this a default setting in the future once the implementation has stabilized.
 
 There are quite a few other new features, improvements and bugfixes, so make sure to check out the changelog. We addressed many issues that are present in Haxe 3.1.3!
 
