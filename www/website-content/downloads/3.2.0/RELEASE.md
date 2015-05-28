@@ -13,7 +13,7 @@ considered to be in beta stage.
 Another new feature is the static analyzer which can be activated by
 compiling with -D analyzer. It applies various optimizations such as
 constant propagation and expression-level DCE which improves the quality
-of the generated code on targets such as Javascript. We plan to make
+of the generated code on targets such as JavaScript. We plan to make
 this a default setting in the future once the implementation has stabilized.
 
 There are quite a few other new features, improvements and bugfixes, so
