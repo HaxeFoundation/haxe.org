@@ -58,7 +58,7 @@ You can run the tests on your machine after the `make install` step above, or us
 4. `haxelib git hx-yaml https://github.com/mikestead/hx-yaml master src`
 5. `haxe -neko RunCi.n -main RunCi -lib hx-yaml`
 6. `export TEST=neko`
-    (or php, cs, java, js, cpp, flash9, etc... Some require additional setup. For example, Mysql is required for PHP tests. The Docker image below comes with setup for php, js, cpp, cs, neko and java).
+    (or php, cs, java, js, cpp, flash9, etc... Some require additional setup. For example, MySQL is required for PHP tests. The Docker image below comes with setup for php, js, cpp, cs, neko and java).
 7. `neko RunCi.n`
 
 (Source: [Travis configuration](https://github.com/HaxeFoundation/haxe/blob/development/.travis.yml))
@@ -112,7 +112,7 @@ Building on Windows (Cygwin)
 	* To build Haxe you only need to choose `OCaml` and `Cygwin` in the install menu.
 	* In the cygwin package selection window, select `mingw64-i686-zlib` in addition to pre-selected packages. This is required to build Haxe.
 
-2. Add the `bin` directory from Cygwin installation (e.g. `C:\cygwin\bin`) to your `PATH` environment variable. This will make unix commands, like `make` available.
+2. Add the `bin` directory from Cygwin installation (e.g. `C:\cygwin\bin`) to your `PATH` environment variable. This will make Unix commands, like `make` available.
 
 3. Add the `usr\i686-w64-mingw32\sys-root\mingw\bin` directory from the Cygwin installation (e.g. `C:\cygwin\usr\i686-w64-mingw32\sys-root\mingw\bin`) to your `PATH` environment variable. This makes required dynamically linked libraries, like `zlib` available for the compiled `haxe.exe` executable.
 
