@@ -825,3 +825,15 @@ a.full-size-link {
 .article-view blockquote p {
 	font-size: 24px;
 }
+
+.milestone h3 {
+	margin-top: 0px;
+}
+
+.milestone a {
+	text-decoration: none;
+}
+
+.milestone dl {
+	margin-bottom: 0px;
+}
