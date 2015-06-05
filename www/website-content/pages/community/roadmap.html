@@ -1,12 +1,19 @@
 <div class="milestone">
-<h2 class="open">3.3</h2>
+<h2 class="open">3.3 (November 2015)</h2>
 
-<div class="well well-small"><h3 class="alert alert-danger"><a href="https://github.com/HaxeFoundation/haxe/issues/1306">Null-safety</a></h3>
+<div class="well well-small"><h3 class="alert alert-success"><a href="https://github.com/HaxeFoundation/haxe/issues/3073">Bytes support</a></h3>
 <dl>
 	<dt>Status:</dt>
-	<dd>Open since May 2013 (experimenting)</dd>
+	<dd>Closed June 2015</dd>
 	<dt>Description</dt>
-	<dd><p>Investigate in which ways the Haxe compiler can provide null-safety.</p></dd>
+	<dd><p>Use typed Arrays on JavaScript and emulate parts as necessary.</p></dd>
+</div>
+<div class="well well-small"><h3 class="alert alert-danger"><a href="https://github.com/HaxeFoundation/haxe/issues/4291">Finish static analyzer</a></h3>
+<dl>
+	<dt>Status:</dt>
+	<dd>Open since June 2015 (implementing)</dd>
+	<dt>Description</dt>
+	<dd><p>The static analyzer requires some more work to deal with edge cases and prepare for null-safety.</p></dd>
 </div>
 <div class="well well-small"><h3 class="alert alert-danger"><a href="https://github.com/HaxeFoundation/haxe/issues/3072">Unicode support</a></h3>
 <dl>
@@ -16,11 +23,29 @@
 	<dd><p>We want to add to the standard library, fully tested versions of the following classes:</p><ul><li>haxe.Ucs2</li><li>haxe.Utf8</li><li>haxe.Utf16</li></ul>
 <p>They will be implemented as abstracts and will follow the String API + conversions between them and fromBytes/toBytes.</p></dd>
 </div>
-<div class="well well-small"><h3 class="alert alert-success"><a href="https://github.com/HaxeFoundation/haxe/issues/3073">Bytes support</a></h3>
+</div>
+<div class="milestone">
+<h2 class="open">3.4 (May 2016)</h2>
+
+<div class="well well-small"><h3 class="alert alert-danger"><a href="https://github.com/HaxeFoundation/haxe/issues/1306">Null-safety</a></h3>
 <dl>
 	<dt>Status:</dt>
-	<dd>Closed June 2015</dd>
+	<dd>Open since May 2013 (experimenting)</dd>
 	<dt>Description</dt>
-	<dd><p>Use typed Arrays on JavaScript and emulate parts as necessary.</p></dd>
+	<dd><p>Investigate in which ways the Haxe compiler can provide null-safety.</p></dd>
+</div>
+<div class="well well-small"><h3 class="alert alert-danger"><a href="https://github.com/HaxeFoundation/haxe/issues/4290">Rewrite PHP target</a></h3>
+<dl>
+	<dt>Status:</dt>
+	<dd>Open since June 2015 (experimenting)</dd>
+	<dt>Description</dt>
+	<dd><p>The current PHP target is difficult to maintain and targets an old version of PHP. We want to write a new generator which takes advantage of some newer PHP features</p></dd>
+</div>
+<div class="well well-small"><h3 class="alert alert-danger"><a href="https://github.com/HaxeFoundation/haxe/issues/4292">Make static analyzer the default</a></h3>
+<dl>
+	<dt>Status:</dt>
+	<dd>Open since June 2015 (planned)</dd>
+	<dt>Description</dt>
+	<dd><p>Once we can assume that it is stable the static analyzer should become the default compilation option, with a flag to disable it.</p></dd>
 </div>
 </div>
