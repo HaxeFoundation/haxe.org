@@ -115,6 +115,10 @@
 			{
 				"title": "Jobs & Services",
 				"url": "community/jobs-and-services.html"
+			},
+			{
+				"title": "Notable Community Libraries and Projects",
+				"url": "documentation/introduction/notable.html"
 			}
 		]
 	},
