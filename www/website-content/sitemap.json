@@ -37,16 +37,16 @@
 						"url": "documentation/introduction/compiler-targets.html"
 					},
 					{
-						"title": "Compiler Usage",
-						"url": "documentation/introduction/compiler-usage.html"
-					},
-					{
 						"title": "Editors and IDEs",
 						"url": "documentation/introduction/editors-and-ides.html"
 					},
 					{
 						"title": "Building Haxe",
 						"url": "documentation/introduction/building-haxe.html"
+					},
+					{
+						"title": "Compiler Usage",
+						"url": "manual/compiler-usage.html"
 					}
 				]
 			},
