@@ -132,10 +132,10 @@ make -f Makefile.win haxe
 Building on FreeBSD
 -------
 
-1) Become root to install packages: `su -`
-2) Install ocaml, gmake, git: `ocaml ocaml-camlp4 gmake git`
-3) As your unprivileged user, check out the project: `cd ~ && git clone --recursive https://github.com/HaxeFoundation/haxe.git`
-4) Build your sources: `cd haxe && gmake`
-5) Optionally install it to the system: `su -` followed by `cd /home/username/haxe && gmake install`
+1. Become root to install packages: `su -`
+2. Install ocaml, gmake, git: `pkg install ocaml ocaml-camlp4 gmake git`
+3. As your unprivileged user, check out the project: `cd ~ && git clone --recursive https://github.com/HaxeFoundation/haxe.git`
+4. Build your sources: `cd haxe && gmake`
+5. Optionally install it to the system: `su -` followed by `cd /home/username/haxe && gmake install`
 
 If you want to update, it's usually enough to just recompile the compiler by issueing `gmake haxe`.
