@@ -138,4 +138,4 @@ Building on FreeBSD
 4. Build your sources: `cd haxe && gmake`
 5. Optionally install it to the system: `su -` followed by `cd /home/username/haxe && gmake install`
 
-If you want to update, it's usually enough to just recompile the compiler by issueing `gmake haxe`.
+If you want to update, it's usually enough to just recompile the compiler by updating your checkout using `git pull` followed by issueing the command `gmake haxe`.
