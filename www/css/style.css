@@ -805,21 +805,20 @@ a.full-size-link {
 	line-height: 56px;
 }
 @media (min-width: 980px) {
-	.article-view p {
-		width: 66.66%;
+	.article-header .container {
+		width: 700px;
+	}
+	.article-view .container {
+		width: 700px;
 	}
 	.article-view p > img:only-child {
-		max-width: 133.33%;
-		width: 133.33%;
+		max-width: 100%;
+		width: 100%;
+		margin: 30px auto;
 	}
 	.article-view iframe {
-		width: 1040px !important;
-		height: 585px !important;
-	}
-	.article-view blockquote {
-		max-width: 133.33%;
-		width: 133.33%;
-		margin: 30px 0px 30px 30;
+		width: 780px !important;
+		height: 439px !important;
 	}
 }
 .article-view blockquote p {
