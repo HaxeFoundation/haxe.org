@@ -1,5 +1,5 @@
 {
-	"current": "3.2.0",
+	"current": "3.2.1",
 	"versions": [
 		{ "version": "1.19.0", "api": false, "tag": "v1-19", "date": "2008-04-05" },
 		{ "version": "2.0.0-rc.1", "api": false, "tag": "v2-00-rc1", "date": "2008-07-17" },
