@@ -1,8 +1,5 @@
 language: php
 
-# Key decryption based on instructions at:
-# http://pghalliday.com/github/ssh/travis-ci/2014/09/19/auto-build-and-deploy-github-pages-with-travis-ci.html
-
 branches:
   only:
     - master
@@ -19,11 +16,6 @@ before_install:
   # Setup haxelib
   - mkdir ~/haxelib
   - haxelib setup ~/haxelib
-  # Decrypt our SSH key
-  - openssl aes-256-cbc -K $encrypted_c7c1240b42e4_key -iv $encrypted_c7c1240b42e4_iv -in deploy_key.enc -out deploy_key -d
-  - chmod 600 deploy_key
-  - eval `ssh-agent -s`
-  - ssh-add deploy_key
   # We need unreleased versions of minject and thx.core for now to deal with a memory leak.
   - haxelib dev ufront-mvc submodules/ufront-mvc/
   - haxelib dev ufront-uftasks submodules/ufront-uftasks/
@@ -49,9 +41,17 @@ script:
   - haxelib run ufront build
 
 after_success:
-  - haxelib run ufront deploy
-  - wget http://haxe.org/update/manual/
-  - wget http://haxe.org/update/site/
+  # Key decryption based on instructions at:
+  # http://pghalliday.com/github/ssh/travis-ci/2014/09/19/auto-build-and-deploy-github-pages-with-travis-ci.html
+  - if [ -n "$encrypted_c7c1240b42e4_key" ]; then
+      openssl aes-256-cbc -K $encrypted_c7c1240b42e4_key -iv $encrypted_c7c1240b42e4_iv -in deploy_key.enc -out deploy_key -d;
+      chmod 600 deploy_key;
+      eval `ssh-agent -s`;
+      ssh-add deploy_key;
+      haxelib run ufront deploy;
+      wget http://haxe.org/update/manual/;
+      wget http://haxe.org/update/site/;
+    fi
 
 addons:
   ssh_known_hosts: haxe.org
