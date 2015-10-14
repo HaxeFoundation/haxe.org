@@ -1,4 +1,8 @@
-language: php
+language: haxe
+
+haxe: "3.2.1"
+
+sudo: false
 
 branches:
   only:
@@ -7,15 +11,6 @@ branches:
     - travis
 
 before_install:
-  # Install haxe 3.1.3
-  - sudo apt-get update
-  - sudo apt-get install python-software-properties -y # for the next command
-  - sudo add-apt-repository ppa:eyecreate/haxe -y
-  - sudo apt-get update
-  - sudo apt-get install haxe -y
-  # Setup haxelib
-  - mkdir ~/haxelib
-  - haxelib setup ~/haxelib
   # We need unreleased versions of minject and thx.core for now to deal with a memory leak.
   - haxelib dev ufront-mvc submodules/ufront-mvc/
   - haxelib dev ufront-uftasks submodules/ufront-uftasks/
