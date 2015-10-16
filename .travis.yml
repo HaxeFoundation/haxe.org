@@ -1,29 +1,10 @@
-language: php
+language: haxe
 
-# Key decryption based on instructions at:
-# http://pghalliday.com/github/ssh/travis-ci/2014/09/19/auto-build-and-deploy-github-pages-with-travis-ci.html
+haxe: "3.2.1"
 
-branches:
-  only:
-    - master
-    - staging
-    - travis
+sudo: false
 
 before_install:
-  # Install haxe 3.1.3
-  - sudo apt-get update
-  - sudo apt-get install python-software-properties -y # for the next command
-  - sudo add-apt-repository ppa:eyecreate/haxe -y
-  - sudo apt-get update
-  - sudo apt-get install haxe -y
-  # Setup haxelib
-  - mkdir ~/haxelib
-  - haxelib setup ~/haxelib
-  # Decrypt our SSH key
-  - openssl aes-256-cbc -K $encrypted_c7c1240b42e4_key -iv $encrypted_c7c1240b42e4_iv -in deploy_key.enc -out deploy_key -d
-  - chmod 600 deploy_key
-  - eval `ssh-agent -s`
-  - ssh-add deploy_key
   # We need unreleased versions of minject and thx.core for now to deal with a memory leak.
   - haxelib dev ufront-mvc submodules/ufront-mvc/
   - haxelib dev ufront-uftasks submodules/ufront-uftasks/
@@ -49,9 +30,17 @@ script:
   - haxelib run ufront build
 
 after_success:
-  - haxelib run ufront deploy
-  - wget http://haxe.org/update/manual/
-  - wget http://haxe.org/update/site/
+  # Key decryption based on instructions at:
+  # http://pghalliday.com/github/ssh/travis-ci/2014/09/19/auto-build-and-deploy-github-pages-with-travis-ci.html
+  - if [ -n "$encrypted_c7c1240b42e4_key" ] && ([ "$TRAVIS_BRANCH" = "master" ] || [ "$TRAVIS_BRANCH" = "staging" ] || [ "$TRAVIS_BRANCH" = "travis" ]); then
+      openssl aes-256-cbc -K $encrypted_c7c1240b42e4_key -iv $encrypted_c7c1240b42e4_iv -in deploy_key.enc -out deploy_key -d;
+      chmod 600 deploy_key;
+      eval `ssh-agent -s`;
+      ssh-add deploy_key;
+      haxelib run ufront deploy;
+      wget http://haxe.org/update/manual/;
+      wget http://haxe.org/update/site/;
+    fi
 
 addons:
   ssh_known_hosts: haxe.org
