@@ -44,6 +44,13 @@ class DownloadController extends Controller {
 		});
 	}
 
+	@:route("/linux/")
+	public function doLinux() {
+		return new ViewResult({
+			description: 'Linux packages officially maintained by the Haxe Foundation.'
+		});
+	}
+
 	@:route("/version/$version")
 	public function doVersion( version:String ) {
 		var result = apiDownload.getDownloadVersion( contentDir+versionRepo(), version );
