@@ -2,8 +2,7 @@ package app.controller;
 
 import app.api.ArticleApi;
 import app.Config;
-import ufront.web.Controller;
-import ufront.web.result.*;
+import ufront.MVC;
 using thx.Strings;
 using tink.CoreApi;
 using haxe.io.Path;

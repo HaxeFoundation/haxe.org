@@ -7,13 +7,14 @@ package app.api;
 	import sys.io.File;
 	import sys.io.Process;
 #end
+import ufront.MVC;
 import app.model.Download;
 using StringTools;
 using Lambda;
 using tink.CoreApi;
 using haxe.io.Path;
 
-class SiteApi extends ufront.api.UFApi {
+class SiteApi extends UFApi {
 
 	@inject("contentDirectory") public var contentDir:String;
 	@inject("scriptDirectory") public var scriptDir:String;
@@ -22,14 +23,14 @@ class SiteApi extends ufront.api.UFApi {
 		Clone a repo from a git address into our `contentDirectory`, with a given name
 
 		If the folder already exists, `git pull` will be attempted.  Otherwise, `git clone` will be attempted.
-		
-		@param `gitPath` the path of the git repo to clone. 
+
+		@param `gitPath` the path of the git repo to clone.
 		@param `intoDir` the name of the folder to name the clone.
 		@return String outputOfCommand
 		@throws Error with error message / data
 	**/
 	public function cloneRepo( gitPath:String, intoDir:String, branch:String, ?removeFirst:Bool=false ):String {
-		
+
 		ufTrace( 'Clone $gitPath into $intoDir' );
 
 		var oldCwd = Web.getCwd();
@@ -110,7 +111,7 @@ class SiteApi extends ufront.api.UFApi {
 	function getVersionInfo( versionDir:String ):CurrentVersionAndList {
 		return CompileTime.parseJsonFile( 'www/website-content/downloads/versions.json' );
 	}
-	
+
 	public static function unlink( path:String ):Void {
 		if(sys.FileSystem.exists(path)) {
 			if(sys.FileSystem.isDirectory(path)) {

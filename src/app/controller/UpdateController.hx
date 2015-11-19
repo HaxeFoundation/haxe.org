@@ -2,17 +2,14 @@ package app.controller;
 
 import app.api.*;
 import app.Config;
-import ufront.web.Controller;
-import ufront.web.Dispatch;
-import ufront.web.result.ViewResult;
-import ufront.view.TemplateData;
+import ufront.MVC;
 using StringTools;
 using tink.CoreApi;
 using haxe.io.Path;
 using Detox;
 
 class UpdateController extends Controller {
-	
+
 	@inject("contentDirectory") public var contentDir:String;
 	@inject public var siteApi:SiteApi;
 	@inject public var manualApi:ManualUpdateApi;
@@ -30,7 +27,7 @@ class UpdateController extends Controller {
 		var repoDir = contentDir+Config.app.siteContent.cloneDir+'/';
 		var forceDelete = false;
 		// siteApi.cloneRepo( gitRepo, repoDir, branch, forceDelete );
-		
+
 		downloadApi.prepareDownloadJson(downloadInDir,downloadOutDir);
 
 		return new ViewResult({
@@ -50,7 +47,7 @@ class UpdateController extends Controller {
 		var manualDir = contentDir+Config.app.manual.dir+'/';
 		var manualMdDir = contentDir+Config.app.manual.mdDir;
 		var manualHtmlDir = contentDir+Config.app.manual.htmlDir;
-		
+
 		siteApi.cloneRepo( gitRepo, manualDir, branch, forceDelete );
 		manualApi.convertMarkdownToHtml(manualMdDir,manualHtmlDir);
 
