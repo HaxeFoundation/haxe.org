@@ -4,7 +4,6 @@ import app.api.SiteApi;
 import app.api.PageApi;
 import app.Config;
 import ufront.MVC;
-using thx.Strings;
 using tink.CoreApi;
 using haxe.io.Path;
 using app.model.SiteMap;
