@@ -1,7 +1,6 @@
 package app;
 
 import app.api.PageApi;
-import ufront.web.Dispatch;
 import ufront.web.Controller;
 import ufront.web.result.*;
 import app.controller.*;
