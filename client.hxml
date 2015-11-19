@@ -3,6 +3,7 @@
 #
 
 -lib ufront-client
+-lib ufblog
 -cp src
 
 # Compile flags

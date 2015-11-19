@@ -1,9 +1,9 @@
 package app;
 
+import ufront.MVC;
 import app.api.PageApi;
-import ufront.web.Controller;
-import ufront.web.result.*;
 import app.controller.*;
+import ufblog.BlogRoutes;
 using app.model.SiteMap;
 using StringTools;
 
@@ -29,6 +29,7 @@ class Routes extends Controller
 		ViewResult.globalValues.set( "description", "Haxe is an open source toolkit based on a modern, high level, strictly typed programming language." );
 	}
 
+	@:route("/blog/*") var blog:BlogRoutes;
 	#if server
 		@:route("/update/*") var update:UpdateController;
 		@:route("/download/*") var download:DownloadController;
