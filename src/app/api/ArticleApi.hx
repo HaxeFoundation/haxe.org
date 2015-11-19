@@ -1,8 +1,10 @@
 package app.api;
 
+#if server
+	import sys.FileSystem;
+	import sys.io.File;
+#end
 import app.model.Article;
-import sys.io.File;
-import sys.FileSystem;
 import haxe.Json;
 import ufront.MVC;
 using tink.CoreApi;

@@ -2,6 +2,7 @@
 # Compile the Client
 #
 
+-lib ufront-client
 -cp src
 
 # Compile flags
@@ -9,6 +10,6 @@
 -dce full
 
 # Output
--main Client 
+-main Client
 -js www/js/client.js
 -xml doc/js.xml

@@ -29,9 +29,11 @@ class Routes extends Controller
 		ViewResult.globalValues.set( "description", "Haxe is an open source toolkit based on a modern, high level, strictly typed programming language." );
 	}
 
-	@:route("/download/*") var download:DownloadController;
-	@:route("/update/*") var update:UpdateController;
-	@:route("/search/*") var search:SearchController;
-	@:route("/articles/*") var articles:ArticleController;
-	@:route("/*") var pages:PageController;
+	#if server
+		@:route("/update/*") var update:UpdateController;
+		@:route("/download/*") var download:DownloadController;
+		@:route("/search/*") var search:SearchController;
+		@:route("/articles/*") var articles:ArticleController;
+		@:route("/*") var pages:PageController;
+	#end
 }

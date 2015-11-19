@@ -47,10 +47,10 @@ class SiteMapHelper {
 	**/
 	public static function getPrevNextLinks( sitemap:SiteMap, baseUrl:String, currentUri:String ) {
 		var prevNextLinks = {
-			prevUrl:null, 
-			prevTitle:null, 
-			nextUrl:null, 
-			nextTitle:null 
+			prevUrl:null,
+			prevTitle:null,
+			nextUrl:null,
+			nextTitle:null
 		};
 		if ( sitemap!=null ) {
 			var previousPage:SitePage = null;
@@ -61,7 +61,7 @@ class SiteMapHelper {
 
 			for ( page in collapsedSitemap ) {
 				if ( baseUrl+page.url==currentUri ) {
-					// This is the active page.  
+					// This is the active page.
 					// We'll leave `previousPage` whatever it was on the previous iteration.
 					currentPage = page;
 				}
@@ -136,10 +136,10 @@ class SiteMapHelper {
 	}
 
 	/**
-		Print a sitemap as <UL> element.  
+		Print a sitemap as <UL> element.
 
 		@param sitemap The Sitemap that we are printing.
-		@param baseUrl A prefix to insert before each url.  Also used when matching the current URL. Use "" for no prefix. 
+		@param baseUrl A prefix to insert before each url.  Also used when matching the current URL. Use "" for no prefix.
 		@param currentUri (Optional) The URL of the current page.  If specified, the correct item and all of it's parents will have the "active" class.
 		@return A String containing `<ul><li><a href="${page.url}">$icon ${page.title} $submenu</a></li></ul>`
 	**/

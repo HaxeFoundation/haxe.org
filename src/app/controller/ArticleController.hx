@@ -3,9 +3,9 @@ package app.controller;
 import app.api.ArticleApi;
 import app.Config;
 import ufront.MVC;
-using thx.Strings;
 using tink.CoreApi;
 using haxe.io.Path;
+using StringTools;
 
 class ArticleController extends Controller {
 

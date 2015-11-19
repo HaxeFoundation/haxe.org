@@ -4,7 +4,6 @@ import app.api.DownloadApi;
 import app.api.SiteApi;
 import app.Config;
 import ufront.MVC;
-using thx.Strings;
 using tink.CoreApi;
 using haxe.io.Path;
 
