@@ -3,6 +3,7 @@
 -lib detox:1.0.0
 -lib ufblog
 -lib ufront-ufadmin
+-lib erazor
 -main Server
 -cp src
 -D server

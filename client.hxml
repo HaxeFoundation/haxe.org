@@ -4,11 +4,13 @@
 
 -lib ufront-client
 -lib ufblog
+-lib erazor
 -cp src
 
 # Compile flags
 -D client
--dce full
+-D embed_js
+-dce std
 
 # Output
 -main Client

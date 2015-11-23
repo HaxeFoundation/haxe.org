@@ -56,3 +56,25 @@ These instructions were written on Linux (Ubuntu 14.04), if problems are encount
 * Any push or merge to the `HaxeManual` repository will trigger an update of the manual on "haxe.org".  (We follow the `master` branch).
 * Running `ufront deploy` (or just `ufront d`) will compile all files and push them to the haxe.org server. You will need your SSH keys added to the server for this to work.  If you added or modified any download content you will need to visit `/update/site/` to trigger some further upgrades.
 * We plan to have changes to this repository also trigger automatic updates, but this is not ready just yet, so there may be a delay between pull requests being merged and them being visible on the live site.
+
+## Setting up database for blog
+
+Create a database in MySQL:
+
+	CREATE USER 'haxeorg'@'localhost' IDENTIFIED BY 'mypassword';
+	GRANT USAGE ON *.* TO 'haxeorg'@'localhost' IDENTIFIED BY 'mypassword' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;
+	CREATE DATABASE IF NOT EXISTS `haxeorg`;
+	GRANT ALL PRIVILEGES ON `haxeorg`.* TO 'haxeorg'@'localhost';
+
+Create `src/conf/mysql.json`:
+
+	{
+		"host": "localhost",
+		"port": null,
+		"database": "haxeorg",
+		"user": "haxeorg",
+		"pass": "mypassword",
+		"socket": null
+	}
+
+Visit `/blog/ufadmin/` and click on "DB Admin" to create and sync each of the required tables.

@@ -1,4 +1,5 @@
 import ufront.MVC;
+import ufblog.posts.*;
 import app.*;
 
 class Client {
@@ -13,6 +14,7 @@ class Client {
 			indexController: Routes,
 			errorHandlers: [errorPageHandler],
 			defaultLayout: "layout.tpl",
+			clientActions: [SavePostAction,SetupEditFormAction],
 		});
 
 		jsApp.listen();
