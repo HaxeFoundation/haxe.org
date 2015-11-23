@@ -1,5 +1,6 @@
 import ufront.MVC;
 import app.*;
+import ufblog.*;
 
 class Server
 {
@@ -14,7 +15,10 @@ class Server
 
 	static function run() {
 		init(); // If caching is enabled, init() will only need to run once
-		ufrontApp.executeRequest(); // execute the current request
+		var cnx = sys.db.Mysql.connect( Config.db );
+		sys.db.Transaction.main( cnx, function() {
+			ufrontApp.executeRequest();
+		});
 	}
 
 	static function init() {
@@ -27,11 +31,13 @@ class Server
 			// Set up the app
 			ufrontApp = new UfrontApplication({
 				indexController: Routes,
-				remotingApi: Api,
 				errorHandlers: [oldSiteRedirectHandler,errorPageHandler],
 				contentDirectory: "../uf-content/",
 				defaultLayout: "layout.html",
-			});
+				templatingEngines: [TemplatingEngines.haxe,TemplatingEngines.erazor]
+			})
+			.loadApiContext( Api )
+			.loadApiContext( BlogRemotingApiContext );
 		}
 	}
 }
