@@ -1,0 +1,28 @@
+<section class="section">
+	<div class="container clearfix">
+		<h1>@title</h1>
+		<form action="@(baseUri)@(member.user)" method="POST" class="pushstate">
+			<table class="table table-striped table-condensed">
+				<tbody>
+					@for (p in permissions) {
+						<tr>
+							<td>
+								<label class="checkbox">
+									<input type="checkbox" name="permissions[]" value="@enumPath(p)" @if (member.user.can(p)) { checked } />
+									@enumName(p)
+								</label>
+							</td>
+						</tr>
+					}
+				</tbody>
+				<tfoot>
+					<tr>
+						<td colspan="2">
+							<button type="submit" class="btn btn-primary">Update Permissions</button>
+						</td>
+					</tr>
+				</tfoot>
+			</table>
+		</form>
+	</div>
+</section>

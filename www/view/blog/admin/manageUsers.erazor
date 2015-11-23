@@ -1,0 +1,41 @@
+<div class="section">
+	<div class="container">
+		<h1>@title</h1>
+		@if ( description!=null ) {
+			<p class="lead">@description</p>
+		}
+		<div class="btn-toolbar" role="toolbar">
+			@if ( canPostNew ) { <a href="/new" class="pushstate btn btn-primary">New Post</a> }
+			@if ( canViewDrafts ) { <a href="/blog-admin/" class="pushstate btn btn-default">Manage Posts</a> }
+			@if ( canViewUserList ) { <a href="/blog-admin/users/" class="pushstate btn btn-default">Manage Users</a> }
+			@if ( canManageTags ) { <a href="/blog-admin/tags/" class="pushstate btn btn-default">Manage Tags</a> }
+		</div>
+
+		<table class="table table-striped table-bordered">
+			<thead>
+				<tr>
+					<th>Username</th>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				@for (member in members) {
+					<tr>
+						<th>@member.get_user()</th>
+						<th>@member.name</th>
+						<th>@member.email</th>
+						<th>
+							<div class="btn-toolbar" role="toolbar">
+								<a href="/author/@member.get_user()/" class="btn pushstate">View Posts</a>
+								<a href="@(baseUri)@member.get_user()/" class="btn pushstate">Edit User</a>
+							</div>
+						</th>
+					</tr>
+				}
+
+			</tbody>
+		</table>
+	</div>
+</div>
