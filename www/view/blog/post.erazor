@@ -1,0 +1,30 @@
+<header class="section article-header" @if (post.headerImage!=null) { style="background-image: url('@post.getHeaderURL(baseUri+post.url)?w=1600')" }>
+	<div class="darken-bg"></div>
+	<div class="container">
+		<h1>@title</h1>
+		<p class="lead">@post.introduction</p>
+		<p><small>
+			Article by <a href="@(baseUri)author/@post.get_author().get_user().username" class="label pushstate">@post.get_author().get_user().username</a> on <a href="@(baseUri)p/@post.id" class="label pushstate">@date(post.publishDate)</a>.
+		</small></p>
+	</div>
+</header>
+<div class="section article-view">
+	<div class="container">
+		@post.getContentHTML( baseUri+post.url )
+
+		<hr />
+
+		<div>
+			@for( tag in post.get_tags() ) {
+				<a href="@(baseUri)tag/@tag.name/" class="label pushstate">@tag.name</a>
+			}
+		</div>
+
+		<p><i><a href="::hackerNewsLink::">Discuss this article on Hacker News</a></i></p>
+
+		<div class="btn-toolbar" role="toolbar">
+			<a href="@(baseUri)@post.url/edit/" class="btn btn-default pushstate">Edit Post</a>
+			<a href="@(baseUri)@post.url/delete/" class="btn btn-default pushstate">Delete Post</a>
+		</div>
+	</div>
+</div>

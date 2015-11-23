@@ -1,0 +1,36 @@
+<div class="section">
+	<div class="container">
+		<h1>@title</h1>
+		@if ( description!=null ) {
+			<p class="lead">@description</p>
+		}
+		<div class="btn-toolbar" role="toolbar">
+			@if ( canPostNew ) { <a href="/new" class="pushstate btn btn-primary">New Post</a> }
+			@if ( canViewDrafts ) { <a href="/blog-admin/" class="pushstate btn btn-default">Manage Posts</a> }
+			@if ( canViewUserList ) { <a href="/blog-admin/users/" class="pushstate btn btn-default">Manage Users</a> }
+			@if ( canManageTags ) { <a href="/blog-admin/tags/" class="pushstate btn btn-default">Manage Tags</a> }
+		</div>
+	</div>
+</div>
+<div class="article-list">
+	@for (post in posts) {
+		<div class="section article-thumbnail article-header" @if (post.headerImage!=null) { style="background-image: url('@post.getHeaderURL(baseUri+post.url)?w=1600')" }>
+			<a href="@(baseUri)@post.url/" class="pushstate full-size-link darken-bg"></a>
+			<div class="container">
+				<h2><a href="@(baseUri)@post.url" class="pushstate">@post.title</a></h2>
+				@if ( post.introduction!=null ){
+					<p class="lead">@post.introduction</p>
+				}
+				<p><small>
+					Article by <a href="@(baseUri)author/@post.get_author().get_user().username" class="label pushstate">@post.get_author().get_user().username</a> on <a href="@(baseUri)p/@post.id" class="label pushstate">@date(post.publishDate)</a>.
+				</small></p>
+			</div>
+		</div>
+		<div class="section article-view">
+			<div class="container">
+				@post.getContentHTML( baseUri+post.url )
+			</div>
+		</div>
+		<hr />
+	}
+</div>

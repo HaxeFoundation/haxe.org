@@ -1,0 +1,50 @@
+<div class="section">
+	<div class="container">
+		<h1>@title</h1>
+		@if ( description!=null ) {
+			<p class="lead">@description</p>
+		}
+		<div class="btn-toolbar" role="toolbar">
+			@if ( canPostNew ) { <a href="/new" class="pushstate btn btn-primary">New Post</a> }
+			@if ( canViewDrafts ) { <a href="/blog-admin/" class="pushstate btn btn-default">Manage Posts</a> }
+			@if ( canViewUserList ) { <a href="/blog-admin/users/" class="pushstate btn btn-default">Manage Users</a> }
+			@if ( canManageTags ) { <a href="/blog-admin/tags/" class="pushstate btn btn-default">Manage Tags</a> }
+		</div>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Author</th>
+					<th>Published</th>
+					<th>Tags</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			@for (post in posts) {
+				<tr>
+					<th><a href="@(baseUri)../@post.url/edit/" class="pushstate">@post.title</a></th>
+					<td><a href="@(baseUri)../author/@(post.get_author())" class="label pushstate">@(post.get_author())</a></td>
+					<td>
+						@if (post.publishDate!=null) {
+							<span class="label label-success">@date(post.publishDate)</span>
+						} else {
+							<span class="label label-default">Draft</span>
+						}
+					</td>
+					<td>
+						@for (tag in post.get_tags()) {
+							<a href="@(baseUri)../t/@(tag.name)" class="pushstate" title="@tag.title">@tag.name</a>
+						}
+					</td>
+					<td>
+						<div class="toolbar" role="toolbar">
+							<a href="@(baseUri)../@post.url/" class="pushstate btn">View</a>
+							<a href="@(baseUri)../@post.url/edit/" class="pushstate btn">Edit</a>
+							<a href="@(baseUri)../@post.url/delete/" class="pushstate btn btn-danger">Delete</a>
+						</div>
+					</td>
+				</tr>
+			}
+		</table>
+	</div>
+</div>
