@@ -13,8 +13,9 @@ class Client {
 		jsApp = new ClientJsApplication({
 			indexController: Routes,
 			errorHandlers: [errorPageHandler],
-			defaultLayout: "layout.tpl",
+			defaultLayout: "layout.html",
 			clientActions: [SavePostAction,SetupEditFormAction],
+			templatingEngines: [TemplatingEngines.haxe,TemplatingEngines.erazorHtml]
 		});
 
 		jsApp.listen();
