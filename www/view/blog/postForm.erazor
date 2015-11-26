@@ -6,6 +6,7 @@
 			@if (post.validationErrors!=null && post.validationErrors.isInvalid) {
 				<p class="alert alert-warning">Post failed validation: @post.validationErrors.toString()</p>
 			}
+			<input type="hidden" id="base-uri" value="@(baseUri)" />
 			<input type="hidden" id="post-url" value="@(baseUri)@(post.url)" />
 			<input type="hidden" id="id" name="id" value="@post.id" />
 			<input type="hidden" id="authorID" name="authorID" value="@post.authorID" />
