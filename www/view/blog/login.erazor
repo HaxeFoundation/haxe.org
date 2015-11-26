@@ -1,7 +1,7 @@
 <section class="section swatch-white-red has-top">
 	<div class="container">
 		<h1>Login</h1>
-		<p class="alert alert-error">MSG: @msg</p>
+		@if(msg!=null){ <p class="alert alert-error">@msg</p> }
 		<form action="@(baseUri)login/" class="form form-horizontal" method="POST">
 			<div class="form-group">
 				<label for="username" class="col-sm-2 control-label">Username</label>
