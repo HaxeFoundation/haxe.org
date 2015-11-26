@@ -34,7 +34,7 @@ class Server
 				errorHandlers: [oldSiteRedirectHandler,errorPageHandler],
 				contentDirectory: "../uf-content/",
 				defaultLayout: "layout.html",
-				templatingEngines: [TemplatingEngines.haxe,TemplatingEngines.erazor]
+				templatingEngines: [TemplatingEngines.haxe,TemplatingEngines.erazorHtml]
 			})
 			.loadApiContext( Api )
 			.loadApiContext( BlogRemotingApiContext );

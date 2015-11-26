@@ -10,7 +10,7 @@
 </header>
 <div class="section article-view">
 	<div class="container">
-		@post.getContentHTML( baseUri+post.url )
+		@raw( post.getContentHTML(baseUri+post.url) )
 
 		<hr />
 
