@@ -24,6 +24,8 @@
 		<div class="section article-view">
 			<div class="container">
 				@raw( post.getContentHTML(baseUri+post.url) )
+
+				@postMeta( post )
 			</div>
 		</div>
 		<hr />

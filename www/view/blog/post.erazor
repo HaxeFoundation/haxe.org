@@ -12,19 +12,6 @@
 	<div class="container">
 		@raw( post.getContentHTML(baseUri+post.url) )
 
-		<hr />
-
-		<div>
-			@for( tag in post.tags ) {
-				<a href="@(baseUri)tag/@tag.name/" class="label pushstate">@tag.name</a>
-			}
-		</div>
-
-		<p><i><a href="::hackerNewsLink::">Discuss this article on Hacker News</a></i></p>
-
-		<div class="btn-toolbar" role="toolbar">
-			<a href="@(baseUri)@post.url/edit/" class="btn btn-default pushstate">Edit Post</a>
-			<a href="@(baseUri)@post.url/delete/" class="btn btn-default pushstate">Delete Post</a>
-		</div>
+		@postMeta( post )
 	</div>
 </div>
