@@ -4,7 +4,7 @@
 		<h1>@title</h1>
 		<p class="lead">@post.introduction</p>
 		<p><small>
-			Article by <a href="@(baseUri)author/@post.get_author().get_user().username" class="label pushstate">@post.get_author().get_user().username</a> on <a href="@(baseUri)p/@post.id" class="label pushstate">@date(post.publishDate)</a>.
+			Article by <a href="@(baseUri)author/@post.author.user.username" class="label pushstate">@post.author.user.username</a> on <a href="@(baseUri)p/@post.id" class="label pushstate">@date(post.publishDate)</a>.
 		</small></p>
 	</div>
 </header>
@@ -15,7 +15,7 @@
 		<hr />
 
 		<div>
-			@for( tag in post.get_tags() ) {
+			@for( tag in post.tags ) {
 				<a href="@(baseUri)tag/@tag.name/" class="label pushstate">@tag.name</a>
 			}
 		</div>

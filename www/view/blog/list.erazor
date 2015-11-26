@@ -4,12 +4,7 @@
 		@if ( description!=null ) {
 			<p class="lead">@description</p>
 		}
-		<div class="btn-toolbar" role="toolbar">
-			@if ( canPostNew ) { <a href="/new" class="pushstate btn btn-primary">New Post</a> }
-			@if ( canViewDrafts ) { <a href="/blog-admin/" class="pushstate btn btn-default">Manage Posts</a> }
-			@if ( canViewUserList ) { <a href="/blog-admin/users/" class="pushstate btn btn-default">Manage Users</a> }
-			@if ( canManageTags ) { <a href="/blog-admin/tags/" class="pushstate btn btn-default">Manage Tags</a> }
-		</div>
+		@adminToolbar()
 	</div>
 </div>
 <div class="article-list">
@@ -22,7 +17,7 @@
 					<p class="lead">@post.introduction</p>
 				}
 				<p><small>
-					Article by <a href="@(baseUri)author/@post.get_author().get_user().username" class="label pushstate">@post.get_author().get_user().username</a> on <a href="@(baseUri)p/@post.id" class="label pushstate">@date(post.publishDate)</a>.
+					Article by <a href="@(baseUri)author/@post.author.user.username" class="label pushstate">@post.author.user.username</a> on <a href="@(baseUri)p/@post.id" class="label pushstate">@date(post.publishDate)</a>.
 				</small></p>
 			</div>
 		</div>
