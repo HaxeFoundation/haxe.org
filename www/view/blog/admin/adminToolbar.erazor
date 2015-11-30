@@ -3,4 +3,5 @@
 	@if ( canViewDrafts ) { <a href="@(blogUri)blog-admin/" class="pushstate btn btn-default">Manage Posts</a> }
 	@if ( canViewUserList ) { <a href="@(blogUri)blog-admin/users/" class="pushstate btn btn-default">Manage Users</a> }
 	@if ( canManageTags ) { <a href="@(blogUri)blog-admin/tags/" class="pushstate btn btn-default">Manage Tags</a> }
+	@if ( isLoggedIn ) { <a href="@(blogUri)accounts/logout/" class="btn btn-default">Logout</a> }
 </div>

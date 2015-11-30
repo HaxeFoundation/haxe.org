@@ -12,10 +12,12 @@
 				<a href="@(blogUri)tag/@tag.name/" class="label pushstate">@tag.name</a>
 			}
 
-			<div class="btn-toolbar" role="toolbar">
-				<a href="@(blogUri)@url/edit/" class="btn btn-default pushstate">Edit Post</a>
-				<a href="@(blogUri)@url/delete/" class="btn btn-default pushstate">Delete Post</a>
-			</div>
+			@if( isLoggedIn ) {
+				<div class="btn-toolbar" role="toolbar">
+					<a href="@(blogUri)@url/edit/" class="btn btn-default pushstate">Edit Post</a>
+					<a href="@(blogUri)@url/delete/" class="btn btn-default pushstate">Delete Post</a>
+				</div>
+			}
 		</div>
 	</div>
 </div>
