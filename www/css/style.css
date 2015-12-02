@@ -883,3 +883,14 @@ a.full-size-link {
 .milestone dl {
 	margin-bottom: 0px;
 }
+
+.page-wrap {
+	transition: opacity 0.5s ease;
+	opacity: 1;
+}
+.page-wrap.uf-partial-incoming {
+	opacity: 0;
+}
+.page-wrap.uf-partial-outgoing {
+	opacity: 0;
+}
