@@ -1,5 +1,5 @@
 -lib ufront-mvc:1.0.0-rc.16
--lib compiletime:2.5.1
+-lib compiletime:2.6.0
 -lib markdown:1.0.0
 -lib detox:1.0.0-rc.9
 -main Server
