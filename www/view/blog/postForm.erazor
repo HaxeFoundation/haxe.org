@@ -2,6 +2,7 @@
 	<div class="container-fluid clearfix">
 		<h1>@title</h1>
 		<h3>@description</h3>
+		@adminToolbar()
 		<form action="@(baseUri)save/" method="POST" class="pushstate">
 			@if (post.validationErrors!=null && post.validationErrors.isInvalid) {
 				<p class="alert alert-warning">Post failed validation: @post.validationErrors.toString()</p>
