@@ -38,6 +38,8 @@ class Server
 			})
 			.loadApiContext( Api )
 			.loadApiContext( BlogRemotingApiContext );
+
+			ufrontApp.injector.map( String, "disqusShortName" ).toValue( 'haxe' );
 		}
 	}
 }

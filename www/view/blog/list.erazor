@@ -19,6 +19,9 @@
 				<p><small>
 					Article by <a href="@(baseUri)author/@post.author.user.username" class="label pushstate">@post.author.user.username</a> on <a href="@(baseUri)p/@post.id" class="label pushstate">@date(post.publishDate)</a>.
 				</small></p>
+				<p><small>
+					<a href="@(baseUri)@post.url#disqus_thread" class="label pushstate disqus-comment-count" data-disqus-identifier="@post.id">Comments</a>
+				</small></p>
 			</div>
 		</div>
 		<div class="section article-view">
