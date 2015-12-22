@@ -2,9 +2,9 @@
 # Compile the Client
 #
 
--lib ufront-client
+-lib ufront-client:2.0.0
 -lib ufblog
--lib erazor
+-lib erazor:1.0.0
 -cp src
 
 # Compile flags
