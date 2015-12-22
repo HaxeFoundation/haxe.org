@@ -6,6 +6,9 @@
 		<p><small>
 			Article by <a href="@(baseUri)author/@post.author.user.username" class="label pushstate">@post.author.user.username</a> on <a href="@(baseUri)p/@post.id" class="label pushstate">@date(post.publishDate)</a>.
 		</small></p>
+		<p><small>
+			<a href="#disqus_thread" class="label disqus-comment-count" data-disqus-identifier="@post.id">Comments</a>
+		</small></p>
 	</div>
 </header>
 <div class="section article-view">
@@ -13,5 +16,7 @@
 		@raw( post.getContentHTML(baseUri+post.url) )
 
 		@postMeta( post )
+
+		<div id="disqus_thread"></div>
 	</div>
 </div>

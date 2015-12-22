@@ -14,9 +14,10 @@ class Client {
 			indexController: Routes,
 			errorHandlers: [errorPageHandler],
 			defaultLayout: "layout.html",
-			clientActions: [SavePostAction,SetupEditFormAction],
+			clientActions: [SavePostAction,SetupEditFormAction,LoadCommentsAction],
 			templatingEngines: [TemplatingEngines.haxe,TemplatingEngines.erazorHtml]
 		});
+		jsApp.injector.map( String, "disqusShortName" ).toValue( 'haxe' );
 
 		jsApp.listen();
 	}
