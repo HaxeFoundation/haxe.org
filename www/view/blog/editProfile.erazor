@@ -1,0 +1,13 @@
+<section class="section">
+	<div class="container">
+		@adminToolbar()
+		<h1>@member.name <small>(@username)</small></h1>
+		<ul>
+			<li><a href="@(blogUri)author/@username/">View Posts</a></li>
+			<li><a href="@(blogUri)accounts/logout/">Logout</a></li>
+		</ul>
+		<h3>Edit Profile</h3>
+		<p>Leave your password blank unless you want to change it.</p>
+		@userDetailsForm({ btnLabel: 'Update Profile', postURL: baseUri+'edit-profile/', usePushstate: true })
+	</div>
+</section>
