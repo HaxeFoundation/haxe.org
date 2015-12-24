@@ -820,6 +820,7 @@ a.full-size-link {
 		width: 700px;
 	}
 	.article-view .container {
+		margin-top: 20px;
 		width: 700px;
 	}
 	.article-view p > img:only-child {
