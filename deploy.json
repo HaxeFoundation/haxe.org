@@ -28,7 +28,7 @@
 			"name": "staging",
 			"gitRepo": "ssh://www-haxe@haxe.org/data/newhaxe/staging-repo.git",
 			"defines": ["deploy"],
-			"hxmls": ["server","client"],
+			"hxmls": ["serverapp","clientapp","basicclient"],
 			"debug": false,
 			"servers": [{
 				"name": "staging.haxe.org",
