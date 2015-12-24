@@ -4,7 +4,7 @@ www/*.php
 www/*.n
 www/js/client.js
 www/js/client.js.map
-dump/
+www/js/client.min.js
 doc/
 deploy/
 

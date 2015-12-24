@@ -15,4 +15,6 @@
 # Output
 -main Client
 -js www/js/client.js
+-lib closure
+-D closure_quiet
 -xml doc/js.xml
