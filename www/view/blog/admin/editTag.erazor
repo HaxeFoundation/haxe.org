@@ -1,5 +1,6 @@
 <section class="section">
 	<div class="container clearfix">
+		@adminToolbar()
 		<h1>@title</h1>
 		<form action="@(baseUri)save/" method="POST" class="pushstate">
 			@if (tag.validationErrors!=null && tag.validationErrors.isInvalid) {

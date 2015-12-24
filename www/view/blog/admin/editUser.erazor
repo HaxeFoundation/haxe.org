@@ -1,7 +1,10 @@
 <section class="section">
 	<div class="container clearfix">
+		@adminToolbar()
 		<h1>@title</h1>
-		<form action="@(baseUri)@(member.user)/permissions/" method="POST" class="pushstate">
+		<p class="lead">@description</p>
+		@userDetailsForm({ btnLabel: 'Update Details', postURL: baseUri+member.user+'/details/', usePushstate: true })
+ 		<form action="@(baseUri)@(member.user)/permissions/" method="POST" class="pushstate">
 			<table class="table table-striped table-condensed">
 				<tbody>
 					@for (p in permissions) {
