@@ -3,9 +3,16 @@
 #
 
 -lib ufront-client:2.0.0
--lib ufblog
--lib erazor:1.0.0
+-lib erazor:1.0.1
 -cp src
+
+# Blog dependencies
+-cp submodules/ufblog/src
+-lib ImageMagick
+-lib cleversort
+-lib markdown
+-lib objectinit
+-lib detox
 
 # Compile flags
 -D client

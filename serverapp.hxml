@@ -1,13 +1,18 @@
 -lib ufront:2.0.0
 -lib markdown:1.0.0
 -lib detox:1.0.0
--lib ufblog
 -lib ufront-ufadmin:1.0.0-beta.13
--lib erazor:1.0.0
+-lib erazor:1.0.1
 -main Server
 -cp src
 -D server
 -dce no
+
+# Blog dependencies
+-cp submodules/ufblog/src
+-lib ImageMagick
+-lib cleversort
+-lib objectinit
 
 --each
 
