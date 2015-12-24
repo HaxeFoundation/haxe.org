@@ -18,6 +18,8 @@ class Client {
 			templatingEngines: [TemplatingEngines.haxe,TemplatingEngines.erazorHtml]
 		});
 		jsApp.injector.map( String, "disqusShortName" ).toValue( 'haxe' );
+		jsApp.injector.map( String, "blogTitle" ).toValue( Config.app.blogTitle );
+		jsApp.injector.map( String, "blogDescription" ).toValue( Config.app.blogDescription );
 
 		jsApp.listen();
 	}
