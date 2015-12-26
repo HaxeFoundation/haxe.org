@@ -22,8 +22,10 @@ script:
   - cd $TRAVIS_BUILD_DIR
   # Create "doc/" directory so build succeeds.
   - mkdir doc
-  # We don't really have unit tests for the website yet.  Just test that a built works.
-  - haxelib run ufront build
+  # Decrypt the mysql config file (required for compiling the server)
+  - openssl aes-256-cbc -K $encrypted_c7c1240b42e4_key -iv $encrypted_c7c1240b42e4_iv -in mysql-haxeorg.json.enc -out src/conf/mysql-haxeorg.json -d
+  # We don't really have unit tests for the website yet.  Just test that a build works.
+  - haxelib run ufront build -D deploy
 
 after_success:
   # Key decryption based on instructions at:
