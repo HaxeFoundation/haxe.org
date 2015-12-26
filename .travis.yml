@@ -14,6 +14,7 @@ install:
   - cd $TRAVIS_BUILD_DIR
   - yes | haxelib install ufront
   - yes | haxelib install all
+  - yes | haxelib git closure git@github.com:jasononeil/closure.git patch-1
   # And just to make sure we have the right versions...
   - haxe
   - haxelib list
