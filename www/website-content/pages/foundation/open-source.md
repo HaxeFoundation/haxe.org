@@ -26,7 +26,7 @@ The license of the compiler does not affect the license of your own source code.
 
 Since Haxe 3, the Haxe Standard Library has been licensed under a MIT style license, which does not require the notices to be reproduced anywhere outside of the actual library code.
 
-	Copyright (C)2005-2015 Haxe Foundation
+	Copyright (C)2005-2016 Haxe Foundation
 
 	Permission is hereby granted, free of charge, to any person obtaining a
 	copy of this software and associated documentation files (the "Software"),
