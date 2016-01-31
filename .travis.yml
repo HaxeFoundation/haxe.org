@@ -4,6 +4,11 @@ haxe: "3.2.1"
 
 sudo: false
 
+env:
+  global:
+    # deploy_key_decrypt
+    - secure: "Sa8BnsU2mf6TDGdaJxxOU29qKjBoVMol0eyxnMbq0LTov0oK8kujlqoRgLl5uIDzHgwLnR+FvagcbSKcMUCTINsCRbxJJPtMmtOQlrCBxHhrj/eTPJ4L69x9t7urI1MsMjW5Q+7KJ6Fm5/lEf7uD7Ktt6Doc+Y4xp8dzXNAvfcE="
+
 before_install:
   # We need unreleased versions of minject and thx.core for now to deal with a memory leak.
   - haxelib dev ufront-mvc submodules/ufront-mvc/
@@ -32,8 +37,8 @@ script:
 after_success:
   # Key decryption based on instructions at:
   # http://pghalliday.com/github/ssh/travis-ci/2014/09/19/auto-build-and-deploy-github-pages-with-travis-ci.html
-  - if [ -n "$encrypted_c7c1240b42e4_key" ] && ([ "$TRAVIS_BRANCH" = "master" ] || [ "$TRAVIS_BRANCH" = "staging" ] || [ "$TRAVIS_BRANCH" = "travis" ]); then
-      openssl aes-256-cbc -K $encrypted_c7c1240b42e4_key -iv $encrypted_c7c1240b42e4_iv -in deploy_key.enc -out deploy_key -d;
+  - if [ -n "$deploy_key_decrypt" ] && ([ "$TRAVIS_BRANCH" = "master" ] || [ "$TRAVIS_BRANCH" = "staging" ] || [ "$TRAVIS_BRANCH" = "travis" ]); then
+      openssl aes-256-cbc -k "$deploy_key_decrypt" -in deploy_key.enc -out deploy_key -d;
       chmod 600 deploy_key;
       eval `ssh-agent -s`;
       ssh-add deploy_key;
