@@ -1,6 +1,8 @@
 haxe.org
 ========
 
+[![Build Status](https://travis-ci.org/HaxeFoundation/haxe.org.svg?branch=master)](https://travis-ci.org/HaxeFoundation/haxe.org)
+
 This is the code base for the <http://haxe.org> website.
 
 ## Contributing Content
@@ -53,6 +55,6 @@ These instructions were written on Linux (Ubuntu 14.04), if problems are encount
 
 ## Deploying updates
 
+* Any push or merge to this `haxe.org` repository will trigger [TravisCI](https://travis-ci.org/HaxeFoundation/haxe.org) to build and deploy to "haxe.org".
 * Any push or merge to the `HaxeManual` repository will trigger an update of the manual on "haxe.org".  (We follow the `master` branch).
 * Running `ufront deploy` (or just `ufront d`) will compile all files and push them to the haxe.org server. You will need your SSH keys added to the server for this to work.  If you added or modified any download content you will need to visit `/update/site/` to trigger some further upgrades.
-* We plan to have changes to this repository also trigger automatic updates, but this is not ready just yet, so there may be a delay between pull requests being merged and them being visible on the live site.
