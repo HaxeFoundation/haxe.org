@@ -33,10 +33,7 @@ script:
   - mkdir doc
   # We don't really have unit tests for the website yet.  Just test that a built works.
   - haxelib run ufront build
-
-after_success:
-  # Key decryption based on instructions at:
-  # http://pghalliday.com/github/ssh/travis-ci/2014/09/19/auto-build-and-deploy-github-pages-with-travis-ci.html
+  # Deploy to haxe.org
   - if [ -n "$deploy_key_decrypt" ] && ([ "$TRAVIS_BRANCH" = "master" ] || [ "$TRAVIS_BRANCH" = "staging" ] || [ "$TRAVIS_BRANCH" = "travis" ]); then
       openssl aes-256-cbc -k "$deploy_key_decrypt" -in deploy_key.enc -out deploy_key -d;
       chmod 600 deploy_key;
