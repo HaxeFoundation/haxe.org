@@ -47,5 +47,9 @@ after_success:
       wget http://haxe.org/update/site/;
     fi
 
+cache:
+  directories:
+    - deploy
+
 addons:
   ssh_known_hosts: haxe.org
