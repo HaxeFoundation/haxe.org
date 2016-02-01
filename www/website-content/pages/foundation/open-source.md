@@ -52,4 +52,4 @@ Since Haxe 3, the Haxe Standard Library has been licensed under a MIT style lice
 
 The Neko virtual machine is available under the MIT License. This allows you to embed it in proprietary software.
 
-The Neko runtime libraries (ndll) and other tools bundled in a default Neko installation are released under various open source licenses as described in https://github.com/HaxeFoundation/neko/blob/master/LICENSE
+The Neko runtime libraries (ndll) and other tools bundled in a default Neko installation are released under various open source licenses as described in <https://github.com/HaxeFoundation/neko/blob/master/LICENSE>
