@@ -38,7 +38,6 @@ script:
       chmod 600 deploy_key;
       eval `ssh-agent -s`;
       ssh-add deploy_key;
-      haxelib run ufront build -D deploy &&
       haxelib run ufront deploy haxe.org;
       wget http://haxe.org/update/manual/;
       wget http://haxe.org/update/site/;
