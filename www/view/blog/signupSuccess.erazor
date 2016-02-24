@@ -1,0 +1,6 @@
+<section class="section swatch-white-red has-top">
+	<div class="container">
+		<h1>Account created!</h1>
+		<p>I guess you should <a href="@(baseUri)login/">Log In</a></p>
+	</div>
+</section>

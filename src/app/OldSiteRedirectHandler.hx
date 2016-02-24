@@ -4,7 +4,7 @@ package app;
 
 import sys.io.File;
 import ufront.app.UFErrorHandler;
-import ufront.core.Sync;
+import ufront.core.AsyncTools;
 import ufront.web.context.HttpContext;
 using tink.CoreApi;
 using haxe.io.Path;
@@ -54,7 +54,7 @@ class OldSiteRedirectHandler implements UFErrorHandler {
 			}
 		}
 
-		return Sync.success();
+		return SurpriseTools.success();
 	}
 
 	function loadRedirects( ctx:HttpContext ) {

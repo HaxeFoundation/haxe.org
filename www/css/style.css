@@ -52,6 +52,7 @@ html, body {
 		width: auto;
 		margin: 0 !important;
 	}
+	.page-wrap .section:first-child .container-fluid,
 	.page-wrap .section:first-child .container {
 		padding-top: 40px !important;
 	}
@@ -118,7 +119,8 @@ h1, h2, h3, h4, h5, h6 {
 h3, h4, h5 {
 	margin-top: 25px;
 }
-h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a,
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
 	color: inherit;
 	text-decoration: underline;
 }
@@ -151,7 +153,8 @@ a.anch {
 	position: relative;
 	top: -30px;
 }
-.section .container {
+.section .container,
+.section .container-fluid {
 	position: relative;
 	padding-top: 30px;
 	padding-bottom: 40px;
@@ -227,6 +230,7 @@ a.anch {
 .section.nav .container {
 	padding: 0;
 }
+.page-wrap .section:first-child .container-fluid,
 .page-wrap .section:first-child .container {
 	padding-top: 80px;
 }
@@ -768,8 +772,6 @@ html .gsc-search-box .gsc-input > input:focus, html .gsc-input-box-focus {
 Articles
 **/
 .article-list .article-thumbnail {
-	height: 200px; /** Fallback. **/
-	height: 30vh;
 	background-position: center center;
 	background-size: cover;
 	width: 100%;
@@ -786,7 +788,8 @@ a.full-size-link {
 .article-header {
 	background-position: center center;
 	background-size: cover;
-	min-height: 60vh;
+	background-color: rgb(40,40,40);
+	min-height: 30vh;
 	position: relative;
 	margin-top: 41px;
 }
@@ -794,21 +797,30 @@ a.full-size-link {
 	background: rgba(0,0,0,0.3);
 	position: absolute;
 	left: 0; top: 0; right: 0; bottom: 0;
+	z-index: 0;
 }
-.article-header h1, .article-header p.lead, .article-header p {
+.article-header .container {
+	position: relative;
+	z-index: 1;
+}
+.article-header h1, .article-header h2, .article-header p.lead, .article-header p {
 	color: white;
 	text-shadow: 1px 1px 2px rgb(0,0,0);
 	font-weight: 500;
 }
-.article-header h1 {
+.article-header h1, .article-header h2 {
 	font-size: 56px;
 	line-height: 56px;
+}
+.article-header .container {
+	padding: 40px 0 !important;
 }
 @media (min-width: 980px) {
 	.article-header .container {
 		width: 700px;
 	}
 	.article-view .container {
+		margin-top: 20px;
 		width: 700px;
 	}
 	.article-view p > img:only-child {
@@ -824,6 +836,42 @@ a.full-size-link {
 .article-view blockquote p {
 	font-size: 24px;
 }
+.article-form input, .article-form .input-append, .article-form .input-prepend {
+	width: 90%;
+}
+.article-form textarea {
+	width: 100%;
+}
+.dropdown-menu li {
+	margin: 0;
+	padding: 0;
+}
+.btn-file {
+	position: relative;
+	overflow: hidden;
+}
+.btn-file input[type=file] {
+	position: absolute;
+	top: 0;
+	right: 0;
+	min-width: 100%;
+	min-height: 100%;
+	font-size: 100px;
+	text-align: right;
+	filter: alpha(opacity=0);
+	opacity: 0;
+	outline: none;
+	background: white;
+	cursor: inherit;
+	display: block;
+}
+.article-preview {
+	box-shadow: 3px 3px 10px rgb(200,200,200);
+}
+.article-preview .article-header, .article-preview .article-view {
+	padding: 20px;
+	margin: 0;
+}
 
 .milestone h3 {
 	margin-top: 0px;
@@ -835,4 +883,15 @@ a.full-size-link {
 
 .milestone dl {
 	margin-bottom: 0px;
+}
+
+.page-wrap {
+	transition: opacity 0.5s ease;
+	opacity: 1;
+}
+.page-wrap.uf-partial-incoming {
+	opacity: 0;
+}
+.page-wrap.uf-partial-outgoing {
+	opacity: 0;
 }

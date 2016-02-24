@@ -6,17 +6,16 @@ package app.api;
 	import sys.FileSystem;
 	import sys.io.File;
 #end
-
 import app.model.SiteMap;
 import app.model.Manual;
-import ufront.web.HttpError;
+import ufront.MVC;
 using Lambda;
 using tink.CoreApi;
 using haxe.io.Path;
 using StringTools;
 using Detox;
 
-class ManualUpdateApi extends ufront.api.UFApi {
+class ManualUpdateApi extends UFApi {
 
 	@inject("contentDirectory") public var contentDir:String;
 

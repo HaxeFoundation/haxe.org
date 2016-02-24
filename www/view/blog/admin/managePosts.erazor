@@ -1,0 +1,45 @@
+<div class="section">
+	<div class="container">
+		@adminToolbar()
+		<h1>@title</h1>
+		@if ( description!=null ) {
+			<p class="lead">@description</p>
+		}
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Author</th>
+					<th>Published</th>
+					<th>Tags</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			@for (post in posts) {
+				<tr>
+					<th><a href="@(blogUri)@post.url/edit/" class="pushstate">@post.title</a></th>
+					<td><a href="@(blogUri)author/@(post.author.user)" class="label pushstate">@(post.author)</a></td>
+					<td>
+						@if (post.publishDate!=null) {
+							<span class="label label-success">@date(post.publishDate)</span>
+						} else {
+							<span class="label label-default">Draft</span>
+						}
+					</td>
+					<td>
+						@for (tag in post.tags) {
+							<a href="@(blogUri)tag/@(tag.name)" class="pushstate" title="@tag.title">@tag.name</a>
+						}
+					</td>
+					<td>
+						<div class="toolbar" role="toolbar">
+							<a href="@(blogUri)@post.url/" class="pushstate btn">View</a>
+							<a href="@(blogUri)@post.url/edit/" class="pushstate btn">Edit</a>
+							<a href="@(blogUri)@post.url/delete/" class="pushstate btn btn-danger">Delete</a>
+						</div>
+					</td>
+				</tr>
+			}
+		</table>
+	</div>
+</div>
