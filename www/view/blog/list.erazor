@@ -1,0 +1,36 @@
+<div class="section">
+	<div class="container">
+		@adminToolbar()
+		<h1>@title</h1>
+		@if ( description!=null ) {
+			<p class="lead">@description</p>
+		}
+	</div>
+</div>
+<div class="article-list">
+	@for (post in posts) {
+		<div class="section article-thumbnail article-header" @if (post.headerImage!=null) { style="background-image: url('@post.getHeaderURL(baseUri+post.url)?w=1600')" }>
+			<a href="@(baseUri)@post.url/" class="pushstate full-size-link darken-bg"></a>
+			<div class="container">
+				<h2><a href="@(baseUri)@post.url" class="pushstate">@post.title</a></h2>
+				@if ( post.introduction!=null ){
+					<p class="lead">@post.introduction</p>
+				}
+				<p><small>
+					Article by <a href="@(baseUri)author/@post.author.user.username" class="label pushstate">@post.author.user.username</a> on <a href="@(baseUri)p/@post.id" class="label pushstate">@date(post.publishDate)</a>.
+				</small></p>
+				<p><small>
+					<a href="@(baseUri)@post.url#disqus_thread" class="label pushstate disqus-comment-count" data-disqus-identifier="@post.id">Comments</a>
+				</small></p>
+			</div>
+		</div>
+		<div class="section article-view">
+			<div class="container">
+				@raw( post.getContentHTML(baseUri+post.url) )
+
+				@postMeta( post )
+			</div>
+		</div>
+		<hr />
+	}
+</div>

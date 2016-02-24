@@ -1,5 +1,7 @@
 {
 	"title": "Haxe - The Cross-Platform Toolkit",
+	"blogTitle": "The Haxe Blog",
+	"blogDescription": "Announcements, Case Studies, and Tech Insights from the Haxe Foundation.",
 	"siteContent": {
 		"repo": "https://github.com/HaxeFoundation/haxe.org.git",
 		"branch": "master",

@@ -1,0 +1,23 @@
+<div class="well">
+	<div class="row-fluid">
+		<div class="span2">
+			@gravatar(author, 72, "img-circle pull-left")
+		</div>
+		<div class="span10">
+			<h3>@author</h3>
+			<p>Published <a href="@(blogUri)p/@id" class="pushstate">@date(publishDate)</a></p>
+			<p><i><a href="@hnLink(__current__)">Discuss this article on Hacker News</a></i></p>
+
+			@for( tag in tags ) {
+				<a href="@(blogUri)tag/@tag.name/" class="label pushstate">@tag.name</a>
+			}
+
+			@if( isLoggedIn ) {
+				<div class="btn-toolbar" role="toolbar">
+					<a href="@(blogUri)@url/edit/" class="btn btn-default pushstate">Edit Post</a>
+					<a href="@(blogUri)@url/delete/" class="btn btn-default pushstate">Delete Post</a>
+				</div>
+			}
+		</div>
+	</div>
+</div>

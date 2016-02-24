@@ -5,16 +5,15 @@ package app.api;
 	import sys.io.File;
 	import sys.io.Process;
 #end
-
+import ufront.MVC;
 import app.model.Download;
 import haxe.Json;
-import ufront.sys.SysUtil;
 using StringTools;
 using Lambda;
 using tink.CoreApi;
 using haxe.io.Path;
 
-class DownloadApi extends ufront.api.UFApi {
+class DownloadApi extends UFApi {
 
 	@inject("contentDirectory") public var contentDir:String;
 
@@ -99,7 +98,7 @@ class DownloadApi extends ufront.api.UFApi {
 					next: nextVersion
 				};
 				var json = Json.stringify( downloadInfo );
-				SysUtil.mkdir( outDir );
+				FileSystem.createDirectory( outDir );
 				File.saveContent( outDir.addTrailingSlash()+versionNumber+'.json', json );
 			} catch ( e:Dynamic ) errorMessages.push( 'Failed to process download ${version.version}: $e $i ${versions.length}' );
 

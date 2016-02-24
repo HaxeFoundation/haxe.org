@@ -2,11 +2,10 @@ package app.controller;
 
 import app.api.ArticleApi;
 import app.Config;
-import ufront.web.Controller;
-import ufront.web.result.*;
-using thx.Strings;
+import ufront.MVC;
 using tink.CoreApi;
 using haxe.io.Path;
+using StringTools;
 
 class ArticleController extends Controller {
 

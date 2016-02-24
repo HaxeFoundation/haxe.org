@@ -36,7 +36,7 @@
 	<!-- Facebook -->
 </head>
 
-<body>
+<body data-uf-layout="haxe">
 
 <div class="section nav dark">
 	<div class="navbar navbar-fixed-top navbar-inverse">
@@ -83,7 +83,7 @@
 	</div>
 </div>
 
-<div class="page-wrap">
+<div class="page-wrap" data-uf-partial="view-content">
 	::viewContent::
 </div>
 
@@ -98,6 +98,7 @@
 			::if (editLink != null)::
 			| <a href="::editLink::" target="_blank" class="edit-link" title="Use Github to suggest an edit to this page">Contribute to this page</a>
 			::end::
+			| <a href="/blog/accounts/login/">Login</a>
 			</p>
 		</div>
 	</div>
@@ -105,7 +106,8 @@
 
 <script src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
-<script src="/js/client.js"></script>
+<script src="/js/client.min.js" uf-reload></script>
+<script src="/js/app.min.js"></script>
 <!-- Google Tag Manager -->
 <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-NXV3XR"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>

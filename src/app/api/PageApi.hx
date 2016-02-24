@@ -9,14 +9,14 @@ import haxe.io.Bytes;
 import haxe.ds.Option;
 import app.Config;
 import haxe.Json;
-import ufront.web.HttpError;
+import ufront.MVC;
 import app.model.SiteMap;
 using haxe.io.Path;
 using tink.CoreApi;
 using StringTools;
 using Lambda;
 
-class PageApi extends ufront.api.UFApi {
+class PageApi extends UFApi {
 
 	/**
 		Given a URL facing name (eg "support.html", look for the actual file (eg "support.md")
@@ -36,7 +36,7 @@ class PageApi extends ufront.api.UFApi {
 				return filePath;
 			}
 		}
-		
+
 		ufError('Could not find page $repo/${path.withoutExtension()}.$extensions');
 		return throw HttpError.pageNotFound();
 	}
@@ -45,13 +45,13 @@ class PageApi extends ufront.api.UFApi {
 		Given an exact filepath, return the content of that file.
 
 		If the file is markdown, it will be converted to HTML before returning.
-	
+
 		@param filePath The absolute path to the file we are trying to load.
 		@return String containing the html content
 		@throws HttpError.internalServerError() if file could not be read.
 	**/
 	public function loadPage( filePath:String ):String {
-		var content = 
+		var content =
 			try File.getContent(filePath)
 			catch (e:Dynamic) throw HttpError.internalServerError('Could not read $filePath', e)
 		;

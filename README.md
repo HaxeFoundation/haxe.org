@@ -53,6 +53,28 @@ Please note, Haxe 3.1.3 will render some markdown pages incorrectly.  Using a de
 
 These instructions were written on Linux (Ubuntu 14.04), if problems are encountered on other platforms please file an issue so it can be resolved.
 
+## Setting up database for blog
+
+Create a database in MySQL:
+
+	CREATE USER 'haxeorg'@'localhost' IDENTIFIED BY 'mypassword';
+	GRANT USAGE ON *.* TO 'haxeorg'@'localhost' IDENTIFIED BY 'mypassword' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;
+	CREATE DATABASE IF NOT EXISTS `haxeorg`;
+	GRANT ALL PRIVILEGES ON `haxeorg`.* TO 'haxeorg'@'localhost';
+
+Create `src/conf/mysql.json`:
+
+	{
+		"host": "localhost",
+		"port": null,
+		"database": "haxeorg",
+		"user": "haxeorg",
+		"pass": "mypassword",
+		"socket": null
+	}
+
+Visit `/blog/ufadmin/` and click on "DB Admin" to create and sync each of the required tables.
+
 ## Deploying updates
 
 * Any push or merge to this `haxe.org` repository will trigger [TravisCI](https://travis-ci.org/HaxeFoundation/haxe.org) to build and deploy to "haxe.org".
