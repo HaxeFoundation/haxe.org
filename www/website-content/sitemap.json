@@ -105,6 +105,10 @@
 		"url": "community/",
 		"sub": [
 			{
+				"title": "Blog",
+				"url": "blog/"
+			},
+			{
 				"title": "Community & Support",
 				"url": "community/community-support.html"
 			},
