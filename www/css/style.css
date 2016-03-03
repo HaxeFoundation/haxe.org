@@ -895,3 +895,13 @@ a.full-size-link {
 .page-wrap.uf-partial-outgoing {
 	opacity: 0;
 }
+
+/**
+ * Foundatio/Who is Who
+ */
+.portrait {
+	vertical-align: text-top;
+}
+.portrait + p {
+	display: inline-block;
+}
