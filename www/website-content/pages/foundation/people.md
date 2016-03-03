@@ -9,9 +9,11 @@ The Haxe ecosystem is made possible thanks to the work of the following people:
 <div>
 	<img src="/img/people/NicolasCannasse.jpg" alt="Nicolas Cannasse" class="portrait" />
 	<p>
-		Compiler
+		Original creator of the Haxe compiler and designer of the Haxe language
 	</p>
 </div>
+
+
 
 <a name="SimonKrajewski" class="anch"></a>
 
@@ -20,9 +22,11 @@ The Haxe ecosystem is made possible thanks to the work of the following people:
 <div>
 	<img src="/img/people/SimonKrajewski.jpg" alt="Simon Krajewski" class="portrait" />
 	<p>
-		Compiler
+		Main maintainer of the Haxe compiler
 	</p>
 </div>
+
+
 
 <a name="CaueWaneck" class="anch"></a>
 
@@ -31,29 +35,11 @@ The Haxe ecosystem is made possible thanks to the work of the following people:
 <div>
 	<img src="/img/people/CaueWaneck.jpg" alt="Cauê Waneck" class="portrait" />
 	<p>
-		C# and Java targets
+		Maintainer of the C# and Java targets
 	</p>
 </div>
 
-<a name="FrancoPonticelli" class="anch"></a>
 
-## Franco Ponticelli
-
-<div>
-	<img src="/img/people/FrancoPonticelli.jpg" alt="Franco Ponticelli" class="portrait" />
-	<p>
-	</p>
-</div>
-
-<a name="BrunoGarcia" class="anch"></a>
-
-## Bruno Garcia
-
-<div>
-	<img src="/img/people/BrunoGarcia.jpg" alt="Bruno Garcia" class="portrait" />
-	<p>
-	</p>
-</div>
 
 <a name="HughSanderson" class="anch"></a>
 
@@ -62,9 +48,11 @@ The Haxe ecosystem is made possible thanks to the work of the following people:
 <div>
 	<img src="/img/people/HughSanderson.jpg" alt="Hugh Sanderson" class="portrait" />
 	<p>
-		C++ target
+		Maintainer of the C++ target
 	</p>
 </div>
+
+
 
 <a name="AndyLi" class="anch"></a>
 
@@ -73,8 +61,11 @@ The Haxe ecosystem is made possible thanks to the work of the following people:
 <div>
 	<img src="/img/people/AndyLi.jpg" alt="Andy Li" class="portrait" />
 	<p>
+		Maintainer of the JQuery externs and Haxe packages
 	</p>
 </div>
+
+
 
 <a name="DanKorostelev" class="anch"></a>
 
@@ -83,8 +74,24 @@ The Haxe ecosystem is made possible thanks to the work of the following people:
 <div>
 	<img src="/img/people/DanKorostelev.jpg" alt="Dan Korostelev" class="portrait" />
 	<p>
+		Maintainer of the node.js externs
 	</p>
 </div>
+
+
+
+<a name="BrunoGarcia" class="anch"></a>
+
+## Bruno Garcia
+
+<div>
+	<img src="/img/people/BrunoGarcia.jpg" alt="Bruno Garcia" class="portrait" />
+	<p>
+		Maintainer of the HTML externs
+	</p>
+</div>
+
+
 
 <a name="frabbit" class="anch"></a>
 
@@ -93,8 +100,11 @@ The Haxe ecosystem is made possible thanks to the work of the following people:
 <div>
 	<img src="/img/people/frabbit.jpg" alt="frabbit" class="portrait" />
 	<p>
+		Maintainer of the Python target
 	</p>
 </div>
+
+
 
 <a name="JasonONeil" class="anch"></a>
 
@@ -104,5 +114,18 @@ The Haxe ecosystem is made possible thanks to the work of the following people:
 	<img src="/img/people/JasonONeil.jpg" alt="Jason O'Neil" class="portrait" />
 	<p>
 		Webmaster
+	</p>
+</div>
+
+
+
+<a name="FrancoPonticelli" class="anch"></a>
+
+## Franco Ponticelli
+
+<div>
+	<img src="/img/people/FrancoPonticelli.jpg" alt="Franco Ponticelli" class="portrait" />
+	<p>
+		Original creator of the PHP target
 	</p>
 </div>
