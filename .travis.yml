@@ -38,9 +38,15 @@ script:
       chmod 600 deploy_key;
       eval `ssh-agent -s`;
       ssh-add deploy_key;
-      haxelib run ufront deploy haxe.org;
-      wget http://haxe.org/update/manual/;
-      wget http://haxe.org/update/site/;
+      if [ "$TRAVIS_BRANCH" = "staging" ]; then
+        haxelib run ufront deploy staging;
+        wget http://staging.haxe.org/update/manual/;
+        wget http://staging.haxe.org/update/site/;
+      else
+        haxelib run ufront deploy haxe.org;
+        wget http://haxe.org/update/manual/;
+        wget http://haxe.org/update/site/;
+      fi
     fi
 
 cache:
