@@ -46,7 +46,7 @@ class PageController extends Controller {
 		var pageDetails =
 			try sitemap.getPageForUrl( '$page' )
 			catch ( e:Dynamic ) null;
-		var title = (pageDetails!=null) ? pageDetails.title : null;
+		var title = (pageDetails!=null) ? pageDetails.title+(pageDetails.disambiguation!=null ? pageDetails.disambiguation : "") : null;
 		var editLink = (pageDetails!=null) ? pageDetails.editLink : null;
 		return showContent({
 			title: title,
