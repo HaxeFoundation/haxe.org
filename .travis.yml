@@ -54,4 +54,6 @@ cache:
     - deploy
 
 addons:
-  ssh_known_hosts: haxe.org
+  ssh_known_hosts:
+  - haxe.org
+  - staging.haxe.org
