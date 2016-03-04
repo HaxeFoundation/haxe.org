@@ -12,6 +12,7 @@ typedef SitePage = {
 	var title:String;
 	@:optional var editLink:Null<String>;
 	@:optional var sub:Null<SiteMap>;
+	@:optional var disambiguation:Null<String>;
 };
 
 class SiteMapHelper {

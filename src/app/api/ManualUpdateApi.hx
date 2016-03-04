@@ -41,6 +41,27 @@ class ManualUpdateApi extends UFApi {
 
 		var sectionsJson = File.getContent( '$mdDir/sections.txt' );
 		var sections:Array<ManualSectionJson> = Json.parse( sectionsJson );
+
+		var titleToSection = new Map<String, Array<ManualSectionJson>>();
+		findDisambiguation( sections, titleToSection );
+		for ( sectionGroup in titleToSection ) {
+			if ( sectionGroup.length > 1 ) {
+				for ( section in sectionGroup ) {
+					var disambiguation = [];
+
+					var current = section;
+					while ( (current = current.parent) != null ) {
+						disambiguation.push(current.title);
+					}
+					disambiguation.reverse();
+
+					if (disambiguation.length > 0) {
+						section.disambiguation = " (" + disambiguation.join(" - ") + ")";
+					}
+				}
+			}
+		}
+
 		var validSections = processSections( sections );
 
 		try {
@@ -73,7 +94,8 @@ class ManualUpdateApi extends UFApi {
 			var page:SitePage = {
 				title: section.title,
 				url: section.label+".html",
-				editLink: '$linkBase$fileAndLines'
+				editLink: '$linkBase$fileAndLines',
+				disambiguation: section.disambiguation
 			}
 			if ( section.sub!=null && section.sub.length>0 ) {
 				page.sub = generateSiteMap( section.sub );
@@ -195,6 +217,29 @@ class ManualUpdateApi extends UFApi {
 					src = "/manual/"+src.withoutDirectory();
 					node.setAttr( 'src', src );
 				default:
+			}
+		}
+	}
+
+	/**
+		Go through all sections and their subsections and add them to the titleToSection map.
+	**/
+	function findDisambiguation( sections:Array<ManualSectionJson>, titleToSection:Map<String, Array<ManualSectionJson>> ):Void {
+		for ( section in sections ) {
+			var title = section.title.toLowerCase();
+
+			if ( !titleToSection.exists( title ) ) {
+				titleToSection[title] = [ section ];
+			} else {
+				titleToSection[title].push(section);
+			}
+
+			if ( section.sub != null ) {
+				for (subsection in section.sub) {
+					subsection.parent = section;
+				}
+
+				findDisambiguation( section.sub, titleToSection );
 			}
 		}
 	}
