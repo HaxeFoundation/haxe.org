@@ -12,6 +12,7 @@
 		</small></p>
 	</div>
 </header>
+<link rel="home" type="application/rss+xml" href="@(baseUri)rss/" />
 <div class="section article-view">
 	<div class="container">
 		@raw( post.getContentHTML(baseUri+post.url) )
