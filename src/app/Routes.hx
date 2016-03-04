@@ -31,6 +31,9 @@ class Routes extends Controller
 		ViewResult.globalValues.set( "description", "Haxe is an open source toolkit based on a modern, high level, strictly typed programming language." );
 	}
 
+	#if server
+		@:route("/blog/rss/") var rss:RssController;
+	#end
 	@:route("/blog/*") var blog:BlogRoutes;
 	#if server
 		@:route("/update/*") var update:UpdateController;
