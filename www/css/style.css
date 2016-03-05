@@ -895,3 +895,13 @@ a.full-size-link {
 .page-wrap.uf-partial-outgoing {
 	opacity: 0;
 }
+
+/**
+ Blog
+ **/
+.rssFeedLink {
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	background: url(../img/feed.png) center center no-repeat;
+}
