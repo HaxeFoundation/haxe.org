@@ -1,7 +1,7 @@
 <div class="section">
 	<div class="container">
 		@adminToolbar()
-		<h1>@title</h1>
+		<h1>@title <a rel="alternate" type="application/rss+xml" href="@(baseUri)rss/" class="rssFeedLink"/></a></h1>
 		@if ( description!=null ) {
 			<p class="lead">@description</p>
 		}
