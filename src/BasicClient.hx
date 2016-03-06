@@ -23,6 +23,10 @@ class BasicClient
 		var vals = new EReg("\\b(" + vals.join("|") + ")\\b", "g");
 
 		for( s in J("pre code.prettyprint.haxe") ) {
+			if (s.hasClass("highlighted")) {
+				continue;
+			}
+
 			var html = s.html();
 
 			// detect and remove identation
@@ -48,6 +52,8 @@ class BasicClient
 			html = ~/(\/\*\*?[^*]*\*?\*\/)/g.replace(html, "<span class='cmt'>$1</span>");
 			html = html.split("\t").join("    ");
 			s.html(html);
+
+			s.addClass("highlighted");
 		}
 	}
 
