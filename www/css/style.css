@@ -106,6 +106,9 @@ body li {
 	margin-bottom: 2px;
 	padding-left: 10px;
 }
+nav li { 
+  padding-left: 0px; 
+}
 body li ul {
 	margin-top: 2px;
 }
