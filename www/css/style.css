@@ -62,9 +62,9 @@ html, body {
 	.section .row.component .links {
 		margin-top: 20px;
 	}
-	.navbar-fixed-top, .navbar-fixed-bottom, .navbar-static-top {
+	/*.navbar-fixed-top, .navbar-fixed-bottom, .navbar-static-top {
 		margin: 0 0 20px 0 !important;
-	}
+	}*/
 	ul.logos {
 		margin-top: 20px;
 	}
@@ -105,6 +105,9 @@ body p, body li p, body td p {
 body li {
 	margin-bottom: 2px;
 	padding-left: 10px;
+}
+nav li { 
+  padding-left: 0px; 
 }
 body li ul {
 	margin-top: 2px;
@@ -702,7 +705,7 @@ html .gsc-search-box .gsc-input > input:focus, html .gsc-input-box-focus {
 	text-overflow: ellipsis;
 	display: block;
 }
-
+/*
 .navbar .navbar-inner {
 	background: rgb(20,20,25);
 	border: none;
@@ -763,11 +766,10 @@ html .gsc-search-box .gsc-input > input:focus, html .gsc-input-box-focus {
 }
 @media (min-width: 980px) and (max-width: 1199px) {
 	.navbar .nav:first-child > li:first-child {
-		/** Hide the "Home" menu item on small screens **/
 		display: none;
 	}
 }
-
+*/
 /**
 Articles
 **/
