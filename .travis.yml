@@ -20,6 +20,11 @@ install:
   - yes | haxelib install ufront
   - yes | haxelib install all
   - yes | haxelib git closure https://github.com/jasononeil/closure.git patch-1
+  # install dev version of ufront-mvc to get unreleased feature
+  - git clone https://github.com/ufront/ufront-mvc.git
+  - cd ufront-mvc
+  - git checkout d7b9066f4405358aaa0e797ec7b7656c4daf46c4
+  - haxeliv dev ufront-mvc .
   # And just to make sure we have the right versions...
   - haxe
   - haxelib list
