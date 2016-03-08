@@ -62,9 +62,12 @@ html, body {
 	.section .row.component .links {
 		margin-top: 20px;
 	}
-	/*.navbar-fixed-top, .navbar-fixed-bottom, .navbar-static-top {
+	.navbar-fixed-top, .navbar-fixed-bottom, .navbar-static-top {
 		margin: 0 0 20px 0 !important;
-	}*/
+	}
+	.nav li.divider { 
+		display:none; 
+	}
 	ul.logos {
 		margin-top: 20px;
 	}
