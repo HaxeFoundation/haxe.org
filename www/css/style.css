@@ -65,7 +65,7 @@ html, body {
 	.navbar-fixed-top, .navbar-fixed-bottom, .navbar-static-top {
 		margin: 0 0 20px 0 !important;
 	}
-	.nav li.divider { 
+	nav li.divider { 
 		display:none; 
 	}
 	ul.logos {
