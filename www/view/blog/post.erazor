@@ -5,13 +5,14 @@
 		<h1>@title</h1>
 		<p class="lead">@post.introduction</p>
 		<p><small>
-			Article by <a href="@(baseUri)author/@post.author.user.username" class="label pushstate">@post.author.user.username</a> on <a href="@(baseUri)p/@post.id" class="label pushstate">@date(post.publishDate)</a>.
+			Article by <a href="@(baseUri)author/@post.author.user.username" class="label pushstate">@(post.author)</a> on <a href="@(baseUri)p/@post.id" class="label pushstate">@date(post.publishDate)</a>.
 		</small></p>
 		<p><small>
 			<a href="#disqus_thread" class="label disqus-comment-count" data-disqus-identifier="@post.id">Comments</a>
 		</small></p>
 	</div>
 </header>
+<link rel="home" type="application/rss+xml" href="@(baseUri)rss/" />
 <div class="section article-view">
 	<div class="container">
 		@raw( post.getContentHTML(baseUri+post.url) )

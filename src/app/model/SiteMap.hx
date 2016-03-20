@@ -12,9 +12,11 @@ typedef SitePage = {
 	var title:String;
 	@:optional var editLink:Null<String>;
 	@:optional var sub:Null<SiteMap>;
+	@:optional var disambiguation:Null<String>;
 };
 
 class SiteMapHelper {
+  static inline var DIVIDER_URL = "#divider";
 	/**
 		For a given sitemap and URL, try find a matching page.
 
@@ -26,7 +28,8 @@ class SiteMapHelper {
 	public static function getPageForUrl( sitemap:SiteMap, url:String ):SitePage {
 		url = url.removeTrailingSlashes();
 		for ( page in sitemap ) {
-			if ( page.url.removeTrailingSlashes()==url ) {
+      if (page.url == DIVIDER_URL) continue;
+			if (page.url.removeTrailingSlashes()==url ) {
 				return page;
 			}
 			else if ( page.sub!=null ) {
@@ -60,16 +63,16 @@ class SiteMapHelper {
 			var collapsedSitemap = collapseSitemap(sitemap);
 
 			for ( page in collapsedSitemap ) {
-				if ( baseUrl+page.url==currentUri ) {
+				if (  baseUrl+page.url==currentUri ) {
 					// This is the active page.
 					// We'll leave `previousPage` whatever it was on the previous iteration.
 					currentPage = page;
 				}
-				else if ( currentPage==null ) {
+				else if ( currentPage==null) {
 					// No current page found yet, keep setting `previousPage` until we find it.
 					previousPage = page;
 				}
-				else if ( currentPage!=null ) {
+				else if ( currentPage!=null) {
 					// The previous page was current, so set this one to "next page" and exit the loop.
 					nextPage = page;
 					break;
@@ -90,9 +93,13 @@ class SiteMapHelper {
 	}
 
 	static function collapseSitemap( sitemap:SiteMap, ?array:Array<SitePage> ):Array<SitePage> {
-		if ( array==null ) array = [];
+		if ( array == null ) array = [];
+    else {
+      for(page in array) if (page.url == DIVIDER_URL) array.remove(page);
+    }
 
 		for ( page in sitemap ) {
+      if (page.url == DIVIDER_URL) continue;
 			array.push( page );
 			if ( page.sub!=null ) collapseSitemap( page.sub, array );
 		}
@@ -160,6 +167,7 @@ class SiteMapHelper {
 	static function printSidebarRecursive( sitemap:SiteMap, baseUrl:String, currentUri:Null<String>, sb:StringBuf ) {
 		sb.add( '<ul>' );
 		for ( page in sitemap ) {
+      if ( page.url == DIVIDER_URL ) continue;
 			// Create list item, add classes
 			sb.add( '<li class="' );
 			if ( page.sub!=null && page.sub.length>0 ) sb.add(' parent');
@@ -213,26 +221,29 @@ class SiteMapHelper {
 		sb.add( '<ul>' );
 
 		
-		function addHeader( page:SitePage, colBuf:StringBuf ) {
+		inline function addHeader( page:SitePage, colBuf:StringBuf ) {
 			colBuf.add( '<h5><a href="$baseUrl${page.url}">${page.title}</a></h5>' );
 		}
-		function openColumn( ?page:SitePage ):StringBuf {
+    function openColumn( ?page:SitePage ):StringBuf {
 			var colBuf = new StringBuf();
 			columns.push( colBuf );
+      if ( page != null && page.url == DIVIDER_URL ) return colBuf;
 			colBuf.add( '<li class="column">');
 			if ( page!=null ) addHeader( page, colBuf );
 			return colBuf;
 		}
 		function addLink( p:SitePage, colBuf:StringBuf ) {
+      if ( p.url == DIVIDER_URL ) return;
 			colBuf.add( '<li><a href="$baseUrl${p.url}">${p.title}</a></li>' );
 		}
-		function closeColumn( colBuf:StringBuf ) {
+		inline function closeColumn( colBuf:StringBuf ) {
 			colBuf.add( '</li>' );
 		}
 
 		var firstColumn = openColumn();
 
 		for ( page in sitemap ) {
+      if ( page.url == DIVIDER_URL ) continue;
 			if ( page.sub==null || page.sub.length==0 ) {
 				addHeader( page, firstColumn );
 			}
@@ -259,19 +270,21 @@ class SiteMapHelper {
 	**/
 	static function printNavBarRecursive( sitemap:SiteMap, baseUrl:String, currentUri:Null<String>, sb:StringBuf, isSubMenu:Bool ) {
 		var cls = isSubMenu ? "dropdown-menu" : "nav";
-		sb.add( '<ul class="$cls">' );
+		if (isSubMenu) sb.add( '<ul class="$cls">' );
 
 		for ( page in sitemap ) {
 			// Create list item, add classes
 			sb.add( '<li class="' );
 			if ( isCurrentPageParentOfActive(page,baseUrl,currentUri) ) sb.add(' active');
 			if ( page.sub!=null && page.sub.length>0 && isSubMenu==false ) sb.add(' dropdown');
+			if ( page.url == DIVIDER_URL ) sb.add(' divider');
 			sb.add( '">' );
 
 
 			if ( page.sub!=null && page.sub.length>0 && isSubMenu==false ) {
 				// Add a dropdown menu, only if this has a submenu and we're still on the top level.
-				sb.add( '<a href="$baseUrl${page.url}" data-toggle="dropdown" class="dropdown-toggle' );
+        var href = (page.url.indexOf("http") == 0) ? page.url : '$baseUrl${page.url}';
+        sb.add( '<a href="$href" data-toggle="dropdown" class="dropdown-toggle' );
 				if ( isCurrentPageActive(page,baseUrl,currentUri) ) 
 					sb.add( ' active' );
 				sb.add( '">' );
@@ -282,19 +295,22 @@ class SiteMapHelper {
 				printNavBarRecursive( page.sub, baseUrl, currentUri, sb, true );
 			}
 			else {
-				// Add a regular link - no submenu.
-				sb.add( '<a href="$baseUrl${page.url}"' );
-				if ( isCurrentPageActive(page,baseUrl,currentUri) )
-					sb.add( ' class="active"' );
-				sb.add( '>' );
-				sb.add( page.title );
-				sb.add( '</a>' );
+        if (page.url != DIVIDER_URL ) {
+          // Add a regular link - no submenu.
+          var href = (page.url.indexOf("http") == 0) ? page.url : '$baseUrl${page.url}';
+          sb.add( '<a href="$href"' );
+          if ( isCurrentPageActive(page,baseUrl,currentUri) )
+            sb.add( ' class="active"' );
+          sb.add( '>' );
+          sb.add( page.title );
+          sb.add( '</a>' );
+        }
 			}
 
 			// Close list item
 			sb.add( '</li>' );
 		}
-		sb.add( '</ul>' );
+		if (isSubMenu) sb.add( '</ul>' );
 	}
 }
 
