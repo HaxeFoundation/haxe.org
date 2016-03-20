@@ -22,6 +22,6 @@
 # Output
 -main Client
 -js www/js/app.js
-#-lib closure
-#-D closure_quiet
+-lib closure
+-D closure_quiet
 -xml doc/js-app.xml
