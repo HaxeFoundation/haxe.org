@@ -20,6 +20,11 @@ install:
   - yes | haxelib install ufront
   - yes | haxelib install all
   - yes | haxelib git closure https://github.com/jasononeil/closure.git patch-1
+  # install dev version of ufront-mvc to get unreleased feature
+  - git clone https://github.com/ufront/ufront-mvc.git
+  - cd ufront-mvc
+  - git checkout d7b9066f4405358aaa0e797ec7b7656c4daf46c4
+  - haxelib dev ufront-mvc .
   # And just to make sure we have the right versions...
   - haxe
   - haxelib list
@@ -38,9 +43,15 @@ script:
       chmod 600 deploy_key;
       eval `ssh-agent -s`;
       ssh-add deploy_key;
-      haxelib run ufront deploy haxe.org;
-      wget http://haxe.org/update/manual/;
-      wget http://haxe.org/update/site/;
+      if [ "$TRAVIS_BRANCH" = "staging" ]; then
+        haxelib run ufront deploy staging;
+        wget http://staging.haxe.org/update/manual/;
+        wget http://staging.haxe.org/update/site/;
+      else
+        haxelib run ufront deploy haxe.org;
+        wget http://haxe.org/update/manual/;
+        wget http://haxe.org/update/site/;
+      fi
     fi
 
 cache:
@@ -48,4 +59,6 @@ cache:
     - deploy
 
 addons:
-  ssh_known_hosts: haxe.org
+  ssh_known_hosts:
+  - haxe.org
+  - staging.haxe.org
