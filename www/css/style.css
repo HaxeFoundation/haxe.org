@@ -10,6 +10,7 @@ html, body {
 .page-wrap {
 	min-height: 100%;
 	margin-bottom: -326px; /* equal to footer height */
+	margin-top:1em;
 }
 @media (max-width: 979px) {
 	.page-wrap {
