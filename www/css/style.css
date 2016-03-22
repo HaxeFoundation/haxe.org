@@ -1169,3 +1169,18 @@ a.full-size-link {
 	height: 32px;
 	background: url(../img/feed.png) center center no-repeat;
 }
+
+/**
+ WWX 2016 notice
+ **/
+.wwx2016notice {
+	clear: both;
+	text-align: center;
+	padding: 4px 0 6px;
+	background-color: lightyellow;
+}
+@media (min-width: 980px) {
+	.wwx2016notice {
+		margin-top: 51px;
+	}
+}
