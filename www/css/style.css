@@ -1179,6 +1179,11 @@ a.full-size-link {
 	padding: 4px 0 6px;
 	background-color: lightyellow;
 }
+@media (min-width: 768px) {
+	.wwx2016notice {
+		margin-top: 20px;
+	}
+}
 @media (min-width: 980px) {
 	.wwx2016notice {
 		margin-top: 51px;
