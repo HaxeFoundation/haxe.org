@@ -10,10 +10,6 @@ env:
     - secure: "Sa8BnsU2mf6TDGdaJxxOU29qKjBoVMol0eyxnMbq0LTov0oK8kujlqoRgLl5uIDzHgwLnR+FvagcbSKcMUCTINsCRbxJJPtMmtOQlrCBxHhrj/eTPJ4L69x9t7urI1MsMjW5Q+7KJ6Fm5/lEf7uD7Ktt6Doc+Y4xp8dzXNAvfcE="
 
 before_install:
-  # We need unreleased versions of minject and thx.core for now to deal with a memory leak.
-  - haxelib dev ufront-mvc submodules/ufront-mvc/
-  - haxelib dev ufront-uftasks submodules/ufront-uftasks/
-  - haxelib dev minject submodules/minject/src/
   # Configure git
   - git config --global user.name "TravisCI"
   - git config --global user.email "travisci@haxe.org"
@@ -23,6 +19,12 @@ install:
   - cd $TRAVIS_BUILD_DIR
   - yes | haxelib install ufront
   - yes | haxelib install all
+  - yes | haxelib git closure https://github.com/jasononeil/closure.git patch-1
+  # install dev version of ufront-mvc to get unreleased feature
+  - git clone https://github.com/ufront/ufront-mvc.git
+  - cd ufront-mvc
+  - git checkout d7b9066f4405358aaa0e797ec7b7656c4daf46c4
+  - haxelib dev ufront-mvc .
   # And just to make sure we have the right versions...
   - haxe
   - haxelib list
@@ -32,16 +34,24 @@ script:
   # Create "doc/" directory so build succeeds.
   - mkdir doc
   # We don't really have unit tests for the website yet.  Just test that a built works.
+  - cp src/conf/mysql.json.sample src/conf/mysql.json
   - haxelib run ufront build
   # Deploy to haxe.org
   - if [ -n "$deploy_key_decrypt" ] && ([ "$TRAVIS_BRANCH" = "master" ] || [ "$TRAVIS_BRANCH" = "staging" ] || [ "$TRAVIS_BRANCH" = "travis" ]); then
       openssl aes-256-cbc -k "$deploy_key_decrypt" -in deploy_key.enc -out deploy_key -d;
+      openssl aes-256-cbc -k "$deploy_key_decrypt" -in "src/conf/mysql-haxeorg.json.enc" -out "src/conf/mysql-haxeorg.json" -d;
       chmod 600 deploy_key;
       eval `ssh-agent -s`;
       ssh-add deploy_key;
-      haxelib run ufront deploy;
-      wget http://haxe.org/update/manual/;
-      wget http://haxe.org/update/site/;
+      if [ "$TRAVIS_BRANCH" = "staging" ]; then
+        haxelib run ufront deploy staging;
+        wget http://staging.haxe.org/update/manual/;
+        wget http://staging.haxe.org/update/site/;
+      else
+        haxelib run ufront deploy haxe.org;
+        wget http://haxe.org/update/manual/;
+        wget http://haxe.org/update/site/;
+      fi
     fi
 
 cache:
@@ -49,4 +59,6 @@ cache:
     - deploy
 
 addons:
-  ssh_known_hosts: haxe.org
+  ssh_known_hosts:
+  - haxe.org
+  - staging.haxe.org

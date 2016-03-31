@@ -25,7 +25,22 @@ mkdir ~/haxelib &amp;&amp; haxelib setup ~/haxelib</pre>
 		<pre>sudo apt-get install haxe -y
 mkdir ~/haxelib &amp;&amp; haxelib setup ~/haxelib</pre>
 		<p>Neko will be installed as a dependency of Haxe.</p>
-		<p>Consult the <a href="https://wiki.debian.org/AptPreferences" target="_blank">APT Preferences article</a> if you want to use the packages in the testing/unstable channels.
+		<p>To install the newer ones from the unstable channel, follow these steps:</p>
+		<ol>
+			<li>In <b>/etc/apt/sources.list</b>, add <pre>deb http://httpredir.debian.org/debian unstable main contrib non-free</pre></li>
+			<li>
+				In <b>/etc/apt/preferences.d/</b>, create a new file named <b>unstable</b> (the name can be anything) with the content as follows:<pre>Package: *
+Pin: release a=unstable
+Pin-Priority: 100
+
+Package: haxe neko libneko*
+Pin: release a=unstable
+Pin-Priority: 999</pre>
+				Our file gives the unstable channel a low priority (default priority is 500), such that the currently installed packages will not be upgraded using the unstable channel. It then states that we always prefer haxe, neko, and libneko* to be installed from the unstable channel. Consult the <a href="https://wiki.debian.org/AptPreferences" target="_blank">APT Preferences article</a> for more details.
+			</li>
+			<li>Pull package index files from the newly added source: <pre>sudo apt-get update</pre></li>
+			<li>Install haxe (and neko): <pre>sudo apt-get install haxe -y</pre></li>
+		</ol>
 
 		<h2>Fedora</h2>
 		<p>The Haxe Foundation maintains the Haxe and Neko RPM packages in the Fedora repository. The packages are up-to-date most of the time. However, when a new version of Haxe is released, it will take a few days, up to 2 weeks, to push an updated package to the stable releases of Fedora. The update activities can be tracked in the <a href="https://bodhi.fedoraproject.org/updates/?packages=haxe" target="_blank">Bodhi Fedora Update System</a>.</p>

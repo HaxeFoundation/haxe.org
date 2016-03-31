@@ -1,0 +1,14 @@
+@if ( isLoggedIn ) {
+	<div class="btn-toolbar pull-right" role="toolbar">
+		@if ( canPostNew ) { <a href="@(blogUri)new" class="pushstate btn btn-primary">New Post</a> }
+		<a href="@(blogUri)" class="pushstate btn btn-default">View Blog</a>
+		<div class="btn-group">
+			@if ( canViewDrafts ) { <a href="@(blogUri)blog-admin/" class="pushstate btn btn-default">Posts</a> }
+			@if ( canViewUserList ) { <a href="@(blogUri)blog-admin/users/" class="pushstate btn btn-default">Users</a> }
+			@if ( canManageTags ) { <a href="@(blogUri)blog-admin/tags/" class="pushstate btn btn-default">Tags</a> }
+		</div>
+		<div class="btn-group">
+			<a href="@(blogUri)accounts/edit-profile/" class="pushstate btn btn-default">@username</a>
+		</div>
+	</div>
+}

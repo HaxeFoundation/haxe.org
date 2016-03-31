@@ -8,8 +8,104 @@
 		"url": "download/",
 		"sub": []
 	},
+  {
+    "title": "Blog",
+    "url": "blog/"
+  },
 	{
-		"title": "Documentation",
+		"title": "Use Cases",
+		"url": "use-cases/",
+		"sub": [
+			{
+				"title": "Overview",
+				"url": "use-cases/"
+			},
+			{
+				"title": "Games",
+				"url": "use-cases/games/"
+			},
+			{
+				"title": "Web",
+				"url": "use-cases/web/"
+			},
+			{
+				"title": "Mobile",
+				"url": "use-cases/mobile/"
+			},
+			{
+				"title": "Desktop",
+				"url": "use-cases/desktop/"
+			},
+			{
+				"title": "Command Line",
+				"url": "use-cases/cli/"
+			},
+			{
+				"title": "Cross Platform APIs",
+				"url": "use-cases/cross-platform-apis/"
+			},
+      { 
+        "title": null, "url": "#divider" 
+      },
+			{
+				"title": "Who Uses Haxe",
+				"url": "use-cases/who-uses-haxe.html"
+			}
+		]
+	},
+	{
+		"title": "Haxe Foundation",
+		"url": "foundation/",
+		"sub": [
+			{
+				"title": "About The Foundation",
+				"url": "foundation/"
+			},
+			{
+				"title": "Who is who",
+				"url": "foundation/people.html"
+			},
+			{
+				"title": "Events",
+				"url": "foundation/events.html"
+			},
+      { 
+        "title": null, "url": "#divider" 
+      },
+			{
+				"title": "Support Plans",
+				"url": "foundation/support-plans.html"
+			},
+			{
+				"title": "Supported Projects",
+				"url": "foundation/supported-projects.html"
+			},
+			{
+				"title": "Donate",
+				"url": "foundation/donate.html"
+			},
+      { 
+        "title": null, "url": "#divider" 
+      },
+			{
+				"title": "Branding",
+				"url": "foundation/branding.html"
+			},
+			{
+				"title": "Open Source",
+				"url": "foundation/open-source.html"
+			},
+			{
+				"title": "Contact",
+				"url": "foundation/contact.html"
+			}
+		]
+	},
+  { 
+    "title": null, "url": "#divider" 
+  },
+	{
+		"title": "Learn Haxe",
 		"url": "documentation/",
 		"sub": [
 			{
@@ -50,6 +146,9 @@
 					}
 				]
 			},
+      { 
+        "title": null, "url": "#divider" 
+      },
 			{
 				"title": "Manual",
 				"url": "manual/",
@@ -57,98 +156,19 @@
 			},
 			{
 				"title": "API Documentation",
-				"url": "api/",
+				"url": "http://api.haxe.org/",
 				"sub": []
-			}
-		]
-	},
-	{
-		"title": "Use Cases",
-		"url": "use-cases/",
-		"sub": [
+			},
+      { 
+        "title": null, "url": "#divider" 
+      },
 			{
-				"title": "Overview",
-				"url": "use-cases/"
+				"title": "Try Haxe",
+				"url": "http://try.haxe.org/"
 			},
 			{
-				"title": "Games",
-				"url": "use-cases/games/"
-			},
-			{
-				"title": "Web",
-				"url": "use-cases/web/"
-			},
-			{
-				"title": "Mobile",
-				"url": "use-cases/mobile/"
-			},
-			{
-				"title": "Desktop",
-				"url": "use-cases/desktop/"
-			},
-			{
-				"title": "Command Line",
-				"url": "use-cases/cli/"
-			},
-			{
-				"title": "Cross Platform APIs",
-				"url": "use-cases/cross-platform-apis/"
-			},
-			{
-				"title": "Who Uses Haxe",
-				"url": "use-cases/who-uses-haxe.html"
-			}
-		]
-	},
-	{
-		"title": "Community",
-		"url": "community/",
-		"sub": [
-			{
-				"title": "Community & Support",
-				"url": "community/community-support.html"
-			},
-			{
-				"title": "Events",
-				"url": "community/events.html"
-			},
-			{
-				"title": "Jobs & Services",
-				"url": "community/jobs-and-services.html"
-			}
-		]
-	},
-	{
-		"title": "Haxe Foundation",
-		"url": "foundation/",
-		"sub": [
-			{
-				"title": "About The Foundation",
-				"url": "foundation/"
-			},
-			{
-				"title": "Support Plans",
-				"url": "foundation/support-plans.html"
-			},
-			{
-				"title": "Supported Projects",
-				"url": "foundation/supported-projects.html"
-			},
-			{
-				"title": "Branding",
-				"url": "foundation/branding.html"
-			},
-			{
-				"title": "Donate",
-				"url": "foundation/donate.html"
-			},
-			{
-				"title": "Open Source",
-				"url": "foundation/open-source.html"
-			},
-			{
-				"title": "Contact",
-				"url": "foundation/contact.html"
+				"title": "HaxeLib",
+				"url": "http://lib.haxe.org/"
 			}
 		]
 	}

@@ -1,9 +1,7 @@
 package app.controller;
 
 import app.Config;
-import ufront.web.Controller;
-import ufront.web.Dispatch;
-import ufront.web.result.*;
+import ufront.MVC;
 using StringTools;
 
 class SearchController extends Controller {

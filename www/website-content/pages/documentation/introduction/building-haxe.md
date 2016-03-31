@@ -7,10 +7,10 @@ Obtaining the source
 The Haxe compiler sources are hosted on GitHub under the [HaxeFoundation account](http://github.com/HaxeFoundation). The [Haxe repository](http://github.com/HaxeFoundation/haxe) has several submodules, so cloning it should be done with the `--recursive` flag like so:
 
 ```
-git clone --recursive git://github.com/HaxeFoundation/haxe.git
+git clone --recursive https://github.com/HaxeFoundation/haxe.git
 ```
 
-Alternatively, source .zip archives or tarballs can be obtained from the [GitHub Haxe release overview](https://github.com/HaxeFoundation/haxe/releases).
+Alternatively, source .zip archives or tarballs can be obtained from the [GitHub Haxe release overview](https://github.com/HaxeFoundation/haxe/releases). However, the git submodules are not included, so you will have to manually place the source code of [submodules](https://github.com/HaxeFoundation/haxe/blob/development/.gitmodules) into appropreate sub-folders.
 
 Building on OS X
 -------
@@ -25,7 +25,7 @@ Use `brew reinstall haxe --HEAD` to upgrade in the future.
 
 If you want to start hacking the Haxe compiler, it is better to clone manually and use the Makefile:
 
-1. Install XQuartz (required by OCaml): `brew install caskroom/cask/brew-cask && brew cask install xquartz`
+1. Install XQuartz (required by OCaml): `brew cask install xquartz`
 2. Install OCaml: `brew install ocaml`
 3. Install Camlp4: `brew install camlp4`
 3. Navigate to where the Haxe sources are and build Haxe using `make`:
@@ -45,42 +45,6 @@ Building on Linux
 make
 make install
 ```
-
-#### Running tests on Linux
-
-You can run the tests on your machine after the `make install` step above, or use a [docker image](https://github.com/georgkoester/haxe_dev_dockerimage) to prevent messing with your system's setup during your trials:
-
-**General Instructions:**
-
-1. `make install`
-2. `cd tests`
-3. `mkdir -p ~/haxelib && haxelib setup ~/haxelib`
-4. `haxelib git hx-yaml https://github.com/mikestead/hx-yaml master src`
-5. `haxe -neko RunCi.n -main RunCi -lib hx-yaml`
-6. `export TEST=neko`
-    (or php, cs, java, js, cpp, flash9, etc... Some require additional setup. For example, MySQL is required for PHP tests. The Docker image below comes with setup for php, js, cpp, cs, neko and java).
-7. `neko RunCi.n`
-
-(Source: [Travis configuration](https://github.com/HaxeFoundation/haxe/blob/development/.travis.yml))
-
-**Using a Docker Image:**
-
- * Clone the Haxe repo:
-   `git clone https://github.com/HaxeFoundation/haxe.git haxe_repo` (you might have done this already)
- * Clone the Docker image repo:
-   `git clone https://github.com/georgkoester/haxe_dev_dockerimage.git`
- * `cd haxe_dev_dockerimage`
- * `docker build -t my_haxe_repo_dev_image .`
- * Start the image:  
-   `docker run -ti -v /path/to/your/haxe_repo:/haxe/haxe_repo my_haxe_repo_dev_image /bin/bash`
- * In the image, run:
-   `cd haxe; bash smoke_test.sh`
- * Run all supported targets:
-   `bash run_tests.sh`
- * Run selected targets:
-   `bash run_tests.sh php` or `bash run_tests.sh neko php cpp`
-
-(Source: [Docker Image Readme](https://github.com/georgkoester/haxe_dev_dockerimage/))
 
 Building on Windows (MSVC)
 -------

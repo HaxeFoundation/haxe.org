@@ -1,0 +1,99 @@
+<section class="section swatch-white-red has-top">
+	<div class="container-fluid clearfix">
+		@adminToolbar()
+		<h1>@title</h1>
+		<h3>@description</h3>
+		<form action="@(baseUri)save/" method="POST" class="pushstate">
+			@if (post.validationErrors!=null && post.validationErrors.isInvalid) {
+				<p class="alert alert-warning">Post failed validation: @post.validationErrors.toString()</p>
+			}
+			<input type="hidden" id="base-uri" value="@(baseUri)" />
+			<input type="hidden" id="post-url" value="@(baseUri)@(post.url)" />
+			<input type="hidden" id="id" name="id" value="@post.id" />
+			<input type="hidden" id="authorID" name="authorID" value="@post.authorID" />
+			<input type="hidden" id="created" name="created" value="@datetime(post.created)" />
+			<input type="hidden" id="modified" name="modified" value="@datetime(post.modified)" />
+			<input type="hidden" id="publishDate" name="publishDate" value="@datetime(post.publishDate)" />
+			<input type="hidden" id="headerImage" name="headerImage" value="@post.headerImage" />
+			<div class="row-fluid">
+				<div class="span5 article-form">
+					<div class="control-group">
+						<label for="title" class="control-label">Title:</label>
+						<div class="controls">
+							<div class="input-append">
+								<input id="title" name="title" type="text" class="form-control" value="@post.title" autofocus />
+								<span class="btn btn-default btn-file">
+									<i class="fa fa-camera"></i> <input type="file" id="header-upload" name="header-upload"  />
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="control-group" id="url-group">
+						<div class="controls">
+							<div class="input-prepend">
+								<label class="add-on" for="url">URL</label>
+								<input id="url" name="url" type="text" class="form-control" value="@post.url" />
+							</div>
+							<span class="help-inline hidden" id="url-warning"></span>
+						</div>
+					</div>
+					<div class="control-group">
+						<label for="introduction" class="control-label">Introduction:</label>
+						<div class="controls">
+							<textarea id="introduction" name="introduction" class="form-control" rows="1">@post.introduction</textarea>
+						</div>
+					</div>
+					<div class="control-group clearfix">
+						<label class="btn-file btn btn-mini pull-right">
+							<small>
+								<i class="fa fa-camera"></i>
+								Attach Image or File
+								<input type="file" multiple id="file-upload" />
+							</small>
+						</label>
+						<label for="content" class="control-label">Content:</label>
+						<div class="controls">
+							<textarea id="content" name="content" class="form-control">@post.content</textarea>
+						</div>
+					</div>
+					<div class="control-group">
+						<label for="tags" class="control-label">Tags:</label>
+						<div class="controls">
+							<select name="tags[]" id="tags" multiple>
+								@for( tag in tags ) {
+									<option value="@(tag.name)" @if (post.get_tags().has(tag)) { selected }>@(tag.name)</option>``
+								}
+							</select>
+						</div>
+					</div>
+					<div class="form-actions">
+						<div class="btn-group">
+							<button type="submit" name="publish" value="true" class="btn btn-primary">Publish</button>
+							<a href="javascript:void(0)" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+								<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a tabindex="-1" href="javascript:ufExecuteAction('ufblog.posts.SavePostAction','custom')">Publish at...</a></li>
+								<li><a tabindex="-1" href="javascript:ufExecuteAction('ufblog.posts.SavePostAction','draft')">
+									@if (post.publishDate==null) { Save Draft } else { Unpublish }
+								</a></li>
+							</ul>
+						</div>
+						<a href="javascript:ufExecuteAction('ufblog.posts.SavePostAction','default')" class="btn btn-default">Save Now</a>
+					</div>
+				</div>
+				<div class="span7">
+					<article id="preview" class="article-preview">
+						<header class="article-header">
+							<h1></h1>
+							<p class="lead"></p>
+						</header>
+						<section class="article-view">
+
+						</section>
+					</article>
+				</div>
+			</div>
+		</form>
+	</div>
+</section>

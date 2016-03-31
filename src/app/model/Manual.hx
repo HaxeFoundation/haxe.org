@@ -8,4 +8,6 @@ typedef ManualSectionJson = {
 	var title:String;
 	var index:Int;
 	var source:{ file:String, lineMin:Int, lineMax:Int };
+	@:optional var disambiguation:Null<String>;
+	@:optional var parent:Null<ManualSectionJson>;
 }
