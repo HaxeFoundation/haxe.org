@@ -3,13 +3,7 @@ package app.controller;
 import app.api.SiteApi;
 import app.api.PageApi;
 import app.Config;
-import ufront.web.context.HttpContext;
-import ufront.web.Controller;
-import ufront.web.Dispatch;
-import ufront.web.result.*;
-import ufront.view.TemplateData;
-import ufront.web.HttpError;
-using thx.Strings;
+import ufront.MVC;
 using tink.CoreApi;
 using haxe.io.Path;
 using app.model.SiteMap;
@@ -52,7 +46,7 @@ class PageController extends Controller {
 		var pageDetails =
 			try sitemap.getPageForUrl( '$page' )
 			catch ( e:Dynamic ) null;
-		var title = (pageDetails!=null) ? pageDetails.title : null;
+		var title = (pageDetails!=null) ? pageDetails.title+(pageDetails.disambiguation!=null ? pageDetails.disambiguation : "") : null;
 		var editLink = (pageDetails!=null) ? pageDetails.editLink : null;
 		return showContent({
 			title: title,

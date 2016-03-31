@@ -3,12 +3,7 @@ package app.controller;
 import app.api.DownloadApi;
 import app.api.SiteApi;
 import app.Config;
-import ufront.web.Controller;
-import ufront.web.Dispatch;
-import ufront.web.result.DirectFilePathResult;
-import ufront.web.result.ViewResult;
-import ufront.view.TemplateData;
-using thx.Strings;
+import ufront.MVC;
 using tink.CoreApi;
 using haxe.io.Path;
 

@@ -8,6 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
 	<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css">
 	<link rel="stylesheet" type="text/css" href="/css/style.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/haxe-nav.css"/>
 	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
 	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,600,600italic,400' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,700italic,400italic' rel='stylesheet' type='text/css'>
@@ -36,54 +37,47 @@
 	<!-- Facebook -->
 </head>
 
-<body>
+<body data-uf-layout="haxe">
 
-<div class="section nav dark">
+<nav class="section nav dark">
 	<div class="navbar navbar-fixed-top navbar-inverse">
 		<div class="navbar-inner">
-			<div class="container">
+			<button class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse" type="button"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button> <a class="brand haxe-logo" href="http://haxe.org/"><img alt="Haxe" height="21" onerror="this.src='http://haxe.org/img/haxe-logo-horizontal-on-dark.png'" src="http://haxe.org/img/haxe-logo-horizontal-on-dark.svg" width="107"></a>
+			
 
-				<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-
-				<a class="brand" href="/"><img src="/img/haxe-logo-horizontal-on-dark.svg" width="107" height="21" alt="Haxe" onerror="this.src='/img/haxe-logo-horizontal-on-dark.png'" /></a>
-				<div class="nav-collapse collapse">
+			<div class="nav-collapse collapse">
+        <ul class="nav pull-right search-link-menu">
+					<li>
+						<a href="/search"><i class="fa fa-search"></i></a>
+					</li>
+				</ul>
+				<div class="container"><ul class="nav">
 					::navBar::
-
-					<form class="navbar-search pull-right visible-desktop-large">
-						<div class="search">
-							<div id="cse-search-form" style="width: 100%;"></div>
-							<script src="http://www.google.com/jsapi" type="text/javascript"></script>
-							<script type="text/javascript">
-							google.load('search', '1', {language : 'en', style : google.loader.themes.V2_DEFAULT});
-							google.setOnLoadCallback(function() {
-								var customSearchOptions = {};  var customSearchControl = new google.search.CustomSearchControl(
-								'008143996983163686627:ohovhuovssi', customSearchOptions);
-								customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
-								var options = new google.search.DrawOptions();
-								options.setAutoComplete(true);
-								customSearchControl.setAutoCompletionId('008143996983163686627:ohovhuovssi+qptype:1');
-								options.enableSearchboxOnly("/search", "s");
-								customSearchControl.draw('cse-search-form', options);
-							}, true);
-							</script>
-						</div>
-					</form>
-					<ul class="nav pull-right search-link-menu">
-						<li><a href="/search"><i class="fa fa-search"></i> Search</a></li>
-					</ul>
-				</div>
-
-
+					<li class=" dropdown">
+						<a href="/HaxeFoundation" data-toggle="dropdown" class="dropdown-toggle">Connect <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="https://github.com/HaxeFoundation"><i class="fa fa-github"></i> Github</a></li>
+							<li><a href="https://github.com/HaxeFoundation/haxe/issues"><i class="fa fa-github"></i> Bug reports</a></li>
+							<li><a href="http://stackoverflow.com/questions/tagged/haxe"><i class="fa fa-stack-exchange"></i> Stack Overflow</a></li>
+							<li><a href="http://groups.google.com/group/haxelang?hl=en"><i class="fa fa-envelope-o"></i> Google Groups</a></li>
+							<li><a href="http://webchat.freenode.net/?channels=haxe"><i class="fa fa-comments-o"></i> IRC</a></li>
+							<li><a href="http://haxe.org/blog"><i class="fa fa-rss"></i> Blog</a></li>
+							<li class="divider"></li>
+							<li><a href="https://plus.google.com/communities/103302587329918132234"><i class="fa fa-google-plus"></i> Google+</a></li>
+							<li><a href="https://twitter.com/search?q=%23haxe"><i class="fa fa-twitter"></i> #haxe</a></li>
+							<li><a href="https://twitter.com/haxelang"><i class="fa fa-twitter"></i> @haxelang</a></li>
+							<li><a href="https://twitter.com/haxe_org"><i class="fa fa-twitter"></i> @haxe_org</a></li>
+							<li class="divider"></li>
+							<li><a href="http://haxe.org/foundation/contact.html">Contact</a></li>
+						</ul>
+					</li>
+				</ul></div>
 			</div>
 		</div>
 	</div>
-</div>
+</nav>
 
-<div class="page-wrap">
+<div class="page-wrap" data-uf-partial="view-content">
 	::viewContent::
 </div>
 
@@ -98,6 +92,7 @@
 			::if (editLink != null)::
 			| <a href="::editLink::" target="_blank" class="edit-link" title="Use Github to suggest an edit to this page">Contribute to this page</a>
 			::end::
+			| <a href="/blog/accounts/login/">Login</a>
 			</p>
 		</div>
 	</div>
@@ -105,7 +100,8 @@
 
 <script src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
-<script src="/js/client.js"></script>
+<script src="/js/client.min.js" uf-reload></script>
+<script src="/js/app.min.js"></script>
 <!-- Google Tag Manager -->
 <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-NXV3XR"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>

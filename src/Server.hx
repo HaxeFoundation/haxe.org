@@ -1,21 +1,10 @@
-import app.OldSiteRedirectHandler;
-import ufront.app.UfrontApplication;
-import ufront.handler.ErrorPageHandler;
-import ufront.view.TemplatingEngines;
-import ufront.view.UFTemplate;
-import ufront.cache.MemoryCache;
-import ufront.cache.UFCache;
-import ufront.middleware.RequestCacheMiddleware;
-import ufront.web.result.ViewResult;
-import ufront.ufadmin.controller.*;
-import ufront.auth.*;
-import ufront.web.*;
+import ufront.MVC;
 import app.*;
+import ufblog.*;
 
 class Server
 {
 	public static var ufrontApp:UfrontApplication;
-	/*public static var requestCache:RequestCacheMiddleware;*/
 
 	static function main() {
 		// enable caching if using mod_neko or mod_tora
@@ -26,40 +15,33 @@ class Server
 
 	static function run() {
 		init(); // If caching is enabled, init() will only need to run once
-		ufrontApp.executeRequest(); // execute the current request
+		var cnx = sys.db.Mysql.connect( Config.db );
+		sys.db.Transaction.main( cnx, function() {
+			ufrontApp.executeRequest();
+		});
 	}
 
 	static function init() {
 		if ( ufrontApp==null ) {
 			// Set up the error handlers
-
 			var errorPageHandler = new ErrorPageHandler();
 			errorPageHandler.renderErrorPage = function( title, content ) return CompileTime.interpolateFile( 'app/view/error.html' );
-
 			var oldSiteRedirectHandler = new OldSiteRedirectHandler();
 
-			// Set up cache middleware
-			// requestCache = new RequestCacheMiddleware();
+			// Set up the app
+			ufrontApp = new UfrontApplication({
+				indexController: Routes,
+				errorHandlers: [oldSiteRedirectHandler,errorPageHandler],
+				contentDirectory: "../uf-content/",
+				defaultLayout: "layout.html",
+				templatingEngines: [TemplatingEngines.haxe,TemplatingEngines.erazorHtml]
+			})
+			.loadApiContext( Api )
+			.loadApiContext( BlogRemotingApiContext );
 
-			// Set up the dispatcher and routing
-
-			ufrontApp =
-				new UfrontApplication({
-					indexController: Routes,
-					remotingApi: Api,
-					#if debug
-						logFile: "log/haxeorg.log",
-					#end
-					errorHandlers: [oldSiteRedirectHandler,errorPageHandler],
-					contentDirectory: "../uf-content/",
-					defaultLayout: "layout.html",
-				})
-				.injectValue( UFCacheConnection, new MemoryCacheConnection() )
-				.addTemplatingEngine( TemplatingEngines.haxe )
-				.injectValue( String, "layout.html", "defaultLayout" )
-			;
-			// ufrontApp.addRequestMiddleware( requestCache );
-			// ufrontApp.addResponseMiddleware( requestCache );
+			ufrontApp.injector.map( String, "disqusShortName" ).toValue( 'haxe' );
+			ufrontApp.injector.map( String, "blogTitle" ).toValue( Config.app.blogTitle );
+			ufrontApp.injector.map( String, "blogDescription" ).toValue( Config.app.blogDescription );
 		}
 	}
 }

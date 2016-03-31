@@ -4,12 +4,15 @@ www/*.php
 www/*.n
 www/js/client.js
 www/js/client.js.map
-dump/
+www/js/client.min.js
+www/js/app.js
+www/js/app.js.map
+www/js/app.min.js
 doc/
 deploy/
 
 # Private content
-src/conf/mysql.json
+src/conf/mysql*.json
 uf-content/
 
 # Editor files etc

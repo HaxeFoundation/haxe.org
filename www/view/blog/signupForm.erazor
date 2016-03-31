@@ -1,0 +1,6 @@
+<section class="section">
+	<div class="container">
+		<h1>Create an account</h1>
+		@userDetailsForm({ btnLabel: 'Sign up', postURL: baseUri+'signup/', usePushstate: false, args: args })
+	</div>
+</section>

@@ -13,8 +13,8 @@
 		{
 			"name": "haxe.org",
 			"gitRepo": "ssh://www-haxe@haxe.org/data/newhaxe/repo.git",
-			"defines": [],
-			"hxmls": ["server","client"],
+			"defines": ["deploy"],
+			"hxmls": ["serverapp","clientapp","basicclient"],
 			"debug": false,
 			"servers": [{
 				"name": "haxe.org",
@@ -23,7 +23,22 @@
 				"port": 22,
 				"remoteDir": "/data/newhaxe/www/"
 			}]
+		},
+		{
+			"name": "staging",
+			"gitRepo": "ssh://www-haxe@haxe.org/data/newhaxe/staging-repo.git",
+			"defines": ["deploy"],
+			"hxmls": ["serverapp","clientapp","basicclient"],
+			"debug": false,
+			"servers": [{
+				"name": "staging.haxe.org",
+				"user": "www-haxe",
+				"host": "staging.haxe.org",
+				"port": 22,
+				"remoteDir": "/data/newhaxe/www-staging/"
+			}]
 		}
+
 	],
 	"hooks": {
 		"beforeBuild": [],

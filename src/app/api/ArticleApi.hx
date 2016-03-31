@@ -1,14 +1,16 @@
 package app.api;
 
+#if server
+	import sys.FileSystem;
+	import sys.io.File;
+#end
 import app.model.Article;
-import sys.io.File;
-import sys.FileSystem;
 import haxe.Json;
-import ufront.web.HttpError;
+import ufront.MVC;
 using tink.CoreApi;
 using haxe.io.Path;
 
-class ArticleApi extends ufront.api.UFApi {
+class ArticleApi extends UFApi {
 
 	@inject("scriptDirectory") public var scriptDir:String;
 
