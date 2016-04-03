@@ -169,6 +169,10 @@
 			{
 				"title": "Haxelib",
 				"url": "http://lib.haxe.org/"
+			},
+			{
+				"title": "Code Cookbook",
+				"url": "http://code.haxe.org/"
 			}
 		]
 	}
