@@ -118,7 +118,7 @@ Target Specific APIs:
 
 * [neko](http://api.haxe.org/neko/index.html):
 
-	* [neko.Lib](http://api.haxe.org/neko/Lib.html): Low level interactions with neko platform
+	* [neko.Lib](http://api.haxe.org/neko/Lib.html): Low level interactions with the neko platform
 	* [neko.Web](http://api.haxe.org/neko/Web.html): Work with HTTP requests and responses
 	* [neko.net](http://api.haxe.org/neko/net/index.html): Tools for interacting with networks and running servers
 	* [neko.vm](http://api.haxe.org/neko/vm/index.html): API for multi-threaded applications
