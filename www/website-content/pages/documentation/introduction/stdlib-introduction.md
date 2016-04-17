@@ -42,7 +42,7 @@ The haxe package:
 * [haxe.Timer](http://api.haxe.org/haxe/Timer.html): Repeated/delayed execution; measuring
 * [haxe.Unserializer](http://api.haxe.org/haxe/Unserializer.html): Complement to haxe.Serializer
 * [haxe.Utf8](http://api.haxe.org/haxe/Utf8.html): Cross-platform UTF8 strings
-* [haxe.crypto](http://api.haxe.org/haxe/crypto/index.html): Various encryption algorhtms
+* [haxe.crypto](http://api.haxe.org/haxe/crypto/index.html): Various encryption algorithms
 * [haxe.macro](http://api.haxe.org/haxe/macro/index.html): Types for working with Haxe macros
 * [haxe.remoting](http://api.haxe.org/haxe/remoting/index.html): Remoting between various client and server types
 * [haxe.rtti](http://api.haxe.org/haxe/rtti/index.html): Run-time type information
