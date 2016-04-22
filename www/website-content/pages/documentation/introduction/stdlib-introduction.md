@@ -42,7 +42,7 @@ The haxe package:
 * [haxe.Timer](http://api.haxe.org/haxe/Timer.html): Repeated/delayed execution; measuring
 * [haxe.Unserializer](http://api.haxe.org/haxe/Unserializer.html): Complement to haxe.Serializer
 * [haxe.Utf8](http://api.haxe.org/haxe/Utf8.html): Cross-platform UTF8 strings
-* [haxe.crypto](http://api.haxe.org/haxe/crypto/index.html): Various encryption algorhtms
+* [haxe.crypto](http://api.haxe.org/haxe/crypto/index.html): Various encryption algorithms
 * [haxe.macro](http://api.haxe.org/haxe/macro/index.html): Types for working with Haxe macros
 * [haxe.remoting](http://api.haxe.org/haxe/remoting/index.html): Remoting between various client and server types
 * [haxe.rtti](http://api.haxe.org/haxe/rtti/index.html): Run-time type information
@@ -118,7 +118,7 @@ Target Specific APIs:
 
 * [neko](http://api.haxe.org/neko/index.html):
 
-	* [neko.Lib](http://api.haxe.org/neko/Lib.html): Low level interactions with neko platform
+	* [neko.Lib](http://api.haxe.org/neko/Lib.html): Low level interactions with the neko platform
 	* [neko.Web](http://api.haxe.org/neko/Web.html): Work with HTTP requests and responses
 	* [neko.net](http://api.haxe.org/neko/net/index.html): Tools for interacting with networks and running servers
 	* [neko.vm](http://api.haxe.org/neko/vm/index.html): API for multi-threaded applications
