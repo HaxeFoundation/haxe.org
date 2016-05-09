@@ -178,7 +178,8 @@ class SiteMapHelper {
 			sb.add( '<i class="fa"></i>' );
 
 			// Add link
-			sb.add( '<a href="$baseUrl${page.url}"' );
+			var href = (page.url.indexOf("http") == 0) ? page.url : '$baseUrl${page.url}';
+			sb.add( '<a href="$href"' );
 			if ( isCurrentPageActive(page,baseUrl,currentUri) ) sb.add( ' class="active"' );
 			sb.add( '>' );
 			sb.add( page.title );
