@@ -421,35 +421,36 @@ ul.logos li.arr {
 **/
 
 html pre, html pre code {
-	font-family: "Source Code Pro", "Courier New";
+	font-family: "Source Code Pro", consolas, monospace;
 	font-size: 14px;
-	line-height: 20px;
 	white-space: pre;
 	overflow-x: auto;
 }
-pre, div.pre {
+pre {
 	color: #333;
-	background-color: #f3f3f3;
-	border: 1px solid #bbb;
-	margin: 15px;
-	padding: 5px;
-	padding-left: 20px;
+	margin: 15px 0;
+	padding: 0.5em;
 }
-pre .kwd, div.pre .kwd {
-	color: #008;
+pre .type  {
+	color: #0086b3;
 }
-pre .val, div.pre .val {
-	color: #448;
+pre .kwd {
+	color: #00a;
 }
-pre .str, div.pre .str {
-	color: #800;
+pre .val  {
+	color: #44a;
 }
-pre .cmt, div.pre .cmt {
-	color: #080;
+pre .str, div.pre .str, pre .str .kwd, pre .str .val, pre .str .type {
+	color: #a00;
+}
+pre .cmt {
+	color: #008800;
+	color: #998;
+	font-style: italic;
 }
 /* Make sure keywords inside comments are not highlighted*/
-pre .cmt .kwd, pre .cmt .str, pre .cmt .val {
-	color: #080;
+pre .cmt .kwd, pre .cmt .str, pre .cmt .val, pre .cmt .type {
+	color: #998;
 }
 
 /**
