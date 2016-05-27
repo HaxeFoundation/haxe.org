@@ -22,6 +22,8 @@ class BasicClient
 		var vals = ["null", "true", "false", "this"];
 		var vals = new EReg("\\b(" + vals.join("|") + ")\\b", "g");
 
+		var types = ~/\b([A-Z][a-zA-Z0-9]*)\b/g;
+
 		for( s in J("pre code.prettyprint.haxe") ) {
 			if (s.hasClass("highlighted")) {
 				continue;
@@ -38,19 +40,19 @@ class BasicClient
 					var t = r.matched(0);
 					if( tabs == null || t.length < tabs.length ) tabs = t;
 				}
+
 			html = new EReg("^" + tabs, "gm").replace(html, "");
 			html = StringTools.trim(html);
 
-			html = ~/('[^']*')/g.replace(html, "<span __xlass='str'>$1</span>");
 			html = kwds.replace(html, "<span class='kwd'>$1</span>");
 			html = vals.replace(html, "<span class='val'>$1</span>");
-
-			html = html.split('__xlass').join("class");
+			html = types.replace(html, "<span class='type'>$1</span>");
 
 			html = ~/("[^"]*")/g.replace(html, "<span class='str'>$1</span>");
-			html = ~/(\/\/[^\n]*)/g.replace(html, "<span class='cmt'>$1</span>");
+			html = ~/(\/\/.+\n)/g.replace(html, "<span class='cmt'>$1</span>");
 			html = ~/(\/\*\*?[^*]*\*?\*\/)/g.replace(html, "<span class='cmt'>$1</span>");
-			html = html.split("\t").join("    ");
+			html = html.split("\t").join("  ");
+
 			s.html(html);
 
 			s.addClass("highlighted");
