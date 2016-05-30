@@ -241,9 +241,6 @@ a.anch {
 .page-wrap .section:first-child .container {
 	padding-top: 80px;
 }
-.page-wrap .homepage .section:first-child .container {
-    padding-top: 20px;
-}
 
 /**
 	Billboard / head on homepage
