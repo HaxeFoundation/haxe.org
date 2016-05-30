@@ -66,8 +66,8 @@ html, body {
 	.navbar-fixed-top, .navbar-fixed-bottom, .navbar-static-top {
 		margin: 0 0 20px 0 !important;
 	}
-	nav li.divider { 
-		display:none; 
+	nav li.divider {
+		display:none;
 	}
 	ul.logos {
 		margin-top: 20px;
@@ -110,8 +110,8 @@ body li {
 	margin-bottom: 2px;
 	padding-left: 10px;
 }
-nav li { 
-  padding-left: 0px; 
+nav li {
+  padding-left: 0px;
 }
 body li ul {
 	margin-top: 2px;
@@ -915,7 +915,7 @@ a.full-size-link {
 	 float:left;
 	 text-align:center;
  }
- 
+
 .person .portrait {
 	vertical-align: text-top;
 	border-radius:128px;
@@ -1169,24 +1169,4 @@ a.full-size-link {
 	width: 32px;
 	height: 32px;
 	background: url(../img/feed.png) center center no-repeat;
-}
-
-/**
- WWX 2016 notice
- **/
-.wwx2016notice {
-	clear: both;
-	text-align: center;
-	padding: 4px 0 6px;
-	background-color: lightyellow;
-}
-@media (min-width: 768px) {
-	.wwx2016notice {
-		margin-top: 20px;
-	}
-}
-@media (min-width: 980px) {
-	.wwx2016notice {
-		margin-top: 51px;
-	}
 }
