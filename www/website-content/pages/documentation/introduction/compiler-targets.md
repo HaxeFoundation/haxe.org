@@ -17,8 +17,7 @@ C# | source | Yes | Yes | Mobile, Desktop | 2.10 (2012)
 Python | source | No | Yes | CLI, Web, Desktop | 3.2 (2015)
 Lua | source | No | Yes | Games, CLI, Web, Desktop | 3.3 (2016)
 
-
-Note:
-- "Static typing: Yes" means the target platform natively supports static typing.
-  Haxe code itself is statically typed no matter what target it is compiled to.
-- "Sys: Yes" means the target supports the [System api](http://api.haxe.org/Sys.html).
+> **Note:**
+> 
+> - "Static typing: Yes" means the target platform natively supports static typing. Haxe code itself is statically typed no matter what target it is compiled to.
+> - "Sys: Yes" means the target supports the [System api](http://api.haxe.org/Sys.html).
