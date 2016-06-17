@@ -39,28 +39,23 @@ We currently use the bootstrap 2.3.2 CSS library and the Font Awesome 4.1.0 icon
 0.  `cd haxeorg`
 0.  `haxelib install all` - this will install all dependencies. Please note this may take a while.
 0.  `haxelib install ufront; haxelib run ufront --setup` - setup the "ufront" alias so you don't have to run `haxelib run ufront`
-0.  `mkdir dox` - this folder needs to exist for our documentation to compile.
-0.  Create `src/conf/mysql.json`:
+0.  `mkdir doc` - this folder needs to exist for our documentation to compile.
+0.  `ufront build` - builds all hxml files, alternatively, run `haxe serverapp.hxml; haxe basicclient.hxml; haxe clientapp.hxml;`
+0.  Create a MySQL database named `haxe` and a user that can read/write it:
 
-    ```
-	{
-		"host": "localhost",
-		"port": null,
-		"database": "haxeorg",
-		"user": "haxeorg",
-		"pass": "mypassword",
-		"socket": null
-	}
-    ```
-0.  Create a database in MySQL:
-
-    ```
+	```
 	CREATE USER 'haxeorg'@'localhost' IDENTIFIED BY 'mypassword';
 	GRANT USAGE ON *.* TO 'haxeorg'@'localhost' IDENTIFIED BY 'mypassword' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;
-	CREATE DATABASE IF NOT EXISTS `haxeorg`;
-	GRANT ALL PRIVILEGES ON `haxeorg`.* TO 'haxeorg'@'localhost';
-    ```
-0.  `ufront build` - builds all hxml files, alternatively, run `haxe serverapp.hxml; haxe basicclient.hxml; haxe clientapp.hxml;`
+	CREATE DATABASE IF NOT EXISTS `haxe`;
+	GRANT ALL PRIVILEGES ON `haxe`.* TO 'haxeorg'@'localhost';
+	```
+0.  Export the database info to the enviroment:
+	```
+	export HAXEORG_DB_HOST=localhost
+	export HAXEORG_DB_PORT=3306
+	export HAXEORG_DB_USER=haxeorg
+	export HAXEORG_DB_PASS=mypassword
+	```
 0.  Make sure the "uf-content" directory is writeable by the web server.
 0.  `ufront server` - start a "nekotools" server in the `www` directory.
 0.  Visit `http://localhost:2987/update/manual/` to prepare the manual content.

@@ -5,10 +5,13 @@ class Config
 	public static var app = CompileTime.parseJsonFile( "conf/app.json" );
 
 	#if server
-		#if deploy
-			public static var db = CompileTime.parseJsonFile( "conf/mysql-haxeorg.json" );
-		#else
-			public static var db = CompileTime.parseJsonFile( "conf/mysql.json" );
-		#end
+		public static var db = {
+			"host": Sys.getEnv("HAXEORG_DB_HOST"),
+			"port": Sys.getEnv("HAXEORG_DB_PORT"),
+			"database": "haxe",
+			"user": Sys.getEnv("HAXEORG_DB_USER"),
+			"pass": Sys.getEnv("HAXEORG_DB_PASS"),
+			"socket": null
+		}
 	#end
 }
