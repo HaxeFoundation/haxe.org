@@ -7,7 +7,7 @@ class Config
 	#if server
 		public static var db = {
 			"host": Sys.getEnv("HAXEORG_DB_HOST"),
-			"port": Sys.getEnv("HAXEORG_DB_PORT"),
+			"port": Std.parseInt(Sys.getEnv("HAXEORG_DB_PORT")),
 			"database": "haxe",
 			"user": Sys.getEnv("HAXEORG_DB_USER"),
 			"pass": Sys.getEnv("HAXEORG_DB_PASS"),
