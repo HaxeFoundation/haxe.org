@@ -34,6 +34,7 @@ class SiteApi extends UFApi {
 		ufTrace( 'Clone $gitPath into $intoDir' );
 
 		var oldCwd = Web.getCwd();
+		var contentDir = haxe.io.Path.normalize(contentDir);
 		try Sys.setCwd( contentDir ) catch(e:String) throw Error.withData( 'Failed to setCwd into $contentDir before cloning $gitPath', e );
 
 		if ( FileSystem.exists(intoDir) ) {
