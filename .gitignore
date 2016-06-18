@@ -14,6 +14,7 @@ deploy/
 # Private content
 src/conf/mysql*.json
 uf-content/
+.env
 
 # Editor files etc
 /.todo
