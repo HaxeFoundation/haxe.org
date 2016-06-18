@@ -25,3 +25,8 @@ haxelibs/
 # Travis stuff
 deploy_key
 deploy_key.pub
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

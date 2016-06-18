@@ -44,7 +44,7 @@ RUN ln -s `haxelib path ImageMagick | sed "2q;d"`ndll/Linux64/nMagick.ndll /usr/
 
 COPY www /src/www/
 COPY src /src/src/
-COPY submodules /src/submodules/
+RUN git clone --depth 1 https://github.com/ufront/ufblog.git /src/submodules/ufblog
 
 RUN rm -rf /var/www/html
 RUN ln -s /src/www /var/www/html
