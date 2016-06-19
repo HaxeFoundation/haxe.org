@@ -26,6 +26,17 @@ matrix:
         - curl http://localhost/update/manual/
       script:
         - curl http://localhost/
+      deploy:
+        provider: elasticbeanstalk
+        access_key_id: $AWS_ACCESS_KEY
+        secret_access_key: $AWS_SECRET_KEY
+        region: $AWS_REGION
+        app: $EB_APP
+        env: $TRAVIS_BRANCH
+        bucket_name: $EB_BUCKET
+        on:
+          all_branches: true
+          condition: $TRAVIS_BRANCH = master || $TRAVIS_BRANCH = staging
     - language: haxe
       haxe: "3.2.1"
       sudo: false

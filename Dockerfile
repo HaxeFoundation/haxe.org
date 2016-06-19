@@ -54,3 +54,5 @@ WORKDIR /src
 RUN mkdir /var/www/uf-content
 RUN mkdir doc
 RUN haxelib run ufront build
+
+EXPOSE 80
