@@ -232,7 +232,7 @@ a.anch {
 	text-align: center;
 }
 .site-footer, .site-footer .container {
-	font-size: 12px;
+	font-size: 13px;
 	padding: 0;
 }
 .section.nav {
@@ -708,10 +708,9 @@ html .gsc-search-box .gsc-input > input:focus, html .gsc-input-box-focus {
 /** Footer sitemap **/
 .sitemap {
 	min-height: 270px;
-	padding: 30px 6px 6px 6px;
+	padding: 20px 6px;
 }
 .copyright {
-	height: 14px;
 	padding: 6px;
 	overflow: hidden;
 }
