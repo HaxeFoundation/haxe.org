@@ -15,6 +15,7 @@ deploy/
 src/conf/mysql*.json
 uf-content/
 .env
+.haxelib
 
 # Editor files etc
 /.todo

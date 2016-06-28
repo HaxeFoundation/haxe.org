@@ -1,3 +1,4 @@
 .git
 deploy
 .env
+.haxelib

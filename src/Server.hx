@@ -32,7 +32,7 @@ class Server
 			ufrontApp = new UfrontApplication({
 				indexController: Routes,
 				errorHandlers: [oldSiteRedirectHandler,errorPageHandler],
-				contentDirectory: "../uf-content/",
+				contentDirectory: "uf-content/",
 				defaultLayout: "layout.html",
 				templatingEngines: [TemplatingEngines.haxe,TemplatingEngines.erazorHtml]
 			})
