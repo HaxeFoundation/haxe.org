@@ -23,7 +23,10 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
 		default-jdk \
 		libmagickcore-dev \
 		libmagickwand-dev \
+		python-pip \
 	&& rm -r /var/lib/apt/lists/*
+
+RUN pip install awscli
 
 COPY *.hxml /src/
 
@@ -44,14 +47,16 @@ RUN ln -s `haxelib path ImageMagick | sed "2q;d"`ndll/Linux64/nMagick.ndll /usr/
 
 COPY www /src/www/
 COPY src /src/src/
-RUN git clone --depth 1 https://github.com/ufront/ufblog.git /src/submodules/ufblog
+
+RUN git clone https://github.com/ufront/ufblog.git /src/submodules/ufblog \
+	&& cd /src/submodules/ufblog \
+	&& git checkout ecb514070c885df315cd9c29020639884709da6e
 
 RUN rm -rf /var/www/html
 RUN ln -s /src/www /var/www/html
 
 WORKDIR /src
 
-RUN mkdir /var/www/uf-content
 RUN mkdir doc
 RUN haxelib run ufront build
 
