@@ -1,91 +1,40 @@
-matrix:
-  include:
-    - language: haxe
-      haxe: "3.2.1"
-      dist: trusty
-      sudo: required
-      services:
-        - docker
-      install:
-        - sudo apt-get update
-        - sudo apt-get -o Dpkg::Options::=--force-confnew install docker-engine -y
-        - docker --version
-        # https://docs.travis-ci.com/user/docker/#Using-Docker-Compose
-        - sudo rm /usr/local/bin/docker-compose
-        - curl -L https://github.com/docker/compose/releases/download/1.7.1/docker-compose-`uname -s`-`uname -m` > docker-compose
-        - chmod +x docker-compose
-        - sudo mv docker-compose /usr/local/bin
-        # build and run the docker image
-        - docker-compose up -d
-        - count=1; until [ $count -gt 10 ] || ( curl -s http://localhost/ > /dev/null && [ $( curl -s http://localhost/ | grep Error | wc -l ) = 0 ] ); do
-            echo "try again";
-            let count+=1;
-            sleep 5;
-          done
-        - curl http://localhost/update/site/
-        - curl http://localhost/update/manual/
-      script:
-        - curl http://localhost/
-      deploy:
-        provider: elasticbeanstalk
-        access_key_id: $AWS_ACCESS_KEY
-        secret_access_key: $AWS_SECRET_KEY
-        region: $AWS_REGION
-        app: $EB_APP
-        env: $TRAVIS_BRANCH
-        bucket_name: $EB_BUCKET
-        on:
-          all_branches: true
-          condition: $TRAVIS_BRANCH = master || $TRAVIS_BRANCH = staging
-    - language: haxe
-      haxe: "3.2.1"
-      sudo: false
-      addons:
-        ssh_known_hosts:
-          - haxe.org
-          - staging.haxe.org
-      env:
-        # deploy_key_decrypt
-        - secure: "Sa8BnsU2mf6TDGdaJxxOU29qKjBoVMol0eyxnMbq0LTov0oK8kujlqoRgLl5uIDzHgwLnR+FvagcbSKcMUCTINsCRbxJJPtMmtOQlrCBxHhrj/eTPJ4L69x9t7urI1MsMjW5Q+7KJ6Fm5/lEf7uD7Ktt6Doc+Y4xp8dzXNAvfcE="
-      before_install:
-        # Configure git
-        - git config --global user.name "TravisCI"
-        - git config --global user.email "travisci@haxe.org"
-      install:
-        # setup the libraries required to build
-        - yes | haxelib install ufront
-        - yes | haxelib install all
-        - yes | haxelib git closure https://github.com/jasononeil/closure.git patch-1
-        # install dev version of ufront-mvc to get unreleased feature
-        - git clone https://github.com/ufront/ufront-mvc.git
-        - pushd ufront-mvc
-        - git checkout d7b9066f4405358aaa0e797ec7b7656c4daf46c4
-        - haxelib dev ufront-mvc .
-        - popd
-        # And just to make sure we have the right versions...
-        - haxe
-        - haxelib list
-        # Create "doc/" directory so build succeeds.
-        - mkdir doc
-      script:
-        # We don't really have unit tests for the website yet.  Just test that a build works.
-        - haxelib run ufront build
-        # Deploy to haxe.org
-        - if [ -n "$deploy_key_decrypt" ] && ([ "$TRAVIS_BRANCH" = "master" ] || [ "$TRAVIS_BRANCH" = "staging" ] || [ "$TRAVIS_BRANCH" = "travis" ]); then
-            openssl aes-256-cbc -k "$deploy_key_decrypt" -in deploy_key.enc -out deploy_key -d;
-            chmod 600 deploy_key;
-            eval `ssh-agent -s`;
-            ssh-add deploy_key;
-            if [ "$TRAVIS_BRANCH" = "staging" ]; then
-              haxelib run ufront deploy staging;
-              wget http://staging.haxe.org/update/manual/;
-              wget http://staging.haxe.org/update/site/;
-            else
-              haxelib run ufront deploy haxe.org;
-              wget http://haxe.org/update/manual/;
-              wget http://haxe.org/update/site/;
-            fi
-          fi
+language: haxe
+haxe: "3.2.1"
+dist: trusty
+sudo: required
+services:
+  - docker
+install:
+  - sudo apt-get update
+  - sudo apt-get -o Dpkg::Options::=--force-confnew install docker-engine -y
+  - docker --version
+  # https://docs.travis-ci.com/user/docker/#Using-Docker-Compose
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/1.7.1/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
+  # build and run the docker image
+  - docker-compose up -d
+  - count=1; until [ $count -gt 10 ] || ( curl -s http://localhost/ > /dev/null && [ $( curl -s http://localhost/ | grep Error | wc -l ) = 0 ] ); do
+      echo "try again";
+      let count+=1;
+      sleep 5;
+    done
+  - curl http://localhost/update/site/
+  - curl http://localhost/update/manual/
+script:
+  - curl http://localhost/
+deploy:
+  provider: elasticbeanstalk
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
+  region: $AWS_REGION
+  app: $EB_APP
+  env: ${TRAVIS_BRANCH}-haxe-org
+  bucket_name: $EB_BUCKET
+  on:
+    all_branches: true
+    condition: $TRAVIS_BRANCH = master || $TRAVIS_BRANCH = staging
 
 cache:
   directories:
