@@ -9,6 +9,7 @@ services:
       - HAXEORG_DB_PORT=3306
       - HAXEORG_DB_USER=dbUser
       - HAXEORG_DB_PASS=dbPass
+      - HAXEORG_DB_NAME=haxe
   dbHost:
     image: mariadb
     ports:
