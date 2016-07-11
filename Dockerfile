@@ -5,6 +5,7 @@
 # 2. Create .env file with content as follows:
 # HAXEORG_DB_HOST=localhost
 # HAXEORG_DB_PORT=3306
+# HAXEORG_DB_NAME=haxe
 # HAXEORG_DB_USER=user
 # HAXEORG_DB_PASS=password
 #
