@@ -23,12 +23,6 @@ Use whenever possible.
 <a href="/img/branding/haxe-logo-white-background.pdf">PDF</a> | 
 <a href="/img/branding/haxe-logo-white-background.svg">SVG</a> 
 
-*Download:* 
-<a href="/img/branding/haxe-logo.png">PNG</a> (normal) |
-<a href="/img/branding/haxe-logo-large.png">PNG</a> (large) | 
-<a href="/img/branding/haxe-logo.pdf">PDF</a> | 
-<a href="/img/branding/haxe-logo.svg">SVG</a> 
-
 ##### 2. Glyph
 Use in UI with limited space.
 
