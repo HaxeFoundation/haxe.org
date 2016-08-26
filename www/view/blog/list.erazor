@@ -10,7 +10,7 @@
 <link rel="alternate" type="application/rss+xml" href="@(baseUri)rss/" />
 <div class="article-list">
 	@for (post in posts) {
-		<div class="section article-thumbnail article-header" @if (post.headerImage!=null) { style="background-image: url('@post.getHeaderURL(baseUri+post.url)?w=1600')" }>
+		<div class="section article-thumbnail article-header" @if (post.headerImage!="null") { style="background-image: url('@post.getHeaderURL(baseUri+post.url)?w=1600')" }>
 			<a href="@(baseUri)@post.url/" class="pushstate full-size-link darken-bg"></a>
 			<div class="container">
 				<h2><a href="@(baseUri)@post.url" class="pushstate">@post.title</a></h2>
