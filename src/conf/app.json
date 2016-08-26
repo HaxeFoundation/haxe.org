@@ -7,7 +7,7 @@
 		"branch": "master",
 		"cloneDir": "website-repo",
 		"folder": "website-content",
-		"editBaseUrl": "https://github.com/HaxeFoundation/haxe.org/tree/master/www/website-content/",
+		"editBaseUrl": "https://github.com/HaxeFoundation/haxe.org/tree/staging/www/website-content/",
 		"pages": {
 			"folder": "pages",
 			"extensions": ["html","md"]
