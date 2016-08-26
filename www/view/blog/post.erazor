@@ -1,4 +1,4 @@
-<header class="section article-header" @if (post.headerImage!=null) { style="background-image: url('@post.getHeaderURL(baseUri+post.url)?w=1600')" }>
+<header class="section article-header" @if (post.headerImage!="null") { style="background-image: url('@post.getHeaderURL(baseUri+post.url)?w=1600')" }>
 	<div class="darken-bg"></div>
 	<div class="container">
 		@adminToolbar()
