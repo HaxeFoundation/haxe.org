@@ -31,43 +31,40 @@ We currently use the bootstrap 2.3.2 CSS library and the Font Awesome 4.1.0 icon
 
 * The code is in `src/`. It uses the ufront library and is structured in an MVC pattern.
 * The static assets are in `www/`, and the JS and neko compiles and runs from here also.
-* The website-generated content is in `uf-content`.
 
-## Running a local copy
+## Running a local copy for development
 
-0.  `git clone --recursive https://github.com/HaxeFoundation/haxe.org.git haxeorg`
-0.  `cd haxeorg`
-0.  `haxelib install all` - this will install all dependencies. Please note this may take a while.
-0.  `haxelib install ufront; haxelib run ufront --setup` - setup the "ufront" alias so you don't have to run `haxelib run ufront`
-0.  `mkdir doc` - this folder needs to exist for our documentation to compile.
-0.  `ufront build` - builds all hxml files, alternatively, run `haxe serverapp.hxml; haxe basicclient.hxml; haxe clientapp.hxml;`
-0.  Create a MySQL database named `haxe` and a user that can read/write it:
+The server has to be compiled with Haxe 3.2.1. It can be run in Apache using mod_neko / mod_tora.
 
-	```
-	CREATE USER 'haxeorg'@'localhost' IDENTIFIED BY 'mypassword';
-	GRANT USAGE ON *.* TO 'haxeorg'@'localhost' IDENTIFIED BY 'mypassword' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;
-	CREATE DATABASE IF NOT EXISTS `haxe`;
-	GRANT ALL PRIVILEGES ON `haxe`.* TO 'haxeorg'@'localhost';
-	```
-0.  Export the database info to the enviroment:
-	```
-	export HAXEORG_DB_HOST=localhost
-	export HAXEORG_DB_PORT=3306
-	export HAXEORG_DB_USER=haxeorg
-	export HAXEORG_DB_PASS=mypassword
-	```
-0.  Make sure the "uf-content" directory is writeable by the web server.
-0.  `ufront server` - start a "nekotools" server in the `www` directory.
-0.  Visit `http://localhost:2987/update/manual/` to prepare the manual content.
-0.  Visit `http://localhost:2987/update/site/` to prepare some site content.
-0.  Visit `http://localhost:2987/blog/ufadmin/` and click on "DB Admin" to create and sync each of the required tables.
+Currently using [Docker](https://www.docker.com/) is the simpliest way to build and run the server. It doesn't require setting up Apache or MySQL since everything is included in the container. We would recommand to use the [Docker Platform](https://www.docker.com/products/docker) instead of the Docker Toolbox.
 
-Please note you need at least Haxe 3.2.
+To start, run:
 
-These instructions were written on Linux (Ubuntu 14.04), if problems are encountered on other platforms please file an issue so it can be resolved.
+```
+docker-compose up -d
+```
+
+The command above will copy the server source code and website resources into a container, compile it, and then start Apache to serve it.  To view the website, visit `http://localhost/` (or `http://$(docker-machine ip)/` if the Docker Toolbox is used).
+
+Since the containers will expose port 80 (web) and 3306 (MySQL), make sure there is no other local application listening to those ports. In case there is another MySQL instance listening to 3306, we will get an error similar to `Uncaught exception - mysql.c(509) : Failed to connect to mysql server`.
+
+When the server runs for the first time, we need to initialize a few things by visiting the pages as follows:
+ * [http://localhost/update/manual/](http://localhost/update/manual/) for preparing the manual content.
+ * [http://localhost/update/site/](http://localhost/update/site/) for preparing some site content.
+ * [http://localhost/blog/ufadmin/](http://localhost/blog/ufadmin/) and click on "DB Admin" to create and sync each of the required tables.
+
+To stop the server, run:
+```
+docker-compose down
+```
+
+If we modify any of the server source code or website resources, we need to rebuild the image and replace the running container by issuing the commands as follows:
+```
+docker-compose build
+docker-compose up -d
+```
 
 ## Deploying updates
 
 * Any push or merge to this `haxe.org` repository will trigger [TravisCI](https://travis-ci.org/HaxeFoundation/haxe.org) to build and deploy to "haxe.org".
 * Any push or merge to the `HaxeManual` repository will trigger an update of the manual on "haxe.org".  (We follow the `master` branch).
-* Running `ufront deploy` (or just `ufront d`) will compile all files and push them to the haxe.org server. You will need your SSH keys added to the server for this to work.  If you added or modified any download content you will need to visit `/update/site/` to trigger some further upgrades.
