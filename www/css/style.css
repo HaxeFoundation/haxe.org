@@ -1195,3 +1195,25 @@ a.full-size-link {
 	height: 32px;
 	background: url(../img/feed.png) center center no-repeat;
 }
+
+/** partner logos **/
+a.partner-logo img {
+	max-height: 100%;
+	max-width: 100%;
+	width: auto;
+	height: auto;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+a.partner-logo {
+	border: 1px solid #eee;
+	height: 160px;
+	width: 160px;
+	position: relative;
+	display: inline-block;
+	margin: 10px;
+}
