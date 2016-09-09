@@ -49,7 +49,7 @@ class BasicClient
 			html = types.replace(html, "<span class='type'>$1</span>");
 
 			html = ~/("[^"]*")/g.replace(html, "<span class='str'>$1</span>");
-			html = ~/(\/\/.+\n)/g.replace(html, "<span class='cmt'>$1</span>");
+			html = ~/(\/\/.+?)(\n|$)/g.replace(html, "<span class='cmt'>$1</span>$2");
 			html = ~/(\/\*\*?[^*]*\*?\*\/)/g.replace(html, "<span class='cmt'>$1</span>");
 			html = html.split("\t").join("  ");
 
