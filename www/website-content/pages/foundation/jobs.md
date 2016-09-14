@@ -2,14 +2,14 @@
 
 **The following Haxe Foundation partners are open for Haxe developer positions:**
 
-## Mediamonks
-<img src="https://www.mediamonks.com/version/1470741895/inc/image/mediamonks-share.png" align="right" style="margin:1em"/>
+## Gamesys
+<img src="https://cloud.githubusercontent.com/assets/1022912/18520628/f016fb60-7aa8-11e6-8f35-2e664c3f67e3.png" align="right" style="width:200px; margin:1em"/>
 
-MediaMonks is the biggest creative digital production company on the planet. We specialize in working for and with advertising agencies to craft amazing digital work for global brands. You can find us anywhere on the Web as well as in Amsterdam, London, Stockholm, Dubai, New York, LA, São Paulo, and Singapore.  
-MediaMonks boasts an in-house team of 450 Monks that are versed in an infinite range of digital disciplines, collectively covering anything you could possibly throw at a digital campaign. Our award-winning capabilities include film, games and mobile and are recognized by over fifty institutions worldwide, including Cannes, Eurobest, the Webbys and the Awwwards.  
+Gamesys is on a mission to become the world’s most entertaining online gaming company. It all started with Jackpotjoy but along the way we have grown into the award-winning team of designers, developers and operators behind some of the leading gaming sites and apps including Virgin Games and Caesar’s Casino. But, we haven’t stopped there... we’re also behind Bingo Lane, Jackpotjoy Slots and other great free-to-play games. 
 
-**Apply now: <https://www.mediamonks.com/careers>**
+Born in 2001 with just a handful of developers, we are now over 900 employees strong across 7 group offices worldwide with our headquarters in Central London.  Over 25 million players enjoy our 258 games, generating on average 6,028 chat messages every 15 minutes!
 
+**Apply now: <http://www.gamesyscorporate.com/careers/jobs/>**
 
 ---
 
