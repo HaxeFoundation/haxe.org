@@ -10,13 +10,10 @@ Gamesys is on a mission to become the world’s most entertaining online gaming 
 Born in 2001 with just a handful of developers, we are now over 900 employees strong across 7 group offices worldwide with our headquarters in Central London.  Over 25 million players enjoy our 258 games, generating on average 6,028 chat messages every 15 minutes!
 
 **Apply now: <http://www.gamesyscorporate.com/careers/jobs/>**
+---
+
+> If you want your company to be listed here, [check our support plans](support-plans.html).
 
 ---
 
 <a class="twitter-timeline" href="https://twitter.com/search?q=%23haxe%20%23jobs" data-widget-id="776154379896389632">Tweets about #haxe #jobs</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
----
-
-> If you want your company to be listed here, please [contact us](contact.html).
-
-
