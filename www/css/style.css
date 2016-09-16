@@ -1196,6 +1196,11 @@ a.full-size-link {
 	background: url(../img/feed.png) center center no-repeat;
 }
 
+/** twitter box on jobs page **/
+.twitter-timeline {
+	width:100%;
+}
+
 /** partner logos **/
 a.partner-logo img {
 	max-height: 100%;
