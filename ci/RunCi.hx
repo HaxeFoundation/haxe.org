@@ -86,7 +86,7 @@ class RunCi {
 				docker_username,
 				docker_password
 			]:
-				if (Sys.command("docker", ["login", '-e="$docker_email"', '-u="$docker_username"', '-p="$docker_password"']) != 0)
+				if (Sys.command("docker", ["login", '-u=$docker_username', '-p=$docker_password']) != 0)
 					throw "docker login failed";
 		}
 
