@@ -56,7 +56,7 @@ class RssController extends Controller {
 		rss.set( "xmlns:dc", "http://purl.org/dc/elements/1.1/" );
 		var channel = createChild( rss, "channel" );
 		var link = createChild( channel, "atom:link" );
-		link.set( "href", 'http://$hostName/blog/rss/' );
+		link.set( "href", 'https://$hostName/blog/rss/' );
 		link.set( "rel", "self" );
 		link.set( "type", "application/rss+xml" );
 		createChildWithContent( channel, "title", 'Latest Haxe Blog Posts ($hostName)' );
@@ -69,7 +69,7 @@ class RssController extends Controller {
 		for ( post in posts ) {
 			var item = createChild(channel, "item");
 			createChildWithContent( item, "title", post.title );
-			var url = 'http://$hostName/blog/${post.url}';
+			var url = 'https://$hostName/blog/${post.url}';
 			createChildWithContent( item, "link", url );
 			createChildWithContent( item, "guid", url );
 			var date = (post.publishDate:Date).format( "%a,%e %b %Y %H:%M:%S %z" ); // No draft in rss == no null publishDate
