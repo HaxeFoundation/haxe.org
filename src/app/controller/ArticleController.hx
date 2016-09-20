@@ -31,7 +31,7 @@ class ArticleController extends Controller {
 			var pair = api.getArticle( articleURL );
 			var articleInfo = pair.a;
 			var articleHTML = pair.b;
-			var url = 'http://${context.request.hostName}${context.request.uri}';
+			var url = 'https://${context.request.hostName}${context.request.uri}';
 			return new ViewResult().setVars( articleInfo ).setVars({
 				content: articleHTML,
 				hackerNewsLink: 'https://news.ycombinator.com/submitlink?u=${url.urlEncode()}&t=${articleInfo.title.urlEncode()}'
