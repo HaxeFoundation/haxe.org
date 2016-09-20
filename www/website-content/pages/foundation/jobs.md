@@ -3,7 +3,7 @@
 **The following Haxe Foundation partners are open for Haxe developer positions:**
 
 ## Gamesys
-<img src="img/partners/gamesys.png" align="right" style="margin:1em"/>
+<img src="/img/partners/gamesys.png" align="right" style="margin:1em"/>
 
 Gamesys is on a mission to become the world’s most entertaining online gaming company. It all started with Jackpotjoy but along the way we have grown into the award-winning team of designers, developers and operators behind some of the leading gaming sites and apps including Virgin Games and Caesar’s Casino. But, we haven’t stopped there... we’re also behind Bingo Lane, Jackpotjoy Slots and other great free-to-play games. 
 
