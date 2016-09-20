@@ -33,7 +33,7 @@ deploy:
   app: $EB_APP
   env: ${TRAVIS_BRANCH}-haxe-org
   bucket_name: $EB_BUCKET
-  zip_file: Dockerrun.aws.json
+  zip_file: eb.zip
   skip_cleanup: true
   on:
     all_branches: true

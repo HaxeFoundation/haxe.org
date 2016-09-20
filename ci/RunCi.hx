@@ -99,8 +99,15 @@ class RunCi {
 			"AWSEBDockerrunVersion": "1",
 			"Image": {
 				"Name": target
-			}
+			},
+			"Ports": [
+				{
+					"ContainerPort": "80"
+				}
+			]
 		}));
+
+		runCommand("zip", ["-r", "eb.zip", "Dockerrun.aws.json", ".ebextensions"]);
 	}
 
 	static function main():Void {
