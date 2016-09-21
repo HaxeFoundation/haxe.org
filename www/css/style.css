@@ -100,10 +100,6 @@ a[href="#"] {
 	cursor: default;
 	text-decoration: none;
 }
-/** anchor-target should have some height such that it wouldn't be covered by the navigation **/
-.anchor-target {
-	padding-top: 50px;
-}
 body, body p, body td, body li {
 	line-height: 1.5;
 }
@@ -245,31 +241,6 @@ a.anch {
 .page-wrap .section:first-child .container {
 	padding-top: 80px;
 }
-
-.page-wrap .homepage .section:first-child .container {
-    padding-top: 20px;
-}
-
-/**
-	Notice banner on homepage
-**/
-.notice-banner {
-	clear: both;
-	text-align: center;
-	padding: 4px 0 6px;
-	background-color: lightyellow;
-}
-@media (min-width: 768px) {
-	.notice-banner {
-		margin-top: 20px;
-	}
-}
-@media (min-width: 980px) {
-	.notice-banner {
-		margin-top: 51px;
-	}
-}
-
 
 /**
 	Billboard / head on homepage
