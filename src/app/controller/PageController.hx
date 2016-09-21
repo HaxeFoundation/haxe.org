@@ -59,6 +59,9 @@ class PageController extends Controller {
 		});
 	}
 
+	@:route( "/foundation/support.html" )
+	inline public function supportRedirect() return new RedirectResult ( "/foundation/support-plans.html", true ); 
+
 	@:route( "/$folder/*" )
 	public function doDefault( folder:String, rest:Array<String> ) {
 		var siteContentDir = context.request.scriptDirectory+Config.app.siteContent.folder;
