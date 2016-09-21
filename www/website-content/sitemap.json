@@ -66,12 +66,12 @@
 				"url": "foundation/people.html"
 			},
 			{
-				"title": "Events",
-				"url": "foundation/events.html"
+				"title": "Jobs",
+				"url": "foundation/jobs.html"
 			},
-      { 
-        "title": null, "url": "#divider" 
-      },
+			{ 
+				"title": null, "url": "#divider" 
+			},
 			{
 				"title": "Support Plans",
 				"url": "foundation/support-plans.html"
@@ -84,9 +84,9 @@
 				"title": "Donate",
 				"url": "foundation/donate.html"
 			},
-      { 
-        "title": null, "url": "#divider" 
-      },
+			{ 
+				"title": null, "url": "#divider" 
+			},
 			{
 				"title": "Branding",
 				"url": "foundation/branding.html"
@@ -101,9 +101,9 @@
 			}
 		]
 	},
-  { 
-    "title": null, "url": "#divider" 
-  },
+	{ 
+	    "title": null, "url": "#divider" 
+	},
 	{
 		"title": "Learn Haxe",
 		"url": "documentation/",
@@ -146,9 +146,9 @@
 					}
 				]
 			},
-      { 
-        "title": null, "url": "#divider" 
-      },
+			{ 
+			    "title": null, "url": "#divider" 
+			},
 			{
 				"title": "Manual",
 				"url": "manual/",
@@ -159,16 +159,16 @@
 				"url": "http://api.haxe.org/",
 				"sub": []
 			},
-      { 
-        "title": null, "url": "#divider" 
-      },
+			{ 
+				"title": null, "url": "#divider" 
+			},
 			{
 				"title": "Try Haxe",
 				"url": "http://try.haxe.org/"
 			},
 			{
 				"title": "Haxelib",
-				"url": "http://lib.haxe.org/"
+				"url": "https://lib.haxe.org/"
 			},
 			{
 				"title": "Code Cookbook",
