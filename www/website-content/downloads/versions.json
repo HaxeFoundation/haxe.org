@@ -1,5 +1,5 @@
 {
-	"current": "3.3.0-rc.1",
+	"current": "3.4.0-rc.1",
 	"versions": [
 		{ "version": "1.19.0", "api": false, "tag": "v1-19", "date": "2008-04-05" },
 		{ "version": "2.0.0-rc.1", "api": false, "tag": "v2-00-rc1", "date": "2008-07-17" },
@@ -26,6 +26,7 @@
 		{ "version": "3.2.0-rc.2", "api": false, "tag": "3.2.0-rc2", "date": "2015-03-20" },
 		{ "version": "3.2.0", "api": true, "tag": "3.2.0", "date": "2015-05-12" },
 		{ "version": "3.2.1", "api": false, "tag": "3.2.1", "date": "2015-10-11" },
-		{ "version": "3.3.0-rc.1", "api": false, "tag": "3.3.0-rc1", "date": "2016-05-27" }
+		{ "version": "3.3.0-rc.1", "api": false, "tag": "3.3.0-rc1", "date": "2016-05-27" },
+		{ "version": "3.4.0-rc.1", "api": false, "tag": "3.4.0-rc1", "date": "2016-11-30" }
 	]
 }
