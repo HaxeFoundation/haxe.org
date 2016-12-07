@@ -49,24 +49,36 @@ make install
 Building on Windows (MSVC)
 -------
 
-1. Install a MSVC version of OCaml: <http://caml.inria.fr/pub/distrib/>
-2. Install any version of Visual C++ (Express): <http://www.visualstudio.com/downloads/download-visual-studio-vs>
-3. Install [GNU make for Windows](http://gnuwin32.sourceforge.net/packages/make.htm) and [GNU CoreUtils for Windows] (http://gnuwin32.sourceforge.net/packages/coreutils.htm) and add GnuWin32/bin to your `PATH` environment variable.
-4. Install [Flexlink](http://alain.frisch.fr/flexdll.html) and add it to your `PATH` environment variable.
+### Preparation
 
-After this, open a Visual Studio command prompt or start a normal command prompt and run `vcvarsall.bat` in your `Microsoft Visual Studio X/VC/` directory. The command `cl` should be available afterwards.
+  - Uninstall OCaml, MinGW, Cygwin
+  - Remove leftover environment vars, cleanup PATH
 
-Navigate to where the Haxe sources are and build Haxe using:
+### Installation
 
-```
-make -f Makefile.win MSVC=1
-```
+  - Download 32-bit installer from the fdopen's fork: <https://fdopen.github.io/opam-repository-mingw/installation/>
+  - Install it, in Cygwin package selection also check `mingw64-i686-zlib` (used by Haxe).
+    You might need to switch "View" in top-right corner to "Not Installed" to see it in the list.
+  - Run OCaml32 terminal from the desktop shortcut, from it:
+    - Install camlp4 with `opam install camlp4`
+    - Install merlin with `opam install merlin`
 
-For subsequent compilations it is usually enough to recompile the Haxe sources without its libraries:
+### Running from cmd/powershell
 
-```
-make -f Makefile.win MSVC=1 haxe
-```
+  - Add these to your PATH (actual paths may differ depending on your install path and username):
+    - cygwin tools: `C:\OCaml32\bin`
+    - runtime dlls: `C:\OCaml32\usr\i686-w64-mingw32\sys-root\mingw\bin`
+    - ocaml bin: `C:\OCaml32\home\nadako\.opam\4.02.3+mingw32c\bin`
+    - flexlink bin: `C:\OCaml32\usr\local\bin`
+  - Add new env variables (actual paths may differ depending on your install path and username):
+    - `OCAML_TOPLEVEL_PATH=C:\OCaml32\home\nadako\.opam\4.02.3+mingw32c\lib\toplevel`
+    - `OCAMLLIB=C:\OCaml32\home\nadako\.opam\4.02.3+mingw32c\lib\ocaml`
+  - I couldn't get `opam` itself running through cmd/powershell because it needs some more environment that's inited in `.bashrc`, but I think installing opam packages from within Cygwin terminal is acceptable.
+
+### Testing
+
+  - Haxe should compile: `make ADD_REVISION=1 -f Makefile.win libs haxe haxelib`
+  - VSCode OCaml extension features should work: <https://marketplace.visualstudio.com/items?itemName=hackwaly.ocaml>
 
 Building on Windows (Cygwin)
 -------
