@@ -80,6 +80,11 @@ Building on Windows (MSVC)
   - Haxe should compile: `make ADD_REVISION=1 -f Makefile.win libs haxe haxelib`
   - VSCode OCaml extension features should work: <https://marketplace.visualstudio.com/items?itemName=hackwaly.ocaml>
 
+### Troubleshoot
+
+ - If you have issues compiling in cmd.exe (worked fine in ocaml32) and get `Interrupt/Exception caught (code = 0xc00000fd, addr = 0x4227d3`, this helps: <http://hdrlab.org.nz/articles/windows-development/make-interrupt-exception-caught-code-0xc00000fd-addr-0x4217b/>
+TL;DR: put the environment variables at the start of your PATH, not at the end.
+
 Building on Windows (Cygwin)
 -------
 
