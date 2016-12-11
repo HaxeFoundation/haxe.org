@@ -46,7 +46,7 @@ class Downloads {
 			else if (filename.endsWith("-osx.tar.gz")) downloads.osx.push(getInfo("OS X Binaries", filename));
 			else if (filename.endsWith("-win.exe")) downloads.windows.unshift(getInfo("Windows Installer", filename));
 			else if (filename.endsWith("-win.zip")) downloads.windows.push(getInfo("Windows Binaries", filename));
-			else { trace('Unknown download type for "$filename"'); }
+			else trace('Unknown download type for "$filename"');
 		}
 
 		return downloads;
@@ -88,7 +88,7 @@ class Downloads {
 		Utils.save(Path.join([Config.outputFolder, "download", "list", "index.html"]), content, null, null, title);
 
 		// The versions
-		function getReleaseNotes (version:String) {
+		function getReleaseNotes (version:String) : String {
 			var path = Path.join(["releaseNotes", version + ".md"]);
 			if (FileSystem.exists(path)) {
 				return Markdown.markdownToHtml(File.getContent(path));

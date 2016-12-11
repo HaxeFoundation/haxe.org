@@ -1,5 +1,5 @@
 language: haxe
-haxe: "3.2.1"
+haxe: "development"
 dist: trusty
 sudo: required
 services:

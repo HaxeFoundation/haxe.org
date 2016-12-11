@@ -1,5 +1,3 @@
-import haxe.macro.Compiler;
-
 @:build(ViewBuilder.build())
 class Main {
 

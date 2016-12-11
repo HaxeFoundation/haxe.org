@@ -86,7 +86,7 @@ class Blog {
 		}
 
 		// Sort posts by date
-		var postSorter = function (a, b) {
+		var postSorter = function (a, b) : Int {
 			return Reflect.compare(b.date, a.date);
 		};
 		posts.sort(postSorter);
