@@ -1,17 +1,17 @@
 [
 	{
 		"title": "Home",
-		"url": ""
+		"url": "/"
 	},
 	{
 		"title": "Download",
 		"url": "download/",
 		"sub": []
 	},
-  {
-    "title": "Blog",
-    "url": "blog/"
-  },
+	{
+		"title": "Blog",
+		"url": "blog/"
+	},
 	{
 		"title": "Use Cases",
 		"url": "use-cases/",
@@ -44,9 +44,9 @@
 				"title": "Cross Platform APIs",
 				"url": "use-cases/cross-platform-apis/"
 			},
-      { 
-        "title": null, "url": "#divider" 
-      },
+			{
+				"title": null, "url": "#divider"
+			},
 			{
 				"title": "Who Uses Haxe",
 				"url": "use-cases/who-uses-haxe.html"

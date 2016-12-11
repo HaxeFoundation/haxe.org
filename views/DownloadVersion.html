@@ -17,25 +17,25 @@
 			<div class="span4">
 				<ul class="nav nav-tabs nav-stacked">
 					<li class="header"><i class="fa fa-windows" title="Windows"></i></li>
-					::foreach downloads.windows::
-						<li><a href="/download/file/::version::/::filename::"><i class="fa fa-windows"></i> ::title::</a></li>
+					::foreach downloads_windows::
+						<li><a href="::filename::"><i class="fa fa-windows"></i> ::title::</a></li>
 					::end::
 				</ul>
 			</div>
 			<div class="span4">
 				<ul class="nav nav-tabs nav-stacked">
 					<li class="header"><i class="fa fa-apple" title="Mac OS X"></i></li>
-					::foreach downloads.osx::
-						<li><a href="/download/file/::version::/::filename::"><i class="fa fa-apple"></i> ::title::</a></li>
+					::foreach downloads_osx::
+						<li><a href="::filename::"><i class="fa fa-apple"></i> ::title::</a></li>
 					::end::
 				</ul>
 			</div>
 			<div class="span4">
 				<ul class="nav nav-tabs nav-stacked">
 					<li class="header"><i class="fa fa-linux" title="Linux"></i></li>
-					<li><a href="/download/linux"><i class="fa fa-linux"></i> Linux Software Packages</a></li>
-					::foreach downloads.linux::
-						<li><a href="/download/file/::version::/::filename::"><i class="fa fa-linux"></i> ::title::</a></li>
+					<li><a href="/download/linux/"><i class="fa fa-linux"></i> Linux Software Packages</a></li>
+					::foreach downloads_linux::
+						<li><a href="::filename::"><i class="fa fa-linux"></i> ::title::</a></li>
 					::end::
 				</ul>
 			</div>
@@ -45,9 +45,9 @@
 			<strong><i class="fa fa-github"></i> Source Code: </strong> The source code for this release is <a href="::tagBaseUrl::/::tag::" target="_blank">available on Github under the ::tag:: tag</a>.
 		</p>
 
-		::if (api)::
+		::if (api != null)::
 			<p class="alert alert-success">
-				<strong><i class="fa fa-book"></i> API Documentation: </strong> Download the API documentation for this version as a ZIP file: <a href="/download/api/::version::/api.zip">api-::version::.zip</a>.
+				<strong><i class="fa fa-book"></i> API Documentation: </strong> Download the API documentation for this version as a ZIP file: <a href="::api::">api-::version::.zip</a>.
 			</p>
 		::end::
 

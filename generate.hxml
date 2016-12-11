@@ -1,0 +1,11 @@
+#
+# Launch the website generation
+# optionnal define: "-D out=path", changes the output folder
+#
+-main Main
+-cp src
+-lib markdown
+# TODO: detox needs git version
+-lib detox
+-lib yaml
+--interp

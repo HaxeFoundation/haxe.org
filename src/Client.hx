@@ -1,11 +1,11 @@
 import js.Browser;
-import js.JQuery.JQueryHelper.*;
+import js.jquery.JQuery;
 using haxe.io.Path;
 
-class BasicClient
-{
-	static function main() {
-		J( cast Browser.document ).ready( function (_) {
+class Client {
+
+	static function main () {
+		new JQuery(Browser.document).ready(function (_) {
 			menuExpandCollapse();
 			expandCurrentPageOnMenu();
 			syntaxHighlight();
@@ -15,7 +15,7 @@ class BasicClient
 		});
 	}
 
-	static function syntaxHighlight() {
+	static function syntaxHighlight () {
 		var kwds = ["abstract", "break", "case", "cast", "class", "continue", "default", "do", "dynamic", "else", "enum", "extends", "extern", "for", "function", "if", "implements", "import", "in", "inline", "interface", "macro", "new", "override", "package", "private", "public", "return", "static", "switch", "throw", "try", "typedef", "untyped", "using", "var", "while" ];
 		var kwds = new EReg("\\b(" + kwds.join("|") + ")\\b", "g");
 
@@ -24,7 +24,7 @@ class BasicClient
 
 		var types = ~/\b([A-Z][a-zA-Z0-9]*)\b/g;
 
-		for( s in J("pre code.prettyprint.haxe") ) {
+		for (s in [for (e in new JQuery("pre code.prettyprint.haxe")) new JQuery(e)]) {
 			if (s.hasClass("highlighted")) {
 				continue;
 			}
@@ -33,13 +33,16 @@ class BasicClient
 
 			// detect and remove identation
 			var tabs = null;
-			for( line in html.split("\n") )
-				if( StringTools.trim(line) != "" ) {
+			for (line in html.split("\n")) {
+				if (StringTools.trim(line) != "") {
 					var r = ~/^\t*/;
 					r.match(line);
 					var t = r.matched(0);
-					if( tabs == null || t.length < tabs.length ) tabs = t;
+					if (tabs == null || t.length < tabs.length) {
+						tabs = t;
+					}
 				}
+			}
 
 			html = new EReg("^" + tabs, "gm").replace(html, "");
 			html = StringTools.trim(html);
@@ -60,33 +63,35 @@ class BasicClient
 	}
 
 	static function menuExpandCollapse() {
-		J(".tree-nav li i.fa").click( function () {
-			JTHIS.parent().toggleClass('active');
+		var t = new JQuery(".tree-nav li i.fa");
+		t.click( function (event) {
+			new JQuery(t).parent().toggleClass("active");
 		});
 	}
 
 	static function expandCurrentPageOnMenu() {
 		var current = js.Browser.document.URL.withoutDirectory();
-		J('.tree-nav a[href="$current"]').addClass( 'active' ).parents( 'li' ).addClass( 'active' );
+		new JQuery('.tree-nav a[href="$current"]').addClass("active").parents("li").addClass("active");
 	}
 
 	static function pullOutStyling() {
-		for ( h5 in J('blockquote h5') ) {
-			var type = h5.text().substr( 0, h5.text().indexOf(":") );
-			h5.parent().addClass( type.toLowerCase() );
+		for (h5 in [for (e in new JQuery("blockquote h5")) new JQuery(e)]) {
+			var type = h5.text().substr(0, h5.text().indexOf(":"));
+			h5.parent().addClass(type.toLowerCase());
 		}
 	}
 
 	static function tableStyling() {
-		J( '.site-content' ).addClass( 'table' );
+		new JQuery(".site-content").addClass("table");
 	}
 
 	static function setupBootstrap() {
-		var popoverLinks = J( '.popover-icon' );
+		var popoverLinks = new JQuery(".popover-icon");
 		untyped popoverLinks.popover();
 	}
 
 	static function emptyLinks() {
-		J( 'a[href="#"]' ).click( function() return false ).attr("title","This page has not been created yet");
+		new JQuery('a[href="#"]').click(function(_):Bool { return false; }).attr("title", "This page has not been created yet");
 	}
+
 }

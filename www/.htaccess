@@ -1,15 +1,4 @@
-
-# Set index.n to come before index.php
-
-DirectoryIndex index.html index.n index.php
-
-# Enable rewrite
-
-RewriteEngine On
-RewriteBase /
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.n/$1
+DirectoryIndex index.html
 
 # Get our stuff gzipped
 #SetOutputFilter DEFLATE

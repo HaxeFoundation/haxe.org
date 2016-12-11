@@ -1,23 +1,37 @@
-<header class="section article-header" @if (post.headerImage!="null") { style="background-image: url('@post.getHeaderURL(baseUri+post.url)?w=1600')" }>
+<header class="section article-header" ::if (background != ""):: style="background-image: url(/img/blog/::date::-::name::/::background::)"::end::>
 	<div class="darken-bg"></div>
 	<div class="container">
-		@adminToolbar()
-		<h1>@title</h1>
-		<p class="lead">@post.introduction</p>
+		<h1>::title::</h1>
+		<p class="lead">::description::</p>
 		<p><small>
-			Article by <a href="@(baseUri)author/@post.author.user.username" class="label pushstate">@(post.author)</a> on <a href="@(baseUri)p/@post.id" class="label pushstate">@date(post.publishDate)</a>.
+			Article by <a href="/blog/author/::authorID::/" class="label pushstate">::author::</a> on <a href="/blog/::name::/" class="label pushstate">::date::</a>.
 		</small></p>
 		<p><small>
-			<a href="#disqus_thread" class="label disqus-comment-count" data-disqus-identifier="@post.id">Comments</a>
+			<a href="#disqus_thread" class="label disqus-comment-count" data-disqus-identifier="::disqusID::">Comments</a>
 		</small></p>
 	</div>
 </header>
-<link rel="home" type="application/rss+xml" href="@(baseUri)rss/" />
+<link rel="home" type="application/rss+xml" href="/blog/rss/" />
 <div class="section article-view">
 	<div class="container">
-		@raw( post.getContentHTML(baseUri+post.url) )
+		::content::
 
-		@postMeta( post )
+		<div class="well">
+            <div class="row-fluid">
+                <div class="span2">
+                    <img src="//www.gravatar.com/avatar/::gravatarID::?s=72&d=retro" class="img-circle pull-left" alt="Avatar for ::author::" width="72" height="72" title="::author::" />
+                </div>
+                <div class="span10">
+                    <h3>::author::</h3>
+                    <p>Published <a href="/blog/::name::/" class="pushstate">::date::</a></p>
+                    <p><i><a href="https://news.ycombinator.com/submitlink?u=https://haxe.org/blog/::name::/">Discuss this article on Hacker News</a></i></p>
+
+                    ::foreach tags::
+                        <a href="/blog/tag/::name::/" class="label pushstate">::name::</a>
+                    ::end::
+                </div>
+            </div>
+        </div>
 
 		<div id="disqus_thread"></div>
 	</div>

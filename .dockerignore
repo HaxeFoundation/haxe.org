@@ -2,3 +2,4 @@
 deploy
 .env
 .haxelib
+out

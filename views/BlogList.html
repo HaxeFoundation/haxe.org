@@ -1,29 +1,26 @@
 <div class="section">
 	<div class="container">
-		@adminToolbar()
-		<h1>@title <a rel="alternate" type="application/rss+xml" href="@(baseUri)rss/" class="rssFeedLink"/></a></h1>
-		@if ( description!=null ) {
-			<p class="lead">@description</p>
-		}
+		<h1>::title:: <a rel="alternate" type="application/rss+xml" href="/blog/rss/" class="rssFeedLink"/></a></h1>
+		::if (description != null)::
+			<p class="lead">::description::</p>
+		::end::
 	</div>
 </div>
-<link rel="alternate" type="application/rss+xml" href="@(baseUri)rss/" />
+<link rel="alternate" type="application/rss+xml" href="/blog/rss/" />
 <div class="article-list">
-	@for (post in posts) {
-		<div class="section article-thumbnail article-header" @if (post.headerImage!="null") { style="background-image: url('@post.getHeaderURL(baseUri+post.url)?w=1600')" }>
-			<a href="@(baseUri)@post.url/" class="pushstate full-size-link darken-bg"></a>
+	::foreach posts::
+		<div class="section article-thumbnail article-header" ::if (background != ""):: style="background-image: url(/img/blog/::date::-::name::/::background::)"::end::>
+			<a href="/blog/::name::/" class="pushstate full-size-link darken-bg"></a>
 			<div class="container">
-				<h2><a href="@(baseUri)@post.url" class="pushstate">@post.title</a></h2>
-				@if ( post.introduction!=null ){
-					<p class="lead">@post.introduction</p>
-				}
+				<h2><a href="/blog/::name::/" class="pushstate">::title::</a></h2>
+				<p class="lead">::description::</p>
 				<p><small>
-					Article by <a href="@(baseUri)author/@post.author.user.username" class="label pushstate">@(post.author)</a> on <a href="@(baseUri)p/@post.id" class="label pushstate">@date(post.publishDate)</a>.
+					Article by <a href="/blog/author/::authorID::/" class="label pushstate">::author::</a> on <a href="/blog/::name::/" class="label pushstate">::date::</a>.
 				</small></p>
 				<p><small>
-					<a href="@(baseUri)@post.url#disqus_thread" class="label pushstate disqus-comment-count" data-disqus-identifier="@post.id">Comments</a>
+					<a href="/blog/::name::/#disqus_thread" class="label pushstate disqus-comment-count" data-disqus-identifier="::disqusID::">Comments</a>
 				</small></p>
 			</div>
 		</div>
-	}
+	::end::
 </div>

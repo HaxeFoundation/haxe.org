@@ -8,22 +8,11 @@ install:
   - sudo apt-get update
   - sudo apt-get -o Dpkg::Options::=--force-confnew install docker-engine -y
   - docker --version
-  # https://docs.travis-ci.com/user/docker/#Using-Docker-Compose
-  - sudo rm /usr/local/bin/docker-compose
-  - curl -L https://github.com/docker/compose/releases/download/1.7.1/docker-compose-`uname -s`-`uname -m` > docker-compose
-  - chmod +x docker-compose
-  - sudo mv docker-compose /usr/local/bin
-  # build and run the docker image
-  - docker-compose up -d
-  - count=1; until [ $count -gt 10 ] || ( curl -s http://localhost/ > /dev/null && [ $( curl -s http://localhost/ | grep Error | wc -l ) = 0 ] ); do
-      echo "try again";
-      let count+=1;
-      sleep 5;
-    done
-  - curl http://localhost/update/site/
-  - curl http://localhost/update/manual/
+  - yes | haxelib install all
+  - haxelib git detox https://github.com/ufront/detox.git
+  - haxe generateversionsjson.hxml
+  - haxe generate.hxml
 script:
-  - curl http://localhost/
   - haxe ci/RunCi.hxml deploy
 deploy:
   provider: elasticbeanstalk

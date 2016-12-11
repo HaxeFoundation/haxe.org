@@ -1,3 +1,12 @@
+title: "TiVo: Using Haxe to improve user experience for millions of customers"
+author: "Josefiene Pertosa"
+description: "During the last three years, the development team at TiVo have had an impressive journey - from first evaluating Haxe, to having a million lines of Haxe code running on millions of devices. The experience has not only benefited the development team - but the customers - who are rilled with the performance increases."
+background: "tivo-bg.jpg"
+published: true
+tags: announcements
+gravatarEmail: fiene@haxe.org
+---
+
 ### The Flash Code was Dead
 
 It was Saturday, 24th of May 2014, the second day of the World Wide Haxe Conference. I and about 60 other members of the Haxe community were sitting in a dimly lit room in a college somewhere in Paris, France. Todd Kulick, Vice President of Technology at TiVo was giving his presentation called “Shipping one million lines of Haxe to one million devices”. In it, he explained how TiVo converted their one million lines of AS3 code that made up their UI to Haxe, which would then be shipped to their set-top boxes later that summer. He was walking us through their whole process, from how TiVo evaluated Haxe as an alternative to Flash to which technologies it replaced and how their conversion process went. Then, a slide with a timeline came up. Todd looked into the room and said: “At this point, we flipped the switch and the Flash code was dead”. We all sat there in stunned silence, either too surprised to react or not really grasping what he had just said. “The Flash code was dead”, repeated Todd. Then, the reality of the statement hit home.

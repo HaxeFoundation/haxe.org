@@ -2,10 +2,7 @@
 # Compile the Basic Client (simple JS additions that work even on old browsers)
 #
 -cp src
-
-# Output
--main BasicClient
--js www/js/client.js
+-main Client
+-js client.js
 -lib closure
 -D closure_quiet
--xml doc/js-basic.xml

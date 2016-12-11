@@ -1,77 +1,69 @@
-<div class="section">	
-	<div class="container">
-		<h1>Linux Software Packages</h1>
-		The Haxe Foundation officially participates in the maintenance of Haxe and Neko packages for a number of popular Linux distributions. It is recommended to use those packages if available.
+<h1>Linux Software Packages</h1>
+The Haxe Foundation officially participates in the maintenance of Haxe and Neko packages for a number of popular Linux distributions. It is recommended to use those packages if available.
 
-		<h2>Ubuntu</h2>
-		<p>Ubuntu, being a downstream project of Debian, inherits the Haxe and Neko Debian packages. However, due to the long release cycle of Ubuntu and Debian, it is very likely that those packages are outdated.</p>
+<h2>Ubuntu</h2>
+<p>Ubuntu, being a downstream project of Debian, inherits the Haxe and Neko Debian packages. However, due to the long release cycle of Ubuntu and Debian, it is very likely that those packages are outdated.</p>
 
-		<p>We recommend you to use our Personal Package Archive (PPA), <a href="https://launchpad.net/~haxe/+archive/ubuntu/releases" target="_blank">ppa:haxe/releases</a>, which provides the latest versions of Haxe and Neko for all the currently supported Ubuntu versions. To install Haxe and Neko using the PPA, run the commands as follows:</p>
-		<pre>sudo add-apt-repository ppa:haxe/releases -y
+<p>We recommend you to use our Personal Package Archive (PPA), <a href="https://launchpad.net/~haxe/+archive/ubuntu/releases" target="_blank">ppa:haxe/releases</a>, which provides the latest versions of Haxe and Neko for all the currently supported Ubuntu versions. To install Haxe and Neko using the PPA, run the commands as follows:</p>
+<pre>sudo add-apt-repository ppa:haxe/releases -y
 sudo apt-get update
 sudo apt-get install haxe -y
 mkdir ~/haxelib &amp;&amp; haxelib setup ~/haxelib</pre>
-		<p>Neko will be installed as a dependency of Haxe.</p>
-		<p>Note that the PPA is also usable for Ubuntu based distributions, e.g. Linux Mint.</p>
+<p>Neko will be installed as a dependency of Haxe.</p>
+<p>Note that the PPA is also usable for Ubuntu based distributions, e.g. Linux Mint.</p>
 
-		<h2>Debian</h2>
-		<p>The Haxe Foundation continuously updates the Haxe and Neko packages in the Debian archive. However, due to the long release cycle of Debian, it is very likely that only the packages in the testing channel and the unstable (sid) channel are up-to-date.</p>
-		<p>To check the currently available versions in various channels, check the pages as follows:</p>
-		<ul>
-			<li><a href="https://packages.debian.org/search?keywords=haxe" target="_blank">Haxe in Debian</a></li>
-			<li><a href="https://packages.debian.org/search?keywords=neko" target="_blank">Neko in Debian</a></li>
-		</ul>
-		<p>To install the currently available versions for your system, simply run the commands as follows:</p>
-		<pre>sudo apt-get install haxe -y
+<h2>Debian</h2>
+<p>The Haxe Foundation continuously updates the Haxe and Neko packages in the Debian archive. However, due to the long release cycle of Debian, it is very likely that only the packages in the testing channel and the unstable (sid) channel are up-to-date.</p>
+<p>To check the currently available versions in various channels, check the pages as follows:</p>
+<ul>
+	<li><a href="https://packages.debian.org/search?keywords=haxe" target="_blank">Haxe in Debian</a></li>
+	<li><a href="https://packages.debian.org/search?keywords=neko" target="_blank">Neko in Debian</a></li>
+</ul>
+<p>To install the currently available versions for your system, simply run the commands as follows:</p>
+<pre>sudo apt-get install haxe -y
 mkdir ~/haxelib &amp;&amp; haxelib setup ~/haxelib</pre>
-		<p>Neko will be installed as a dependency of Haxe.</p>
-		<p>To install the newer ones from the unstable channel, follow these steps:</p>
-		<ol>
-			<li>In <b>/etc/apt/sources.list</b>, add <pre>deb http://httpredir.debian.org/debian unstable main contrib non-free</pre></li>
-			<li>
-				In <b>/etc/apt/preferences.d/</b>, create a new file named <b>unstable</b> (the name can be anything) with the content as follows:<pre>Package: *
+<p>Neko will be installed as a dependency of Haxe.</p>
+<p>To install the newer ones from the unstable channel, follow these steps:</p>
+<ol>
+	<li>In <b>/etc/apt/sources.list</b>, add <pre>deb http://httpredir.debian.org/debian unstable main contrib non-free</pre></li>
+	<li>
+		In <b>/etc/apt/preferences.d/</b>, create a new file named <b>unstable</b> (the name can be anything) with the content as follows:<pre>Package: *
 Pin: release a=unstable
 Pin-Priority: 100
 
 Package: haxe neko libneko*
 Pin: release a=unstable
 Pin-Priority: 999</pre>
-				Our file gives the unstable channel a low priority (default priority is 500), such that the currently installed packages will not be upgraded using the unstable channel. It then states that we always prefer haxe, neko, and libneko* to be installed from the unstable channel. Consult the <a href="https://wiki.debian.org/AptPreferences" target="_blank">APT Preferences article</a> for more details.
-			</li>
-			<li>Pull package index files from the newly added source: <pre>sudo apt-get update</pre></li>
-			<li>Install haxe (and neko): <pre>sudo apt-get install haxe -y</pre></li>
-		</ol>
+		Our file gives the unstable channel a low priority (default priority is 500), such that the currently installed packages will not be upgraded using the unstable channel. It then states that we always prefer haxe, neko, and libneko* to be installed from the unstable channel. Consult the <a href="https://wiki.debian.org/AptPreferences" target="_blank">APT Preferences article</a> for more details.
+	</li>
+	<li>Pull package index files from the newly added source: <pre>sudo apt-get update</pre></li>
+	<li>Install haxe (and neko): <pre>sudo apt-get install haxe -y</pre></li>
+</ol>
 
-		<h2>Fedora</h2>
-		<p>The Haxe Foundation maintains the Haxe and Neko RPM packages in the Fedora repository. The packages are up-to-date most of the time. However, when a new version of Haxe is released, it will take a few days, up to 2 weeks, to push an updated package to the stable releases of Fedora. The update activities can be tracked in the <a href="https://bodhi.fedoraproject.org/updates/?packages=haxe" target="_blank">Bodhi Fedora Update System</a>.</p>
-		<p>To install the currently available versions for your system, simply run the commands as follows:</p>
-		<pre>sudo dnf install haxe -y
+<h2>Fedora</h2>
+<p>The Haxe Foundation maintains the Haxe and Neko RPM packages in the Fedora repository. The packages are up-to-date most of the time. However, when a new version of Haxe is released, it will take a few days, up to 2 weeks, to push an updated package to the stable releases of Fedora. The update activities can be tracked in the <a href="https://bodhi.fedoraproject.org/updates/?packages=haxe" target="_blank">Bodhi Fedora Update System</a>.</p>
+<p>To install the currently available versions for your system, simply run the commands as follows:</p>
+<pre>sudo dnf install haxe -y
 mkdir ~/haxelib &amp;&amp; haxelib setup ~/haxelib</pre>
-		<p>Neko will be installed as a dependency of Haxe.</p>
+<p>Neko will be installed as a dependency of Haxe.</p>
 
-		<h2>openSUSE</h2>
-		<p>The Haxe Foundation maintains the Haxe and Neko RPM packages in the openSUSE:Factory repository. The packages are up-to-date most of the time. However, when a new version of Haxe is released, it will take a few days, up to 2 weeks, to be accepted by openSUSE:Factory.</p>
-		<p>To install the currently available versions of Haxe and Neko for your system, simply run the commands as follows:</p>
-		<pre>sudo zypper install haxe
+<h2>openSUSE</h2>
+<p>The Haxe Foundation maintains the Haxe and Neko RPM packages in the openSUSE:Factory repository. The packages are up-to-date most of the time. However, when a new version of Haxe is released, it will take a few days, up to 2 weeks, to be accepted by openSUSE:Factory.</p>
+<p>To install the currently available versions of Haxe and Neko for your system, simply run the commands as follows:</p>
+<pre>sudo zypper install haxe
 mkdir ~/haxelib &amp;&amp; haxelib setup ~/haxelib</pre>
-		<p>Neko will be installed as a dependency of Haxe.</p>
-		<p>To get the lastest Haxe version that may not available to openSUSE:Factory or an openSUSE release, you may use our devel project, named <a href="https://build.opensuse.org/project/show/devel:languages:haxe" target="_blank">devel:languages:haxe</a>, in the openSUSE Build Service.</p>
-		<p>To install Haxe and Neko from the devel project, visit the <a href="https://build.opensuse.org/package/show/devel:languages:haxe/haxe" target="_blank">Haxe package page</a>, click "Download package" at the top-right corner and follow the instructions there. Neko will also be installed as a dependency of Haxe.</p>
+<p>Neko will be installed as a dependency of Haxe.</p>
+<p>To get the lastest Haxe version that may not available to openSUSE:Factory or an openSUSE release, you may use our devel project, named <a href="https://build.opensuse.org/project/show/devel:languages:haxe" target="_blank">devel:languages:haxe</a>, in the openSUSE Build Service.</p>
+<p>To install Haxe and Neko from the devel project, visit the <a href="https://build.opensuse.org/package/show/devel:languages:haxe/haxe" target="_blank">Haxe package page</a>, click "Download package" at the top-right corner and follow the instructions there. Neko will also be installed as a dependency of Haxe.</p>
 
-		<h2>Arch Linux</h2>
-		<p>There are Haxe and Neko packages in the <a href="https://wiki.archlinux.org/index.php/official_repositories#community">Arch Linux community repository</a>. The Haxe Foundation will continue to help keep the packages up-to-date. However, when a new version of Haxe is released, it will take time to update the package, depended on the availability of the package maintainer.</p>
-		<p>To check the currently available versions, check the pages as follows:</p>
-		<ul>
-			<li><a href="https://www.archlinux.org/packages/?q=haxe" target="_blank">Haxe in Arch Linux</a></li>
-			<li><a href="https://www.archlinux.org/packages/?q=neko" target="_blank">Neko in Arch Linux</a></li>
-		</ul>
-		<p>To install the currently available versions of Haxe and Neko for your system, simply run the commands as follows:</p>
-		<pre>sudo pacman -S haxe
+<h2>Arch Linux</h2>
+<p>There are Haxe and Neko packages in the <a href="https://wiki.archlinux.org/index.php/official_repositories#community">Arch Linux community repository</a>. The Haxe Foundation will continue to help keep the packages up-to-date. However, when a new version of Haxe is released, it will take time to update the package, depended on the availability of the package maintainer.</p>
+<p>To check the currently available versions, check the pages as follows:</p>
+<ul>
+	<li><a href="https://www.archlinux.org/packages/?q=haxe" target="_blank">Haxe in Arch Linux</a></li>
+	<li><a href="https://www.archlinux.org/packages/?q=neko" target="_blank">Neko in Arch Linux</a></li>
+</ul>
+<p>To install the currently available versions of Haxe and Neko for your system, simply run the commands as follows:</p>
+<pre>sudo pacman -S haxe
 mkdir ~/haxelib &amp;&amp; haxelib setup ~/haxelib</pre>
-		<p>Neko will be installed as a dependency of Haxe.</p>
-
-		<p class="prev-next-links">
-			<a href="https://github.com/HaxeFoundation/haxe.org/blob/staging/www/view/download/linux.html" class="edit-link" title="Use Github to suggest an edit to this page">Contribute to this page.</a>
-		</p>
-	</div>
-</div>
+<p>Neko will be installed as a dependency of Haxe.</p>

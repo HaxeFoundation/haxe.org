@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+    <channel>
+        <atom:link type="application/rss+xml" href="https://haxe.org/blog/rss/" rel="self"/>
+        <title>Latest Haxe Blog Posts (haxe.org)</title>
+        <link>http://haxe.org</link>
+        <description>The latest 20 blog posts on haxe.org</description>
+        <generator>haxe</generator>
+        <language>en</language>
+
+        ::foreach posts::
+            <item>
+                <title>::title::</title>
+                <link>https://haxe.org/blog/::name::/</link>
+                <guid>https://haxe.org/blog/::name::/</guid>
+                <pubDate>::date::</pubDate>
+                <dc:creator>::author::</dc:creator>
+                <description>::description::</description>
+            </item>
+        ::end::
+    </channel>
+</rss>
