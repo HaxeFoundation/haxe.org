@@ -1,3 +1,5 @@
+import sys.FileSystem;
+
 @:build(ViewBuilder.build())
 class Main {
 
@@ -5,6 +7,11 @@ class Main {
 		Sys.println("== haxe.org generation ==");
 		Sys.println('Output folder: "${Config.outputFolder}"');
 		var start = Date.now().getTime();
+
+		// Make sure the output folder exists
+		if (!FileSystem.exists(Config.outputFolder)) {
+			FileSystem.createDirectory(Config.outputFolder);
+		}
 
 		// Generating the content
 		SiteMap.init();
