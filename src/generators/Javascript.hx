@@ -1,6 +1,7 @@
 package generators;
 
 import haxe.io.Path;
+import sys.io.File;
 import sys.FileSystem;
 
 class Javascript {
