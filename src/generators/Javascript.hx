@@ -17,7 +17,8 @@ class Javascript {
 
 		Sys.command("haxe", ["client.hxml"]);
 		var filename = "client.min.js";
-		FileSystem.rename(filename, Path.join([outPath, filename]));
+		File.copy(filename, Path.join([outPath, filename]));
+		FileSystem.deleteFile(filename);
 		FileSystem.deleteFile("client.js");
 	}
 
