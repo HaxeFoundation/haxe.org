@@ -3,13 +3,13 @@ haxe.org
 
 [![Build Status](https://travis-ci.org/HaxeFoundation/haxe.org.svg?branch=staging)](https://travis-ci.org/HaxeFoundation/haxe.org)
 
-This is the code base for the <http://haxe.org> website.
+This is the code base for the <https://haxe.org> website.
 
 ## Contributing Content
 
 On the website there is a "Contribute" link on the footer of each page.  Clicking this link will take you to the relevant file in this repository, or the relevant file in the [HaxeManual repository](https://github.com/HaxeFoundation/HaxeManual).
 
-You can then edit using Github's online file editor, and submit a pull request.  You can also fork the repo and edit on your local machine with your preferred text editor, which may be easier for large integrations.
+You can then edit using Github's online file editor and submit a pull request. You can also fork the repo and edit on your local machine with your preferred text editor, which may be easier for large integrations.
 
 ## Issues, bugs and suggestions
 
@@ -38,10 +38,11 @@ We currently use the bootstrap 2.3.2 CSS library and the Font Awesome 4.1.0 icon
 
 The haxe.org website was designed to be easy to generate, to run a local copy follow these steps:
 
+* Install the dependencies `haxelib install all` in the root directory.
 * (re)Generate the `versions.json` by running `haxe generateversionsjson.hxml`, it currently requires `curl`.
 * Generate the website by running `haxe generate.hxml`.
 
-The website is now available in the `out/` folder, and you can launch it with `nekotools server -d out`.
+The website is now available in the `out/` folder, you can launch it with `nekotools server -d out`.  
 You can access it at `http://localhost:2000/`.
 
 ## Deploying updates
