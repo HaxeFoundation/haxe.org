@@ -7,5 +7,4 @@
 -lib markdown
 # TODO: detox needs git version
 -lib detox
--lib yaml
 --interp

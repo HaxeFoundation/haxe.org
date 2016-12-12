@@ -1,7 +1,7 @@
-title: "TiVo: Using Haxe to improve user experience for millions of customers"
-author: "Josefiene Pertosa"
-description: "During the last three years, the development team at TiVo have had an impressive journey - from first evaluating Haxe, to having a million lines of Haxe code running on millions of devices. The experience has not only benefited the development team - but the customers - who are rilled with the performance increases."
-background: "tivo-bg.jpg"
+title: TiVo: Using Haxe to improve user experience for millions of customers
+author: Josefiene Pertosa
+description: During the last three years, the development team at TiVo have had an impressive journey - from first evaluating Haxe, to having a million lines of Haxe code running on millions of devices. The experience has not only benefited the development team - but the customers - who are rilled with the performance increases.
+background: tivo-bg.jpg
 published: true
 tags: announcements
 gravatarEmail: fiene@haxe.org
@@ -69,7 +69,7 @@ At this year’s Haxe conference, Todd and his colleagues will be back and talk 
 * [See TiVo's "Activity" project on Github](https://github.com/TiVo/activity)
 * [See Google Group discussion](https://groups.google.com/forum/#!searchin/haxelang/activities/haxelang/yEhXuwmVV3c/vfrsmgq6xMoJ)
 
-<iframe width="1280" height="720" src="https://www.youtube-nocookie.com/embed/P8BpZagb6qE" frameborder="0" allowfullscreen></iframe>
+<iframe width="1280" height="720" src="https://www.youtube-nocookie.com/embed/P8BpZagb6qE" frameborder="0" allowfullscreen="true"></iframe>
 
 ### Final Thoughts
 
