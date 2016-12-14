@@ -1,33 +1,21 @@
 language: haxe
 haxe: "development"
 dist: trusty
-sudo: required
-services:
-  - docker
 install:
-  - sudo apt-get update
-  - sudo apt-get -o Dpkg::Options::=--force-confnew install docker-engine -y
-  - docker --version
   - yes | haxelib install all
   - haxelib git detox https://github.com/ufront/detox.git
   - haxe generateversionsjson.hxml
-  - haxe generate.hxml
 script:
-  - haxe ci/RunCi.hxml deploy
+  - haxe generate.hxml
 deploy:
-  provider: elasticbeanstalk
+  provider: s3
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key: $AWS_SECRET_KEY
+  bucket: $S3_BUCKET
   region: $AWS_REGION
-  app: $EB_APP
-  env: ${TRAVIS_BRANCH}-haxe-org
-  bucket_name: $EB_BUCKET
-  zip_file: eb.zip
   skip_cleanup: true
+  local_dir: out
+  upload-dir: $TRAVIS_BRANCH
   on:
     all_branches: true
     condition: $TRAVIS_BRANCH = master || $TRAVIS_BRANCH = staging
-
-cache:
-  directories:
-    - deploy
