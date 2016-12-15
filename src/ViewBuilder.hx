@@ -81,7 +81,7 @@ class ViewBuilder {
 			return f.matched(0);
 		});
 
-		var fields = [];
+		var fields:Array<Field> = [];
 
 		function makeArgField (argument:String):Field {
 			if (argument.startsWith("foreach ")) {
@@ -95,15 +95,30 @@ class ViewBuilder {
 			}
 		}
 
+		function addField (field:Field) {
+			var duplicate = false;
+
+			for (f in fields) {
+				if (f.name == field.name) {
+					duplicate = true;
+					break;
+				}
+			}
+
+			if (!duplicate) {
+				fields.push(field);
+			}
+		}
+
 		for (argument in arguments.keys()) {
 			var subs = arguments.get(argument);
 
 			if (subs.length == 0) {
-				fields.push(makeArgField(argument));
+				addField(makeArgField(argument));
 			}
 			else {
 				var subfields = subs.map(function (f:String):Field return makeArgField(f));
-				fields.push(makeVar(argument, TAnonymous(subfields)));
+				addField(makeVar(argument, TAnonymous(subfields)));
 			}
 		}
 

@@ -2,7 +2,6 @@
 doc/
 deploy/
 out/
-versions.json
 
 # Private content
 .env

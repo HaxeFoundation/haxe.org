@@ -1,6 +1,0 @@
-#
-# Regenerate the download list from the github api
-#
--main GenerateVersionsJson
--cp src
---interp

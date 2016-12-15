@@ -11,8 +11,6 @@ typedef Version = {
 	var version : String;
 	var tag : String;
 	var date : String;
-	var changes : String;
-	var downloads : Array<String>;
 	@:optional var api : String;
 	@:optional var next : Version;
 	@:optional var prev : Version;
@@ -25,20 +23,19 @@ typedef Data = {
 
 class Downloads {
 
-	static function getDownloadInfo (d:Array<String>) {
+	static function getDownloadInfo (version:String) {
 		var downloads = {
 			"osx": [],
 			"windows": [],
 			"linux": [],
-			"api": null
+			"api": false
 		};
 
 		function getInfo (title:String, filename:String) {
 			return { title: title, filename:filename }
 		}
 
-		for (filename in d) {
-			var filename = filename.substr(1, filename.length - 2);
+		for (filename in FileSystem.readDirectory(Path.join(["downloads", version]))) {
 			if (filename.endsWith("-linux32.tar.gz") || filename.endsWith("-linux.tar.gz") ) downloads.linux.unshift(getInfo("Linux 32-bit Binaries", filename));
 			else if (filename.endsWith("-linux64.tar.gz")) downloads.linux.push(getInfo("Linux 64-bit Binaries", filename));
 			else if (filename.endsWith("-raspi.tar.gz")) downloads.linux.push(getInfo("Raspberry Pi", filename));
@@ -46,6 +43,8 @@ class Downloads {
 			else if (filename.endsWith("-osx.tar.gz")) downloads.osx.push(getInfo("OS X Binaries", filename));
 			else if (filename.endsWith("-win.exe")) downloads.windows.unshift(getInfo("Windows Installer", filename));
 			else if (filename.endsWith("-win.zip")) downloads.windows.push(getInfo("Windows Binaries", filename));
+			else if (filename == 'api-${version}.zip') downloads.api = true;
+			else if (filename.endsWith(".md")) { /* ignore */ }
 			else trace('Unknown download type for "$filename"');
 		}
 
@@ -56,7 +55,7 @@ class Downloads {
 		Sys.println("Generating downloads ...");
 
 		// Data
-		var data:Data = Json.parse(File.getContent("versions.json"));
+		var data:Data = Json.parse(File.getContent(Path.join(["downloads", "versions.json"])));
 		var versions = data.versions;
 		versions.reverse();
 
@@ -88,8 +87,8 @@ class Downloads {
 		Utils.save(Path.join([Config.outputFolder, "download", "list", "index.html"]), content, null, null, title);
 
 		// The versions
-		function getReleaseNotes (version:String) : String {
-			var path = Path.join(["releaseNotes", version + ".md"]);
+		function getNotes (version:String, type:String) : String {
+			var path = Path.join(["downloads", version, '${type}.md']);
 			if (FileSystem.exists(path)) {
 				return Markdown.markdownToHtml(File.getContent(path));
 			}
@@ -98,7 +97,7 @@ class Downloads {
 
 		for (version in versions) {
 			var title = 'Haxe ${version.version}';
-			var downloads = getDownloadInfo(version.downloads);
+			var downloads = getDownloadInfo(version.version);
 
 			var content = views.DownloadVersion.execute({
 				title: title,
@@ -109,8 +108,8 @@ class Downloads {
 				tag: version.tag,
 				prevTag: version.prev != null ? version.prev.tag : null,
 				compareBaseUrl: Config.compareBaseUrl,
-				releaseNotes: getReleaseNotes(version.version),
-				changes: Markdown.markdownToHtml(version.changes.replace("\r\n", "\n")), //getReleaseFile("CHANGES.md", version.version),
+				releaseNotes: getNotes(version.version, "RELEASE"),
+				changes: getNotes(version.version, "CHANGES"),
 				downloads_windows: downloads.windows,
 				downloads_linux: downloads.linux,
 				downloads_osx: downloads.osx,
