@@ -1,0 +1,27 @@
+[
+	{
+		"tag": "announcements",
+		"name": "Announcements",
+		"description": "Announcements from the Haxe Foundation: new releases, new events, all the important news."
+	},
+	{
+		"tag": "case-studies",
+		"name": "Case Studies",
+		"description": "Read stories of companies and teams using Haxe in their projects."
+	},
+	{
+		"tag": "events",
+		"name": "Events",
+		"description": "Things about events."
+	},
+	{
+		"tag": "nicolas-about-haxe",
+		"name": "Nicolas about Haxe",
+		"description": "Recap of Nicola's weekly stream at https://www.youtube.com/c/NicolasCannasse/live"
+	},
+	{
+		"tag": "tech",
+		"name": "Technical Posts",
+		"description": "The Haxe compiler team share their insights into the deeper aspects of the Haxe technology stack."
+	}
+]

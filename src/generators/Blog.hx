@@ -1,6 +1,6 @@
 package generators;
 
-import haxe.crypto.Md5;
+import haxe.Json;
 import haxe.io.Path;
 import sys.FileSystem;
 import sys.io.File;
@@ -22,6 +22,18 @@ typedef Post = {
 	published : Bool
 }
 
+typedef Tag = {
+	tag : String,
+	name : String,
+	description : String
+}
+
+typedef Author = {
+	username : String,
+	name : String,
+	md5email : String
+}
+
 class Blog {
 
 	static function getAuthorID (author:String) : String {
@@ -32,13 +44,29 @@ class Blog {
 		Sys.println("Generating posts ...");
 
 		// The data
+		var tags:Array<Tag> = Json.parse(File.getContent(Path.join([Config.postsPath, "tags.json"])));
+		var name2tag = new Map<String, Tag>();
+		for (tag in tags) {
+			name2tag.set(tag.tag, tag);
+		}
+
+		var authors:Array<Author> = Json.parse(File.getContent(Path.join([Config.postsPath, "authors.json"])));
+		var name2author = new Map<String, Author>();
+		for (author in authors) {
+			name2author.set(author.username, author);
+		}
+
 		var posts = [];
 		var authorsPages = new Map<String, Array<Post>>();
 		var tagsPages = new Map<String, Array<Post>>();
 
 		for (post in FileSystem.readDirectory(Config.postsPath)) {
+			if (Path.extension(post) != "md") {
+				continue;
+			}
+
 			var path = Path.join([Config.postsPath, post]);
-			var data = parse(post, File.getContent(path));
+			var data = parse(name2author, post, File.getContent(path));
 
 			if (data == null || !data.published) {
 				continue;
@@ -46,11 +74,11 @@ class Blog {
 
 			posts.push(data);
 
-			if (!authorsPages.exists(data.author)) {
-				authorsPages.set(data.author, [data]);
+			if (!authorsPages.exists(data.authorID)) {
+				authorsPages.set(data.authorID, [data]);
 			}
 			else {
-				authorsPages.get(data.author).push(data);
+				authorsPages.get(data.authorID).push(data);
 			}
 
 			for (tag in data.tags) {
@@ -92,7 +120,14 @@ class Blog {
 			var path = Path.join([Config.outputFolder, "blog", "author", getAuthorID(author), "index.html"]);
 			var posts = authorsPages.get(author);
 			posts.sort(postSorter);
-			list('${Config.blogTitle} - $author', posts, author, path);
+
+			var authorInfo = name2author.get(author);
+			if (authorInfo == null) {
+				Sys.println('Warning: author "$author" is used in a post but isn\'t in authors.json');
+				authorInfo = { username: author, name: author, md5email: "" };
+			}
+
+			list('${Config.blogTitle} - ${authorInfo.name}', posts, authorInfo.name, path);
 		}
 
 		// Tag pages
@@ -101,7 +136,14 @@ class Blog {
 			var path = Path.join([Config.outputFolder, "blog", "tag", tag, "index.html"]);
 			var posts = tagsPages.get(tag);
 			posts.sort(postSorter);
-			list('${Config.blogTitle} - $tag', posts, "", path);
+
+			var tagInfo = name2tag.get(tag);
+			if (tagInfo == null) {
+				Sys.println('Warning: tag "$tag" is used in a post but isn\'t in tags.json');
+				tagInfo = { tag: tag, name: "", description: "" };
+			}
+
+			list('${Config.blogTitle} - ${tagInfo.name}', posts, tagInfo.description, path);
 		}
 	}
 
@@ -157,7 +199,7 @@ class Blog {
 		}));
 	}
 
-	static function parse (post:String, content:String) : Post {
+	static function parse (name2author:Map<String, Author>, post:String, content:String) : Post {
 		var data:Post = {
 			author: null,
 			authorID: null,
@@ -190,8 +232,15 @@ class Blog {
 
 				switch (key) {
 					case "author":
-						data.author = value;
-						data.authorID = value.replace(" ", "");
+						var authorInfo = name2author.get(value);
+						if (authorInfo == null) {
+							Sys.println('Warning: author "$value" is used in a post but isn\'t in authors.json');
+						}
+						else {
+							data.author = authorInfo.name;
+							data.authorID = authorInfo.username;
+							data.gravatarID = authorInfo.md5email;
+						}
 
 					case "background":
 						data.background = value;
@@ -201,9 +250,6 @@ class Blog {
 
 					case "disqusID":
 						data.disqusID = value;
-
-					case "gravatarEmail":
-						data.gravatarID = Md5.encode(value);
 
 					case "tags":
 						for (tag in value.split(",")) {
@@ -234,7 +280,7 @@ class Blog {
 	}
 
 	static function changeImg (postID:String, xml:Xml) {
-		if (xml.nodeType == Xml.Element && xml.nodeName == "img" && xml.exists("src")) {
+		if (xml.nodeType == Xml.Element && xml.nodeName == "img" && xml.exists("src") && !xml.get("src").startsWith("http")) {
 			xml.set("src", '/img/blog/$postID/${xml.get("src")}');
 		}
 

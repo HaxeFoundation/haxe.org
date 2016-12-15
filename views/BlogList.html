@@ -9,7 +9,7 @@
 <link rel="alternate" type="application/rss+xml" href="/blog/rss/" />
 <div class="article-list">
 	::foreach posts::
-		<div class="section article-thumbnail article-header" ::if (background != ""):: style="background-image: url(/img/blog/::date::-::name::/::background::)"::end::>
+		<div class="section article-thumbnail article-header" ::if (background != ""):: style="background-image: url(/img/blog/backgrounds/::background::)"::end::>
 			<a href="/blog/::name::/" class="pushstate full-size-link darken-bg"></a>
 			<div class="container">
 				<h2><a href="/blog/::name::/" class="pushstate">::title::</a></h2>
