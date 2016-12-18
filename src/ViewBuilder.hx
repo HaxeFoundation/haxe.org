@@ -57,6 +57,8 @@ class ViewBuilder {
 	static function getFields (content:String) : Array<Field> {
 		var argumentsRegex = ~/::(.*?)::/g;
 		var arguments = new Map<String, Array<String>>();
+		var bools = [];
+
 		argumentsRegex.map(content, function (f:EReg):String {
 			var v = f.matched(1);
 			if (!v.startsWith("if (") && v != "end") {
@@ -77,6 +79,8 @@ class ViewBuilder {
 				if (!arguments.exists(argument)) {
 					arguments.set(argument, []);
 				}
+
+				bools.push(argument);
 			}
 			return f.matched(0);
 		});
@@ -110,7 +114,7 @@ class ViewBuilder {
 			}
 		}
 
-		for (argument in arguments.keys()) {
+		for (argument in bools.concat([for (k in arguments.keys()) k])) { // give priority to bool
 			var subs = arguments.get(argument);
 
 			if (subs.length == 0) {

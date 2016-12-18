@@ -18,7 +18,7 @@
 				<ul class="nav nav-tabs nav-stacked">
 					<li class="header"><i class="fa fa-windows" title="Windows"></i></li>
 					::foreach downloads_windows::
-						<li><a href="::filename::"><i class="fa fa-windows"></i> ::title::</a></li>
+						<li><a href="/download/file/::version::/::filename::/"><i class="fa fa-windows"></i> ::title::</a></li>
 					::end::
 				</ul>
 			</div>
@@ -26,7 +26,7 @@
 				<ul class="nav nav-tabs nav-stacked">
 					<li class="header"><i class="fa fa-apple" title="Mac OS X"></i></li>
 					::foreach downloads_osx::
-						<li><a href="::filename::"><i class="fa fa-apple"></i> ::title::</a></li>
+						<li><a href="/download/file/::version::/::filename::/"><i class="fa fa-apple"></i> ::title::</a></li>
 					::end::
 				</ul>
 			</div>
@@ -35,7 +35,7 @@
 					<li class="header"><i class="fa fa-linux" title="Linux"></i></li>
 					<li><a href="/download/linux/"><i class="fa fa-linux"></i> Linux Software Packages</a></li>
 					::foreach downloads_linux::
-						<li><a href="::filename::"><i class="fa fa-linux"></i> ::title::</a></li>
+						<li><a href="/download/file/::version::/::filename::/"><i class="fa fa-linux"></i> ::title::</a></li>
 					::end::
 				</ul>
 			</div>
@@ -47,7 +47,7 @@
 
 		::if (api)::
 			<p class="alert alert-success">
-				<strong><i class="fa fa-book"></i> API Documentation: </strong> Download the API documentation for this version as a ZIP file: <a href="::api::">api-::version::.zip</a>.
+				<strong><i class="fa fa-book"></i> API Documentation: </strong> Download the API documentation for this version as a ZIP file: <a href="/download/api/::version::/api.zip">api-::version::.zip</a>.
 			</p>
 		::end::
 

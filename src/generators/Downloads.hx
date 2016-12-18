@@ -7,35 +7,46 @@ import sys.io.File;
 
 using StringTools;
 
+typedef Download = {
+	title : String,
+	filename : String
+}
+
+typedef DownloadList = {
+	osx : Array<Download>,
+	windows : Array<Download>,
+	linux : Array<Download>
+}
+
 typedef Version = {
 	var version : String;
 	var tag : String;
 	var date : String;
-	@:optional var api : String;
+	@:optional var api : Bool;
 	@:optional var next : Version;
 	@:optional var prev : Version;
-};
+	@:optional var downloads : DownloadList;
+}
 
 typedef Data = {
 	current : String,
 	versions : Array<Version>
-};
+}
 
 class Downloads {
 
-	static function getDownloadInfo (version:String) {
+	static function getDownloadInfo (version:Version) {
 		var downloads = {
 			"osx": [],
 			"windows": [],
-			"linux": [],
-			"api": false
+			"linux": []
 		};
 
 		function getInfo (title:String, filename:String) {
 			return { title: title, filename:filename }
 		}
 
-		for (filename in FileSystem.readDirectory(Path.join(["downloads", version]))) {
+		for (filename in FileSystem.readDirectory(Path.join(["downloads", version.version]))) {
 			if (filename.endsWith("-linux32.tar.gz") || filename.endsWith("-linux.tar.gz") ) downloads.linux.unshift(getInfo("Linux 32-bit Binaries", filename));
 			else if (filename.endsWith("-linux64.tar.gz")) downloads.linux.push(getInfo("Linux 64-bit Binaries", filename));
 			else if (filename.endsWith("-raspi.tar.gz")) downloads.linux.push(getInfo("Raspberry Pi", filename));
@@ -43,12 +54,12 @@ class Downloads {
 			else if (filename.endsWith("-osx.tar.gz")) downloads.osx.push(getInfo("OS X Binaries", filename));
 			else if (filename.endsWith("-win.exe")) downloads.windows.unshift(getInfo("Windows Installer", filename));
 			else if (filename.endsWith("-win.zip")) downloads.windows.push(getInfo("Windows Binaries", filename));
-			else if (filename == 'api-${version}.zip') downloads.api = true;
+			else if (filename == 'api-${version.version}.zip') version.api = true;
 			else if (filename.endsWith(".md")) { /* ignore */ }
 			else trace('Unknown download type for "$filename"');
 		}
 
-		return downloads;
+		version.downloads = downloads;
 	}
 
 	public static function generate () {
@@ -59,7 +70,7 @@ class Downloads {
 		var versions = data.versions;
 		versions.reverse();
 
-		// Annotate data //TODO: move to DownloadList.hx
+		// Annotate data
 		var next = null;
 		for (version in versions) {
 			version.next = next;
@@ -67,6 +78,8 @@ class Downloads {
 				next.prev = version;
 			}
 			next = version;
+
+			getDownloadInfo(version);
 		}
 
 		// The list
@@ -81,7 +94,7 @@ class Downloads {
 			version: null,
 			tag: null,
 			date: null,
-			api: null
+			api: false
 		});
 
 		Utils.save(Path.join([Config.outputFolder, "download", "list", "index.html"]), content, null, null, title);
@@ -97,7 +110,8 @@ class Downloads {
 
 		for (version in versions) {
 			var title = 'Haxe ${version.version}';
-			var downloads = getDownloadInfo(version.version);
+			var releaseNotes = getNotes(version.version, "RELEASE");
+			var changes = getNotes(version.version, "CHANGES");
 
 			var content = views.DownloadVersion.execute({
 				title: title,
@@ -108,11 +122,11 @@ class Downloads {
 				tag: version.tag,
 				prevTag: version.prev != null ? version.prev.tag : null,
 				compareBaseUrl: Config.compareBaseUrl,
-				releaseNotes: getNotes(version.version, "RELEASE"),
-				changes: getNotes(version.version, "CHANGES"),
-				downloads_windows: downloads.windows,
-				downloads_linux: downloads.linux,
-				downloads_osx: downloads.osx,
+				releaseNotes: releaseNotes,
+				changes: changes,
+				downloads_windows: version.downloads.windows,
+				downloads_linux: version.downloads.linux,
+				downloads_osx: version.downloads.osx,
 				api: version.api,
 
 				//TODO need a better template engine or something, having the result of foreach in the global scope is not good
@@ -120,6 +134,40 @@ class Downloads {
 			});
 
 			Utils.save(Path.join([Config.outputFolder, "download", "version", version.version, "index.html"]), content, null, null, title);
+
+			// Copy assets
+			var link = Path.join(["website-content", "downloads", version.version, "downloads"]);
+			var path = Path.join([Config.outputFolder, link]);
+			if (!FileSystem.exists(path)) {
+				FileSystem.createDirectory(path);
+			}
+			for (asset in version.downloads.linux.concat(version.downloads.windows).concat(version.downloads.osx)) {
+				File.copy(Path.join(["downloads", version.version, asset.filename]), Path.join([path, asset.filename]));
+
+				Utils.save(Path.join([Config.outputFolder, "download", "file", version.version, asset.filename, "index.html"]), views.DownloadFile.execute({
+					version: version.version,
+					prev: version.prev != null ? version.prev.version : null,
+					next: version.next != null ? version.next.version : null,
+					title: title,
+					directDownloadLink: '/$link/${asset.filename}',
+					releaseNotes: releaseNotes,
+					changes: changes,
+					api: version.api
+				}), null, null, title);
+			}
+
+			// Copy api
+			if (version.api) {
+				var apiIn = Path.join(["downloads", version.version, 'api-${version.version}.zip']);
+				var apiOut = Path.join([Config.outputFolder, "download", "api", version.version, 'api.zip']);
+				var outDir = Path.directory(apiOut);
+
+				if (!FileSystem.exists(outDir)) {
+					FileSystem.createDirectory(outDir);
+				}
+
+				File.copy(apiIn, apiOut);
+			}
 		}
 
 		// The current version
