@@ -4,6 +4,7 @@ description: I this week's stream, Nicolas introduced his 2D/3D game framework H
 background: nicolas_darker.png
 published: true
 tags: nicolas-about-haxe
+disqusID: 8
 ---
 
 This week, Nicolas showed us one of the technologies he uses when developing those pretty games of his - Heaps! 

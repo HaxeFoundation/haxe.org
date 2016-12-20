@@ -4,6 +4,7 @@ description: A new website with easy to read Haxe coding examples.
 background: haxe-code-cookbook.png
 published: true
 tags: announcements
+disqusID: 12
 ---
 
 We have been working on a new website which went live today: the Haxe Code Cookbook. It has categorized code snippets with additional explanations; small code tutorials and examples in a central place.

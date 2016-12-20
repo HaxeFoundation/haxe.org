@@ -4,6 +4,7 @@ description: The FlashDevelop Team and the Haxe Foundation have joined forces to
 background: header-haxedevelop.png
 published: true
 tags: announcements
+disqusID: 4
 ---
 
 ##HaxeDevelop is here!

@@ -4,6 +4,7 @@ description: The inspector is a clever little framework that you can integrate i
 background: nicolas_darker.png
 published: true
 tags: nicolas-about-haxe
+disqusID: 14
 ---
 
 In last week's stream, Nicolas introduced a new piece of technology that he uses for for game development at Shiro Games. He likes to call it "The Inspector" although, in actuality, it is more than just an inspector. While it can read information about your game, it also allows live modification and manipulation of your game.

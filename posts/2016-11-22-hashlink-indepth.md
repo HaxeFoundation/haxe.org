@@ -4,6 +4,7 @@ description: Find out more about HashLink, the newest Haxe target, a virtual mac
 background: NVIDIA-Tegra-K1-Chip.jpg
 published: true
 tags: tech
+disqusID: 22
 ---
 
 *This is first post of a series of articles covering the new [HashLink](http://hashlink.haxe.org) target for Haxe, read [Part 2](https://haxe.org/blog/hashlink-in-depth-p2/)*

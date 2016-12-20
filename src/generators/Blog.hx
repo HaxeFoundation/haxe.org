@@ -9,18 +9,19 @@ import sys.io.File;
 using StringTools;
 
 typedef Post = {
-	author : String,
-	authorID : String,
-	background : String,
-	content : String,
-	description : String,
-	disqusID : String, // Used in post from old website code, to keep comments
-	date : String,
-	gravatarID : String,
-	name : String,
-	tags : Array<{ name:String }>,
-	title : String,
-	published : Bool
+	var author : String;
+	var authorID : String;
+	var background : String;
+	var content : String;
+	var description : String;
+	var disqusID : String; // Used in post from old website code, to keep comments
+	var date : String;
+	var gravatarID : String;
+	var name : String;
+	var tags : Array<{ name:String }>;
+	var title : String;
+	var published : Bool;
+	@:optional var disqusShortName : String; // Used to directly pass the post to the view
 }
 
 typedef Tag = {
@@ -106,6 +107,7 @@ class Blog {
 
 		// The posts
 		for (post in posts) {
+			post.disqusShortName = "haxe";
 			Utils.save(Path.join([Config.outputFolder, "blog", post.name, "index.html"]), views.BlogPost.execute(post), null, null);
 		}
 
@@ -153,6 +155,7 @@ class Blog {
 			title: title,
 			posts: posts,
 			description: description,
+			disqusShortName: Config.disqusShortName,
 
 			//TODO need a better template engine or something, having the result of foreach in the global scope is not good
 			name: null,

@@ -4,6 +4,7 @@ description: This week Nicolas talked us through the Haxe Compiler Source, the t
 background: nicolas_darker.png
 published: true
 tags: nicolas-about-haxe
+disqusID: 11
 ---
 
 After some sound issues involving Teletubby-like sounds and a whole choir of Nicolas, this week's stream went ahead successfully and the video is up:

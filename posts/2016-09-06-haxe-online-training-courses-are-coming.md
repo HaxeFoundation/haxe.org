@@ -4,6 +4,7 @@ description: The Haxe Foundation is preparing massive open online courses.
 background: 6890140478_0574f334e4_k_trim.jpg
 published: true
 tags: announcements
+disqusID: 20
 ---
 
 Hi! This is Andy. It's my first time posting on the Haxe blog! I've been too busy working on the back-end things in the past few months. While I'm quite interested to talk about the enhancements I made to the haxe.org and haxelib web sites, I would like to talk about something even more exciting!

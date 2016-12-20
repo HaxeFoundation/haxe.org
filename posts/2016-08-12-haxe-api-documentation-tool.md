@@ -3,6 +3,7 @@ author: markknol
 description: Our official documentation tool dox has been updated and released on haxelib. The release contains theme related updates and easier customization. 
 published: true
 tags: announcements
+disqusID: 19
 ---
 
 > Our official documentation tool [dox](https://github.com/HaxeFoundation/dox) has been updated and released on [haxelib](http://lib.haxe.org/p/dox).
@@ -31,7 +32,7 @@ The following examples demonstrate what you can tweak using the default theme se
 ```
 haxelib run dox -i bin/xml -o bin/api-minimal
 ```
-![image](576184/17349508/bf57910c-591e-11e6-8c9a-0299772a59ac.png)
+![image](17349508/bf57910c-591e-11e6-8c9a-0299772a59ac.png)
 
 
 #### Example - themeColor and title
@@ -45,7 +46,7 @@ haxelib run dox -i bin/xml -o bin/api-basic --title "API documentation" -D theme
 ```
 haxelib run dox -i bin/xml -o bin/api-advanced --title "Great API documentation" -D version "1.0.0 beta" -D website "http://haxe.org" -D logo "https://placehold.it/300x75/3c4db7" -D themeColor 0x1294F6 -D textColor 0x9BF1FB -D description "Just a perfect day to learn all about this framework!" -D source-path https://github.com/HaxeFoundation/haxe/blob/development/std/ -ex my.secret.pack
 ```
-![image](17349491/8d230e8c-591e-11e6-8a01-5fa3d0eb5062.png)
+![image](8d230e8c-591e-11e6-8a01-5fa3d0eb5062.png)
 
 A demonstration of a real project with the default theme with custom settings is [hxnodejs](http://haxefoundation.github.io/hxnodejs/js/Node.html). It is automatically published online using [Travis CI instructions](https://github.com/HaxeFoundation/hxnodejs/blob/master/.travis.yml#L18-L21) on Github Pages.
 

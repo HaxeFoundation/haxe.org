@@ -3,6 +3,7 @@ author: nadako
 description: The new proposal process for changes to the Haxe programming language, compiler, standard library and sister projects
 published: true
 tags: announcements
+disqusID: 18
 ---
 
 Hello, community!

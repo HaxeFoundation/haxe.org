@@ -4,6 +4,7 @@ description: It is almost time for WWX again so let's have a look at what I stil
 background: WWX_2015_Speaker_View.jpg
 published: true
 tags: events
+disqusID: 13
 ---
 
 I have very fond memories of my first time at WWX in 2014. I had just come along to keep Simon company and maybe learn a thing or two and during the course of one weekend, I became so caught up in the Haxe that today I am actually working part-time for the Haxe Foundation.

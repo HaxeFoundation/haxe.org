@@ -3,6 +3,7 @@ author: nadako
 description: A short introduction to the new Haxe language feature: import.hx
 published: true
 tags: tech
+disqusID: 6
 ---
 
 # New feature in Haxe language: import.hx

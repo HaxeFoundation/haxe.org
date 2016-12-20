@@ -4,6 +4,7 @@ description: Digging into the runtime
 background: NVIDIA-Tegra-K1-Chip.jpg
 published: true
 tags: tech
+disqusID: 23
 ---
 
 *This is the second part of my in-depth presentation of the new Haxe target: HashLink, please read the [Part 1](https://haxe.org/blog/hashlink-indepth/)  beforehand.*

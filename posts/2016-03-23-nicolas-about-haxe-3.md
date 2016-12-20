@@ -4,6 +4,7 @@ description: In this week's stream, Nicolas gave a short introduction to the mac
 background: nicolas_darker.png
 published: true
 tags: nicolas-about-haxe
+disqusID: 10
 ---
 
 If you have explored the Haxiverse for a bit, chances are that you have heard at least a whisper of the seemingly obscure occurrences called macros. While you may not be entirely certain what they are, you know that they exist and that supposedly they can be used to do some seriously awesome things.

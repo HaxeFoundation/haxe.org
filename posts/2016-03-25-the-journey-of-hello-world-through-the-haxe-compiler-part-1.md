@@ -4,6 +4,7 @@ description: Part 1 of an introduction to what the Haxe compiler does with your 
 background: macro-compilation-role.png
 published: true
 tags: tech
+disqusID: 5
 ---
 
 One nice aspect of Haxe is that it allows you to look behind the scenes through its macro system. It is not unusual to be introduced to some compiler internals this way, and one often wonders what lies beyond. In the terms of game design, Haxe is easy to learn and hard to master: You can get going very quickly but the compiler still holds pleasant surprises even for seasoned developers. In this article we follow a Hello World program on its journey through the compiler.

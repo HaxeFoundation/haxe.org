@@ -3,6 +3,7 @@ author: simn
 description: Sometimes bugs are very hard to figure out, yet very easy to fix.
 published: true
 tags: tech
+disqusID: 9
 ---
 
 I like to classify issues by asking two questions: Is it easy to figure out the problem? And is it easy to address the problem? This classification can be visualized as a table:

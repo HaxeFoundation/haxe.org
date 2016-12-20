@@ -3,6 +3,7 @@ author: simn
 description: What you display is what you get, but sometimes it shouldn't be.
 published: true
 tags: tech
+disqusID: 21
 ---
 
 These past weeks and months, I've been working a lot on improving the Haxe compiler's IDE support. It all started with Dan's exploration into the world of [Visual Studio Code extensions](https://github.com/vshaxe/vshaxe) back in April. We quickly realized that Microsoft did a really good job on the design of that, and initial experiments were very promising. By now, it is one of the most feature-rich Haxe IDEs out there, despite the original author starting it as a mere experiment:

@@ -4,6 +4,7 @@ description:
 background: Defenders_Quest.jpg
 published: true
 tags: case-studies
+disqusID: 17
 ---
 
 A few years back (in 2012), before I got involved with Haxe, I came across a game called Defender's Quest on Steam. It sounded very much like something I would like so I bought it and promptly proceeded to spend a good 40 hours playing it. Twice. Then I recommended it to all my friends. About two years later, Simon mentioned to me that Lars Doucet, the developer of Defender's Quest, would actually use Haxe for the sequel and for the HD release of DQ I. By that time I had taken more interest in Haxe and its community (WWX will do that to you) and was getting more involved. Needless to say that I got very excited about a game that I loved a lot getting a sequel and said sequel getting made in Haxe. One thing followed another and at WWX 2015 Lars actually came to give a talk and we got to hang out quite a bit. Now, a year later, the HD release of DQ I is out and looks really, really nice. You should all go the check out the trailer, it is beyond hilarious. It all got DELUXIFIED!

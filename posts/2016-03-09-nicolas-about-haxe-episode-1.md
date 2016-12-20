@@ -4,6 +4,7 @@ description: In this first episode of his new weekly stream Nicolas will tell yo
 background: nicolas_darker.png
 published: true
 tags: nicolas-about-haxe
+disqusID: 7
 ---
 
 Did you know that Nicolas has taken up a weekly stream about Haxe? Of course you did! You are following all things [#Haxe](https://twitter.com/search?q=%23haxe&src=typd) on twitter after all. The stream will take place weekly on Friday at 13:30 CET (Paris time) over at [Nicolas' Youtube Channel](https://www.youtube.com/c/NicolasCannasse/live).
