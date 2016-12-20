@@ -1,6 +1,6 @@
 Dear community,
 
-On behalf of the Haxe Foundation I am proud to announce that Haxe 3.4.0-rc1 is now officially released! It is available along with the changelog at <http://haxe.org/download>.
+On behalf of the Haxe Foundation I am proud to announce that Haxe 3.4.0-rc1 is now officially released! It is available along with the changelog at <https://haxe.org/download>.
 
 We went from the 3.3.0 RC to a new version because many things changed internally. The [HashLink](http://hashlink.haxe.org/) target is now fully operational and the compiler had many improvements to its IDE support capabilities.
 

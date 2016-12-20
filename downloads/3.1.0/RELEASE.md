@@ -1,6 +1,6 @@
 Dear community,
 
-On behalf of the Haxe Foundation, I am proud to announce that Haxe 3.1.0 is now officially released! It is available at http://haxe.org/download.
+On behalf of the Haxe Foundation, I am proud to announce that Haxe 3.1.0 is now officially released! It is available at https://haxe.org/download.
 
 Our main focus for this release was on improving stability and fixing bugs. Nevertheless, several new features were introduced as well. Make sure to check out the changelog (http://haxe.org/file/CHANGES.txt).
 

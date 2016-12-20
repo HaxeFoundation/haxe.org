@@ -1,7 +1,7 @@
 Dear community,
 
 On behalf of the Haxe Foundation, I am proud to announce that Haxe 3.2.0 is now
-officially released! It is available at <http://haxe.org/download/version/3.2.0>.
+officially released! It is available at <https://haxe.org/download/version/3.2.0>.
 
 We spent a lot of time ironing out the bugs that were found in the release
 candidate. The following information is from that initial release.

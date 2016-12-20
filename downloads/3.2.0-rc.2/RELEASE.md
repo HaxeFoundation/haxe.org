@@ -1,6 +1,6 @@
 Dear community,
 
-On behalf of the Haxe Foundation I am proud to announce that Haxe 3.2.0-rc2 is now officially released! It is available along with the changelog at <http://haxe.org/download>.
+On behalf of the Haxe Foundation I am proud to announce that Haxe 3.2.0-rc2 is now officially released! It is available along with the changelog at <https://haxe.org/download>.
 
 This release introduces the new Python target which was developed by Heinz Hölzer and Dan Korostelev. As with any new target it should be considered to be in beta stage.
 

@@ -1,6 +1,6 @@
 Dear community,
 
-On behalf of the Haxe Foundation I am proud to announce that Haxe 3.3.0-rc1 is now officially released! It is available along with the changelog at <http://haxe.org/download>.
+On behalf of the Haxe Foundation I am proud to announce that Haxe 3.3.0-rc1 is now officially released! It is available along with the changelog at <https://haxe.org/download>.
 
 This release introduces the new Lua target which was developed by Justin Donaldson. As with any new target it should be considered to be in beta stage.
 
