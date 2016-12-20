@@ -1,11 +1,12 @@
 title: The New Haxe Target: HashLink InDepth - Part 1
 author: nicolas
 description: Find out more about HashLink, the newest Haxe target, a virtual machine used to develop system/server/desktop applications.
+background: NVIDIA-Tegra-K1-Chip.jpg
 published: true
 tags: tech
 ---
 
-*This is first post of a series of articles covering the new [HashLink](http://hashlink.haxe.org) target for Haxe*
+*This is first post of a series of articles covering the new [HashLink](http://hashlink.haxe.org) target for Haxe, read [Part 2](https://haxe.org/blog/hashlink-in-depth-p2/)*
 
 [HashLink](http://hashlink.haxe.org) is a new Haxe target that was announced a few weeks ago which I have worked on for the past year and thought about for even longer.
 
@@ -277,4 +278,4 @@ However, it is possible that some bugs happen here and there. There are several 
 
 That's all for now, in the next part we will discuss about HashLink runtime and type system.
 
-*The [Part 2](https://haxe.org/blog/) of this technical presentation of HashLink will be made available soon*
+*Continue reading the [Part 2](https://haxe.org/blog/hashlink-in-depth-p2/) of this technical presentation of HashLink*
