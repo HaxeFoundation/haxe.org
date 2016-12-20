@@ -2,6 +2,7 @@ package generators;
 
 import haxe.Json;
 import haxe.io.Path;
+import haxe.xml.Parser.XmlParserException;
 import sys.FileSystem;
 import sys.io.File;
 
@@ -272,9 +273,22 @@ class Blog {
 			}
 		}
 		
-		var xml = Xml.parse(Markdown.markdownToHtml(contentBuffer.toString()));
-		changeImg('${data.date}-${data.name}', xml);
-		data.content = xml.toString();
+		try {
+			var xml = Xml.parse(Markdown.markdownToHtml(contentBuffer.toString()));
+			changeImg('${data.date}-${data.name}', xml);
+			data.content = xml.toString();
+		} catch (e:Dynamic) {
+			Sys.println('Error when parsing "$post"');
+
+			if (Std.is(e, XmlParserException)) {
+				var e = cast(e, XmlParserException);
+				Sys.println('${e.message} at line ${e.lineNumber} char ${e.positionAtLine}');
+				Sys.println(e.xml.substr(e.position-20, 40));
+			}
+			else {
+				Sys.println(e);
+			}
+		}
 		
 		return data;
 	}
