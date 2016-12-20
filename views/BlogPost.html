@@ -37,9 +37,13 @@
 	</div>
 </div>
 
-<script id="disqus-script" src="//::disqusShortName::.disqus.com/embed.js"></script>
 <script>
 window.DISQUSWIDGETS = undefined;
 window.disqus_shortname = "::disqusShortName::";
+window.disqus_config = function () {
+	this.page.identifier = "::disqusID::";
+	this.page.url = "/blog/::name::";
+};
 </script>
+<script id="disqus-script" src="//::disqusShortName::.disqus.com/embed.js"></script>
 <script src="//::disqusShortName::.disqus.com/count.js"></script>
