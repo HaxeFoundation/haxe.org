@@ -65,7 +65,7 @@ class Client {
 	static function menuExpandCollapse() {
 		var t = new JQuery(".tree-nav li i.fa");
 		t.click( function (event) {
-			new JQuery(t).parent().toggleClass("active");
+			new JQuery(event.target).parent().toggleClass("active");
 		});
 	}
 
