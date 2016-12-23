@@ -5,6 +5,4 @@
 -main Main
 -cp src
 -lib markdown
-# TODO: detox needs git version
--lib detox
 --interp

@@ -2,12 +2,12 @@ package generators;
 
 import haxe.Json;
 import haxe.io.Path;
+import haxe.xml.Parser.XmlParserException;
 import sys.FileSystem;
 import sys.io.File;
 
 import SiteMap.SitePage;
 
-using Detox;
 using StringTools;
 
 typedef Flags = {
@@ -66,7 +66,7 @@ class Manual {
 					disambiguation.reverse();
 
 					if (disambiguation.length > 0) {
-						section.title = " (" + disambiguation.join(" - ") + ")"; //TODO: before it was section.disambiguation instead of title, check that it works
+						section.title += " (" + disambiguation.join(" - ") + ")"; //TODO: before it was section.disambiguation instead of title, check that it works
 					}
 				}
 			}
@@ -74,7 +74,7 @@ class Manual {
 
 		// Generate pages
 		for (page in pages) {
-			var content = processMarkdown(Utils.readContentFile(page.file));
+			var content = processMarkdown(page.file, File.getContent(page.file));
 
 			content = views.PageWithSidebar.execute({
 				sideNav: SiteMap.sideBar(sitemap, page.page),
@@ -106,7 +106,7 @@ class Manual {
 			url: 'manual/${section.label}.html',
 			title: section.title,
 			sub: subs,
-			editLink: '${section.source.file}#L${section.source.lineMin}-${section.source.lineMax}'
+			editLink: '${section.source.file}#L${section.source.lineMin}-L${section.source.lineMax}'
 		};
 		sitemap.push(sitePage);
 
@@ -142,98 +142,141 @@ class Manual {
 	}
 
 	/**
-		Read the markdown file, parse as XML, and do some filtering.
-		The markdown lacks some markup we need, for example, classes on the "previous" and "next" links so we can style them appropriately.
-		We also need to redirect links (if relative, change extension from `.md` to `.html`), and we need to process images.
+		Read the markdown file, parse as XML, and do some filtering:
+		* Change h2 to h1 with styling
+		* Add anchor link to h3...h6
+		* Style for "Triva" or "Define" blockquote
+		* Class for tables
+		* Relative url for links (and changing .md to .html) and images
 	**/
-	static function processMarkdown (markdown:String) : String {
-		var html = Markdown.markdownToHtml(markdown);
-		var xml = "div".create().setInnerHTML(html);
-
-		var titleNode:DOMNode = null;
-		var endOfContentNode:DOMNode = null;
-
-		if (xml.children().length > 0) {
-			for (node in xml.children()) {
-				if (endOfContentNode == null) {
-					switch (node.tagName()) {
-						case "hr":
-							// A "---" in the markdown signifies the end of the page content, and the beginning of the navigation links.
-							endOfContentNode = node;
-
-						case "h2":
-							var text = node.text().trim();
-							var id = text.substr(0, text.indexOf(" "));
-							var title = text.substr(text.indexOf(" ") + 1);
-							var h1 = "h1".create().setInnerHTML('<small>$id</small> $title');
-							titleNode = h1;
-							node.replaceWith(h1);
-
-						case "h3", "h4", "h5", "h6":
-							var bookmarkID = node.text().trim().toLowerCase().replace(" ", "-");
-							var link = "a".create().setAttr("href", '#$bookmarkID');
-							var anchor = "a".create().setAttr("id", bookmarkID).addClass("anch");
-							link.append(node.children(false)).appendTo(node);
-							node.beforeThisInsert(anchor);
-							processNodes(link);
-
-						case "blockquote":
-							var firstElm = node.firstChildren();
-							if (firstElm.tagName() == "h5") {
-								if (firstElm.text().startsWith("Define")) {
-									node.addClass("define");
-								}
-								else if (firstElm.text().startsWith("Trivia")) {
-									node.addClass("trivia");
-								}
-							}
-							processNodes( node );
-
-						default:
-							processNodes( node );
-					}
-				}
-				else {
-					node.removeFromDOM();
-				}
+	static function processMarkdown (filename:String, markdown:String) : String {
+		// Remove the footer
+		var sb = new StringBuf();
+		for (line in markdown.split("\n")) {
+			if (line == "---") {
+				break;
 			}
 
-			html = xml.innerHTML();
+			sb.add(line);
+			sb.add("\n");
 		}
 
-		return html;
+		// Get html from markdown and post process it
+		try {
+			var xml = Xml.parse(Markdown.markdownToHtml(sb.toString()));
+			processNode(xml);
+			return xml.toString();
+		}
+		catch (e:Dynamic) {
+			Sys.println('Error when parsing "$filename"');
+
+			if (Std.is(e, XmlParserException)) {
+				var e = cast(e, XmlParserException);
+				Sys.println('${e.message} at line ${e.lineNumber} char ${e.positionAtLine}');
+				Sys.println(e.xml.substr(e.position-20, 40));
+			}
+			else {
+				Sys.println(e);
+			}
+
+			trace(haxe.CallStack.toString(haxe.CallStack.exceptionStack()));
+
+			return "Couldn't parse manual file";
+		}
 	}
 
-	/**
-		Look through manual content for nodes that need markup transformation.
+	static function processNode (xml:Xml) {
+		if (xml.nodeType == Xml.Element) {
+			switch (xml.nodeName) {
+				case "a":
+					if (xml.exists("href")) {
+						xml.set("href", xml.get("href").replace(".md", ".html"));
+					}
 
-		So far:
+				case "table":
+					addClass(xml, "table table-bordered");
 
-		- Links, will need the `href="something.md"` transformed into `href="something.html"`
-		- Tables will have "table table-bordered" classes added for styling.
-		- Images, will need paths altered.
-	**/
-	static function processNodes (top:DOMNode) {
-		var thisAndDescendants = top.descendants(true).add(top);
+				case "img":
+					var src = xml.get("src");
+					src = "/manual/" + Path.withoutDirectory(src);
+					xml.set("src", src);
 
-		for (node in thisAndDescendants) {
-			if (node.isElement()) {
-				switch (node.tagName()) {
-					case "a":
-						node.setAttr("href", node.attr("href").replace(".md", ".html"));
+				case "h2":
+					var text = xml.firstChild().nodeValue.trim();
+					var id = text.substr(0, text.indexOf(" "));
+					var title = text.substr(text.indexOf(" ") + 1);
+					insertBefore(Xml.parse('<h1><small>$id</small> $title</h1>').firstElement(), xml);
+					xml.parent.removeChild(xml);
 
-					case "table":
-						node.addClass("table table-bordered");
+				case "h3", "h4", "h5", "h6":
+					var bookmarkID = getText(xml).toLowerCase().replace(" ", "-");
+					var link = Xml.parse('<a id="$bookmarkID" class="anch" />').firstElement();
+					var h = Xml.parse('<${xml.nodeName}><a href="#$bookmarkID"></a></${xml.nodeName}>').firstElement();
+					for (child in xml) {
+						h.firstElement().addChild(child);
+					}
+					insertBefore(link, xml);
+					insertBefore(h, xml);
+					xml.parent.removeChild(xml);
 
-					case "img":
-						var src = node.attr("src");
-						src = "/manual/" + Path.withoutDirectory(src);
-						node.setAttr("src", src);
+				case "blockquote":
+					var firstElm = xml.firstElement();
+					if (firstElm.nodeName == "h5") {
+						var text = firstElm.firstChild().nodeValue.trim();
+						if (text.startsWith("Define")) {
+							addClass(xml, "define");
+						}
+						else if (text.startsWith("Trivia")) {
+							addClass(xml, "trivia");
+						}
+					}
 
-					default:
-				}
+				default:
+					processChildren(xml);
 			}
 		}
+
+		if (xml.nodeType == Xml.Document) {
+			processChildren(xml);
+		}
+	}
+
+	static function processChildren (xml:Xml) {
+		var children = [for (n in xml) n];
+
+		for (element in children) {
+			processNode(element);
+		}
+	}
+
+	static function addClass (xml:Xml, classesName:String) {
+		var classes = "";
+
+		if (xml.exists("class")) {
+			classes = xml.get("class");
+		}
+
+		xml.set("class", '$classes $classesName');
+	}
+
+	static function insertBefore (xml:Xml, before:Xml) {
+		var siblings = [for (n in before.parent) n];
+		before.parent.insertChild(xml, siblings.indexOf(before));
+	}
+
+	static function getText (xml:Xml) : String {
+		var text = "";
+
+		if (xml.nodeType == Xml.Element) {
+			for (child in xml) {
+				text += getText(child);
+			}
+		}
+		else {
+			text += xml.nodeValue;
+		}
+
+		return text;
 	}
 
 }

@@ -3,7 +3,6 @@ haxe: "development"
 dist: trusty
 install:
   - yes | haxelib install all
-  - haxelib git detox https://github.com/ufront/detox.git
 script:
   - haxe generate.hxml
 deploy:
