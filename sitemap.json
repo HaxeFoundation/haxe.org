@@ -5,99 +5,99 @@
 	},
 	{
 		"title": "Download",
-		"url": "download/",
+		"url": "/download/",
 		"sub": []
 	},
 	{
 		"title": "Blog",
-		"url": "blog/"
+		"url": "/blog/"
 	},
 	{
 		"title": "Use Cases",
-		"url": "use-cases/",
+		"url": "/use-cases/",
 		"sub": [
 			{
 				"title": "Overview",
-				"url": "use-cases/"
+				"url": "/use-cases/"
 			},
 			{
 				"title": "Games",
-				"url": "use-cases/games/"
+				"url": "/use-cases/games/"
 			},
 			{
 				"title": "Web",
-				"url": "use-cases/web/"
+				"url": "/use-cases/web/"
 			},
 			{
 				"title": "Mobile",
-				"url": "use-cases/mobile/"
+				"url": "/use-cases/mobile/"
 			},
 			{
 				"title": "Desktop",
-				"url": "use-cases/desktop/"
+				"url": "/use-cases/desktop/"
 			},
 			{
 				"title": "Command Line",
-				"url": "use-cases/cli/"
+				"url": "/use-cases/cli/"
 			},
 			{
 				"title": "Cross Platform APIs",
-				"url": "use-cases/cross-platform-apis/"
+				"url": "/use-cases/cross-platform-apis/"
 			},
 			{
 				"title": null, "url": "#divider"
 			},
 			{
 				"title": "Who Uses Haxe",
-				"url": "use-cases/who-uses-haxe.html"
+				"url": "/use-cases/who-uses-haxe.html"
 			}
 		]
 	},
 	{
 		"title": "Haxe Foundation",
-		"url": "foundation/",
+		"url": "/foundation/",
 		"sub": [
 			{
 				"title": "About The Foundation",
-				"url": "foundation/"
+				"url": "/foundation/"
 			},
 			{
 				"title": "Who is who",
-				"url": "foundation/people.html"
+				"url": "/foundation/people.html"
 			},
 			{
 				"title": "Jobs",
-				"url": "foundation/jobs.html"
+				"url": "/foundation/jobs.html"
 			},
 			{ 
 				"title": null, "url": "#divider" 
 			},
 			{
 				"title": "Support Plans",
-				"url": "foundation/support-plans.html"
+				"url": "/foundation/support-plans.html"
 			},
 			{
 				"title": "Supported Projects",
-				"url": "foundation/supported-projects.html"
+				"url": "/foundation/supported-projects.html"
 			},
 			{
 				"title": "Donate",
-				"url": "foundation/donate.html"
+				"url": "/foundation/donate.html"
 			},
 			{ 
 				"title": null, "url": "#divider" 
 			},
 			{
 				"title": "Branding",
-				"url": "foundation/branding.html"
+				"url": "/foundation/branding.html"
 			},
 			{
 				"title": "Open Source",
-				"url": "foundation/open-source.html"
+				"url": "/foundation/open-source.html"
 			},
 			{
 				"title": "Contact",
-				"url": "foundation/contact.html"
+				"url": "/foundation/contact.html"
 			}
 		]
 	},
@@ -106,43 +106,43 @@
 	},
 	{
 		"title": "Learn Haxe",
-		"url": "documentation/",
+		"url": "/documentation/",
 		"sub": [
 			{
 				"title": "Introduction",
-				"url": "documentation/introduction/",
+				"url": "/documentation/introduction/",
 				"sub": [
 					{
 						"title": "Toolkit Introduction",
-						"url": "documentation/introduction/toolkit-introduction.html"
+						"url": "/documentation/introduction/toolkit-introduction.html"
 					},
 					{
 						"title": "Language Introduction",
-						"url": "documentation/introduction/language-introduction.html"
+						"url": "/documentation/introduction/language-introduction.html"
 					},
 					{
 						"title": "Language Features",
-						"url": "documentation/introduction/language-features.html"
+						"url": "/documentation/introduction/language-features.html"
 					},
 					{
 						"title": "Standard Library Introduction",
-						"url": "documentation/introduction/stdlib-introduction.html"
+						"url": "/documentation/introduction/stdlib-introduction.html"
 					},
 					{
 						"title": "Compiler Targets",
-						"url": "documentation/introduction/compiler-targets.html"
+						"url": "/documentation/introduction/compiler-targets.html"
 					},
 					{
 						"title": "Editors and IDEs",
-						"url": "documentation/introduction/editors-and-ides.html"
+						"url": "/documentation/introduction/editors-and-ides.html"
 					},
 					{
 						"title": "Building Haxe",
-						"url": "documentation/introduction/building-haxe.html"
+						"url": "/documentation/introduction/building-haxe.html"
 					},
 					{
 						"title": "Compiler Usage",
-						"url": "manual/compiler-usage.html"
+						"url": "/manual/compiler-usage.html"
 					}
 				]
 			},
@@ -151,7 +151,7 @@
 			},
 			{
 				"title": "Manual",
-				"url": "manual/",
+				"url": "/manual/",
 				"sub": []
 			},
 			{

@@ -2,6 +2,8 @@ import haxe.io.Path;
 import sys.FileSystem;
 import sys.io.File;
 
+using StringTools;
+
 class Utils {
 
 	public static function listDirectoryRecursive (path:String) : Array<String> {
@@ -45,7 +47,7 @@ class Utils {
 			viewContent: content,
 			title: current != null ? current.title : title,
 			siteMap: SiteMap.footer(),
-			navBar: SiteMap.navbar(current),
+			navBar: SiteMap.navbar(current != null ? current : SiteMap.pageForUrl(urlNormalize(outPath), false, true)),
 			editLink: current != null && current.editLink != null ? current.editLink : editLink,
 			description: Config.description,
 			currentYear: Std.string(Date.now().getFullYear())
@@ -59,6 +61,36 @@ class Utils {
 		}
 
 		File.copy(src, dest);
+	}
+
+	public static function urlNormalize (url:String, mdToHtml:Bool=true) {
+		url = url.replace("//", "/");
+
+		if (url.startsWith(Config.outputFolder)) {
+			url = url.substr(Config.outputFolder.length);
+		}
+
+		if (url.endsWith("index.html")) {
+			url = Path.directory(url);
+		}
+
+		if (Path.extension(url) == "" && url.charAt(url.length - 1) != "/") {
+			url = url + "/";
+		}
+
+		if (mdToHtml && Path.extension(url) == "md") {
+			url = Path.withoutExtension(url) + ".html";
+		}
+
+		if (url.charAt(0) != "/") {
+			url = "/" + url;
+		}
+
+		if (new Path(url).file == "" && url.charAt(url.length - 1) != "/") {
+			url = url + "/";
+		}
+
+		return url;
 	}
 
 }

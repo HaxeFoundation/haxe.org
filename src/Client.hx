@@ -70,7 +70,7 @@ class Client {
 	}
 
 	static function expandCurrentPageOnMenu() {
-		var current = js.Browser.document.URL.withoutDirectory();
+		var current = js.Browser.location.pathname;
 		new JQuery('.tree-nav a[href="$current"]').addClass("active").parents("li").addClass("active");
 	}
 

@@ -8,6 +8,7 @@ typedef SitePage = {
 	var url : String;
 	var title : String;
 	@:optional var sub : Array<SitePage>;
+
 	@:optional var parent : SitePage;
 	@:optional var previous : SitePage;
 	@:optional var next : SitePage;
@@ -40,94 +41,63 @@ class SiteMap {
 		}
 	}
 
-	public static function urlForFile (file:String) : String {
-		var path = Path.normalize(file).split("/");
-
-		if (path[0] == Config.outputFolder) {
-			path.shift();
-		}
-
-		var last = path.pop();
-		var ext = Path.extension(last);
-
-		if (ext == "md") {
-			last = Path.withoutExtension(file) + ".html";
-		}
-
-		if (last != "index.html") {
-			path.push(last);
-		}
-		else {
-			path.push("");
-		}
-
-		return path.join("/");
-	}
-
-	public static function pageForUrl (url:String, ?sitemap:Array<SitePage>) : SitePage {
-		if (Path.extension(url) == "md") {
-			url = Path.withoutExtension(url) + ".html";
-		}
-
-		if (url.endsWith("/index.html")) {
-			url = Path.directory(url) + "/";
-		}
-
+	public static function pageForUrl (url:String, category:Bool, fuzzy:Bool, ?sitemap:Array<SitePage>) : SitePage {
 		if (sitemap == null) {
 			sitemap = SiteMap.sitemap;
 		}
 
-		return pageInSiteMap(sitemap, url);
-	}
+		url = Utils.urlNormalize(url);
 
-	public static function urlForPage (page:SitePage) : String {
-		if (page.url.startsWith("http")) {
-			return page.url;
+		var matches = fuzzyPageForUrl(url, category, sitemap);
+
+		if (matches.length == 0) {
+			return null;
 		}
 
-		if (page.url == "/") {
-			return "/";
+		var best = matches[0];
+
+		if (fuzzy) {
+			return best;
 		}
-
-		return "/" + page.url;
-	}
-
-	static function pageInSiteMap (map:Array<SitePage>, url:String) : SitePage {
-		for (page in map) {
-			if (url == page.url) {
-				return page;
-			}
-
-			for (spage in page.sub) {
-				var p = pageInSiteMap(page.sub, url);
-				if (p != null) {
-					return p;
-				}
-			}
+		else if (best.url == url) {
+			return best;
 		}
 
 		return null;
 	}
 
-	static function inMap (m:Array<SitePage>, page:SitePage) : Bool {
-		for (p in m) {
-			if (p == page) {
-				return true;
+	static function fuzzyPageForUrl (url:String, category:Bool, sitemap:Array<SitePage>) : Array<SitePage> {
+		var fuzzyMatches = [];
+
+		for (page in sitemap) {
+			// Search in sub first, first sub often has the same url as category
+			// unless category is asked
+
+			if (category && url.startsWith(page.url)) {
+				fuzzyMatches.push(page);
 			}
 
-			if (inMap(p.sub, page)) {
-				return true;
+			fuzzyMatches = fuzzyMatches.concat(fuzzyPageForUrl(url, category, page.sub));
+
+			if (!category && url.startsWith(page.url)) {
+				fuzzyMatches.push(page);
 			}
 		}
 
-		return false;
+		fuzzyMatches.sort(function (p1, p2) {
+			return -1 * Reflect.compare(p1.url.length, p2.url.length);
+		});
+
+		return fuzzyMatches;
 	}
 
 	static function getFlat (map:Array<SitePage>) : Array<SitePage> {
 		var flat = [];
 
 		for (page in map) {
-			flat.push(page);
+			if (page.url != Config.sitemapDividerUrl) {
+				flat.push(page);
+			}
 			flat = flat.concat(getFlat(page.sub));
 		}
 
@@ -141,34 +111,19 @@ class SiteMap {
 
 		for (i in 0...flat.length) {
 			if (flat[i] == page) {
-				var j = i - 1;
-				while (j >= 0) {
-					if (flat[j].url == Config.sitemapDividerUrl) {
-						j--;
-					}
-					else {
-						prev = flat[j];
-						break;
-					}
+				if (i > 0) {
+					prev = flat[i - 1];
 				}
-
-				var j = i + 1;
-				while (j < flat.length) {
-					if (flat[j].url == Config.sitemapDividerUrl) {
-						j++;
-					}
-					else {
-						next = flat[j];
-						break;
-					}
+				if (i < flat.length - 1) {
+					next = flat[i + 1];
 				}
 			}
 		}
 
 		return {
-			prevUrl: prev != null ? "/" + prev.url : null,
+			prevUrl: prev != null ? prev.url : null,
 			prevTitle: prev != null ? prev.title : null,
-			nextUrl: next != null ? "/" + next.url : null,
+			nextUrl: next != null ? next.url : null,
 			nextTitle: next != null ? next.title : null,
 		};
 	}
@@ -209,7 +164,7 @@ class SiteMap {
 			if (page.sub.length > 0) {
 				sb.add(" parent");
 			}
-			if (isOrParent(page, current)) {
+			if (page == current) {
 				sb.add(" active");
 			}
 			sb.add('">');
@@ -218,7 +173,7 @@ class SiteMap {
 			sb.add('<i class="fa"></i>');
 
 			// Add link
-			sb.add('<a href="${urlForPage(page)}"');
+			sb.add('<a href="${page.url}"');
 			if (page == current) {
 				sb.add(' class="active"');
 			}
@@ -238,27 +193,7 @@ class SiteMap {
 	}
 
 	/**
-		Print a sitemap to be used as a footer.
-
-		The structure will be:
-
-		```
-		<ul>
-			<li class="sitemap-column">
-				<ul>
-					<li>Page</li>
-					<li>Page</li>
-				</ul>
-			</li>
-			<li class="sitemap-column">
-				<h5>Sub Menu 1</h5>
-				<ul>
-					<li>Sub Page 1A</li>
-					<li>Sub Page 1B</li>
-				</ul>
-			</li>
-		</ul>
-		```
+		Print the sitemap to be used as a footer.
 	**/
 	static var _footer : String;
 	public static function footer () : String {
@@ -266,32 +201,12 @@ class SiteMap {
 			return _footer;
 		}
 
-		var sb = new StringBuf();
+		var firstColumn = [];
 		var columns = [];
-		sb.add("<ul>");
 
-		inline function addHeader (page:SitePage, colBuf:StringBuf) {
-			colBuf.add('<h5><a href="${urlForPage(page)}">${page.title}</a></h5>' );
+		function makeRow (page:SitePage) {
+			return { url: page.url, title: page.title };
 		}
-
-		function openColumn(?page:SitePage) : StringBuf {
-			var colBuf = new StringBuf();
-			columns.push(colBuf);
-
-			if (page != null && page.url == Config.sitemapDividerUrl) {
-				return colBuf;
-			}
-
-			colBuf.add('<li class="column">');
-
-			if (page != null) {
-				addHeader(page, colBuf);
-			}
-
-			return colBuf;
-		}
-
-		var firstColumn = openColumn();
 
 		for (page in sitemap) {
 			if (page.url == Config.sitemapDividerUrl) {
@@ -299,28 +214,32 @@ class SiteMap {
 			}
 
 			if (page.sub.length == 0) {
-				addHeader(page, firstColumn);
+				firstColumn.push(makeRow(page));
 			}
 			else {
-				var col = openColumn(page);
-				col.add("<ul>");
+				var header = makeRow(page);
+				var rows = [];
+
 				for (p in page.sub) {
 					if (p.url != Config.sitemapDividerUrl) {
-						col.add('<li><a href="${urlForPage(p)}">${p.title}</a></li>' );
+						rows.push(makeRow(p));
 					}
 				}
-				col.add("</ul>");
+
+				columns.push({ title: header.title, url: header.url, rows: rows });
 			}
 		}
 
-		for (c in columns) {
-			c.add("</li>");
-			sb.add(c.toString());
-		}
+		_footer = views.Footer.execute({
+			firstColumn: firstColumn,
+			columns: columns,
 
-		sb.add("</ul>");
+			//TODO: need better template engine
+			url: null,
+			title: null,
+			rows: null
+		});
 
-		_footer = sb.toString();
 		return _footer;
 	}
 
@@ -358,9 +277,9 @@ class SiteMap {
 
 			if (page.sub.length > 0 && !isSubMenu) {
 				// Add a dropdown menu, only if this has a submenu and we're still on the top level.
-				sb.add('<a href="${urlForPage(page)}" data-toggle="dropdown" class="dropdown-toggle' );
+				sb.add('<a href="${page.url}" data-toggle="dropdown" class="dropdown-toggle' );
 
-				if (page == current) {
+				if (isOrParent(page, current)) {
 					sb.add(" active");
 				}
 
@@ -373,7 +292,7 @@ class SiteMap {
 			}
 			else if (page.url != Config.sitemapDividerUrl) {
 				// Add a regular link - no submenu.
-				sb.add('<a href="${urlForPage(page)}"');
+				sb.add('<a href="${page.url}"');
 				if (page == current) {
 					sb.add(' class="active"');
 				}

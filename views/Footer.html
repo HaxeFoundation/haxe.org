@@ -1,0 +1,18 @@
+<ul>
+	<li class="column">
+		::foreach firstColumn::
+			<h5><a href="::url::">::title::</a></h5>
+		::end::
+	</li>
+	
+	::foreach columns::
+	<li class="column">
+		<h5><a href="::url::">::title::</a></h5>
+		<ul>
+			::foreach rows::
+				<li><a href="::url::">::title::</a></li>
+			::end::
+		</ul>
+	</li>
+	::end::
+</ul>

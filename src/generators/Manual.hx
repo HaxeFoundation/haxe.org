@@ -83,7 +83,7 @@ class Manual {
 				content: content
 			});
 
-			Utils.save(Path.join([Config.outputFolder, page.page.url]), content, page.page, null);
+			Utils.save(Path.join([Config.outputFolder, page.page.url]), content, null, null);
 		}
 
 		// Copy images
@@ -103,7 +103,7 @@ class Manual {
 		}
 
 		var sitePage = {
-			url: 'manual/${section.label}.html',
+			url: '/manual/${section.label}.html',
 			title: section.title,
 			sub: subs,
 			editLink: '${section.source.file}#L${section.source.lineMin}-L${section.source.lineMax}'

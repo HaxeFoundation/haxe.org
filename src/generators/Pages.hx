@@ -14,8 +14,8 @@ class Pages {
 			var file = path.join("/");
 
 			var inPath = Path.join([Config.pagesPath, folder, file]);
-			var sitepage = SiteMap.pageForUrl(folder + "/" + file);
-			var root = SiteMap.pageForUrl(folder + "/");
+			var sitepage = SiteMap.pageForUrl(folder + "/" + file, false, false);
+			var root = SiteMap.pageForUrl(folder, true, false);
 			var content = Utils.readContentFile(inPath);
 			var editLink = Config.baseEditLink + inPath;
 
@@ -28,7 +28,7 @@ class Pages {
 						content: content
 					});
 				}
-				else { // Not in sitemap, so can't make navbar
+				else { // Not in sitemap, so can't make sidebar
 					content = views.PageWithoutSidebar.execute({
 						editLink: editLink,
 						content: content
