@@ -15,9 +15,9 @@ You can then edit using Github's online file editor and submit a pull request. Y
 
 If you find a bug, have an issue, suggestion, or want to contribute in some other way, please use the Github Issue Tracker.
 
-Any bugs we will attempt to address promptly.  New content or subjective issues (colours, fonts, marketing material etc) will be considered on a case by case basis.
+Any bugs we will attempt to address promptly. New content or subjective issues (colours, fonts, marketing material etc) will be considered on a case by case basis.
 
-If you are a designer and want to help freshen up the look of the site, please open an issue or contact <contact@haxe.org>.  We'd love your input!
+If you are a designer and want to help freshen up the look of the site, please open an issue or contact <contact@haxe.org>. We'd love your input!
 
 ## Contributing CSS
 
@@ -44,6 +44,8 @@ The haxe.org website was designed to be easy to generate, to run a local copy fo
 The website is now available in the `out/` folder, you can launch it with `nekotools server -d out` and access it at `http://localhost:2000/`.
 
 ## Deploying updates
+
+Adding download files requires [git-lfs](https://git-lfs.github.com/).
 
 * Any push or merge to the `staging` branch will trigger [TravisCI](https://travis-ci.org/HaxeFoundation/haxe.org) to build and deploy to "staging.haxe.org".
 * Any push or merge to the `master` branch will trigger [TravisCI](https://travis-ci.org/HaxeFoundation/haxe.org) to build and deploy to "haxe.org".
