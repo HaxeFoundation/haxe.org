@@ -16,12 +16,13 @@ class Main {
 		// Generating the content
 		SiteMap.init();
 		generators.Assets.generate();
-		generators.Javascript.generate();
 		generators.Blog.generate();
 		generators.Downloads.generate();
+		generators.Javascript.generate();
 		generators.Manual.generate();
 		generators.Pages.generate();
 		generators.Redirections.generate();
+		generators.RobotsTxt.generate();
 
 		var end = Date.now().getTime();
 		Sys.println('Generation complete, time ${(end - start)/1000}s');
