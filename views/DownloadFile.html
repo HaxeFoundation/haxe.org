@@ -4,6 +4,7 @@
 		<div class='prev-next-links top clearfix'>
 			::if (prev != null)::<a href="/download/version/::prev::/" class="prev-link">::prev::</a>::end::
 			::if (next != null)::<a href="/download/version/::next::/" class="next-link">::next::</a>::end::
+			::if (next == null)::<a href="http://builds.haxe.org" class="next-link">Nightly Builds</a>::end::
 			<a href="/download/list/">(View all versions)</a>
 		</div>
 
@@ -50,6 +51,7 @@
 		<div class='prev-next-links bottom clearfix'>
 			::if (prev != null)::<a href="/download/version/::prev::/" class="prev-link">::prev::</a>::end::
 			::if (next != null)::<a href="/download/version/::next::/" class="next-link">::next::</a>::end::
+			::if (next == null)::<a href="http://builds.haxe.org" class="next-link">Nightly Builds</a>::end::
 			<a href="/download/list/">(View all versions)</a>
 		</div>
 

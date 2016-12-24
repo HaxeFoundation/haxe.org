@@ -52,4 +52,13 @@ class Utils {
 		}));
 	}
 
+	public static function copy (src:String, dest:String) {
+		var dir = Path.directory(dest);
+		if (!FileSystem.exists(dir)) {
+			FileSystem.createDirectory(dir);
+		}
+
+		File.copy(src, dest);
+	}
+
 }

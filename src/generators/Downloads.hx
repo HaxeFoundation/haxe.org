@@ -172,6 +172,33 @@ class Downloads {
 
 		// The current version
 		File.copy(Path.join([Config.outputFolder, "download", "version", data.current, "index.html"]), Path.join([Config.outputFolder, "download", "index.html"]));
+
+		// Stable urls
+		var releaseNotes = getNotes(data.current, "RELEASE");
+		var changes = getNotes(data.current, "CHANGES");
+
+		for (url in ["win.exe", "win.zip", "osx-installer.pkg", "osx.tar.gz", "linux32.tar.gz", "linux64.tar.gz"]) {
+			var filename = 'haxe-latest-${url}';
+			var link = Path.join(["website-content", "downloads", "latest", "downloads"]);
+			var title = 'latest: ${data.current}';
+
+			// Download page
+			Utils.save(Path.join([Config.outputFolder, "download", "file", "latest", filename, "index.html"]), views.DownloadFile.execute({
+					version: title,
+					prev: null,
+					next: null,
+					title: title,
+					directDownloadLink: '/$link/$filename',
+					releaseNotes: releaseNotes,
+					changes: changes,
+					api: null
+				}), null, null, title);
+
+			// File
+			var inPath = Path.join(["downloads", data.current, 'haxe-${data.current}-${url}']);
+			var outPath = Path.join([Config.outputFolder, link, filename]);
+			Utils.copy(inPath, outPath);
+		}
 	}
 
 }
