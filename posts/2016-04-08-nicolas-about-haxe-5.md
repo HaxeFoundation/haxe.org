@@ -32,8 +32,8 @@ Here is a quick overview of the video contents:
 And the video itself:
 
 <div style="text-align:center" markdown="1">
-    <a href="http://www.youtube.com/watch?feature=player_embedded&v=K8g-1dkBrxk" target="_blank">
-        <img src="http://img.youtube.com/vi/K8g-1dkBrxk/0.jpg" alt="Nicolas about Haxe Episode 3 Macros in Haxe" />
+    <a href="https://www.youtube.com/watch?feature=player_embedded&v=K8g-1dkBrxk" target="_blank">
+        <img src="https://img.youtube.com/vi/K8g-1dkBrxk/0.jpg" alt="Nicolas about Haxe Episode 3 Macros in Haxe" />
     </a>
 </div>
 

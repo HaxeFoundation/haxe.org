@@ -21,7 +21,7 @@ Then, last year, Silex Labs really outdid themselves when they managed to secure
 
 This year, the conference will take place in the same venue and I am very much looking forward to it. The website for this year has also seen a major style overhaul and you can find all relevant information at a glance.
 
-[WWX 2016 Website](http://wwx.silexlabs.org/2016/)
+[WWX 2016 Website](https://wwx.silexlabs.org/2016/)
 
 ##Things To Consider
 

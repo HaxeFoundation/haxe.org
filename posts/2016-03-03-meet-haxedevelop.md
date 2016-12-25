@@ -57,8 +57,8 @@ The resulting Version 5 of FlashDevelop, lovingly nicknamed 10-year-anniversay-e
 
 
 <div style="text-align:center" markdown="1">
-    <a href="http://www.youtube.com/watch?feature=player_embedded&v=myRUlJ0KFcc" target="_blank">
-        <img src="http://img.youtube.com/vi/myRUlJ0KFcc/0.jpg" alt="Philippe Elsass - You don't know FlashDevelop - wwx2015" />
+    <a href="https://www.youtube.com/watch?feature=player_embedded&v=myRUlJ0KFcc" target="_blank">
+        <img src="https://img.youtube.com/vi/myRUlJ0KFcc/0.jpg" alt="Philippe Elsass - You don't know FlashDevelop - wwx2015" />
     </a>
 </div>
 

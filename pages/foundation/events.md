@@ -1,6 +1,6 @@
 # Upcoming Events
 
-If you have any other events to post about, please share them on the <a href="http://groups.google.com/group/haxelang?hl=en">community mailing list</a>.
+If you have any other events to post about, please share them on the <a href="https://groups.google.com/group/haxelang?hl=en">community mailing list</a>.
 
 # Past Events
 
@@ -12,7 +12,7 @@ If you have any other events to post about, please share them on the <a href="ht
 
 The World Wide Haxe Conference 2016 has taken place from May 27 to May 30 in Paris, France.
 
-Find out more at <http://wwx.silexlabs.org/2016/>.
+Find out more at <https://wwx.silexlabs.org/2016/>.
 
 ### WWX 2015
 
@@ -22,4 +22,4 @@ Find out more at <http://wwx.silexlabs.org/2016/>.
 
 The World Wide Haxe Conference 2015 has taken place from May 29 to June 1 in Paris, France.
 
-Videos of the talks can be found at <http://www.silexlabs.org/wrapping-up-wwx2015/>.
+Videos of the talks can be found at <https://www.silexlabs.org/wrapping-up-wwx2015/>.

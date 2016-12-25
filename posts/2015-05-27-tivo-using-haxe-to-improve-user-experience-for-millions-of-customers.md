@@ -70,8 +70,8 @@ At this year’s Haxe conference, Todd and his colleagues will be back and talk 
 * [See Google Group discussion](https://groups.google.com/forum/#!searchin/haxelang/activities/haxelang/yEhXuwmVV3c/vfrsmgq6xMoJ)
 
 <div style="text-align:center" markdown="1">
-    <a href="http://www.youtube.com/watch?feature=player_embedded&v=P8BpZagb6qE" target="_blank">
-        <img src="http://img.youtube.com/vi/P8BpZagb6qE/0.jpg" alt="TiVo - Todd Kulick - Shipping One Million Lines of Haxe to One Million Devices" />
+    <a href="https://www.youtube.com/watch?feature=player_embedded&v=P8BpZagb6qE" target="_blank">
+        <img src="https://img.youtube.com/vi/P8BpZagb6qE/0.jpg" alt="TiVo - Todd Kulick - Shipping One Million Lines of Haxe to One Million Devices" />
     </a>
 </div>
 

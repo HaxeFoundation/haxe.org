@@ -12,8 +12,8 @@ Did you know that Nicolas has taken up a weekly stream about Haxe? Of course you
 The avid follower will also point out that last week's episode was actually episode two and not episode one. Unfortunately, however, the first episode was not recorded due to some technical issues and thus we decided to start over. So here it is:
 
 <div style="text-align:center" markdown="1">
-    <a href="http://www.youtube.com/watch?feature=player_embedded&v=ckdOSCqUV6U" target="_blank">
-        <img src="http://img.youtube.com/vi/ckdOSCqUV6U/0.jpg" alt="Nicolas about Haxe Episode 1 The Compilation Server" />
+    <a href="https://www.youtube.com/watch?feature=player_embedded&v=ckdOSCqUV6U" target="_blank">
+        <img src="https://img.youtube.com/vi/ckdOSCqUV6U/0.jpg" alt="Nicolas about Haxe Episode 1 The Compilation Server" />
     </a>
 </div>
 
@@ -43,7 +43,7 @@ In next week's episode, Nicolas will introduce his [Game Framework Heaps](https:
 Heaps is a high performance cross platform graphics engine which was used for for both  [Until Dark](http://untildark.net/) and [Evoland 2](http://www.evoland2.com/).
 
 <div style="text-align:center" markdown="1">
-    <a href="http://www.youtube.com/watch?feature=player_embedded&v=wQR3MHLkAUo" target="_blank">
-        <img src="http://img.youtube.com/vi/wQR3MHLkAUo/0.jpg" alt="Evoland 2 Trailer" />
+    <a href="https://www.youtube.com/watch?feature=player_embedded&v=wQR3MHLkAUo" target="_blank">
+        <img src="https://img.youtube.com/vi/wQR3MHLkAUo/0.jpg" alt="Evoland 2 Trailer" />
     </a>
 </div>

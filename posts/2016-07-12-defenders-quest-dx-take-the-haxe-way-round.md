@@ -12,8 +12,8 @@ A few years back (in 2012), before I got involved with Haxe, I came across a gam
 ---
 
 <div style="text-align:center" markdown="1">
-    <a href="http://www.youtube.com/watch?feature=player_embedded&v=QEarmXpMag8" target="_blank">
-        <img src="http://img.youtube.com/vi/QEarmXpMag8/0.jpg" alt="Defender's Quest HD Trailer"  />
+    <a href="https://www.youtube.com/watch?feature=player_embedded&v=QEarmXpMag8" target="_blank">
+        <img src="https://img.youtube.com/vi/QEarmXpMag8/0.jpg" alt="Defender's Quest HD Trailer"  />
     </a>
 </div>
 
@@ -101,6 +101,6 @@ Fiene
 
 P.S. Watch Lars' Blog and the Defender's Quest II Website for updates and interesting stuff.
 
-http://www.fortressofdoors.com/
+https://www.fortressofdoors.com/
 
-http://www.defendersquest.com/2/
+https://www.defendersquest.com/2/

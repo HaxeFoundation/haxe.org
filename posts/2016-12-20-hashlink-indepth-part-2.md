@@ -100,7 +100,7 @@ static void Main_main() {
 
 I have cut some parts that are related to type signatures and closures but, as you can see, if you have read the **HashLink Bytecode** section, this is very similar to what the byte-code does. The only difference is that instead of being loaded by the HL VM and run using JIT, the "byte-code" will be compiled by a fully optimizing C compiler, increasing the speed even more! And because both HL/JIT and HL/C share the same run-time (same garbage collector, same native functions, etc.), they will run exactly the same without any difference in terms of semantics.
 
-Once you have your C code, you simply have to compile it with the `hlc.h` `hl.h` and `hlc_main.c` files which are all present in the `src` directory of [HashLink repository](http://github.com/HaxeFoundation/hashlink) and link it to the HL-run-time. One way of doing this is using GCC:
+Once you have your C code, you simply have to compile it with the `hlc.h` `hl.h` and `hlc_main.c` files which are all present in the `src` directory of [HashLink repository](https://github.com/HaxeFoundation/hashlink) and link it to the HL-run-time. One way of doing this is using GCC:
 
 ```
 gcc -o myApp -O3 -std=c11 -I hl/src main.c hl/src/hlc_main.c -lhl -lm

@@ -4,7 +4,7 @@ Building Haxe from source
 Obtaining the source
 -------
 
-The Haxe compiler sources are hosted on GitHub under the [HaxeFoundation account](http://github.com/HaxeFoundation). The [Haxe repository](http://github.com/HaxeFoundation/haxe) has several submodules, so cloning it should be done with the `--recursive` flag like so:
+The Haxe compiler sources are hosted on GitHub under the [HaxeFoundation account](https://github.com/HaxeFoundation). The [Haxe repository](https://github.com/HaxeFoundation/haxe) has several submodules, so cloning it should be done with the `--recursive` flag like so:
 
 ```
 git clone --recursive https://github.com/HaxeFoundation/haxe.git
@@ -38,7 +38,7 @@ make install
 Building on Linux
 -------
 
-1. Install OCaml: <http://ocaml.org/docs/install.html>
+1. Install OCaml: <https://ocaml.org/docs/install.html>
 2. Navigate to where the Haxe sources are and build Haxe using `make`:
 
 ```
@@ -88,7 +88,7 @@ TL;DR: put the environment variables at the start of your PATH, not at the end.
 Building on Windows (Cygwin)
 -------
 
-1. Install a Cygwin version of OCaml: <http://protz.github.io/ocaml-installer/>
+1. Install a Cygwin version of OCaml: <https://protz.github.io/ocaml-installer/>
 
 	* To build Haxe you only need to choose `OCaml` and `Cygwin` in the install menu.
 	* In the cygwin package selection window, select `mingw64-i686-zlib` in addition to pre-selected packages. This is required to build Haxe.

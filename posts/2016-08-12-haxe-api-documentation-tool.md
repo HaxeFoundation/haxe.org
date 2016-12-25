@@ -6,7 +6,7 @@ tags: announcements
 disqusID: 19
 ---
 
-> Our official documentation tool [dox](https://github.com/HaxeFoundation/dox) has been updated and released on [haxelib](http://lib.haxe.org/p/dox).
+> Our official documentation tool [dox](https://github.com/HaxeFoundation/dox) has been updated and released on [haxelib](https://lib.haxe.org/p/dox).
 
 <style>.article-view img {border:1px solid #eee;box-shadow:0 0 10px #eee; border-radius:5px}</style>
 
@@ -48,7 +48,7 @@ haxelib run dox -i bin/xml -o bin/api-advanced --title "Great API documentation"
 ```
 ![image](8d230e8c-591e-11e6-8a01-5fa3d0eb5062.png)
 
-A demonstration of a real project with the default theme with custom settings is [hxnodejs](http://haxefoundation.github.io/hxnodejs/js/Node.html). It is automatically published online using [Travis CI instructions](https://github.com/HaxeFoundation/hxnodejs/blob/master/.travis.yml#L18-L21) on Github Pages.
+A demonstration of a real project with the default theme with custom settings is [hxnodejs](https://haxefoundation.github.io/hxnodejs/js/Node.html). It is automatically published online using [Travis CI instructions](https://github.com/HaxeFoundation/hxnodejs/blob/master/.travis.yml#L18-L21) on Github Pages.
 
 ## But we want a custom theme
 

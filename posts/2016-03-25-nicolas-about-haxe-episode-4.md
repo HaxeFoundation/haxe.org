@@ -10,8 +10,8 @@ disqusID: 11
 After some sound issues involving Teletubby-like sounds and a whole choir of Nicolas, this week's stream went ahead successfully and the video is up:
 
 <div style="text-align:center" markdown="1">
-    <a href="http://www.youtube.com/watch?feature=player_embedded&v=wE26yH7AYNo" target="_blank">
-        <img src="http://img.youtube.com/vi/wE26yH7AYNo/0.jpg" alt="Nicolas about Haxe Episode 3 Macros in Haxe" />
+    <a href="https://www.youtube.com/watch?feature=player_embedded&v=wE26yH7AYNo" target="_blank">
+        <img src="https://img.youtube.com/vi/wE26yH7AYNo/0.jpg" alt="Nicolas about Haxe Episode 3 Macros in Haxe" />
     </a>
 </div>
 

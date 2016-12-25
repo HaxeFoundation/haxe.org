@@ -12,8 +12,8 @@ This week, Nicolas showed us one of the technologies he uses when developing tho
 If you missed the stream you can watch the recording here:
 
 <div style="text-align:center" markdown="1">
-    <a href="http://www.youtube.com/watch?feature=player_embedded&v=-WeGME_T9Ew" target="_blank">
-        <img src="http://img.youtube.com/vi/-WeGME_T9Ew/0.jpg" alt="Nicolas about Haxe Episode 2 Heaps" />
+    <a href="https://www.youtube.com/watch?feature=player_embedded&v=-WeGME_T9Ew" target="_blank">
+        <img src="https://img.youtube.com/vi/-WeGME_T9Ew/0.jpg" alt="Nicolas about Haxe Episode 2 Heaps" />
     </a>
 </div>
 
