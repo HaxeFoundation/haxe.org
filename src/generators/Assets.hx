@@ -25,8 +25,7 @@ class Assets {
 			for (entry in FileSystem.readDirectory(inPath)) {
 				copyFromDataFolder(Path.join([path, entry]), to);
 			}
-		}
-		else {
+		} else {
 			File.copy(inPath, outPath);
 		}
 	}

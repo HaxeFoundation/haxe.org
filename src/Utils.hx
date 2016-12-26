@@ -14,8 +14,7 @@ class Utils {
 
 			if (FileSystem.isDirectory(entryPath)) {
 				list = list.concat(listDirectoryRecursive(entryPath));
-			}
-			else {
+			} else {
 				list.push(entryPath);
 			}
 		}
@@ -33,7 +32,7 @@ class Utils {
 		return content;
 	}
 
-	public static function save(outPath:String, content:String, current:SiteMap.SitePage, editLink:String, ?title:String) {
+	public static function save(outPath:String, content:String, current:SiteMap.SitePage, editLink:String, title:String = null) {
 		var dir = Path.directory(outPath);
 		if (!FileSystem.exists(dir)) {
 			FileSystem.createDirectory(dir);
@@ -63,14 +62,14 @@ class Utils {
 		File.copy(src, dest);
 	}
 
-	public static function urlNormalize (url:String, mdToHtml:Bool=true) {
+	public static function urlNormalize (url:String, mdToHtml:Bool = true) : String {
 		url = url.replace("//", "/");
 
 		if (url.startsWith(Config.outputFolder)) {
 			url = url.substr(Config.outputFolder.length);
 		}
 
-		if (url.endsWith("index.html")) {
+		if (url.endsWith(Config.index)) {
 			url = Path.directory(url);
 		}
 

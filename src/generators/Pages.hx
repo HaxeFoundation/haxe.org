@@ -27,8 +27,7 @@ class Pages {
 						editLink: editLink,
 						content: content
 					});
-				}
-				else { // Not in sitemap, so can't make sidebar
+				} else { // Not in sitemap, so can't make sidebar
 					content = views.PageWithoutSidebar.execute({
 						editLink: editLink,
 						content: content

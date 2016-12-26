@@ -1,0 +1,16 @@
+engines:
+  haxe-checkstyle:
+    enabled: true
+  csslint:
+    enabled: true
+  markdownlint:
+    enabled: true
+
+exclude_paths:
+  - manual/**/*
+
+ratings:
+  paths:
+    - "**.hx"
+    - "**.css"
+    - "**.md"

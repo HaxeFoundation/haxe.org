@@ -1,5 +1,4 @@
 import haxe.Json;
-import haxe.io.Path;
 import sys.io.File;
 
 using StringTools;
@@ -15,6 +14,18 @@ typedef SitePage = {
 	@:optional var editLink : String;
 }
 
+typedef PrevNextLinks = {
+	prevUrl : String,
+	prevTitle : String,
+	nextUrl : String,
+	nextTitle : String
+}
+
+typedef Row = {
+	url : String,
+	title : String
+}
+
 class SiteMap {
 
 	static var sitemap : Array<SitePage>;
@@ -23,7 +34,7 @@ class SiteMap {
 		annotateGroup(sitemap);
 	}
 
-	public static function annotateGroup (map:Array<SitePage>, ?parent:SitePage) {
+	public static function annotateGroup (map:Array<SitePage>, parent:SitePage = null) {
 		var previous = null;
 		for (page in map) {
 			page.parent = parent;
@@ -41,14 +52,14 @@ class SiteMap {
 		}
 	}
 
-	public static function pageForUrl (url:String, category:Bool, fuzzy:Bool, ?sitemap:Array<SitePage>) : SitePage {
-		if (sitemap == null) {
-			sitemap = SiteMap.sitemap;
+	public static function pageForUrl (url:String, category:Bool, fuzzy:Bool, map:Array<SitePage> = null) : SitePage {
+		if (map == null) {
+			map = SiteMap.sitemap;
 		}
 
 		url = Utils.urlNormalize(url);
 
-		var matches = fuzzyPageForUrl(url, category, sitemap);
+		var matches = fuzzyPageForUrl(url, category, map);
 
 		if (matches.length == 0) {
 			return null;
@@ -58,18 +69,17 @@ class SiteMap {
 
 		if (fuzzy) {
 			return best;
-		}
-		else if (best.url == url) {
+		} else if (best.url == url) {
 			return best;
 		}
 
 		return null;
 	}
 
-	static function fuzzyPageForUrl (url:String, category:Bool, sitemap:Array<SitePage>) : Array<SitePage> {
+	static function fuzzyPageForUrl (url:String, category:Bool, map:Array<SitePage>) : Array<SitePage> {
 		var fuzzyMatches = [];
 
-		for (page in sitemap) {
+		for (page in map) {
 			// Search in sub first, first sub often has the same url as category
 			// unless category is asked
 
@@ -84,7 +94,7 @@ class SiteMap {
 			}
 		}
 
-		fuzzyMatches.sort(function (p1, p2) {
+		fuzzyMatches.sort(function (p1, p2):Int {
 			return -1 * Reflect.compare(p1.url.length, p2.url.length);
 		});
 
@@ -104,7 +114,7 @@ class SiteMap {
 		return flat;
 	}
 
-	public static function prevNextLinks (map:Array<SitePage>, page:SitePage) {
+	public static function prevNextLinks (map:Array<SitePage>, page:SitePage) : PrevNextLinks{
 		var flat = getFlat(map);
 		var prev = null;
 		var next = null;
@@ -165,7 +175,7 @@ class SiteMap {
 				sb.add(" parent");
 			}
 			if (page == current) {
-				sb.add(" active");
+				sb.add(' ${Config.activeClass}');
 			}
 			sb.add('">');
 
@@ -175,7 +185,7 @@ class SiteMap {
 			// Add link
 			sb.add('<a href="${page.url}"');
 			if (page == current) {
-				sb.add(' class="active"');
+				sb.add(' class="${Config.activeClass}"');
 			}
 			sb.add(">");
 			sb.add(page.title);
@@ -204,7 +214,7 @@ class SiteMap {
 		var firstColumn = [];
 		var columns = [];
 
-		function makeRow (page:SitePage) {
+		function makeRow (page:SitePage) : Row {
 			return { url: page.url, title: page.title };
 		}
 
@@ -215,8 +225,7 @@ class SiteMap {
 
 			if (page.sub.length == 0) {
 				firstColumn.push(makeRow(page));
-			}
-			else {
+			} else {
 				var header = makeRow(page);
 				var rows = [];
 
@@ -262,11 +271,11 @@ class SiteMap {
 			sb.add('<li class="');
 
 			if (isOrParent(page, current)) {
-				sb.add(" active");
+				sb.add(' ${Config.activeClass}');
 			}
 
 			if (page.sub.length > 0 && !isSubMenu) {
-				sb.add(' dropdown');
+				sb.add(" dropdown");
 			}
 
 			if (page.url == Config.sitemapDividerUrl) {
@@ -280,7 +289,7 @@ class SiteMap {
 				sb.add('<a href="${page.url}" data-toggle="dropdown" class="dropdown-toggle' );
 
 				if (isOrParent(page, current)) {
-					sb.add(" active");
+					sb.add(' ${Config.activeClass}');
 				}
 
 				sb.add('">');
@@ -289,12 +298,11 @@ class SiteMap {
 				sb.add("</a>");
 
 				printNavBarRecursive(page.sub, current, sb, true);
-			}
-			else if (page.url != Config.sitemapDividerUrl) {
+			} else if (page.url != Config.sitemapDividerUrl) {
 				// Add a regular link - no submenu.
 				sb.add('<a href="${page.url}"');
 				if (page == current) {
-					sb.add(' class="active"');
+					sb.add(' class="${Config.activeClass}"');
 				}
 				sb.add(">");
 				sb.add(page.title);

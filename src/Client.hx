@@ -65,13 +65,13 @@ class Client {
 	static function menuExpandCollapse() {
 		var t = new JQuery(".tree-nav li i.fa");
 		t.click( function (event) {
-			new JQuery(event.target).parent().toggleClass("active");
+			new JQuery(event.target).parent().toggleClass(Config.activeClass);
 		});
 	}
 
 	static function expandCurrentPageOnMenu() {
 		var current = js.Browser.location.pathname;
-		new JQuery('.tree-nav a[href="$current"]').addClass("active").parents("li").addClass("active");
+		new JQuery('.tree-nav a[href="$current"]').addClass(Config.activeClass).parents("li").addClass(Config.activeClass);
 	}
 
 	static function pullOutStyling() {
@@ -91,7 +91,7 @@ class Client {
 	}
 
 	static function emptyLinks() {
-		new JQuery('a[href="#"]').click(function(_):Bool { return false; }).attr("title", "This page has not been created yet");
+		new JQuery('a[href="#"]').click(function(_):Bool return false).attr("title", "This page has not been created yet");
 	}
 
 }

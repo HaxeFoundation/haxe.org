@@ -66,7 +66,7 @@ class Manual {
 					disambiguation.reverse();
 
 					if (disambiguation.length > 0) {
-						section.title += " (" + disambiguation.join(" - ") + ")"; //TODO: before it was section.disambiguation instead of title, check that it works
+						section.title += " (" + disambiguation.join(" - ") + ")";
 					}
 				}
 			}
@@ -118,8 +118,7 @@ class Manual {
 
 		if (!titleToSection.exists(title)) {
 			titleToSection[title] = [sitePage];
-		}
-		else {
+		} else {
 			titleToSection[title].push(sitePage);
 		}
 	}
@@ -168,20 +167,18 @@ class Manual {
 			var xml = Xml.parse(Markdown.markdownToHtml(sb.toString()));
 			processNode(xml);
 			return xml.toString();
-		}
-		catch (e:Dynamic) {
+		} catch (e:Dynamic) {
 			Sys.println('Error when parsing "$filename"');
 
 			if (Std.is(e, XmlParserException)) {
 				var e = cast(e, XmlParserException);
 				Sys.println('${e.message} at line ${e.lineNumber} char ${e.positionAtLine}');
-				Sys.println(e.xml.substr(e.position-20, 40));
-			}
-			else {
+				Sys.println(e.xml.substr(e.position - 20, 40));
+			} else {
 				Sys.println(e);
 			}
 
-			trace(haxe.CallStack.toString(haxe.CallStack.exceptionStack()));
+			Sys.println(haxe.CallStack.toString(haxe.CallStack.exceptionStack()));
 
 			return "Couldn't parse manual file";
 		}
@@ -227,8 +224,7 @@ class Manual {
 						var text = firstElm.firstChild().nodeValue.trim();
 						if (text.startsWith("Define")) {
 							addClass(xml, "define");
-						}
-						else if (text.startsWith("Trivia")) {
+						} else if (text.startsWith("Trivia")) {
 							addClass(xml, "trivia");
 						}
 					}
@@ -273,8 +269,7 @@ class Manual {
 			for (child in xml) {
 				text += getText(child);
 			}
-		}
-		else {
+		} else {
 			text += xml.nodeValue;
 		}
 

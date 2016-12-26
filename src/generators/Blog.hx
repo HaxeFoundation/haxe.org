@@ -78,16 +78,14 @@ class Blog {
 
 			if (!authorsPages.exists(data.authorID)) {
 				authorsPages.set(data.authorID, [data]);
-			}
-			else {
+			} else {
 				authorsPages.get(data.authorID).push(data);
 			}
 
 			for (tag in data.tags) {
 				if (!tagsPages.exists(tag.name)) {
 					tagsPages.set(tag.name, [data]);
-				}
-				else {
+				} else {
 					tagsPages.get(tag.name).push(data);
 				}
 			}
@@ -98,8 +96,7 @@ class Blog {
 			var v = Reflect.compare(b.date, a.date);
 			if (v == 0) {
 				return Reflect.compare(b.name, a.name);
-			}
-			else {
+			} else {
 				return v;
 			}
 		};
@@ -108,19 +105,19 @@ class Blog {
 		// The posts
 		for (post in posts) {
 			post.disqusShortName = "haxe";
-			Utils.save(Path.join([Config.outputFolder, "blog", post.name, "index.html"]), views.BlogPost.execute(post), null, null);
+			Utils.save(Path.join([Config.outputFolder, Config.blogOutput, post.name, Config.index]), views.BlogPost.execute(post), null, null);
 		}
 
 		// The rss feed
 		genRss(posts);
 
 		// The list
-		var path = Path.join([Config.outputFolder, "blog", "index.html"]);
+		var path = Path.join([Config.outputFolder, Config.blogOutput, Config.index]);
 		list(Config.blogTitle, posts, Config.blogDescription, path);
 
 		// Author pages
 		for (author in authorsPages.keys()) {
-			var path = Path.join([Config.outputFolder, "blog", "author", getAuthorID(author), "index.html"]);
+			var path = Path.join([Config.outputFolder, Config.blogOutput, "author", getAuthorID(author), Config.index]);
 			var posts = authorsPages.get(author);
 			posts.sort(postSorter);
 
@@ -135,8 +132,7 @@ class Blog {
 
 		// Tag pages
 		for (tag in tagsPages.keys()) {
-			//TODO: tag description
-			var path = Path.join([Config.outputFolder, "blog", "tag", tag, "index.html"]);
+			var path = Path.join([Config.outputFolder, Config.blogOutput, "tag", tag, Config.index]);
 			var posts = tagsPages.get(tag);
 			posts.sort(postSorter);
 
@@ -184,7 +180,7 @@ class Blog {
 			});
 		}
 
-		var path = Path.join([Config.outputFolder, "blog", "rss", "index.html"]);
+		var path = Path.join([Config.outputFolder, Config.blogOutput, "rss", Config.index]);
 		var dir = Path.directory(path);
 
 		if (!FileSystem.exists(dir)) {
@@ -239,8 +235,7 @@ class Blog {
 						var authorInfo = name2author.get(value);
 						if (authorInfo == null) {
 							Sys.println('Warning: author "$value" is used in a post but isn\'t in authors.json');
-						}
-						else {
+						} else {
 							data.author = authorInfo.name;
 							data.authorID = authorInfo.username;
 							data.gravatarID = authorInfo.md5email;
@@ -269,13 +264,12 @@ class Blog {
 					default:
 						Sys.println('Unknown blog post header key "$key" in "$post"');
 				}
-			}
-			else {
+			} else {
 				contentBuffer.add(line);
 				contentBuffer.add("\n");
 			}
 		}
-		
+
 		try {
 			var xml = Xml.parse(Markdown.markdownToHtml(contentBuffer.toString()));
 			changeImg('${data.date}-${data.name}', xml);
@@ -286,26 +280,27 @@ class Blog {
 			if (Std.is(e, XmlParserException)) {
 				var e = cast(e, XmlParserException);
 				Sys.println('${e.message} at line ${e.lineNumber} char ${e.positionAtLine}');
-				Sys.println(e.xml.substr(e.position-20, 40));
-			}
-			else {
+				Sys.println(e.xml.substr(e.position - 20, 40));
+			} else {
 				Sys.println(e);
 			}
 		}
-		
+
 		return data;
 	}
 
 	static function changeImg (postID:String, xml:Xml) {
-		if (xml.nodeType == Xml.Element && xml.nodeName == "img" && xml.exists("src") && !xml.get("src").startsWith("http")) {
-			xml.set("src", '/img/blog/$postID/${xml.get("src")}');
+		var srcAttr = "src";
+
+		if (xml.nodeType == Xml.Element && xml.nodeName == "img" && xml.exists(srcAttr) && !xml.get(srcAttr).startsWith("http")) {
+			xml.set(srcAttr, '/img/blog/$postID/${xml.get("src")}');
 		}
 
 		if (xml.nodeType == Xml.Document || xml.nodeType == Xml.Element) {
 			for (element in xml) {
 				changeImg(postID, element);
 			}
-		} 
+		}
 	}
 
 }

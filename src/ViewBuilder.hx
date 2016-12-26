@@ -17,21 +17,21 @@ class ViewBuilder {
 		return Context.getBuildFields();
 	}
 
-	static var BOOL_TYPE : ComplexType = TPath({
+	static var boolType : ComplexType = TPath({
 		name: "Bool",
 		pack: [],
 		params: null,
 		sub: null
 	});
 
-	static var STRING_TYPE : ComplexType = TPath({
+	static var stringType : ComplexType = TPath({
 		name: "String",
 		pack: [],
 		params: null,
 		sub: null
 	});
 
-	static var ARRAY_DYNAMIC_TYPE : ComplexType = TPath({
+	static var arrayDynamicType : ComplexType = TPath({
 		name: "Array",
 		pack: [],
 		params: [TPType(TPath({
@@ -42,6 +42,9 @@ class ViewBuilder {
 		}))],
 		sub: null
 	});
+
+	static inline var ifID : String = "if (";
+	static inline var boolID : String = "bool ";
 
 	static function makeVar (name:String, type:ComplexType) : Field {
 		return {
@@ -61,7 +64,7 @@ class ViewBuilder {
 
 		argumentsRegex.map(content, function (f:EReg):String {
 			var v = f.matched(1);
-			if (!v.startsWith("if (") && v != "end") {
+			if (!v.startsWith(ifID) && v != "end") {
 				var tmp = v.split(".");
 				if (!arguments.exists(tmp[0])) {
 					arguments.set(tmp[0], []);
@@ -72,10 +75,9 @@ class ViewBuilder {
 						a.push(tmp[1]);
 					}
 				}
-			}
-			else if (v.startsWith("if (") && v.indexOf("=") == -1) {
-				var ifl = "if (".length;
-				var argument = "bool " + v.substr(ifl, v.length - ifl - 1);
+			} else if (v.startsWith(ifID) && v.indexOf("=") == -1) {
+				var ifl = ifID.length;
+				var argument = boolID + v.substr(ifl, v.length - ifl - 1);
 				if (!arguments.exists(argument)) {
 					arguments.set(argument, []);
 				}
@@ -89,13 +91,11 @@ class ViewBuilder {
 
 		function makeArgField (argument:String):Field {
 			if (argument.startsWith("foreach ")) {
-				return makeVar(argument.substr("foreach ".length), ARRAY_DYNAMIC_TYPE);
-			}
-			else if (argument.startsWith("bool ")) {
-				return makeVar(argument.substr("bool ".length), BOOL_TYPE);
-			}
-			else {
-				return makeVar(argument, STRING_TYPE);
+				return makeVar(argument.substr("foreach ".length), arrayDynamicType);
+			} else if (argument.startsWith(boolID)) {
+				return makeVar(argument.substr(boolID.length), boolType);
+			} else {
+				return makeVar(argument, stringType);
 			}
 		}
 
@@ -119,8 +119,7 @@ class ViewBuilder {
 
 			if (subs.length == 0) {
 				addField(makeArgField(argument));
-			}
-			else {
+			} else {
 				var subfields = subs.map(function (f:String):Field return makeArgField(f));
 				addField(makeVar(argument, TAnonymous(subfields)));
 			}
@@ -151,7 +150,7 @@ class ViewBuilder {
 				}],
 				expr: macro { return new haxe.Template($v{content}).execute(variables); },
 				params: null,
-				ret: STRING_TYPE,
+				ret: stringType,
 			}),
 			meta: null,
 			name: "execute",
