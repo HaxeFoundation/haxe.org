@@ -72,6 +72,8 @@ class Manual {
 			}
 		}
 
+		var menuRoot = SiteMap.pageForUrl("/manual/introduction.html", true, false);
+
 		// Generate pages
 		for (page in pages) {
 			var content = processMarkdown(page.file, File.getContent(page.file));
@@ -83,7 +85,7 @@ class Manual {
 				content: content
 			});
 
-			Utils.save(Path.join([Config.outputFolder, page.page.url]), content, null, null);
+			Utils.save(Path.join([Config.outputFolder, page.page.url]), content, menuRoot, null);
 		}
 
 		// Copy images
