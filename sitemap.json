@@ -106,7 +106,7 @@
 	},
 	{
 		"title": "Learn Haxe",
-		"url": "/documentation/",
+		"url": "/documentation/introduction/",
 		"sub": [
 			{
 				"title": "Introduction",
@@ -151,7 +151,7 @@
 			},
 			{
 				"title": "Manual",
-				"url": "/manual/",
+				"url": "/manual/introduction.html",
 				"sub": []
 			},
 			{
