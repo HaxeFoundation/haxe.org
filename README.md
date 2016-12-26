@@ -2,6 +2,8 @@ haxe.org
 ========
 
 [![Build Status](https://travis-ci.org/HaxeFoundation/haxe.org.svg?branch=staging)](https://travis-ci.org/HaxeFoundation/haxe.org)
+[![Code Climate](https://codeclimate.com/github/HaxeFoundation/haxe.org/badges/gpa.svg)](https://codeclimate.com/github/HaxeFoundation/haxe.org)
+[![Issue Count](https://codeclimate.com/github/HaxeFoundation/haxe.org/badges/issue_count.svg)](https://codeclimate.com/github/HaxeFoundation/haxe.org)
 
 This is the code base for the <https://haxe.org> website.
 
