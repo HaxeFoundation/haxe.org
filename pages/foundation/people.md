@@ -101,3 +101,15 @@ The Haxe ecosystem is made possible thanks to the work of the following people:
 	</p>
 	<p class="since">Since: 2007</p>
 </div>
+
+
+<div class="person">
+	<a name="markknol" class="anch"></a>
+	<h2><i class="flag flag-nl"></i> Mark Knol</h2>
+	<img src="https://avatars1.githubusercontent.com/u/576184?v=3&s=256"  alt="Mark Knol" class="portrait" />
+	<p class="description">
+		Guy that makes everything beautiful
+	</p>
+	<p class="since">Since: 2014</p>
+</div>
+
