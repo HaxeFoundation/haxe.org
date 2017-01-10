@@ -26,8 +26,7 @@ Use `brew reinstall haxe --HEAD` to upgrade in the future.
 If you want to start hacking the Haxe compiler, it is better to clone manually and use the Makefile:
 
 1. Install XQuartz (required by OCaml): `brew cask install xquartz`
-2. Install OCaml: `brew install ocaml`
-3. Install Camlp4: `brew install camlp4`
+2. Install dependencies: `brew install ocaml camlp4 pcre neko`
 3. Navigate to where the Haxe sources are and build Haxe using `make`:
 
 ```
@@ -38,8 +37,9 @@ make install
 Building on Linux
 -------
 
-1. Install OCaml: <https://ocaml.org/docs/install.html>
-2. Navigate to where the Haxe sources are and build Haxe using `make`:
+1. Install Neko, which is available in the repositories of many Linux distributions. e.g. On Ubuntu, just `sudo apt-get neko`.
+2. Install OCaml (4.02 or above), camlp4, pcre, and zlib. Again, try to find such packages in the Linux repositories.
+3. Navigate to where the Haxe sources are and build Haxe using `make`:
 
 ```
 make
@@ -57,7 +57,7 @@ Building on Windows (MSVC)
 ### Installation
 
   - Download 32-bit installer from the fdopen's fork: <https://fdopen.github.io/opam-repository-mingw/installation/>
-  - Install it, in Cygwin package selection also check `mingw64-i686-zlib` (used by Haxe).
+  - Install it, in Cygwin package selection also check `mingw64-i686-zlib` and `mingw64-i686-pcre` (used by Haxe).
     You might need to switch "View" in top-right corner to "Not Installed" to see it in the list.
   - Run OCaml32 terminal from the desktop shortcut, from it:
     - Install camlp4 with `opam install camlp4`
@@ -91,7 +91,7 @@ Building on Windows (Cygwin)
 1. Install a Cygwin version of OCaml: <https://protz.github.io/ocaml-installer/>
 
 	* To build Haxe you only need to choose `OCaml` and `Cygwin` in the install menu.
-	* In the cygwin package selection window, select `mingw64-i686-zlib` in addition to pre-selected packages. This is required to build Haxe.
+	* In the cygwin package selection window, select `mingw64-i686-zlib` and `mingw64-i686-pcre` in addition to pre-selected packages. This is required to build Haxe.
 
 2. Add the `bin` directory from Cygwin installation (e.g. `C:\cygwin\bin`) to your `PATH` environment variable. This will make Unix commands, like `make` available.
 
