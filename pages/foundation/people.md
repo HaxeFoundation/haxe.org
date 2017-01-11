@@ -102,14 +102,54 @@ The Haxe ecosystem is made possible thanks to the work of the following people:
 	<p class="since">Since: 2007</p>
 </div>
 
-
 <div class="person">
 	<a name="markknol" class="anch"></a>
 	<h2><i class="flag flag-nl"></i> Mark Knol</h2>
-	<img src="https://avatars1.githubusercontent.com/u/576184?v=3&s=256"  alt="Mark Knol" class="portrait" />
+	<img src="/img/people/mark.jpg"  alt="Mark Knol" class="portrait" />
 	<p class="description">
 		Guy that makes everything beautiful
 	</p>
 	<p class="since">Since: 2014</p>
 </div>
+
+<div class="person">
+	<a name="valentin" class="anch"></a>
+	<h2><i class="flag flag-fr"></i> Valentin Lemière</h2>
+	<img src="/img/people/ibilon.jpg"  alt="Valentin Lemière" class="portrait" />
+	<p class="description">
+		Website maintainer
+	</p>
+	<p class="since">Since: 2017</p>
+</div>
+
+<div class="person">
+	<a name="fiene" class="anch"></a>
+	<h2><i class="flag flag-de"></i> Josefiene Pertosa</h2>
+	<img src="/img/people/fiene.jpg"  alt="Josefiene Pertosa" class="portrait" />
+	<p class="description">
+		The girl. So we have one
+	</p>
+	<p class="since">Since: 2011</p>
+</div>
+
+<div class="person">
+	<a name="alexander" class="anch"></a>
+	<h2><i class="flag flag-ru"></i> Alexander Kuzmenko</h2>
+	<img src="/img/people/alexander.jpg"  alt="Alexander Kuzmenko" class="portrait" />
+	<p class="description">
+		Maintainer of the PHP7 target
+	</p>
+	<p class="since">Since: 2016</p>
+</div>
+
+<div class="person">
+	<a name="justin" class="anch"></a>
+	<h2><i class="flag flag-us"></i> Justin Donaldson</h2>
+	<img src="/img/people/justin.jpg"  alt="Justin Donaldson" class="portrait" />
+	<p class="description">
+		Maintainer and creator of the Lua target
+	</p>
+	<p class="since">Since: 2015</p>
+</div>
+
 

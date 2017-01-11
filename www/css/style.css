@@ -915,6 +915,7 @@ a.full-size-link {
 .person .portrait {
 	vertical-align: text-top;
 	border-radius:128px;
+	width:256px;
 }
 
 .person p.description {
