@@ -87,7 +87,7 @@ The Haxe ecosystem is made possible thanks to the work of the following people:
 	<h2><i class="flag flag-au"></i> Jason O'Neil</h2>
 	<img src="/img/people/JasonONeil.jpg" alt="Jason O'Neil" class="portrait" />
 	<p class="description">
-		Webmaster
+		Former Webmaster
 	</p>
 	<p class="since">Since: 2012</p>
 </div>
@@ -107,7 +107,7 @@ The Haxe ecosystem is made possible thanks to the work of the following people:
 	<h2><i class="flag flag-nl"></i> Mark Knol</h2>
 	<img src="/img/people/mark.jpg"  alt="Mark Knol" class="portrait" />
 	<p class="description">
-		Guy that makes everything beautiful
+		Documentation and website maintainer
 	</p>
 	<p class="since">Since: 2014</p>
 </div>
@@ -127,7 +127,7 @@ The Haxe ecosystem is made possible thanks to the work of the following people:
 	<h2><i class="flag flag-de"></i> Josefiene Pertosa</h2>
 	<img src="/img/people/fiene.jpg"  alt="Josefiene Pertosa" class="portrait" />
 	<p class="description">
-		The girl. So we have one
+		Communication, enquiries and community
 	</p>
 	<p class="since">Since: 2011</p>
 </div>
