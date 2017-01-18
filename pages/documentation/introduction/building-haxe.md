@@ -46,10 +46,12 @@ make
 make install
 ```
 
-Building on Windows (MSVC)
+Building on Windows (mingw)
 -------
 
 ### Preparation
+
+In order to make sure the set up is clean and correct, perform the actions as follows:
 
   - Uninstall OCaml, MinGW, Cygwin
   - Remove leftover environment vars, cleanup PATH
@@ -77,38 +79,13 @@ Building on Windows (MSVC)
 
 ### Testing
 
-  - Haxe should compile: `make ADD_REVISION=1 -f Makefile.win libs haxe haxelib`
+  - Haxe should compile: `make ADD_REVISION=1 -f Makefile.win`
   - VSCode OCaml extension features should work: <https://marketplace.visualstudio.com/items?itemName=hackwaly.ocaml>
 
 ### Troubleshoot
 
  - If you have issues compiling in cmd.exe (worked fine in ocaml32) and get `Interrupt/Exception caught (code = 0xc00000fd, addr = 0x4227d3`, this helps: <http://hdrlab.org.nz/articles/windows-development/make-interrupt-exception-caught-code-0xc00000fd-addr-0x4217b/>
 TL;DR: put the environment variables at the start of your PATH, not at the end.
-
-Building on Windows (Cygwin)
--------
-
-1. Install a Cygwin version of OCaml: <https://protz.github.io/ocaml-installer/>
-
-	* To build Haxe you only need to choose `OCaml` and `Cygwin` in the install menu.
-	* In the cygwin package selection window, select `mingw64-i686-zlib` and `mingw64-i686-pcre` in addition to pre-selected packages. This is required to build Haxe.
-
-2. Add the `bin` directory from Cygwin installation (e.g. `C:\cygwin\bin`) to your `PATH` environment variable. This will make Unix commands, like `make` available.
-
-3. Add the `usr\i686-w64-mingw32\sys-root\mingw\bin` directory from the Cygwin installation (e.g. `C:\cygwin\usr\i686-w64-mingw32\sys-root\mingw\bin`) to your `PATH` environment variable. This makes required dynamically linked libraries, like `zlib` available for the compiled `haxe.exe` executable.
-
-
-Navigate to where the Haxe sources are and build Haxe using:
-
-```
-make -f Makefile.win libs haxe haxelib
-```
-
-For subsequent compilations it is usually enough to recompile the Haxe sources without its libraries:
-
-```
-make -f Makefile.win haxe
-```
 
 Building on FreeBSD
 -------
