@@ -11,7 +11,8 @@ class Redirections {
 			"/community/index.html" => "/community/community-support.html",
 			"/documentation/index.html" => "/documentation/introduction/",
 			"/foundation/support.html" => "/foundation/support-plans.html",
-			"/manual/index.html" => "/manual/introduction.html"
+			"/manual/index.html" => "/manual/introduction.html",
+			"/api/index.html" => "http://api.haxe.org/",
 		];
 
 		for (page in list.keys()) {
