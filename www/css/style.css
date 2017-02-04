@@ -792,9 +792,13 @@ a.full-size-link {
 	text-decoration: none !important;
 }
 .article-header {
+	background-color: #282828;
+	background: -webkit-gradient(radial, 50% 80%, 0, center center, 100, from(rgb(100,100,100)), to(rgb(20,20,20)));
+	background: -webkit-radial-gradient(50% 80%, circle, rgb(100,100,100), rgb(20,20,20));
+	background: -moz-radial-gradient(50% 80%, circle, rgb(100,100,100), rgb(20,20,20));
+	background: -ms-radial-gradient(50% 80%, circle, rgb(100,100,100), rgb(20,20,20));
 	background-position: center center;
 	background-size: cover;
-	background-color: rgb(40,40,40);
 	min-height: 30vh;
 	position: relative;
 	margin-top: 41px;
