@@ -16,6 +16,8 @@ Java | source | Yes | Yes | CLI, Mobile, Desktop | 2.10 (2012)
 C# | source | Yes | Yes | Mobile, Desktop | 2.10 (2012)
 Python | source | No | Yes | CLI, Web, Desktop | 3.2 (2015)
 Lua | source | No | Yes | Games, CLI, Web, Desktop | 3.3 (2016)
+PHP7 | source | No | Yes | Web | 3.4 (2016)
+HashLink | byte code | No | Yes | Web, CLI | 3.4 (2016)
 
 > **Note:**
 > 
