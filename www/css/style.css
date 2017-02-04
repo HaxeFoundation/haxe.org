@@ -846,6 +846,9 @@ a.full-size-link {
 .article-view blockquote p {
 	font-size: 24px;
 }
+.article-view .well h3 {
+	margin-top:0; 
+}
 .article-form input, .article-form .input-append, .article-form .input-prepend {
 	width: 90%;
 }
