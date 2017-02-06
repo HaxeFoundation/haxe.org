@@ -41,8 +41,9 @@
 window.DISQUSWIDGETS = undefined;
 window.disqus_shortname = "::disqusShortName::";
 window.disqus_config = function () {
+	this.page.title = "::title::";
 	this.page.identifier = "::disqusID::";
-	this.page.url = "/blog/::name::";
+	this.page.url = "https://haxe.org/blog/::name::/";
 };
 </script>
 <script id="disqus-script" src="//::disqusShortName::.disqus.com/embed.js"></script>
