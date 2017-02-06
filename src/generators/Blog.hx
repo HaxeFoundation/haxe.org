@@ -105,7 +105,7 @@ class Blog {
 		// The posts
 		for (post in posts) {
 			post.disqusShortName = "haxe";
-			Utils.save(Path.join([Config.outputFolder, Config.blogOutput, post.name, Config.index]), views.BlogPost.execute(post), null, null);
+			Utils.save(Path.join([Config.outputFolder, Config.blogOutput, post.name, Config.index]), views.BlogPost.execute(post), null, null, post.title, post.description);
 		}
 
 		// The rss feed
