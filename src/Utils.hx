@@ -32,7 +32,7 @@ class Utils {
 		return content;
 	}
 
-	public static function save(outPath:String, content:String, current:SiteMap.SitePage, editLink:String, title:String = null) {
+	public static function save(outPath:String, content:String, current:SiteMap.SitePage, editLink:String, title:String = null, description:String = null) {
 		var dir = Path.directory(outPath);
 		if (!FileSystem.exists(dir)) {
 			FileSystem.createDirectory(dir);
@@ -48,7 +48,7 @@ class Utils {
 			siteMap: SiteMap.footer(),
 			navBar: SiteMap.navbar(current != null ? current : SiteMap.pageForUrl(urlNormalize(outPath), false, true)),
 			editLink: current != null && current.editLink != null ? current.editLink : editLink,
-			description: Config.description,
+			description: description != null ? description : Config.description,
 			currentYear: Std.string(Date.now().getFullYear())
 		}));
 	}
