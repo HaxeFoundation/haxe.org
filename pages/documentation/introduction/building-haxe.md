@@ -49,13 +49,6 @@ make install
 Building on Windows (mingw)
 -------
 
-### Preparation
-
-In order to make sure the set up is clean and correct, perform the actions as follows:
-
-  - Uninstall OCaml, MinGW, Cygwin
-  - Remove leftover environment vars, cleanup PATH
-
 ### Installation
 
   - Download 32-bit installer from the fdopen's fork: <https://fdopen.github.io/opam-repository-mingw/installation/>
