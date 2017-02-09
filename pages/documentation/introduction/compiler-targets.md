@@ -17,7 +17,7 @@ C# | source | Yes | Yes | 2.10 (2012)
 Python | source | No | Yes | 3.2 (2015)
 Lua | source | No | Yes | 3.3 (2016)
 PHP7 | source | No | Yes | 3.4 (2016)
-HashLink | byte code + source | No | Yes | 3.4 (2016)
+HashLink | byte code + source | Yes | Yes | 3.4 (2016)
 
 > **Note:**
 > 
