@@ -191,6 +191,9 @@ class Downloads {
 		// The current version
 		File.copy(Path.join([Config.outputFolder, Config.downloadOutput, "version", data.current, Config.index]), Path.join([Config.outputFolder, Config.downloadOutput, Config.index]));
 
+		// Copy the versions.json file
+		Utils.copy(Path.join([Config.downloadsPath, "versions.json"]), Path.join([Config.outputFolder, downloadFilesOut, "versions.json"]));
+
 		// Stable urls
 		var releaseNotes = getNotes(data.current, "RELEASE");
 		var changes = getNotes(data.current, "CHANGES");
