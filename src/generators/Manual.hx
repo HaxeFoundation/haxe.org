@@ -194,6 +194,7 @@ class Manual {
 
 				case "table":
 					addClass(xml, "table table-bordered");
+					processChildren(xml);
 
 				case "img":
 					var src = xml.get("src");
@@ -208,7 +209,7 @@ class Manual {
 					xml.parent.removeChild(xml);
 
 				case "h3", "h4", "h5", "h6":
-					var bookmarkID = getText(xml).toLowerCase().replace(" ", "-");
+					var bookmarkID = getText(xml).toLowerCase().replace(" ", "-").replace("\"", "");
 					var link = Xml.parse('<a id="$bookmarkID" class="anch" />').firstElement();
 					var h = Xml.parse('<${xml.nodeName}><a href="#$bookmarkID"></a></${xml.nodeName}>').firstElement();
 					for (child in xml) {
@@ -228,6 +229,7 @@ class Manual {
 							addClass(xml, "trivia");
 						}
 					}
+					processChildren(xml);
 
 				default:
 					processChildren(xml);
