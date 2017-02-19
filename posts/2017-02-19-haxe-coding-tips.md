@@ -17,7 +17,7 @@ and the closest possible thing are static class fields. This may seem inconvenie
 at first, but it's almost totally negated by the static import feature. With static imports, we
 can import any static field (be it `var` or `function`) into the current module's namespace:
 
-Globals.hx
+_Globals.hx_
 ```haxe
 class Globals {
     public static var VERSION = "1.0";
@@ -28,7 +28,7 @@ class Globals {
 }
 ```
 
-Main.hx
+_Main.hx_
 ```haxe
 import Globals.VERSION;
 import Globals.sayHello;
@@ -50,7 +50,7 @@ import Globals.VERSION as APP_VERSION;
 Note that wildcard (asterisk) imports also work for statics, so if we write `import Globals.*`
 there, all statics of the `Globals` class would be imported into our module.
 
-Read more about it in the [manual](http://haxe.org/manual/type-system-import.html).
+**Read more about import in the [manual](https://haxe.org/manual/type-system-import.html).**
 
 
 ## Typedefs
@@ -95,12 +95,12 @@ typedef Menu = Array<MenuItem>;
 function showMessage(user:UserId, text:String, duration:TimeInterval, menu:Menu)
 ```
 
-Arguably, using [abstract types](http://haxe.org/manual/types-abstract.html) is even better for these things,
+Arguably, using [abstract types](https://haxe.org/manual/types-abstract.html) is even better for these things,
 since we could control type unification and add more features to those types (remember `typedef` is just an alias).
 Still, these simple type aliases with descriptive names and documentation can improve the quality of your code, compared to
 using primitive types everywhere.
 
-Read more about it in the [manual](http://haxe.org/manual/type-system-typedef.html).
+**Read more about typedefs in the [manual](https://haxe.org/manual/type-system-typedef.html).**
 
 
 ## Type inference
@@ -139,8 +139,8 @@ Read more about it in the [manual](https://haxe.org/manual/type-system-type-infe
 
 ## Inline local functions
 
-You might be familiar with the concept of [inline methods](http://haxe.org/manual/class-field-inline.html) and
-[inline constructors](http://haxe.org/manual/lf-inline-constructor.html) in Haxe. However there's one more kind
+You might be familiar with the concept of [inline methods](https://haxe.org/manual/class-field-inline.html) and
+[inline constructors](https://haxe.org/manual/lf-inline-constructor.html) in Haxe. However there's one more kind
 of inline functions in Haxe: inline local functions. They can be used to further increase the readability of your Haxe
 code without taking any performance hit.
 
