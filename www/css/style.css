@@ -835,7 +835,6 @@ a.full-size-link {
 	}
 	.article-view p > img:only-child {
 		max-width: 100%;
-		width: 100%;
 		margin: 30px auto;
 	}
 	.article-view iframe {
