@@ -2,6 +2,7 @@ title: Haxe coding tips
 author: nadako
 description: Here's a couple of neat quality-of-life Haxe features that might not be obvious for people that are new to Haxe.
 published: true
+background: haxe-tips.jpg
 tags: tech
 disqusID: 25
 ---
