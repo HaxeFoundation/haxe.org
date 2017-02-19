@@ -134,7 +134,7 @@ class Settings {
 }
 ```
 
-Read more about it in the [manual](https://haxe.org/manual/type-system-type-inference.html).
+**Read more about type inference in the [manual](https://haxe.org/manual/type-system-type-inference.html).**
 
 
 ## Inline local functions
