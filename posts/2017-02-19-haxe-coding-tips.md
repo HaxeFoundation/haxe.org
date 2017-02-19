@@ -177,7 +177,7 @@ calculateStats: function(def,level) {
 }
 ```
 
-## ...
+<hr/>
 
 That's all for now. :-) I think I'll write a couple more posts like this, because Haxe is a beautiful language
 and there's more niceties like the above. If you're interested, please take some time to read the [official manual](https://haxe.org/manual/introduction.html). Also check out the awesome [Cookbook](http://code.haxe.org/), which has many
