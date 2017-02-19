@@ -135,6 +135,12 @@ class Settings {
 }
 ```
 
+A common argument for explicit type hinting is that it's easier to know the type IF needed, however I believe
+that this is solved by virtually any code editor out there. For example the [Haxe extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=nadako.vshaxe)
+reports types for any expressions on hover:
+
+![vshaxe type hints](vshaxe-type-hints.gif)
+
 **Read more about type inference in the [manual](https://haxe.org/manual/type-system-type-inference.html).**
 
 
