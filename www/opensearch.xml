@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+	<ShortName>Haxe</ShortName>
+	<Description>Haxe - The Cross-platform Toolkit</Description>
+	<Tags>Haxe.org</Tags>
+	<moz:SearchForm>https://haxe.org/search</moz:SearchForm>
+	<Url type="text/html" template="http://haxe.org/search/?s={searchTerms}"/>
+	<Url type="application/opensearchdescription+xml" rel="self" template="https://haxe.org/opensearch.xml"/>
+</OpenSearchDescription>
