@@ -10,8 +10,8 @@ class Redirections {
 		var list =  [
 			"/community/index.html" => "/community/community-support.html",
 			"/documentation/index.html" => "/documentation/introduction/",
-			"/manual/index.html" => "/manual/introduction/",
-			"/doc/index.html" => "/manual/introduction/",
+			"/manual/index.html" => "/manual/introduction.html",
+			"/doc/index.html" => "/manual/introduction.html",
 			"/foundation/support.html" => "/foundation/support-plans.html",
 			"/api/index.html" => "http://api.haxe.org/",
 		];
