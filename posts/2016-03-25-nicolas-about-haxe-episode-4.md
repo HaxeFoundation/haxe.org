@@ -10,9 +10,9 @@ disqusID: 11
 After some sound issues involving Teletubby-like sounds and a whole choir of Nicolas, this week's stream went ahead successfully and the video is up:
 
 <div style="text-align:center" markdown="1">
-    <a href="https://www.youtube.com/watch?feature=player_embedded&v=wE26yH7AYNo" target="_blank">
+	<div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://www.youtube.com/embed/wE26yH7AYNo?ecver=2" width="640" height="360" frameborder="0" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen><a href="https://www.youtube.com/watch?feature=player_embedded&v=wE26yH7AYNo" target="_blank">
         <img src="https://img.youtube.com/vi/wE26yH7AYNo/0.jpg" alt="Nicolas about Haxe Episode 3 Macros in Haxe" />
-    </a>
+    </a></iframe></div>
 </div>
 
 If you want to have a look, you can find the Haxe Compiler Source at our [GitHub Repo](https://github.com/HaxeFoundation/haxe).

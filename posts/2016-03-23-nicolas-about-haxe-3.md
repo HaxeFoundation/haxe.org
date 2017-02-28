@@ -14,9 +14,9 @@ In this week's stream episode, Nicolas explained the basics of macros in Haxe an
 Here's the video:
 
 <div style="text-align:center" markdown="1">
-	<a href="https://www.youtube.com/watch?feature=player_embedded&v=SEYCmjtKlVw" target="_blank">
+	<div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://www.youtube.com/embed/SEYCmjtKlVw?ecver=2" width="640" height="360" frameborder="0" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen><a href="https://www.youtube.com/watch?feature=player_embedded&v=SEYCmjtKlVw" target="_blank">
 		<img src="https://img.youtube.com/vi/SEYCmjtKlVw/0.jpg" alt="Nicolas about Haxe Episode 3 Macros in Haxe" />
-	</a>
+	</a></iframe></div>
 </div>
 
 ##What is a Macro?

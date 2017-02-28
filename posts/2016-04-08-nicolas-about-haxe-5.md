@@ -9,11 +9,17 @@ disqusID: 14
 
 In last week's stream, Nicolas introduced a new piece of technology that he uses for for game development at Shiro Games. He likes to call it "The Inspector" although, in actuality, it is more than just an inspector. While it can read information about your game, it also allows live modification and manipulation of your game.
 
+<div style="text-align:center" markdown="1">
+	<div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://www.youtube.com/embed/K8g-1dkBrxk?ecver=2" width="640" height="360" frameborder="0" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen><a href="https://www.youtube.com/watch?feature=player_embedded&v=K8g-1dkBrxk" target="_blank">
+        <img src="https://img.youtube.com/vi/K8g-1dkBrxk/0.jpg" alt="Nicolas about Haxe Episode 3 Macros in Haxe" />
+    </a></iframe></div>
+</div>
+
 ## Video Summary
 
 Here is a quick overview of the video contents:
 
-[00:00 - Intorduction](https://youtu.be/K8g-1dkBrxk)
+[00:00 - Introduction](https://youtu.be/K8g-1dkBrxk)
 
 [01:57 - The IDE-centered approach](https://youtu.be/K8g-1dkBrxk?t=122)
 
@@ -28,14 +34,6 @@ Here is a quick overview of the video contents:
 [25:00 - A look at the code](https://youtu.be/K8g-1dkBrxk?t=1512)
 
 [35:35 - Questions](https://youtu.be/K8g-1dkBrxk?t=2150)
-
-And the video itself:
-
-<div style="text-align:center" markdown="1">
-    <a href="https://www.youtube.com/watch?feature=player_embedded&v=K8g-1dkBrxk" target="_blank">
-        <img src="https://img.youtube.com/vi/K8g-1dkBrxk/0.jpg" alt="Nicolas about Haxe Episode 3 Macros in Haxe" />
-    </a>
-</div>
 
 
 ## The Problem with the IDE-Centered Approach
