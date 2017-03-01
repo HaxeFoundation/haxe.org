@@ -39,6 +39,7 @@ class ItemManager {
 ```
 
 This approach has a number of disadvantages, namely:
+
  * It's not type-safe, meaning that the compiler won't be able to check the number of constructor arguments, or their
    types, or whether that class even _has_ a constructor.
  * It's not [DCE](http://haxe.org/manual/cr-dce.html)-safe, meaning that the compiler won't know if a class is being used,
