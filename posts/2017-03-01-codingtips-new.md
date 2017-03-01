@@ -150,4 +150,4 @@ I believe this is gonna be particularily good once [arrow function syntax](https
 is finally implemented in Haxe.
 
 Fun fact: as described in the first section, the `Cls.new` syntax generates an anonymous function and if immediately invoked,
-it will be inlined as well. Whether there's a good use case for this is for you to discover. :-)
+it will be inlined as well. Whether or not there's a good use case for this is for you to discover. :-)
