@@ -82,8 +82,7 @@ more verbose, for example:
 itemManager.registerItemType("myItem", function(id) return new MyItem(id));
 ```
 
-Good news: Haxe provides syntactic sugar for exactly this case. Just type `YourClass.new` and you'll have exactly
-that factory function automatically generated with the same arguments as the constructor:
+Good news: Haxe has a feature for exactly this case. Just type `YourClass.new` and you'll have a reference to that factory function automatically generated with the same arguments as the constructor:
 
 ```haxe
 itemManager.registerItemType("myItem", MyItem.new);
