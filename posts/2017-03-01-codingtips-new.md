@@ -46,7 +46,7 @@ This approach has a number of disadvantages, namely:
    issues, unless you explicitly mark your classes with `@:keep` metadata.
  * It's basically [reflection](https://haxe.org/manual/std-reflection.html), so it tends to be slower than direct instantiation.
 
-To avoid all these problems, what we really want in a case like this is some kind of "factory". Thanks for Haxe's
+To avoid all these problems, what we really want in a case like this is some kind of "factory". Thanks to Haxe's
 support for [first-class functions](http://haxe.org/manual/expression-function.html), we could represent a factory
 for our `Item`s as a simple function type:
 
