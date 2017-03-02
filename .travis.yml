@@ -4,9 +4,13 @@ dist: trusty
 install:
   # install git lfs
   - curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
-  - sudo apt-get install git-lfs awscli
+  - sudo apt-get install git-lfs
   - git lfs init
   - git lfs pull
+  # install awscli
+  - sudo apt-get install python-pip
+  - sudo pip install awscli
+  - aws --version
   # install haxelibs
   - yes | haxelib install all
 script:
