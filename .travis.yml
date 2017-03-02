@@ -23,3 +23,8 @@ deploy:
   on:
     all_branches: true
     condition: $TRAVIS_BRANCH = master || $TRAVIS_BRANCH = staging
+after_deploy:
+  - if [[ $TRAVIS_BRANCH == "master" || $TRAVIS_BRANCH == "staging" ]]; then
+      aws configure set preview.cloudfront true;
+      aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/$TRAVIS_BRANCH/*";
+    fi
