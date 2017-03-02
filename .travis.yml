@@ -25,6 +25,7 @@ deploy:
     condition: $TRAVIS_BRANCH = master || $TRAVIS_BRANCH = staging
 after_deploy:
   - if [[ $TRAVIS_BRANCH == "master" || $TRAVIS_BRANCH == "staging" ]]; then
-      echo -e "[preview]\ncloudfront=true" > ~/.aws/config;
+      mkdir -p ~/.aws;
+      echo -e "[preview]\ncloudfront=true" >> ~/.aws/config;
       aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/$TRAVIS_BRANCH/*";
     fi
