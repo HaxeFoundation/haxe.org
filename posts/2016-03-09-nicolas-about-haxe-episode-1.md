@@ -12,7 +12,7 @@ Did you know that Nicolas has taken up a weekly stream about Haxe? Of course you
 The avid follower will also point out that last week's episode was actually episode two and not episode one. Unfortunately, however, the first episode was not recorded due to some technical issues and thus we decided to start over. So here it is:
 
 <div style="text-align:center" markdown="1">
-	<div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://www.youtube.com/embed/ckdOSCqUV6U?ecver=2" width="640" height="360" frameborder="0" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen><a href="https://www.youtube.com/watch?feature=player_embedded&v=ckdOSCqUV6U" target="_blank">
+	<div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://www.youtube.com/embed/ckdOSCqUV6U?ecver=2" width="640" height="360" frameborder="0" style="position:absolute;width:100%;height:100%;left:0"><a href="https://www.youtube.com/watch?feature=player_embedded&v=ckdOSCqUV6U" target="_blank">
         <img src="https://img.youtube.com/vi/ckdOSCqUV6U/0.jpg" alt="Nicolas about Haxe Episode 1 The Compilation Server" />
     </a></iframe></div>
 </div>

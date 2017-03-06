@@ -71,7 +71,7 @@ At this year’s Haxe conference, Todd and his colleagues will be back and talk 
 
 <div style="text-align:center" markdown="1">
 	<div style="position:relative;height:0;padding-bottom:56.25%">
-		<iframe src="https://www.youtube.com/embed/P8BpZagb6qE?ecver=2" width="640" height="360" frameborder="0" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen>
+		<iframe src="https://www.youtube.com/embed/P8BpZagb6qE?ecver=2" width="640" height="360" frameborder="0" style="position:absolute;width:100%;height:100%;left:0">
 			<a href="https://www.youtube.com/watch?feature=player_embedded&v=P8BpZagb6qE" target="_blank">
 				<img src="https://img.youtube.com/vi/P8BpZagb6qE/0.jpg" alt="TiVo - Todd Kulick - Shipping One Million Lines of Haxe to One Million Devices" />
 			</a>
