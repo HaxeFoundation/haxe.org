@@ -39,6 +39,7 @@ class ItemManager {
 ```
 
 This approach has a number of disadvantages, namely:
+
  * It's not type-safe, meaning that the compiler won't be able to check the number of constructor arguments, or their
    types, or whether that class even _has_ a constructor.
  * It's not [DCE](http://haxe.org/manual/cr-dce.html)-safe, meaning that the compiler won't know if a class is being used,
@@ -81,8 +82,7 @@ more verbose, for example:
 itemManager.registerItemType("myItem", function(id) return new MyItem(id));
 ```
 
-Good news: Haxe provides syntactic sugar for exactly this case. Just type `YourClass.new` and you'll have exactly
-that factory function automatically generated with the same arguments as the constructor:
+Good news: Haxe has a feature for exactly this case. Just type `YourClass.new` and you'll have a reference to that factory function automatically generated with the same arguments as the constructor:
 
 ```haxe
 itemManager.registerItemType("myItem", MyItem.new);
@@ -149,4 +149,4 @@ I believe this is gonna be particularily good once [arrow function syntax](https
 is finally implemented in Haxe.
 
 Fun fact: as described in the first section, the `Cls.new` syntax generates an anonymous function and if immediately invoked,
-it will be inlined as well. Whether there's a good use case for this is for you to discover. :-)
+it will be inlined as well. Whether or not there's a good use case for this is for you to discover. :-)

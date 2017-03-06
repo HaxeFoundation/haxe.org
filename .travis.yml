@@ -7,6 +7,10 @@ install:
   - sudo apt-get install git-lfs
   - git lfs init
   - git lfs pull
+  # install awscli
+  - sudo apt-get install python-pip
+  - sudo pip install awscli
+  - aws --version
   # install haxelibs
   - yes | haxelib install all
 script:
@@ -23,3 +27,10 @@ deploy:
   on:
     all_branches: true
     condition: $TRAVIS_BRANCH = master || $TRAVIS_BRANCH = staging
+after_deploy:
+  - if [[ $TRAVIS_BRANCH == "master" || $TRAVIS_BRANCH == "staging" ]]; then
+      mkdir -p ~/.aws;
+      echo -e "[default]\naws_access_key_id=$AWS_ACCESS_KEY\naws_secret_access_key=$AWS_SECRET_KEY" >> ~/.aws/credentials;
+      echo -e "[default]\nregion=$AWS_REGION\noutput=json\n[preview]\ncloudfront=true" >> ~/.aws/config;
+      aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/$TRAVIS_BRANCH/*";
+    fi
