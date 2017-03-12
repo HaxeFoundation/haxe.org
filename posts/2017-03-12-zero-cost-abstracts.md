@@ -1,7 +1,7 @@
 title: Zero-cost abstracts
 author: nadako
 description: Abstract types in Haxe is a powerful mechanism providing means of abstraction with no run-time overhead
-published: false
+published: true
 background: haxe-tips.jpg
 tags: tech
 disqusID: 27
