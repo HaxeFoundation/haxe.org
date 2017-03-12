@@ -69,7 +69,7 @@ while(_g < signal.length) {
 ## Even more free abstraction
 
 The `Signal` example above, while very simple, has a design issue: usually, listening to a signal and dispatching it are
-handled by completely different subsystems (that's the very idea of the observer pattern), so combining `listen` and `dispatch` methods in a single API is not very clean.
+handled by completely different subsystems (that's the very idea of the observer pattern), so combining `listen` and `dispatch` methods in a single API is not very clean, since we don't want to allow listening parties to dispatch the signal.
 
 With `abstract`s we can split the API in two without introducing any run-time costs, such object allocation and dynamic dispatching through interface methods. We just wrap the same Array with two abstract types:
 
