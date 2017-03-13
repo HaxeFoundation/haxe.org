@@ -8,7 +8,7 @@ disqusID: 27
 ---
 # Zero-cost abstracts
 
-[Abstract types](https://haxe.org/manual/types-abstract.html) in Haxe is a powerful mechanism providing means of abstraction
+[Abstract types](https://haxe.org/manual/types-abstract.html) in Haxe are a powerful mechanism providing means of abstraction
 with no run-time overhead.
 
 They are particularly good for avoiding [primitive obsession](http://wiki.c2.com/?PrimitiveObsession)
