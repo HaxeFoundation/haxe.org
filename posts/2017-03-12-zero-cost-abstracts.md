@@ -125,7 +125,7 @@ while(_g < dispatcher.length) {
 
 ## Putting it together
 
-In the end, I'd like to demonstrate how it could be nicely used in conjunction with inline `get,never` propeties:
+In the end, I'd like to demonstrate how it could be nicely used in conjunction with inline `get,never` property:
 
 ```haxe
 class Player {
