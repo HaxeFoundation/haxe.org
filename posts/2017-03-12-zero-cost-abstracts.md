@@ -1,6 +1,6 @@
 title: Zero-cost abstracts
 author: nadako
-description: Abstract types in Haxe is a powerful mechanism providing means of abstraction with no run-time overhead
+description: Abstract types in Haxe are a powerful mechanism providing means of abstraction with no run-time overhead
 published: true
 background: haxe-tips.jpg
 tags: tech
@@ -18,8 +18,8 @@ or Int, emphasizing the [implicit casting](https://haxe.org/manual/types-abstrac
 [operator overloading](https://haxe.org/manual/types-abstract-operator-overloading.html) features, currently unique to abstract
 types in Haxe.
 
-But abstracts can be defined over any type (even other abstracts) and that fact seems to be often forgotten in a code design
-process. Combine it with a possibility to actually restrict implicit casting (as opposed to introducing it as in most examples)
+But abstracts can be defined over any type (even other abstracts) and that fact seems to be often forgotten in the code design
+process. Combine it with the possibility to actually _restrict_ implicit casting (as opposed to _introducing_ it as in most examples)
 and we'll have a type-safe and zero-cost way to define new types.
 
 For example, let's write a very simple generic Signal type. Basically, it's just a collection of listeners with a nice
