@@ -47,7 +47,5 @@ The website is now available in the `out/` folder, you can launch it with `nekot
 
 ## Deploying updates
 
-Adding download files requires [git-lfs](https://git-lfs.github.com/).
-
 * Any push or merge to the `staging` branch will trigger [TravisCI](https://travis-ci.org/HaxeFoundation/haxe.org) to build and deploy to "staging.haxe.org".
 * Any push or merge to the `master` branch will trigger [TravisCI](https://travis-ci.org/HaxeFoundation/haxe.org) to build and deploy to "haxe.org".
