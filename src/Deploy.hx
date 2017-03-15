@@ -78,7 +78,8 @@ class Deploy {
                 aws(["configure", "set", "preview.cloudfront", "true"]);
                 aws([
                     "cloudfront", "create-invalidation",
-                    "--distribution-id", distID
+                    "--distribution-id", distID,
+                    "--paths", "*"
                 ]);
         }
 
