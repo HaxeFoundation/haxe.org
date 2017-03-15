@@ -71,14 +71,14 @@ class Deploy {
         }
 
         // invalidate CloudFront cache
-        switch(Sys.getEnv("CLOUDFRONT_DISTRIBUTION_ID")) {
+        switch(Sys.getEnv('CLOUDFRONT_DISTRIBUTION_ID_${BRANCH}')) {
             case null:
-                Sys.println("missing CLOUDFRONT_DISTRIBUTION_ID, skip CloudFront cache invalidation");
+                Sys.println('missing CLOUDFRONT_DISTRIBUTION_ID_${BRANCH}, skip CloudFront cache invalidation');
             case distID:
+                aws(["configure", "set", "preview.cloudfront", "true"]);
                 aws([
                     "cloudfront", "create-invalidation",
-                    "--distribution-id", distID,
-                    "--paths", '/${BRANCH}/*'
+                    "--distribution-id", distID
                 ]);
         }
 
