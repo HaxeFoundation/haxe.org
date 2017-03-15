@@ -78,10 +78,7 @@ class Downloads {
 		version.downloads = downloads;
 	}
 
-	public static function generate () {
-		Sys.println("Generating downloads ...");
-
-		// Data
+	public static function getData():Data {
 		var data:Data = Json.parse(File.getContent(Path.join([Config.downloadsPath, "versions.json"])));
 		var versions = data.versions;
 		versions.reverse();
@@ -98,6 +95,14 @@ class Downloads {
 			getDownloadInfo(version);
 		}
 
+		return data;
+	}
+
+	public static function generate () {
+		Sys.println("Generating downloads ...");
+
+		// Data
+		var data = getData();
 		var downloadFilesOut = Path.join(["website-content", "downloads"]);
 
 		// The list
@@ -126,7 +131,7 @@ class Downloads {
 			return null;
 		}
 
-		for (version in versions) {
+		for (version in data.versions) {
 			var title = 'Haxe ${version.version}';
 			var releaseNotes = getNotes(version.version, "RELEASE");
 			var changes = getNotes(version.version, "CHANGES");
