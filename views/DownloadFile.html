@@ -42,9 +42,9 @@
 			</div>
 		</div>
 
-		::if (api)::
+		::if (api != null)::
 			<p class="alert alert-success">
-				<strong><i class="fa fa-book"></i> API Documentation: </strong> Download the API documentation for this version as a ZIP file: <a href="/download/api/::version::/api.zip">api-::version::.zip</a>.
+				<strong><i class="fa fa-book"></i> API Documentation: </strong> Download the API documentation for this version as <a href="::api::">a ZIP file</a>.
 			</p>
 		::end::
 

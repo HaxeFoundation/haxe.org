@@ -45,9 +45,9 @@
 			<strong><i class="fa fa-github"></i> Source Code: </strong> The source code for this release is <a href="::tagBaseUrl::/::tag::" target="_blank">available on Github under the ::tag:: tag</a>.
 		</p>
 
-		::if (api)::
+		::if (api != null)::
 			<p class="alert alert-success">
-				<strong><i class="fa fa-book"></i> API Documentation: </strong> Download the API documentation for this version as a ZIP file: <a href="/download/api/::version::/api.zip">api-::version::.zip</a>.
+				<strong><i class="fa fa-book"></i> API Documentation: </strong> Download the API documentation for this version as <a href="::api::">a ZIP file</a>.
 			</p>
 		::end::
 

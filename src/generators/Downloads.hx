@@ -3,13 +3,15 @@ package generators;
 import haxe.Json;
 import haxe.io.Path;
 import sys.FileSystem;
-import sys.io.File;
+import sys.io.*;
 
 using StringTools;
+using Lambda;
 
 typedef Download = {
 	title : String,
-	filename : String
+	filename : String,
+	url : String
 }
 
 typedef DownloadList = {
@@ -22,7 +24,7 @@ typedef Version = {
 	var version : String;
 	var tag : String;
 	var date : String;
-	@:optional var api : Bool;
+	@:optional var api : Download;
 	@:optional var next : Version;
 	@:optional var prev : Version;
 	@:optional var downloads : DownloadList;
@@ -33,12 +35,73 @@ typedef Data = {
 	versions : Array<Version>
 }
 
-typedef FileInfo = {
-	title : String,
-	filename : String
-}
+typedef GithubUser = {
+	login : String,
+	id : Int,
+	avatar_url : String,
+	gravatar_id : String,
+	url : String,
+	html_url : String,
+	followers_url : String,
+	following_url : String,
+	gists_url : String,
+	starred_url : String,
+	subscriptions_url : String,
+	organizations_url : String,
+	repos_url : String,
+	events_url : String,
+	received_events_url : String,
+	type : String,
+	site_admin : String
+};
+
+typedef GithubAsset = {
+	url : String,
+	id : Int,
+	name : String,
+	label : String,
+	uploader : GithubUser,
+	content_type : String,
+	state : String,
+	size : Int,
+	download_count : Int,
+	created_at : String,
+	updated_at : String,
+	browser_download_url : String
+};
+
+typedef GithubRelease = {
+	url : String,
+	assets_url : String,
+	upload_url : String,
+	html_url : String,
+	id : Int,
+	tag_name : String,
+	target_commitish : String,
+	name : String,
+	draft : Bool,
+	author : GithubUser,
+	prerelease : Bool,
+	created_at : String,
+	published_at : String,
+	assets : Array<GithubAsset>,
+	tarball_url : String,
+	zipball_url : String,
+	body : String
+};
 
 class Downloads {
+
+
+	static var githubReleases(get, null):Array<GithubRelease>;
+	static function get_githubReleases():Array<GithubRelease> return githubReleases != null ? githubReleases : githubReleases = {
+		// Get data from github api
+		//TODO: for now uses curl, haxe.Http in https doesn't work in --interp, and in neko it doesn't work "ssl@ssl_recv"
+		var data = new Process("curl", ["https://api.github.com/repos/haxefoundation/haxe/releases"]);
+		var releases:Array<GithubRelease> = Json.parse(data.stdout.readAll().toString());
+		data.close();
+		releases;
+	}
 
 	static function getDownloadInfo (version:Version) {
 		var downloads = {
@@ -47,29 +110,32 @@ class Downloads {
 			"linux": []
 		};
 
-		function getInfo (title:String, filename:String) : FileInfo {
-			return { title: title, filename:filename }
+		function getInfo (title:String, url:String) : Download {
+			return { title: title, url:url, filename: Path.withoutDirectory(url) };
 		}
+		var githubRelease = githubReleases.find(function(r) return r.tag_name == version.tag);
+		if (githubRelease == null)
+			throw 'missing github release for version ${version.tag}';
+		var downloadUrls = githubRelease.assets.map(function(a) return a.browser_download_url);
 
-		for (filename in FileSystem.readDirectory(Path.join([Config.downloadsPath, version.version]))) {
+		for (url in downloadUrls) {
+			var filename = Path.withoutDirectory(url);
 			if (filename.endsWith("-linux32.tar.gz") || filename.endsWith("-linux.tar.gz")) {
-				downloads.linux.unshift(getInfo("Linux 32-bit Binaries", filename));
+				downloads.linux.unshift(getInfo("Linux 32-bit Binaries", url));
 			} else if (filename.endsWith("-linux64.tar.gz")) {
-				downloads.linux.push(getInfo("Linux 64-bit Binaries", filename));
+				downloads.linux.push(getInfo("Linux 64-bit Binaries", url));
 			} else if (filename.endsWith("-raspi.tar.gz")) {
-				downloads.linux.push(getInfo("Raspberry Pi", filename));
+				downloads.linux.push(getInfo("Raspberry Pi", url));
 			} else if (filename.endsWith("-osx-installer.pkg") || filename.endsWith("-osx-installer.dmg")) {
-				downloads.osx.unshift(getInfo("OS X Installer", filename));
+				downloads.osx.unshift(getInfo("OS X Installer", url));
 			} else if (filename.endsWith("-osx.tar.gz")) {
-				downloads.osx.push(getInfo("OS X Binaries", filename));
+				downloads.osx.push(getInfo("OS X Binaries", url));
 			} else if (filename.endsWith("-win.exe")) {
-				downloads.windows.unshift(getInfo("Windows Installer", filename));
+				downloads.windows.unshift(getInfo("Windows Installer", url));
 			} else if (filename.endsWith("-win.zip")) {
-				downloads.windows.push(getInfo("Windows Binaries", filename));
+				downloads.windows.push(getInfo("Windows Binaries", url));
 			} else if (filename == 'api-${version.version}.zip') {
-				version.api = true;
-			} else if (filename.endsWith(".md")) {
-				// ignore
+				version.api = getInfo("API Documentation", url);
 			} else {
 				Sys.println('Unknown download type for "$filename"');
 			}
@@ -117,7 +183,7 @@ class Downloads {
 			version: null,
 			tag: null,
 			date: null,
-			api: false
+			api: null
 		});
 
 		Utils.save(Path.join([Config.outputFolder, Config.downloadOutput, "list", Config.index]), content, null, null, title);
@@ -150,7 +216,7 @@ class Downloads {
 				downloads_windows: version.downloads.windows,
 				downloads_linux: version.downloads.linux,
 				downloads_osx: version.downloads.osx,
-				api: version.api,
+				api: version.api != null ? version.api.url : null,
 
 				//TODO need a better template engine or something, having the result of foreach in the global scope is not good
 				filename: null,
@@ -165,31 +231,16 @@ class Downloads {
 				FileSystem.createDirectory(path);
 			}
 			for (asset in version.downloads.linux.concat(version.downloads.windows).concat(version.downloads.osx)) {
-				File.copy(Path.join([Config.downloadsPath, version.version, asset.filename]), Path.join([path, asset.filename]));
-
-				Utils.save(Path.join([Config.outputFolder, Config.downloadOutput, "file", version.version, asset.filename, Config.index]), views.DownloadFile.execute({
-					version: version.version,
+				var filename = Path.withoutDirectory(asset.url);
+				Utils.save(Path.join([Config.outputFolder, Config.downloadOutput, "file", version.version, filename, Config.index]), views.DownloadFile.execute({
 					prev: version.prev != null ? version.prev.version : null,
 					next: version.next != null ? version.next.version : null,
 					title: title,
-					directDownloadLink: '/$link/${asset.filename}',
+					directDownloadLink: asset.url,
 					releaseNotes: releaseNotes,
 					changes: changes,
-					api: version.api
+					api: version.api != null ? version.api.url : null,
 				}), null, null, title);
-			}
-
-			// Copy api
-			if (version.api) {
-				var apiIn = Path.join([Config.downloadsPath, version.version, 'api-${version.version}.zip']);
-				var apiOut = Path.join([Config.outputFolder, Config.downloadOutput, "api", version.version, "api.zip"]);
-				var outDir = Path.directory(apiOut);
-
-				if (!FileSystem.exists(outDir)) {
-					FileSystem.createDirectory(outDir);
-				}
-
-				File.copy(apiIn, apiOut);
 			}
 		}
 
@@ -207,23 +258,18 @@ class Downloads {
 			var filename = 'haxe-latest-${url}';
 			var link = Path.join([downloadFilesOut, "latest", "downloads"]);
 			var title = 'latest: ${data.current}';
+			var version = data.versions.find(function(v) return v.version == data.current);
 
 			// Download page
 			Utils.save(Path.join([Config.outputFolder, Config.downloadOutput, "file", "latest", filename, Config.index]), views.DownloadFile.execute({
-					version: title,
 					prev: null,
 					next: null,
 					title: title,
 					directDownloadLink: '/$link/$filename',
 					releaseNotes: releaseNotes,
 					changes: changes,
-					api: null
+					api: version.api != null ? version.api.url : null,
 				}), null, null, title);
-
-			// File
-			var inPath = Path.join([Config.downloadsPath, data.current, 'haxe-${data.current}-${url}']);
-			var outPath = Path.join([Config.outputFolder, link, filename]);
-			Utils.copy(inPath, outPath);
 		}
 	}
 
