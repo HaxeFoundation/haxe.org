@@ -39,7 +39,7 @@ class Deploy {
         // Set up redirections of the download files to GitHub releases.
         for (version in downloadsData.versions) {
             for (download in
-                (version.api ? [{ filename: 'api-${version.version}.zip' }] : [])
+                (version.api != null ? [version.api] : [])
                 .concat(version.downloads.osx)
                 .concat(version.downloads.windows)
                 .concat(version.downloads.linux)
@@ -47,7 +47,7 @@ class Deploy {
                 aws([
                         "s3api", "put-object",
                         "--acl", "public-read",
-                        "--website-redirect-location", 'https://github.com/HaxeFoundation/haxe/releases/download/${version.tag}/${download.filename}',
+                        "--website-redirect-location", download.url,
                         "--bucket", S3_BUCKET,
                         "--key", '${BRANCH}/website-content/downloads/${version.version}/downloads/${download.filename}'
                 ]);
@@ -62,7 +62,7 @@ class Deploy {
                     aws([
                             "s3api", "put-object",
                             "--acl", "public-read",
-                            "--website-redirect-location", 'https://github.com/HaxeFoundation/haxe/releases/download/${version.tag}/${download.filename}',
+                            "--website-redirect-location", download.url,
                             "--bucket", S3_BUCKET,
                             "--key", '${BRANCH}/website-content/downloads/latest/downloads/${download.filename.replace(version.version, "latest")}'
                     ]);
