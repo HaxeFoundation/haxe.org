@@ -12,20 +12,20 @@ Hello World
 The Haxe Programming Language was designed to be simple yet powerful. Its syntax largely follows the ECMAScript standard, but deviates where necessary. The following program demonstrates "Hello World" written in Haxe:
 
 ```haxe
-class HelloWorld {
-	static public function main() {
-		trace("Hello World");
-	}
+class Main {
+  static public function main():Void {
+    trace("Hello World");
+  }
 }
 ```
 
-With Haxe installed and this program saved in a file called "HelloWorld.hx", this can be compiled from the commandline, for example to JavaScript:
+With Haxe installed and this program saved in a file called "Main.hx", this can be compiled from the commandline, for example to JavaScript:
 
-	haxe -main HelloWorld -js HelloWorld.js
+	haxe -main Main -js Main.js
 
 or to Java:
 
-	haxe -main HelloWorld -java path/to/java/out
+	haxe -main Main -java path/to/java/out
 
 Most Haxe code is organized in **classes** and **functions**, making Haxe an object-oriented language reminiscent of Java, ActionScript 3 and C#. However, Haxe has been designed with expressiveness in mind, yielding a powerful language through easily readable syntax.
 
