@@ -55,19 +55,24 @@ Building on Windows (mingw)
   - Install it, in Cygwin package selection also check `mingw64-i686-zlib` and `mingw64-i686-pcre` (used by Haxe).
     You might need to switch "View" in top-right corner to "Not Installed" to see it in the list.
   - Run OCaml32 terminal from the desktop shortcut, from it:
+  
     - Install camlp4 with `opam install camlp4`
     - Install merlin with `opam install merlin`
 
 ### Running from cmd/powershell
 
   - Add these to your PATH (actual paths may differ depending on your install path and username):
+  
     - cygwin tools: `C:\OCaml32\bin`
     - runtime dlls: `C:\OCaml32\usr\i686-w64-mingw32\sys-root\mingw\bin`
     - ocaml bin: `C:\OCaml32\home\nadako\.opam\4.02.3+mingw32c\bin`
     - flexlink bin: `C:\OCaml32\usr\local\bin`
+    
   - Add new env variables (actual paths may differ depending on your install path and username):
+  
     - `OCAML_TOPLEVEL_PATH=C:\OCaml32\home\nadako\.opam\4.02.3+mingw32c\lib\toplevel`
     - `OCAMLLIB=C:\OCaml32\home\nadako\.opam\4.02.3+mingw32c\lib\ocaml`
+    
   - I couldn't get `opam` itself running through cmd/powershell because it needs some more environment that's inited in `.bashrc`, but I think installing opam packages from within Cygwin terminal is acceptable.
 
 ### Testing
