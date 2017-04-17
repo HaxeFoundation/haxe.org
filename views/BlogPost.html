@@ -14,24 +14,49 @@
 <link rel="home" type="application/rss+xml" href="/blog/rss/" />
 <div class="section article-view">
 	<div class="container">
-		::content::
-
+		<article>::content::</article>
+		
 		<div class="well">
-            <div class="row-fluid">
-                <div class="span2">
-                    <img src="//www.gravatar.com/avatar/::gravatarID::?s=72&d=retro" class="img-circle pull-left" alt="Avatar for ::author::" width="72" height="72" title="::author::" />
-                </div>
-                <div class="span10">
-                    <h3>::author::</h3>
-                    <p>Published <a href="/blog/::name::/" class="pushstate">::date::</a></p>
-                    <p><i><a href="https://news.ycombinator.com/submitlink?u=https://haxe.org/blog/::name::/">Discuss this article on Hacker News</a></i></p>
+			<div class="row-fluid">
+				<div class="span2">
+					<img src="//www.gravatar.com/avatar/::gravatarID::?s=72&d=retro" class="img-circle pull-left" alt="Avatar for ::author::" width="72" height="72" title="::author::" />
+				</div>
+				<div class="span10">
+					<h3>::author::</h3>
+					<p>Published <a href="/blog/::name::/" class="pushstate">::date::</a></p>
+					
+					<div class="share-buttons">
+						<!-- G+ button code -->
+						<script src="https://apis.google.com/js/platform.js" async="async" defer="defer"></script>
+						<div class="g-plus" data-action="share" data-annotation="bubble" style="display:inline-block"></div>
+						&nbsp;
+						
+						<!-- Twitter button code -->
+						<a href="https://twitter.com/share" class="twitter-share-button" style="display:inline-block" data-show-count="false">Tweet</a>
+						<script async="async" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+						&nbsp; 
+						<!-- Load Facebook SDK for JavaScript -->
+						<div id="fb-root" style="display:inline-block"></div>
+						<script>(function(d, s, id) {
+							var js, fjs = d.getElementsByTagName(s)[0];
+							if (d.getElementById(id)) return;
+							js = d.createElement(s); js.id = id;
+							js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+							fjs.parentNode.insertBefore(js, fjs);
+						}(document, 'script', 'facebook-jssdk'));</script>
 
-                    ::foreach tags::
-                        <a href="/blog/tag/::name::/" class="label pushstate">::name::</a>
-                    ::end::
-                </div>
-            </div>
-        </div>
+						<!-- FB like button code -->
+						<div class="fb-like" data-href="https://haxe.org/blog/::name::/" style="display:inline-block" data-layout="button_count" data-action="like" data-show-faces="true"></div>
+					</div>
+
+					<div class="tags">
+					::foreach tags::
+						<span class="tag"><i class="fa fa-tag"></i>&nbsp;<a href="/blog/tag/::name::/" class="pushstate">::name::</a></span> 
+					::end::
+					</div>
+				</div>
+			</div>
+		</div>
 
 		<div id="disqus_thread"></div>
 	</div>
