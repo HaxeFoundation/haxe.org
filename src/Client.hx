@@ -10,7 +10,6 @@ class Client {
 			expandCurrentPageOnMenu();
 			syntaxHighlight();
 			pullOutStyling();
-			tableStyling();
 			emptyLinks();
 		});
 	}
@@ -79,10 +78,6 @@ class Client {
 			var type = h5.text().substr(0, h5.text().indexOf(":"));
 			h5.parent().addClass(type.toLowerCase());
 		}
-	}
-
-	static function tableStyling() {
-		new JQuery(".site-content").addClass("table");
 	}
 
 	static function setupBootstrap() {
