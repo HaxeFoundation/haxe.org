@@ -29,3 +29,4 @@ or to Java:
 
 Most Haxe code is organized in **classes** and **functions**, making Haxe an object-oriented language reminiscent of Java, ActionScript 3 and C#. However, Haxe has been designed with expressiveness in mind, yielding a powerful language through easily readable syntax.
 
+See [Introduction](https://haxe.org/manual/introduction-hello-world.html) chapter in Haxe manual for more info.
