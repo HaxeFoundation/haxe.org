@@ -214,7 +214,6 @@ class Downloads {
 				releaseNotes: releaseNotes,
 				changes: changes,
 				downloads_windows: version.downloads.windows,
-				downloads_linux: version.downloads.linux,
 				downloads_osx: version.downloads.osx,
 				api: version.api != null ? version.api.url : null,
 
