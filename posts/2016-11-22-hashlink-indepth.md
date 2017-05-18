@@ -63,7 +63,7 @@ Now that we talked about how HashLink differs from NekoVM in terms of its potent
 
 In case you are new to virtual machines, you might wonder a byte code actually is.
 
-Byte code is similar to some assembler expect that it is not related to any specific CPU. It is a "virtual assembler" meant to be run on the "virtual CPU" represented by the virtual machine. Of course, this virtual assembler will be translated to a real assembler by the JIT so it can be run on the CPU. However, when stored on hard drive (in a `.hl` file) it is not CPU-specific and could be translated to any CPU assembler (x86, x86-64, ARM, etc.).
+Byte code is similar to some assembler except that it is not related to any specific CPU. It is a "virtual assembler" meant to be run on the "virtual CPU" represented by the virtual machine. Of course, this virtual assembler will be translated to a real assembler by the JIT so it can be run on the CPU. However, when stored on hard drive (in a `.hl` file) it is not CPU-specific and could be translated to any CPU assembler (x86, x86-64, ARM, etc.).
 
 If you want to look at the HL byte code ouput of the Haxe compiler, simply add `-D dump` to your Haxe parameters, for example:
 
