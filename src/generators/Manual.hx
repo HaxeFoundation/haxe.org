@@ -95,6 +95,24 @@ class Manual {
 
 			File.copy(inPath, outPath);
 		}
+		
+		// Create dictionary page
+		var dictionaryPage = {
+			url: '/manual/dictionary.html',
+			title: "Dictionary",
+			sub: [],
+			editLink: null,
+		};
+		//sitemap.push(dictionaryPage);
+		var dictionaryFile = Path.join([inPath, "dictionary.md"]);
+		var dictionaryContent = processMarkdown(dictionaryFile, File.getContent(dictionaryFile));
+		var dictionaryContent = views.PageWithSidebar.execute({
+			sideNav: SiteMap.sideBar(sitemap, dictionaryPage),
+			prevNextLinks: SiteMap.prevNextLinks(sitemap, dictionaryPage),
+			editLink: Config.manualBaseEditLink + dictionaryPage.editLink,
+			content: dictionaryContent
+		});
+		Utils.save(Path.join([Config.outputFolder, dictionaryPage.url]), dictionaryContent, menuRoot, null);
 	}
 
 	static function addSection (section:Section, sitemap:Array<SitePage>, pages:Array<Page>, titleToSection:Map<String, Array<SitePage>>, inPath:String) {
