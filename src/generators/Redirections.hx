@@ -11,6 +11,8 @@ class Redirections {
 			"/community/index.html" => "/community/community-support.html",
 			"/documentation/index.html" => "/documentation/introduction/",
 			"/manual/index.html" => "/manual/introduction.html",
+			"/manual/lf-trace-log.html" => "/manual/debugging-trace-log.html",
+			"/manual/type-system-extensions.html" => "/manual/types-structure-extensions.html",
 			"/doc/index.html" => "/manual/introduction.html",
 			"/foundation/support.html" => "/foundation/support-plans.html",
 			"/api/index.html" => "http://api.haxe.org/",
