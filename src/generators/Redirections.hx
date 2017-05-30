@@ -13,6 +13,7 @@ class Redirections {
 			"/manual/index.html" => "/manual/introduction.html",
 			"/manual/lf-trace-log.html" => "/manual/debugging-trace-log.html",
 			"/manual/type-system-extensions.html" => "/manual/types-structure-extensions.html",
+			"/manual/target-javascript-debugging.html" => "/manual/debugging-javascript.html",
 			"/doc/index.html" => "/manual/introduction.html",
 			"/foundation/support.html" => "/foundation/support-plans.html",
 			"/api/index.html" => "http://api.haxe.org/",
