@@ -215,64 +215,56 @@ class Blog {
 			published: null
 		};
 
-		var inHeader = true;
-		var contentBuffer = new StringBuf();
+		var delimiter = "---";
+		var splitted = content.split(delimiter);
+		var header = splitted.shift();
+		var blogContent = splitted.join(delimiter);
 
-		for (line in content.split("\n")) {
-			if (line == "---") {
-				// end of header and start of content
-				inHeader = false;
-				continue;
-			}
+		for (line in header.split("\n")) {
+			var tmp = line.split(":");
+			var key = tmp.shift().trim();
+			var value = tmp.join(":").trim();
 
-			if (inHeader) {
-				var tmp = line.split(":");
-				var key = tmp.shift().trim();
-				var value = tmp.join(":").trim();
+			switch (key) {
+				case "author":
+					var authorInfo = name2author.get(value);
+					if (authorInfo == null) {
+						Sys.println('Warning: author "$value" is used in a post but isn\'t in authors.json');
+					} else {
+						data.author = authorInfo.name;
+						data.authorID = authorInfo.username;
+						data.gravatarID = authorInfo.md5email;
+					}
 
-				switch (key) {
-					case "author":
-						var authorInfo = name2author.get(value);
-						if (authorInfo == null) {
-							Sys.println('Warning: author "$value" is used in a post but isn\'t in authors.json');
-						} else {
-							data.author = authorInfo.name;
-							data.authorID = authorInfo.username;
-							data.gravatarID = authorInfo.md5email;
-						}
+				case "background":
+					data.background = value;
 
-					case "background":
-						data.background = value;
+				case "description":
+					data.description = value;
 
-					case "description":
-						data.description = value;
+				case "disqusID":
+					data.disqusID = value;
 
-					case "disqusID":
-						data.disqusID = value;
+				case "tags":
+					for (tag in value.split(",")) {
+						data.tags.push({ name: tag.trim() });
+					}
 
-					case "tags":
-						for (tag in value.split(",")) {
-							data.tags.push({ name: tag.trim() });
-						}
+				case "title":
+					data.title = value;
 
-					case "title":
-						data.title = value;
+				case "published":
+					data.published = value == "true";
 
-					case "published":
-						data.published = value == "true";
-
-					default:
-						Sys.println('Unknown blog post header key "$key" in "$post"');
-				}
-			} else {
-				contentBuffer.add(line);
-				contentBuffer.add("\n");
+				default:
+					//Sys.println('Unknown blog post header key "$key" in "$post"');
 			}
 		}
+		
 
 		try {
-			var xml = Xml.parse(Markdown.markdownToHtml(contentBuffer.toString()));
-			changeImg('${data.date}-${data.name}', xml);
+			var xml = Xml.parse(Markdown.markdownToHtml(blogContent));
+			changeHtml('${data.date}-${data.name}', xml);
 			data.content = xml.toString();
 		} catch (e:Dynamic) {
 			Sys.println('Error when parsing "$post"');
@@ -289,18 +281,21 @@ class Blog {
 		return data;
 	}
 
-	static function changeImg (postID:String, xml:Xml) {
+	static function changeHtml (postID:String, xml:Xml) {
 		var srcAttr = "src";
 
 		if (xml.nodeType == Xml.Element && xml.nodeName == "img" && xml.exists(srcAttr) && !xml.get(srcAttr).startsWith("http")) {
 			xml.set(srcAttr, '/img/blog/$postID/${xml.get("src")}');
 		}
+		
+		if (xml.nodeType == Xml.Element && xml.nodeName == "table") {
+			xml.set("class", 'table');
+		}
 
 		if (xml.nodeType == Xml.Document || xml.nodeType == Xml.Element) {
 			for (element in xml) {
-				changeImg(postID, element);
+				changeHtml(postID, element);
 			}
 		}
 	}
-
 }
