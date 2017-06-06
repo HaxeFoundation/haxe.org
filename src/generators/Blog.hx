@@ -267,7 +267,6 @@ class Blog {
 			changeHtml('${data.date}-${data.name}', xml);
 			data.content = xml.toString();
 		} catch (e:Dynamic) {
-			Sys.println('Error when parsing "$post"');
 
 			if (Std.is(e, XmlParserException)) {
 				var e = cast(e, XmlParserException);
@@ -276,6 +275,7 @@ class Blog {
 			} else {
 				Sys.println(e);
 			}
+			throw('Error when parsing "$post"');
 		}
 
 		return data;

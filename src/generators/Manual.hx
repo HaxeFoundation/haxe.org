@@ -186,7 +186,6 @@ class Manual {
 			processNode(xml);
 			return xml.toString();
 		} catch (e:Dynamic) {
-			Sys.println('Error when parsing "$filename"');
 
 			if (Std.is(e, XmlParserException)) {
 				var e = cast(e, XmlParserException);
@@ -197,7 +196,7 @@ class Manual {
 			}
 
 			Sys.println(haxe.CallStack.toString(haxe.CallStack.exceptionStack()));
-
+			throw('Error when parsing "$filename"');
 			return "Couldn't parse manual file";
 		}
 	}

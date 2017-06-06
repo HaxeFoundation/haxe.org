@@ -137,7 +137,7 @@ class Downloads {
 			} else if (filename == 'api-${version.version}.zip') {
 				version.api = getInfo("API Documentation", url);
 			} else {
-				Sys.println('Unknown download type for "$filename"');
+				throw('Unknown download type for "$filename"');
 			}
 		}
 
