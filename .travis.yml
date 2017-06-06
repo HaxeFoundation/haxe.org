@@ -1,7 +1,7 @@
 language: haxe
 haxe: 
-  "3.4.2"
-  "development"
+  - "3.4.2"
+  - "development"
 dist: trusty
 install:
   # install awscli
