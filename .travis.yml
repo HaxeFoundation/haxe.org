@@ -1,5 +1,7 @@
 language: haxe
-haxe: "3.4.2"
+haxe: 
+  "3.4.2"
+  "development"
 dist: trusty
 install:
   # install awscli
@@ -9,4 +11,5 @@ install:
   # install haxelibs
   - yes | haxelib install all
 script:
-  - haxe generate.hxml && haxe deploy.hxml
+  - haxe generate.hxml
+  - if [[ "$TRAVIS_HAXE_VERSION" == "3.4.2" ]]; then haxe deploy.hxml ; fi
