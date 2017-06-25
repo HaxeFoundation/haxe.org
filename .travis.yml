@@ -3,6 +3,8 @@ haxe:
   - "3.4.2"
   - "development"
 dist: trusty
+sudo: true
+group: deprecated-2017Q2
 install:
   # install awscli
   - sudo apt-get install python-pip
