@@ -3,11 +3,12 @@ haxe:
   - "3.4.2"
   - "development"
 dist: trusty
-sudo: true
+sudo: false
+addons:
+  apt:
+    packages:
+      - awscli
 install:
-  # install awscli
-  - sudo apt-get install python-pip
-  - sudo pip install awscli
   - aws --version
   # install haxelibs
   - yes | haxelib install all
