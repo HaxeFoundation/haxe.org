@@ -29,6 +29,7 @@ class Deploy {
         switch([Sys.getEnv("AWS_ACCESS_KEY_ID"), Sys.getEnv("AWS_SECRET_ACCESS_KEY")]) {
             case [null, _] | [_, null]:
                 Sys.println("missing aws credentials, skip deploy");
+                return;
             case _:
                 //pass
         }
