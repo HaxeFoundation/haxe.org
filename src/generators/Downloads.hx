@@ -97,7 +97,13 @@ class Downloads {
 	static function get_githubReleases():Array<GithubRelease> return githubReleases != null ? githubReleases : githubReleases = {
 		// Get data from github api
 		//TODO: for now uses curl, haxe.Http in https doesn't work in --interp, and in neko it doesn't work "ssl@ssl_recv"
-		var data = new Process("curl", ["https://api.github.com/repos/haxefoundation/haxe/releases"]);
+		var authArgs = switch (Sys.getEnv("GITHUB_AUTH")) {
+			case null:
+				[];
+			case githubAuth: //format is username:token
+				["-u", githubAuth];
+		}
+		var data = new Process("curl", authArgs.concat(["https://api.github.com/repos/haxefoundation/haxe/releases"]));
 		var releases:Array<GithubRelease> = Json.parse(data.stdout.readAll().toString());
 		data.close();
 		releases;
