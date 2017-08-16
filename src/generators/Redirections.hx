@@ -11,6 +11,7 @@ class Redirections {
 			"/community/index.html" => "/community/community-support.html",
 			"/documentation/index.html" => "/documentation/introduction/",
 			"/manual/index.html" => "/manual/introduction.html",
+			"/manual/macros/index.html" => "/manual/macro.html",
 			"/manual/lf-trace-log.html" => "/manual/debugging-trace-log.html",
 			"/manual/type-system-extensions.html" => "/manual/types-structure-extensions.html",
 			"/manual/target-javascript-debugging.html" => "/manual/debugging-javascript.html",
