@@ -239,15 +239,7 @@ class SiteMap {
 			}
 		}
 
-		_footer = views.Footer.execute({
-			firstColumn: firstColumn,
-			columns: columns,
-
-			//TODO: need better template engine
-			url: null,
-			title: null,
-			rows: null
-		});
+		_footer = Views.Footer(firstColumn, columns);
 
 		return _footer;
 	}

@@ -33,7 +33,7 @@ We currently use the bootstrap 2.3.2 CSS library and the Font Awesome 4.1.0 icon
 * The blog posts are in `posts/` in markdown, and their images are in `www/img/blog/$name/`.
 * The release messages for the haxe versions are in `releaseNotes/`, in markdown.
 * The code is in `src/`. The generations calls `src/Main.hx` and the javascript `src/Client.hx`.
-* The views are in `views/` and uses the [haxe template syntax](https://haxe.org/manual/std-template.html).
+* The views are in `views/` and uses the [haxe template syntax](https://haxe.org/manual/std-template.html) with foreach disabled.
 * The static assets are in `www/`.
 
 ## Running a local copy for development

@@ -1,6 +1,7 @@
 package generators;
 
 import haxe.io.Path;
+import tink.template.Html;
 
 class Pages {
 
@@ -21,17 +22,14 @@ class Pages {
 
 			if (folder != "/") { // Not top level
 				if (root != null && sitepage != null) {
-					content = views.PageWithSidebar.execute({
-						sideNav: SiteMap.sideBar(root.sub, sitepage),
-						prevNextLinks: SiteMap.prevNextLinks(root.sub, sitepage),
-						editLink: editLink,
-						content: content
-					});
+					content = Views.PageWithSidebar(
+						SiteMap.prevNextLinks(root.sub, sitepage),
+						new Html(SiteMap.sideBar(root.sub, sitepage)),
+						new Html(content),
+						editLink
+					);
 				} else { // Not in sitemap, so can't make sidebar
-					content = views.PageWithoutSidebar.execute({
-						editLink: editLink,
-						content: content
-					});
+					content = Views.PageWithoutSidebar(new Html(content), editLink);
 				}
 			}
 

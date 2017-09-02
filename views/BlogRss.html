@@ -8,14 +8,14 @@
         <generator>haxe</generator>
         <language>en</language>
 
-        ::foreach posts::
+        ::for post in posts::
             <item>
-                <title>::title::</title>
-                <link>https://haxe.org/blog/::name::/</link>
-                <guid>https://haxe.org/blog/::name::/</guid>
-                <pubDate>::date::</pubDate>
-                <dc:creator>::author::</dc:creator>
-                <description>::description::</description>
+                <title>::post.title::</title>
+                <link>https://haxe.org/blog/::post.name::/</link>
+                <guid>https://haxe.org/blog/::post.name::/</guid>
+                <pubDate>::post.date::</pubDate>
+                <dc:creator>::post.author::</dc:creator>
+                <description>::post.description::</description>
             </item>
         ::end::
     </channel>

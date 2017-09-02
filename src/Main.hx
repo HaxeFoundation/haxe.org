@@ -1,6 +1,5 @@
 import sys.FileSystem;
 
-@:build(ViewBuilder.build())
 class Main {
 
 	public static function main () {

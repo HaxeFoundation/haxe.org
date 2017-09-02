@@ -21,13 +21,13 @@
 					<td></td>
 					<td><a href="https://github.com/HaxeFoundation/Haxe" target="_blank" title="View branch `development` on Github">development</a></td>
 				</tr>
-				::foreach versions::
-					<tr ::if (version == current):: class="success" ::end::>
-						<td><a href="/download/version/::version::/">::version::</a> ::if (version == current):: (Current Release) ::end::</td>
-						<td><a href="/download/version/::version::/">Download Page</a></td>
-						<td>::if (api != null)::<a href="::api.url::">API Documentation (ZIP)</a>::end::</td>
-						<td>::date::</td>
-						<td><a href="::tagBaseUrl::/::tag::/" target="_blank" title="View tag ::tag:: on Github">::tag::</a></td>
+				::for version in versions::
+					<tr ::if (version.version == current):: class="success" ::end::>
+						<td><a href="/download/version/::version.version::/">::version.version::</a> ::if (version.version == current):: (Current Release) ::end::</td>
+						<td><a href="/download/version/::version.version::/">Download Page</a></td>
+						<td>::if (version.api != null)::<a href="::version.api::">API Documentation (ZIP)</a>::end::</td>
+						<td>::version.date::</td>
+						<td><a href="::Config.tagBaseUrl::/::version.tag::/" target="_blank" title="View tag ::version.tag:: on Github">::version.tag::</a></td>
 					</tr>
 				::end::
 			</tbody>

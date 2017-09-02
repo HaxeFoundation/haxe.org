@@ -19,7 +19,7 @@
 		<div class="well">
 			<div class="row-fluid">
 				<div class="span2">
-					<img src="//www.gravatar.com/avatar/::gravatarID::?s=72&d=retro" class="img-circle pull-left" alt="Avatar for ::author::" width="72" height="72" title="::author::" />
+					<img src="//www.gravatar.com/avatar/::gravatarID::?s=72&amp;d=retro" class="img-circle pull-left" alt="Avatar for ::author::" width="72" height="72" title="::author::" />
 				</div>
 				<div class="span10">
 					<h3>::author::</h3>
@@ -50,8 +50,8 @@
 					</div>
 
 					<div class="tags">
-					::foreach tags::
-						<span class="tag"><i class="fa fa-tag"></i>&nbsp;<a href="/blog/tag/::name::/" class="pushstate">::name::</a></span> 
+					::for tag in tags::
+						<span class="tag"><i class="fa fa-tag"></i>&nbsp;<a href="/blog/tag/::tag.name::/" class="pushstate">::tag.name::</a></span> 
 					::end::
 					</div>
 				</div>
@@ -64,12 +64,12 @@
 
 <script>
 window.DISQUSWIDGETS = undefined;
-window.disqus_shortname = "::disqusShortName::";
+window.disqus_shortname = "::Config.disqusShortName::";
 window.disqus_config = function () {
 	this.page.title = "::title::";
 	this.page.identifier = "::disqusID::";
 	this.page.url = "https://haxe.org/blog/::name::/";
 };
 </script>
-<script id="disqus-script" src="//::disqusShortName::.disqus.com/embed.js"></script>
-<script src="//::disqusShortName::.disqus.com/count.js"></script>
+<script id="disqus-script" src="//::Config.disqusShortName::.disqus.com/embed.js"></script>
+<script src="//::Config.disqusShortName::.disqus.com/count.js"></script>

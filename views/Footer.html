@@ -1,16 +1,16 @@
 <ul>
 	<li class="column">
-		::foreach firstColumn::
-			<h5><a href="::url::">::title::</a></h5>
+		::for item in firstColumn::
+			<h5><a href="::item.url::">::item.title::</a></h5>
 		::end::
 	</li>
 	
-	::foreach columns::
+	::for column in columns::
 	<li class="column">
-		<h5><a href="::url::">::title::</a></h5>
+		<h5><a href="::column.url::">::column.title::</a></h5>
 		<ul>
-			::foreach rows::
-				<li><a href="::url::">::title::</a></li>
+			::for item in column.rows::
+				<li><a href="::item.url::">::item.title::</a></li>
 			::end::
 		</ul>
 	</li>

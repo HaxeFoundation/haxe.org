@@ -8,17 +8,17 @@
 </div>
 <link rel="alternate" type="application/rss+xml" href="/blog/rss/" />
 <div class="article-list">
-	::foreach posts::
-		<div class="section article-thumbnail article-header" ::if (background != null):: style="background-image: url(/img/blog/backgrounds/::background::)"::end::>
-			<a href="/blog/::name::/" class="pushstate full-size-link darken-bg"></a>
+	::for post in posts::
+		<div class="section article-thumbnail article-header" ::if (post.background != null):: style="background-image: url(/img/blog/backgrounds/::post.background::)"::end::>
+			<a href="/blog/::post.name::/" class="pushstate full-size-link darken-bg"></a>
 			<div class="container">
-				<h2><a href="/blog/::name::/" class="pushstate">::title::</a></h2>
-				<p class="lead">::description::</p>
+				<h2><a href="/blog/::post.name::/" class="pushstate">::post.title::</a></h2>
+				<p class="lead">::post.description::</p>
 				<p><small>
-					Article by <a href="/blog/author/::authorID::/" class="label pushstate">::author::</a> on <a href="/blog/::name::/" class="label pushstate">::date::</a>.
+					Article by <a href="/blog/author/::post.authorID::/" class="label pushstate">::post.author::</a> on <a href="/blog/::post.name::/" class="label pushstate">::post.date::</a>.
 				</small></p>
 				<p><small>
-					<a href="/blog/::name::/#disqus_thread" class="label pushstate disqus-comment-count" data-disqus-identifier="::disqusID::">Comments</a>
+					<a href="/blog/::post.name::/#disqus_thread" class="label pushstate disqus-comment-count" data-disqus-identifier="::post.disqusID::">Comments</a>
 				</small></p>
 			</div>
 		</div>
@@ -27,6 +27,6 @@
 
 <script>
 window.DISQUSWIDGETS = undefined;
-window.disqus_shortname = "::disqusShortName::";
+window.disqus_shortname = "::Config.disqusShortName::";
 </script>
-<script src="//::disqusShortName::.disqus.com/count.js"></script>
+<script src="//::Config.disqusShortName::.disqus.com/count.js"></script>

@@ -1,4 +1,3 @@
-import Main; //trigger its build macros...
 using StringTools;
 
 /**

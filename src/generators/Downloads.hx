@@ -4,6 +4,7 @@ import haxe.Json;
 import haxe.io.Path;
 import sys.FileSystem;
 import sys.io.*;
+import tink.template.Html;
 
 using StringTools;
 using Lambda;
@@ -179,18 +180,7 @@ class Downloads {
 
 		// The list
 		var title = "Haxe Download List";
-		var content = views.DownloadList.execute({
-			current: data.current,
-			versions: data.versions,
-			title: title,
-			tagBaseUrl: Config.tagBaseUrl,
-
-			//TODO need a better template engine or something, having the result of foreach in the global scope is not good
-			version: null,
-			tag: null,
-			date: null,
-			api: null
-		});
+		var content = Views.DownloadList(title, data.current, data.versions);
 
 		Utils.save(Path.join([Config.outputFolder, Config.downloadOutput, "list", Config.index]), content, null, null, title);
 
@@ -208,24 +198,19 @@ class Downloads {
 			var releaseNotes = getNotes(version.version, "RELEASE");
 			var changes = getNotes(version.version, "CHANGES");
 
-			var content = views.DownloadVersion.execute({
-				title: title,
-				version: version.version,
-				tagBaseUrl: Config.tagBaseUrl,
-				prev: version.prev != null ? version.prev.version : null,
-				next: version.next != null ? version.next.version : null,
-				tag: version.tag,
-				prevTag: version.prev != null ? version.prev.tag : null,
-				compareBaseUrl: Config.compareBaseUrl,
-				releaseNotes: releaseNotes,
-				changes: changes,
-				downloads_windows: version.downloads.windows,
-				downloads_osx: version.downloads.osx,
-				api: version.api != null ? version.api.url : null,
-
-				//TODO need a better template engine or something, having the result of foreach in the global scope is not good
-				filename: null,
-			});
+			var content = Views.DownloadVersion(
+				version.version,
+				version.prev != null ? version.prev.version : null,
+				version.next != null ? version.next.version : null,
+				title,
+				version.downloads.windows,
+				version.downloads.osx,
+				version.tag,
+				version.api != null ? version.api.url : null,
+				new Html(releaseNotes),
+				new Html(changes),
+				version.prev != null ? version.prev.tag : null
+			);
 
 			Utils.save(Path.join([Config.outputFolder, Config.downloadOutput, "version", version.version, Config.index]), content, null, null, title);
 
@@ -237,15 +222,15 @@ class Downloads {
 			}
 			for (asset in version.downloads.linux.concat(version.downloads.windows).concat(version.downloads.osx)) {
 				var filename = Path.withoutDirectory(asset.url);
-				Utils.save(Path.join([Config.outputFolder, Config.downloadOutput, "file", version.version, filename, Config.index]), views.DownloadFile.execute({
-					prev: version.prev != null ? version.prev.version : null,
-					next: version.next != null ? version.next.version : null,
-					title: title,
-					directDownloadLink: asset.url,
-					releaseNotes: releaseNotes,
-					changes: changes,
-					api: version.api != null ? version.api.url : null,
-				}), null, null, title);
+				Utils.save(Path.join([Config.outputFolder, Config.downloadOutput, "file", version.version, filename, Config.index]), Views.DownloadFile(
+					version.prev != null ? version.prev.version : null,
+					version.next != null ? version.next.version : null,
+					title,
+					asset.url,
+					new Html(releaseNotes),
+					new Html(changes),
+					version.api != null ? version.api.url : null
+				), null, null, title);
 			}
 		}
 
@@ -266,15 +251,15 @@ class Downloads {
 			var version = data.versions.find(function(v) return v.version == data.current);
 
 			// Download page
-			Utils.save(Path.join([Config.outputFolder, Config.downloadOutput, "file", "latest", filename, Config.index]), views.DownloadFile.execute({
-					prev: null,
-					next: null,
-					title: title,
-					directDownloadLink: '/$link/$filename',
-					releaseNotes: releaseNotes,
-					changes: changes,
-					api: version.api != null ? version.api.url : null,
-				}), null, null, title);
+			Utils.save(Path.join([Config.outputFolder, Config.downloadOutput, "file", "latest", filename, Config.index]), Views.DownloadFile(
+					null,
+					null,
+					title,
+					'/$link/$filename',
+					new Html(releaseNotes),
+					new Html(changes),
+					version.api != null ? version.api.url : null
+			), null, null, title);
 		}
 	}
 

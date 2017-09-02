@@ -5,6 +5,7 @@ import haxe.io.Path;
 import haxe.xml.Parser.XmlParserException;
 import sys.FileSystem;
 import sys.io.File;
+import tink.template.Html;
 
 import SiteMap.SitePage;
 
@@ -78,12 +79,12 @@ class Manual {
 		for (page in pages) {
 			var content = processMarkdown(page.file, File.getContent(page.file));
 
-			content = views.PageWithSidebar.execute({
-				sideNav: SiteMap.sideBar(sitemap, page.page),
-				prevNextLinks: SiteMap.prevNextLinks(sitemap, page.page),
-				editLink: Config.manualBaseEditLink + page.page.editLink,
-				content: content
-			});
+			content = Views.PageWithSidebar(
+				SiteMap.prevNextLinks(sitemap, page.page),
+				new Html(SiteMap.sideBar(sitemap, page.page)),
+				new Html(content),
+				Config.manualBaseEditLink + page.page.editLink
+			);
 
 			Utils.save(Path.join([Config.outputFolder, page.page.url]), content, menuRoot, null);
 		}
@@ -106,12 +107,12 @@ class Manual {
 		//sitemap.push(dictionaryPage);
 		var dictionaryFile = Path.join([inPath, "dictionary.md"]);
 		var dictionaryContent = processMarkdown(dictionaryFile, File.getContent(dictionaryFile));
-		var dictionaryContent = views.PageWithSidebar.execute({
-			sideNav: SiteMap.sideBar(sitemap, dictionaryPage),
-			prevNextLinks: SiteMap.prevNextLinks(sitemap, dictionaryPage),
-			editLink: Config.manualBaseEditLink + dictionaryPage.editLink,
-			content: dictionaryContent
-		});
+		var dictionaryContent = Views.PageWithSidebar(
+			SiteMap.prevNextLinks(sitemap, dictionaryPage),
+			new Html(SiteMap.sideBar(sitemap, dictionaryPage)),
+			new Html(dictionaryContent),
+			Config.manualBaseEditLink + dictionaryPage.editLink
+		);
 		Utils.save(Path.join([Config.outputFolder, dictionaryPage.url]), dictionaryContent, menuRoot, null);
 	}
 

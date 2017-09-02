@@ -1,6 +1,7 @@
 import haxe.io.Path;
 import sys.FileSystem;
 import sys.io.File;
+import tink.template.Html;
 
 using StringTools;
 
@@ -42,15 +43,15 @@ class Utils {
 			outPath = Path.withoutExtension(outPath) + ".html";
 		}
 
-		File.saveContent(outPath, views.MainLayout.execute({
-			viewContent: content,
-			title: current != null ? current.title : title,
-			siteMap: SiteMap.footer(),
-			navBar: SiteMap.navbar(current != null ? current : SiteMap.pageForUrl(urlNormalize(outPath), false, true)),
-			editLink: current != null && current.editLink != null ? current.editLink : editLink,
-			description: description != null ? description : Config.description,
-			currentYear: Std.string(Date.now().getFullYear())
-		}));
+		File.saveContent(outPath, Views.MainLayout(
+			current != null ? current.title : title,
+			description != null ? description : Config.description,
+			new Html(SiteMap.navbar(current != null ? current : SiteMap.pageForUrl(urlNormalize(outPath), false, true))),
+			new Html(content),
+			new Html(SiteMap.footer()),
+			Std.string(Date.now().getFullYear()),
+			current != null && current.editLink != null ? current.editLink : editLink
+		));
 	}
 
 	public static function copy (src:String, dest:String) {

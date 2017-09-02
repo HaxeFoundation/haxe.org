@@ -1,4 +1,3 @@
 -main Deploy
 -cp src
--lib markdown
 --interp

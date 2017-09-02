@@ -5,6 +5,7 @@ import haxe.io.Path;
 import haxe.xml.Parser.XmlParserException;
 import sys.FileSystem;
 import sys.io.File;
+import tink.template.Html;
 
 using StringTools;
 
@@ -105,7 +106,19 @@ class Blog {
 		// The posts
 		for (post in posts) {
 			post.disqusShortName = "haxe";
-			Utils.save(Path.join([Config.outputFolder, Config.blogOutput, post.name, Config.index]), views.BlogPost.execute(post), null, null, post.title, post.description);
+			Utils.save(Path.join([Config.outputFolder, Config.blogOutput, post.name, Config.index]), Views.BlogPost(
+				post.background,
+				post.title,
+				post.description,
+				post.authorID,
+				post.author,
+				post.name,
+				post.date,
+				post.disqusID,
+				new Html(post.content),
+				post.gravatarID,
+				post.tags
+			), null, null, post.title, post.description);
 		}
 
 		// The rss feed
@@ -147,20 +160,7 @@ class Blog {
 	}
 
 	static function list (title:String, posts:Array<Post>, description:String, path:String) {
-		var content = views.BlogList.execute({
-			title: title,
-			posts: posts,
-			description: description,
-			disqusShortName: Config.disqusShortName,
-
-			//TODO need a better template engine or something, having the result of foreach in the global scope is not good
-			name: null,
-			disqusID: null,
-			date: null,
-			background: null,
-			authorID: null,
-			author: null
-		});
+		var content = Views.BlogList(title, description, posts);
 
 		Utils.save(path, content, null, null);
 	}
@@ -187,16 +187,7 @@ class Blog {
 			FileSystem.createDirectory(dir);
 		}
 
-		File.saveContent(path, views.BlogRss.execute({
-			posts: rssPosts,
-
-			//TODO need a better template engine or something, having the result of foreach in the global scope is not good
-			title: null,
-			name: null,
-			description: null,
-			date: null,
-			author: null
-		}));
+		File.saveContent(path, Views.BlogRss(rssPosts));
 	}
 
 	static function parse (name2author:Map<String, Author>, post:String, content:String) : Post {

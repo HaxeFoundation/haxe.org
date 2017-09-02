@@ -21,9 +21,7 @@ class Redirections {
 		];
 
 		for (page in list.keys()) {
-			var content = views.Redirection.execute({
-				redirectionLink: list.get(page)
-			});
+			var content = Views.Redirection(list.get(page));
 
 			Utils.save(Path.join([Config.outputFolder, page]), content, null, null);
 		}

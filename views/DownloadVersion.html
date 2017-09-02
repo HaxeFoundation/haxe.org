@@ -17,16 +17,16 @@
 			<div class="span4">
 				<ul class="nav nav-tabs nav-stacked">
 					<li class="header"><i class="fa fa-windows" title="Windows"></i></li>
-					::foreach downloads_windows::
-						<li><a href="/download/file/::version::/::filename::/"><i class="fa fa-windows"></i> ::title::</a></li>
+					::for download in downloads_windows::
+						<li><a href="/download/file/::version::/::download.filename::/"><i class="fa fa-windows"></i> ::download.title::</a></li>
 					::end::
 				</ul>
 			</div>
 			<div class="span4">
 				<ul class="nav nav-tabs nav-stacked">
 					<li class="header"><i class="fa fa-apple" title="Mac OS X"></i></li>
-					::foreach downloads_osx::
-						<li><a href="/download/file/::version::/::filename::/"><i class="fa fa-apple"></i> ::title::</a></li>
+					::for download in downloads_osx::
+						<li><a href="/download/file/::version::/::download.filename::/"><i class="fa fa-apple"></i> ::download.title::</a></li>
 					::end::
 				</ul>
 			</div>
@@ -39,7 +39,7 @@
 		</div>
 
 		<p class="alert alert-info download-source">
-			<strong><i class="fa fa-github"></i> Source Code: </strong> The source code for this release is <a href="::tagBaseUrl::/::tag::" target="_blank">available on Github under the ::tag:: tag</a>.
+			<strong><i class="fa fa-github"></i> Source Code: </strong> The source code for this release is <a href="::Config.tagBaseUrl::/::tag::" target="_blank">available on Github under the ::tag:: tag</a>.
 		</p>
 
 		::if (api != null)::
@@ -59,7 +59,7 @@
 
 		::if (prev != null)::
 			<p class="alert alert-info compare-versions">
-				<strong><i class="fa fa-github"></i> Full Changelog: </strong> <a href="::compareBaseUrl::/::prevTag::...::tag::" target="_blank">See all commits between tags ::prevTag:: and ::tag:: on Haxe's Github account</a>.
+				<strong><i class="fa fa-github"></i> Full Changelog: </strong> <a href="::Config.compareBaseUrl::/::prevTag::...::tag::" target="_blank">See all commits between tags ::prevTag:: and ::tag:: on Haxe's Github account</a>.
 		::end::
 
 		<div class='prev-next-links bottom clearfix'>
