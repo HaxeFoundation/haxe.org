@@ -23,7 +23,7 @@ class Deploy {
     static function main() {
         var S3_BUCKET = Sys.getEnv("S3_BUCKET");
         var BRANCH = Sys.getEnv("TRAVIS_BRANCH");
-        var downloadsData = generators.Downloads.getData();
+        var downloadsData = DownloadsData.getData();
 
         switch([Sys.getEnv("AWS_ACCESS_KEY_ID"), Sys.getEnv("AWS_SECRET_ACCESS_KEY")]) {
             case [null, _] | [_, null]:
