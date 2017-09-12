@@ -99,7 +99,7 @@ class DownloadsData {
 			case githubAuth: //format is username:token
 				["-u", githubAuth];
 		}
-		var data = new Process("curl", authArgs.concat(["https://api.github.com/repos/haxefoundation/haxe/releases"]));
+		var data = new Process("curl", authArgs.concat(["https://api.github.com/repos/haxefoundation/haxe/releases?per_page=50"]));
 		var releases:Array<GithubRelease> = Json.parse(data.stdout.readAll().toString());
 		data.close();
 		releases;
