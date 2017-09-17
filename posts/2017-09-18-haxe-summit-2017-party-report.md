@@ -3,7 +3,7 @@ author: simn
 description: We met up, had some beers and made decisions about Haxe
 published: true
 tags: events
-disqusID: 28
+disqusID: 29
 ---
 # Haxe Summit 2017 Party Report
 
