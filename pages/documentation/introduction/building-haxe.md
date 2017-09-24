@@ -60,14 +60,14 @@ Building on Windows (mingw)
 
 ### Running from cmd/powershell
 
-  - Add these to your PATH (actual paths may differ depending on your install path and username):
+  - Add these to your PATH (actual paths may differ depending on your install path, username, and OCaml version):
   
     - cygwin tools: `C:\OCaml32\bin`
     - runtime dlls: `C:\OCaml32\usr\i686-w64-mingw32\sys-root\mingw\bin`
     - ocaml bin: `C:\OCaml32\home\nadako\.opam\4.02.3+mingw32c\bin`
     - flexlink bin: `C:\OCaml32\usr\local\bin`
     
-  - Add new env variables (actual paths may differ depending on your install path and username):
+  - Add new env variables (actual paths may differ depending on your install path, username, and OCaml version):
   
     - `OCAML_TOPLEVEL_PATH=C:\OCaml32\home\nadako\.opam\4.02.3+mingw32c\lib\toplevel`
     - `OCAMLLIB=C:\OCaml32\home\nadako\.opam\4.02.3+mingw32c\lib\ocaml`
@@ -83,6 +83,7 @@ Building on Windows (mingw)
 
  - If you have issues compiling in cmd.exe (worked fine in ocaml32) and get `Interrupt/Exception caught (code = 0xc00000fd, addr = 0x4227d3`, this helps: <http://hdrlab.org.nz/articles/windows-development/make-interrupt-exception-caught-code-0xc00000fd-addr-0x4217b/>
 TL;DR: put the environment variables at the start of your PATH, not at the end.
+ - Run `where make`. It should print out the path of the command that will execute (should be `C:\OCaml32\bin\make.exe`).
 
 Building on FreeBSD
 -------
