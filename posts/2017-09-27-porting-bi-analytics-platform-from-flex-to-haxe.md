@@ -4,6 +4,7 @@ description: Marc Mauri, CTO of Kaizen for Pharma, reflects on their decision to
 published: true
 tags: case-studies
 disqusID: 30
+background: kaizen.png
 ---
 # Porting our BI Analytics Platform from Flex to Haxe/HTML5
 
@@ -38,13 +39,13 @@ It was developed using the Apache Flex Framework and has no 3rd party dependenci
 
 <https://demo.kaizenforpharma.com/KaizenInsight.aspx>
 
-![Flex Web App (before)](image1.png)
+[![Flex Web App (before)](image1.png)](!/image1.png)
 
 ### Haxe/OpenFL/HaxeUI Web App (after)
 
 <https://demo.kaizenforpharma.com/KaizenInsightv2.aspx>
 
-![Haxe/OpenFL/HaxeUI Web App (after)](image2.png)
+[![Haxe/OpenFL/HaxeUI Web App (after)](image2.png)](!/image2.png)
 
 
 
@@ -58,57 +59,79 @@ In order for Kaizen to avoid the same fate as Flash various potential solutions 
 
 ### React
 
-#### Pros
-
-* Huge community
-* It’s “trendy”, makes hiring devs easier
-* “React Native” for multiplatform
-
-#### Cons
-
-* Total rewrite
-* Javascript fatigue - hard to know if React will become legacy code and unmaintained in 3 years
-* React Native iOS was at the time unreleased, meaning final performance was uncertain
-* Untyped JavaScript!!!
-* Runtime errors not detected at compile time
-
-
+<div>
+	<div style="width:50%; float:left">
+		<h4>Pros</h4>
+		<ul>
+			<li>Huge community</li>
+			<li>It’s “trendy”, makes hiring devs easier</li>
+			<li>“React Native” for multiplatform</li>
+		</ul>
+	</div>
+	<div style="width:50%; float:left">
+		<h4>Cons</h4>
+		<ul>
+			<li>Total rewrite</li>
+			<li>Javascript fatigue - hard to know if React will become legacy code and unmaintained in 3 years</li>
+			<li>React Native iOS was at the time unreleased, meaning final performance was uncertain</li>
+			<li>Untyped JavaScript!!!</li>
+			<li>Runtime errors not detected at compile time</li>
+		</ul>
+	</div>
+	<div style="clear:both"></div>
+</div>
 
 ### Apache FlexJS
 
-#### Pros
-* Easier approach to port current Flex code
-* Open Source
-* Multiplatform due to Adobe AIR
-
-#### Cons
-
-* Lots of breaking changes
-* Being in development for years and still at 0.8 beta version
-* Adobe not committed
-* Not mature enough
-* Former vibrant Flex community has gone
+<div>
+	<div style="width:50%; float:left">
+		<h4>Pros</h4>
+		<ul>
+			<li>Easier approach to port current Flex code</li>
+			<li>Open Source</li>
+			<li>Multiplatform due to Adobe AIR</li>
+		</ul>
+	</div>
+	<div style="width:50%; float:left">
+		<h4>Cons</h4>
+		<ul>
+			<li>Lots of breaking changes</li>
+			<li>Being in development for years and still at 0.8 beta version</li>
+			<li>Adobe not committed</li>
+			<li>Not mature enough</li>
+			<li>Former vibrant Flex community has gone</li>
+		</ul>
+	</div>
+	<div style="clear:both"></div>
+</div>
 
 ### Haxe/OpenFL/HaxeUI
 
-#### Pros
-
-* OpenFL allows the team to use the existing Flash API code “as is”
-* HaxeUI allows porting of existing Flex layouts and components with relative ease
-* Haxe has the lowest learning curve - indeed along with FlexJS
-* 80% of code can be ported automatically with “as3hx”
-* Mature
-* Open source stack
-* OpenFL has full multi platform support (Html5 Canvas/WebGL, Native C++ iOS/Android, Emscripten / Web Assembly)
-
-#### Cons
-
-* OpenFL is game oriented, and so is the community meaning that issues with idle CPU usage, text fields, text inputs &  fonts are not their priority
-* We would pave the way using this stack for non-game orientated applications
-* HaxeUI v2 in beta for long time
-* OpenFL and HaxeUI are not backed by big corporations like React/Angular
-* OpenFL “Graphics” class is not GPU accelerated.
-
+<div>
+	<div style="width:50%; float:left">
+		<h4>Pros</h4>
+		<ul>
+			<li>OpenFL allows the team to use the existing Flash API code “as is”</li>
+			<li>HaxeUI allows porting of existing Flex layouts and components with relative ease</li>
+			<li>Haxe has the lowest learning curve - indeed along with FlexJS</li>
+			<li>80% of code can be ported automatically with “as3hx”</li>
+			<li>Mature</li>
+			<li>Open source stack</li>
+			<li>OpenFL has full multi platform support (Html5 Canvas/WebGL, Native C++ iOS/Android, Emscripten / Web Assembly)</li>
+		</ul>
+	</div>
+	<div style="width:50%; float:left">
+		<h4>Cons</h4>
+		<ul>
+			<li>OpenFL is game oriented, and so is the community meaning that issues with idle CPU usage, text fields, text inputs &  fonts are not their priority</li>
+			<li>We would pave the way using this stack for non-game orientated applications</li>
+			<li>HaxeUI v2 in beta for long time</li>
+			<li>OpenFL and HaxeUI are not backed by big corporations like React/Angular</li>
+			<li>OpenFL “Graphics” class is not GPU accelerated.</li>
+		</ul>
+	</div>
+	<div style="clear:both"></div>
+</div>
 
 ## The Decision
 

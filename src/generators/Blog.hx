@@ -274,9 +274,14 @@ class Blog {
 
 	static function changeHtml (postID:String, xml:Xml) {
 		var srcAttr = "src";
+		var hrefAttr = "href";
 
 		if (xml.nodeType == Xml.Element && xml.nodeName == "img" && xml.exists(srcAttr) && !xml.get(srcAttr).startsWith("http")) {
-			xml.set(srcAttr, '/img/blog/$postID/${xml.get("src")}');
+			xml.set(srcAttr, '/img/blog/$postID/${xml.get(srcAttr)}');
+		}
+
+		if (xml.nodeType == Xml.Element && xml.nodeName == "a" && xml.exists(hrefAttr) && xml.get(hrefAttr).startsWith("!/")) {
+			xml.set(hrefAttr, '/img/blog/$postID/${xml.get(hrefAttr).substr(2)}');
 		}
 		
 		if (xml.nodeType == Xml.Element && xml.nodeName == "table") {
