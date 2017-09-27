@@ -18,17 +18,21 @@
 		
 		<div class="well">
 			<div class="row-fluid">
+				::if (avatar != null)::
 				<div class="span2">
-					::if (avatar != null)::
-						<img src="/img/people/::avatar::" class="img-circle pull-left" alt="Avatar for ::author::" width="72" height="72" title="::author::" />
-					::else::
-						<div style="width: 72px; height: 72px;"></div>
-					::end::
+					<img src="/img/people/::avatar::" class="img-circle" alt="Avatar for ::author::" width="72" height="72" title="::author::" />
 				</div>
+				::end::
 				<div class="span10">
 					<h3>::author::</h3>
 					<p>Published <a href="/blog/::name::/" class="pushstate">::date::</a></p>
 					
+					<div class="tags">
+					::for tag in tags::
+						<span class="tag"><i class="fa fa-tag"></i>&nbsp;<a href="/blog/tag/::tag.name::/" class="pushstate">::tag.name::</a></span> 
+					::end::
+					</div>
+					<br/>
 					<div class="share-buttons">
 						<!-- G+ button code -->
 						<script src="https://apis.google.com/js/platform.js" async="async" defer="defer"></script>
@@ -53,11 +57,6 @@
 						<div class="fb-like" data-href="https://haxe.org/blog/::name::/" style="display:inline-block" data-layout="button_count" data-action="like" data-show-faces="true"></div>
 					</div>
 
-					<div class="tags">
-					::for tag in tags::
-						<span class="tag"><i class="fa fa-tag"></i>&nbsp;<a href="/blog/tag/::tag.name::/" class="pushstate">::tag.name::</a></span> 
-					::end::
-					</div>
 				</div>
 			</div>
 		</div>
