@@ -164,7 +164,7 @@ Before starting the porting process there were a number of maintenance tasks the
 
 All of these steps ultimately allowed the port process to go smoother either because of less code to port to and easier syntax / paradigm equivalences in the AS3 when converting to Haxe.
 
-The __backend__ also needed to be updated from .NET Fluorine/AMF to JSON making communication with Haxe far simpler and adding a new .Net facade class for REST based JSON message interchange.
+The backend also needed to be updated from .NET Fluorine/AMF to JSON making communication with Haxe far simpler and adding a new .Net facade class for REST based JSON message interchange.
 
 On the Haxe side, it was merely a new helper method to handle and manage every REST call to the new backend facade.
 
