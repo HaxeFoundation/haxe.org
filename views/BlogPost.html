@@ -19,7 +19,11 @@
 		<div class="well">
 			<div class="row-fluid">
 				<div class="span2">
-					<img src="//www.gravatar.com/avatar/::gravatarID::?s=72&amp;d=retro" class="img-circle pull-left" alt="Avatar for ::author::" width="72" height="72" title="::author::" />
+					::if (avatar != null)::
+						<img src="/img/people/::avatar::" class="img-circle pull-left" alt="Avatar for ::author::" width="72" height="72" title="::author::" />
+					::else::
+						<div style="width: 72px; height: 72px;"></div>
+					::end::
 				</div>
 				<div class="span10">
 					<h3>::author::</h3>

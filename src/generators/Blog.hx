@@ -17,7 +17,7 @@ typedef Post = {
 	var description : String;
 	var disqusID : String; // Used in post from old website code, to keep comments
 	var date : String;
-	var gravatarID : String;
+	var avatar : String;
 	var name : String;
 	var tags : Array<{ name:String }>;
 	var title : String;
@@ -34,7 +34,7 @@ typedef Tag = {
 typedef Author = {
 	username : String,
 	name : String,
-	md5email : String
+	avatar : String
 }
 
 class Blog {
@@ -116,7 +116,7 @@ class Blog {
 				post.date,
 				post.disqusID,
 				new Html(post.content),
-				post.gravatarID,
+				post.avatar,
 				post.tags
 			), null, null, post.title, post.description);
 		}
@@ -137,7 +137,7 @@ class Blog {
 			var authorInfo = name2author.get(author);
 			if (authorInfo == null) {
 				Sys.println('Warning: author "$author" is used in a post but isn\'t in authors.json');
-				authorInfo = { username: author, name: author, md5email: "" };
+				authorInfo = { username: author, name: author, avatar: "" };
 			}
 
 			list('${Config.blogTitle} - ${authorInfo.name}', posts, authorInfo.name, path);
@@ -199,7 +199,7 @@ class Blog {
 			description: null,
 			disqusID: null,
 			date: post.substr(0, 10),
-			gravatarID: null,
+			avatar: null,
 			name: Path.withoutExtension(post.substr(11)),
 			tags: [],
 			title: null,
@@ -224,7 +224,7 @@ class Blog {
 					} else {
 						data.author = authorInfo.name;
 						data.authorID = authorInfo.username;
-						data.gravatarID = authorInfo.md5email;
+						data.avatar = authorInfo.avatar;
 					}
 
 				case "background":
