@@ -37,13 +37,13 @@ It was developed using the Apache Flex Framework and has no 3rd party dependenci
 
 ### Flex Web App (before)
 
-<a class="btn" href="https://demo.kaizenforpharma.com/KaizenInsight.aspx"><i class="fa fa-external-link"></i> Open old demo </a>
+<p><a class="btn" href="https://demo.kaizenforpharma.com/KaizenInsight.aspx"><i class="fa fa-external-link"></i> Open old demo </a></p>
 
 [![Flex Web App (before)](image1.png)](!/image1.png)
 
 ### Haxe/OpenFL/HaxeUI Web App (after)
 
-<a class="btn" href="https://demo.kaizenforpharma.com/KaizenInsightv2.aspx"><i class="fa fa-external-link"></i> Open new demo</a>
+<p><a class="btn" href="https://demo.kaizenforpharma.com/KaizenInsightv2.aspx"><i class="fa fa-external-link"></i> Open new demo</a></p>
 
 [![Haxe/OpenFL/HaxeUI Web App (after)](image2.png)](!/image2.png)
 
