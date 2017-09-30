@@ -4,7 +4,7 @@
 		"name": "Andy Li",
 		"avatar": "AndyLi.jpg",
 		"since": 2011,
-		"bio": "Maintainer of the JQuery externs and Haxe packages",
+		"bio": "Maintainer of the JQuery externs and Haxe packages, CI master",
 		"country": "hk"
 	},
 	{
@@ -125,6 +125,7 @@
 	},
 	{
 		"username": "javiermorilla",
-		"name": "Javier Morilla"
+		"name": "Javier Morilla",
+		"bio": "Lead Developer at Kaizen for Pharma"
 	}
 ]
