@@ -32,7 +32,9 @@
 				</div>
 				::end::
 				<div class="span10">
-					<h3>By ::authors.map(function (a) return a.name).join(", ")::</h3>
+					<h3>By ::for author in authors::
+						<a href="/blog/author/::author.username::/">::author.name::</a>
+					::end::</h3>
 					<p>Published <a href="/blog/::name::/" class="pushstate">::date::</a></p>
 
 					<div class="tags">

@@ -31,7 +31,10 @@ typedef Tag = {
 typedef Author = {
 	username : String,
 	name : String,
-	avatar : String
+	avatar : String,
+	?since : Int,
+	?bio : String,
+	?country : String
 }
 
 class Blog {
@@ -50,7 +53,7 @@ class Blog {
 			name2tag.set(tag.tag, tag);
 		}
 
-		var authors:Array<Author> = Json.parse(File.getContent(Path.join([Config.postsPath, "authors.json"])));
+		var authors:Array<Author> = Json.parse(File.getContent("people.json"));
 		var name2author = new Map<String, Author>();
 		for (author in authors) {
 			name2author.set(author.username, author);
@@ -132,11 +135,11 @@ class Blog {
 
 			var authorInfo = name2author.get(author);
 			if (authorInfo == null) {
-				Sys.println('Warning: author "$author" is used in a post but isn\'t in authors.json');
+				Sys.println('Warning: author "$author" is used in a post but isn\'t in people.json');
 				authorInfo = { username: author, name: author, avatar: "" };
 			}
 
-			list('${Config.blogTitle} - ${authorInfo.name}', posts, authorInfo.name, path);
+			list('Posts by ${authorInfo.name}', posts, authorInfo.bio, path, authorInfo.avatar);
 		}
 
 		// Tag pages
@@ -151,12 +154,12 @@ class Blog {
 				tagInfo = { tag: tag, name: "", description: "" };
 			}
 
-			list('${Config.blogTitle} - ${tagInfo.name}', posts, tagInfo.description, path);
+			list('Posts tagged ${tagInfo.name}', posts, tagInfo.description, path);
 		}
 	}
 
-	static function list (title:String, posts:Array<Post>, description:String, path:String) {
-		var content = Views.BlogList(title, description, posts);
+	static function list (title:String, posts:Array<Post>, description:String, path:String, ?avatar:String) {
+		var content = Views.BlogList(title, description, posts, avatar);
 
 		Utils.save(path, content, null, null);
 	}
@@ -214,7 +217,7 @@ class Blog {
 				case "author":
 					var authorInfo = name2author.get(value);
 					if (authorInfo == null) {
-						Sys.println('Warning: author "$value" is used in a post but isn\'t in authors.json');
+						Sys.println('Warning: author "$value" is used in a post but isn\'t in people.json');
 					} else {
 						data.authors.push({ name: authorInfo.name, username: authorInfo.username, avatar: authorInfo.avatar });
 					}

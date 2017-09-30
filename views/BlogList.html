@@ -1,5 +1,9 @@
 <div class="section">
 	<div class="container">
+		::if (avatar != null)::
+			<img src="/img/people/::avatar::" class="img-circle" width="72" height="72" style="float: left; margin-top: 16px; margin-right: 10px;" />
+		::end::
+
 		<h1>::title:: <a rel="alternate" type="application/rss+xml" href="/blog/rss/" class="rssFeedLink"/></a></h1>
 		::if (description != null)::
 			<p class="lead">::description::</p>

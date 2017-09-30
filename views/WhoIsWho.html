@@ -1,0 +1,17 @@
+<h1>Who is who</h1>
+
+<p>
+	The Haxe ecosystem is made possible thanks to the work of the following people:
+</p>
+
+::for member in members::
+	<div class="person">
+		<a name="::member.username::" class="anch"></a>
+		<h2><i class="flag flag-::member.country::"></i> ::member.name::</h2>
+		<img src="/img/people/::member.avatar::" alt="::member.name::" class="portrait" />
+		<p class="description">
+			::member.bio::
+		</p>
+		<p class="since">Since: ::member.since::</p>
+	</div>
+::end::

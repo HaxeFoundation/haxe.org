@@ -1,0 +1,130 @@
+[
+	{
+		"username": "andyli",
+		"name": "Andy Li",
+		"avatar": "AndyLi.jpg",
+		"since": 2011,
+		"bio": "Maintainer of the JQuery externs and Haxe packages",
+		"country": "hk"
+	},
+	{
+		"username": "fiene",
+		"name": "Josefiene Pertosa",
+		"avatar": "fiene.jpg",
+		"since": 2014,
+		"bio": "Communication, enquiries and community",
+		"country": "de"
+	},
+	{
+		"username": "jdonaldson",
+		"name": "Justin Donaldson",
+		"avatar": "justin.jpg",
+		"since": 2015,
+		"bio": "Maintainer and creator of the Lua target",
+		"country": "us"
+	},
+	{
+		"username": "markknol",
+		"name": "Mark Knol",
+		"avatar": "mark.jpg",
+		"since": 2014,
+		"bio": "Documentation and website maintainer",
+		"country": "nl"
+	},
+	{
+		"username": "nadako",
+		"name": "Dan Korostelev",
+		"avatar": "DanKorostelev.jpg",
+		"since": 2013,
+		"bio": "Maintainer of the node.js externs",
+		"country": "ru"
+	},
+	{
+		"username": "nicolas",
+		"name": "Nicolas Cannasse",
+		"avatar": "NicolasCannasse.jpg",
+		"since": 2005,
+		"bio": "Original creator of the Haxe compiler and designer of the Haxe language",
+		"country": "fr"
+	},
+	{
+		"username": "simn",
+		"name": "Simon Krajewski",
+		"avatar": "SimonKrajewski.jpg",
+		"since": 2011,
+		"bio": "Main maintainer of the Haxe compiler",
+		"country": "de"
+	},
+	{
+		"username": "waneck",
+		"name": "Cauê Waneck",
+		"avatar": "CaueWaneck.jpg",
+		"since": 2010,
+		"bio": "Maintainer of the C# and Java targets",
+		"country": "br"
+	},
+	{
+		"username": "hugh",
+		"name": "Hugh Sanderson",
+		"avatar": "HughSanderson.jpg",
+		"since": 2009,
+		"bio": "Maintainer of the C++ target",
+		"country": "au"
+	},
+	{
+		"username": "brunogarcia",
+		"name": "Bruno Garcia",
+		"avatar": "BrunoGarcia.jpg",
+		"since": 2011,
+		"bio": "Maintainer of the HTML externs",
+		"country": "us"
+	},
+	{
+		"username": "frabbit",
+		"name": "frabbit",
+		"avatar": "frabbit.jpg",
+		"since": 2012,
+		"bio": "Maintainer of the Python target",
+		"country": "de"
+	},
+	{
+		"username": "jasononeil",
+		"name": "Jason O'Neil",
+		"avatar": "JasonONeil.jpg",
+		"since": 2012,
+		"bio": "Former Webmaster",
+		"country": "au"
+	},
+	{
+		"username": "francoponticelli",
+		"name": "Franco Ponticelli",
+		"avatar": "FrancoPonticelli.jpg",
+		"since": 2007,
+		"bio": "Original creator of the PHP target",
+		"country": "us"
+	},
+	{
+		"username": "ibilon",
+		"name": "Valentin Lemière",
+		"avatar": "ibilon.jpg",
+		"since": 2017,
+		"bio": "Website maintainer",
+		"country": "fr"
+	},
+	{
+		"username": "alexanderkuzmenko",
+		"name": "Alexander Kuzmenko",
+		"avatar": "alexander.jpg",
+		"since": 2016,
+		"bio": "Maintainer of the PHP7 target",
+		"country": "ru"
+	},
+	{
+		"username": "marcmauri",
+		"name": "Marc Mauri"
+	},
+	{
+		"username": "javiermorilla",
+		"name": "Javier Morilla"
+	}
+]

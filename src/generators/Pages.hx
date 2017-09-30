@@ -1,6 +1,8 @@
 package generators;
 
+import haxe.Json;
 import haxe.io.Path;
+import sys.io.File;
 import tink.template.Html;
 
 class Pages {
@@ -8,6 +10,7 @@ class Pages {
 	public static function generate () {
 		Sys.println("Generating pages ...");
 
+		// Normal pages
 		for (i in Utils.listDirectoryRecursive(Config.pagesPath)) {
 			var path = i.split("/");
 			path.shift();
@@ -20,20 +23,54 @@ class Pages {
 			var content = Utils.readContentFile(inPath);
 			var editLink = Config.baseEditLink + inPath;
 
-			if (folder != "/") { // Not top level
-				if (root != null && sitepage != null) {
-					content = Views.PageWithSidebar(
-						SiteMap.prevNextLinks(root.sub, sitepage),
-						new Html(SiteMap.sideBar(root.sub, sitepage)),
-						new Html(content),
-						editLink
-					);
-				} else { // Not in sitemap, so can't make sidebar
-					content = Views.PageWithoutSidebar(new Html(content), editLink);
-				}
-			}
-
-			Utils.save(Path.join([Config.outputFolder, folder, file]), content, sitepage, editLink);
+			genPage(folder, root, sitepage, content, file, editLink);
 		}
+
+		genWhoIsWho();
+	}
+
+	static function genWhoIsWho () {
+		// Auto generate the who is who page
+		var members = ["nicolas", "simn", "waneck", "hugh", "andyli", "nadako", "brunogarcia", "frabbit", "jasononeil", "francoponticelli", "markknol", "ibilon", "fiene", "alexanderkuzmenko", "jdonaldson"];
+		var authors:Array<Blog.Author> = Json.parse(File.getContent("people.json"));
+		var name2author = new Map<String, Blog.Author>();
+		for (author in authors) {
+			name2author.set(author.username, author);
+		}
+		var data = [];
+
+		for (m in members) {
+			var i = name2author.get(m);
+
+			if (i == null) {
+				Sys.println('Warning: member "$m" should be added to who is who page but isn\'t in people.json');
+			} else if (i.since == null) {
+				Sys.println('Warning: member "$m" should be added to who is who page but doesn\'t have a since date, blog guest author?');
+			} else {
+				data.push(i);
+			}
+		}
+
+		var content = Views.WhoIsWho(data);
+		var root = SiteMap.pageForUrl("foundation", true, false);
+		var sitepage = SiteMap.pageForUrl("foundation/people.md", false, false);
+		genPage("foundation", root, sitepage, content, "people.md", null);
+	}
+
+	static function genPage (folder, root, sitepage, content, file, editLink) {
+		if (folder != "/") { // Not top level
+			if (root != null && sitepage != null) {
+				content = Views.PageWithSidebar(
+					SiteMap.prevNextLinks(root.sub, sitepage),
+					new Html(SiteMap.sideBar(root.sub, sitepage)),
+					new Html(content),
+					editLink
+				);
+			} else { // Not in sitemap, so can't make sidebar
+				content = Views.PageWithoutSidebar(new Html(content), editLink);
+			}
+		}
+
+		Utils.save(Path.join([Config.outputFolder, folder, file]), content, sitepage, editLink);
 	}
 }
