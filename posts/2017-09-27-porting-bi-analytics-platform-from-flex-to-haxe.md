@@ -1,5 +1,6 @@
 title: Porting our BI Analytics Platform from Flex to Haxe/HTML5
 author: marcmauri
+author: javiermorilla
 description: Marc Mauri, CTO of Kaizen for Pharma, reflects on their decision to use Haxe and how they transitioned from a Flash plugin to Html5/WebGL in 4 months
 published: true
 tags: case-studies
