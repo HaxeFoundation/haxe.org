@@ -31,27 +31,35 @@ class Pages {
 
 	static function genWhoIsWho () {
 		// Auto generate the who is who page
-		var members = ["nicolas", "simn", "waneck", "hugh", "andyli", "nadako", "brunogarcia", "frabbit", "jasononeil", "francoponticelli", "markknol", "ibilon", "fiene", "alexanderkuzmenko", "jdonaldson"];
 		var authors:Array<Blog.Author> = Json.parse(File.getContent("people.json"));
 		var name2author = new Map<String, Blog.Author>();
 		for (author in authors) {
 			name2author.set(author.username, author);
 		}
-		var data = [];
 
-		for (m in members) {
-			var i = name2author.get(m);
+		function add (ms:Array<String>, ds) {
+			for (m in ms) {
+				var i = name2author.get(m);
 
-			if (i == null) {
-				Sys.println('Warning: member "$m" should be added to who is who page but isn\'t in people.json');
-			} else if (i.since == null) {
-				Sys.println('Warning: member "$m" should be added to who is who page but doesn\'t have a since date, blog guest author?');
-			} else {
-				data.push(i);
+				if (i == null) {
+					Sys.println('Warning: member "$m" should be added to who is who page but isn\'t in people.json');
+				} else if (i.since == null) {
+					Sys.println('Warning: member "$m" should be added to who is who page but doesn\'t have a since date, blog guest author?');
+				} else {
+					ds.push(i);
+				}
 			}
 		}
 
-		var content = Views.WhoIsWho(data);
+		var members = ["nicolas", "simn", "waneck", "hugh", "andyli", "nadako", "frabbit", "markknol", "ibilon", "fiene", "alexanderkuzmenko", "jdonaldson"];
+		var membersData = [];
+		var formers = ["brunogarcia", "jasononeil", "francoponticelli"];
+		var formersData = [];
+
+		add(members, membersData);
+		add(formers, formersData);
+
+		var content = Views.WhoIsWho(membersData, formersData);
 		var root = SiteMap.pageForUrl("foundation", true, false);
 		var sitepage = SiteMap.pageForUrl("foundation/people.md", false, false);
 		genPage("foundation", root, sitepage, content, "people.md", null);
