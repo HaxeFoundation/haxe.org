@@ -14,7 +14,7 @@
                 <link>https://haxe.org/blog/::post.name::/</link>
                 <guid>https://haxe.org/blog/::post.name::/</guid>
                 <pubDate>::post.date::</pubDate>
-                <dc:creator>::post.author::</dc:creator>
+                <dc:creator>::post.authors.map(function (a) return a.name).join(", ")::</dc:creator>
                 <description>::post.description::</description>
             </item>
         ::end::

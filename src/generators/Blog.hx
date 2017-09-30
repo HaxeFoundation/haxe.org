@@ -10,19 +10,16 @@ import tink.template.Html;
 using StringTools;
 
 typedef Post = {
-	var author : String;
-	var authorID : String;
+	var authors : Array<Author>;
 	var background : String;
 	var content : String;
 	var description : String;
 	var disqusID : String; // Used in post from old website code, to keep comments
 	var date : String;
-	var avatar : String;
 	var name : String;
 	var tags : Array<{ name:String }>;
 	var title : String;
 	var published : Bool;
-	@:optional var disqusShortName : String; // Used to directly pass the post to the view
 }
 
 typedef Tag = {
@@ -77,10 +74,12 @@ class Blog {
 
 			posts.push(data);
 
-			if (!authorsPages.exists(data.authorID)) {
-				authorsPages.set(data.authorID, [data]);
-			} else {
-				authorsPages.get(data.authorID).push(data);
+			for (author in data.authors) {
+				if (!authorsPages.exists(author.username)) {
+					authorsPages.set(author.username, [data]);
+				} else {
+					authorsPages.get(author.username).push(data);
+				}
 			}
 
 			for (tag in data.tags) {
@@ -105,18 +104,15 @@ class Blog {
 
 		// The posts
 		for (post in posts) {
-			post.disqusShortName = "haxe";
 			Utils.save(Path.join([Config.outputFolder, Config.blogOutput, post.name, Config.index]), Views.BlogPost(
 				post.background,
 				post.title,
 				post.description,
-				post.authorID,
-				post.author,
+				post.authors,
 				post.name,
 				post.date,
 				post.disqusID,
 				new Html(post.content),
-				post.avatar,
 				post.tags
 			), null, null, post.title, post.description);
 		}
@@ -176,7 +172,7 @@ class Blog {
 				name: post.name,
 				description: post.description,
 				date: DateTools.format(Date.fromString('${post.date} 00:00:00'), "%a,%e %b %Y %H:%M:%S +0000"),
-				author: post.author
+				authors: post.authors
 			});
 		}
 
@@ -192,14 +188,12 @@ class Blog {
 
 	static function parse (name2author:Map<String, Author>, post:String, content:String) : Post {
 		var data:Post = {
-			author: null,
-			authorID: null,
+			authors: [],
 			background: null,
 			content: null,
 			description: null,
 			disqusID: null,
 			date: post.substr(0, 10),
-			avatar: null,
 			name: Path.withoutExtension(post.substr(11)),
 			tags: [],
 			title: null,
@@ -222,9 +216,7 @@ class Blog {
 					if (authorInfo == null) {
 						Sys.println('Warning: author "$value" is used in a post but isn\'t in authors.json');
 					} else {
-						data.author = authorInfo.name;
-						data.authorID = authorInfo.username;
-						data.avatar = authorInfo.avatar;
+						data.authors.push({ name: authorInfo.name, username: authorInfo.username, avatar: authorInfo.avatar });
 					}
 
 				case "background":
@@ -251,7 +243,7 @@ class Blog {
 					//Sys.println('Unknown blog post header key "$key" in "$post"');
 			}
 		}
-		
+
 
 		try {
 			var xml = Xml.parse(Markdown.markdownToHtml(blogContent));
@@ -283,7 +275,7 @@ class Blog {
 		if (xml.nodeType == Xml.Element && xml.nodeName == "a" && xml.exists(hrefAttr) && xml.get(hrefAttr).startsWith("!/")) {
 			xml.set(hrefAttr, '/img/blog/$postID/${xml.get(hrefAttr).substr(2)}');
 		}
-		
+
 		if (xml.nodeType == Xml.Element && xml.nodeName == "table") {
 			xml.set("class", 'table');
 		}

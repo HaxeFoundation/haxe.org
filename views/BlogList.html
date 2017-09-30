@@ -15,7 +15,11 @@
 				<h2><a href="/blog/::post.name::/" class="pushstate">::post.title::</a></h2>
 				<p class="lead">::post.description::</p>
 				<p><small>
-					Article by <a href="/blog/author/::post.authorID::/" class="label pushstate">::post.author::</a> on <a href="/blog/::post.name::/" class="label pushstate">::post.date::</a>.
+					Article by
+					::for author in post.authors::
+						<a href="/blog/author/::author.username::/" class="label pushstate">::author.name::</a>
+					::end::
+					on <a href="/blog/::post.name::/" class="label pushstate">::post.date::</a>.
 				</small></p>
 				<p><small>
 					<a href="/blog/::post.name::/#disqus_thread" class="label pushstate disqus-comment-count" data-disqus-identifier="::post.disqusID::">Comments</a>

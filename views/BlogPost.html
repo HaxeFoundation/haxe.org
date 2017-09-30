@@ -4,7 +4,11 @@
 		<h1>::title::</h1>
 		<p class="lead">::description::</p>
 		<p><small>
-			Article by <a href="/blog/author/::authorID::/" class="label pushstate">::author::</a> on <a href="/blog/::name::/" class="label pushstate">::date::</a>.
+			Article by
+			::for author in authors::
+				<a href="/blog/author/::author.username::/" class="label pushstate">::author.name::</a>
+			::end::
+			on <a href="/blog/::name::/" class="label pushstate">::date::</a>.
 		</small></p>
 		<p><small>
 			<a href="#disqus_thread" class="label disqus-comment-count" data-disqus-identifier="::disqusID::">Comments</a>
@@ -15,21 +19,25 @@
 <div class="section article-view">
 	<div class="container">
 		<article>::content::</article>
-		
+
 		<div class="well">
 			<div class="row-fluid">
-				::if (avatar != null)::
+				::if (Lambda.count(authors.map(function(a) return a.avatar != null)) > 0)::
 				<div class="span2">
-					<img src="/img/people/::avatar::" class="img-circle" alt="Avatar for ::author::" width="72" height="72" title="::author::" />
+					::for author in authors::
+						::if (author.avatar != null)::
+							<img src="/img/people/::author.avatar::" class="img-circle" alt="Avatar for ::author.name::" width="72" height="72" title="::author.name::" />
+						::end::
+					::end::
 				</div>
 				::end::
 				<div class="span10">
-					<h3>::author::</h3>
+					<h3>By ::authors.map(function (a) return a.name).join(", ")::</h3>
 					<p>Published <a href="/blog/::name::/" class="pushstate">::date::</a></p>
-					
+
 					<div class="tags">
 					::for tag in tags::
-						<span class="tag"><i class="fa fa-tag"></i>&nbsp;<a href="/blog/tag/::tag.name::/" class="pushstate">::tag.name::</a></span> 
+						<span class="tag"><i class="fa fa-tag"></i>&nbsp;<a href="/blog/tag/::tag.name::/" class="pushstate">::tag.name::</a></span>
 					::end::
 					</div>
 					<br/>
@@ -38,11 +46,11 @@
 						<script src="https://apis.google.com/js/platform.js" async="async" defer="defer"></script>
 						<div class="g-plus" data-action="share" data-annotation="bubble" style="display:inline-block"></div>
 						&nbsp;
-						
+
 						<!-- Twitter button code -->
 						<a href="https://twitter.com/share" class="twitter-share-button" style="display:inline-block" data-show-count="false">Tweet</a>
 						<script async="async" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-						&nbsp; 
+						&nbsp;
 						<!-- Load Facebook SDK for JavaScript -->
 						<div id="fb-root" style="display:inline-block"></div>
 						<script>(function(d, s, id) {
