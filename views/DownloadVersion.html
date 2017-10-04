@@ -47,7 +47,6 @@
 		<div class="row downloads">
 			<div class="span4">
 				<ul class="nav nav-tabs nav-stacked">
-					<li class="header"><i class="fa fa-windows" title="Windows"></i></li>
 					::for download in downloads.windows.archives::
 						<li><a href="/download/file/::version::/::download.filename::/"><i class="fa fa-windows"></i> ::download.title::</a></li>
 					::end::
@@ -55,7 +54,6 @@
 			</div>
 			<div class="span4">
 				<ul class="nav nav-tabs nav-stacked">
-					<li class="header"><i class="fa fa-apple" title="Mac OS X"></i></li>
 					::for download in downloads.osx.archives::
 						<li><a href="/download/file/::version::/::download.filename::/"><i class="fa fa-apple"></i> ::download.title::</a></li>
 					::end::
@@ -63,7 +61,6 @@
 			</div>
 			<div class="span4">
 				<ul class="nav nav-tabs nav-stacked">
-					<li class="header"><i class="fa fa-linux" title="Linux"></i></li>
 					::for download in downloads.linux.archives::
 						<li><a href="/download/file/::version::/::download.filename::/"><i class="fa fa-linux"></i> ::download.title::</a></li>
 					::end::
