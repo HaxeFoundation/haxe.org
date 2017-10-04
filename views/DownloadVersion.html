@@ -1,96 +1,105 @@
 <div class="section">	
 	<div class="container">
-
-
 		<div class='prev-next-links top clearfix'>
 			::if (prev != null)::<a href="/download/version/::prev::/" class="prev-link">::prev::</a>::end::
 			::if (next != null)::<a href="/download/version/::next::/" class="next-link">::next::</a>::end::
 			::if (next == null)::<a href="http://builds.haxe.org" class="next-link">Nightly Builds</a>::end::
 			<a href="/download/list/">(View all versions)</a>
 		</div>
-		
-		<h1>::title::</h1>
-
-		<h3>Downloads - Installers</h3>
-		
-		<div class="row downloads">
-			<div class="span4">
-				<ul class="nav nav-tabs nav-stacked">
-					<li class="header"><i class="fa fa-windows" title="Windows"></i></li>
-					::for download in downloads.windows.installers::
-						<li><a href="/download/file/::version::/::download.filename::/"><i class="fa fa-windows"></i> ::download.title::</a></li>
-					::end::
-				</ul>
+	</div>
+</div>
+<div class="section dark head downloads">
+	<div class="container">
+		<div class="row">
+			<div class="span5">
+				<h1>::title::</h1>
+				
+				<p><em>Released: ::version.date::</em></p>
+				<p class="lead">Thank you for choosing Haxe!<br/>Download for your platform and start developing today.</p>
+				
+				::if (current != version.version && current < version.version)::
+				<p>This is a pre-release, the current stable release version is <a href="/download">Haxe ::current::</a>.</p>
+				::elseif (current != version.version && current > version.version)::
+				<p>A newer version is available! The latest stable version is <a href="/download">Haxe ::current::</a>.</p>
+				::end::
 			</div>
-			<div class="span4">
-				<ul class="nav nav-tabs nav-stacked">
-					<li class="header"><i class="fa fa-apple" title="Mac OS X"></i></li>
-					::for download in downloads.osx.installers::
-						<li><a href="/download/file/::version::/::download.filename::/"><i class="fa fa-apple"></i> ::download.title::</a></li>
-					::end::
-				</ul>
+			<div class="span6">
+				<div class="row">
+					<div class="span1 header">
+						<i class="fa fa-windows" title="Windows"></i>
+					</div>
+					<div class="span5">
+						<ul class="nav nav-tabs nav-stacked">
+							::for download in downloads.windows.installers::
+								<li><a href="/download/file/::version::/::download.filename::/"><i class="fa fa-download"></i> ::download.title::</a></li>
+							::end::
+							::for download in downloads.windows.archives::
+								<li><a href="/download/file/::version::/::download.filename::/"><i class="fa fa-download"></i> ::download.title::</a></li>
+							::end::
+						</ul>
+					</div>
+				</div>
+				<div class="row downloads">
+					<div class="span1 header">
+						<i class="fa fa-apple" title="Mac OS X"></i>
+					</div>
+					<div class="span5">
+						<ul class="nav nav-tabs nav-stacked">
+							::for download in downloads.osx.installers::
+								<li><a href="/download/file/::version::/::download.filename::/"><i class="fa fa-download"></i> ::download.title::</a></li>
+							::end::
+							::for download in downloads.osx.archives::
+								<li><a href="/download/file/::version::/::download.filename::/"><i class="fa fa-download"></i> ::download.title::</a></li>
+							::end::
+						</ul>
+					</div>
+				</div>
+				<div class="row downloads">
+					<div class="span1 header">
+						<i class="fa fa-linux" title="Linux"></i>
+					</div>
+					<div class="span5">
+						<ul class="nav nav-tabs nav-stacked">
+							<li><a href="/download/linux/"><i class="fa fa-book"></i> Linux Software Packages for Ubuntu, Debian, Fedora, openSUSE, Arch Linux</a></li>
+							::for download in downloads.linux.archives::
+								<li><a href="/download/file/::version::/::download.filename::/"><i class="fa fa-download"></i> ::download.title::</a></li>
+							::end::
+						</ul>
+					</div>
+				</div>
+				<div class="row downloads">
+					<div class="span1 header">
+						<i class="fa fa-download"></i>
+					</div>
+					<div class="span5">
+						<ul class="nav nav-tabs nav-stacked">
+							::if (api != null)::<li><a href="::api::" target="_blank"><i class="fa fa-book"></i> API Documentation</a></li>::end::
+							<li><a href="::Config.tagBaseUrl::/::version.tag::" target="_blank"><i class="fa fa-github"></i> Source Code</a></li>
+							::if (prev != null)::<li><a href="::Config.compareBaseUrl::/::prevTag::...::version.tag::" target="_blank"><i class="fa fa-github"></i> Commits between tags ::prevTag:: and ::version.tag::</a></li>::end::
+						</ul>
+					</div>
+				</div>
 			</div>
-			<div class="span4">
-				<ul class="nav nav-tabs nav-stacked">
-					<li class="header"><i class="fa fa-linux" title="Linux"></i></li>
-					<li><a href="/download/linux/"><i class="fa fa-linux"></i> Linux Software Packages</a></li>
-				</ul>
+			<div class="span1"></div>
+		</div>
+	</div>
+</div>
+<div class="section">
+	<div class="container">
+		
+		<div class="row">
+			<div class="span5">
+			::if (releaseNotes != null)::
+				<h3>Release Notes</h3>
+				::releaseNotes::
+			::end::
+			</div>
+			<div class="span7">
+				<h3>Change Log</h3>
+				::changes::
 			</div>
 		</div>
 
-		<h3>Downloads - Archives</h3>
-
-		<p>
-			These archives need to be manually installed, which is currently undocumented, we recommend using the installers.
-		</p>
-
-		<div class="row downloads">
-			<div class="span4">
-				<ul class="nav nav-tabs nav-stacked">
-					::for download in downloads.windows.archives::
-						<li><a href="/download/file/::version::/::download.filename::/"><i class="fa fa-windows"></i> ::download.title::</a></li>
-					::end::
-				</ul>
-			</div>
-			<div class="span4">
-				<ul class="nav nav-tabs nav-stacked">
-					::for download in downloads.osx.archives::
-						<li><a href="/download/file/::version::/::download.filename::/"><i class="fa fa-apple"></i> ::download.title::</a></li>
-					::end::
-				</ul>
-			</div>
-			<div class="span4">
-				<ul class="nav nav-tabs nav-stacked">
-					::for download in downloads.linux.archives::
-						<li><a href="/download/file/::version::/::download.filename::/"><i class="fa fa-linux"></i> ::download.title::</a></li>
-					::end::
-				</ul>
-			</div>
-		</div>
-
-		<p class="alert alert-info download-source">
-			<strong><i class="fa fa-github"></i> Source Code: </strong> The source code for this release is <a href="::Config.tagBaseUrl::/::tag::" target="_blank">available on Github under the ::tag:: tag</a>.
-		</p>
-
-		::if (api != null)::
-			<p class="alert alert-success">
-				<strong><i class="fa fa-book"></i> API Documentation: </strong> Download the API documentation for this version as <a href="::api::">a ZIP file</a>.
-			</p>
-		::end::
-
-		::if (releaseNotes != null)::
-			<h3>Release Notes</h3>
-			::releaseNotes::
-		::end::
-
-		<h3>Change Log</h3>
-
-		::changes::
-
-		::if (prev != null)::
-			<p class="alert alert-info compare-versions">
-				<strong><i class="fa fa-github"></i> Full Changelog: </strong> <a href="::Config.compareBaseUrl::/::prevTag::...::tag::" target="_blank">See all commits between tags ::prevTag:: and ::tag:: on Haxe's Github account</a>.
-		::end::
 
 		<div class='prev-next-links bottom clearfix'>
 			::if (prev != null)::<a href="/download/version/::prev::/" class="prev-link">::prev::</a>::end::

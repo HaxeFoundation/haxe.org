@@ -318,7 +318,7 @@ a.anch {
 	width: 230px;
 	max-width: 100%;
 }
-.head .head-content h1 {
+.head .head-content h1, .dark.downloads h1 {
 	font-weight: bold;
 	text-shadow: 0px 1px 0px rgb(88,27,32);
 	color: white;
@@ -453,12 +453,14 @@ pre .cmt .kwd, pre .cmt .str, pre .cmt .val, pre .cmt .type {
 /**
 	Icon headers
 **/
+
+
 .header .fa {
 	font-size: 48px;
 	text-align: center;
 	display: block;
 	margin: 10px 0 30px;
-	color: rgb(200,200,200);
+	color: #EA8220;
 	cursor: default;
 }
 .header a.fa {
@@ -466,7 +468,7 @@ pre .cmt .kwd, pre .cmt .str, pre .cmt .val, pre .cmt .type {
 	cursor: pointer;
 }
 .header a.fa:hover {
-	color: #3369BC;
+	color: #A84B38;
 	text-decoration: none;
 }
 
@@ -674,6 +676,18 @@ html .gsc-search-box .gsc-input > input:focus, html .gsc-input-box-focus {
 }
 .dark blockquote small:before {
 	display: none;
+}
+
+.dark.downloads .nav-tabs.nav-stacked>li>a {
+	border-color: rgba(251, 199, 7, 0.2);
+    background-color: rgba(100, 33, 38, 0.25);
+}
+.dark.downloads .nav-stacked li a i.fa {
+	color: rgba(251, 199, 7, 0.5);
+}
+.dark.downloads .nav>li>a:hover, .dark.downloads .nav>li>a:focus {
+    background-color: rgba(100, 33, 38, 0.8);
+    color: #fff;
 }
 
 /** Footer sitemap **/

@@ -37,13 +37,13 @@ class Downloads {
 			var changes = getNotes(version.version, "CHANGES");
 
 			var content = Views.DownloadVersion(
-				version.version,
+				version,
 				version.prev != null ? version.prev.version : null,
 				version.next != null ? version.next.version : null,
 				title,
-				version.downloads,
-				version.tag,
+				version.downloads,				
 				version.api != null ? version.api.url : null,
+				data.current,
 				new Html(releaseNotes),
 				new Html(changes),
 				version.prev != null ? version.prev.tag : null
