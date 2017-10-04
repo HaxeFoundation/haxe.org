@@ -12,9 +12,15 @@ typedef Download = {
 }
 
 typedef DownloadList = {
-	osx : Array<Download>,
-	windows : Array<Download>,
-	linux : Array<Download>
+	osx : DownloadType,
+	windows : DownloadType,
+	linux : DownloadType,
+	all : Array<Download>
+}
+
+typedef DownloadType = {
+	installers : Array<Download>,
+	archives : Array<Download>
 }
 
 typedef Version = {
@@ -107,9 +113,10 @@ class DownloadsData {
 
 	static function getDownloadInfo (version:Version) {
 		var downloads = {
-			"osx": [],
-			"windows": [],
-			"linux": []
+			"osx": { installers: [], archives: [] },
+			"windows": { installers: [], archives: [] },
+			"linux": { installers: [], archives: [] },
+			"all": []
 		};
 
 		function getInfo (title:String, url:String) : Download {
@@ -120,29 +127,43 @@ class DownloadsData {
 			throw 'missing github release for version ${version.tag}';
 		var downloadUrls = githubRelease.assets.map(function(a) return a.browser_download_url);
 
+		//TODO: make something a little less horrible here
 		for (url in downloadUrls) {
 			var filename = Path.withoutDirectory(url);
+			var current;
 			if (filename.endsWith("-linux32.tar.gz") || filename.endsWith("-linux.tar.gz")) {
-				downloads.linux.unshift(getInfo("Linux 32-bit Binaries", url));
+				downloads.linux.archives.unshift(current = getInfo("Linux 32-bit Binaries", url));
+				downloads.all.unshift(current);
 			} else if (filename.endsWith("-linux64.tar.gz")) {
-				downloads.linux.push(getInfo("Linux 64-bit Binaries", url));
+				downloads.linux.archives.push(current = getInfo("Linux 64-bit Binaries", url));
+				downloads.all.unshift(current);
 			} else if (filename.endsWith("-raspi.tar.gz")) {
-				downloads.linux.push(getInfo("Raspberry Pi", url));
+				downloads.linux.archives.push(current = getInfo("Raspberry Pi", url));
+				downloads.all.unshift(current);
 			} else if (filename.endsWith("-osx-installer.pkg") || filename.endsWith("-osx-installer.dmg")) {
-				downloads.osx.unshift(getInfo("OS X Installer", url));
+				downloads.osx.installers.unshift(current = getInfo("OS X Installer", url));
+				downloads.all.unshift(current);
 			} else if (filename.endsWith("-osx.tar.gz")) {
-				downloads.osx.push(getInfo("OS X Binaries", url));
+				downloads.osx.archives.push(current = getInfo("OS X Binaries", url));
+				downloads.all.unshift(current);
 			} else if (filename.endsWith("-win.exe")) {
-				downloads.windows.unshift(getInfo("Windows Installer", url));
+				downloads.windows.installers.unshift(current = getInfo("Windows 32-bit Installer", url));
+				downloads.all.unshift(current);
 			} else if (filename.endsWith("-win.zip")) {
-				downloads.windows.push(getInfo("Windows Binaries", url));
+				downloads.windows.archives.push(current = getInfo("Windows 32-bit Binaries", url));
+				downloads.all.unshift(current);
+			} else if (filename.endsWith("-win64.exe")) {
+				downloads.windows.installers.unshift(current = getInfo("Windows 64-bit Installer", url));
+				downloads.all.unshift(current);
+			} else if (filename.endsWith("-win64.zip")) {
+				downloads.windows.archives.push(current = getInfo("Windows 64-bit Binaries", url));
+				downloads.all.unshift(current);
 			} else if (filename == 'api-${version.version}.zip') {
 				version.api = getInfo("API Documentation", url);
 			} else {
 				throw('Unknown download type for "$filename"');
 			}
 		}
-
 		version.downloads = downloads;
 	}
 

@@ -41,8 +41,7 @@ class Downloads {
 				version.prev != null ? version.prev.version : null,
 				version.next != null ? version.next.version : null,
 				title,
-				version.downloads.windows,
-				version.downloads.osx,
+				version.downloads,
 				version.tag,
 				version.api != null ? version.api.url : null,
 				new Html(releaseNotes),
@@ -58,7 +57,7 @@ class Downloads {
 			if (!FileSystem.exists(path)) {
 				FileSystem.createDirectory(path);
 			}
-			for (asset in version.downloads.linux.concat(version.downloads.windows).concat(version.downloads.osx)) {
+			for (asset in version.downloads.all) {
 				var filename = Path.withoutDirectory(asset.url);
 				Utils.save(Path.join([Config.outputFolder, Config.downloadOutput, "file", version.version, filename, Config.index]), Views.DownloadFile(
 					version.prev != null ? version.prev.version : null,

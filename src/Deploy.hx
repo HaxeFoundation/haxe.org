@@ -38,12 +38,7 @@ class Deploy {
 
         // Set up redirections of the download files to GitHub releases.
         for (version in downloadsData.versions) {
-            for (download in
-                (version.api != null ? [version.api] : [])
-                .concat(version.downloads.osx)
-                .concat(version.downloads.windows)
-                .concat(version.downloads.linux)
-            ){
+            for (download in (version.api != null ? [version.api] : []).concat(version.downloads.all)) {
                 aws([
                         "s3api", "put-object",
                         "--acl", "public-read",
@@ -53,12 +48,7 @@ class Deploy {
                 ]);
             }
             if (version.version == downloadsData.current) {
-                for (download in
-                    []
-                    .concat(version.downloads.osx)
-                    .concat(version.downloads.windows)
-                    .concat(version.downloads.linux)
-                ){
+                for (download in version.downloads.all) {
                     aws([
                             "s3api", "put-object",
                             "--acl", "public-read",

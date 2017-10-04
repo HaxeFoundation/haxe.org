@@ -11,13 +11,13 @@
 		
 		<h1>::title::</h1>
 
-		<h3>Downloads</h3>
+		<h3>Downloads - Installers</h3>
 		
 		<div class="row downloads">
 			<div class="span4">
 				<ul class="nav nav-tabs nav-stacked">
 					<li class="header"><i class="fa fa-windows" title="Windows"></i></li>
-					::for download in downloads_windows::
+					::for download in downloads.windows.installers::
 						<li><a href="/download/file/::version::/::download.filename::/"><i class="fa fa-windows"></i> ::download.title::</a></li>
 					::end::
 				</ul>
@@ -25,7 +25,7 @@
 			<div class="span4">
 				<ul class="nav nav-tabs nav-stacked">
 					<li class="header"><i class="fa fa-apple" title="Mac OS X"></i></li>
-					::for download in downloads_osx::
+					::for download in downloads.osx.installers::
 						<li><a href="/download/file/::version::/::download.filename::/"><i class="fa fa-apple"></i> ::download.title::</a></li>
 					::end::
 				</ul>
@@ -34,6 +34,39 @@
 				<ul class="nav nav-tabs nav-stacked">
 					<li class="header"><i class="fa fa-linux" title="Linux"></i></li>
 					<li><a href="/download/linux/"><i class="fa fa-linux"></i> Linux Software Packages</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<h3>Downloads - Archives</h3>
+
+		<p>
+			These archives need to be manually installed, which is currently undocumented, we recommend using the installers.
+		</p>
+
+		<div class="row downloads">
+			<div class="span4">
+				<ul class="nav nav-tabs nav-stacked">
+					<li class="header"><i class="fa fa-windows" title="Windows"></i></li>
+					::for download in downloads.windows.archives::
+						<li><a href="/download/file/::version::/::download.filename::/"><i class="fa fa-windows"></i> ::download.title::</a></li>
+					::end::
+				</ul>
+			</div>
+			<div class="span4">
+				<ul class="nav nav-tabs nav-stacked">
+					<li class="header"><i class="fa fa-apple" title="Mac OS X"></i></li>
+					::for download in downloads.osx.archives::
+						<li><a href="/download/file/::version::/::download.filename::/"><i class="fa fa-apple"></i> ::download.title::</a></li>
+					::end::
+				</ul>
+			</div>
+			<div class="span4">
+				<ul class="nav nav-tabs nav-stacked">
+					<li class="header"><i class="fa fa-linux" title="Linux"></i></li>
+					::for download in downloads.linux.archives::
+						<li><a href="/download/file/::version::/::download.filename::/"><i class="fa fa-linux"></i> ::download.title::</a></li>
+					::end::
 				</ul>
 			</div>
 		</div>
