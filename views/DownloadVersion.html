@@ -31,10 +31,10 @@
 					<div class="span5">
 						<ul class="nav nav-tabs nav-stacked">
 							::for download in downloads.windows.installers::
-								<li><a href="/download/file/::version::/::download.filename::/"><i class="fa fa-download"></i> ::download.title::</a></li>
+								<li><a href="/download/file/::version.version::/::download.filename::/"><i class="fa fa-download"></i> ::download.title::</a></li>
 							::end::
 							::for download in downloads.windows.archives::
-								<li><a href="/download/file/::version::/::download.filename::/"><i class="fa fa-download"></i> ::download.title::</a></li>
+								<li><a href="/download/file/::version.version::/::download.filename::/"><i class="fa fa-download"></i> ::download.title::</a></li>
 							::end::
 						</ul>
 					</div>
@@ -46,10 +46,10 @@
 					<div class="span5">
 						<ul class="nav nav-tabs nav-stacked">
 							::for download in downloads.osx.installers::
-								<li><a href="/download/file/::version::/::download.filename::/"><i class="fa fa-download"></i> ::download.title::</a></li>
+								<li><a href="/download/file/::version.version::/::download.filename::/"><i class="fa fa-download"></i> ::download.title::</a></li>
 							::end::
 							::for download in downloads.osx.archives::
-								<li><a href="/download/file/::version::/::download.filename::/"><i class="fa fa-download"></i> ::download.title::</a></li>
+								<li><a href="/download/file/::version.version::/::download.filename::/"><i class="fa fa-download"></i> ::download.title::</a></li>
 							::end::
 						</ul>
 					</div>
@@ -62,7 +62,7 @@
 						<ul class="nav nav-tabs nav-stacked">
 							<li><a href="/download/linux/"><i class="fa fa-book"></i> Linux Software Packages for Ubuntu, Debian, Fedora, openSUSE, Arch Linux</a></li>
 							::for download in downloads.linux.archives::
-								<li><a href="/download/file/::version::/::download.filename::/"><i class="fa fa-download"></i> ::download.title::</a></li>
+								<li><a href="/download/file/::version.version::/::download.filename::/"><i class="fa fa-download"></i> ::download.title::</a></li>
 							::end::
 						</ul>
 					</div>
