@@ -13,6 +13,10 @@ html, body {
 	margin-top:1em;
 }
 @media (max-width: 979px) {
+	body {
+		word-break: break-word;
+	}
+		
 	.page-wrap {
 		margin-top: -20px;
 	}
