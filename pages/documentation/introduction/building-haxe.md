@@ -37,7 +37,7 @@ make install
 Building on Linux
 -------
 
-1. Install Neko, which is available in the repositories of many Linux distributions. e.g. On Ubuntu, just `sudo apt-get neko`.
+1. Install Neko, which is available in the repositories of many Linux distributions. e.g. On Ubuntu, just `sudo apt-get install neko`.
 2. Install OCaml (4.02 or above), camlp4, pcre, and zlib. Again, try to find such packages in the Linux repositories.
 3. Navigate to where the Haxe sources are and build Haxe using `make`:
 
