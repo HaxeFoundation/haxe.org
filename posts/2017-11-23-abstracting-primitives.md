@@ -42,7 +42,7 @@ function translate(key:LocaleKey):String {
 abstract LocaleKey(String) {}
 ```
 
-The `LocaleKey` abstract type is defined "over" a `String`, but it has no `from/to` implicit casts defined, meaning it's not compatible with regular `Strings` when it comes to type checking, so passing a value of `LocaleKey` to the `displayMessage` function will result in a compile-time error: `LocaleKey should be String`. Similarly, you cannot pass a random `String` to the `translate` function, which, again, protects you from accidentally trying to translate already translated messages, which is not an uncommon in real world.
+The `LocaleKey` abstract type is defined "over" a `String`, but it has no `from/to` implicit casts defined, meaning it's not compatible with regular `String`s when it comes to type checking, so passing a value of `LocaleKey` to the `displayMessage` function will result in a compile-time error: `LocaleKey should be String`. Similarly, you cannot pass a random `String` to the `translate` function, which, again, protects you from accidentally trying to translate already translated messages, which is not an uncommon in real world.
 
 ## Use case: time arithmetic
 
@@ -100,7 +100,7 @@ class RepairOrder {
 
 The last example from the previous section is particularly interesting, because if we define the structure, with Haxe macros we can easily analyze it and generate validation code that checks if some actual data (e.g. a JSON file) is compliant with the structure (i.e. objects have all the required fields with proper types).
 
-Unlike generic primitive types, your defined abstract types actually make sense in the domain of your project, which means you can add custom validation to each abstract type that does additional checks. Here are some examples:
+Unlike generic primitive types, your defined abstract types actually have specific meaning in the domain of your project, which means you can add custom validation to each abstract type that does additional checks. Here are some examples:
 
  * value typed with `LocaleKey` must present in the translation data (in other words - detect untranslated values)
  * value typed with `Time` must be greater or equals 0 (because negative values don't make sense for this type)
