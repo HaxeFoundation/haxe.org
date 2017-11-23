@@ -115,73 +115,73 @@ I think this is a really good DRY (don't repeat yourself) practice, using which 
 
 So, if abstract types over primitives (or any other types, actually) are completely new types and not assignable from their underlying type by default, how do we create a value of such a type? I'd say that largely depends on the use case, there are different ways to do that:
 
- * Using constructor syntax:
- 
-   ```haxe
-   abstract LocaleKey(String) {
-       public inline function new(key:String) {
-           this = key;
-       }
-   }
+### Using constructor syntax:
 
-   // and then...
-   var myLocaleKey = new LocaleKey("myLocaleKey");
-   ```
-   This is the most explicit and straightforward way. You can add some run-time value validation calls in the constructor, or you can make it private and define static methods for creating a value with or without validation, just like with classes.
+```haxe
+abstract LocaleKey(String) {
+	public inline function new(key:String) {
+		this = key;
+	}
+}
 
-   > If you're wondering what's `this` in the context of abstracts and why we're assigning to it - `this` represents the actual value typed with the underlying type (`String` in this case), and assigning to it is basically creating a value of this abstract type. See more in [Haxe Manual](https://haxe.org/manual/types-abstract.html).
+// and then...
+var myLocaleKey = new LocaleKey("myLocaleKey");
+```
+This is the most explicit and straightforward way. You can add some run-time value validation calls in the constructor, or you can make it private and define static methods for creating a value with or without validation, just like with classes.
 
- * Using direct implicit casts:
- 
-   ```haxe
-   abstract LocaleKey(String) from String {}
+If you're wondering what's `this` in the context of abstracts and why we're assigning to it - `this` represents the actual value typed with the underlying type (`String` in this case), and assigning to it is basically creating a value of this abstract type. See more in [Haxe Manual](https://haxe.org/manual/types-abstract.html).
 
-   // and then
-   var myLocaleKey:LocaleKey = "myLocaleKey";
-   ```
+### Using direct implicit casts:
 
-   This is implicit and less safe, because it makes any `String` assignable to our `LocaleKey` type, which is often not what we want. But if the creation of such values is strictly controlled and encapsulated in your code, you might get away with this. :)
+```haxe
+abstract LocaleKey(String) from String {}
 
- * Using method implicit casts:
- 
-   ```haxe
-   abstract LocaleKey(String) {
-       inline function new(key) this = key;
+// and then
+var myLocaleKey:LocaleKey = "myLocaleKey";
+```
 
-       @:from static function fromString(key:String):LocaleKey {
-           // could add some run-time checks here
-           return new LocaleKey(key);
-       }
-   }
+This is implicit and less safe, because it makes any `String` assignable to our `LocaleKey` type, which is often not what we want. But if the creation of such values is strictly controlled and encapsulated in your code, you might get away with this. :)
 
-   // and then
-   var myLocaleKey:LocaleKey = "myLocaleKey";
-   ```
+### Using method implicit casts:
 
-   This is similar to the example above, but for each unification the `fromString` function will be called. With `@:from` methods you can provide additional run-time checks or transformations to your value and you can have several `@:from` methods that will do different things depending on the input value type (which also means that you can implicitly assign values of types that are incompatible with the underlying type of your abstract).
+```haxe
+abstract LocaleKey(String) {
+	inline function new(key) this = key;
 
-   This can be useful sometimes, however most of the time I personally like the explicit constructor/methods better, as they give the reader better idea of what's going on and when the conversion function calls kick in.
+	@:from static function fromString(key:String):LocaleKey {
+		// could add some run-time checks here
+		return new LocaleKey(key);
+	}
+}
 
- * Using unsafe casts:
+// and then
+var myLocaleKey:LocaleKey = "myLocaleKey";
+```
 
-   As with any other type, one can subvert Haxe type system with [unsafe cast](https://haxe.org/manual/expression-cast-unsafe.html) or by using [Dynamic](https://haxe.org/manual/types-dynamic.html). While generally it's not advised to do so, it can be useful in cases where the creation of values happen in a very limited number of places, e.g. deserialization of trusted data:
+This is similar to the example above, but for each unification the `fromString` function will be called. With `@:from` methods you can provide additional run-time checks or transformations to your value and you can have several `@:from` methods that will do different things depending on the input value type (which also means that you can implicitly assign values of types that are incompatible with the underlying type of your abstract).
 
-   ```haxe
-   abstract WorkerId(Int) {} // no way to create one from "normal" code
+This can be useful sometimes, however most of the time I personally like the explicit constructor/methods better, as they give the reader better idea of what's going on and when the conversion function calls kick in.
 
-   class RepairOrder {
-       var worker:WorkerId;
-       // other fields skipped for brevity
+### Using unsafe casts:
 
-       static function deserialize(rawData:{worker:Int}) {
-           var instance = Type.createEmptyInstance(RepairOrder);
-           instance.worker = cast rawData.worker; // we know that `rawData` contains a valid value, so we just cast
-           return instance;
-       }
-   }
-   ```
+As with any other type, one can subvert Haxe type system with [unsafe cast](https://haxe.org/manual/expression-cast-unsafe.html) or by using [Dynamic](https://haxe.org/manual/types-dynamic.html). While generally it's not advised to do so, it can be useful in cases where the creation of values happen in a very limited number of places, e.g. deserialization of trusted data:
 
-   Unsafe casts like this can be particularly useful when you're not actually writing this code by hand but generating it with a macro, since you can simplify your macro code without sacrificing much safety.
+```haxe
+abstract WorkerId(Int) {} // no way to create one from "normal" code
+
+class RepairOrder {
+	var worker:WorkerId;
+	// other fields skipped for brevity
+
+	static function deserialize(rawData:{worker:Int}) {
+		var instance = Type.createEmptyInstance(RepairOrder);
+		instance.worker = cast rawData.worker; // we know that `rawData` contains a valid value, so we just cast
+		return instance;
+	}
+}
+```
+
+Unsafe casts like this can be particularly useful when you're not actually writing this code by hand but generating it with a macro, since you can simplify your macro code without sacrificing much safety.
 
 ## Conclusion
 
