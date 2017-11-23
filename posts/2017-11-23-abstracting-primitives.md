@@ -42,7 +42,7 @@ function translate(key:LocaleKey):String {
 abstract LocaleKey(String) {}
 ```
 
-The `LocaleKey` abstract type is defined "over" a `String`, but it has no `from/to` implicit casts defined, meaning they are not compatible with regular `Strings` when it comes to type checking, so passing a value of `LocaleKey` to the `displayMessage` function will result in a compile-time error: `LocaleKey should be String`. Similarly, you cannot pass a random `String` to the `translate` function, which, again, protects you from accidentally trying to translate already translated messages, which is not an uncommon in real world.
+The `LocaleKey` abstract type is defined "over" a `String`, but it has no `from/to` implicit casts defined, meaning it's not compatible with regular `Strings` when it comes to type checking, so passing a value of `LocaleKey` to the `displayMessage` function will result in a compile-time error: `LocaleKey should be String`. Similarly, you cannot pass a random `String` to the `translate` function, which, again, protects you from accidentally trying to translate already translated messages, which is not an uncommon in real world.
 
 ## Use case: time arithmetic
 
