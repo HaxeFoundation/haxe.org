@@ -116,6 +116,7 @@ I think this is a really good DRY (don't repeat yourself) practice, using which 
 So, if abstract types over primitives (or any other types, actually) are completely new types and not assignable from their underlying type by default, how do we create a value of such a type? I'd say that largely depends on the use case, there are different ways to do that:
 
  * Using constructor syntax:
+ 
    ```haxe
    abstract LocaleKey(String) {
        public inline function new(key:String) {
@@ -131,6 +132,7 @@ So, if abstract types over primitives (or any other types, actually) are complet
    > If you're wondering what's `this` in the context of abstracts and why we're assigning to it - `this` represents the actual value typed with the underlying type (`String` in this case), and assigning to it is basically creating a value of this abstract type. See more in [Haxe Manual](https://haxe.org/manual/types-abstract.html).
 
  * Using direct implicit casts:
+ 
    ```haxe
    abstract LocaleKey(String) from String {}
 
@@ -141,6 +143,7 @@ So, if abstract types over primitives (or any other types, actually) are complet
    This is implicit and less safe, because it makes any `String` assignable to our `LocaleKey` type, which is often not what we want. But if the creation of such values is strictly controlled and encapsulated in your code, you might get away with this. :)
 
  * Using method implicit casts:
+ 
    ```haxe
    abstract LocaleKey(String) {
        inline function new(key) this = key;
