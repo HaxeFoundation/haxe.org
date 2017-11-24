@@ -167,7 +167,7 @@ abstract LocaleKey(String) {
 	inline function new(key) this = key;
 
 	@:from static function fromString(key:String):LocaleKey {
-		// could add some run-time checks here
+		// You could add some run-time checks here
 		return new LocaleKey(key);
 	}
 }
