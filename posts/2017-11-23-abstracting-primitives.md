@@ -158,7 +158,7 @@ abstract LocaleKey(String) from String {}
 var myLocaleKey:LocaleKey = "myLocaleKey";
 ```
 
-This is implicit and less safe, because it makes any `String` assignable to our `LocaleKey` type which is often not what we want. But if the creation of such values is strictly controlled and encapsulated in your code, you might get away with it. :)
+This is implicit and less safe because it makes any `String` assignable to our `LocaleKey` type which is often not what we want. But if the creation of such values is strictly controlled and encapsulated in your code, you might get away with it. :)
 
 ### Using method implicit casts:
 
