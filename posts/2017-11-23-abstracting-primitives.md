@@ -164,7 +164,7 @@ This can be useful sometimes, however most of the time I personally like the exp
 
 ### Using unsafe casts:
 
-As with any other type, one can subvert Haxe type system with [unsafe cast](https://haxe.org/manual/expression-cast-unsafe.html) or by using [Dynamic](https://haxe.org/manual/types-dynamic.html). While generally it's not advised to do so, it can be useful in cases where the creation of values happen in a very limited number of places, e.g. deserialization of trusted data:
+As with any other type, one can subvert the Haxe type system with [unsafe cast](https://haxe.org/manual/expression-cast-unsafe.html) or by using [Dynamic](https://haxe.org/manual/types-dynamic.html). While generally it's not advised to do so, it can be useful in cases where the creation of values happen in a very limited number of places, e.g. deserialization of trusted data:
 
 ```haxe
 abstract WorkerId(Int) {} // no way to create one from "normal" code
