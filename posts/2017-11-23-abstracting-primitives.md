@@ -129,7 +129,7 @@ var myLocaleKey = new LocaleKey("myLocaleKey");
 ```
 This is the most explicit and straightforward way. You can add some run-time value validation calls in the constructor, or you can make it private and define static methods for creating a value with or without validation, just like with classes.
 
-If you're wondering what's `this` in the context of abstracts and why we're assigning to it - `this` represents the actual value typed with the underlying type (`String` in this case), and assigning to it is basically creating a value of this abstract type. See more in [Haxe Manual](https://haxe.org/manual/types-abstract.html).
+If you're wondering what `this` is in the context of abstracts and why we're assigning to it - `this` represents the actual value typed with the underlying type (`String` in this case), and assigning to it is basically creating a value of this abstract type. See more in [Haxe Manual](https://haxe.org/manual/types-abstract.html).
 
 ### Using direct implicit casts:
 
