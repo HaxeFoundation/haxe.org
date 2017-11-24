@@ -154,7 +154,7 @@ If you're wondering what `this` is in the context of abstracts and why we're ass
 ```haxe
 abstract LocaleKey(String) from String {}
 
-// and then
+// and then...
 var myLocaleKey:LocaleKey = "myLocaleKey";
 ```
 
@@ -172,7 +172,7 @@ abstract LocaleKey(String) {
 	}
 }
 
-// and then
+// and then...
 var myLocaleKey:LocaleKey = "myLocaleKey";
 ```
 
