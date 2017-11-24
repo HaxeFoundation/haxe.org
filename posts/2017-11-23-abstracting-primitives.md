@@ -106,7 +106,7 @@ typedef ToolId = Int;
 function orderBuildingRepair(worker:WorkerId, building:BuildingId, tool:ToolId) {}
 ```
 
-Then we could call our function with incorrect parameters without compiler noticing:
+Then we could call our function with incorrect parameters without the compiler noticing:
 
 ```haxe
 var workerId:WorkerId = 1;
