@@ -102,9 +102,9 @@ The last example from the previous section is particularly interesting, because 
 
 Unlike generic primitive types, your defined abstract types actually have specific meaning in the domain of your project, which means you can add custom validation to each abstract type that does additional checks. Here are some examples:
 
- * value typed with `LocaleKey` must be present in the translation data (in other words - detect untranslated values)
- * value typed with `Time` must be greater or equals 0 (because negative values don't make sense for this type)
- * value typed with `WorkerId`/`BuildingId`/`ToolId` must be present in some specific collection of worker/building/tool
+ * values typed with `LocaleKey` must be present in the translation data (in other words - detect untranslated values)
+ * values typed with `Time` must be greater or equals 0 (because negative values don't make sense for this type)
+ * values typed with `WorkerId`/`BuildingId`/`ToolId` must be present in some specific collection of worker/building/tool
    objects (so one cannot have an id of an inexistant object and thus broken reference)
 
 The cool thing here is that if you add another structure that uses your validated abstract types for its fields you get advanced consistency validation for free (since your system already knows how to validate values of your abstract type).
