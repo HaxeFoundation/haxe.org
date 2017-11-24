@@ -46,7 +46,7 @@ The `LocaleKey` abstract type is defined "over" a `String`, but it has no `from/
 
 ## Use case: time arithmetic
 
-Another interesting example from my experience is representing time in game logic. For performance reasons, time in games is often represented as simple integer, e.g. seconds passed since start of the game. In fact, there is another kind of integer related to time in this scenario - _time interval_. Representing both of these concepts as integers can lead to bugs and confusion, because unlike random integers, set of operations that make sense for time and intervals is much smaller and their result often change the meaning of the number in question (for example substracting one _time_ value from another results in an _interval_ between them, adding _interval_ to _time_ results in a new _time_ value, adding two _time_ values does not make sense at all). So why don't we represent those as distinct types with clearly defined operations?
+Another interesting example from my experience is representing time in game logic. For performance reasons, time in games is often represented as simple integer, e.g. seconds passed since start of the game. In fact, there is another kind of integer related to time in this scenario - _time interval_. Representing both of these concepts as integers can lead to bugs and confusion, because unlike random integers, set of operations that make sense for time and intervals is much smaller and their result often change the meaning of the number in question (for example subtracting one _time_ value from another results in an _interval_ between them, adding _interval_ to _time_ results in a new _time_ value, adding two _time_ values does not make sense at all). So why don't we represent those as distinct types with clearly defined operations?
 
 ```haxe
 /** Absolute time value */
@@ -55,22 +55,22 @@ abstract Time(Int) {
     @:commutative
     @:op(a + b) static function _(a:Time, b:Interval):Time;
 
-    // Substraction of Interval from Time is defined and results in a modified Time value
+    // Subtraction of Interval from Time is defined and results in a modified Time value
     @:op(a - b) static function _(a:Time, b:Interval):Time;
 
-    // Substraction of two Time values is defined and results in Interval between them
+    // Subtraction of two Time values is defined and results in Interval between them
     @:op(a - b) static function _(a:Time, b:Time):Interval;
 }
 
 /** Relative time interval */
 abstract Interval(Int) {
-    // Addition and substraction if Interval values results in a new Interval value
+    // Addition and subtraction if Interval values results in a new Interval value
     @:op(a + b) static function _(a:Interval, b:Interval):Interval;
     @:op(a - b) static function _(a:Interval, b:Interval):Interval;
 }
 ```
 
-Here we define allowed operations using [operator overloading](https://haxe.org/manual/types-abstract-operator-overloading.html), supported by abstract types. We also use the [underlying type operator exposing](https://haxe.org/manual/types-abstract-operator-overloading.html#exposing-underlying-type-operations) feature: since `Int` supports addition and substraction natively and we want to simply forward them to the underlying integer - we don't specify operator function body (its name is also unused, so we just use `_` for all of the overloads).
+Here we define allowed operations using [operator overloading](https://haxe.org/manual/types-abstract-operator-overloading.html), supported by abstract types. We also use the [underlying type operator exposing](https://haxe.org/manual/types-abstract-operator-overloading.html#exposing-underlying-type-operations) feature: since `Int` supports addition and subtraction natively and we want to simply forward them to the underlying integer - we don't specify operator function body (its name is also unused, so we just use `_` for all of the overloads).
 
 ## Use case: object identifiers
 
@@ -102,9 +102,9 @@ The last example from the previous section is particularly interesting, because 
 
 Unlike generic primitive types, your defined abstract types actually have specific meaning in the domain of your project, which means you can add custom validation to each abstract type that does additional checks. Here are some examples:
 
- * value typed with `LocaleKey` must present in the translation data (in other words - detect untranslated values)
+ * value typed with `LocaleKey` must be present in the translation data (in other words - detect untranslated values)
  * value typed with `Time` must be greater or equals 0 (because negative values don't make sense for this type)
- * value typed with `WorkerId`/`BuildingId`/`ToolId` must present in some specific collection of worker/building/tool
+ * value typed with `WorkerId`/`BuildingId`/`ToolId` must be present in some specific collection of worker/building/tool
    objects (so one cannot have an id of an inexistant object and thus broken reference)
 
 The cool thing here is that if you add another structure that uses your validated abstract types for its fields you get advanced consistency validation for free (since your system already knows how to validate values of your abstract type).
