@@ -84,7 +84,7 @@ abstract ToolId(Int) {}
 function orderBuildingRepair(worker:WorkerId, building:BuildingId, tool:ToolId) {}
 ```
 
-The compiler will obviously complain if we pass arguments in a wrong order or pass some random integer as an argument, which makes code more error-proof and also more readable.
+The compiler will complain if we pass arguments in a wrong order or pass some random integer as an argument, which makes code more error-proof and also more readable.
 
 It's the same with object types, e.g.:
 
@@ -96,9 +96,27 @@ class RepairOrder {
 }
 ```
 
+This is different from using `typedef` aliases, because `typedef` only gives a new name for a type while preserving all of its original semantics. Imagine our Id types would be simple `typedef`s to `Int` instead of `abstract`s:
+
+```haxe
+typedef WorkerId = Int;
+typedef BuildingId = Int;
+typedef ToolId = Int;
+
+function orderBuildingRepair(worker:WorkerId, building:BuildingId, tool:ToolId) {}
+```
+
+Then we could call our function with incorrect parameters without compiler noticing:
+
+```haxe
+var workerId:WorkerId = 1;
+function orderBuildingRepair(42, workerId, workerId) {} // Compiles! :(
+```
+
+
 ## Use case: data validation with macros
 
-The last example from the previous section is particularly interesting, because if we define the structure, with Haxe macros we can easily analyze it and generate validation code that checks if some actual data (e.g. a JSON file) is compliant with the structure (i.e. objects have all the required fields with proper types).
+The `class` example from the previous section is particularly interesting, because if we define the structure, with Haxe macros we can easily analyze it and generate validation code that checks if some actual data (e.g. a JSON file) is compliant with the structure (i.e. objects have all the required fields with proper types).
 
 Unlike generic primitive types, your defined abstract types actually have specific meaning in the domain of your project, which means you can add custom validation to each abstract type that does additional checks. Here are some examples:
 
