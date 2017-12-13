@@ -1,6 +1,6 @@
-title: Fiene's Post
+title: Announcing the First US Haxe Summit
 author: fiene
-description: Fill me
+description: We are happy to announce the inaugural US Haxe Summit which will take place in Seattle, May 3-5 2018. Come join us there!
 published: true
 tags: announcements,events
 disqusID: 32
