@@ -21,7 +21,7 @@ Thus, we are happy to announce that yes, we will have a Haxe Conference in the U
 
 **When** : 3th-5th May 2018
 
-**Where** : The Hilton Seattle Downtown, Washington, USA 
+**Where** : The Hilton Seattle Downtown, Seattle, Washington, USA 
 
 We still have some details regarding pricing, sponsorships and the schedule to nail down but we’ll make sure to let you know
 as soon as possible. At the moment, we have confirmed the venue and the dates and secured a special rate for accommodations
