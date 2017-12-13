@@ -6,7 +6,7 @@ tags: announcements,events
 disqusID: 32
 ---
 
-# Title
+# Making it Across the Pond
 
 Back in September, we had a beautiful and very successful Haxe Summit in Amsterdam with lots of exciting talks,
 workshops and opportunities to connect with other members of the community. 
