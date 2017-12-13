@@ -29,9 +29,9 @@ with the hotel.
 
 In the meantime:
 
- * Please think about giving a presentation or a workshop!
- * Please block the dates in your calendar!
- * Please get involved!
+ * Think about giving a presentation or a workshop!
+ * Block the dates in your calendar!
+ * Get involved!
 
 For enquiries about sponsorship options, proposals for talks and workshops or other related questions, please contact:
 
