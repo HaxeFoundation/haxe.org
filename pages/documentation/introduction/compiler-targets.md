@@ -5,7 +5,7 @@ The following table gives an overview of available Haxe targets:
 
 
 Name | Kind | Static typing | Sys | Since
---- | --- | --- | --- | --- | ---
+--- | --- | --- | --- | --- 
 Flash | byte code | Yes | No | alpha (2005)
 Neko | byte code | No | Yes | alpha (2005)
 JavaScript | source | No | No |  beta (2006)
