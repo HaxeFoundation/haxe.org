@@ -557,6 +557,9 @@ table.table.table-bordered.features, table.table.table-bordered.features td, tab
 	/*border-color: rgb(40,40,40);*/
 	/*background: rgb(30,30,30);*/
 }
+
+.table table { width: 100%; }
+
 .site-content ul ul, .site-content ul ol, .site-content ol ol, .site-content ol ul {
 	margin-bottom: 10px;
 }
