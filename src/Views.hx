@@ -13,7 +13,6 @@ class Views {
 	@:template public static function PageWithoutSidebar (content:Html, editLink:String) : Html;
 	@:template public static function PageWithSidebar (prevNextLinks:{ prevUrl:String, prevTitle:String, nextUrl:String, nextTitle:String }, sideNav:Html, content:Html, editLink:String) : Html;
 	@:template public static function Redirection (redirectionLink:String) : Html;
-	@:template public static function Search (editLink:String) : Html;
 	@:template public static function WhoIsWho (members:Array<generators.Blog.Author>, formers:Array<generators.Blog.Author>) : Html;
 
 }
