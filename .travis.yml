@@ -1,6 +1,6 @@
 language: haxe
 haxe: 
-  - "3.4.3"
+  - "3.4.4"
   - "development"
 dist: trusty
 sudo: false
@@ -12,4 +12,4 @@ install:
   - yes | haxelib install all
 script:
   - haxe generate.hxml
-  - if [[ "$TRAVIS_HAXE_VERSION" == "3.4.3" ]]; then haxe deploy.hxml ; fi
+  - if [[ "$TRAVIS_HAXE_VERSION" == "3.4.4" ]]; then haxe deploy.hxml ; fi
