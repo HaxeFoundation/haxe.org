@@ -39,5 +39,5 @@ __Bugfixes__:
 
 __Standard Library__:
 
-* macro : added have.display.Position and PositionTools.toRange ([#6599](https://github.com/HaxeFoundation/haxe/issues/6599))
+* macro : added haxe.display.Position and PositionTools.toRange ([#6599](https://github.com/HaxeFoundation/haxe/issues/6599))
 * all : moved List to haxe.ds ([#6610](https://github.com/HaxeFoundation/haxe/issues/6610))
