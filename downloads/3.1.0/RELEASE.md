@@ -13,7 +13,7 @@ I would like to thank both our old and new contributors, in particular:
  - Andy Li for getting Haxe properly tested on Travis CI (<https://travis-ci.org/HaxeFoundation/haxe>)
  - Dan Korostelev for various improvements to the C# target and other contributions
  - Bryan Ischo of TiVo for his work on the hxcpp debugger (<https://github.com/HaxeFoundation/hxcpp-debugger>)
- - Cauê Waneck for setting up the automated Haxe binaries and installers (<http://builds.haxe.org/>)
+ - Cauê Waneck for setting up the automated Haxe binaries and installers (<http://build.haxe.org/>)
  - Mike Welsh for his work on the Int32 and Int64 abstracts
 
 If you want to appear on this list for the next release, make sure to check us out on [GitHub](https://github.com/HaxeFoundation).
