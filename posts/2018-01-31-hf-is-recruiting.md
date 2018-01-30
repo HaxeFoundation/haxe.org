@@ -1,3 +1,11 @@
+title: The Haxe Foundation is Recruiting!
+author: nicolas
+description: We are looking for people who are passionate about programming languages and have a strong background in tech.
+published: true
+tags: announcements
+disqusID: 33
+---
+
 The Haxe Foundation is Recruiting!
 
 After a few years of working as a decentralized part-time team, I think that it is now a good time to start hiring some full-time people to work on Haxe. Thanks to our partners, we are able to hire for two full-time positions.
