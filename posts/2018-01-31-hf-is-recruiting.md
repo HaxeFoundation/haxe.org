@@ -1,6 +1,6 @@
 title: The Haxe Foundation is Recruiting!
 author: nicolas
-description: We are looking for people who are passionate about programming languages and have a strong background in tech.
+description: We are looking for people who are passionate about programming languages.
 published: true
 tags: announcements
 disqusID: 33
