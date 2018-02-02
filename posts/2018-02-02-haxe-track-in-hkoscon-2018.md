@@ -7,7 +7,7 @@ tags: events
 disqusID: 34
 ---
 
-The annual [Hong Kong Open Source Conference](https://www.facebook.com/hkoscon/) (HKOSCon) has been one of the major developer events in the city. There have been hundreds of participates, with a large number of oversea visitors, attending talks and workshops each year.
+The annual [Hong Kong Open Source Conference](https://www.facebook.com/hkoscon/) (HKOSCon) has been one of the major developer events in the city. There have been hundreds of participates with a large number of overseas visitors attending talks and workshops each year.
 
 I personally am a huge fan of the conference and spoke about Haxe there a few times:
 
