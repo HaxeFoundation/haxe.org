@@ -9,7 +9,7 @@ disqusID: 34
 
 The annual [Hong Kong Open Source Conference](https://www.facebook.com/hkoscon/) (HKOSCon) has been one of the major developer events in the city. There have been hundreds of participates with a large number of overseas visitors attending talks and workshops each year.
 
-I personally am a huge fan of the conference and spoke about Haxe there a few times:
+I personally am a huge fan of the conference and have spoken there about Haxe a few times:
 
  * An introductory talk about [Haxe and its role as a transpiler](https://2015.opensource.hk/agenda/topic/transcompiling-towards-the-freedom-of-programming-language-and-platform-choice/) in 2015.
  * A sharing of my experience with [packaging Haxe for the Linux distributions](https://2016.opensource.hk/topics/apt-get-install-my-software-packaging-for-linux/) in 2016.
