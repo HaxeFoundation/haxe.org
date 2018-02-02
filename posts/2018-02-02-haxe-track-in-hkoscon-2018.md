@@ -15,7 +15,7 @@ I personally am a huge fan of the conference and have spoken there about Haxe a 
  * A sharing of my experience with [packaging Haxe for the Linux distributions](https://2016.opensource.hk/topics/apt-get-install-my-software-packaging-for-linux/) in 2016.
  * [A beginner's workshop](https://hkoscon.org/2017/topics/build-a-cross-platform-game-in-haxe/) co-hosted with [Kevin Leung](https://twitter.com/kevinresol) in 2017.
 
-This year, HKOSCon introduced [a community track program](https://hkoscon.org/2018/cfc.html) which allows individual communities to manage their own tracks in the conference - from the call for proposal and the selection of speakers to hosting the taks. Each community track will comprise of two or more 30-minute sessions. Together with Mozilla, the LikeCoin Foundation, and many others,  theHaxe Foundation is proud to be one of the [selected communities](https://www.facebook.com/hkoscon/posts/2047516342183239)!
+This year, HKOSCon introduced [a community track program](https://hkoscon.org/2018/cfc.html) which allows individual communities to manage their own tracks at the conference - from the call for proposal and the selection of speakers to hosting the taks. Each community track will comprise of two or more 30-minute sessions. Together with Mozilla, the LikeCoin Foundation, and many others,  theHaxe Foundation is proud to be one of the [selected communities](https://www.facebook.com/hkoscon/posts/2047516342183239)!
 
 This is super exciting because it will be the first official Haxe event in the Asian region. Remember that we have also just announced [Haxe Summit in the US](https://haxe.org/blog/seattle-haxe-summit-2018/)? Awesome! This is certainly a good year for Haxers to travel around the world :)
 
