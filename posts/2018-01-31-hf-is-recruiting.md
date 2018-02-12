@@ -2,6 +2,7 @@ title: The Haxe Foundation is Recruiting!
 author: nicolas
 description: We are looking for people who are passionate about programming languages.
 published: true
+background: 9-ugmonk.jpg
 tags: announcements
 disqusID: 33
 ---
