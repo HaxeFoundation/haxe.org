@@ -5,8 +5,9 @@
 var supportedLocales = ['de_AT', 'de_CH', 'en_GB', 'en_IE', 'en_EU', 'fr_FR', 'fr_BE', 'fr_CH', 'es_ES', 'nl_NL', 'nl_BE', 'us_US', 'us_CA', 'fr_CA', 'us_AU', 'it_IT', 'it_CH', 'no_NO', 'se_SE', 'dk_DK', 'pl_PL', 'fi_FI', 'us_BR', 'de','nl', 'it', 'es', 'ru','jp','JP', 'RU', 'dk', 'se', 'cn','CN' , 'no', 'fi', 'pl','us','DE', 'GB', 'FR', 'AT', 'CH', 'IE','BE', 'NL', 'BE', 'IT', 'ES', 'DK', 'SE', 'FI', 'PL','US', 'CA', 'AU'];
 var userLang = navigator.language;
 if (navigator.languages != undefined){ 
- userLang = navigator.languages[0].split('-').join('_'); 
+ userLang = navigator.languages[0]; 
 }
+userLang = userLang.split('-').join('_'); 
 if(supportedLocales.indexOf(userLang) < 0){
   userLang = 'us_US';
 }
