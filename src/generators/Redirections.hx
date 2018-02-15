@@ -18,6 +18,7 @@ class Redirections {
 			"/manual/serialization/format/index.html" => "/manual/std-serialization-format.html",
 			"/doc/index.html" => "/manual/introduction.html",
 			"/foundation/support.html" => "/foundation/support-plans.html",
+			"/foundation/shop.html" => "/foundation/shop/",
 			"/api/index.html" => "http://api.haxe.org/",
 		];
 
