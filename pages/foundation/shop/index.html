@@ -1,27 +1,103 @@
+<style>
+.mp-main{
+  text-align: center;
+}
+
+.mp-container{
+  width:531px;
+  height:303px;
+  background-color: aliceblue;
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  background-color: #fff;
+  min-width: 200px;
+  max-width: 90%;
+  padding: 24px;
+  -webkit-border-radius: 2px;
+  order-radius: 2px;
+  -webkit-box-shadow: 0 0 5px #404040;
+  box-shadow: 0 0 5px #404040;
+  bottom: auto;
+  left: auto;
+  right: auto;
+}
+
+.content {
+  padding: .5em 1em;overflow: auto;
+}
+
+.dialog-title {
+  font-family: "Montserrat";
+  font-size: 1.6em;
+  font-weight: bold;
+  margin: 1em 0 0;
+}
+
+.dialog-buttons{
+  display: flex;
+  flex-direction: row;
+  margin-top: 2.5em;
+  justify-content: center;
+}
+
+.flagButton{
+  /*border-right: #d9d9d9 1px solid;*/
+  border-bottom: 0;
+  padding: 0 3.5em 0;
+}
+
+.bigFlag{
+  width:100px;
+  cursor: pointer;
+}
+</style>
 <div id="myShop">
-    <a href="https://shop.spreadshirt.fr/haxe">haxe</a>
+    <div id="locationPopin" class="mp-main">
+    <div class="mp-container">
+    
+  <div class="content">
+    <div class="dialog-title">Choose your location</div>
+    
+    <div class="dialog-buttons"><div class="flagButton">
+      <img class="bigFlag" onClick="setLocation('us')" alt="country flag US" src="https://www.spreadshirt.fr/shopfiles/img/flags/flag_US.svg"></div>
+      <div class="flagButton" onClick="setLocation('eu')"><img class="bigFlag" alt="country flag EU" src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg"></div>
+    </div>
+    <div class="dialog-footer hidden"></div>
+  </div>
+    </div>
+  </div>
 </div>
 <script>
-var euLocales = ['de_AT', 'de_CH', 'en_GB', 'en_IE', 'en_EU', 'fr_FR', 'fr_BE', 'fr_CH', 'es_ES', 'nl_NL', 'nl_BE', 'it_IT', 'it_CH', 'no_NO', 'se_SE', 'dk_DK', 'pl_PL', 'fi_FI', 'de','nl', 'it', 'es', 'dk', 'se', 'cn','CN' , 'no', 'fi', 'pl','DE', 'GB', 'FR', 'AT', 'CH', 'IE','BE', 'NL', 'BE', 'IT', 'ES', 'DK', 'SE', 'FI', 'PL'];
-
-var userLang = navigator.language;
-var prefix = '//shop.spreadshirt.fr';
-
-if (navigator.languages != undefined){ 
- userLang = navigator.languages[0]; 
-}
-userLang = userLang.split('-').join('_'); 
-
-if(euLocales.indexOf(userLang) < 0){
-  userLang = 'us_US';
-  prefix = '//shop.spreadshirt.com'
-} 
-
-    var spread_shop_config = {
+var spread_shop_config = {
         shopName: 'haxe',
-        locale: userLang,
-        prefix: prefix,
+        locale: 'us_US',
+        prefix: '//shop.spreadshirt.com',
         baseId: 'myShop'
     };
+
+var displayShop = function(haxeLocation){
+  document.getElementById("myShop").innerHTML = "";
+  if(haxeLocation == "eu"){ 
+    spread_shop_config.locale = "en_EU";
+    spread_shop_config.prefix = '//shop.spreadshirt.fr';
+    $.getScript('https://shop.spreadshirt.fr/shopfiles/shopclient/shopclient.nocache.js');
+  } else {
+    $.getScript('https://shop.spreadshirt.com/shopfiles/shopclient/shopclient.nocache.js');
+  }
+  
+}
+
+var haxeLocation = localStorage.getItem("haxe-location");
+if(haxeLocation == "us" || haxeLocation == "eu"){
+  displayShop(haxeLocation);
+}
+
+var setLocation = function(haxeLocation){
+  localStorage.setItem('haxe-location', haxeLocation);
+  document.getElementById("locationPopin").style.display = "none";
+  displayShop(haxeLocation);
+}
 </script>
-<script src="https://shop.spreadshirt.fr/shopfiles/shopclient/shopclient.nocache.js"></script>
