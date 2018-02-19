@@ -1,107 +1,113 @@
 <style>
-.mp-main{
-  text-align: center;
-}
+    .mp-main {
+        text-align: center;
+    }
 
-.mp-container{
-  width:531px;
-  height:303px;
-  background-color: aliceblue;
-  display: inline-block;
-  box-sizing: border-box;
-  position: relative;
-  background-color: #fff;
-  min-width: 200px;
-  max-width: 90%;
-  padding: 24px;
-  order-radius: 2px;
-  box-shadow: 0 0 5px #404040;
-  bottom: auto;
-  left: auto;
-  right: auto;
-}
+    .mp-container {
+        width: 531px;
+        height: 303px;
+        background-color: aliceblue;
+        display: inline-block;
+        box-sizing: border-box;
+        position: relative;
+        background-color: #fff;
+        min-width: 200px;
+        max-width: 90%;
+        padding: 24px;
+        order-radius: 2px;
+        box-shadow: 0 0 5px #404040;
+        bottom: auto;
+        left: auto;
+        right: auto;
+    }
 
-.content {
-  padding: .5em 1em;overflow: auto;
-}
+    .content {
+        padding: .5em 1em;
+        overflow: hidden;
+    }
 
-.dialog-title {
-  font-family: "Montserrat";
-  font-size: 1.6em;
-  font-weight: bold;
-  margin: 1em 0 0;
-}
+    .dialog-title {
+        font-family: "Montserrat";
+        font-size: 1.6em;
+        font-weight: bold;
+        margin: 1em 0 0;
+    }
 
-.dialog-buttons{
-  display: flex;
-  flex-direction: row;
-  margin-top: 2.5em;
-  justify-content: center;
-}
+    .dialog-buttons {
+        display: flex;
+        flex-direction: row;
+        margin-top: 2.5em;
+        justify-content: center;
+    }
 
-.flagButton{
-  border-bottom: 0;
-  padding: 0 3.5em 0;
-}
+    .flagButton {
+        border-bottom: 0;
+        padding: 0 3.5em 0;
+    }
 
-.bigFlag{
-  width:100px;
-  cursor: pointer;
-}
+    .bigFlag {
+        width: 100px;
+        cursor: pointer;
+        max-width: none;
+    }
 </style>
 <div id="myShop">
     <div id="locationPopin" class="mp-main">
-    <div class="mp-container">
-    
-  <div class="content">
-    <div class="dialog-title">Choose your location</div>
-    
-    <div class="dialog-buttons"><div class="flagButton">
-      <img class="bigFlag" onClick="setLocation('us')" alt="country flag US" src="https://www.spreadshirt.fr/shopfiles/img/flags/flag_US.svg"></div>
-      <div class="flagButton" onClick="setLocation('eu')"><img class="bigFlag" alt="country flag EU" src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg"></div>
+        <div class="mp-container">
+
+            <div class="content">
+                <div class="dialog-title">Choose your location</div>
+
+                <div class="dialog-buttons">
+                    <div class="flagButton">
+                        <img class="bigFlag" onClick="setLocation('us')" alt="country flag US"
+                             src="https://www.spreadshirt.fr/shopfiles/img/flags/flag_US.svg"></div>
+                    <div class="flagButton" onClick="setLocation('eu')"><img class="bigFlag" alt="country flag EU"
+                                                                             src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg">
+                    </div>
+                </div>
+                <div class="dialog-footer hidden"></div>
+            </div>
+        </div>
     </div>
-    <div class="dialog-footer hidden"></div>
-  </div>
-    </div>
-  </div>
 </div>
 <script>
-var spread_shop_config = {
+    var spread_shop_config = {
         shopName: 'haxe',
         locale: 'us_US',
         prefix: '//shop.spreadshirt.com',
         baseId: 'myShop'
     };
 
-var displayShop = function(haxeLocation){
-  document.getElementById("myShop").innerHTML = "";
-  if(haxeLocation == "eu"){ 
-    spread_shop_config.locale = "en_EU";
-    spread_shop_config.prefix = '//shop.spreadshirt.fr';
-    $.getScript('https://shop.spreadshirt.fr/shopfiles/shopclient/shopclient.nocache.js');
-  } else {
-    $.getScript('https://shop.spreadshirt.com/shopfiles/shopclient/shopclient.nocache.js');
-  }
-  
-}
+    var displayShop = function (haxeLocation) {
+        document.getElementById("myShop").innerHTML = "";
+        if (haxeLocation == "eu") {
+            spread_shop_config.locale = "en_EU";
+            spread_shop_config.prefix = '//shop.spreadshirt.fr';
+            $.getScript('https://shop.spreadshirt.fr/shopfiles/shopclient/shopclient.nocache.js');
+        } else {
+            $.getScript('https://shop.spreadshirt.com/shopfiles/shopclient/shopclient.nocache.js');
+        }
 
-var init = function(){
-  if(haxeLocation == "us" || haxeLocation == "eu"){
-    displayShop(haxeLocation);
-  }
-} 
+    }
 
-var haxeLocation = localStorage.getItem("haxe-location");
+    var init = function () {
+        if (haxeLocation == "us" || haxeLocation == "eu") {
+            displayShop(haxeLocation);
+        }
+    }
 
-if($ != undefined){
-  init();
-} else {
-  document.addEventListener('DOMContentLoaded', init, false);
-}
+    var haxeLocation = localStorage.getItem("haxe-location");
 
-var setLocation = function(haxeLocation){
-  localStorage.setItem('haxe-location', haxeLocation);
-  document.getElementById("locationPopin").style.display = "none";
-  displayShop(haxeLocation);
-}
+    if (window.jQuery) {
+        init();
+    } else {
+        document.addEventListener('DOMContentLoaded', init, false);
+    }
+
+    var setLocation = function (haxeLocation) {
+        localStorage.setItem('haxe-location', haxeLocation);
+        document.getElementById("locationPopin").style.display = "none";
+        displayShop(haxeLocation);
+    }
 </script>
