@@ -8,17 +8,13 @@
   height:303px;
   background-color: aliceblue;
   display: inline-block;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   position: relative;
   background-color: #fff;
   min-width: 200px;
   max-width: 90%;
   padding: 24px;
-  -webkit-border-radius: 2px;
   order-radius: 2px;
-  -webkit-box-shadow: 0 0 5px #404040;
   box-shadow: 0 0 5px #404040;
   bottom: auto;
   left: auto;
@@ -44,7 +40,6 @@
 }
 
 .flagButton{
-  /*border-right: #d9d9d9 1px solid;*/
   border-bottom: 0;
   padding: 0 3.5em 0;
 }
@@ -90,9 +85,18 @@ var displayShop = function(haxeLocation){
   
 }
 
+var init = function(){
+  if(haxeLocation == "us" || haxeLocation == "eu"){
+    displayShop(haxeLocation);
+  }
+} 
+
 var haxeLocation = localStorage.getItem("haxe-location");
-if(haxeLocation == "us" || haxeLocation == "eu"){
-  displayShop(haxeLocation);
+
+if($ != undefined){
+  init();
+} else {
+  document.addEventListener('DOMContentLoaded', init, false);
 }
 
 var setLocation = function(haxeLocation){
