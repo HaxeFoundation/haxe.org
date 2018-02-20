@@ -61,9 +61,9 @@
                 <div class="dialog-buttons">
                     <div class="flagButton">
                         <img class="bigFlag" onClick="setLocation('us')" alt="country flag US"
-                             src="https://www.spreadshirt.fr/shopfiles/img/flags/flag_US.svg"></div>
+                             src="/img/shop/flag_US.svg"></div>
                     <div class="flagButton" onClick="setLocation('eu')"><img class="bigFlag" alt="country flag EU"
-                                                                             src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg">
+                                                                             src="/img/shop/flag_EU.svg">
                     </div>
                 </div>
                 <div class="dialog-footer hidden"></div>
@@ -97,7 +97,12 @@
         }
     }
 
-    var haxeLocation = localStorage.getItem("haxe-location");
+    var haxeLocation = "";
+    try {
+        haxeLocation = localStorage.getItem("haxe-location");
+    } catch(error){
+        console.warn("localStorage not available");
+    }
 
     if (window.jQuery) {
         init();
@@ -106,7 +111,11 @@
     }
 
     var setLocation = function (haxeLocation) {
-        localStorage.setItem('haxe-location', haxeLocation);
+        try {
+            localStorage.setItem('haxe-location', haxeLocation);
+        } catch(error){
+            console.warn("localStorage not available");
+        }
         document.getElementById("locationPopin").style.display = "none";
         displayShop(haxeLocation);
     }

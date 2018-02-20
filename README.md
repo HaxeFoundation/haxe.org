@@ -40,7 +40,17 @@ We currently use the bootstrap 2.3.2 CSS library and the Font Awesome 4.1.0 icon
 
 The haxe.org website was designed to be easy to generate, to run a local copy follow these steps:
 
+### Requirements
+
+* Haxe
+* Haxelib
+* Neko
+* cUrl
+
+### Setting up
+
 * Install the dependencies `haxelib install all` in the root directory.
+* Update submodule dependencies `git submodule init && git submodule update`
 * Generate the website by running `haxe generate.hxml`.
 
 The website is now available in the `out/` folder, you can launch it with `nekotools server -d out` and access it at `http://localhost:2000/`.
