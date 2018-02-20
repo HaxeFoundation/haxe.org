@@ -4,70 +4,47 @@
     }
 
     .mp-container {
-        width: 531px;
-        height: 303px;
-        background-color: aliceblue;
-        display: inline-block;
-        box-sizing: border-box;
-        position: relative;
-        background-color: #fff;
-        min-width: 200px;
-        max-width: 90%;
-        padding: 24px;
-        order-radius: 2px;
-        box-shadow: 0 0 5px #404040;
-        bottom: auto;
-        left: auto;
-        right: auto;
-    }
-
-    .content {
-        padding: .5em 1em;
-        overflow: hidden;
-    }
-
-    .dialog-title {
-        font-family: "Montserrat";
-        font-size: 1.6em;
-        font-weight: bold;
-        margin: 1em 0 0;
+        margin-bottom: 4em;
     }
 
     .dialog-buttons {
-        display: flex;
-        flex-direction: row;
-        margin-top: 2.5em;
-        justify-content: center;
+        margin-top: 2em;
     }
 
-    .flagButton {
-        border-bottom: 0;
-        padding: 0 3.5em 0;
+    .flagButton { 
+        border: 0;
+        text-decoration: none;
+        margin: 1.5vw;
+		display: inline-block;
     }
-
+    
     .bigFlag {
-        width: 100px;
+        display:inline-block;
+        width: 150px;
+        height: 100px;
+		background:#f0f0f0;
         cursor: pointer;
         max-width: none;
+    }
+	.bigFlag:hover {
+        box-shadow: 0 0 5px #f0f0f0;
+		opacity: 0.9;
     }
 </style>
 <div id="myShop">
     <div id="locationPopin" class="mp-main">
         <div class="mp-container">
-
-            <div class="content">
-                <div class="dialog-title">Choose your location</div>
-
-                <div class="dialog-buttons">
-                    <div class="flagButton">
-                        <img class="bigFlag" onClick="setLocation('us')" alt="country flag US"
-                             src="/img/shop/flag_US.svg"></div>
-                    <div class="flagButton" onClick="setLocation('eu')"><img class="bigFlag" alt="country flag EU"
-                                                                             src="/img/shop/flag_EU.svg">
-                    </div>
-                </div>
-                <div class="dialog-footer hidden"></div>
+            <h2>Haxe merchandise shop</h2>
+			<p>Before you enter the shop, select the closest location for the best shipping cost. </p>
+            <div class="dialog-buttons">
+                <a href="#us" class="flagButton" onclick="setLocation('us'); return false;">
+                    <img class="bigFlag" alt="America" src="/img/shop/flag_US.svg" />
+                </a>
+                <a href="#eu" class="flagButton" onclick="setLocation('eu'); return false;">
+                    <img class="bigFlag" alt="Europe" src="/img/shop/flag_EU.svg" />
+                </a>
             </div>
+            <div class="dialog-footer hidden"></div>
         </div>
     </div>
 </div>
@@ -92,7 +69,7 @@
     }
 
     var init = function () {
-        if (haxeLocation == "us" || haxeLocation == "eu") {
+        if (haxeLocation === "us" || haxeLocation === "eu") {
             displayShop(haxeLocation);
         }
     }
@@ -100,7 +77,7 @@
     var haxeLocation = "";
     try {
         haxeLocation = localStorage.getItem("haxe-location");
-    } catch(error){
+    } catch(error) {
         console.warn("localStorage not available");
     }
 
@@ -113,7 +90,7 @@
     var setLocation = function (haxeLocation) {
         try {
             localStorage.setItem('haxe-location', haxeLocation);
-        } catch(error){
+        } catch(error) {
             console.warn("localStorage not available");
         }
         document.getElementById("locationPopin").style.display = "none";
