@@ -97,7 +97,12 @@
         }
     }
 
-    var haxeLocation = localStorage.getItem("haxe-location");
+    var haxeLocation = "";
+    try {
+        haxeLocation = localStorage.getItem("haxe-location");
+    } catch(error){
+        console.warn("localStorage not available");
+    }
 
     if (window.jQuery) {
         init();
