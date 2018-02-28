@@ -93,7 +93,7 @@ nav .navbar .nav>li>.dropdown-menu:after {
 
 /** SUB BRAND LOGOS **/
 
-.navbar .brand.haxe-logo { padding-right:0; margin: 3px 0 0 0px; }
+.navbar .brand.haxe-logo { padding-right:0; margin: 3px 0 0 0px; position: relative; z-index: 100; }
 .navbar .brand.haxe-logo:hover { opacity:.9; }
 
 .navbar .brand.haxe-logo:after {
@@ -152,4 +152,8 @@ nav .navbar .nav>li>.dropdown-menu:after {
 }
 .navbar .brand.sub.ide:before {
 	color:#f89c0e;
+}
+
+.navbar .search-link-menu {
+	z-index: 100;
 }
