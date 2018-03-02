@@ -1,6 +1,6 @@
 #
 # Launch the website generation
-# optionnal define: "-D out=path", changes the output folder
+# optional define: "-D out=path", changes the output folder
 #
 -main Main
 -cp src

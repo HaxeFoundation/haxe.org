@@ -1,0 +1,151 @@
+{
+	"title": "Haxe Summit EU 2017",
+	"description": "The summit was held 13-16 September 2017 in Amsterdam, The Netherlands",
+	"videos": [
+	{
+		"where": "Haxe Summit 2017 Day 1",
+		"title": "Keynote - The current state of Haxe - Nicolas Cannasse",
+		"description": "Haxe Summit 2017 Day 1 - Haxe.getState() - Nicolas Cannasse<br/><br/>Nicolas will talk about the current state of Haxe, covering recent language changes, future evolution as well as the HaxeFoundation.",
+		"featured": true,
+		"date": "2017-11-26",
+		"youtubeId": "ssjZnSYDRbU"
+	},
+	{
+		"where": "Haxe Summit 2017 Day 1",
+		"title": "Automated conversion from Flash to HTML5 - Andre Keller",
+		"description": "Haxe Summit 2017 Day 1 - Automated conversion from Flash to HTML5 - Andre Keller<br/><br/>This short talk will outline the challenges, plans and results of InnoGames' conversion of Forge of Empires from Flash to HTML5.",
+		"date": "2017-11-26",
+		"youtubeId": "Ly3j0RBsnSc"
+	},
+	{
+		"where": "Haxe Summit 2017 Day 1",
+		"title": "Moving a million lines of code from Flash to Haxe - Douglas Pearson",
+		"description": "Haxe Summit 2017 Day 1 - Moving a million lines of code from Flash to Haxe - Douglas Pearson<br/><br/>FlowPlay have just recently completed a port of over 1 million lines of ActionScript to Haxe. Doug - their CTO - will give us a post-mortem on this massive transition and talk about his company's experience and enthusiasm for Haxe.",
+		"date": "2017-11-26",
+		"youtubeId": "M3O3aPxy_0w"
+	},
+	{
+		"where": "Haxe Summit 2017 Day 1",
+		"title": "World (Wide Web) Domination - Juraj Kirchheim",
+		"description": "Haxe Summit 2017 Day 1 - World (Wide Web) Domination - Juraj Kirchheim<br/><br/>Haxe has become an established choice in game development, but has yet to succeed claiming a similar position for the web. In this talk, Juraj will highlight (in no order):<br/><br/>- why time spent on trying to make Haxe a more prominent choice for the web is well spent<br/>- how the web can benefit from a technology such as Haxe<br/>- what challenges are to be overcome<br/>concrete solutions to some of these problems",
+		"featured": true,
+		"date": "2017-11-26",
+		"youtubeId": "ov4fP5DxKxc"
+	},
+	{
+		"where": "Haxe Summit 2017 Day 2",
+		"title": " Writing hxcpp externs - Hugh Sanderson",
+		"description": "This workshop will discuss techniques and issues with writing hxcpp externs.<br/><br/>This could include a period title participants can bring along specific examples to get going.",
+		"date": "2017-11-26",
+		"youtubeId": "mTsr38FaMW0"
+	},
+	{
+		"where": "Haxe Summit 2017 Day 2",
+		"title": " HAXE as a fullstack language - Kevin Leung",
+		"description": "Description: In this talking Kevin will talk about how Haxe helped him to gain traction on the path as a freelance fullstack developer.",
+		"date": "2017-11-26",
+		"youtubeId": "C17kBkoWuvY"
+	},
+	{
+		"where": "Haxe Summit 2017 Day 2",
+		"title": " EVAL - Haxe macro interpreter - Simon Krajewski",
+		"description": "Eval is the name of the new Haxe macro interpreter. This talk outlines how it is implemented, what has changed compared to the old interpreter, and how to use it optimally.",
+		"featured": true,
+		"date": "2017-11-26",
+		"youtubeId": "pOClR-jJoBM"
+	},
+	{
+		"where": "Haxe Summit 2017 Day 2",
+		"title": " Tamina in a nutshell - David Mouton",
+		"description": "Tamina is a fast, small, and feature-rich haxe library.<br/><br/>It makes things like Web Components, Custom Elements, Event handling, Proxy, Assets Loading, i18n, and XHR much simpler. David will offer a short overview of all these things.",
+		"date": "2017-11-26",
+		"youtubeId": "ToG7kNMG84w"
+	},
+	{
+		"where": "Haxe Summit 2017 Day 3",
+		"title": "haxe-modular: splitting monolith.js - Philippe Elsass",
+		"description": "In this talk Philippe will present techniques for compiling JavaScript in a modular way and detail the benefits and use cases for this approach.",
+		"date": "2017-11-26",
+		"youtubeId": "CST952PNYHQ"
+	},
+	{
+		"where": "Haxe Summit 2017 Day 3",
+		"title": "Kha Forever - Robert Konrad",
+		"description": "Robert will deliver his yearly talk about Kha and its ongoing progress.",
+		"date": "2017-11-26",
+		"youtubeId": "fkMMVysouDI"
+	},
+	{
+		"where": "Haxe Summit 2017 Day 3",
+		"title": "Get Armored - Lubos Lenco",
+		"description": "Lubos will talk about his efforts to create a performant tooling for building 3D games and applications with unmatched portability - using Haxe and Kha. Featuring Armory - Blender integrated game engine, and more!",
+		"featured": true,
+		"date": "2017-11-26",
+		"youtubeId": "JSQTfNVCOw4"
+	},
+	{
+		"where": "Haxe Summit 2017 Day 3",
+		"title": "DSL, mon amour! - Francis Bourre",
+		"description": "DSLs are small languages, focused on a particular aspect of your software system. You can't build a whole program with a DSL, but you often use multiple DSLs in a system mainly written in a general purpose language.<br/><br/>This presentation is split in 3 parts presenting:<br/><br/>- Advantages to use internal/external DSLs instead of traditional libraries to improve programmer productivity and communication between team members.<br/>- Case study of a real world DSL able to be parsed/executed at runtime and compile time.<br/>- How to use Haxe language features to develop powerful DSL toolchain with different grammars and code generation.<br/>Who is this presentation for:<br/><br/>It’s targeted to every developer who wants to have a nice introduction about DSL power in the application world, and have a first taste of Haxe macros black magic.",
+		"date": "2017-11-26",
+		"youtubeId": "buAcjaK6IbM"
+	},
+	{
+		"where": "Haxe Summit 2017 Day 4",
+		"title": "The Haxe identity - Josefiene Pertosa",
+		"description": "Haxe is so many things to so many people. Let's see if we can bring a little more clarity to that and get better at self-advocacy.<br/><br/>Note: This is not a very technical talk, but rather a look at the different groups within the Haxe community and different use cases.",
+		"featured": true,
+		"date": "2017-11-26",
+		"youtubeId": "R0UFsoUx5ys"
+	},
+	{
+		"where": "Haxe Summit 2017 Day 4",
+		"title": "vshaxe - Dan Korostelev",
+		"description": "In this talk Dan will present vshaxe: what is it, how it works, important latest improvements and plans for the future.",
+		"date": "2017-11-26",
+		"youtubeId": "YcIUD1-FvJQ"
+	},
+	{
+		"where": "Haxe Summit 2017 Day 4",
+		"title": "Porting Scaleform UI to Haxe - Neil Akhmetov",
+		"description": "Neil will share his team's experience on porting old ActionScript codebase to Haxe for the Armored Warfare game. He will also show his way to building game assets for Haxe with Adobe Animate in automated way.",
+		"date": "2017-11-26",
+		"youtubeId": "LxD5ItFy8Ms"
+	},
+	{
+		"where": "Haxe Summit 2017 Day 4",
+		"title": "Using haxe to build e learning framework - Arjen Veneman",
+		"description": "In the talk I’ll discuss how we used haxe to create a model-driven, future proof framework. Our framework is build with haxe and allows us to create custom made e-learning solutions.<br/><br/>I like to discuss 3 main aspects of this framework and how haxe helped us establishing them.<br/><br/>    Model driven architecture<br/><br/>    High structural and visual flexibility<br/><br/>    Minimal language (haxe-target) dependencies",
+		"date": "2017-11-26",
+		"youtubeId": "lKkQMLl57Qg"
+	},
+	{
+		"where": "Haxe Summit 2017 Day 4",
+		"title": "Etherplay - Ronan Sandford",
+		"description": "Etherplay is a skill game platform that use Ethereum to provide transparency and other benefit to our players.<br/><br/>Haxe had a very important place in building the platform. Its type safety and marco helped us in many ways and we would like to share how it helped us and what we build with it. We use Haxe both for our backend title it interact with Ethereum and for our games running on the web. In both case, Haxe was our friend and we have few tools/lib that might interest the audience.",
+		"date": "2017-11-26",
+		"youtubeId": "1DrS_EsgjbU"
+	},
+	{
+		"where": "Haxe Summit 2017 Day 4",
+		"title": "Helping save lifes with Haxe",
+		"description": "Haxe Summit 2017 Day 4 - Helping save lifes with Haxe",
+		"date": "2017-11-26",
+		"youtubeId": "f29SLwd5vfE"
+	},
+	{
+		"where": "Haxe Summit 2017 Day 4",
+		"title": "Kick off panel for the 2018 summit",
+		"description": "It's never too early to start organizing the next conference, so why not do it during this one, when the community, the sponsors and the organizers are all in one place?",
+		"date": "2017-11-26",
+		"youtubeId": "Q1lhjQ6dnJo"
+	},
+	{
+		"where": "Haxe Summit 2017 Day 4",
+		"title": "Funding Haxe Q&A",
+		"description": "There has been a lot of beer talk around how the ongoing development of Haxe could be financed. But now it is time to sit down and have a discussion with the members of the compiler team and the companies and freelancers using Haxe to agree on solutions that complement the Haxe Foundation's support plans, ideally in a manner that is more finely targeted than a general sponsorship.",
+		"date": "2017-11-26",
+		"youtubeId": "CdvmpUDzYy8"
+	}
+	]
+}

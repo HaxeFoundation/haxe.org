@@ -1,0 +1,42 @@
+{
+	"title": "Nicolas about Haxe",
+	"description": "Nicolas Cannasse, Founder of Haxe, has created a serie of vlogs about Haxe and his framework <a href='http://heaps.io'>Heaps</a>.",
+	"videos": [
+	{
+		"featured": true,
+		"title": "The Inspector",
+		"description": null,
+		"where": null,
+		"date": "2016-05-01",
+		"youtubeId": "K8g-1dkBrxk"
+	}, {
+		"featured": true,
+		"title": "Introduction to Haxe compiler sources",
+		"description": null,
+		"where": null,
+		"date": "2016-04-25",
+		"youtubeId": "wE26yH7AYNo"
+	}, { 
+		"featured": true,
+		"title": "Macros 101",
+		"description": null,
+		"where": null,
+		"date": "2016-04-18",
+		"youtubeId": "SEYCmjtKlVw"
+	}, {
+		"featured": true,
+		"title": "Heaps.io 2D/3D engine",
+		"description": null,
+		"where": null,
+		"date": "2016-04-11",
+		"youtubeId": "-WeGME_T9Ew"
+	}, {
+		"featured": true,
+		"title": "The Compilation Server",
+		"description": null,
+		"where": null,
+		"date": "2016-04-04",
+		"youtubeId": "ckdOSCqUV6U"
+	}
+	]
+}

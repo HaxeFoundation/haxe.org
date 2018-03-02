@@ -1,0 +1,39 @@
+{
+	"title": "Haxe Use Cases",
+	"description": "Collection of presentations / techtalks about Haxe on several locations / events.",
+	"videos": [
+	{
+		"featured": true,
+		"where": "Casual Connect USA 2017",
+		"title": "Post-Mortem on Transitioning from Flash to Haxe - Doug Pearson",
+		"description": "Article about Doug Pearson: <a href='http://bit.ly/2yIX2pV'>http://bit.ly/2yIX2pV</a> | Delivered at Casual Connect USA 2017. The demise of Flash has left many desktop game devs with aging codebases, games unsupported by browsers, and no way forward to make the leap to mobile. Join FlowPlay for a technical discussion on how and why the company tackled all three challenges by transitioning its flagship MMO, Vegas World, from a Flash codebase to Haxe – including the cost/benefits of making the move, lessons learned, and future cross-platform strategy.<br/><br/>Download slides at: <a href='http://bit.ly/2w5qBUX'>http://bit.ly/2w5qBUX</a>",
+		
+		"date": "2017-08-28",
+		"youtubeId": "nGl3pDhYC9o"
+	},
+	{
+		"featured": true,
+		"where": null,
+		"title": "Cross-Platform Game Development with Haxe & OpenFL",
+		"description": "In this microtalk, Jamey Stevenson provides a brief introduction to Haxe & OpenFL, how they relate to Flash, why they're cool and why you should use them.",
+		"date": "2017-02-13", 
+		"youtubeId": "PP83wcLGEmc"
+	},
+	{
+		"featured": true,
+		"where": null,
+		"title": "GameDuell TechTalk with Nicolas Cannasse about Haxe",
+		"description": "On September 10th 2014 Nicolas Cannasse introduced the developers community of Berlin to the cross-platform toolkit Haxe. During his GameDuell TechTalk he gave an overview about the architecture of Haxe and the tools interacting with it. He presented some use cases from streaming service TiVo and presentation tool Prezi already make use of Haxe to run their applications on different platforms. The French inventor of Haxe also explained how to write cross-platform libraries using the haxe cross-platform APIs giving examples of his own development work like scripting in Haxe, Castle DB, a Heaps engine with shader system and the cross-platform game Evoland.",
+		"date": "2014-09-10",
+		"youtubeId": "qN-kdSWI6rU"
+	},
+	{
+		"featured": true,
+		"where": "FOSDEM 2016",
+		"title": "Haxe a language by gamedevs for gamedevs",
+		"description": "This work is licensed under the Creative Commons Attribution 2.0 Belgium License.",
+		"date": "2017-02-11",
+		"youtubeId": "WlivtT_IxjY"
+	}
+	]
+}

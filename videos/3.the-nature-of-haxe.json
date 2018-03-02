@@ -1,0 +1,95 @@
+{
+	"title": "The Nature of Haxe and OpenFL",
+	"description": "A series of Haxe and OpenFL videos based on \"The Nature of Code\" by <a href='<a href='https://www.youtube.com/channel/UC1t-hfkB23mkP4HARioygOQ'>https://www.youtube.com/channel/UC1t-hfkB23mkP4HARioygOQ</a>'>Christopher Butler</a>.",
+	"videos": [
+		{
+			"featured": true,
+			"title": "Prologue A - What is \"The Nature of Code\"?",
+			"where": null,
+			"description": "So I'm starting another vlogtorial... thing...<br/><br/>This time I plan to go through the (FREE) Processing tutorial book called \"The Nature of Code\". Except, instead of using Java and Processing, I will use... Haxe and OpenFL, of course!<br/><br/>Nature of Code: <a href='http://natureofcode.com/'>http://natureofcode.com/</a><br/><br/>Music: <a href='http://ccmixter.org/files/VJ_Memes/33361'>http://ccmixter.org/files/VJ_Memes/33361</a><br/>\"Shananigans\" by Jeris licensed under (CC BY-SA 3.0)",
+			"date": "2014-07-31",
+			"youtubeId": "x9U-Du9lazU"
+		},
+		{
+			"featured": true,
+			"title": "Prologue B - Variables",
+			"where": null,
+			"description": "So before we get into the meat of the book, let's go over some basics. This time, variables!<br/><br/>(Aplologies, I am down a monitor and the resolution is a bit... nonstandard.. so the code might be difficult to read.)<br/><br/>Nature of Code: <a href='http://natureofcode.com/'>http://natureofcode.com/</a><br/><br/>Tools Used:<br/>FlashDevelop: <a href='http://www.flashdevelop.org/'>http://www.flashdevelop.org/</a><br/>OpenFL: <a href='http://www.openfl.org/'>http://www.openfl.org/</a><br/><br/>Music: <a href='http://ccmixter.org/files/VJ_Memes/33361'>http://ccmixter.org/files/VJ_Memes/33361</a><br/>\"Shananigans\" by Jeris licensed under (CC BY-SA 3.0)",
+			"date": "2014-07-31",
+			"youtubeId": "W82eW5nlA_s"
+		},
+		{
+			"featured": true,
+			"title": "Prologue C - Data Types",
+			"where": null,
+			"description": "In this episode we will learn about the other types of data that variables can hold.<br/><br/>Nature of Code: <a href='http://natureofcode.com/'>http://natureofcode.com/</a><br/><br/>Tools Used:<br/>FlashDevelop: <a href='http://www.flashdevelop.org/'>http://www.flashdevelop.org/</a><br/>OpenFL: <a href='http://www.openfl.org/'>http://www.openfl.org/</a><br/><br/>Music: <a href='http://ccmixter.org/files/'>http://ccmixter.org/files/VJ_Memes/33361</a><br/>\"Shananigans\" by Jeris licensed under (CC BY-SA 3.0)",
+			"date": "2014-08-02",
+			"youtubeId": "4cdHxSTPoxw"
+		},
+		{
+			"featured": true,
+			"title": "Prologue D - If Statements",
+			"where": null,
+			"description": "If you watch this video, you might understand if statements... maybe..<br/><br/>Nature of Code: <a href='http://natureofcode.com/'>http://natureofcode.com/</a><br/><br/>Tools Used:<br/>FlashDevelop: <a href='http://www.flashdevelop.org/'>http://www.flashdevelop.org/</a><br/>OpenFL: <a href='http://www.openfl.org/'>http://www.openfl.org/</a><br/><br/>Music: <a href='http://ccmixter.org/files/VJ_Memes/33361'>http://ccmixter.org/files/VJ_Memes/33361</a><br/>\"Shananigans\" by Jeris licensed under (CC BY-SA 3.0)",
+			"date": "2014-08-02",
+			"youtubeId": "Fr3c6SCvhek"
+		},
+		{
+			"featured": true,
+			"title": "Prologue E - Loops",
+			"where": null,
+			"description": "Let's talk about loops!<br/><br/>Nature of Code: <a href='http://natureofcode.com/'>http://natureofcode.com/</a><br/><br/>Tools Used:<br/>FlashDevelop: <a href='http://www.flashdevelop.org/'>http://www.flashdevelop.org/</a><br/>OpenFL: <a href='http://www.openfl.org/'>http://www.openfl.org/</a><br/><br/>Music: <a href='http://ccmixter.org/files/VJ_Memes/33361'>http://ccmixter.org/files/VJ_Memes/33361</a><br/>\"Shananigans\" by Jeris licensed under (CC BY-SA 3.0)",
+			"date": "2014-08-03",
+			"youtubeId": "9oO_tPrvHwQ"
+		},
+		{
+			"title": "Prologue F - Functions",
+			"where": null,
+			"description": "Functions!<br/><br/>Nature of Code: <a href='http://natureofcode.com/'>http://natureofcode.com/</a><br/><br/>Tools Used:<br/>FlashDevelop: <a href='http://www.flashdevelop.org/'>http://www.flashdevelop.org/</a><br/>OpenFL: <a href='http://www.openfl.org/'>http://www.openfl.org/</a><br/><br/>Music: <a href='http://ccmixter.org/files/VJ_Memes/33361'>http://ccmixter.org/files/VJ_Memes/33361</a><br/>\"Shananigans\" by Jeris licensed under (CC BY-SA 3.0)",
+			"date": "2014-08-04",
+			"youtubeId": "L9begRuVues"
+		},
+		{
+			"title": "Prologue G - Objects",
+			"where": null,
+			"description": "Objection!<br/><br/>Nature of Code: <a href='http://natureofcode.com/'>http://natureofcode.com/</a><br/><br/>Tools Used:<br/>FlashDevelop: <a href='http://www.flashdevelop.org/'>http://www.flashdevelop.org/</a><br/>OpenFL: <a href='http://www.openfl.org/'>http://www.openfl.org/</a><br/><br/>Music: <a href='http://ccmixter.org/files/VJ_Memes/33361'>http://ccmixter.org/files/VJ_Memes/33361</a><br/>\"Shananigans\" by Jeris licensed under (CC BY-SA 3.0)",
+			"date": "2014-08-05",
+			"youtubeId": "G4dnzlAopoE"
+		},
+		{
+			"title": "Prologue H - \"Processing-like\" Setup",
+			"where": null,
+			"description": "We cover a wide variety of topics to get this processing like system set up. As per usual, I don't really know what I'm doing, so I'm am definitely open to suggestions on how better do things.<br/><br/>Table of Contents:<br/>Change application settings with project.xml \"window\" tag: 3:00<br/>Event Handlers /  Basic \"Game\" Loop: 6:32<br/>Delta Timer: 12:55<br/>Displaying Simple Graphics: 23:12<br/><br/>Nature of Code: <a href='http://natureofcode.com/'>http://natureofcode.com/</a><br/><br/>Tools Used:<br/>FlashDevelop: <a href='http://www.flashdevelop.org/'>http://www.flashdevelop.org/</a><br/>OpenFL: <a href='http://www.openfl.org/'>http://www.openfl.org/</a><br/><br/>Music: <a href='http://ccmixter.org/files/VJ_Memes/33361'>http://ccmixter.org/files/VJ_Memes/33361</a><br/>\"Shananigans\" by Jeris licensed under (CC BY-SA 3.0)",
+			"date": "2014-08-07",
+			"youtubeId": "DNWC6VMFrR4"
+		},
+		{
+			"title": "Intro 01 - The Random Walker",
+			"where": null,
+			"description": "In this episode we begin the Introductory chapter of \"The Nature of Code\" working with Random Walks.<br/><br/>Nature of Code: <a href='http://natureofcode.com/'>http://natureofcode.com/</a><br/><br/>Tools Used:<br/>FlashDevelop: <a href='http://www.flashdevelop.org/'>http://www.flashdevelop.org/</a><br/>OpenFL: <a href='http://www.openfl.org/'>http://www.openfl.org/</a><br/><br/>Music: <a href='http://ccmixter.org/files/VJ_Memes/33361'>http://ccmixter.org/files/VJ_Memes/33361</a><br/>\"Shananigans\" by Jeris licensed under (CC BY-SA 3.0)",
+			"date": "2014-08-12",
+			"youtubeId": "FK5Skgh4FHw"
+		},
+		{
+			"title": "The Intro 02 - Uniform Distribution",
+			"where": null,
+			"description": "I started section I.2 and just got the little box things set up... not much else.<br/><br/>Nature of Code: <a href='http://natureofcode.com/'>http://natureofcode.com/</a><br/><br/>Tools Used:<br/>FlashDevelop: <a href='http://www.flashdevelop.org/'>http://www.flashdevelop.org/</a><br/>OpenFL: <a href='http://www.openfl.org/'>http://www.openfl.org/</a><br/><br/>Music: <a href='http://ccmixter.org/files/VJ_Memes/33361'>http://ccmixter.org/files/VJ_Memes/33361</a><br/>\"Shananigans\" by Jeris licensed under (CC BY-SA 3.0)",
+			"date": "2014-08-13",
+			"youtubeId": "l6J_NTmUxZM"
+		},
+		{
+			"title": "Intro 03 - Non-Uniform Distribution",
+			"where": null,
+			"description": "This episode I fiddle around with some non-uniform randomness.<br/><br/>Nature of Code: <a href='http://natureofcode.com/'>http://natureofcode.com/</a><br/><br/>Tools Used:<br/>FlashDevelop: <a href='http://www.flashdevelop.org/'>http://www.flashdevelop.org/</a><br/>OpenFL: <a href='http://www.openfl.org/'>http://www.openfl.org/</a><br/><br/>GitHub Repository: <a href='https://github.com/'>https://github.com/</a>Zionviller/NatureOfHaxe<br/><br/>Music: <a href='http://ccmixter.org/files/VJ_Memes/33361'>http://ccmixter.org/files/VJ_Memes/33361</a><br/>\"Shananigans\" by Jeris licensed under (CC BY-SA 3.0)",
+			"date": "2014-08-17",
+			"youtubeId": "a-qBmILpOL0"
+		},
+		{
+			"title": "Intro 04 - Normal Distributions",
+			"where": null,
+			"description": "In this episode I steal.. er.. borrow.. um... port some Java code into Haxe that will allow for easy creation of Normally Distributed numbers!<br/><br/>Nature of Code: <a href='http://natureofcode.com/'>http://natureofcode.com/</a><br/><br/>Tools Used:<br/>FlashDevelop: <a href='http://www.flashdevelop.org/'>http://www.flashdevelop.org/</a><br/>OpenFL: <a href='http://www.openfl.org/'>http://www.openfl.org/</a><br/><br/>GitHub Repository: <a href='https://github.com/'>https://github.com/</a>Zionviller/NatureOfHaxe<br/><br/>Music: <a href='http://ccmixter.org/files/VJ_Memes/33361'>http://ccmixter.org/files/VJ_Memes/33361</a><br/>\"Shananigans\" by Jeris licensed under (CC BY-SA 3.0)",
+			"date": "2014-09-07",
+			"youtubeId": "QydutxDLdJo"
+		}
+	]
+}

@@ -1,0 +1,74 @@
+{
+	"title": "GameDev with Haxe and HaxeFlixel",
+	"description": "A series of Haxe and HaxeFlixel related videos by <a href='https://www.youtube.com/user/gamefromscratch'>gamefromscratch</a>.",
+	"videos": [
+		{
+			"featured": true,
+			"title": "1. Getting Started",
+			"where": null,
+			"description": "Welcome to the very first post on using Haxe and HaxeFlixel to develop 2D games.  We are going to look at all facets of Haxeflixel development.\r<br/>\r<br/>This particular tutorial covers getting your Haxe tools up and running, then installing and configuring the HaxeFlixel libraries and tools.\r<br/>\r<br/>The text version of this tutorial is available here:\r<br/><a href='http://www.gamefromscratch.com/post/2017/03/13/HaxeFlixel-Tutorial-Getting-Started.aspx'>http://www.gamefromscratch.com/post/2017/03/13/HaxeFlixel-Tutorial-Getting-Started.aspx</a>",
+			"date": "2017-03-15",
+			"youtubeId": "Ydh4N22WcBI"
+		},
+		{
+			"featured": true,
+			"title": "Haxe with Visual Studio Code",
+			"where": null,
+			"description": "This optional tutorial, as part of the Haxe and HaxeFlixel tutorial series, shows how to setup and use Visual Studio Code for Haxe development.  This includes installing the editor, configuring the Haxe add-on, configuring builds and running your code from VSCode.<br/><br/>The text version is available here:<br/><a href='http://www.gamefromscratch.com/post/2017/03/15/HaxeFlixel-Tutorial-Getting-Started-With-Visual-Studio-Code.aspx'>http://www.gamefromscratch.com/post/2017/03/15/HaxeFlixel-Tutorial-Getting-Started-With-Visual-Studio-Code.aspx</a>",
+			"date": "2017-03-15",
+			"youtubeId": "UbuPcjoxnAg"
+		},
+		{
+			"featured": true,
+			"title": "2. Hello World",
+			"where": null,
+			"description": "In this tutorial we finally jump into some HaxeFlixel code.  We create our first project and look at how program flow works in our game.<br/><br/>The text version of this tutorial including code is available at:<br/><a href='http://www.gamefromscratch.com/post/2017/03/17/HaxeFlixel-Tutorial-Hello-World.aspx'>http://www.gamefromscratch.com/post/2017/03/17/HaxeFlixel-Tutorial-Hello-World.aspx</a>",
+			"date": "2017-03-17",
+			"youtubeId": "CsgATIEMEVk"
+		},
+		{
+			"featured": true,
+			"title": "3. Sprites",
+			"where": null,
+			"description": "In this tutorial we start getting into 2D graphics by covering sprites.  We have two examples, one of a procudurally generated graphic and the other loaded from an image file.  The text version of this tutorial including the code is available at:\r<br/><a href='http://www.gamefromscratch.com/post/2017/03/20/HaxeFlixel-Tutorial-Sprites.aspx'>http://www.gamefromscratch.com/post/2017/03/20/HaxeFlixel-Tutorial-Sprites.aspx</a>",
+			"date": "2017-03-27",
+			"youtubeId": "MoxYzbpg7ew"
+		},
+		{
+			"featured": true,
+			"title": "4. Keyboard Input",
+			"where": null,
+			"description": "In our ongoing Haxe and HaxeFlixel tutorial series, today we are going to cover input handling.  The code for this example is available here:\r<br/><a href='http://www.gamefromscratch.com/post/2017/03/30/HaxeFlixel-Tutorial-Keyboard-Input.aspx'>http://www.gamefromscratch.com/post/2017/03/30/HaxeFlixel-Tutorial-Keyboard-Input.aspx</a>",
+			"date": "2017-03-31",
+			"youtubeId": "9KR6ozvLggM"
+		},
+		{
+			"title": "5. Mouse Input",
+			"where": null,
+			"description": "In this part of the ongoing Haxe and HaxeFlixel tutorial series we look at handling mouse input.  We look at two methods, polled and event driven.\r<br/>\r<br/>The text based version is available here:\r<br/><a href='http://www.gamefromscratch.com/post/2017/04/06/HaxeFlixel-Tutorial-Mouse-Input.aspx'>http://www.gamefromscratch.com/post/2017/04/06/HaxeFlixel-Tutorial-Mouse-Input.aspx</a>",
+			"date": "2017-04-11",
+			"youtubeId": "6a3w3rCScao"
+		},
+		{
+			"title": "6. Cameras",
+			"where": null,
+			"description": "In this video we look at creating cameras, setting the world boundaries, following a game object, playing special effects and even creating a splitscreen game.\r<br/>\r<br/>The text version with source code is available at:\r<br/><a href='http://www.gamefromscratch.com/post/2017/04/17/HaxeFlixel-Tutorial-Cameras.aspx'>http://www.gamefromscratch.com/post/2017/04/17/HaxeFlixel-Tutorial-Cameras.aspx</a>",
+			"date": "2017-04-25",
+			"youtubeId": "GMUMw1ITbf4"
+		},
+		{
+			"title": "7. Sprite Animation",
+			"where": null,
+			"description": "The next part in our ongoing HaxeFlixel tutorial series, today we cover sprite animation.\r<br/>\r<br/>The code for this tutorial is available at:\r<br/><a href='http://www.gamefromscratch.com/post/2017/04/21/HaxeFlixel-Tutorial-Sprite-Animation.aspx'>http://www.gamefromscratch.com/post/2017/04/21/HaxeFlixel-Tutorial-Sprite-Animation.aspx</a>",
+			"date": "2017-04-27",
+			"youtubeId": "6A7c5gD-xyU"
+		},
+		{
+			"title": "8. Sound and Music",
+			"where": null,
+			"description": "In this tutorial we look at playing back sound and music in HaxeFlixel, including sound effects, music, positional audio and more.\r<br/>\r<br/>The code is available at:\r<br/><a href='http://www.gamefromscratch.com/post/2017/04/26/HaxeFlixel-Tutorial-Sound-and-Music.aspx'>http://www.gamefromscratch.com/post/2017/04/26/HaxeFlixel-Tutorial-Sound-and-Music.aspx</a>",
+			"date": "2017-05-01",
+			"youtubeId": "GmLuDoc8NDY"
+		}
+	]
+}

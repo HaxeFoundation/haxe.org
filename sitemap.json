@@ -150,33 +150,38 @@
 					}
 				]
 			},
-			{ 
-			    "title": null, "url": "#divider" 
-			},
 			{
 				"title": "Manual",
-				"url": "/manual/introduction.html",
+				"url": "/documentation/introduction/",
 				"sub": []
 			},
 			{
+				"title": "Code Cookbook",
+				"url": "https://code.haxe.org/"
+			},
+			{
 				"title": "API Documentation",
-				"url": "http://api.haxe.org/",
+				"url": "https://api.haxe.org/",
 				"sub": []
 			},
 			{ 
 				"title": null, "url": "#divider" 
 			},
 			{
-				"title": "Try Haxe",
-				"url": "http://try.haxe.org/"
+				"title": "Videos",
+				"url": "/videos/",
+				"sub": []
+			},
+			{ 
+				"title": null, "url": "#divider" 
+			},
+			{
+				"title": "Try Haxe online",
+				"url": "https://try.haxe.org/"
 			},
 			{
 				"title": "Haxelib",
 				"url": "https://lib.haxe.org/"
-			},
-			{
-				"title": "Code Cookbook",
-				"url": "http://code.haxe.org/"
 			}
 		]
 	}

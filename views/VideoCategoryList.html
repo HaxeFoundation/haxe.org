@@ -1,0 +1,52 @@
+
+<div class="section dark section-videos">	
+	<div class="container">
+		<h2>::category.title::</h2>
+		::if (category.description != null)::
+		<p class="lead video-category-description">::category.description::</p>
+		::end::
+	</div>
+</div>
+
+<div class="section site-content">	
+	<div class="container">
+		
+		<div class="row">
+			<div class="span4 tree-nav">
+				<p>&laquo; <a href="/videos/">Back to overview</a></p>
+				<ul>
+				::for c in categories::
+					<li ::if (c.name == category.name)::class="active"::end::>
+						<i class="fa fa-file-video-o"></i>
+						<a href="/::c.path::" ::if (c.name == category.name)::class="active"::end::>::c.title::</a>
+						(::c.videos.length::)
+					</li>
+				::end::
+				</ul>
+			</div>
+			<div class="span8">
+				::if (false)::<!-- overview page of a category --> ::end::
+			<div class="video-listing">
+				::for video in category.videos::
+					<div class="video-item">
+						<a href="/::video.path::">
+							<img src="https://img.youtube.com/vi/::video.youtubeId::/mqdefault.jpg" alt="::video.title::" class="thumbnail"  />
+						</a>
+						<h3>::video.title::</h3>
+					</div>
+				::end::
+			</div>
+			</div>
+		</div>
+		
+		
+	</div>
+</div>
+
+
+<div class="container">
+	<div class="prev-next-links bottom">
+		<a href="https://github.com/HaxeFoundation/haxe.org/tree/staging/videos" class="edit-link" target="_blank"  title="Use Github to suggest an edit to these videos">Contribute to this page</a>
+	</div>
+	<br/>
+</div>

@@ -1,0 +1,160 @@
+{
+	"title": "World Wide Haxe 2015",
+	"description":  "The 5th International Haxe Conference. Held 29th May to 1st June 2015 in Paris, France.<br/>More info on <a href='http://wwx.silexlabs.org/2015/'>silexlabs.org/2015/</a>",
+	"videos": [
+		{
+			"title": "\"10 years of Haxe / 10 things I like\" by Nicolas Cannasse",
+			"where": null,
+			"description": "Nicolas Cannasse's speech at the WWX2015<br/><br/>The World Wide Haxe Conference 2015 on Haxe, the free cross-platform language, was organized by Silex Labs and hosted by Mozilla Paris from the 29th May to the 1st June 2015.<br/><br/>More videos of the WWX2015 :<br/><a href='http://www.silexlabs.org/wrapping-up-wwx2015/'>http://www.silexlabs.org/wrapping-up-wwx2015/</a><br/>More info about this speech :<br/><a href='http://www.silexlabs.org/10-years-of-haxe-10-things-i-like/'>http://www.silexlabs.org/10-years-of-haxe-10-things-i-like/</a><br/>More info about Silex Labs : <a href='http://www.silexlabs.org/'>http://www.silexlabs.org/</a><br/><br/>Talk description:<br/>Nicolas Cannasse shares with us his 10 things for the 10 years Haxe's anniversary in his talk “10 Years of Haxe / 10 Things I like”. He presents the latest changes that were introduced in Haxe as well as Haxe Foundation plans for the future.<br/><br/>music from the intro:\"Cornered\" by Binaerpilot<br/><a href='http://binaerpilot.no/'>http://binaerpilot.no/</a>",
+			"date": "2015-07-18",
+			"youtubeId": "sM8VhotrIJs"
+		},
+		{
+			"title": "\"You don't know FlashDevelop - tips and future\" by Philippe Elsass",
+			"where": null,
+			"description": "Philippe Elsass' speech at the WWX2015<br/><br/>The World Wide Haxe Conference 2015 on Haxe, the free cross-platform language, was organized by Silex Labs and hosted by Mozilla Paris from the 29th May to the 1st June 2015.<br/><br/>More videos of the WWX2015 :<br/><a href='http://www.silexlabs.org/wrapping-up-wwx2015/'>http://www.silexlabs.org/wrapping-up-wwx2015/</a><br/>More info about this speech :<br/><a href='http://www.silexlabs.org/you-dont-kno'>http://www.silexlabs.org/you-dont-kno</a>...<br/>More info about Silex Labs : <a href='http://www.silexlabs.org/'>http://www.silexlabs.org/</a><br/><br/>Philippe Elsass \"You don't know FlashDevelop - tips and future\"<br/>Talk description:<br/>Haxe is complex, an IDE is complex, and the truth is that a majority of FlashDevelop users do not understand how they work. There is a lot of magic happening under the hood, sometimes it just works and everybody is happy, sometimes it doesn't and you need someone to blame. Or to understand how it works.<br/>FlashDevelop has changed a lot in the last 2 years, with a strong shift on Haxe, high-dpi screens and maybe someday MacOS support.<br/><br/>music from the intro: \"Cornered\" by Binaerpilot<br/><a href='http://binaerpilot.no/'>http://binaerpilot.no/</a>",
+			"date": "2015-07-20",
+			"youtubeId": "myRUlJ0KFcc"
+		},
+		{
+			"title": "\"Cross-Platform Game Development with the GameDuell Duelltool\" by GameDuell",
+			"where": null,
+			"description": "GameDuell's talk at the WWX2015<br/><br/>Sven Otto and Rui Campos introduce GameDuell’s custom Haxe tool for the first time in public in the talk “Cross-Platform Game Development with the GameDuell DuellTool”. Developed from scratch by the Berlin-based game developer’s team the DuellTool provides a configurable build system, dependency resolution and a versatile developer environment setup. They will present how the tool, made to cater the cross-platform development of casual games for the Facebook iOS and Android platforms, gives platform specialists a handy workflow to seamlessly contribute to the same API’s. Further, they will share their approach for the modularity of libraries and how they defined the platform abstraction layer to provide an efficient and maintainable development process.<br/><br/>More video of WWX2015 :<br/><a href='http://www.silexlabs.org/wrapping-up-wwx2015/'>http://www.silexlabs.org/wrapping-up-wwx2015/</a>",
+			"date": "2015-07-22",
+			"youtubeId": "43Ycna0WtN0"
+		},
+		{
+			"title": "\"Prospects for using Go libraries in Haxe\" by Elliott Stoneham",
+			"where": null,
+			"description": "Elliott Stoneham's speech at the WWX2015<br/><br/>The World Wide Haxe Conference 2015 on Haxe, the free cross-platform language, was organized by Silex Labs and hosted by Mozilla Paris from the 29th May to the 1st June 2015.<br/><br/>More videos of the WWX2015 :<br/><a href='http://www.silexlabs.org/wrapping-up-wwx2015/'>http://www.silexlabs.org/wrapping-up-wwx2015/</a><br/>More info about this speech :<br/><a href='http://www.silexlabs.org/prospects-for-using-go-libraries-in-haxe/'>http://www.silexlabs.org/prospects-for-using-go-libraries-in-haxe/</a><br/><br/>More info about Silex Labs : <a href='http://www.silexlabs.org/'>http://www.silexlabs.org/</a><br/><br/>Talk description:<br/>Elliott’s talk “Prospects for using Go libraries in Haxe” focuses on his current personal passion; the development of his TARDIS Go - Haxe project and the potential re-use of Go libraries in Haxe. With examples ranging from Unicode normalisation to image inspection, it is the only talk with speaking-in-tongues and nudity , not him.<br/><br/>music from the intro:\"Cornered\" by Binaerpilot<br/><a href='http://binaerpilot.no/'>http://binaerpilot.no/</a>",
+			"date": "2015-07-24",
+			"youtubeId": "hlHlQ32IEPg"
+		},
+		{
+			"title": "\"Haxe for the Web: getting things done\" by Juraj Kirchheim",
+			"where": null,
+			"description": "Juraj Kirchheim's speech at the WWX2015<br/><br/>The World Wide Haxe Conference 2015 on Haxe, the free cross-platform language, was organized by Silex Labs and hosted by Mozilla Paris from the 29th May to the 1st June 2015.<br/><br/>More videos of the WWX2015 :<br/><a href='http://www.silexlabs.org/wrapping-up-wwx2015/'>http://www.silexlabs.org/wrapping-up-wwx2015/</a><br/>More info about this speech :<br/><a href='http://www.silexlabs.org/haxe-for-the-web-getting-things-done/'>http://www.silexlabs.org/haxe-for-the-web-getting-things-done/</a><br/>More info about Silex Labs : <a href='http://www.silexlabs.org/'>http://www.silexlabs.org/</a><br/><br/>Talk description:<br/>In the talk “Haxe for the Web: Getting things done”, Juraj Kirchheim shares with us a pragmatic approach to Haxe based web development, particularly on the client side. He shows how Haxe can be used not only for complex long term projects, but also for quick and dirty prototypes and rapid application development.<br/><br/>music from the intro:\"Cornered\" by Binaerpilot<br/><a href='http://binaerpilot.no/'>http://binaerpilot.no/</a>",
+			"date": "2015-07-27",
+			"youtubeId": "TQvW0_OWens"
+		},
+		{
+			"title": "\"Isomorphic Haxe: Using Ufront to build apps that work client side or server side\" by Jason O'Neil",
+			"where": null,
+			"description": "Jason O'Neil's talk at the WWX2015<br/><br/>The World Wide Haxe Conference 2015 on Haxe, the free cross-platform language, was organized by Silex Labs and hosted by Mozilla Paris from the 29th May to the 1st June 2015.<br/><br/>More videos of the WWX2015 :<br/><a href='http://www.silexlabs.org/wrapping-up-wwx2015/'>http://www.silexlabs.org/wrapping-up-wwx2015/</a><br/>More info about this speech :<br/><a href='http://www.silexlabs.org/isomorphic-h'>http://www.silexlabs.org/isomorphic-h</a>...<br/>More info about Silex Labs : <a href='http://www.silexlabs.org/'>http://www.silexlabs.org/</a><br/><br/>Talk description:<br/>Most web frameworks do their work on either the client or server. But most web-apps need a combination: server side rendering is great for a fast first page load, backward compatibility and search engine optimisation. And client side rendering makes the rest of the page loads feel instant, like a native app. Jason will show how Haxe and Ufront let you get the best of both worlds.<br/>The presentation has been made on the website Ufront.net<br/><br/>music from the intro:\"\"Cornered\"\" by Binaerpilot<br/><a href='http://binaerpilot.no/'>http://binaerpilot.no/</a>\"",
+			"date": "2015-07-29",
+			"youtubeId": "iAwwfe-BGLI"
+		},
+		{
+			"title": "\"TiVo Activity Haxelib\" by Todd Kulick",
+			"where": null,
+			"description": "Todd Kulick's speech at WWX2015<br/><br/>The World Wide Haxe Conference 2015 on Haxe, the free cross-platform language, was organized by Silex Labs and hosted by Mozilla Paris from the 29th May to the 1st June 2015.<br/><br/>More videos of the WWX2015 :<br/><a href='http://www.silexlabs.org/wrapping-up-wwx2015/'>http://www.silexlabs.org/wrapping-up-wwx2015/</a><br/>More info about this speech :<br/><a href='http://www.silexlabs.org/tivo-activit'>http://www.silexlabs.org/tivo-activit</a>...<br/>More info about Silex Labs : <a href='http://www.silexlabs.org/'>http://www.silexlabs.org/</a><br/><br/>Talk description:<br/><br/>music from the intro:\"Cornered\" by Binaerpilot<br/><a href='http://binaerpilot.no/'>http://binaerpilot.no/</a>",
+			"date": "2015-07-31",
+			"youtubeId": "YAICeJdzptk"
+		},
+		{
+			"title": "\"Jive: the renovation of AsWing\" by Nickolay Grebenshikov",
+			"where": null,
+			"description": "Nickolay Grebenshikov's speech at WWX2015<br/><br/>The World Wide Haxe Conference 2015 on Haxe, the free cross-platform language, was organized by Silex Labs and hosted by Mozilla Paris from the 29th May to the 1st June 2015.<br/><br/>More videos of the WWX2015 :<br/><a href='http://www.silexlabs.org/wrapping-up-wwx2015/'>http://www.silexlabs.org/wrapping-up-wwx2015/</a><br/>More info about this speech :<br/><a href='http://www.silexlabs.org/jive-the-ren'>http://www.silexlabs.org/jive-the-ren</a>...<br/>More info about Silex Labs : <a href='http://www.silexlabs.org/'>http://www.silexlabs.org/</a><br/><br/>Talk description:In his talk « Jive: the renovation of AsWing », Nickolay Grebenshikov speaks mainly about Jive. It’s a cross-platform UI based on AsWing, and explain to people where it comes from and go to.<br/><br/>music from the intro:\"\"Cornered\"\" by Binaerpilot<br/><a href='http://binaerpilot.no/'>http://binaerpilot.no/</a>\"",
+			"date": "2015-08-03",
+			"youtubeId": "unVLQIp9WIk"
+		},
+		{
+			"title": "\"Kha\" by Robert Konrad",
+			"where": null,
+			"description": "Robert Konrad's speech at the WWX2015<br/><br/>The World Wide Haxe Conference 2015 on Haxe the free cross-platform language was organized by Silex Labs and hosted by Mozilla Paris from the 29th May to the 1st June 2015.<br/><br/>More videos of the WWX2015 :<br/><a href='http://www.silexlabs.org/wrapping-up-wwx2015/'>http://www.silexlabs.org/wrapping-up-wwx2015/</a><br/>More info about this speech :<br/><a href='http://www.silexlabs.org/kha/'>http://www.silexlabs.org/kha/</a><br/>More info about Silex Labs : <br/><a href='http://www.silexlabs.org/'>http://www.silexlabs.org/</a>",
+			"date": "2015-08-05",
+			"youtubeId": "vGQjlfq7BwI"
+		},
+		{
+			"title": "\"IDE choice at TiVo\" by Srikanth Ganapavarapu",
+			"where": null,
+			"description": "Srikanth Ganapavarapu 's talk at the WWX2015<br/><br/>The World Wide Haxe Conference 2015 on Haxe, the free cross-platform language, was organized by Silex Labs and hosted by Mozilla Paris from the 29th May to the 1st June 2015.<br/><br/>More videos of the WWX2015 :<br/><a href='http://www.silexlabs.org/wrapping-up-wwx2015/'>http://www.silexlabs.org/wrapping-up-wwx2015/</a><br/>More info about this speech :<br/><a href='http://www.silexlabs.org/ide-choice-a'>http://www.silexlabs.org/ide-choice-a</a>...<br/>More info about Silex Labs : <a href='http://www.silexlabs.org/'>http://www.silexlabs.org/</a><br/><br/>Talk description:<br/>In this lightning talk “IDE choice at TiVo“, Srikanth shares an overview of progress made in enhancing Haxe language support in IntelliJ IDEA. It touches upon high level technical details on work done and the roadmap ahead. He shows us why it makes sense for the Haxe developer community to adapt IntelliJ IDEA as their first choice – be it for enterprise level development needs or as an individual programmer.<br/>music from the intro:\"\"Cornered\"\" by Binaerpilot<br/><a href='http://binaerpilot.no/'>http://binaerpilot.no/</a>\"",
+			"date": "2015-08-07",
+			"youtubeId": "94IUqA0YLHg"
+		},
+		{
+			"title": "\"Drakarnage: Slapping data from web servers right in your GPU\" by David Elahee",
+			"where": null,
+			"description": "David Elahee's speech at the WWX2015<br/><br/>The World Wide Haxe Conference 2015 on Haxe, the free cross-platform language, was organized by Silex Labs and hosted by Mozilla Paris from the 29th May to the 1st June 2015.<br/><br/>More videos of the WWX2015 :<br/><a href='http://www.silexlabs.org/wrapping-up-wwx2015/'>http://www.silexlabs.org/wrapping-up-wwx2015/</a><br/>More info about this speech :<br/><a href='http://www.silexlabs.org/drakarnage-s'>http://www.silexlabs.org/drakarnage-s</a>...<br/>More info about Silex Labs : <a href='http://www.silexlabs.org/'>http://www.silexlabs.org/</a><br/><br/>Talk description:<br/>Data flow of Drakarnage alongside some sample of what Haxe can achieve. The data flow is interesting because ultimately we have a pretty long roundtip longing from sql, mongo, siding by redis and going back to a custom HTML renderer optimised for mobile GPU’s.<br/><br/>music from the intro:\"Cornered\" by Binaerpilot<br/><a href='http://binaerpilot.no/'>http://binaerpilot.no/</a>",
+			"date": "2015-08-09",
+			"youtubeId": "6tbE4NU6sjs"
+		},
+		{
+			"title": "\"Lime/OpenFL for home game consoles\" by Lars Doucet",
+			"where": null,
+			"description": "Lars Doucet's speech at the WWX2015<br/><br/>The World Wide Haxe Conference 2015 on Haxe, the free cross-platform<br/>language, was organized by Silex Labs and hosted by Mozilla Paris from<br/>the 29th May to the 1st June 2015.<br/><br/>More videos of the WWX2015 :<br/><a href='http://www.silexlabs.org/wrapping-up-wwx2015/'>http://www.silexlabs.org/wrapping-up-wwx2015/</a><br/><br/>More info about this speech :<br/><a href='http://www.fortressofdoors.com/openfl'>http://www.fortressofdoors.com/openfl</a>...<br/><a href='http://www.silexlabs.org/limeopenfl-f'>http://www.silexlabs.org/limeopenfl-f</a>...<br/>More info about Silex Labs : <a href='http://www.silexlabs.org/'>http://www.silexlabs.org/</a><br/><br/>Talk description:Traditionally, developers wanting to port a PC game to consoles would hire a dedicated team to re-write the game for that platform, usually costing tens of thousands of dollars, minimum. Why can’t it be as easy as exporting your existing Haxe app to mac or linux? Let’s fix that.<br/><br/>music from the intro:\"Cornered\" by Binaerpilot<br/><a href='http://binaerpilot.no/'>http://binaerpilot.no/</a>",
+			"date": "2015-08-11",
+			"youtubeId": "4lL2N2siHlE"
+		},
+		{
+			"title": "\"The MOKICK story\" by Markus Raab - WWX2015",
+			"where": null,
+			"description": "Markus Raab's speech at the WWX2015<br/><br/>The World Wide Haxe Conference 2015 on Haxe, the free cross-platform language, was organized by Silex Labs and hosted by Mozilla Paris from the 29th May to the 1st June 2015.<br/><br/>More videos of the WWX2015 :<br/><a href='http://www.silexlabs.org/wrapping-up-wwx2015/'>http://www.silexlabs.org/wrapping-up-wwx2015/</a><br/>More info about this speech :<br/><a href='http://www.silexlabs.org/the-mokick-s'>http://www.silexlabs.org/the-mokick-s</a>...<br/>More info about Silex Labs : <a href='http://www.silexlabs.org/'>http://www.silexlabs.org/</a><br/><br/>Talk description:<br/>In his talk  “The MOKICK Story” Markus Raab gives us a sneak preview on the current development status of MOKICK. The vision behind MOKICK is to create an offline content management system and authoring tool which provides an easy and unified way for creating content of any kind – usable everywhere. He shows us the basic concept of the underlying graph based data model, how the editor (OpenFL) creates his views based on project specific data rule sets and content, how the PureMVC layer enables easy batch task implementation and how all this applies to a real world project.<br/><br/>music from the intro:\"Cornered\" by Binaerpilot<br/><a href='http://binaerpilot.no/'>http://binaerpilot.no/</a>",
+			"date": "2015-08-13",
+			"youtubeId": "63C_QeXrYPM"
+		},
+		{
+			"title": "\"Hxcpp : State of the (union) enum\" by Hugh Sanderson",
+			"where": null,
+			"description": "Hugh Sanderson' s speech at the WWX2015<br/><br/>The World Wide Haxe Conference 2015 on Haxe, the free cross-platform language, was organized by Silex Labs and hosted by Mozilla Paris from the 29th May to the 1st June 2015.<br/><br/>More videos of the WWX2015 :<br/><a href='http://www.silexlabs.org/wrapping-up-wwx2015/'>http://www.silexlabs.org/wrapping-up-wwx2015/</a><br/>More info about this speech :<br/><a href='http://www.silexlabs.org/hxcpp-state-'>http://www.silexlabs.org/hxcpp-state-</a>...<br/>More info about Silex Labs : <a href='http://www.silexlabs.org/'>http://www.silexlabs.org/</a><br/><br/>Talk description:Hugh Sanderson presented at the WWX2015 “Hxcpp : State of the union enum”. This talk takes a tour though the current state and future directions of the hxcpp target.  There are been quite a few juicy changes in the C++ backend over the past year.  With tighter native integration for the more nerdy developer and better scripting integration for the not-quite-so-nerdy developer, there should be something in talk for everyone.<br/><br/>music from the intro:\"Cornered\" by Binaerpilot<br/><a href='http://binaerpilot.no/'>http://binaerpilot.no/</a>",
+			"date": "2015-08-15",
+			"youtubeId": "hltXpZ3Upxg"
+		},
+		{
+			"title": "\"Haxe in the entreprise: a case study\" by Alfred Barberena",
+			"where": null,
+			"description": "Alfred Barberena's speech at the WWX2015<br/><br/>The World Wide Haxe Conference 2015 on Haxe, the free cross-platform language, was organized by Silex Labs and hosted by Mozilla Paris from the 29th May to the 1st June 2015.<br/><br/>More videos of the WWX2015 :<br/><a href='http://www.silexlabs.org/wrapping-up-wwx2015/'>http://www.silexlabs.org/wrapping-up-wwx2015/</a><br/>More info about this speech :<br/><a href='http://www.silexlabs.org/haxe-in-the-'>http://www.silexlabs.org/haxe-in-the-</a>...<br/>More info about Silex Labs : <a href='http://www.silexlabs.org/'>http://www.silexlabs.org/</a><br/><br/>Talk description:In his talk “Haxe in the Enterprise: A Case Study”, Alfred Barberena presents Tivo’s experiences using Haxe for user interface development on set-top box and mobile devices. Tivo covers the challenges experienced and lessons learned in such areas as performance measurement, API « cheating » for performance, memory leak tooling, and memory churn optimization. He also discusses the consumer reception of Tivos Haxe-based releases and shares some consumer satisfaction metrics.<br/><br/>music from the intro:\"Cornered\" by Binaerpilot<br/><a href='http://binaerpilot.no/'>http://binaerpilot.no/</a>",
+			"date": "2015-08-17",
+			"youtubeId": "o-KV5PlhvBk"
+		},
+		{
+			"title": "\"Quaxe, infinity and beyond\" by Daniel Glazman",
+			"where": null,
+			"description": "Daniel Glazman's speech at the WWX2015<br/><br/>The World Wide Haxe Conference 2015 on Haxe, the free cross-platform language, was organized by Silex Labs and hosted by Mozilla Paris from the 29th May to the 1st June 2015.<br/><br/>More videos of the WWX2015 :<br/><a href='http://www.silexlabs.org/wrapping-up-wwx2015/'>http://www.silexlabs.org/wrapping-up-wwx2015/</a><br/>More info about this speech :<br/><a href='http://www.silexlabs.org/quaxe-infini'>http://www.silexlabs.org/quaxe-infini</a>...<br/>More info about Silex Labs : <a href='http://www.silexlabs.org/'>http://www.silexlabs.org/</a><br/><br/>Talk description:Daniel Glazman presents “Quaxe, infinity and beyond”. With a very strong current focus on the Gaming industry, Haxe remains unknown outside of that inner circle. App developers outside of that industry lack important foundations to let them approach the Haxe environment, and the Haxe ecosystem remains a bit too unclear to them. Daniel explains his views, almost with an external eye, of the situation and how it could be fixed.<br/><br/>music from the intro:\"Cornered\" by Binaerpilot<br/><a href='http://binaerpilot.no/'>http://binaerpilot.no/</a>",
+			"date": "2015-08-20",
+			"youtubeId": "JfZ_QADfveU"
+		},
+		{
+			"title": "\"NPM, Haxe at the heart of JavaScript ecosystem\" by David Mouton",
+			"where": null,
+			"description": "The World Wide Haxe Conference 2015 on Haxe, the free cross-platform language, was organized by Silex Labs and hosted by Mozilla Paris from the 29th May to the 1st June 2015.<br/><br/>More videos of the WWX2015 :<br/><a href='http://www.silexlabs.org/wrapping-up-wwx2015/'>http://www.silexlabs.org/wrapping-up-wwx2015/</a><br/>More info about this speech :<br/><a href='http://www.silexlabs.org/npm-haxe-at-'>http://www.silexlabs.org/npm-haxe-at-</a>...<br/>More info about Silex Labs : <a href='http://www.silexlabs.org/'>http://www.silexlabs.org/</a><br/><br/>Talk description:<br/>David Mouton presents “NPM, Haxe at the heart of Javascript ecosystem”. Javascript ecosystem for web app development is well implanted and NPM is at the centre of it. Coffeescript and Typescript are perfectly integrated and have offered a real alternative to full Javascript development. For almost a year now, Haxe has constituted a third alternative in this ecosystem.<br/>music from the intro:\"Cornered\" by Binaerpilot<br/><a href='http://binaerpilot.no/'>http://binaerpilot.no/</a>",
+			"date": "2015-08-22",
+			"youtubeId": "YgbxqFx9qak"
+		},
+		{
+			"title": "\"Haxe at Massive Interactive\" by Philippe Elsass",
+			"where": null,
+			"description": "Philippe Elsass' speech at the WWX2015<br/><br/>The World Wide Haxe Conference 2015 on Haxe, the free cross-platform language, was organized by Silex Labs and hosted by Mozilla Paris from the 29th May to the 1st June 2015.<br/><br/>More videos of the WWX2015 :<br/><a href='http://www.silexlabs.org/wrapping-up-wwx2015/'>http://www.silexlabs.org/wrapping-up-wwx2015/</a><br/>More info about this speech :<br/><a href='http://www.silexlabs.org/haxe-at-mass'>http://www.silexlabs.org/haxe-at-mass</a>...<br/>More info about Silex Labs : <a href='http://www.silexlabs.org/'>http://www.silexlabs.org/</a><br/><br/>Talk description:In his talk “Haxe at Massive Interactive”, Philippe Elsass presents the activity of Massive Interractive, its clients, platforms and devices where Massive is leveraging the awesome power of Haxe, and some of the problems solved in getting there.<br/><br/>music from the intro:\"Cornered\" by Binaerpilot<br/><a href='http://binaerpilot.no/'>http://binaerpilot.no/</a>",
+			"date": "2015-08-26",
+			"youtubeId": "_2Xm96xU4OQ"
+		},
+		{
+			"title": "\"Haxe Evangelism with Silex Labs\" by JB Richardet",
+			"where": null,
+			"description": "Jean-Baptiste Richardet's speech at the WWX2015<br/><br/>The World Wide Haxe Conference 2015 on Haxe, the free cross-platform language, was organized by Silex Labs and hosted by Mozilla Paris from the 29th May to the 1st June 2015.<br/><br/>More videos of the WWX2015 :<br/><a href='http://www.silexlabs.org/wrapping-up-wwx2015/'>http://www.silexlabs.org/wrapping-up-wwx2015/</a><br/>More info about this speech :<br/><a href='http://www.silexlabs.org/haxe-evangel'>http://www.silexlabs.org/haxe-evangel</a>...<br/>More info about Silex Labs : <a href='http://www.silexlabs.org/'>http://www.silexlabs.org/</a><br/><br/>Talk description: As an active member of Silex Labs Jean-Baptiste is dedicated to make the community grow, convinced it will lead to a brighter future. In his talk “Haxe Evangelism with Silex Labs”, Jean-Baptiste Richardet tells us what his dedication involved, including teaching students, making demos in front of professionals and creating bridges between open-source communities.<br/><br/>music from the intro:\"\"Cornered\"\" by Binaerpilot<br/><a href='http://binaerpilot.no/'>http://binaerpilot.no/</a>\"",
+			"date": "2015-08-26",
+			"youtubeId": "XEQ7LI9EAJw"
+		},
+		{
+			"title": "\"The tech behind Evoland 2\" by Nicolas Cannasse",
+			"where": null,
+			"description": "Nicolas Cannasse's speech at the WWX2015<br/><br/>The World Wide Haxe Conference 2015 on Haxe, the free cross-platform language, was organized by Silex Labs and hosted by Mozilla Paris from the 29th May to the 1st June 2015.<br/><br/>More videos of the WWX2015 :<br/><a href='http://www.silexlabs.org/wrapping-up-wwx2015/'>http://www.silexlabs.org/wrapping-up-wwx2015/</a><br/>More info about this speech :<br/><a href='http://www.silexlabs.org/the-tech-beh'>http://www.silexlabs.org/the-tech-beh</a>...<br/>More info about Silex Labs : <a href='http://www.silexlabs.org/'>http://www.silexlabs.org/</a><br/><br/>Talk description:Evoland 2 is a brand new game created by Shiro Games, involving both 2D and 3D graphics, and entirely written in Haxe. In his speech “The Tech behind Evoland 2”, Nicolas Cannasse presents Evoland 2 and introduces some technologies that were used to develop the game, and which are all available as open source, as well as the workflow the team of 9 people used to build the game.<br/><br/>music from the intro:\"Cornered\" by Binaerpilot<br/><a href='http://binaerpilot.no/'>http://binaerpilot.no/</a>",
+			"date": "2015-08-28",
+			"youtubeId": "QTMKFx2CWJE"
+		},
+		{
+			"title": "\"Continuous Integration for Haxe Projects\" by Andy Li",
+			"where": null,
+			"description": "Andy Li's speech at the WWX2015<br/><br/>The World Wide Haxe Conference 2015 on Haxe, the free cross-platform language, was organized by Silex Labs and hosted by Mozilla Paris from the 29th May to the 1st June 2015.<br/><br/>More videos of the WWX2015 :<br/><a href='http://www.silexlabs.org/wrapping-up-wwx2015/'>http://www.silexlabs.org/wrapping-up-wwx2015/</a><br/>More info about this speech :<br/><a href='http://www.silexlabs.org/continuous-i'>http://www.silexlabs.org/continuous-i</a>...<br/>More info about Silex Labs : <a href='http://www.silexlabs.org/'>http://www.silexlabs.org/</a><br/><br/>Talk description: in this talk « Continuous Integration for Haxe Projects », Andy Li presents how to set up continuous integration (CI) services, like TravisCI and AppVeyor, to automatically test our Haxe code for every commit. He also discusses some interesting use of CI that could be useful no matter we are building games, mobile apps, websites, or writing novels.<br/><br/><br/>music from the intro:\"Cornered\" by Binaerpilot<br/><a href='http://binaerpilot.no/'>http://binaerpilot.no/</a>",
+			"date": "2015-08-31",
+			"youtubeId": "ZYMyvkrownQ"
+		},
+		{
+			"title": "\"A walk-through of Haxe JS Kit\" by Clément Charmet",
+			"where": null,
+			"description": "Clément Charmet's speech at the WWX2015<br/><br/>The World Wide Haxe Conference 2015 on Haxe, the free cross-platform  language, was organized by Silex Labs and hosted by Mozilla Paris from the 29th May to the 1st June 2015.<br/><br/>More videos of the WWX2015 :<br/><a href='http://www.silexlabs.org/wrapping-up-wwx2015/'>http://www.silexlabs.org/wrapping-up-wwx2015/</a><br/>More info about this speech :<br/><a href='http://www.silexlabs.org/a-walk-throu'>http://www.silexlabs.org/a-walk-throu</a>...<br/>More info about Silex Labs : <a href='http://www.silexlabs.org/'>http://www.silexlabs.org/</a><br/><br/>Talk description: in this talk “A walk-through of Haxe JS Kit”, Clément Charmet demonstrates the main features of Haxe JS Kit, and through them, the huge benefits of using Haxe over alternatives such as Typescript to \"just\" target Javascript.<br/><br/>music from the intro:\"Cornered\" by Binaerpilot<br/><a href='http://binaerpilot.no/'>http://binaerpilot.no/</a>",
+			"date": "2015-09-02",
+			"youtubeId": "YJ3IvE6qCEA"
+		}
+	]
+}

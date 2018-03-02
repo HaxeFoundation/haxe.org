@@ -1,9 +1,13 @@
+import generators.Videos;
 import tink.template.Html;
 
 class Views {
 
 	@:template public static function BlogList (title:String, description:String, posts:Array<{ background:String, name:String, title:String, description:String, authors:Array<generators.Blog.Author>, disqusID:String, date:String }>, avatar:String) : Html;
 	@:template public static function BlogPost (background:String, title:String, description:String, authors:Array<generators.Blog.Author>, name:String, date:String, disqusID:String, content:Html, tags:Array<{ name:String }>) : Html;
+	@:template public static function VideoPage (video:Video, categories:Array<VideoCategory>, relatedVideos:Array<Video>) : Html;
+	@:template public static function VideoCategoryList (category:VideoCategory, categories:Array<VideoCategory>) : Html;
+	@:template public static function VideoLanding (categories:Array<VideoCategory>) : Html;
 	@:template public static function BlogRss (posts:Array<{ title:String, name:String, date:String, authors:Array<generators.Blog.Author>, description:String }>) : Html;
 	@:template public static function DownloadFile (prev:String, next:String, title:String, directDownloadLink:String, releaseNotes:Html, changes:Html, api:String) : Html;
 	@:template public static function DownloadList (title:String, current:String, versions:Array<DownloadsData.Version>) : Html;

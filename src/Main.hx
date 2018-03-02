@@ -16,6 +16,7 @@ class Main {
 		SiteMap.init();
 		generators.Assets.generate();
 		generators.Blog.generate();
+		generators.Videos.generate();
 		generators.Downloads.generate();
 		generators.Javascript.generate();
 		generators.Manual.generate();

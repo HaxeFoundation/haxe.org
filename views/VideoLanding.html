@@ -1,0 +1,53 @@
+
+<div class="section dark section-videos">
+	<div class="container">
+		<h1 style="color:#fff">Haxe videos</h1>
+		<p class="lead">There are many ways to learn Haxe. Start learning from the Haxe community and join the community today.</p>
+	</div>
+</div>
+
+::if (false):: <!-- set true to enable livestream -->
+<div class="section">
+	<div class="container">
+		<h2><b style="color:#DF0000">&middot;</b> Live stream</h2>
+		<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style>
+		<div class='embed-container'><iframe src="https://www.youtube.com/embed/R0UFsoUx5ys" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+	</div>
+</div>
+::else::
+<br/>
+::end::
+
+::for category in categories::
+::if (category.featuredVideos.length>0)::
+<div class="section light section-videos">
+	<div class="section">
+		<div class="container">
+			<h2><a href="/::category.path::">::category.title::</a> <small>(::category.videos.length::)</small></h2>
+			<div class="video-listing">
+				::for video in category.featuredVideos::
+				<div class="video-item">
+					<a href="/::video.path::">
+						<img src="https://img.youtube.com/vi/::video.youtubeId::/mqdefault.jpg" alt="::video.title::" class="thumbnail"  />
+					</a>
+					<h3>::video.title::</h3>
+				</div>
+				::end::
+				::if (category.videos.length>=5)::
+				<div class="video-item button-next">
+					<a href="/::category.path::">&raquo;</a>
+				</div>
+				::end::
+			</div>
+		</div>
+	</div>
+</div>
+::end::
+::end::
+
+<div class="container">
+	<div class="prev-next-links bottom">
+		<a href="https://github.com/HaxeFoundation/haxe.org/tree/staging/videos" class="edit-link" target="_blank"  title="Use Github to suggest an edit to these videos">Contribute to this page</a>
+	</div>
+	<br/>
+</div>

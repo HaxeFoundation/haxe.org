@@ -1,0 +1,67 @@
+{
+	"title": "Haxe London Meetups",
+	"description": "The summit was held 13-16 September 2017 in Amsterdam, The Netherlands",
+	"videos": [
+		{
+			"featured": true,
+			"title": "Modular Haxe JS with Webpack & Lix Haxe Package Manager",
+			"where": "London",
+			"description": "Live streaming from Haxe London at Gamesys, Modular Haxe JS with Webpack by Philippe Elsass (Software Engineering Manager at Massive Interactive) and Lix Haxe Package Manager by Juraj Kircheim (Haxe Addict)",
+			"date": "2017-11-03",
+			"youtubeId": "CDGAUBEzo6Y"
+		},
+		{
+			"featured": true,
+			"title": "HaxeFlixel for HTML5 & Shapes in Haxe",
+			"where": "London",
+			"description": "Live streaming from Gamesys",
+			"date": "2017-07-07",
+			"youtubeId": "HqsF5WmOH_w"
+		},
+		{
+			"featured": true,
+			"title": "Comparing Kha - Robert Konrad",
+			"where": "London",
+			"description": "Robert Konrad Researcher at Technische Universität Darmstadt. Robert tells us more about Kha and comparing some other game frameworks. Kha is an extremely portable Haxe based low level framework for games and media applications.",
+			"date": "2017-03-02",
+			"youtubeId": "my7b6EGMuyc"
+		},
+		{
+			"featured": true,
+			"title": "Haxe React - Philippe Elsass",
+			"where": "London",
+			"description": "Philippe Elsass - Engineering Manager at Massive Interactive. Philippe presents on the current state of Haxe React and two different application architectures with live coding examples.<br/><br/>Haxe React: \"A Haxe library offering externs and tool functions leveraging Haxe's excellent type system and compile time macros to offer a strongly typed language to work with the increasingly popular React library.\"",
+			"date": "2017-03-07",
+			"youtubeId": "ab5LYGhsz9I"
+		},
+		{
+			"featured": true,
+			"title": "Haxe and WebGL - George Corney",
+			"where": "London",
+			"description": "George Corney - WebGL Developer at Microsoft. George tells us more about how Haxe's type systems and how macros can make it easier to write high performing applications that takes advantage of the best features. We'll be reviewing:<br/><br/>- @:generic macros, which can be used to generate types at runtime <br/>- Faster linear algebra in JS and C++ with TypedArrays and SIMD <br/>- Easier cross-platform GPU programming",
+			"date": "2017-03-07",
+			"youtubeId": "qBtFjEUYwGU"
+		},
+		{
+			"title": "Haxe London Meetup Live Stream - 2nd March 2017",
+			"where": "London",
+			"description": "Live streaming from Haxe London Meetup on the 2nd March 2017",
+			"date": "2017-03-06",
+			"youtubeId": "e0cdPQI1TqU"
+		},
+		{
+			"title": "London Haxe Meetup 20th October 2016 - Part 2",
+			"where": "London",
+			"description": "The first London Haxe Meetup held on 20th October 2016 At Gamesys london office in Piccadilly circus. <br/>Join our Meetup!: <a href='http://www.meetup.com/'>http://www.meetup.com/</a>London-Haxe-Meetup<br/>Part 1: <a href='https://www.youtube.com/watch?v='>https://www.youtube.com/watch?v=</a>FT3qmZliv7c<br/><br/>This is part 2 with a talk from Haxe founder Nicolas Cannasse on the new HashLink virtual Machine for Haxe <br/><br/>Links mentioned in this talk:<br/><br/>HashLink Information page - <a href='http://hashlink.haxe.org/'>http://hashlink.haxe.org/</a><br/><br/>Northgard Gameplay: <a href='https://www.youtube.com/watch?v=s'>https://www.youtube.com/watch?v=s</a>UwtmZLDfsc",
+			"date": "2016-10-25",
+			"youtubeId": "wjv7hbN7sHE"
+		},
+		{
+			"title": "London Haxe Meetup 20th October 2016 - Part 1",
+			"where": "London",
+			"description": "The first London Haxe Meetup held on 20th October 2016 At Gamesys london office in Piccadilly circus. <br/><br/>Join our Meetup!: <a href='http://www.meetup.com/'>http://www.meetup.com/</a>London-Haxe-Meetup<br/><br/>00:05 learn.haxe with Ren Kloppers (@RenKloppers) Will kick everything off and talk to us briefly about Andy Li of the haxe foundation new learn.haxe project.<br/><br/>06:40 Intro to Haxe macros - Nick Balyanitsa will present a small intro into macros in haxe talking about the differing types and the powerful way in which they can be used.<br/><br/>31:56 Haxe Libraries and Externs - Adi Mora (@adireddy) Will introduce a couple of new Haxe libraries that he has produced that are already starting to be used across the haxe development world.<br/><br/>Part 2 with a talk from Haxe founder Nicolas Cannasse on the new HashLink virtual Machine for Haxe can be found here:<br/><a href='https://www.youtube.com/watch?v=wjv7hb'>https://www.youtube.com/watch?v=wjv7hb</a>N7sHE",
+			"date": "2016-10-24",
+			"youtubeId": "FT3qmZliv7c"
+		}
+	]
+}

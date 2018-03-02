@@ -1,0 +1,30 @@
+{
+	"title": "Haxe Examples",
+	"description": "A series of Haxe example videos by <a href='https://www.youtube.com/channel/UCZnWsR8R0tMMqdUEe7_FmDA'>Matthew Wallace</a>",
+	"videos": [
+		{
+			"featured": true,
+			"title": "How to install and run Haxe the first time",
+			"where": null,
+			"description": "HaxeExamples.com In this video we are going to talk about what Haxe is, How to install Haxe and how to run your first Haxe program.",
+			"date": "2016-10-28",
+			"youtubeId": "gox00J2D6IE"
+		},
+		{
+			"featured": true,
+			"title": "How to setup OpenFL and compile Haxe for iOS",
+			"where": null,
+			"description": "In this Haxe Examples video I'm going to show you how to setup a frame work called OpenFL. OpenFL makes it easier to test your Haxe application on lots of different targets. In this video we will cover compiling and testing our Haxe application on the iOS simulator. <br/><br/>Here is the source code used in the video in case you would like to copy and paste. <br/><br/><a href='https://github.com/matthewswallace/HelloOpenfl'>https://github.com/matthewswallace/HelloOpenfl</a>",
+			"date": "2016-10-29",
+			"youtubeId": "JxwWeZaHPe0"
+		},
+		{
+			"featured": true,
+			"title": "How to use OpenFL Facebook native extension for iOS",
+			"where": null,
+			"description": "In this video we will modify our HelloOpenfl example form the 2nd video to include a login with Facebook button. We will add some templet files that will allow us to use a native extension. This will allow the user to see the native ios \"facebook login\" ui.<br/><br/>Source code for this example is located here. <a href='https://github.com/matthewswallace/HelloOpenfl/tree/facebook-extention'>https://github.com/matthewswallace/HelloOpenfl/tree/facebook-extention</a>",
+			"date": "2016-11-26",
+			"youtubeId": "gqC7tPzIVck"
+		}
+	]
+}

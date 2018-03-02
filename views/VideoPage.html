@@ -1,0 +1,68 @@
+
+<div class="section dark">	
+	<div class="container">
+		
+		<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style>
+		<div class='embed-container'><iframe src="https://www.youtube.com/embed/::video.youtubeId::" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+	</div>
+</div>
+
+
+<div class="section light section-videos">	
+	<div class="container">
+		<div class="row">
+			<div class="span4 tree-nav">
+				<p>&laquo; <a href="/videos/">Back to overview</a></p>
+				<ul>
+				::for c in categories::
+					<li ::if (c == video.category)::class="active"::end::>
+						<i class="fa fa-file-video-o"></i>
+						<a href="/::c.path::" ::if (c == video.category)::class="active"::end::>::c.title::</a>
+						(::c.videos.length::)
+					</li>
+				::end::
+				</ul>
+			</div>
+			
+			<div class="span8">
+				<h1>
+					<small>::video.category.title::</small>
+					::video.title::
+				</h1>
+				::if (video.description != null)::<p class="video-description">::video.description::</p>::end::
+				<hr/>
+						
+				<div class="date"><strong>Date:</strong> ::video.date::</div>
+				::if (video.where != null)::<div><strong>From:</strong> ::video.where::</div>::end::
+			</div>
+		</div>
+	</div>
+</div>
+
+<hr/>
+		
+::if (relatedVideos.length > 0)::
+<div class="section site-content">
+	<div class="container">
+			<h2>Other videos in '::video.category.title::'</h2>
+			<div class="video-listing two-per-row">
+				::for relatedVideo in relatedVideos::
+					<div class="video-item">
+						<a href="/::relatedVideo.path::">
+							<img src="https://img.youtube.com/vi/::relatedVideo.youtubeId::/mqdefault.jpg" alt="::relatedVideo.title::" class="thumbnail" />
+						</a>
+						<h3>::relatedVideo.title::</h3>
+					</div>
+				::end::
+			</div>
+			
+	</div>
+</div>
+::end::
+
+<div class="container">
+	<div class="prev-next-links bottom">
+		<a href="https://github.com/HaxeFoundation/haxe.org/tree/staging/videos" class="edit-link" target="_blank"  title="Use Github to suggest an edit to these videos">Contribute to this page</a>
+	</div>
+	<br/>
+</div>
