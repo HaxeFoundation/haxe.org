@@ -1,10 +1,7 @@
 package generators;
 
-import haxe.DynamicAccess;
 import haxe.Json;
-import haxe.ds.StringMap;
 import haxe.io.Path;
-import haxe.xml.Parser.XmlParserException;
 import sys.FileSystem;
 import sys.io.File;
 import tink.template.Html;
@@ -20,10 +17,14 @@ typedef Video = {
 	var youtubeId : String; 
 	var featured : Bool; 
 	
+	
 	// appended below
 	@:optional var category : VideoCategory;
 	@:optional var name : String;
 	@:optional var path : String;
+	
+	@:optional var next : Null<Video>;
+	@:optional var prev : Null<Video>;
 }
 
 typedef VideoCategory = {
@@ -32,8 +33,18 @@ typedef VideoCategory = {
 	var path : String;
 	var name : String;
 	var videos : Array<Video>;
+	var userFeaturedVideos : Array<Video>;
 	var featuredVideos : Array<Video>;
 	var sortIndex : Int;
+	var section : VideoSection;
+}
+
+typedef VideoSection = {
+	var title : String;
+	var description : Html;
+	@:optional var path : String;
+	@:optional var name : String;
+	@:optional var categories : Array<VideoCategory>;
 }
 
 /**
@@ -47,75 +58,119 @@ class Videos {
 	public static function generate () {
 		Sys.println("Generating videos ...");
 
-		var categories:Array<VideoCategory> = [];
+		var sections:Array<VideoSection> = [];
 
 		// Step 1: read jsons in videos-directory, parse the data
-		var videosPath = Config.videosPath;
-		for(file in FileSystem.readDirectory(videosPath)) {
-			if (Path.extension(file) == "json") {
-				var data:{ title:String, description:String, videos:Array<Video>} = Json.parse(File.getContent(Path.join([videosPath, file])));
-				var videos:Array<Video> = data.videos;
-				
-				var categoryName = getName(Path.withoutExtension(file));
-				var sortIndex = Std.parseInt(categoryName.split("-")[0]);
-				categoryName = categoryName.substr('$sortIndex'.length + 1);
-				
-				var category:VideoCategory = {
-					sortIndex: sortIndex,
-					name: categoryName, 
-					title: data.title, 
-					description: new Html(data.description), 
-					path: Path.join([Config.videoOutput, categoryName]) + "/", 
-					videos: videos,
-					featuredVideos: [],
-				}
-				categories.push(category);
-				
-				// assign extra/missing data to video
-				for (video in videos) {
-					if (!Reflect.hasField(video, "featured")) video.featured = false;
-					if (video.featured) category.featuredVideos.push(video);
+		function read(videosPath:String) {
+			var section:VideoSection = Json.parse(File.getContent(Path.join([videosPath, "index.json"])));
+			
+			section.categories = [];
+			section.name = Path.withoutDirectory(videosPath);
+			section.path = Path.join([videosPath]) + "/";
+			sections.push(section);
+			trace(section.path, section.name);
+			
+			for (file in FileSystem.readDirectory(videosPath)) {
+				var path = Path.join([videosPath, file]);
+				if (FileSystem.isDirectory(path)) {
+					trace("dir", path);
+					read(path);
+				} else if (Path.extension(file) == "json" && file != "index.json") {
+					trace("path", path);
+					var data:{ title:String, description:String, videos:Array<Video>} = Json.parse(File.getContent(path));
+					var videos:Array<Video> = data.videos;
 					
-					video.category = category;
-					video.name = getName(video.title);
-					video.path = Path.join([Config.videoOutput, categoryName, video.name + ".html"]);
+					var categoryName = getName(Path.withoutExtension(file));
+					var sortIndex = Std.parseInt(categoryName.split("-")[0]);
+					categoryName = categoryName.substr('$sortIndex'.length + 1);
+					
+					var category:VideoCategory = {
+						sortIndex: sortIndex,
+						name: categoryName, 
+						title: data.title, 
+						description: new Html(data.description), 
+						path: Path.join([Config.videoOutput, section.name, categoryName]) + "/", 
+						videos: videos,
+						section: section,
+						userFeaturedVideos: [],
+						featuredVideos: [],
+					}
+					section.categories.push(category);
+					
+					// assign extra/missing data to video
+					for (video in videos) {
+						if (!Reflect.hasField(video, "featured")) video.featured = false;
+						if (video.featured && category.featuredVideos.length <= 5) {
+							category.userFeaturedVideos.push(video);
+							category.featuredVideos.push(video);
+						}
+						
+						video.category = category;
+						video.name = getName(video.title);
+						video.path = Path.join([Config.videoOutput, section.name, categoryName, video.name + ".html"]);
+					}
+				}
+			}
+		}
+		read(Config.videosPath);
+		
+		// sort videos from new to old date
+		for (section in sections) {
+			for (category in section.categories) {
+				// yep, that is string compare and I don't care
+				category.videos.sort(function(a, b) return a.date < b.date ? 1 : -1); 
+				
+				var i = 0;
+				while (category.featuredVideos.length < 5 && category.videos.length >= 5) {
+					var v = category.videos[i++];
+					if (category.featuredVideos.indexOf(v) < 0) category.featuredVideos.push(v);
+				}
+				category.userFeaturedVideos.sort(function(a, b) return a.date < b.date ? 1 : -1);
+				category.featuredVideos.sort(function(a, b) return a.date < b.date ? 1 : -1);
+			}
+			// highest sort index on front
+			section.categories.sort(function(a, b) return a.sortIndex < b.sortIndex ? 1 : -1);
+		}
+		
+		// assign next/prev videos
+		for (section in sections) {
+			for (category in section.categories) {
+				for (i in 0 ... category.videos.length) {
+					var video = category.videos[i];
+					video.prev = category.videos[i - 1];
+					video.next = category.videos[i + 1];
 				}
 			}
 		}
 		
-		// sort videos from new to old date
-		for (category in categories) {
-			// yep, that is string compare and I don't care
-			category.videos.sort(function(a, b) return a.date < b.date ? 1 : -1); 
-			category.featuredVideos.sort(function(a, b) return a.date < b.date ? 1 : -1);
-		}
-		categories.sort(function(a, b) return a.sortIndex < b.sortIndex ? 1 : -1);
-		
-		
-		
 		// step 2:  generate pages
 		
 		// main category
-		Utils.save(Path.join([Config.outputFolder, Config.videoOutput, Config.index]), Views.VideoLanding(
-			categories
-		), null, null, "Haxe Videos", "Learn Haxe by watching videos from the Haxe community.");
+		for (section in sections) { 
+			Utils.save(Path.join([Config.outputFolder, section.path, Config.index]), Views.VideoLanding(
+				section,
+				section.categories,
+				sections
+			), null, null, section.title, section.description);
 		
-		// generate category pages
-		for (category in categories) {
-			trace('Generating video category: ${category.name} (${category.videos.length} videos)');
-			Utils.save(Path.join([Config.outputFolder, category.path, Config.index]), Views.VideoCategoryList(
-				category,
-				categories
-			), null, null, category.title, category.description);
-			
-			
-			// generate video pages
-			for (video in category.videos) {
-				Utils.save(Path.join([Config.outputFolder, video.path]), Views.VideoPage(
-					video,
-					categories,
-					video.category.videos.filter(function(v) return v != video) // exclude current video
-				), null, null, video.title, video.description);
+			// generate category pages
+			for (category in section.categories) {
+				trace('Generating video category: ${category.name} (${category.videos.length} videos)');
+				Utils.save(Path.join([Config.outputFolder, category.path, Config.index]), Views.VideoCategoryList(
+					category,
+					section.categories
+				), null, null, category.title, category.description);
+				
+				
+				
+				// generate video pages
+				for (video in category.videos) {
+					Utils.save(Path.join([Config.outputFolder, video.path]), Views.VideoPage(
+						video,
+						section.categories,
+						video.category.videos.filter(function(v) return v != video) // exclude current video
+					), null, null, video.title, video.description);
+				}
 			}
 		}
 	}

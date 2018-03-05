@@ -4,6 +4,9 @@
 		
 		<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style>
 		<div class='embed-container'><iframe src="https://www.youtube.com/embed/::video.youtubeId::" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+		<br/>
+		::if (video.prev!=null)::<a href="/::video.prev.path::" class="button-head-video pull-left" title="::video.prev.title::">&laquo; Next video</a>::end::
+		::if (video.next!=null)::<a href="/::video.next.path::" class="button-head-video pull-right" title="::video.next.title::">Previous video &raquo;</a>::end::
 	</div>
 </div>
 
@@ -12,16 +15,21 @@
 	<div class="container">
 		<div class="row">
 			<div class="span4 tree-nav">
-				<p>&laquo; <a href="/videos/">Back to overview</a></p>
-				<ul>
-				::for c in categories::
-					<li ::if (c == video.category)::class="active"::end::>
-						<i class="fa fa-file-video-o"></i>
-						<a href="/::c.path::" ::if (c == video.category)::class="active"::end::>::c.title::</a>
-						(::c.videos.length::)
-					</li>
+				<p>
+					<a href="/videos/" class="button-head-video">&laquo; Overview</a><br/>
+					::if (video.category.section.categories.length>1)::&laquo; <a href="/::video.category.section.path::" class="button-head-video">::video.category.section.title::</a>::end::
+				</p>
+				::if (video.category.section.categories.length>0)::
+					<ul>
+					::for c in categories::
+						<li ::if (c == video.category)::class="active"::end::>
+							<i class="fa fa-file-video-o"></i>
+							<a href="/::c.path::" ::if (c == video.category)::class="active"::end::>::c.title::</a>
+							(::c.videos.length::)
+						</li>
+					::end::
+					</ul>
 				::end::
-				</ul>
 			</div>
 			
 			<div class="span8">
@@ -40,17 +48,21 @@
 </div>
 
 <hr/>
-		
-::if (relatedVideos.length > 0)::
+
+::if (video.category.videos.length > 0)::
 <div class="section site-content">
 	<div class="container">
 			<h2>Other videos in '::video.category.title::'</h2>
 			<div class="video-listing two-per-row">
-				::for relatedVideo in relatedVideos::
+				::for relatedVideo in video.category.videos::
 					<div class="video-item">
+						::if (relatedVideo != video)::
 						<a href="/::relatedVideo.path::">
 							<img src="https://img.youtube.com/vi/::relatedVideo.youtubeId::/mqdefault.jpg" alt="::relatedVideo.title::" class="thumbnail" />
 						</a>
+						::else::
+							<img src="https://img.youtube.com/vi/::relatedVideo.youtubeId::/mqdefault.jpg" alt="::relatedVideo.title::" class="thumbnail" />
+						::end::
 						<h3>::relatedVideo.title::</h3>
 					</div>
 				::end::

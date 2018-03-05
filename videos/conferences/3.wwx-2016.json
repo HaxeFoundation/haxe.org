@@ -13,7 +13,6 @@
 		"title": "\"Shooting for the Moon: Haxe lands on Lua\" by Justin Donaldson",
 		"where": null,
 		"description": "Justin Donaldson's talk at the WWX2016 about the 10th Haxe's target: Lua<br/><br/>Talk description:<br/>Lua is a language that can play many roles: A light-weight memory-safe scripting environment suitable for embedded devices, a speedy jit with a flexible C FFI for high performance web development, or even the language for a state of the art machine learning framework. However, as a scripting language Lua suffers from the same scalability problems that plague large dynamic language codebases.<br/><br/>Haxe's ability to effectively organize and compose projects makes Haxe/Lua projects an ideal approach for developing complex Lua applications. This talk will cover the basics of how the Haxe language maps to Lua internals, and cover some useful topics such as avoiding pitfalls, using helpful workarounds, and getting the most out of your next Haxe/Lua project.<br/><br/><a href='http://wwx.silexlabs.org/2016/talks/justin-donaldson.html'>http://wwx.silexlabs.org/2016/talks/justin-donaldson.html</a><br/><br/>Slides: <br/><a href='http://wwx.silexlabs.org/2016/assets/presentations/justin-donaldson.pdf'>http://wwx.silexlabs.org/2016/assets/presentations/justin-donaldson.pdf</a><br/><br/>The WWX is a 4 day conference about Haxe a high-level multi-platform open source programming language.The WWX2016 is organized by Silex Labs and sponsored by Haxe foundation, Mozilla, Gandi, Docler Holding, Secret Media and Keymetrics.<br/><br/>More WWX2016 video on<br/><a href='http://wwx.silexlabs.org/2016/'>http://wwx.silexlabs.org/2016/</a><br/><br/>WWX2016 playlist on youtube:<br/><a href='https://youtu.be/_cwcmOF_0I4?list=PLLW5YfXlahjMnL0V7pqAQonVck04YvseF'>https://youtu.be/_cwcmOF_0I4?list=PLLW5YfXlahjMnL0V7pqAQonVck04YvseF</a><br/><br/>Music from the intro:<br/>I Dunno by Grapes is licensed under a Creative Commons Licence.<br/><a href='http://bit.ly/1IBxcWb'>http://bit.ly/1IBxcWb</a><br/><a href='https://youtu.be/mrGfe0M8nBw'>https://youtu.be/mrGfe0M8nBw</a>",
-		"featured": true,
 		"date": "2016-08-10",
 		"youtubeId": "cGf_-VK0KcM"
 	},
@@ -56,7 +55,6 @@
 		"title": "\"HXCPP\" - What's new\" by Hugh Sanderson",
 		"where": null,
 		"description": "Here is Hugh Sanderson's talk at the WWX2016<br/><br/>Talk description:<br/>Quite a bit has gone on under the hood of the hxcpp backend in 2016. Find out what a low-level rewrite of the garbage collector, a refactor of the ocaml code and improved representations of objects, enum and interfaces means to you. With lots of community support this year, the native integration has been driven forward, and this talk may help you find easy ways to integrate hxcpp into your projects.<br/><br/>More info:<br/><a href='http://wwx.silexlabs.org/2016/talks/hugh-sanderson.html'>http://wwx.silexlabs.org/2016/talks/hugh-sanderson.html</a><br/><br/>The WWX is a 4 day conference about Haxe a high-level multi-platform open source programming language.The WWX2016 's organized by Silex Labs and sponsored by Haxe foundation, Mozilla, Gandi Docler Holding, Secret Media and Keymetrics.<br/><br/>More WWX2016 video on<br/><a href='http://wwx.silexlabs.org/2016/'>http://wwx.silexlabs.org/2016/</a><br/><br/>WWX2016 playlist on youtube:<br/><a href='https://youtu.be/_cwcmOF_0I4?list=PLLW5YfXlahjMnL0V7pqAQonVck04YvseF'>https://youtu.be/_cwcmOF_0I4?list=PLLW5YfXlahjMnL0V7pqAQonVck04YvseF</a><br/><br/>Music from the intro:<br/>I Dunno by Grapes is licensed under a Creative Commons Licence.<br/><a href='http://bit.ly/1IBxcWb'>http://bit.ly/1IBxcWb</a>",
-		"featured": true,
 		"date": "2016-08-23",
 		"youtubeId": "1yuMSS5nR4g"
 	},
@@ -64,7 +62,6 @@
 		"title": "\"Haxe-dev: tales from within\" by Simon Krajewsk",
 		"where": null,
 		"description": "Here is the talk of Simon Krajewski main maintainer of the Haxe compiler at the WWX2016.<br/><br/>Description talk:<br/>Even after over 10 years, the Haxe Compiler and its related technologies are in constant development. This is made possible by a strong development community which has grown over the years and continues to grow.<br/><br/>This talk explores what happened since WWX 2015, and who made it happen. While there's a natural technical focus given the subject matter, it is also going to highlight some interpersonal aspects of open source development. Expect a mixture of development anecdotes and compiler-related tech-talk.<br/><br/>Slides:<br/><a href='http://wwx.silexlabs.org/2016/assets/presentations/simon-krajewski/'>http://wwx.silexlabs.org/2016/assets/presentations/simon-krajewski/</a><br/><br/>The WWX is a 4 day conference about Haxe a high-level multi-platform open source programming language.The WWX2016 is organized by Silex Labs and sponsored by Haxe foundation, Mozilla, Gandi, Docler Holding, Secret Media and Keymetrics.<br/><br/>More WWX2016 video on<br/><a href='http://wwx.silexlabs.org/2016/'>http://wwx.silexlabs.org/2016/</a><br/><br/>WWX2016 playlist on youtube:<br/><a href='https://youtu.be/_cwcmOF_0I4?list=PLLW5YfXlahjMnL0V7pqAQonVck04YvseF'>https://youtu.be/_cwcmOF_0I4?list=PLLW5YfXlahjMnL0V7pqAQonVck04YvseF</a><br/><br/>Music from the intro:<br/>I Dunno by Grapes is licensed under a Creative Commons Licence.<br/><a href='http://bit.ly/1IBxcWb'>http://bit.ly/1IBxcWb</a><br/><a href='https://youtu.be/mrGfe0M8nBw'>https://youtu.be/mrGfe0M8nBw</a>",
-		"featured": true,
 		"date": "2016-08-24",
 		"youtubeId": "41Ahc-WSKaQ"
 	},
@@ -93,7 +90,6 @@
 		"title": "\"React: State to View;\" by Philippe Elsas",
 		"where": null,
 		"description": "Whether or not you've jumped on the React bandwagon, it has introduced (or at least popularised) some powerful new approaches to building and thinking about user interfaces. In this talk I'll show you how a sprinkling of Haxe can make things even better. Come on, all the cool kids are doing it.<br/><br/>Slides:<br/><a href='http://wwx.silexlabs.org/2016/assets/presentations/philippe-elsass.pdf'>http://wwx.silexlabs.org/2016/assets/presentations/philippe-elsass.pdf</a><br/><br/>The WWX is a 4 day conference about Haxe a high-level multi-platform open source programming language.The WWX2016 is organized by Silex Labs and sponsored by Haxe foundation, Mozilla, Gandi, Docler Holding, Secret Media and Keymetrics.<br/><br/>More WWX2016 video on<br/><a href='http://wwx.silexlabs.org/2016/'>http://wwx.silexlabs.org/2016/</a><br/><br/>WWX2016 playlist on youtube:<br/><a href='https://youtu.be/_cwcmOF_0I4?list=PLLW5YfXlahjMnL0V7pqAQonVck04YvseF'>https://youtu.be/_cwcmOF_0I4?list=PLLW5YfXlahjMnL0V7pqAQonVck04YvseF</a><br/><br/>Music from the intro:<br/>I Dunno by Grapes is licensed under a Creative Commons Licence.<br/><a href='http://bit.ly/1IBxcWb'>http://bit.ly/1IBxcWb</a><br/><a href='https://youtu.be/mrGfe0M8nBw'>https://youtu.be/mrGfe0M8nBw</a>",
-		"featured": true,
 		"date": "2016-08-31",
 		"youtubeId": "4fJMVdCiKkw"
 	},
@@ -101,7 +97,6 @@
 		"title": "\"Making the most of Haxe\" by Juraj Kirchhei",
 		"where": null,
 		"description": "The WWX is a 4 day conference about Haxe a high-level multi-platform open source programming language.The WWX2016 's organized by Silex Labs and sponsored by Haxe foundation, Mozilla, Docler Holding, Secret Media, Gandi and Keymetrics.<br/><br/>More WWX2016 video on<br/><a href='http://wwx.silexlabs.org/2016/'>http://wwx.silexlabs.org/2016/</a><br/><br/>WWX2016 playlist on youtube:<br/><a href='https://youtu.be/_cwcmOF_0I4?list=PLLW5YfXlahjMnL0V7pqAQonVck04YvseF'>https://youtu.be/_cwcmOF_0I4?list=PLLW5YfXlahjMnL0V7pqAQonVck04YvseF</a><br/><br/>Music from the intro:<br/>I Dunno by Grapes is licensed under a Creative Commons Licence.<br/><a href='http://bit.ly/1IBxcWb'>http://bit.ly/1IBxcWb</a><br/><a href='https://youtu.be/mrGfe0M8nBw'>https://youtu.be/mrGfe0M8nBw</a>",
-		"featured": true,
 		"date": "2016-09-06",
 		"youtubeId": "KcPIJ3BMto0"
 	},

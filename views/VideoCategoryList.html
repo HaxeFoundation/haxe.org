@@ -5,24 +5,27 @@
 		::if (category.description != null)::
 		<p class="lead video-category-description">::category.description::</p>
 		::end::
+		
+		<a href="/videos/" class="button-head-video">&laquo; Overview</a>
+		::if (category.section.categories.length>1)::<a href="/::category.section.path::" class="button-head-video">::category.section.title::</a>::end::
 	</div>
 </div>
 
 <div class="section site-content">	
 	<div class="container">
-		
 		<div class="row">
 			<div class="span4 tree-nav">
-				<p>&laquo; <a href="/videos/">Back to overview</a></p>
-				<ul>
-				::for c in categories::
-					<li ::if (c.name == category.name)::class="active"::end::>
-						<i class="fa fa-file-video-o"></i>
-						<a href="/::c.path::" ::if (c.name == category.name)::class="active"::end::>::c.title::</a>
-						(::c.videos.length::)
-					</li>
+				::if (category.section.categories.length>0)::
+					<ul>
+					::for c in categories::
+						<li ::if (c.name == category.name)::class="active"::end::>
+							<i class="fa fa-file-video-o"></i>
+							<a href="/::c.path::" ::if (c.name == category.name)::class="active"::end::>::c.title::</a>
+							(::c.videos.length::)
+						</li>
+					::end::
+					</ul>
 				::end::
-				</ul>
 			</div>
 			<div class="span8">
 				::if (false)::<!-- overview page of a category --> ::end::

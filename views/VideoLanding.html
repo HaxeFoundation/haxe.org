@@ -1,8 +1,21 @@
 
 <div class="section dark section-videos">
 	<div class="container">
-		<h1 style="color:#fff">Haxe videos</h1>
-		<p class="lead">There are many ways to learn Haxe. Start learning from the Haxe community and join the community today.</p>
+		<h1 style="color:#fff">::section.title::</h1>
+		<p class="lead">::section.description::</p>
+		
+		::if (section.categories.length > 0)::
+			<a href="/videos/" class="button-head-video">&laquo; Overview</a>
+			::for c in section.categories::
+				<a href="/::c.path::" class="button-head-video">::c.title::</a>
+			::end::
+		::else::
+			::for s in sections::
+				::if (s != section)::
+					<a href="/::s.path::" class="button-head-video">::s.title::</a>
+				::end::
+			::end::
+		::end::
 	</div>
 </div>
 
@@ -18,31 +31,70 @@
 <br/>
 ::end::
 
-::for category in categories::
-::if (category.featuredVideos.length>0)::
-<div class="section light section-videos">
-	<div class="section">
-		<div class="container">
-			<h2><a href="/::category.path::">::category.title::</a> <small>(::category.videos.length::)</small></h2>
-			<div class="video-listing">
-				::for video in category.featuredVideos::
-				<div class="video-item">
-					<a href="/::video.path::">
-						<img src="https://img.youtube.com/vi/::video.youtubeId::/mqdefault.jpg" alt="::video.title::" class="thumbnail"  />
-					</a>
-					<h3>::video.title::</h3>
+::if (section.categories.length > 0)::
+	::if (false)::<!-- specific section -->::end::
+	::for category in categories::
+		::if (category.featuredVideos.length>0)::
+		<div class="section light section-videos">
+			<div class="section">
+				<div class="container">
+					<h2><a href="/::category.path::">::category.title::</a> <small>(::category.videos.length::)</small></h2>
+					<div class="video-listing">
+						::for video in category.featuredVideos::
+						<div class="video-item">
+							<a href="/::video.path::">
+								<img src="https://img.youtube.com/vi/::video.youtubeId::/mqdefault.jpg" alt="::video.title::" class="thumbnail"  />
+							</a>
+							<h3>::video.title::</h3>
+						</div>
+						::end::
+						::if (category.videos.length>=5)::
+						<div class="video-item button-next">
+							<a href="/::category.path::">&raquo;</a>
+						</div>
+						::end::
+					</div>
 				</div>
-				::end::
-				::if (category.videos.length>=5)::
-				<div class="video-item button-next">
-					<a href="/::category.path::">&raquo;</a>
-				</div>
-				::end::
 			</div>
 		</div>
-	</div>
-</div>
-::end::
+		::end::
+	::end::
+::else::
+	::if (false)::<!-- landing -->::end::
+	::for s in sections::
+	::if (s != section)::
+		<div class="section light section-videos">
+			<div class="section">
+				<div class="container">
+					<h1><small><a href="/::s.path::">::s.title::</a></small></h1><br/>
+					::for category in s.categories::
+					::if (category.userFeaturedVideos.length>0)::
+						<h2><a href="/::category.path::">::category.title::</a> <small>(::category.videos.length::)</small></h2>
+						<div class="video-listing">
+							::for video in category.userFeaturedVideos::
+							<div class="video-item">
+								<a href="/::video.path::">
+									<img src="https://img.youtube.com/vi/::video.youtubeId::/mqdefault.jpg" alt="::video.title::" class="thumbnail"  />
+								</a>
+								<h3>::video.title::</h3>
+							</div>
+							::end::
+							::if (category.videos.length>=5)::
+							<div class="video-item button-next">
+								<a href="/::category.path::">&raquo;</a>
+							</div>
+							::end::
+						</div>
+					::end::
+					::end::
+					::if (s.categories.length>1)::
+						<a href="/::s.path::" class="btn"><strong>See all collections in "::s.title::"</strong> (::s.categories.length::)</a></small>
+					::end::
+				</div>
+			</div>
+		</div>
+	::end::
+	::end::
 ::end::
 
 <div class="container">
