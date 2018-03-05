@@ -5,35 +5,35 @@
 	{
 		"featured": true,
 		"title": "The Inspector",
-		"description": null,
+		"description": "The inspector is a clever little framework that you can integrate into your game to enable live viewing, debugging and modification of your games. <a href='https://haxe.org/blog/nicolas-about-haxe-5/'>Read more</a>",
 		"where": null,
 		"date": "2016-05-01",
 		"youtubeId": "K8g-1dkBrxk"
 	}, {
 		"featured": true,
 		"title": "Introduction to Haxe compiler sources",
-		"description": null,
+		"description": "This week Nicolas talked us through the Haxe Compiler Source, the the very base of the Haxe Toolkit. <a href='https://haxe.org/blog/nicolas-about-haxe-episode-4/'>Read more</a>",
 		"where": null,
 		"date": "2016-04-25",
 		"youtubeId": "wE26yH7AYNo"
 	}, { 
 		"featured": true,
 		"title": "Macros 101",
-		"description": null,
+		"description": "In this week's stream, Nicolas gave a short introduction to the macro system, the most advanced features in Haxe. <a href='https://haxe.org/blog/nicolas-about-haxe-3/'>Read more</a>",
 		"where": null,
 		"date": "2016-04-18",
 		"youtubeId": "SEYCmjtKlVw"
 	}, {
 		"featured": true,
 		"title": "Heaps.io 2D/3D engine",
-		"description": null,
+		"description": "In this week's stream, Nicolas introduced his 2D/3D game framework Heaps, a platform agnostic game engine built with Haxe. <a href='/blog/nicolas-about-haxe-episode-2/'>Read more</a>",
 		"where": null,
 		"date": "2016-04-11",
 		"youtubeId": "-WeGME_T9Ew"
 	}, {
 		"featured": true,
 		"title": "The Compilation Server",
-		"description": null,
+		"description": "In this first episode of his new weekly stream Nicolas will tell you more about the compilation server and how to use it to improve compile time and completion time. <a href='https://haxe.org/blog/nicolas-about-haxe-episode-1/'>Read more</a>",
 		"where": null,
 		"date": "2016-04-04",
 		"youtubeId": "ckdOSCqUV6U"
