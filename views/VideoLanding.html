@@ -66,10 +66,12 @@
 		<div class="section light section-videos">
 			<div class="section">
 				<div class="container">
-					<h1><small><a href="/::s.path::">::s.title::</a></small></h1><br/>
+					<h1><small><a href="/::s.path::">::s.title::</a></small></h1>
+					<br/>
 					::for category in s.categories::
 					::if (category.userFeaturedVideos.length>0)::
 						<h2><a href="/::category.path::">::category.title::</a> <small>(::category.videos.length::)</small></h2>
+						
 						<div class="video-listing">
 							::for video in category.userFeaturedVideos::
 							<div class="video-item">
@@ -88,7 +90,7 @@
 					::end::
 					::end::
 					::if (s.categories.length>1)::
-						<a href="/::s.path::" class="btn"><strong>See all collections in "::s.title::"</strong> (::s.categories.length::)</a></small>
+						<p><a href="/::s.path::" title="::s.title::" class="btn"><strong>See all collections in "::s.title::"</strong> (::s.categories.length::)</a></p><br/>
 					::end::
 				</div>
 			</div>

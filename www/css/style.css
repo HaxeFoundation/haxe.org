@@ -1252,6 +1252,9 @@ a.partner-logo {
 .section.dark.section-videos a {
 	text-decoration: underline;
 }
+.section.section-videos h1 {
+	display:inline-block;
+}
 .section.dark.section-videos a:hover {
 	color:#FBC707;
 }
@@ -1294,7 +1297,7 @@ a.partner-logo {
 }
 
  .video-item {
-	width: 210px;
+	width: 18.22%;
 	margin-right: 4px;
 	display: inline-block;
 	margin-bottom: 1em;
@@ -1305,6 +1308,12 @@ a.partner-logo {
 	padding: 2px;
 	box-sizing: border-box;
  }
+ 
+@media (max-width: 979px) {
+	.video-item {
+		width: 210px;
+	}
+}
  
  .video-item.button-next {
 	width: 40px;
