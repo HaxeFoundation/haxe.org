@@ -73,10 +73,8 @@ class Videos {
 			for (file in FileSystem.readDirectory(videosPath)) {
 				var path = Path.join([videosPath, file]);
 				if (FileSystem.isDirectory(path)) {
-					trace("dir", path);
 					read(path);
 				} else if (Path.extension(file) == "json" && file != "index.json") {
-					trace("path", path);
 					var data:{ title:String, description:String, videos:Array<Video>} = Json.parse(File.getContent(path));
 					var videos:Array<Video> = data.videos;
 					
@@ -145,6 +143,7 @@ class Videos {
 		
 		// step 2:  generate pages
 		
+		var totalVideos = 0;
 		// main category
 		for (section in sections) { 
 			Utils.save(Path.join([Config.outputFolder, section.path, Config.index]), Views.VideoLanding(
@@ -161,10 +160,9 @@ class Videos {
 					section.categories
 				), null, null, category.title, category.description);
 				
-				
-				
 				// generate video pages
 				for (video in category.videos) {
+					totalVideos ++;
 					Utils.save(Path.join([Config.outputFolder, video.path]), Views.VideoPage(
 						video,
 						section.categories,
@@ -173,6 +171,8 @@ class Videos {
 				}
 			}
 		}
+		
+		trace("Total videos: " + totalVideos);
 	}
 	
 	static function getName(value:String):String {
