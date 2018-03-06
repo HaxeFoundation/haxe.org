@@ -401,13 +401,15 @@ ul.logos li.arr {
 	float: left;
 }
 .prev-link:before {
-	content: "\00ab ";
+	content: "\00ab";
+	padding-right: 4px;
 }
 .next-link {
 	float: right;
 }
 .next-link:after {
-	content: " \00bb";
+	content: "\00bb";
+	padding-left: 4px;
 }
 
 /**
