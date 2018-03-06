@@ -401,13 +401,13 @@ ul.logos li.arr {
 	float: left;
 }
 .prev-link:before {
-	content: "« ";
+	content: "\00ab ";
 }
 .next-link {
 	float: right;
 }
 .next-link:after {
-	content: " »";
+	content: " \00bb";
 }
 
 /**

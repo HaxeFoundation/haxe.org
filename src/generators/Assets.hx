@@ -27,6 +27,10 @@ class Assets {
 			}
 		} else {
 			File.copy(inPath, outPath);
+			
+			if (Path.extension(outPath) == "css") {
+				File.saveContent(outPath, Utils.minifyCss(File.getContent(outPath)));
+			} 
 		}
 	}
 

@@ -43,7 +43,7 @@ class Utils {
 			outPath = Path.withoutExtension(outPath) + ".html";
 		}
 
-		File.saveContent(outPath, Views.MainLayout(
+		File.saveContent(outPath, minifyHtml(Views.MainLayout(
 			current != null ? current.title : title,
 			description != null ? description : Config.description,
 			new Html(SiteMap.navbar(current != null ? current : SiteMap.pageForUrl(urlNormalize(outPath), false, true))),
@@ -51,7 +51,20 @@ class Utils {
 			new Html(SiteMap.footer()),
 			Std.string(Date.now().getFullYear()),
 			current != null && current.editLink != null ? current.editLink : editLink
-		));
+		)));
+	}
+	
+	public static inline function minifyHtml(content:String) {
+		// adapted from http://stackoverflow.com/questions/16134469/minify-html-with-boost-regex-in-c
+		return new EReg("(?ix)(?>[^\\S]\\s*|\\s{2,})(?=[^<]*+(?:<(?!/?(?:textarea|pre|script|code)\\b)[^<]*+)*+(?:<(?>textarea|pre|script|code)\\b|\\z))", "ig").replace(content, " ");
+	}
+
+	public static inline function minifyCss(content:String) {
+		content = ~/(\/\*\*?(.|\n)+?\*?\*\/)/g.replace(content, "");
+		// adapted from https://gist.github.com/clipperhouse/1201239/cad48570925a4f5ff0579b654e865db97d73bcc4
+		content = ~/\s*([,>+;:}{]{1})\s*/ig.replace(content, "$1");
+        content = content.split(";}").join("}");
+        return content;
 	}
 
 	public static function copy (src:String, dest:String) {
