@@ -184,8 +184,8 @@ class Videos {
 	}
 	
 	static function stripAccents(value:String) {
-		var inChars   = 'àáâãäçèéêëìíîïñòóôõöùúûüýÿ'.split('');
-		var outChars  = 'aaaaaceeeeiiiinooooouuuuyy'.split('');
+		var inChars   = ["à", "á", "â", "ã", "ä", "ç", "è", "é", "ê", "ë", "ì", "í", "î", "ï", "ñ", "ò", "ó", "ô", "õ", "ö", "ù", "ú", "û", "ü", "ý", "ÿ"];
+		var outChars  = ["a", "a", "a", "a", "a", "c", "e", "e", "e", "e", "i", "i", "i", "i", "n", "o", "o", "o", "o", "o", "u", "u", "u", "u", "y", "y"];
 		for (i in 0 ... inChars.length) {
 			value = value.replace(inChars[i], outChars[i]);
 		}
