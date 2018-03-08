@@ -1,6 +1,6 @@
 {
 	"title": "Kha Tutorial Series",
-	"description": "<a href='http://kha.tech' target='_blank'>KHA</a>, a portable creative framework written in haxe. For source code, go to the <a href='https://github.com/lewislepton/kha-tutorial-series' target='_blank'>github repo</a>. To support these videos, pop to <a href='https://www.patreon.com/lewislepton' target='_blank'>Lewis Leptons patreon page</a>",
+	"description": "<a href='http://kha.tech' target='_blank'>KHA</a>, a portable creative framework written in Haxe. For source code, go to the <a href='https://github.com/lewislepton/kha-tutorial-series' target='_blank'>github repo</a>. To support these videos, pop to <a href='https://www.patreon.com/lewislepton' target='_blank'>Lewis Leptons patreon page</a>",
 	"videos": [
 		{
 			"title": "Episode 000 - intro to haxe, kha & future plans",
