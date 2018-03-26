@@ -72,7 +72,8 @@ class Pages {
 					SiteMap.prevNextLinks(root.sub, sitepage),
 					new Html(SiteMap.sideBar(root.sub, sitepage)),
 					new Html(content),
-					editLink
+					editLink,
+					null
 				);
 			} else { // Not in sitemap, so can't make sidebar
 				content = Views.PageWithoutSidebar(new Html(content), editLink);

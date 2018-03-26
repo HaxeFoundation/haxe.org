@@ -83,7 +83,11 @@ class Manual {
 				SiteMap.prevNextLinks(sitemap, page.page),
 				new Html(SiteMap.sideBar(sitemap, page.page)),
 				new Html(content),
-				Config.manualBaseEditLink + page.page.editLink
+				Config.manualBaseEditLink + page.page.editLink, {
+					repo: '${Config.repoOrganisation}/${Config.manualRepo}', 
+					branch: Config.manualRepoBranch, 
+					title: 'Comments: ${page.page.title}',
+				}
 			);
 
 			Utils.save(Path.join([Config.outputFolder, page.page.url]), content, menuRoot, null);
@@ -111,7 +115,8 @@ class Manual {
 			SiteMap.prevNextLinks(sitemap, dictionaryPage),
 			new Html(SiteMap.sideBar(sitemap, dictionaryPage)),
 			new Html(dictionaryContent),
-			Config.manualBaseEditLink + dictionaryPage.editLink
+			Config.manualBaseEditLink + dictionaryPage.editLink,
+			null
 		);
 		Utils.save(Path.join([Config.outputFolder, dictionaryPage.url]), dictionaryContent, menuRoot, null);
 	}

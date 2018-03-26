@@ -14,6 +14,11 @@
 
 			<div class="span8">
 				::content::
+				
+				::if (comments != null)::
+				<hr/>
+				<script src="https://utteranc.es/client.js" repo="::comments.repo::" branch="::comments.branch::" issue-term="::comments.title::" async="async"></script>
+				::end::
 			</div>
 
 		</div>
