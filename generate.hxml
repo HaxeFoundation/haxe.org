@@ -8,4 +8,6 @@
 -lib tink_template
 -cp views
 --macro tink.Template.addFlavor('html', '::', '::', false)
---interp
+-js bin/generator.js
+-lib hxnodejs
+-cmd node bin/generator.js

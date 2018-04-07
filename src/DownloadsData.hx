@@ -105,9 +105,14 @@ class DownloadsData {
 			case githubAuth: //format is username:token
 				["-u", githubAuth];
 		}
+		#if nodejs
+		var data = js.node.ChildProcess.execSync("curl " + authArgs.concat(["https://api.github.com/repos/haxefoundation/haxe/releases?per_page=50"]).join(" "));
+		var releases:Array<GithubRelease> = Json.parse(data);
+		#else
 		var data = new Process("curl", authArgs.concat(["https://api.github.com/repos/haxefoundation/haxe/releases?per_page=50"]));
 		var releases:Array<GithubRelease> = Json.parse(data.stdout.readAll().toString());
 		data.close();
+		#end
 		releases;
 	}
 

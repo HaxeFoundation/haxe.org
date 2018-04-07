@@ -46,6 +46,7 @@ The haxe.org website was designed to be easy to generate, to run a local copy fo
 * Haxelib
 * Neko
 * cUrl
+* NodeJS
 
 ### Setting up
 

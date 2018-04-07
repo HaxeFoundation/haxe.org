@@ -2,6 +2,7 @@
 doc/
 deploy/
 out/
+bin/
 
 # Private content
 .env
