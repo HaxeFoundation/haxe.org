@@ -24,6 +24,8 @@ class Main {
 		generators.Redirections.generate();
 		generators.RobotsTxt.generate();
 
+		SyntaxHighlighter.patchStyle();
+
 		var end = Date.now().getTime();
 		Sys.println('Generation complete, time ${(end - start)/1000}s');
 	}

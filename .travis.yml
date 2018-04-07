@@ -12,12 +12,21 @@ dist: trusty
 
 sudo: false
 
+addons:
+  apt:
+    packages:
+    - nodejs
+
 install:
   # install awscli
   - pip install --user awscli
   - aws --version
   # install haxelibs
   - yes | haxelib install all
+  # get hxnodejs from git, haxelib's is outdated
+  - haxelib git hxnodejs https://github.com/HaxeFoundation/hxnodejs
+  # Get vscode-textmate
+  - npm install
 
 script:
   - haxe generate.hxml

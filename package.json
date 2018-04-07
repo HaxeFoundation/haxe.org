@@ -1,0 +1,7 @@
+{
+    "name": "haxe-website",
+    "version": "0.1.0",
+    "devDependencies": {
+        "vscode-textmate": "^3.1.5"
+    }
+}

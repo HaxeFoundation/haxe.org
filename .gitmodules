@@ -1,3 +1,6 @@
 [submodule "manual"]
 	path = manual
 	url = https://github.com/HaxeFoundation/HaxeManual.git
+[submodule "haxe-TmLanguage"]
+	path = haxe-TmLanguage
+	url = https://github.com/vshaxe/haxe-TmLanguage.git

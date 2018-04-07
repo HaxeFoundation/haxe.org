@@ -3,6 +3,8 @@ doc/
 deploy/
 out/
 bin/
+node_modules/
+package-lock.json
 
 # Private content
 .env

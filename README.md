@@ -50,7 +50,7 @@ The haxe.org website was designed to be easy to generate, to run a local copy fo
 
 ### Setting up
 
-* Install the dependencies `haxelib install all` in the root directory.
+* Install the dependencies `haxelib install all` and `npm install` in the root directory.
 * Update submodule dependencies `git submodule init && git submodule update`
 * Generate the website by running `haxe generate.hxml`.
 
