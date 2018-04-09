@@ -4,3 +4,9 @@
 [submodule "haxe-TmLanguage"]
 	path = grammars/haxe-TmLanguage
 	url = https://github.com/vshaxe/haxe-TmLanguage.git
+[submodule "grammars/lua.tmbundle"]
+	path = grammars/lua.tmbundle
+	url = https://github.com/textmate/lua.tmbundle.git
+[submodule "grammars/xml.tmbundle"]
+	path = grammars/xml.tmbundle
+	url = https://github.com/textmate/xml.tmbundle.git

@@ -10,12 +10,15 @@ class SyntaxHighlighter
 {
 	static var haxeGrammar = new Highlighter("grammars/haxe-TmLanguage/haxe.tmLanguage");
 	static var hxmlGrammar = new Highlighter("grammars/haxe-TmLanguage/hxml.tmLanguage");
+	static var luaGrammar = new Highlighter("grammars/lua.tmbundle/Syntaxes/Lua.plist");
+	static var xmlGrammar = new Highlighter("grammars/xml.tmbundle/Syntaxes/XML.plist");
 	static var grammars : Map<String, Highlighter>;
+	static var missingGrammars = ["" => true];
 
 	public static function patch () {
 		Sys.println("Applying syntax highlighting ...");
 
-		grammars = ["haxe" => haxeGrammar, "hxml" => hxmlGrammar];
+		grammars = ["haxe" => haxeGrammar, "hxml" => hxmlGrammar, "lua" => luaGrammar, "xml" => xmlGrammar];
 
 		// Go over the generated HTML file and apply syntax highlighting
 		patchFolder(Config.outputFolder);
@@ -80,6 +83,11 @@ class SyntaxHighlighter
 						var siblings = [for (n in xml.parent) n];
 						xml.parent.insertChild(new_xml, siblings.indexOf(xml));
 						xml.parent.removeChild(xml);
+					}
+					else if (!missingGrammars.exists(lang))
+					{
+						Sys.println('Missing grammar for "${lang}"');
+						missingGrammars.set(lang, true);
 					}
 
 				default:
