@@ -17,7 +17,7 @@ Building on OS X
 
 The dependencies can be easily installed by [Homebrew](http://brew.sh/). In fact, if you only want to use the latest development branch of Haxe, without modifying the source, simply run:
 
-```shell
+```
 brew install haxe --HEAD
 ```
 

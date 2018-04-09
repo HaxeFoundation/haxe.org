@@ -1,4 +1,3 @@
-import generators.Manual.Section;
 import generators.Videos;
 import tink.template.Html;
 

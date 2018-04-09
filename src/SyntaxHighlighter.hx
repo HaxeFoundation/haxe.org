@@ -47,7 +47,9 @@ class SyntaxHighlighter
 		{
 			var xml = Xml.parse(File.getContent(path));
 			processNode(xml);
-			File.saveContent(path, xml.toString());
+
+			var result = ~/&amp;([a-z]+;)/g.replace(xml.toString(), "&$1");
+			File.saveContent(path, result);
 		} catch (e:Dynamic) {
 			if (Std.is(e, XmlParserException)) {
 				var e = cast(e, XmlParserException);
