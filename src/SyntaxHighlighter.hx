@@ -8,8 +8,8 @@ using StringTools;
 
 class SyntaxHighlighter
 {
-	public static var haxeGrammar = new Highlighter("grammars/haxe-TmLanguage/haxe.tmLanguage", "light");
-	public static var hxmlGrammar = new Highlighter("grammars/haxe-TmLanguage/hxml.tmLanguage", "light");
+	static var haxeGrammar = new Highlighter("grammars/haxe-TmLanguage/haxe.tmLanguage");
+	static var hxmlGrammar = new Highlighter("grammars/haxe-TmLanguage/hxml.tmLanguage");
 	static var grammars : Map<String, Highlighter>;
 
 	public static function patch () {
@@ -80,10 +80,6 @@ class SyntaxHighlighter
 						var siblings = [for (n in xml.parent) n];
 						xml.parent.insertChild(new_xml, siblings.indexOf(xml));
 						xml.parent.removeChild(xml);
-					}
-					else if (lang != "")
-					{
-						trace(lang);
 					}
 
 				default:
