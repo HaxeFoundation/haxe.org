@@ -3,7 +3,7 @@
 * all : fixed using + overload usage
 * all : allow any type constraint for type parameters
 * all : make property type optional (when a initial value is set)
-* all : Std.random(x) when x <= 0 is now always 0
+* all : Std.random(x) when x &lt;= 0 is now always 0
 * spod : added serialized data with SData
 * all : Dispatcher will now throw DETooManyValues
 * all : speed up neko compilation by using native compiler

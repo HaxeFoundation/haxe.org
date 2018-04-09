@@ -21,7 +21,7 @@
 * macro : added `haxe.macro.Context.getLocalMethod`
 * macro : improved support of `using` macro functions
 * php : optimized Xml implementation
-* php : fixed Reflect.get/setProperty not working on PHP < 5.3
+* php : fixed Reflect.get/setProperty not working on PHP &lt; 5.3
 * all : support for `callback(f, _, x)`
 * all : allow private access between classes that have a common base class
 * all : added Output.writeFloat/Double and Input.readFloat/Double

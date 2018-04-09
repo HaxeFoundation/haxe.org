@@ -9,7 +9,7 @@
 * fixed php rethrow in catches and added the possibility to catch native exceptions
 * added runttime check for php.io.Socket.shutdown (uses fclose in php 5.1.x)
 * allowed optional Context in remoting connections
-* fixed extern classes for flash < 8
+* fixed extern classes for flash &lt; 8
 * fixed inherited protected/private properties in as3 SWF library
 * fixed haxe.io float/double in Neko (when bigEndian was null)
 * added __FSCommand2__ support

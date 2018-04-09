@@ -1,7 +1,7 @@
 * neko : change serializer to be able to handle instances of basic classes from other modules
 * js : add Document.createTextNode
 * all : bugfix with inline when modifying var with same name as one of current local
-* flash9 : classes implementing ArrayAccess<T> are now dynamic (including TypedDictionary)
+* flash9 : classes implementing `ArrayAccess<T>` are now dynamic (including TypedDictionary)
 * all : allow "using" on typedefs
 * as3 : minor fixes in genas3 and --gen-hx-classes
 * as3 : fix with readonly/writeonly properties accesses
@@ -24,7 +24,7 @@
 * all : some completion related errors fixed
 * flash9 : added @:bind support
 * all : fixed StringTools.hex with negative numbers
-* flash9 : fixed Type.typeof(1<<28) was TFloat
+* flash9 : fixed Type.typeof(1&lt;&lt;28) was TFloat
 * flash9 : use flash.XML parser for Xml class implementation
 * neko : fixed Array.splice (was not setting null at end of array)
 * neko : rewrote Array class using neko.NativeArray

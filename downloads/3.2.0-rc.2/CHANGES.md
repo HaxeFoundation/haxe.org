@@ -94,7 +94,7 @@ __Standard Library__:
 * all : added haxe.extern.Rest type for representing "rest" arguments in extern method signatures
 * all : added haxe.extern.EitherType abstract type for dealing with externs for dynamic targets
 * all : added haxe.DynamicAccess type for working with dynamic anonymous structures using a Map-like interface
-* all : [breaking] changed haxe.ds.Vector.get to return T instead of Null<T>
+* all : [breaking] changed haxe.ds.Vector.get to return T instead of `Null<T>`
 * all : added haxe.macro.Compiler.addGlobalMetadata
 * all : changed haxe.Int64 to be an abstract type instead of a class
 * js : updated HTML externs

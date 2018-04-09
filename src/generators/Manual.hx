@@ -210,14 +210,6 @@ class Manual {
 	static function processNode (xml:Xml) {
 		if (xml.nodeType == Xml.Element) {
 			switch (xml.nodeName) {
-				case "pre":
-					var fc = xml.firstChild().firstChild();
-					var original = fc.toString().htmlUnescape();
-					var highlighted = SyntaxHighlighter.haxe.run(DataContent(original));
-					var new_xml = Xml.parse(highlighted);
-					insertBefore(new_xml, xml);
-					xml.parent.removeChild(xml);
-
 				case "a":
 					if (xml.exists("href")) {
 						xml.set("href", xml.get("href").replace(".md", ".html"));

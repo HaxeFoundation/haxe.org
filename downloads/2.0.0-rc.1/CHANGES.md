@@ -1,6 +1,6 @@
 * genneko : remove big array error (fixed in neko 1.7.1)
 * fixed neko.net.ThreadRemotingServer.onXML
-* genswf9 : fixed verify error with Null<Class> (was using dynamic access)
+* genswf9 : fixed verify error with `Null<Class>` (was using dynamic access)
 * small patch for jsfl support
 * added .cca for faster string operations on Flash9/Flash/JS
 * bugfix with inlined local variables

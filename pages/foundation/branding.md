@@ -71,7 +71,7 @@ _Can be used in black, white and orange._
 Our primary color and used most often. 
 
 <div style="background:#EA8220;padding:20px; color:#FFF">
-<h3>Haxe Orange</h3>#EA8220<br>rgb(234, 130, 32)<br>hsl(29, 83% 52%)
+<h3>Haxe Orange</h3>#EA8220<br />rgb(234, 130, 32)<br />hsl(29, 83% 52%)
 </div>
 
 ### Secondary colors 
@@ -79,19 +79,19 @@ Our primary color and used most often.
 The logo stands out very well on dark gray and white backgrounds. Also with a very subtle gradients.
 
 <div style="border:1px solid #ccc;border-bottom:0; padding:20px;">
-<h4>White</h4>#FFFFFF<br>rgb(255,255,255)<br>hsl(0, 100%, 100%)
+<h4>White</h4>#FFFFFF<br />rgb(255,255,255)<br />hsl(0, 100%, 100%)
 </div>
 
 <div style="background:#FBC707;padding:20px; color:#FFF">
-<h4>Yellow</h4>#FBC707<br>rgb(251,199,7)<br>hsl(47, 97%, 98%)
+<h4>Yellow</h4>#FBC707<br />rgb(251,199,7)<br />hsl(47, 97%, 98%)
 </div>
 
 <div style="background:#A84B38;padding:20px; color:#FFF">
-<h4>Dark red</h4>#A84B38<br>rgb(168,75,56)<br>hsl(10, 50%, 44%)
+<h4>Dark red</h4>#A84B38<br />rgb(168,75,56)<br />hsl(10, 50%, 44%)
 </div>
 
 <div style="background:#141419;padding:20px; color:#FFF">
-<h4>Almost Black</h4>#141419<br>rgb(20,20,25)<br>hsl(240, 11%, 9%)
+<h4>Almost Black</h4>#141419<br />rgb(20,20,25)<br />hsl(240, 11%, 9%)
 </div>
 
 

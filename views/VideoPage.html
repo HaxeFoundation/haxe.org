@@ -3,7 +3,7 @@
 	<div class="container">
 		
 		<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style>
-		<div class='embed-container'><iframe src="https://www.youtube.com/embed/::video.youtubeId::" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+		<div class='embed-container'><iframe src="https://www.youtube.com/embed/::video.youtubeId::" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="true"></iframe></div>
 		<br/>
 		::if (video.prev!=null)::<a href="/::video.prev.path::" class="button-head-video pull-left" title="::video.prev.title::">&laquo; Next video</a>::end::
 		::if (video.next!=null)::<a href="/::video.next.path::" class="button-head-video pull-right" title="::video.next.title::">Previous video &raquo;</a>::end::

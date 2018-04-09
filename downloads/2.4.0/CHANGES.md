@@ -2,21 +2,21 @@
 * js : fixed Array.remove on IE
 * flash8 : removed extra empty AS3 tag (causing some issue with F8 loadMovie)
 * improved speed of Bytes unserializing (no need for BytesBuffer)
-* flash9 : bugfix, Null<Typedef> was generating dynamic code
+* flash9 : bugfix, `Null<Typedef>` was generating dynamic code
 * flash9 : added error message in flash.Vector if used without flash 10
 * flash9 : fixed some "never" property access issues
 * all : added "never" property access support for all platforms
 * js : small syntax fix with value-blocks
 * js : fixed Type.enumEq with null values
 * js/flash8 : use &0xFF in haxe.io.Bytes.set
-* flash9 : fixed switch on Null<Int> verify error
+* flash9 : fixed switch on `Null<Int>` verify error
 * flash9 : fixes related to UInt type + error when using Int/UInt comparison
 * as3 : improved Vector support, inline flash.Lib.as
 * as3 : bugfix with skip_constructor
 * as3 : added Enum.__constructs__ (allow Type.getEnumConstructs)
 * as3 : make all constructor parameters optional (allow Type.createEmptyInstance)
 * as3 : bugfix with property access inside setter (stack overflow)
-* all : Enum is now Enum<T>
+* all : Enum is now `Enum<T>`;
 * all : added Type.createEnumIndex
 * all : forbid same name for static+instance field (not supported on several platforms)
 * all : renamed haxe.Http.request to "requestUrl"

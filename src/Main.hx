@@ -24,7 +24,8 @@ class Main {
 		generators.Redirections.generate();
 		generators.RobotsTxt.generate();
 
-		SyntaxHighlighter.patchStyle();
+		// Patch as post process the html file with syntax highlighting
+		SyntaxHighlighter.patch();
 
 		var end = Date.now().getTime();
 		Sys.println('Generation complete, time ${(end - start)/1000}s');

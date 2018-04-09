@@ -14,7 +14,7 @@
 * js/flash9 : throw exception in Xml.parse when unclosed node
 * all : improve return type progagation in inlined expression (fix some VerifyErrors)
 * all : optimize {const} into const
-* all : added structure / Dynamic<T> subtyping
+* all : added structure / `Dynamic<T>` subtyping
 * all : fixed List.map2 error when inline + optional args
 * flash9 : encode all ISO constant strings into UTF8 at compilation time
 * all : allow hxml with only -cmd statements
