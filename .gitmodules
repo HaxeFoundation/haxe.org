@@ -10,3 +10,15 @@
 [submodule "grammars/xml.tmbundle"]
 	path = grammars/xml.tmbundle
 	url = https://github.com/textmate/xml.tmbundle.git
+[submodule "grammars/c.tmbundle"]
+	path = grammars/c.tmbundle
+	url = https://github.com/textmate/c.tmbundle.git
+[submodule "grammars/actionscript3-tmbundle"]
+	path = grammars/actionscript3-tmbundle
+	url = https://github.com/simongregory/actionscript3-tmbundle.git
+[submodule "grammars/language-javascript"]
+	path = grammars/language-javascript
+	url = https://github.com/atom/language-javascript.git
+[submodule "grammars/language-shellscript"]
+	path = grammars/language-shellscript
+	url = https://github.com/atom/language-shellscript.git

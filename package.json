@@ -2,6 +2,7 @@
     "name": "haxe-website",
     "version": "0.1.0",
     "devDependencies": {
-        "vscode-textmate": "^3.1.5"
+        "vscode-textmate": "3.1.5",
+        "cson-parser": "3.0.0"
     }
 }
