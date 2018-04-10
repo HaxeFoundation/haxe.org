@@ -417,8 +417,6 @@ ul.logos li.arr {
 **/
 
 html pre, html pre code {
-	font-family: "Source Code Pro", consolas, monospace;
-	font-size: 14px;
 	white-space: pre;
 	overflow-x: auto;
 }
