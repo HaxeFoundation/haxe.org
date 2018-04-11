@@ -58,11 +58,16 @@
 
     var displayShop = function (haxeLocation) {
         document.getElementById("myShop").innerHTML = "";
+		$.ajaxSetup({
+		  cache: true
+		});
         if (haxeLocation == "eu") {
             spread_shop_config.locale = "en_EU";
             spread_shop_config.prefix = '//shop.spreadshirt.fr';
+			$.getScript('https://shop.spreadshirt.fr/shopfiles/shopclient/shopclient.nocache.js');
+        } else {
+            $.getScript('https://shop.spreadshirt.com/shopfiles/shopclient/shopclient.nocache.js');
         }
-        window.loadShop();
     }
 
     var init = function () {
@@ -94,4 +99,3 @@
         displayShop(haxeLocation);
     }
 </script>
-<script src="/js/spreadshirt.js"></script>
