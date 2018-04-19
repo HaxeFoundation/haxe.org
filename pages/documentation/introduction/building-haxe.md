@@ -56,7 +56,7 @@ Building on Windows (mingw)
     You might need to switch "View" in top-right corner to "Not Installed" to see it in the list.
   - Run OCaml32 terminal from the desktop shortcut, from it:
   
-    - Install dependencies through opam: `opam install camlp4 sedlex ocamlfind xml-light extlib rope ptmap`
+    - Install dependencies through opam: `opam install camlp4 sedlex ocamlfind xml-light extlib rope ptmap sha`
 
 ### Running from cmd/powershell
 
