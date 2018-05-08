@@ -25,17 +25,17 @@ Longtime Haxe community advocate [Josefiene Pertosa](https://twitter.com/Fiene_P
 
 Haxe Foundation director Nicolas Cannasse showcased some of the new features coming to version 4.0 of Haxe. Some of these include:
 
-* Eval macro interpreter - Offering a 4x speed increase (or greater in some instances)
-* Arrow functions
-* New function type syntax
-* New 'final' keyword
-* More!
+* [Eval macro interpreter](https://haxe.org/blog/eval/) - Offering a 4x speed increase (or greater in some instances)
+* [Arrow functions](https://github.com/HaxeFoundation/haxe-evolution/blob/master/proposals/0002-arrow-functions.md)
+* [New function type syntax](https://github.com/HaxeFoundation/haxe-evolution/blob/master/proposals/0003-new-function-type.md)
+* [New 'final' keyword](https://github.com/HaxeFoundation/haxe/pull/6596)
+* [More!](https://github.com/HaxeFoundation/haxe/blob/development/extra/CHANGES.txt)
 
 You don’t need to wait for the release to try out these new features.  Many are available now in the [latest preview build.](https://haxe.org/download/version/4.0.0-preview.3/)
 
 ## Haxe Foundation Improvements
 
-A new process was discussed for future Haxe feature requests.  The goal is more transparency and community involvement and so far the reviews have been positive.
+A [new process](https://github.com/HaxeFoundation/haxe-evolution/) was discussed for future Haxe feature requests.  The goal is more transparency and community involvement and so far the reviews have been positive.
 
 ## New Haxe Foundation Marketing Director
 
