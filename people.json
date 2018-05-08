@@ -133,5 +133,10 @@
 		"username": "derrickmorton",
 		"name": "Derrick Morton",
 		"bio": "CEO of FlowPlay"
+	},
+	{
+		"username": "pchertok",
+		"name": "Phil Chertok",
+		"bio": "Marketing Director at the Haxe Foundation"
 	}
 ]
