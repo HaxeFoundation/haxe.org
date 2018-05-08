@@ -53,7 +53,7 @@ Thanks to Adam, Craig and Scott for their fantastic talks.
 
 ## OpenFL 8.0 Released
 
-[OpenFL](http://openfl.org) Managing Director Joshua Granick used the Haxe U.S. Summit to announce the release of OpenFL 8.0.  Along with new performance features, Joshua revealed that OpenFL is now available on NPM for TypeScript & JavaScript users, expanding the reach of OpenFL to even more developers!
+[OpenFL](http://openfl.org) Managing Director Joshua Granick used the Haxe U.S. Summit to announce the release of OpenFL 8.0.  Along with new performance features, Joshua talked about how OpenFL is now available on NPM for TypeScript & JavaScript users, expanding the reach of OpenFL to even more developers! It was also announced that [HaxeFlixel 4.4.0 has been released](https://haxeflixel.com/blog/12-HaxeFlixel-4-4-0/) at it includes OpenFL 8.0 suport.
 
 ## Wait… There’s More
 
