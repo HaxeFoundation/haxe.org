@@ -75,6 +75,6 @@ Two of the funniest presentations came from long-time Haxe community member [Jef
 
 Looking back, the first ever Haxe U.S. Summit was a huge success.  It wouldn’t have been possible without the tremendous support from our sponsor [FlowPlay](https://www.flowplay.com) and our fabulous attendees.  Preparations for the next Summit are already underway & we look forward to sharing details with you as soon as possible. Until then, thanks to everyone who took part online or in person and we can’t wait to see you all again.
 
-If you can't wait to get your Haxe conference fix, the [Hong Kong Open Source Conference](https://www.eventbrite.com/e/hong-kong-open-source-conference-2018-tickets-44667134602) will be featuring a Haxe track.  The event happens June 16th & 17th and registration is free. so if you're in the Hong Kong area you should try to make it out. 
+If you can't wait to get your Haxe conference fix, the [Hong Kong Open Source Conference](https://www.eventbrite.com/e/hong-kong-open-source-conference-2018-tickets-44667134602) will featue a Haxe track.  The event happens June 16th & 17th and registration is free. So if you're in the Hong Kong area you should try to check it out.
 
 !['View from the top of the Smith Tower'](seattletow.jpg) 
