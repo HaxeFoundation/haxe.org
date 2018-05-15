@@ -12,18 +12,32 @@ class Pages {
 
 		// Normal pages
 		for (i in Utils.listDirectoryRecursive(Config.pagesPath)) {
+			
 			var path = i.split("/");
+		
 			path.shift();
 			var folder = path.length > 1 ? path.shift() : "/";
 			var file = path.join("/");
-
+			if (Path.extension(file) == "scripts" || Path.extension(file) == "styles") {
+				Sys.println("Skpping script pages ..."+ file);
+				continue;
+			}
 			var inPath = Path.join([Config.pagesPath, folder, file]);
 			var sitepage = SiteMap.pageForUrl(folder + "/" + file, false, false);
 			var root = SiteMap.pageForUrl(folder, true, false);
 			var content = Utils.readContentFile(inPath);
 			var editLink = Config.baseEditLink + inPath;
+			
+			var fileName = file.split(".")[0];
 
-			genPage(folder, root, sitepage, content, file, editLink);
+			var stylesPath = Path.join([Config.pagesPath, folder, fileName + ".styles"]);
+			var additionalStyles = Utils.readContentFile(stylesPath);
+
+			var scriptsPath = Path.join([Config.pagesPath, folder, fileName + ".scripts"]);
+			var additionalScripts = Utils.readContentFile(scriptsPath);
+			
+
+			genPage(folder, root, sitepage, content, file, editLink,additionalStyles,additionalScripts);
 		}
 
 		genWhoIsWho();
@@ -62,10 +76,10 @@ class Pages {
 		var content = Views.WhoIsWho(membersData, formersData);
 		var root = SiteMap.pageForUrl("foundation", true, false);
 		var sitepage = SiteMap.pageForUrl("foundation/people.md", false, false);
-		genPage("foundation", root, sitepage, content, "people.md", null);
+		genPage("foundation", root, sitepage, content, "people.md", null, null,null);
 	}
 
-	static function genPage (folder, root, sitepage, content, file, editLink) {
+	static function genPage (folder, root, sitepage, content, file, editLink,additionalStyles,additionalScripts) {
 		if (folder != "/") { // Not top level
 			if (root != null && sitepage != null) {
 				content = Views.PageWithSidebar(
@@ -79,7 +93,7 @@ class Pages {
 				content = Views.PageWithoutSidebar(new Html(content), editLink);
 			}
 		}
-
-		Utils.save(Path.join([Config.outputFolder, folder, file]), content, sitepage, editLink);
+		
+		Utils.save(Path.join([Config.outputFolder, folder, file]), content, sitepage, editLink,null,null,additionalStyles,additionalScripts);
 	}
 }

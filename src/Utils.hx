@@ -24,6 +24,9 @@ class Utils {
 	}
 
 	public static function readContentFile (path:String) : String {
+		if(!FileSystem.exists(path)){			
+			return null;
+		}
 		var content = File.getContent(path);
 
 		if (Path.extension(path) == "md") {
@@ -33,7 +36,7 @@ class Utils {
 		return content;
 	}
 
-	public static function save(outPath:String, content:String, current:SiteMap.SitePage, editLink:String, title:String = null, description:String = null) {
+	public static function save(outPath:String, content:String, current:SiteMap.SitePage, editLink:String, title:String = null, description:String = null, additionalScripts:String = null,additionalStyles:String = null) {
 		var dir = Path.directory(outPath);
 		if (!FileSystem.exists(dir)) {
 			FileSystem.createDirectory(dir);
@@ -43,6 +46,7 @@ class Utils {
 			outPath = Path.withoutExtension(outPath) + ".html";
 		}
 
+	
 		File.saveContent(outPath, minifyHtml(Views.MainLayout(
 			current != null ? current.title : title,
 			description != null ? description : Config.description,
@@ -50,8 +54,12 @@ class Utils {
 			new Html(content),
 			new Html(SiteMap.footer()),
 			Std.string(Date.now().getFullYear()),
-			current != null && current.editLink != null ? current.editLink : editLink
+			current != null && current.editLink != null ? current.editLink : editLink,
+			additionalStyles != null ? new Html(additionalStyles) : null,
+			additionalScripts != null ? new Html(additionalScripts) : null
 		)));
+
+		
 	}
 
 	public static inline function minifyHtml(content:String) {
