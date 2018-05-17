@@ -140,9 +140,9 @@
 			"youtubeId": "hiqgmWIpGyQ"
 		},
 		{
-			"title": "Haxe/OpenFL Native Extensions for iOS and Android - Craig Robinson",
+			"title": "Haxe/OpenFL Native Extensions - Craig Robinson",
 			"where": "Haxe Summit US 2018",
-			"description": "",
+			"description": "Haxe/OpenFL Native Extensions for iOS and Android",
 			"date": "2018-05-05",
 			"youtubeId": "Xw9bd-oxZHc"
 		},
@@ -169,9 +169,9 @@
 			"youtubeId": "zzcvYkbpms0"
 		},
 		{
-			"title": "Creating our mobile development pipeline - Adam Breece",
+			"title": "Creating mobile development pipeline - Adam Breece",
 			"where": "Haxe Summit US 2018",
-			"description": "",
+			"description": "What I wish I’d known when creating our mobile development pipeline.",
 			"date": "2018-05-05",
 			"youtubeId": "PfOdGB7IcvY"
 		}
