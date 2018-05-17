@@ -59,7 +59,7 @@
 			"youtubeId": "JzItj1CYDjE"
 		},
 		{
-			"title": "Golgi : Fast cross platform routing and dispatch - Justin Donaldson",
+			"title": "Golgi: Fast cross platform routing and dispatch - Justin Donaldson",
 			"where": "Haxe Summit US 2018",
 			"description": "",
 			"date": "2018-05-05",
@@ -80,9 +80,9 @@
 			"youtubeId": "uHUhdRXQnwA"
 		},
 		{
-			"title": "Better stacks with Haxe: Let’s build a web app from the ground up - Jeff Ward",
+			"title": "Better stacks with Haxe - Jeff Ward",
 			"where": "Haxe Summit US 2018",
-			"description": "",
+			"description": "Let’s build a web app from the ground up",
 			"date": "2018-05-05",
 			"youtubeId": "TkmmGb-tn_I"
 		},
@@ -101,9 +101,9 @@
 			"youtubeId": "SfwLOOkcSfo"
 		},
 		{
-			"title": "Consuming injections with minimal dependencies - Francis Bourre",
+			"title": "Minimal dependencies - Francis Bourre",
 			"where": "Haxe Summit US 2018",
-			"description": "",
+			"description": "Consuming injections with minimal dependencies",
 			"date": "2018-05-05",
 			"youtubeId": "hphNp2LfsqY"
 		},
@@ -115,9 +115,9 @@
 			"youtubeId": "iOc41tCytIg"
 		},
 		{
-			"title": "Get your project humming with IntelliJ IDEA - Eric Bishton",
+			"title": "IntelliJ IDEA - Eric Bishton",
 			"where": "Haxe Summit US 2018",
-			"description": "",
+			"description": "Get your project humming with IntelliJ IDEA",
 			"date": "2018-05-05",
 			"youtubeId": "Qo3Wei3Kb9I"
 		},
@@ -129,14 +129,14 @@
 			"youtubeId": "fG7J5D_s2js"
 		},
 		{
-			"title": "Console Punks: Haxe for Xbox, PlayStation, and Beyond - Dan Goldstein",
+			"title": "Console Punks: Haxe for Xbox, PlayStation - Dan Goldstein",
 			"where": "Haxe Summit US 2018",
 			"description": "",
 			"date": "2018-05-05",
 			"youtubeId": "hiqgmWIpGyQ"
 		},
 		{
-			"title": "Building Haxe/OpenFL Native Extensions for iOS and Android - Craig Robinson",
+			"title": "Haxe/OpenFL Native Extensions for iOS and Android - Craig Robinson",
 			"where": "Haxe Summit US 2018",
 			"description": "",
 			"date": "2018-05-05",
@@ -150,9 +150,9 @@
 			"youtubeId": "QiswbJx-Qeo"
 		},
 		{
-			"title": "Haxe: A dream-come-true for browser interactivity - Allan Dowdeswell",
+			"title": "Browser interactivity - Allan Dowdeswell",
 			"where": "Haxe Summit US 2018",
-			"description": "",
+			"description": "A dream-come-true for browser interactivity",
 			"date": "2018-05-05",
 			"youtubeId": "QZRcaYYaI7A"
 		},
@@ -164,7 +164,7 @@
 			"youtubeId": "zzcvYkbpms0"
 		},
 		{
-			"title": "What I wish I’d known when creating our mobile development pipeline - Adam Breece",
+			"title": "Creating our mobile development pipeline - Adam Breece",
 			"where": "Haxe Summit US 2018",
 			"description": "",
 			"date": "2018-05-05",
