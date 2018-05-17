@@ -10,7 +10,7 @@ disqusID: 37
 
 ## Haxe Summit 2018 Recap
 
-The first Haxe U.S. Summit has come and gone, but it won’t be soon forgotten.  Themes of inspiration and cooperation dominated the 3-day event as Haxe users from around the World gathered to share their work and ideas.  Along with talks and workshops, there were plenty of festivities including a casino night, a tour of Summit sponsor FlowPlay’s offices and a trip to the top of the Smith Tower. You can find links to [all the talks here](https://docs.google.com/document/d/1uCwEXbubWndbCUBhmXiyCj3M4XBxog_1zOczLr3a0t8/edit). If you need to wait to catch up on the videos, here are some of the key highlights from the event.
+The first Haxe U.S. Summit has come and gone, but it won’t be soon forgotten.  Themes of inspiration and cooperation dominated the 3-day event as Haxe users from around the World gathered to share their work and ideas.  Along with talks and workshops, there were plenty of festivities including a casino night, a tour of Summit sponsor FlowPlay’s offices and a trip to the top of the Smith Tower. You can find [all the talks here](/videos/conferences/haxe-summit-us-2018/). If you need to wait to catch up on the videos, here are some of the key highlights from the event.
 
 
 <img src="casino.jpg" alt="Jeff Ward living a lifelong dream by nailing a full house against Nicolas Cannasse" text-align="center"/>
