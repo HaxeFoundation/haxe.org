@@ -49,7 +49,8 @@
 			"where": "Haxe Summit US 2018",
 			"description": "",
 			"date": "2018-05-05",
-			"youtubeId": "ab_VJEaV5bY"
+			"youtubeId": "ab_VJEaV5bY",
+			"featured": true
 		},
 		{
 			"title": "A deep dive into hexUnit - Laurent Deketelaere",
@@ -77,14 +78,16 @@
 			"where": "Haxe Summit US 2018",
 			"description": "",
 			"date": "2018-05-05",
-			"youtubeId": "uHUhdRXQnwA"
+			"youtubeId": "uHUhdRXQnwA",
+			"featured": true
 		},
 		{
 			"title": "Better stacks with Haxe - Jeff Ward",
 			"where": "Haxe Summit US 2018",
 			"description": "Let’s build a web app from the ground up",
 			"date": "2018-05-05",
-			"youtubeId": "TkmmGb-tn_I"
+			"youtubeId": "TkmmGb-tn_I",
+			"featured": true
 		},
 		{
 			"title": "Making games with Heaps.io - Nicolas Cannasse",
@@ -98,7 +101,8 @@
 			"where": "Haxe Summit US 2018",
 			"description": "",
 			"date": "2018-05-05",
-			"youtubeId": "SfwLOOkcSfo"
+			"youtubeId": "SfwLOOkcSfo",
+			"featured": true
 		},
 		{
 			"title": "Minimal dependencies - Francis Bourre",
@@ -147,7 +151,8 @@
 			"where": "Haxe Summit US 2018",
 			"description": "",
 			"date": "2018-05-05",
-			"youtubeId": "QiswbJx-Qeo"
+			"youtubeId": "QiswbJx-Qeo",
+			"featured": true
 		},
 		{
 			"title": "Browser interactivity - Allan Dowdeswell",
