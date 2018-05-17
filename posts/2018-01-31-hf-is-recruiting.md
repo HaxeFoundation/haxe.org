@@ -32,7 +32,7 @@ The Haxe compiler is open source and available here: https://github.com/haxefoun
 
 This is a full time position, salary depends on experience.
 
-## Marketing and Communications Evangelist
+## <strike>Marketing and Communications Evangelist</strike> (This position has been filled)
 
 As a M+C Evangelist, you will develop content around Haxe, as well as handle ingoing and outgoing communication for the Haxe Foundation and the Haxe partnership program.
 
