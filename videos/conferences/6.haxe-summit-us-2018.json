@@ -1,0 +1,174 @@
+{
+	"title": "Haxe Summit EU 2018",
+	"description": "The summit was held 3-5 May 2018 in Seattle, United States. <a href='https://summit.haxe.org/us/2018/'>summit.haxe.org/us/2018</a>",
+	"videos": [
+		{
+			"title": "Literate Programming with Haxe - Thomas J. Webb",
+			"where": "Haxe Summit US 2018",
+			"description": "",
+			"date": "2018-05-05",
+			"youtubeId": "APyI2fHWLpw"
+		},
+		{
+			"title": "The Case for Doing Everything in Haxe - Thomas J. Webb",
+			"where": "Haxe Summit US 2018",
+			"description": "",
+			"date": "2018-05-05",
+			"youtubeId": "QZkDvlPZOeo"
+		},
+		{
+			"title": "Deep Dive on Porting ActionScript to Haxe - Scott Pultz",
+			"where": "Haxe Summit US 2018",
+			"description": "",
+			"date": "2018-05-05",
+			"youtubeId": "wbqRb5HW9l4"
+		},
+		{
+			"title": "Code Along with Kha - Robert Konrad",
+			"where": "Haxe Summit US 2018",
+			"description": "",
+			"date": "2018-05-05",
+			"youtubeId": "Yj11-ybVABA"
+		},
+		{
+			"title": "Kha & OpenFL - Robert Konrad",
+			"where": "Haxe Summit US 2018",
+			"description": "",
+			"date": "2018-05-05",
+			"youtubeId": "yJMwTOtRU8g"
+		},
+		{
+			"title": "Blossom.hx: Growing Haxe Together - Phil Chertok",
+			"where": "Haxe Summit US 2018",
+			"description": "",
+			"date": "2018-05-05",
+			"youtubeId": "-C8ye7fWEHg"
+		},
+		{
+			"title": "OpenFL Next - Joshua Granick",
+			"where": "Haxe Summit US 2018",
+			"description": "",
+			"date": "2018-05-05",
+			"youtubeId": "ab_VJEaV5bY"
+		},
+		{
+			"title": "A deep dive into hexUnit - Laurent Deketelaere",
+			"where": "Haxe Summit US 2018",
+			"description": "",
+			"date": "2018-05-05",
+			"youtubeId": "JzItj1CYDjE"
+		},
+		{
+			"title": "Golgi : Fast cross platform routing and dispatch - Justin Donaldson",
+			"where": "Haxe Summit US 2018",
+			"description": "",
+			"date": "2018-05-05",
+			"youtubeId": "8aFxG1T_-30"
+		},
+		{
+			"title": "Reliable package management with lix - Juraj Kirchheim",
+			"where": "Haxe Summit US 2018",
+			"description": "",
+			"date": "2018-05-05",
+			"youtubeId": "pNJftjU0hvc"
+		},
+		{
+			"title": "OpenFL Advanced - Joshua Granick",
+			"where": "Haxe Summit US 2018",
+			"description": "",
+			"date": "2018-05-05",
+			"youtubeId": "uHUhdRXQnwA"
+		},
+		{
+			"title": "Better stacks with Haxe: Let’s build a web app from the ground up - Jeff Ward",
+			"where": "Haxe Summit US 2018",
+			"description": "",
+			"date": "2018-05-05",
+			"youtubeId": "TkmmGb-tn_I"
+		},
+		{
+			"title": "Making games with Heaps.io - Nicolas Cannasse",
+			"where": "Haxe Summit US 2018",
+			"description": "",
+			"date": "2018-05-05",
+			"youtubeId": "CswB_1rSOd0"
+		},
+		{
+			"title": "Haxe 4.0 - Nicolas Cannasse",
+			"where": "Haxe Summit US 2018",
+			"description": "",
+			"date": "2018-05-05",
+			"youtubeId": "SfwLOOkcSfo"
+		},
+		{
+			"title": "Consuming injections with minimal dependencies - Francis Bourre",
+			"where": "Haxe Summit US 2018",
+			"description": "",
+			"date": "2018-05-05",
+			"youtubeId": "hphNp2LfsqY"
+		},
+		{
+			"title": "hexMachina status - Francis Bourre",
+			"where": "Haxe Summit US 2018",
+			"description": "",
+			"date": "2018-05-05",
+			"youtubeId": "iOc41tCytIg"
+		},
+		{
+			"title": "Get your project humming with IntelliJ IDEA - Eric Bishton",
+			"where": "Haxe Summit US 2018",
+			"description": "",
+			"date": "2018-05-05",
+			"youtubeId": "Qo3Wei3Kb9I"
+		},
+		{
+			"title": "Code Of War - David Mouton",
+			"where": "Haxe Summit US 2018",
+			"description": "",
+			"date": "2018-05-05",
+			"youtubeId": "fG7J5D_s2js"
+		},
+		{
+			"title": "Console Punks: Haxe for Xbox, PlayStation, and Beyond - Dan Goldstein",
+			"where": "Haxe Summit US 2018",
+			"description": "",
+			"date": "2018-05-05",
+			"youtubeId": "hiqgmWIpGyQ"
+		},
+		{
+			"title": "Building Haxe/OpenFL Native Extensions for iOS and Android - Craig Robinson",
+			"where": "Haxe Summit US 2018",
+			"description": "",
+			"date": "2018-05-05",
+			"youtubeId": "Xw9bd-oxZHc"
+		},
+		{
+			"title": "Introductory Haxe workshop - Andy Li",
+			"where": "Haxe Summit US 2018",
+			"description": "",
+			"date": "2018-05-05",
+			"youtubeId": "QiswbJx-Qeo"
+		},
+		{
+			"title": "Haxe: A dream-come-true for browser interactivity - Allan Dowdeswell",
+			"where": "Haxe Summit US 2018",
+			"description": "",
+			"date": "2018-05-05",
+			"youtubeId": "QZRcaYYaI7A"
+		},
+		{
+			"title": "OpenFL project configuration for power users - Adam Breece",
+			"where": "Haxe Summit US 2018",
+			"description": "",
+			"date": "2018-05-05",
+			"youtubeId": "zzcvYkbpms0"
+		},
+		{
+			"title": "What I wish I’d known when creating our mobile development pipeline - Adam Breece",
+			"where": "Haxe Summit US 2018",
+			"description": "",
+			"date": "2018-05-05",
+			"youtubeId": "PfOdGB7IcvY"
+		}
+	]
+]
