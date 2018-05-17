@@ -4,103 +4,103 @@
 	"videos": [
 		{
 			"title": "Literate Programming with Haxe - Thomas J. Webb",
-			"where": "Haxe US Summit 2018",
+			"where": "Haxe US Summit 2018 Day 1",
 			"description": "",
-			"date": "2018-05-05",
+			"date": "2018-05-03",
 			"youtubeId": "APyI2fHWLpw"
 		},
 		{
 			"title": "The Case for Doing Everything in Haxe - Thomas J. Webb",
-			"where": "Haxe US Summit 2018",
+			"where": "Haxe US Summit 2018 Day 3",
 			"description": "",
 			"date": "2018-05-05",
 			"youtubeId": "QZkDvlPZOeo"
 		},
 		{
 			"title": "Deep Dive on Porting ActionScript to Haxe - Scott Pultz",
-			"where": "Haxe US Summit 2018",
+			"where": "Haxe US Summit 2018 Day 1",
 			"description": "",
-			"date": "2018-05-05",
+			"date": "2018-05-03",
 			"youtubeId": "wbqRb5HW9l4"
 		},
 		{
 			"title": "Code Along with Kha - Robert Konrad",
-			"where": "Haxe US Summit 2018",
+			"where": "Haxe US Summit 2018 Day 3",
 			"description": "",
 			"date": "2018-05-05",
 			"youtubeId": "Yj11-ybVABA"
 		},
 		{
 			"title": "Kha & OpenFL - Robert Konrad",
-			"where": "Haxe US Summit 2018",
+			"where": "Haxe US Summit 2018 Day 1",
 			"description": "",
-			"date": "2018-05-05",
+			"date": "2018-05-03",
 			"youtubeId": "yJMwTOtRU8g"
 		},
 		{
 			"title": "Blossom.hx: Growing Haxe Together - Phil Chertok",
-			"where": "Haxe US Summit 2018",
+			"where": "Haxe US Summit 2018 Day 2",
 			"description": "",
-			"date": "2018-05-05",
+			"date": "2018-05-04",
 			"youtubeId": "-C8ye7fWEHg"
 		},
 		{
 			"title": "OpenFL Next - Joshua Granick",
-			"where": "Haxe US Summit 2018",
+			"where": "Haxe US Summit 2018 Day 2",
 			"description": "",
-			"date": "2018-05-05",
+			"date": "2018-05-04",
 			"youtubeId": "ab_VJEaV5bY",
 			"featured": true
 		},
 		{
 			"title": "A deep dive into hexUnit - Laurent Deketelaere",
-			"where": "Haxe US Summit 2018",
+			"where": "Haxe US Summit 2018 Day 1",
 			"description": "",
-			"date": "2018-05-05",
+			"date": "2018-05-03",
 			"youtubeId": "JzItj1CYDjE"
 		},
 		{
 			"title": "Golgi: Fast cross platform routing and dispatch - Justin Donaldson",
-			"where": "Haxe US Summit 2018",
+			"where": "Haxe US Summit 2018 Day 2",
 			"description": "",
-			"date": "2018-05-05",
+			"date": "2018-05-04",
 			"youtubeId": "8aFxG1T_-30"
 		},
 		{
 			"title": "Reliable package management with lix - Juraj Kirchheim",
-			"where": "Haxe US Summit 2018",
+			"where": "Haxe US Summit 2018 Day 2",
 			"description": "",
-			"date": "2018-05-05",
+			"date": "2018-05-04",
 			"youtubeId": "pNJftjU0hvc"
 		},
 		{
 			"title": "OpenFL Advanced - Joshua Granick",
-			"where": "Haxe US Summit 2018",
+			"where": "Haxe US Summit 2018 Day 2",
 			"description": "",
-			"date": "2018-05-05",
+			"date": "2018-05-04",
 			"youtubeId": "uHUhdRXQnwA",
 			"featured": true
 		},
 		{
 			"title": "Better stacks with Haxe - Jeff Ward",
-			"where": "Haxe US Summit 2018",
+			"where": "Haxe US Summit 2018 Day 1",
 			"description": "Let’s build a web app from the ground up",
-			"date": "2018-05-05",
+			"date": "2018-05-03",
 			"youtubeId": "TkmmGb-tn_I",
 			"featured": true
 		},
 		{
 			"title": "Making games with Heaps.io - Nicolas Cannasse",
-			"where": "Haxe US Summit 2018",
+			"where": "Haxe US Summit 2018 Day 3",
 			"description": "",
 			"date": "2018-05-05",
 			"youtubeId": "CswB_1rSOd0"
 		},
 		{
 			"title": "Haxe 4.0 - Nicolas Cannasse",
-			"where": "Haxe US Summit 2018",
+			"where": "Haxe US Summit 2018 Day 1",
 			"description": "",
-			"date": "2018-05-05",
+			"date": "2018-05-03",
 			"youtubeId": "SfwLOOkcSfo",
 			"featured": true
 		},
@@ -113,42 +113,42 @@
 		},
 		{
 			"title": "hexMachina status - Francis Bourre",
-			"where": "Haxe US Summit 2018",
+			"where": "Haxe US Summit 2018 Day 3",
 			"description": "",
 			"date": "2018-05-05",
 			"youtubeId": "iOc41tCytIg"
 		},
 		{
 			"title": "IntelliJ IDEA - Eric Bishton",
-			"where": "Haxe US Summit 2018",
+			"where": "Haxe US Summit 2018 Day 1",
 			"description": "Get your project humming with IntelliJ IDEA",
-			"date": "2018-05-05",
+			"date": "2018-05-03",
 			"youtubeId": "Qo3Wei3Kb9I"
 		},
 		{
 			"title": "Code Of War - David Mouton",
-			"where": "Haxe US Summit 2018",
+			"where": "Haxe US Summit 2018 Day 1",
 			"description": "",
-			"date": "2018-05-05",
+			"date": "2018-05-03",
 			"youtubeId": "fG7J5D_s2js"
 		},
 		{
 			"title": "Console Punks: Haxe for Xbox, PlayStation - Dan Goldstein",
-			"where": "Haxe US Summit 2018",
+			"where": "Haxe US Summit 2018 Day 3",
 			"description": "",
-			"date": "2018-05-05",
+			"date": "2018-05-04",
 			"youtubeId": "hiqgmWIpGyQ"
 		},
 		{
 			"title": "Haxe/OpenFL Native Extensions - Craig Robinson",
-			"where": "Haxe US Summit 2018",
+			"where": "Haxe US Summit 2018 Day 1",
 			"description": "Haxe/OpenFL Native Extensions for iOS and Android",
-			"date": "2018-05-05",
+			"date": "2018-05-03",
 			"youtubeId": "Xw9bd-oxZHc"
 		},
 		{
 			"title": "Introductory Haxe workshop - Andy Li",
-			"where": "Haxe US Summit 2018",
+			"where": "Haxe US Summit 2018 Day 3",
 			"description": "",
 			"date": "2018-05-05",
 			"youtubeId": "QiswbJx-Qeo",
@@ -156,23 +156,23 @@
 		},
 		{
 			"title": "Browser interactivity - Allan Dowdeswell",
-			"where": "Haxe US Summit 2018",
+			"where": "Haxe US Summit 2018 Day 3",
 			"description": "A dream-come-true for browser interactivity",
 			"date": "2018-05-05",
 			"youtubeId": "QZRcaYYaI7A"
 		},
 		{
 			"title": "OpenFL project configuration for power users - Adam Breece",
-			"where": "Haxe US Summit 2018",
+			"where": "Haxe US Summit 2018 Day 1",
 			"description": "",
-			"date": "2018-05-05",
+			"date": "2018-05-03",
 			"youtubeId": "zzcvYkbpms0"
 		},
 		{
 			"title": "Creating mobile development pipeline - Adam Breece",
-			"where": "Haxe US Summit 2018",
+			"where": "Haxe US Summit 2018 Day 2",
 			"description": "What I wish I’d known when creating our mobile development pipeline.",
-			"date": "2018-05-05",
+			"date": "2018-05-04",
 			"youtubeId": "PfOdGB7IcvY"
 		}
 	]
