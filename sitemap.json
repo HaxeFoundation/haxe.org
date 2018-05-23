@@ -71,14 +71,14 @@
 			},
 			{ 
 				"title": null, "url": "#divider" 
+			},			
+			{
+				"title": "Supported Projects",
+				"url": "/foundation/supported-projects.html"
 			},
 			{
 				"title": "Support Plans",
 				"url": "/foundation/support-plans.html"
-			},
-			{
-				"title": "Supported Projects",
-				"url": "/foundation/supported-projects.html"
 			},
 			{
 				"title": "Donate",
@@ -104,6 +104,14 @@
 				"url": "/foundation/contact.html"
 			}
 		]
+	},
+	{
+		"title": "Support Plans",
+		"url": "/foundation/support-plans.html"
+	},
+	{
+		"title": "Donate",
+		"url": "/foundation/donate.html"
 	},
 	{ 
 	    "title": null, "url": "#divider" 
@@ -185,4 +193,5 @@
 			}
 		]
 	}
+	
 ]
