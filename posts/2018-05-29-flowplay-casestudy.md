@@ -1,6 +1,6 @@
 title: FlowPlay's Vegas World Haxe Conversion Case Study
 author: pchertok
-description: A dive into how FlowPlay converted their AS3 codebase to Haxe and porter Vegas World to the web and mobile. 
+description: A dive into how FlowPlay converted their AS3 codebase to Haxe and ported Vegas World to the web and mobile. 
 published: true
 background: vegasworld.jpg
 tags: events
@@ -20,9 +20,9 @@ Because FlowPlay was continuing to add new features to Vegas World, it was extre
 
 ## Converting the Code
 
-For converting the ActionScript syntax to Haxe, FlowPlay had a couple of options. The first was to use the as3hx tool to convert their .as files to .hx. This tool works by parsing the ActionScript code and generating equivalent Haxe code whenever possible. The second option involved using simple text replacement. Initially they’d rename their .as files to .hx, then they’d search and replace any AS3-specific text with Haxe equivalents before finally searching through the new code and fixing any problems. 
+For converting the ActionScript syntax to Haxe, FlowPlay had a couple of options. The first was to use the [as3hx](https://github.com/HaxeFoundation/as3hx) tool to convert their `.as` files to `.hx`. This tool works by parsing the ActionScript code and generating equivalent Haxe code whenever possible. The second option involved using simple text replacement. Initially they’d rename their `.as` files to `.hx`, then they’d search and replace any AS3-specific text with Haxe equivalents before finally searching through the new code and fixing any problems. 
 
-The as3hx seemed like the ideal solution because it automatically fixed many of the most glaring problems and automated much of the work. However, there were some major drawbacks.  Code formatting is lost, some comments are removed and code generation is wrong in some subtle but important cases.  The code formatting changes mean that much of the code would need to be manually reformatted to make it clearly readable again.  But more importantly the incorrect code generation would introduce potentially very hard to find bugs - bugs which might not be discovered for weeks or months. 
+The as3hx solution seemed like the ideal one because it automatically fixed many of the most glaring problems and automated much of the work. However, there were some major drawbacks.  Code formatting is lost, some comments are removed and code generation is wrong in some subtle but important cases.  The code formatting changes mean that much of the code would need to be manually reformatted to make it clearly readable again.  But more importantly the incorrect code generation would introduce potentially very hard to find bugs - bugs which might not be discovered for weeks or months. 
 
 Because of the aforementioned issues with as3hx, FlowPlay chose text replacing, even though it had its own drawbacks (mainly lots of manual labor).
 
@@ -34,10 +34,10 @@ The addition of certain Haxe features improved the runtime safety and performanc
 
 * Typed function signatures
 * Private constructors
-* Improved access modifiers via the ‘:allow()’ metadata 
+* Improved access modifiers via the `:allow()` metadata 
 * Typed arrays
 
-Of course, it wasn’t all smooth sailing though, many differences between Haxe and AS3 did cause some problems for the conversion process. Some of the things causing trouble included Haxe’s different for loop syntax, the lack of E4X support for XML and the nature of Haxe switch statements. None of these issues were major roadblocks and in some cases, Haxe syntax proved to be an improvement where converted code was actually reduced.
+Of course, it wasn’t all smooth sailing though, many differences between Haxe and AS3 did cause some problems for the conversion process. Some of the things causing trouble included Haxe’s different for loop syntax, the lack of E4X support for XML and the nature of Haxe switch statements. None of these issues were major roadblocks and in some cases, Haxe syntax proved to be an improvement where converted code was actually reduced, as was the case with read-only properties:
 
 _AS3_
 ```haxe
