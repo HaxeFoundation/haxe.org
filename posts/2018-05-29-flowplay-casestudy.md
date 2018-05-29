@@ -9,7 +9,7 @@ disqusID: 38
 
 ## Farewell Flash, Hello Haxe
 
-Recently, Haxe Foundation partner [FlowPlay](https://www.flowplay.com/) had to move their Flash project [Vegas World](https://www.vegasworld.com) out of Flash and into HTML5 and native mobile. They rejected the idea of implementing a separate codebase for HTML5, Android and iOS due to the long term loss of productivity this would cause, so  they chose instead to convert their project to Haxe. The following summarizes their experience during this transition..
+Recently, Haxe Foundation partner [FlowPlay](https://www.flowplay.com/) had to move their Flash project [Vegas World](https://www.vegasworld.com) out of Flash and into HTML5 and native mobile. They rejected the idea of implementing a separate codebase for HTML5, Android and iOS due to the long term loss of productivity this would cause, so  they chose instead to convert their project to Haxe. Their Chief Architect Scott Pultz’s gave a [talk on the subject](https://www.youtube.com/watch?v=wbqRb5HW9l4) at this year’s Haxe US Summit.  The following summarizes Scott's talk and FlowPlay's experience during this transition.
 
 First, it’s important to understand where they were coming from. Vegas World was developed on top of a codebase that was roughly 10 years old, had more than a million lines of ActionScript and was entirely made using Flash vector art. 
 
@@ -37,7 +37,20 @@ The addition of certain Haxe features improved the runtime safety and performanc
 * Improved access modifiers via the `:allow()` metadata 
 * Typed arrays
 
-Of course, it wasn’t all smooth sailing though, many differences between Haxe and AS3 did cause some problems for the conversion process. Some of the things causing trouble included Haxe’s different for loop syntax, the lack of E4X support for XML and the nature of Haxe switch statements. None of these issues were major roadblocks and in some cases, Haxe syntax proved to be an improvement where converted code was actually reduced, as was the case with read-only properties:
+Of course, it wasn’t all smooth sailing, many differences between Haxe and AS3 did cause some problems for the conversion process. Some of the things causing trouble included Haxe’s different for loop syntax, the lack of [E4X support](https://en.wikipedia.org/wiki/ECMAScript_for_XML) for XML and the nature of Haxe switch statements. 
+
+_Haxe switch statement_
+```haxe
+for (i in 0...10) {
+  switch(i){
+      case 5: 
+        //Because Haxe switch statements don't support the break keyword 
+        //the following break command would exit the 'for loop'
+        break;
+  }
+}
+```
+None of these issues were major roadblocks and in some cases, Haxe syntax proved to be an improvement where converted code was actually reduced, as was the case with read-only properties:
 
 _AS3_
 ```haxe
@@ -69,4 +82,3 @@ As you can see, the differences between the two platform are negligible. Needles
 
 By choosing Haxe, FlowPlay had a clear path to porting their existing Flash project onto modern platforms. Haxe offered improved performance, safety and readability and allowed existing developers to transition onto a familiar yet superior language. 
 
-If you want to find out more about FlowPlay’s Flash to Haxe conversion, you can check out their Chief Architect Scott Pultz’s [talk on the subject](https://www.youtube.com/watch?v=wbqRb5HW9l4) from this year’s Haxe US Summit. 
