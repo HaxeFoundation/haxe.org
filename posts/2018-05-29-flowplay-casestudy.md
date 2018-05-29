@@ -32,9 +32,9 @@ Once they began the process, it took about 2 months to port the first 100,000 li
 
 The addition of certain Haxe features improved the runtime safety and performance of their application. Some of these included:
 
-* Typed function signatures
+* [Typed function signatures](https://haxe.org/manual/types-function.html)
 * Private constructors
-* Improved access modifiers via the `:allow()` metadata 
+* [Improved access modifiers via the `:allow()` metadata](https://haxe.org/manual/lf-access-control.html) 
 * Typed arrays
 
 Of course, it wasn’t all smooth sailing, many differences between Haxe and AS3 did cause some problems for the conversion process. Some of the things causing trouble included Haxe’s different for loop syntax, the lack of [E4X support](https://en.wikipedia.org/wiki/ECMAScript_for_XML) for XML and the nature of Haxe switch statements. 
