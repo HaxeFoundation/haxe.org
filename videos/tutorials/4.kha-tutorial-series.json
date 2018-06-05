@@ -1,6 +1,6 @@
 {
 	"title": "Kha Tutorial Series",
-	"description": "<a href='http://kha.tech' target='_blank'>KHA</a>, a portable creative framework written in haxe. For source code, go to the <a href='https://github.com/lewislepton/kha-tutorial-series' target='_blank'>github repo</a>. To support these videos, pop to <a href='https://www.patreon.com/lewislepton' target='_blank'>Lewis Leptons patreon page</a>",
+	"description": "<a href='http://kha.tech' target='_blank'>KHA</a>, a portable creative framework written in Haxe. For source code, go to the <a href='https://github.com/lewislepton/kha-tutorial-series' target='_blank'>github repo</a>. To support these videos, pop to <a href='https://www.patreon.com/lewislepton' target='_blank'>Lewis Leptons patreon page</a>",
 	"videos": [
 		{
 			"title": "Episode 000 - intro to haxe, kha & future plans",
@@ -521,7 +521,6 @@
 			"youtubeId": "kZTPbKyN4PU"
 		},
 		{
-			"featured": true,
 			"title": "Episode 073 - video capture",
 			"where": null,
 			"description": "we have drawn shapes, we have drawn images. but what about drawing input from your webcam?<br/><br/>we start by creating a new project & importing 'Video' & something new 'VideoCapture'.<br/>we then init the VideoCapture & setup two functions to help it.<br/>lastly, render the video on screen.<br/><br/>source code:<br/><a href='https://github.com/lewislepton/kha-tutorial-series'>https://github.com/lewislepton/kha-tutorial-series</a><br/><br/>SUPPORT ON PATREON FROM AS LITTLE AS $1:<br/><a href='https://patreon.com/lewislepton'>https://patreon.com/lewislepton</a><br/><br/>intro & outro music is from this EP:<br/><a href='https://lewislepton.bandcamp.com/album/coat-noise-ep'>https://lewislepton.bandcamp.com/album/coat-noise-ep</a><br/><br/>like, share & subscribe to stay up to date.<br/><br/><a href='https://lewislepton.com'>https://lewislepton.com</a><br/><a href='https://patreon.com/lewislepton'>https://patreon.com/lewislepton</a><br/><a href='https://twitter.com/lewislepton'>https://twitter.com/lewislepton</a><br/><a href='https://facebook.com/lewislepton'>https://facebook.com/lewislepton</a><br/><a href='https://lewislepton.bandcamp.com'>https://lewislepton.bandcamp.com</a><br/><a href='https://soundcloud.com/lewislepton'>https://soundcloud.com/lewislepton</a><br/><a href='https://github.com/lewislepton'>https://github.com/lewislepton</a><br/><br/>* with a question asked if this would work on mobile.<br/>ive checked & searched in the source code. capture is currently not in the backends of kha for mobile. even with native as well.<br/>with HTML5 its fine.<br/>so hopefully either these will be put in soon, or we can help & work on some native & mobile stuff for capture. it would be awesome. ;) <br/>for anything such as kinect or other third party cameras, you would need things such as the SDK of the camera. if you were wondering *",
@@ -529,10 +528,16 @@
 			"youtubeId": "Up606FRoUAU"
 		},
 		{
-			"featured": true,
 			"title": "Episode 074 - rotation revised",
 			"where": null,
 			"description": "a while back. we had done rotation. but really, it was pretty crap.<br/>so we go back & revise our rotation.<br/><br/>starting by creating a new project & have copied the code from '029_rotation'.<br/>right away we create two new functions & update our render.<br/>this is much better for rotation handling.<br/><br/>source code:<br/><a href='https://github.com/lewislepton/kha-tutorial-series'>https://github.com/lewislepton/kha-tutorial-series</a><br/><br/>SUPPORT ON PATREON FROM AS LITTLE AS $1:<br/><a href='https://patreon.com/lewislepton'>https://patreon.com/lewislepton</a><br/><br/>intro & outro music is from this EP:<br/><a href='https://lewislepton.bandcamp.com/album/coat-noise-ep'>https://lewislepton.bandcamp.com/album/coat-noise-ep</a><br/><br/>like, share & subscribe to stay up to date.<br/><br/><a href='https://lewislepton.com'>https://lewislepton.com</a><br/><a href='https://patreon.com/lewislepton'>https://patreon.com/lewislepton</a><br/><a href='https://twitter.com/lewislepton'>https://twitter.com/lewislepton</a><br/><a href='https://facebook.com/lewislepton'>https://facebook.com/lewislepton</a><br/><a href='https://lewislepton.bandcamp.com'>https://lewislepton.bandcamp.com</a><br/><a href='https://soundcloud.com/lewislepton'>https://soundcloud.com/lewislepton</a><br/><a href='https://github.com/lewislepton'>https://github.com/lewislepton</a>",
+			"date": "2017-12-21",
+			"youtubeId": "fqlikOnnUkY"
+		},
+		{
+			"title": "Episode 075 - static variables",
+			"where": null,
+			"description": "we need information to pass between classes. we look at static variables.<br/><br/>starting with creating a new project & heading into Main.hx. we create three static variables, for width, height & samples per pixel [anti-alias].<br>we updated our Main.hx to use these & lastly make sure we can call these up in Project.hx.<br><br>more info on static variables:<br>https://haxe.org/manual/class-field-static.html<br/><br/>source code:<br/><a href='https://github.com/lewislepton/kha-tutorial-series'>https://github.com/lewislepton/kha-tutorial-series</a><br/><br/>SUPPORT ON PATREON FROM AS LITTLE AS $1:<br/><a href='https://patreon.com/lewislepton'>https://patreon.com/lewislepton</a><br/><br/>intro & outro music is from this EP:<br/><a href='https://lewislepton.bandcamp.com/album/coat-noise-ep'>https://lewislepton.bandcamp.com/album/coat-noise-ep</a><br/><br/>like, share & subscribe to stay up to date.<br/><br/><a href='https://lewislepton.com'>https://lewislepton.com</a><br/><a href='https://patreon.com/lewislepton'>https://patreon.com/lewislepton</a><br/><a href='https://twitter.com/lewislepton'>https://twitter.com/lewislepton</a><br/><a href='https://facebook.com/lewislepton'>https://facebook.com/lewislepton</a><br/><a href='https://lewislepton.bandcamp.com'>https://lewislepton.bandcamp.com</a><br/><a href='https://soundcloud.com/lewislepton'>https://soundcloud.com/lewislepton</a><br/><a href='https://github.com/lewislepton'>https://github.com/lewislepton</a>",
 			"date": "2017-12-21",
 			"youtubeId": "fqlikOnnUkY"
 		},
@@ -582,6 +587,15 @@
 			"description": "we have deleted with for loops. but we do something much better using while loops.<br/><br/>starting with a new project, we copy our entity class from our previous '080_centerPosition' project & updated it.<br/>then making a player class which extends with our entity class.<br/><br/>coding an array of players, then 3 functions: one to create, one to delete & the last to make a type of border our player array will delete itself once passed.<br/><br/>we then lastly update our movement, render & make sure we can use our mouse to create & delete players in the array.<br/>now we can delete any entity in any order no matter what, making this a much better option for handling deletion of entities<br/><br/>source code:<br/><a href='https://github.com/lewislepton/kha-tutorial-series'>https://github.com/lewislepton/kha-tutorial-series</a><br/><br/>commit source:<br/><a href='https://github.com/Kode/Kha/tree/3c3d766dfef023149d5bc40d92045780fa241651'>https://github.com/Kode/Kha/tree/3c3d766dfef023149d5bc40d92045780fa241651</a><br/><br/>SUPPORT ON PATREON FROM AS LITTLE AS $1:<br/><a href='https://patreon.com/lewislepton'>https://patreon.com/lewislepton</a><br/><br/>intro & outro music is from this EP:<br/><a href='https://lewislepton.bandcamp.com/album/coat-noise-ep'>https://lewislepton.bandcamp.com/album/coat-noise-ep</a><br/><br/>like, share & subscribe to stay up to date.<br/><br/><a href='https://lewislepton.com'>https://lewislepton.com</a><br/><a href='https://patreon.com/lewislepton'>https://patreon.com/lewislepton</a><br/><a href='https://twitter.com/lewislepton'>https://twitter.com/lewislepton</a><br/><a href='https://facebook.com/lewislepton'>https://facebook.com/lewislepton</a><br/><a href='https://lewislepton.bandcamp.com'>https://lewislepton.bandcamp.com</a><br/><a href='https://soundcloud.com/lewislepton'>https://soundcloud.com/lewislepton</a><br/><a href='https://github.com/lewislepton'>https://github.com/lewislepton</a>",
 			"date": "2018-03-08",
 			"youtubeId": "zrJnNAX31K4"
+		},
+
+		{
+			"featured": true,
+			"title": "Episode 082 - ease",
+			"where": null,
+			"description": "we have moved around on screen before, but its either a bit too snappy or is missing something.<br>we look at ease<br/><br/>source code:<br/><a href='https://github.com/lewislepton/kha-tutorial-series'>https://github.com/lewislepton/kha-tutorial-series</a><br/><br/>commit source:<br/><a href='https://github.com/Kode/Kha/tree/3c3d766dfef023149d5bc40d92045780fa241651'>https://github.com/Kode/Kha/tree/3c3d766dfef023149d5bc40d92045780fa241651</a><br/><br/>SUPPORT ON PATREON FROM AS LITTLE AS $1:<br/><a href='https://patreon.com/lewislepton'>https://patreon.com/lewislepton</a><br/><br/>intro & outro music is from this EP:<br/><a href='https://lewislepton.bandcamp.com/album/coat-noise-ep'>https://lewislepton.bandcamp.com/album/coat-noise-ep</a><br/><br/>like, share & subscribe to stay up to date.<br/><br/><a href='https://lewislepton.com'>https://lewislepton.com</a><br/><a href='https://patreon.com/lewislepton'>https://patreon.com/lewislepton</a><br/><a href='https://twitter.com/lewislepton'>https://twitter.com/lewislepton</a><br/><a href='https://facebook.com/lewislepton'>https://facebook.com/lewislepton</a><br/><a href='https://lewislepton.bandcamp.com'>https://lewislepton.bandcamp.com</a><br/><a href='https://soundcloud.com/lewislepton'>https://soundcloud.com/lewislepton</a><br/><a href='https://github.com/lewislepton'>https://github.com/lewislepton</a>",
+			"date": "2018-06-05",
+			"youtubeId": "1udOx3wGsdY"
 		}
 	]
-}
+}
