@@ -549,7 +549,6 @@
 			"youtubeId": "D_Yqk-TWqMs"
 		},
 		{
-			"featured": true,
 			"title": "Episode 077 - while loop circle",
 			"where": null,
 			"description": "we have used for loops & even while loops. but what about using while loops like for loops?<br/><br/>start by creating a new project, 'using' our 'GraphicsExtension'. then moving on & creating 3 variables & lastly using a while loop to create multiple circles.<br/><br/>source code:<br/><a href='https://github.com/lewislepton/kha-tutorial-series'>https://github.com/lewislepton/kha-tutorial-series</a><br/><br/>SUPPORT ON PATREON FROM AS LITTLE AS $1:<br/><a href='https://patreon.com/lewislepton'>https://patreon.com/lewislepton</a><br/><br/>intro & outro music is from this EP:<br/><a href='https://lewislepton.bandcamp.com/album/coat-noise-ep'>https://lewislepton.bandcamp.com/album/coat-noise-ep</a><br/><br/>like, share & subscribe to stay up to date.<br/><br/><a href='https://lewislepton.com'>https://lewislepton.com</a><br/><a href='https://patreon.com/lewislepton'>https://patreon.com/lewislepton</a><br/><a href='https://twitter.com/lewislepton'>https://twitter.com/lewislepton</a><br/><a href='https://facebook.com/lewislepton'>https://facebook.com/lewislepton</a><br/><a href='https://lewislepton.bandcamp.com'>https://lewislepton.bandcamp.com</a><br/><a href='https://soundcloud.com/lewislepton'>https://soundcloud.com/lewislepton</a><br/><a href='https://github.com/lewislepton'>https://github.com/lewislepton</a>",
@@ -588,7 +587,6 @@
 			"date": "2018-03-08",
 			"youtubeId": "zrJnNAX31K4"
 		},
-
 		{
 			"featured": true,
 			"title": "Episode 082 - ease",
