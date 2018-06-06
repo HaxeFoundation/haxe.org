@@ -1,7 +1,7 @@
 language: haxe
 
 haxe: 
-  - "3.4.4"
+  - "3.4.7"
   - "development"
 
 matrix:
@@ -30,4 +30,4 @@ install:
 
 script:
   - haxe generate.hxml
-  - if [[ "$TRAVIS_HAXE_VERSION" == "3.4.4" ]]; then haxe deploy.hxml ; fi
+  - if [[ "$TRAVIS_HAXE_VERSION" == "3.4.7" ]]; then haxe deploy.hxml ; fi
