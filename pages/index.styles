@@ -1,0 +1,14 @@
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"/>
+<style>
+.companyQuote{
+    text-align:center;
+}
+.companyQuote img{
+    margin:0px auto;
+    margin-bottom:20px;
+}
+.homepage .section.sub-head .companyQuote blockquote{
+    margin-bottom:0px;
+}
+</style>
