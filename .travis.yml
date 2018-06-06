@@ -30,4 +30,12 @@ install:
 
 script:
   - haxe generate.hxml
-  - if [[ "$TRAVIS_HAXE_VERSION" == "3.4.7" ]]; then haxe deploy.hxml ; fi
+
+deploy:
+  provider: script
+  script: haxe deploy.hxml
+  on:
+    all_branches: true
+    condition: $TRAVIS_BRANCH =~ ^staging|master$
+    haxe: "3.4.7"
+  skip_cleanup: true
