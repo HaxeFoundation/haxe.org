@@ -86,20 +86,24 @@
 </div>
 <div class="section">
 	<div class="container">
-		
 		<div class="row">
-			<div class="span5">
+			<div class="span1"></div>
+			<div class="span9">
 			::if (releaseNotes != null)::
-				<h3>Release Notes</h3>
-				::releaseNotes::
+				<h2>Release Notes</h2>
+				<div class="lead">::releaseNotes::</div>
 			::end::
 			</div>
-			<div class="span7">
-				<h3>Change Log</h3>
+			<div class="span2"></div>
+		</div>
+		<div class="row">
+			<div class="span1"></div>
+			<div class="span9">
+				<h2>Change Log</h2>
 				::changes::
 			</div>
+			<div class="span2"></div>
 		</div>
-
 
 		<div class='prev-next-links bottom clearfix'>
 			::if (prev != null)::<a href="/download/version/::prev::/" class="prev-link">::prev::</a>::end::
