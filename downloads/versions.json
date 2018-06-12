@@ -190,6 +190,11 @@
 			"date": "2018-02-23",
 			"version": "4.0.0-preview.3",
 			"tag": "4.0.0-preview.3"
+		},
+		{
+			"date": "2018-06-12",
+			"version": "4.0.0-preview.4",
+			"tag": "4.0.0-preview.4"
 		}
 	]
 }
