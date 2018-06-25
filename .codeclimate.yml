@@ -2,9 +2,9 @@ engines:
   haxe-checkstyle:
     enabled: true
   csslint:
-    enabled: true
+    enabled: false
   markdownlint:
-    enabled: true
+    enabled: false
 
 exclude_paths:
   - manual/**/*
