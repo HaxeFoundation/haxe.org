@@ -2,7 +2,16 @@
 	"defineCombinations": [],
 	"defaultSeverity": "INFO",
 	"baseDefines": [],
-	"exclude": {},
+	"exclude": {
+		"MemberName": [
+			"DownloadsData:GithubUser",
+			"DownloadsData:GithubAsset",
+			"DownloadsData:GithubRelease"
+		],
+		"MethodName": [
+			"Views"
+		]
+    },
 	"checks": [
 		{
 			"props": {},
@@ -205,7 +214,7 @@
 				"tokens": [
 					"PUBLIC",
 					"PRIVATE",
-					"STATIIC",
+					"STATIC",
 					"NOTSTATIC",
 					"INLINE",
 					"NOTINLINE"
