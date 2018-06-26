@@ -9,7 +9,12 @@ class Client {
 			expandCurrentPageOnMenu();
 			pullOutStyling();
 			emptyLinks();
+			addTableClasses();
 		});
+	}
+
+	static function addTableClasses() {
+		new JQuery(".site-content table").addClass("table");
 	}
 
 	static function menuExpandCollapse() {
