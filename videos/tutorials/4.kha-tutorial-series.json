@@ -577,7 +577,6 @@
 			"youtubeId": "9IqXJZq4pyw"
 		},
 		{
-			"featured": true,
 			"title": "Episode 081 - delete array entity",
 			"where": null,
 			"description": "we have deleted with for loops. but we do something much better using while loops.<br/><br/>starting with a new project, we copy our entity class from our previous '080_centerPosition' project & updated it.<br/>then making a player class which extends with our entity class.<br/><br/>coding an array of players, then 3 functions: one to create, one to delete & the last to make a type of border our player array will delete itself once passed.<br/><br/>we then lastly update our movement, render & make sure we can use our mouse to create & delete players in the array.<br/>now we can delete any entity in any order no matter what, making this a much better option for handling deletion of entities<br/><br/>source code:<br/><a href='https://github.com/lewislepton/kha-tutorial-series'>https://github.com/lewislepton/kha-tutorial-series</a><br/><br/>commit source:<br/><a href='https://github.com/Kode/Kha/tree/3c3d766dfef023149d5bc40d92045780fa241651'>https://github.com/Kode/Kha/tree/3c3d766dfef023149d5bc40d92045780fa241651</a><br/><br/>SUPPORT ON PATREON FROM AS LITTLE AS $1:<br/><a href='https://patreon.com/lewislepton'>https://patreon.com/lewislepton</a><br/><br/>intro & outro music is from this EP:<br/><a href='https://lewislepton.bandcamp.com/album/coat-noise-ep'>https://lewislepton.bandcamp.com/album/coat-noise-ep</a><br/><br/>like, share & subscribe to stay up to date.<br/><br/><a href='https://lewislepton.com'>https://lewislepton.com</a><br/><a href='https://patreon.com/lewislepton'>https://patreon.com/lewislepton</a><br/><a href='https://twitter.com/lewislepton'>https://twitter.com/lewislepton</a><br/><a href='https://facebook.com/lewislepton'>https://facebook.com/lewislepton</a><br/><a href='https://lewislepton.bandcamp.com'>https://lewislepton.bandcamp.com</a><br/><a href='https://soundcloud.com/lewislepton'>https://soundcloud.com/lewislepton</a><br/><a href='https://github.com/lewislepton'>https://github.com/lewislepton</a>",
@@ -585,7 +584,6 @@
 			"youtubeId": "zrJnNAX31K4"
 		},
 		{
-			"featured": true,
 			"title": "Episode 082 - ease",
 			"where": null,
 			"description": "we have moved around on screen before, but its either a bit too snappy or is missing something.<br/>we look at ease<br/><br/>source code:<br/><a href='https://github.com/lewislepton/kha-tutorial-series'>https://github.com/lewislepton/kha-tutorial-series</a><br/><br/>SUPPORT ON PATREON FROM AS LITTLE AS $1:<br/><a href='https://patreon.com/lewislepton'>https://patreon.com/lewislepton</a><br/><br/>intro & outro music is from this EP:<br/><a href='https://lewislepton.bandcamp.com/album/coat-noise-ep'>https://lewislepton.bandcamp.com/album/coat-noise-ep</a><br/><br/>like, share & subscribe to stay up to date.<br/><br/><a href='https://lewislepton.com'>https://lewislepton.com</a><br/><a href='https://patreon.com/lewislepton'>https://patreon.com/lewislepton</a><br/><a href='https://twitter.com/lewislepton'>https://twitter.com/lewislepton</a><br/><a href='https://facebook.com/lewislepton'>https://facebook.com/lewislepton</a><br/><a href='https://lewislepton.bandcamp.com'>https://lewislepton.bandcamp.com</a><br/><a href='https://soundcloud.com/lewislepton'>https://soundcloud.com/lewislepton</a><br/><a href='https://github.com/lewislepton'>https://github.com/lewislepton</a>",
@@ -593,7 +591,6 @@
 			"youtubeId": "1udOx3wGsdY"
 		},
 		{
-			"featured": true,
 			"title": "Episode 083 - lerp",
 			"where": null,
 			"description": "we previously made our ease function, but now we make it into a really useful & reusable function called lerp.<br/><br/>source code:<br/><a href='https://github.com/lewislepton/kha-tutorial-series'>https://github.com/lewislepton/kha-tutorial-series</a><br/><br/>SUPPORT ON PATREON FROM AS LITTLE AS $1:<br/><a href='https://patreon.com/lewislepton'>https://patreon.com/lewislepton</a><br/><br/>intro & outro music is from this EP:<br/><a href='https://lewislepton.bandcamp.com/album/coat-noise-ep'>https://lewislepton.bandcamp.com/album/coat-noise-ep</a><br/><br/>like, share & subscribe to stay up to date.<br/><br/><a href='https://lewislepton.com'>https://lewislepton.com</a><br/><a href='https://patreon.com/lewislepton'>https://patreon.com/lewislepton</a><br/><a href='https://twitter.com/lewislepton'>https://twitter.com/lewislepton</a><br/><a href='https://facebook.com/lewislepton'>https://facebook.com/lewislepton</a><br/><a href='https://lewislepton.bandcamp.com'>https://lewislepton.bandcamp.com</a><br/><a href='https://soundcloud.com/lewislepton'>https://soundcloud.com/lewislepton</a><br/><a href='https://github.com/lewislepton'>https://github.com/lewislepton</a>",
@@ -615,6 +612,30 @@
 			"description": "SUPPORT ON PATREON FROM AS LITTLE AS $1:<br/><a href='https://patreon.com/lewislepton'>https://patreon.com/lewislepton</a><br/><br/>we have touched on zui many moons ago, but there have been great changes & breaking ones. so we look back & see whats different<br/><br/>source code:<br/><a href='https://github.com/lewislepton/kha-tutorial-series'>https://github.com/lewislepton/kha-tutorial-series</a><br/><br/>intro & outro music is from this EP:<br/><a href='https://lewislepton.bandcamp.com/album/coat-noise-ep'>https://lewislepton.bandcamp.com/album/coat-noise-ep</a><br/><br/>like, share & subscribe to stay up to date.<br/><br/><a href='https://lewislepton.com'>https://lewislepton.com</a><br/><a href='https://patreon.com/lewislepton'>https://patreon.com/lewislepton</a><br/><a href='https://twitter.com/lewislepton'>https://twitter.com/lewislepton</a><br/><a href='https://facebook.com/lewislepton'>https://facebook.com/lewislepton</a><br/><a href='https://lewislepton.bandcamp.com'>https://lewislepton.bandcamp.com</a><br/><a href='https://soundcloud.com/lewislepton'>https://soundcloud.com/lewislepton</a><br/><a href='https://github.com/lewislepton'>https://github.com/lewislepton</a>",
 			"date": "2018-06-12",
 			"youtubeId": "sOUMhft7Uyg"
+		},
+		{
+			"featured": true,
+			"title": "Episode 086 - follower AI",
+			"where": null,
+			"description": "SUPPORT ON PATREON FROM AS LITTLE AS $1:<br/><a href='https://patreon.com/lewislepton'>https://patreon.com/lewislepton</a><br/><br/>we can move around, we also create other entities, but what about something following us?<br/>we look at follower AI<br/><br/>source code:<br/><a href='https://github.com/lewislepton/kha-tutorial-series'>https://github.com/lewislepton/kha-tutorial-series</a><br/><br/>intro & outro music is from this EP:<br/><a href='https://lewislepton.bandcamp.com/album/coat-noise-ep'>https://lewislepton.bandcamp.com/album/coat-noise-ep</a><br/><br/>like, share & subscribe to stay up to date.<br/><br/><a href='https://lewislepton.com'>https://lewislepton.com</a><br/><a href='https://patreon.com/lewislepton'>https://patreon.com/lewislepton</a><br/><a href='https://twitter.com/lewislepton'>https://twitter.com/lewislepton</a><br/><a href='https://facebook.com/lewislepton'>https://facebook.com/lewislepton</a><br/><a href='https://lewislepton.bandcamp.com'>https://lewislepton.bandcamp.com</a><br/><a href='https://soundcloud.com/lewislepton'>https://soundcloud.com/lewislepton</a><br/><a href='https://github.com/lewislepton'>https://github.com/lewislepton</a>",
+			"date": "2018-06-12",
+			"youtubeId": "uAYNA8kaPwQ"
+		},
+		{
+			"featured": true,
+			"title": "Episode 087 - runner AI",
+			"where": null,
+			"description": "SUPPORT ON PATREON FROM AS LITTLE AS $1:<br/><a href='https://patreon.com/lewislepton'>https://patreon.com/lewislepton</a><br/><br/>we have something follow us. now we look for them to run away<br/><br/>source code:<br/><a href='https://github.com/lewislepton/kha-tutorial-series'>https://github.com/lewislepton/kha-tutorial-series</a><br/><br/>intro & outro music is from this EP:<br/><a href='https://lewislepton.bandcamp.com/album/coat-noise-ep'>https://lewislepton.bandcamp.com/album/coat-noise-ep</a><br/><br/>like, share & subscribe to stay up to date.<br/><br/><a href='https://lewislepton.com'>https://lewislepton.com</a><br/><a href='https://patreon.com/lewislepton'>https://patreon.com/lewislepton</a><br/><a href='https://twitter.com/lewislepton'>https://twitter.com/lewislepton</a><br/><a href='https://facebook.com/lewislepton'>https://facebook.com/lewislepton</a><br/><a href='https://lewislepton.bandcamp.com'>https://lewislepton.bandcamp.com</a><br/><a href='https://soundcloud.com/lewislepton'>https://soundcloud.com/lewislepton</a><br/><a href='https://github.com/lewislepton'>https://github.com/lewislepton</a>",
+			"date": "2018-06-12",
+			"youtubeId": "7fmj1seU70A"
+		},
+		{
+			"featured": true,
+			"title": "Episode 088 - creating libraries",
+			"where": null,
+			"description": "SUPPORT ON PATREON FROM AS LITTLE AS $1:<br/><a href='https://patreon.com/lewislepton'>https://patreon.com/lewislepton</a><br/><br/>we have created so many things & more so, stuff that we can reuse. so what do we do with it?<br>well, we look at making our own libraries<br/><br/>source code:<br/><a href='https://github.com/lewislepton/kha-tutorial-series'>https://github.com/lewislepton/kha-tutorial-series</a><br/><br/>intro & outro music is from this EP:<br/><a href='https://lewislepton.bandcamp.com/album/coat-noise-ep'>https://lewislepton.bandcamp.com/album/coat-noise-ep</a><br/><br/>like, share & subscribe to stay up to date.<br/><br/><a href='https://lewislepton.com'>https://lewislepton.com</a><br/><a href='https://patreon.com/lewislepton'>https://patreon.com/lewislepton</a><br/><a href='https://twitter.com/lewislepton'>https://twitter.com/lewislepton</a><br/><a href='https://facebook.com/lewislepton'>https://facebook.com/lewislepton</a><br/><a href='https://lewislepton.bandcamp.com'>https://lewislepton.bandcamp.com</a><br/><a href='https://soundcloud.com/lewislepton'>https://soundcloud.com/lewislepton</a><br/><a href='https://github.com/lewislepton'>https://github.com/lewislepton</a>",
+			"date": "2018-06-12",
+			"youtubeId": "ShG9DKZFOi4"
 		}
 	]
 }
