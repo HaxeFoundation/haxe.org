@@ -19,8 +19,14 @@ class Redirections {
 			"/doc/index.html" => "/manual/introduction.html",
 			"/foundation/support.html" => "/foundation/support-plans.html",
 			"/foundation/shop.html" => "/foundation/shop/",
-			"/api/index.html" => "http://api.haxe.org/",
+			"/api/index.html" => "https://api.haxe.org/",
 		];
+		
+		// fix some old links to toplevel api classes. 
+		for(oldName in "reflect,array,date,sys,type,map,int,math,dynamic,enum,float,class,xml".split(",")) {
+			var newName = oldName.charAt(0).toUpperCase() + oldName.substr(1);
+			list.set('/api/$oldName/index.html', 'https://api.haxe.org/$newName.html');
+		}
 
 		for (page in list.keys()) {
 			var content = Views.Redirection(list.get(page));
