@@ -15,6 +15,14 @@
 			<div class="span8">
 				::content::
 				
+				::if (prevNextLinks != null)::
+				<div class="prev-next-links clearfix bottom">
+					::if (prevNextLinks.prevUrl != null)::<a href="::prevNextLinks.prevUrl::" class="prev-link">::prevNextLinks.prevTitle::</a>::end::
+					::if (editLink != null)::<a href="::editLink::" target="_blank">Contribute to this page</a>::end::
+					::if (prevNextLinks.nextUrl != null)::<a href="::prevNextLinks.nextUrl::" class="next-link">::prevNextLinks.nextTitle::</a>::end::
+				</div>
+				::end::
+				
 				::if (comments != null)::
 				<hr/>
 				<script src="https://utteranc.es/client.js" repo="::comments.repo::" branch="::comments.branch::" issue-term="::comments.title::" async="async"></script>
@@ -22,12 +30,5 @@
 			</div>
 
 		</div>
-		::if (prevNextLinks != null)::
-			<div class="prev-next-links clearfix bottom">
-				::if (prevNextLinks.prevUrl != null)::<a href="::prevNextLinks.prevUrl::" class="prev-link">::prevNextLinks.prevTitle::</a>::end::
-				::if (editLink != null)::<a href="::editLink::" target="_blank">Contribute to this page</a>::end::
-				::if (prevNextLinks.nextUrl != null)::<a href="::prevNextLinks.nextUrl::" class="next-link">::prevNextLinks.nextTitle::</a>::end::
-			</div>
-		::end::
 	</div>
 </div>
