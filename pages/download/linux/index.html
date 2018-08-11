@@ -1,5 +1,6 @@
 <h1>Linux Software Packages</h1>
 <p>The Haxe Foundation officially participates in the maintenance of Haxe and Neko packages for a number of popular Linux distributions. It is recommended to use those packages if available.</p>
+<p>In case there is no Haxe package available, or when the provided version is outdated, you can build Haxe from source by following the instruction in the README.md file bundled in the Haxe source code directory.</p>
 
 <p><b>***WARNING***</b></p>
 <p>If you installed Haxe previously in any other way, and want to switch to using the packages, always remove the existing Haxe/Neko <b>completely</b> before doing so.</p>
@@ -47,6 +48,14 @@ Pin-Priority: 999</pre>
 <p>The Haxe Foundation maintains the Haxe and Neko RPM packages in the Fedora repository. The packages are up-to-date most of the time. However, when a new version of Haxe is released, it will take a few days, up to 2 weeks, to push an updated package to the stable releases of Fedora. The update activities can be tracked in the <a href="https://bodhi.fedoraproject.org/updates/?packages=haxe" target="_blank">Bodhi Fedora Update System</a>.</p>
 <p>To install the currently available versions for your system, simply run the commands as follows:</p>
 <pre>sudo dnf install haxe -y
+mkdir ~/haxelib &amp;&amp; haxelib setup ~/haxelib</pre>
+<p>Neko will be installed as a dependency of Haxe.</p>
+
+<h2>CentOS</h2>
+<p>The Haxe Foundation maintains the Haxe and Neko RPM packages in the <a href="https://fedoraproject.org/wiki/EPEL">EPEL</a> repository since EPEL 7. Due to the stability focus of CentOS, non-security updates are not usually pushed.</p>
+<p>To install the currently available versions for your system, run the commands as follows:</p>
+<pre>sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-$(rpm -q --queryformat '%{VERSION}' centos-release).noarch.rpm -y
+sudo yum install haxe -y
 mkdir ~/haxelib &amp;&amp; haxelib setup ~/haxelib</pre>
 <p>Neko will be installed as a dependency of Haxe.</p>
 
