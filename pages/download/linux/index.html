@@ -54,7 +54,7 @@ mkdir ~/haxelib &amp;&amp; haxelib setup ~/haxelib</pre>
 <h2>CentOS</h2>
 <p>The Haxe Foundation maintains the Haxe and Neko RPM packages in the <a href="https://fedoraproject.org/wiki/EPEL">EPEL</a> repository since EPEL 7. Due to the stability focus of CentOS, non-security updates are not usually pushed.</p>
 <p>To install the currently available versions for your system, run the commands as follows:</p>
-<pre>sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-$(rpm -q --queryformat '%{VERSION}' centos-release).noarch.rpm -y
+<pre>sudo yum install epel-release -y
 sudo yum install haxe -y
 mkdir ~/haxelib &amp;&amp; haxelib setup ~/haxelib</pre>
 <p>Neko will be installed as a dependency of Haxe.</p>
