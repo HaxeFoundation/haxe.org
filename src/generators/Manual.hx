@@ -84,9 +84,9 @@ class Manual {
 				new Html(SiteMap.sideBar(sitemap, page.page)),
 				new Html(content),
 				Config.manualBaseEditLink + page.page.editLink, {
-					repo: '${Config.repoOrganisation}/${Config.manualRepo}', 
+					repo: '${Config.repoOrganisation}/haxe.org-comments', 
 					branch: Config.manualRepoBranch, 
-					title: 'Comments: ${page.page.title}',
+					title: '[haxe.org/manual] ${page.page.title}',
 				}
 			);
 
