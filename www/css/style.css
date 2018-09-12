@@ -16,7 +16,7 @@ html, body {
 	body {
 		word-break: break-word;
 	}
-		
+
 	.page-wrap {
 		margin-top: -20px;
 	}
@@ -25,7 +25,7 @@ html, body {
 @media(max-width: 1199px) and (min-width: 980px) {
 	nav .nav>li>a[href="/foundation/support-plans.html"] {
 		display:none;
-	}	
+	}
 }
 
 .page-wrap:after {
@@ -313,7 +313,7 @@ a.anch {
 	/* fallback */
 	background-color: rgb(168,75,56);
 	background-repeat: no-repeat;
-	
+
 	background-image: radial-gradient(rgb(183,77,49) 25%, rgb(100,33,38));
 }
 .head .head-logo {
@@ -842,7 +842,7 @@ a.full-size-link {
 	font-size: 24px;
 }
 .article-view .well h3 {
-	margin-top:0; 
+	margin-top:0;
 }
 .article-form input, .article-form .input-append, .article-form .input-prepend {
 	width: 90%;
@@ -896,12 +896,6 @@ a.full-size-link {
 .page-wrap {
 	transition: opacity 0.5s ease;
 	opacity: 1;
-}
-.page-wrap.uf-partial-incoming {
-	opacity: 0;
-}
-.page-wrap.uf-partial-outgoing {
-	opacity: 0;
 }
 
 /**
@@ -1266,8 +1260,8 @@ a.partner-logo {
 }
 
 .section.light.section-videos:not(:first-child) .container, .section.dark.section-videos:not(:first-child) .container {
-	padding-top: 20px; 
-	padding-bottom: 20px; 
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
 
 .video-listing {
@@ -1292,13 +1286,13 @@ a.partner-logo {
 	padding: 2px;
 	box-sizing: border-box;
  }
- 
+
 @media (max-width: 979px) {
 	.video-item {
 		width: 210px;
 	}
 }
- 
+
  .video-item.button-next {
 	width: 40px;
  }
@@ -1310,15 +1304,15 @@ a.partner-logo {
 	padding-top:60px;
 	padding-bottom:60px;
  }
- 
+
  .six-per-row .video-item {
 	background: rgba(0, 0, 0, .25);
 	border: 1px solid #222;
 	color: #fff;
 	width: 180px;
  }
- 
- 
+
+
 .video-item h3 {
 	font-family: "Open Sans", sans-serif;
 	font-weight: 400;
