@@ -7,6 +7,7 @@ typedef SitePage = {
 	var url : String;
 	var title : String;
 	@:optional var sub : Array<SitePage>;
+	@:optional var disambiguation : String;
 
 	@:optional var parent : SitePage;
 	@:optional var previous : SitePage;

@@ -67,7 +67,7 @@ class Manual {
 					disambiguation.reverse();
 
 					if (disambiguation.length > 0) {
-						section.title += " (" + disambiguation.join(" - ") + ")";
+						section.disambiguation = section.title + " (" + disambiguation.join(" - ") + ")";
 					}
 				}
 			}
@@ -84,13 +84,13 @@ class Manual {
 				new Html(SiteMap.sideBar(sitemap, page.page)),
 				new Html(content),
 				Config.manualBaseEditLink + page.page.editLink, {
-					repo: '${Config.repoOrganisation}/haxe.org-comments', 
-					branch: Config.manualRepoBranch, 
+					repo: '${Config.repoOrganisation}/haxe.org-comments',
+					branch: Config.manualRepoBranch,
 					title: '[haxe.org/manual] ${page.page.title}',
 				}
 			);
 
-			Utils.save(Path.join([Config.outputFolder, page.page.url]), content, menuRoot, null);
+			Utils.save(Path.join([Config.outputFolder, page.page.url]), content, menuRoot, Config.manualBaseEditLink + page.page.editLink, page.page.disambiguation != null ? page.page.disambiguation : page.page.title);
 		}
 
 		// Copy images
@@ -100,7 +100,7 @@ class Manual {
 
 			File.copy(inPath, outPath);
 		}
-		
+
 		// Create dictionary page
 		var dictionaryPage = {
 			url: '/manual/dictionary.html',
