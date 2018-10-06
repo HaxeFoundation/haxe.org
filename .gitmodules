@@ -22,3 +22,6 @@
 [submodule "grammars/language-shellscript"]
 	path = grammars/language-shellscript
 	url = https://github.com/atom/language-shellscript.git
+[submodule "hxcpp"]
+	path = hxcpp
+	url = https://github.com/HaxeFoundation/hxcpp.git

@@ -39,12 +39,18 @@ typedef Page = {
 
 class Manual {
 
-	public static function generate () {
+	static var inPath = Path.join(["manual", "output", "HaxeManual", "website"]);
+
+	public static function getDefaultSections () : Array<Section> {
+		return Json.parse(File.getContent(Path.join([inPath, "sections.txt"])));
+	}
+
+	public static function generate (patchedSections:Array<Section> = null) {
 		Sys.println("Generating manual ...");
 
 		// Data
-		var inPath = Path.join(["manual", "output", "HaxeManual", "website"]);
-		var sections = processSections(Json.parse(File.getContent(Path.join([inPath, "sections.txt"]))), inPath);
+		var sections = patchedSections != null ? patchedSections : getDefaultSections();
+		var sections = processSections(sections, inPath);
 
 		var sitemap = [];
 		var pages = [];
@@ -129,10 +135,10 @@ class Manual {
 		}
 
 		var sitePage = {
-			url: '/manual/${section.label}.html',
+			url: '/manual/${section.label.replace("../", "")}.html',
 			title: section.title,
 			sub: subs,
-			editLink: '${section.source.file}#L${section.source.lineMin}-L${section.source.lineMax}'
+			editLink: section.source == null ? null : '${section.source.file}#L${section.source.lineMin}-L${section.source.lineMax}'
 		};
 		sitemap.push(sitePage);
 
