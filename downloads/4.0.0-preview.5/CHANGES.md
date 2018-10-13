@@ -35,7 +35,7 @@ __General improvements and optimizations__:
 * eval : improved IntMap and StringMap performance
 * eval : improved performance of instance calls
 
-__Removals __:
+__Removals__:
 
 * all : disallowed get_x/set_x property syntax, use get/set instead ([#4699](https://github.com/HaxeFoundation/haxe/issues/4699))
 * all : disallowed default values on interface variables ([#4087](https://github.com/HaxeFoundation/haxe/issues/4087))

@@ -195,6 +195,11 @@
 			"date": "2018-06-12",
 			"version": "4.0.0-preview.4",
 			"tag": "4.0.0-preview.4"
+		},
+		{
+			"date": "2018-10-13",
+			"version": "4.0.0-preview.5",
+			"tag": "4.0.0-preview.5"
 		}
 	]
 }
