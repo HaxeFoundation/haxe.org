@@ -1,0 +1,59 @@
+/* Haxe toolchain */
+digraph G {
+    graph     [fontname = "clearsans"];
+    node      [shape=box; style=filled; fillcolor="#E8E8E7";
+               color=gray; fontsize=11; fontname = "clearsans"];
+    edge      [arrowsize=0.5; fontsize=11; fontname = "clearsans"];
+
+    Neko     [style=filled; fillcolor="#B5E1AC";]
+    HashLink [style=filled; fillcolor="#B5E1AC";]
+    SWF      [style=filled; fillcolor="#B5E1AC";]
+
+    Interp   [style=filled; fillcolor="#E1ACAE";
+              label = "haxe --interp";]
+
+    VM          [style=filled; fillcolor="#E1ACAE"];
+    Executable  [style=filled; fillcolor="#E1ACAE"];
+    Browser     [style=filled; fillcolor="#E1ACAE"];
+    Interpreter [style=filled; fillcolor="#E1ACAE"];
+
+    {rank=same; Haxe; Interp;}
+    {rank=same; ActionScript; C; "C++"; Cppia; "C#"; ECMAScript;
+                Java; Lua; PHP; Python;}
+    {rank=same; Neko; HashLink; SWF;}
+    {rank=same; Browser; Executable; Interpreter; VM;}
+
+    Haxe -> ActionScript;
+    Haxe -> C [label="HL/C"];
+    Haxe -> "C++";
+    Haxe -> Cppia;
+    Haxe -> "C#";
+    Haxe -> ECMAScript;
+    Haxe -> HashLink [label="HL/JIT"];
+    Haxe -> Java;
+    Haxe -> Lua;
+    Haxe -> Neko;
+    Haxe -> PHP;
+    Haxe -> Python;
+    Haxe -> SWF;
+    Haxe -> Interp [minlen=9.0];
+
+    C -> Executable [label="cc"];
+    PHP -> Interpreter;
+    ECMAScript -> Interpreter;
+    ECMAScript -> Browser;
+    Java -> VM [label="javac"];
+    Neko -> VM;
+    ActionScript -> VM;
+    ActionScript -> Browser;
+    SWF -> VM;
+    SWF -> Browser [label="Flash"];
+
+    Lua -> Interpreter;
+    "C++" -> Executable [label="cpp"];
+    Cppia -> Executable [label="cpp"];
+    Cppia -> Interpreter;
+    "C#" -> VM [label="csc"];
+    Python -> Interpreter;
+    HashLink -> VM;
+}

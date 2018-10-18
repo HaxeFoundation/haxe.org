@@ -1,6 +1,10 @@
 Compiler Targets
 =======
 
+![Haxe Targets at a glance](haxe-targets.png)
+
+Key: green is a bytecode target, red is execution environment.
+
 The following table gives an overview of available Haxe targets:
 
 Name | Kind | Static typing | Sys | Since
