@@ -3,7 +3,11 @@ Compiler Targets
 
 ![Haxe Targets at a glance](haxe-targets.png)
 
-Key: green is a bytecode target, red is execution environment.
+Key:
+
+  * blue border: Haxe compiler target
+  * green background: bytecode
+  * red background: execution environment
 
 The following table gives an overview of available Haxe targets:
 

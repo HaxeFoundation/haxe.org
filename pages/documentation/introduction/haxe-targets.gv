@@ -1,26 +1,41 @@
-/* Haxe toolchain */
 digraph G {
-    graph     [fontname = "clearsans"];
+    graph     [fontname = "clearsans"; rankdir="LR"];
     node      [shape=box; style=filled; fillcolor="#E8E8E7";
                color=gray; fontsize=11; fontname = "clearsans"];
     edge      [arrowsize=0.5; fontsize=11; fontname = "clearsans"];
 
-    Neko     [style=filled; fillcolor="#B5E1AC";]
-    HashLink [style=filled; fillcolor="#B5E1AC";]
-    SWF      [style=filled; fillcolor="#B5E1AC";]
+    // ByteCode
+    Neko     [fillcolor="#B5E1AC"];
+    HashLink [fillcolor="#B5E1AC"];
+    SWF      [fillcolor="#B5E1AC"];
+    JVM      [fillcolor="#B5E1AC"];
+    CIL      [fillcolor="#B5E1AC"];
 
-    Interp   [style=filled; fillcolor="#E1ACAE";
-              label = "haxe --interp";]
+    // Haxe Generates these
+    ActionScript    [color="#53A5EC"; penwidth=2];
+    C               [color="#53A5EC"; penwidth=2];
+    "C++"           [color="#53A5EC"; penwidth=2];
+    "C#"            [color="#53A5EC"; penwidth=2];
+    Cppia           [color="#53A5EC"; penwidth=2];
+    JavaScript      [color="#53A5EC"; penwidth=2];
+    HashLink        [color="#53A5EC"; penwidth=2];
+    Java            [color="#53A5EC"; penwidth=2];
+    Lua             [color="#53A5EC"; penwidth=2];
+    Neko            [color="#53A5EC"; penwidth=2];
+    PHP             [color="#53A5EC"; penwidth=2];
+    Python          [color="#53A5EC"; penwidth=2];
+    SWF             [color="#53A5EC"; penwidth=2];
 
-    VM          [style=filled; fillcolor="#E1ACAE"];
-    Executable  [style=filled; fillcolor="#E1ACAE"];
-    Browser     [style=filled; fillcolor="#E1ACAE"];
-    Interpreter [style=filled; fillcolor="#E1ACAE"];
+    //
+    VM          [fillcolor="#E1ACAE"];
+    Executable  [fillcolor="#E1ACAE"];
+    Browser     [fillcolor="#E1ACAE"];
+    Interpreter [fillcolor="#E1ACAE"];
 
-    {rank=same; Haxe; Interp;}
-    {rank=same; ActionScript; C; "C++"; Cppia; "C#"; ECMAScript;
+    {rank=same; Haxe;}
+    {rank=same; ActionScript; C; "C++"; Cppia; "C#"; JavaScript;
                 Java; Lua; PHP; Python;}
-    {rank=same; Neko; HashLink; SWF;}
+    {rank=same; Neko; HashLink; SWF; JVM; CIL;}
     {rank=same; Browser; Executable; Interpreter; VM;}
 
     Haxe -> ActionScript;
@@ -28,7 +43,7 @@ digraph G {
     Haxe -> "C++";
     Haxe -> Cppia;
     Haxe -> "C#";
-    Haxe -> ECMAScript;
+    Haxe -> JavaScript;
     Haxe -> HashLink [label="HL/JIT"];
     Haxe -> Java;
     Haxe -> Lua;
@@ -36,13 +51,14 @@ digraph G {
     Haxe -> PHP;
     Haxe -> Python;
     Haxe -> SWF;
-    Haxe -> Interp [minlen=9.0];
+    Haxe -> Interpreter [label="--interp"];
 
     C -> Executable [label="cc"];
     PHP -> Interpreter;
-    ECMAScript -> Interpreter;
-    ECMAScript -> Browser;
-    Java -> VM [label="javac"];
+    JavaScript -> Interpreter;
+    JavaScript -> Browser;
+    Java -> JVM [label="javac"]
+    JVM -> VM;
     Neko -> VM;
     ActionScript -> VM;
     ActionScript -> Browser;
@@ -53,7 +69,8 @@ digraph G {
     "C++" -> Executable [label="cpp"];
     Cppia -> Executable [label="cpp"];
     Cppia -> Interpreter;
-    "C#" -> VM [label="csc"];
+    "C#" -> CIL [label="csc"];
+    CIL -> VM;
     Python -> Interpreter;
     HashLink -> VM;
 }
