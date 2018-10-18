@@ -1,0 +1,35 @@
+{
+	"title": "HaxeUp Sessions October 2018",
+	"description": "HaxeUp Sessions is an online streamed event, which was held 13th October 2018.",
+	"videos": [{
+			"title": "Haxe autumn report - Simon Krajewski",
+			"where": null,
+			"description": "Haxe 4.0.0-preview.5 release (<a href='https://haxe.org/download/version/4.0.0-preview.5/'>https://haxe.org/download/version/4.0.0-preview.5/</a>) main features:<br/> support Unicode strings properly on all targets<br/> support for new syntax for key-value iterators and added it to Map<br/> support inline call() and inline new expressions<br/> support @:using on type declarations<br/> support XML literal strings but require them to be marco-processed<br/> allow enum values without arguments as default function argument values<br/> reserved operator and overload as keywords",
+			"date": "2018-10-14",
+			"youtubeId": "AC4oEp3yEBw"
+		}, {
+			"title": "Null safety - Alexandr Kuzmenko",
+			"where": null,
+			"description": "Null safety plugin github repository: <a href='https://github.com/'>https://github.com/</a>RealyUniqueName/Safety<br/>Slides for prezentation: <a href='https://docs.google.com/presentation/d/1'>https://docs.google.com/presentation/d/1</a>ZNGW8RO5Z3vv76gN_mcWehD7paDzpzo1Wy_dGo2ubhM/edit",
+			"date": "2018-10-14",
+			"youtubeId": "hFVtbDvajLc"
+		}, {
+			"title": "Coconut. Searching the Holy Grail of UI - Juraj Kirchheim",
+			"where": null,
+			"description": "Coconut on haxelib: <a href='https://lib.haxe.org/t/coconut/'>https://lib.haxe.org/t/coconut/</a>",
+			"date": "2018-10-14",
+			"youtubeId": "YwgizUowcEU"
+		}, {
+			"title": "Batched rendering - Dan Korostelev",
+			"where": null,
+			"description": "In his talk Dan Korostelev describes custom rendering optimizations made for openfl 7 in order to provide smooth gaming expirience for \"Forge of Empires\" players.<br/>Pull request with changes reviewed in this talk: <a href='https://github.com/innogames/openfl/pull/73'>https://github.com/innogames/openfl/pull/73</a>",
+			"date": "2018-10-14",
+			"youtubeId": "PwFILhpYk5k"
+		}, {
+			"title": "Type classes in Haxe - Heinz Holzer",
+			"where": null,
+			"description": "",
+			"date": "2018-10-14",
+			"youtubeId": "TG7mnmDExhs"
+		}]
+}
