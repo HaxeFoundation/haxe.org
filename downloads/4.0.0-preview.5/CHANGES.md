@@ -28,7 +28,6 @@ __General improvements and optimizations__:
 * php : Optimized `Map.copy()` and `Array.copy()`
 * php : Optimized iterators of `Map` and native arrays.
 * php : Support native PHP generators. See `php.Syntax.yield()` and `php.Generator`
-* js : Updated jQuery extern (js.jquery.*). Supporting jQuery up to 3.3.1.
 * js : updated HTML externs
 * eval : improved object prototype field handling ([#7393](https://github.com/HaxeFoundation/haxe/issues/7393))
 * eval : optimized int switches ([#7481](https://github.com/HaxeFoundation/haxe/issues/7481))
@@ -43,6 +42,7 @@ __Removals__:
 * all : warn about expressions in extern non-inline fields ([#5898](https://github.com/HaxeFoundation/haxe/issues/5898))
 * all : removed `-D use-rtti-doc`, always store documentation instead ([#7493](https://github.com/HaxeFoundation/haxe/issues/7493))
 * all : disallowed macro-in-macro calls ([#7496](https://github.com/HaxeFoundation/haxe/issues/7496))
+* js : removed jQuery and swfobject externs ([#7494](https://github.com/HaxeFoundation/haxe/issues/7494))
 
 __Bugfixes__:
 
