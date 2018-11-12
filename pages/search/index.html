@@ -1,5 +1,5 @@
 <div class="section">
-	<div class="container">
+	<div class="container" id="google-search-container">
 		<h1>Search Results</h1>
 		<script>
 		  (function() {
@@ -13,6 +13,11 @@
 		  })();
 		</script>
 		<gcse:search queryParameterName="s" enableHistory="true"></gcse:search>
-
+		
 	</div>
 </div>
+<script>
+$(window).load(function() {
+	$("#google-search-container input[type=text]").first().focus();
+});
+</script>
