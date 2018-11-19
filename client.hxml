@@ -5,5 +5,4 @@
 -main Client
 -js client.js
 -lib closure
--lib hx3compat
 -D closure_quiet
