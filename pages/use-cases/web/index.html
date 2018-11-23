@@ -3,9 +3,9 @@
 <div class="row-fluid">
 	<div class="span6">
 		<p class="lead">Haxe gives you a powerful language and useful libraries for writing both server-side and client-side code.</p>
-		<p><b>On the client</b>, you can target HTML 5 with Haxe's JavaScript target.  Haxe's strict type system means you catch errors at compile-time, and can maintain large code bases with confidence.  You can interact with existing JS libraries using externs.  You can also create SWFs for interactive media targeting the Flash Player.</p>
-		<p><b>On the server</b>, you can target PHP (for cheap hosting), Neko (for massive speed increases), or NodeJS for access to the massive NodeJS repository of libraries and tools.  You can also use Haxe's macro powered DB Records to sync your Haxe objects with your database.</p>
-		<p><b>Best of all</b>, your client-side code and your server-side code can use the same language, sharing common code, and communicating effortlessly via Haxe Remoting.</p>
+		<p><b>On the client</b>, you can target HTML5 in the browser using Haxe's JavaScript target.  Haxe's strict type system means you catch errors at compile-time, and can maintain large code bases with confidence.  You can interact with many existing JS libraries using externs.  </p>
+		<p><b>On the server</b>, you can target PHP (for cheap hosting), or Node.js for access to the massive repository of libraries and tools. Because of Haxe's variety of target languages, Python and Java backends are also at your feet! </p>
+		<p><b>Best of all</b>, your client-side code and your server-side code can use the same language, sharing common code and communicating effortlessly.</p>
 	</div>
 	<div class="span6">
 		<blockquote>
@@ -13,7 +13,7 @@
 			<small><cite title="Peter Halacsy">Peter Halacsy, Co-Founder &amp; CTO at Prezi</cite></small>
 		</blockquote>
 		<blockquote>
-			<p>Using Haxe to build our web-app meant we were able to build code that ran fast, was maintainable, and made it painless to jump between client and server without skipping a beat.</p>
+			<p>Using Haxe to build our web-app meant we were able to build code that ran fast, was maintainable and made it painless to jump between client and server without skipping a beat.</p>
 			<small><cite title="Jason O'Neil">Jason O'Neil, Lead Developer, Sheridan Research Institute</cite></small>
 		</blockquote>
 	</div>
@@ -21,63 +21,87 @@
 
 <hr />
 
-<h4>Showcase</h4>
-<ul>
-	<li>
-		<h6><a href="http://www.netwars-project.com/webdoc">Net Wars</a></h6>
-		<p>A Haxe/HTML5 powered site featuring interactive video, infographics, social media and more. </p>
-	</li>
-	<li>
-		<h6><a href="http://shirtshop.landwirtschaft.ch/">LID Shirtshop</a></h6>
-		<p>Interactive online shop built with Haxe. (HTML5/JS Frontend, NodeJS backend).</p>
-	</li>
-	<li>
-		<h6>Have a success story?</h6>
-		<p><a href="https://github.com/HaxeFoundation/haxe.org/issues/new?title=Web%20showcase%20suggestion">Let us know</a> and we might add it to the showcase.</p>
-	</li>
-</ul>
-
 <div class="row-fluid">
 	<div class="span6">
 		<h4>Popular Libraries</h4>
 		<ul>
 			<li>
-				<h6><a href="https://github.com/clemos/haxe-js-kit">Haxe JS Kit</a></h6>
-				<p>A collection of externs to interact with key JS projects, including NodeJS, Express, Socket.io and more.</p>
+				<h6><a href="https://github.com/MVCoconut/coconut.vdom">MVCoconut</a></h6>
+				<p>A pure Haxe virtual DOM library for building component-based reactive views, powered by <a href="https://github.com/haxetink/">tink libraries</a>. Coconut has renderers for React, React Native and its own HTML coconut.vdom renderer.</p>
 			</li>
 			<li>
 				<h6><a href="https://www.npmjs.com/package/haxe-modular">Haxe modular</a></h6>
 				<p>Code splitting and hot-reload for Haxe-JS applications. Haxe modular is a set of tools and support classes allowing Webpack-like code-splitting, lazy loading and hot code reloading. Without Webpack and the JS fatigue.</p>
 			</li>
 			<li>
+				<h6><a href="https://github.com/massiveinteractive/haxe-react">Haxe React</a></h6>
+				<p>React JS applications development using the Haxe language.</p>
+			</li>
+			<li>
+				<h6><a href="https://github.com/clemos/haxe-js-kit">Haxe JS Kit</a></h6>
+				<p>A collection of externs to interact with key JavaScript projects, including NodeJS, Express, Socket.io and more.</p>
+			</li>
+			<li>
+				<h6><a href="https://lib.haxe.org/p/electron/">Electron</a></h6>
+				<p>Haxe type definitions for <a href="https://electronjs.org/">Electron</a>, a framework for building cross-platform desktop applications with JavaScript, HTML, and CSS.</p>
+			</li>
+			<li>
 				<h6><a href="https://github.com/ufront/ufront">Ufront</a></h6>
 				<p>Ufront is a full-featured, extensible MVCA web framework that works on the client or server.</p>
 			</li>
 			<li>
-				<h6><a href="https://github.com/massiveinteractive/haxe-react">Haxe React</a></h6>
-				<p>React JS applications development using the Haxe language</p>
-			</li>
-			<li>
-				<h6><a href="http://api.haxe.org/js/JQuery.html">jQuery</a> (From the Std Library)</h6>
-				<p>A simple way to interact with jQuery from Haxe. There is also a more up-to-date set of externs in the <a href="https://lib.haxe.org/p/jQueryExtern">jQueryExtern</a> lib.</p>
+				<h6><a href="https://lib.haxe.org/p/jQueryExtern">jQuery</a></h6>
+				<p>A simple way to interact with jQuery from Haxe.</p>
 			</li>
 		</ul>
 	</div>
 	<div class="span6">
-		<h4>Articles</h4>
-		<ul>
-			<li>
-				<h6><a href="/manual/std-template.html">Using Haxe's built in Templating system.</a></h6>
-			</li>
-			<li>
-				<h6><a href="http://old.haxe.org/manual/dispatch">Using <code>haxe.web.Dispatch</code> to manage routing for your website.</a></h6>
-			</li>
-			<li>
-				<h6><a href="http://old.haxe.org/manual/spod">Model / Database integration with Haxe DB Records.</a></h6>
-			</li>
-			<li>
-				<h6><a href="/manual/std-remoting.html">Getting started with Haxe Remoting.</a></h6>
-			</li>
-		</ul>
+		<h4>Videos</h4>
+		<div class="video-listing">
+			<style>.video-item{ width:45%; }</style>
+			<div class="video-item">
+				<a href="/videos/conferences/haxeup-sessions-2018/coconut-searching-the-holy-grail-of-ui-juraj-kirchheim.html">
+					<img src="https://img.youtube.com/vi/YwgizUowcEU/mqdefault.jpg" alt="Coconut. Searching the Holy Grail of UI - Juraj Kirchheim" class="thumbnail"/>
+				</a>
+				<h3>Coconut. Searching the Holy Grail of UI - Juraj Kirchheim</h3>
+			</div>
+			
+			<div class="video-item">
+				<a href="/videos/conferences/london-haxe-meetup/modular-haxe-js-with-webpack-lix-haxe-package-manager.html">
+					<img src="https://img.youtube.com/vi/CDGAUBEzo6Y/mqdefault.jpg" alt="Modular Haxe JS with Webpack &amp; Lix Haxe Package Manager" class="thumbnail"/>
+				</a>
+				<h3>Modular Haxe JS with Webpack &amp; Lix Haxe Package Manager</h3>
+			</div>
+			
+			<div class="video-item">
+				<a href="/videos/conferences/wwx-2015/a-walk-through-of-haxe-js-kit-by-clement-charmet.html">
+					<img src="https://img.youtube.com/vi/YJ3IvE6qCEA/mqdefault.jpg" alt="&quot;A walk-through of Haxe JS Kit&quot; by Clément Charmet" class="thumbnail"/>
+				</a>
+				<h3>"A walk-through of Haxe JS Kit" by Clément Charmet</h3>
+			</div>
+			
+			<div class="video-item">
+				<a href="/videos/conferences/london-haxe-meetup/haxe-and-webgl-george-corney.html">
+					<img src="https://img.youtube.com/vi/qBtFjEUYwGU/mqdefault.jpg" alt="Haxe and WebGL - George Corney" class="thumbnail"/>
+				</a>
+				<h3>Haxe and WebGL - George Corney</h3>
+			</div>
+			
+			<div class="video-item">
+				<a href="/videos/conferences/haxe-summit-us-2018/golgi-fast-cross-platform-routing-and-dispatch-justin-donaldson.html">
+					<img src="https://img.youtube.com/vi/8aFxG1T_-30/mqdefault.jpg" alt="Golgi: Fast cross platform routing and dispatch - Justin Donaldson" class="thumbnail"/>
+				</a>
+				<h3>Golgi: Fast cross platform routing and dispatch - Justin Donaldson</h3>
+			</div>
+			
+			<div class="video-item">
+				<a href="/videos/conferences/haxe-summit-2017/haxe-as-a-fullstack-language-kevin-leung.html">
+					<img src="https://img.youtube.com/vi/C17kBkoWuvY/mqdefault.jpg" alt=" HAXE as a fullstack language - Kevin Leung" class="thumbnail"/>
+				</a>
+				<h3>HAXE as a fullstack language - Kevin Leung</h3>
+			</div>
+		</div>
+		<h5><strong>Have a success story?</strong></h5>
+		<p><a href="https://github.com/HaxeFoundation/haxe.org/issues/new?title=Web%20showcase%20suggestion">Let us know</a> and we might add it to the showcase.</p>
 	</div>
 </div>
