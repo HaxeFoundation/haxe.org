@@ -52,15 +52,15 @@ Building on Windows (mingw)
 ### Installation
 
   - Download 32-bit installer from the fdopen's fork: <https://fdopen.github.io/opam-repository-mingw/installation/>
-  - Install it, in Cygwin package selection also check `mingw64-i686-zlib` and `mingw64-i686-pcre` (used by Haxe).
-    You might need to switch "View" in top-right corner to "Not Installed" to see it in the list.
+  - Install it, in Cygwin package selection also check `mingw64-i686-zlib` and `mingw64-i686-pcre` (used by Haxe). 
+    You might need to switch "View" in top-right corner to "Not Installed" to see it in the list. When installer doesn't provide option to install packages, navigate to "C:\OCaml32\home\nadako\.opam\4.02.3+mingw32c\bin" and run command-line `cygwin-install.exe gui`.
   - Run OCaml32 terminal from the desktop shortcut, from it:
   
     - Install dependencies through opam: `opam install camlp4 sedlex ocamlfind xml-light extlib rope ptmap sha`
 
 ### Running from cmd/powershell
 
-  - Add these to your PATH (actual paths may differ depending on your install path, username, and OCaml version):
+  - Add these to the start of your PATH (actual paths may differ depending on your install path, username, and OCaml version):
   
     - cygwin tools: `C:\OCaml32\bin`
     - runtime dlls: `C:\OCaml32\usr\i686-w64-mingw32\sys-root\mingw\bin`
