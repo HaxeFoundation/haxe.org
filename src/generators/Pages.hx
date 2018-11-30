@@ -19,7 +19,7 @@ class Pages {
 			var folder = path.length > 1 ? path.shift() : "/";
 			var file = path.join("/");
 			if (Path.extension(file) == "scripts" || Path.extension(file) == "styles") {
-				Sys.println("\tSkipping script page '"+ file + "'");
+				Sys.println("\tSkipping script page '" + file + "'");
 				continue;
 			}
 			var inPath = Path.join([Config.pagesPath, folder, file]);

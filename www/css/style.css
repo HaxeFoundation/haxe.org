@@ -177,10 +177,10 @@ a.anch {
 	padding-bottom: 40px;
 }
 .section .container > :first-child {
-	margin-top: 0px;
+	margin-top: 0;
 }
 .section .container > :last-child {
-	margin-bottom: 0px;
+	margin-bottom: 0;
 }
 .section blockquote {
 	margin: 20px 20px 20px 20px;
@@ -323,7 +323,7 @@ a.anch {
 }
 .head .head-content h1, .dark.downloads h1 {
 	font-weight: bold;
-	text-shadow: 0px 1px 0px rgb(88,27,32);
+	text-shadow: 0 1px 0 rgb(88,27,32);
 	color: white;
 }
 .head .head-content .lead {
@@ -563,7 +563,7 @@ table.table.table-bordered.features, table.table.table-bordered.features td, tab
 	width: 35px;
 	height: 100%;
 	position: absolute;
-	left: 0px;
+	left: 0;
 	top: 0;
 	bottom: 0;
 }
@@ -624,7 +624,7 @@ html .gsc-search-box-tools .gsc-search-box .gsc-input .gsc-input-box {
 }
 html .gsc-search-box-tools .gsc-search-box td.gsc-search-button input.gsc-search-button,
 html .gsc-search-box-tools .gsc-search-box td.gsc-search-button input.gsc-search-button:hover {
-	border-radius: 0px 5px 5px 0px;
+	border-radius: 0 5px 5px 0;
 	border-left: none;
 	margin-left: 0;
 }
@@ -882,7 +882,7 @@ a.full-size-link {
 }
 
 .milestone h3 {
-	margin-top: 0px;
+	margin-top: 0;
 }
 
 .milestone a {
@@ -890,7 +890,7 @@ a.full-size-link {
 }
 
 .milestone dl {
-	margin-bottom: 0px;
+	margin-bottom: 0;
 }
 
 .page-wrap {
@@ -1222,7 +1222,6 @@ a.partner-logo {
 	color: #fff;
 	margin-bottom:5px;
 	margin-right:5px;
-	text-decoration:none;
 	border-radius:5px;
 	text-decoration: none;
 }

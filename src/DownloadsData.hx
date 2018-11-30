@@ -128,8 +128,9 @@ class DownloadsData {
 			return { title: title, url:url, filename: Path.withoutDirectory(url) };
 		}
 		var githubRelease = githubReleases.find(function(r) return r.tag_name == version.tag);
-		if (githubRelease == null)
+		if (githubRelease == null) {
 			throw 'missing github release for version ${version.tag}';
+		}
 		var downloadUrls = githubRelease.assets.map(function(a) return a.browser_download_url);
 
 		//TODO: make something a little less horrible here
