@@ -13,6 +13,8 @@ Last year we had our first US Haxe Summit. We met up, saw who else uses Haxe ove
 
 Thus, I am delighted to announce more details of our second US Summit:
 
+## [summit.haxe.org](https://summit.haxe.org)
+
 **Date:** 8th - 10th of May 2019
 
 **Location:** [Bell Harbor International Conference Center](https://goo.gl/maps/xaDGa16fD4L2)
