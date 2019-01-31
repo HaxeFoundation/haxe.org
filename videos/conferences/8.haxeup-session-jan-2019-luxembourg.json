@@ -24,14 +24,14 @@
       "youtubeId": "gsq1YeJOotE"
     },
     {
-      "title": Next Level Type Safety - Dan Korostelev",
+      "title": "Next Level Type Safety - Dan Korostelev",
       "where": "HaxeUp Sessions Januari 2019, Luxembourg",
       "description": "Links: <br\/><a href='https:\/\/github.com\/HeapsIO\/heaps'>https:\/\/github.com\/HeapsIO\/heaps\/<\/a> (see hxsl and hxd.res)<br\/><a href='https:\/\/github.com\/ncannasse\/hxbit'>https:\/\/github.com\/ncannasse\/hxbit<\/a><br\/><a href='https:\/\/github.com\/ncannasse\/castle'>https:\/\/github.com\/ncannasse\/castle<\/a> (see cdb)<br\/><a href='https:\/\/github.com\/haxetink\/tink_json'>https:\/\/github.com\/haxetink\/tink_json<\/a><br\/><a href='https:\/\/github.com\/haxetink\/tink_sql'>https:\/\/github.com\/haxetink\/tink_sql<\/a><br\/><a href='https:\/\/github.com\/haxetink\/tink_template'>https:\/\/github.com\/haxetink\/tink_template<\/a><br\/><a href='https:\/\/github.com\/Simn\/hxargs'>https:\/\/github.com\/Simn\/hxargs<\/a><br\/><a href='https:\/\/github.com\/nadako\/stiletto'>https:\/\/github.com\/nadako\/stiletto<\/a><br\/><a href='https:\/\/github.com\/nadako\/hxlocalize'>https:\/\/github.com\/nadako\/hxlocalize<\/a>",
       "date": "2019-01-29",
       "youtubeId": "i6yOT69rSc0"
     },
     {
-      "title": "DOMKit : strictly typed marco based UI components framework - Nicolas Cannasse",
+      "title": "DOMKit : strictly typed macro based UI components framework - Nicolas Cannasse",
       "where": "HaxeUp Sessions Januari 2019, Luxembourg",
       "description": "<a href='https:\/\/github.com\/ncannasse\/uikit\/'>https:\/\/github.com\/ncannasse\/uikit\/<\/a><br\/>Heaps samples: <a href='https:\/\/github.com\/HeapsIO\/heaps\/blob\/master\/samples\/Uikit.hx'>https:\/\/github.com\/HeapsIO\/heaps\/blob\/master\/samples\/Uikit.hx<\/a>",
       "date": "2019-01-29",
