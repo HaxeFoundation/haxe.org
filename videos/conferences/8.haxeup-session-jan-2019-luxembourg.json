@@ -1,0 +1,41 @@
+{
+	"title": "HaxeUp Sessions Januari 2019",
+	"description": "HaxeUp Sessions is an online streamed event, which was held Januari 2019 in Luxembourg.",
+	"videos": [
+    {
+      "title": "Navigating the Haxe community, when it isn\u2019t in the manual - Josefiene Pertosa",
+      "where": "HaxeUp Sessions Januari 2019, Luxembourg",
+      "description": "Community Cheat Sheet<br\/>- Github: <a href='https:\/\/github.com\/haxefoundation'>https:\/\/github.com\/haxefoundation<\/a><br\/>- The Forum: <a href='https:\/\/community.haxe.org\/'>https:\/\/community.haxe.org\/<\/a><br\/>- Haxe Roundup: <a href='https:\/\/haxe.io\/'>https:\/\/haxe.io\/<\/a><br\/>- Twitter: #haxe<br\/>- Discord: <a href='https:\/\/discordapp.com\/invite\/0uEuWH3spjck73Lo'>https:\/\/discordapp.com\/invite\/0uEuWH3spjck73Lo<\/a><br\/>- Gitter Chat: <a href='https:\/\/gitter.im\/HaxeFoundation'>https:\/\/gitter.im\/HaxeFoundation\/<\/a><br\/>- Stackoverflow: <a href='https:\/\/stackoverflow.com\/questions\/tagged\/haxe'>https:\/\/stackoverflow.com\/questions\/tagged\/haxe<\/a><br\/>- Subreddit: <a href='https:\/\/www.reddit.com\/r\/haxe'>https:\/\/www.reddit.com\/r\/haxe<\/a>",
+      "date": "2019-01-29",
+      "youtubeId": "O3s9mSbs1hk"
+    },
+    {
+      "title": "Demystifying Haxe to JS: Compilation, interop and bundling - Philippe Elsass",
+      "where": "HaxeUp Sessions Januari 2019, Luxembourg",
+      "description": "",
+      "date": "2019-01-29",
+      "youtubeId": "pmnJ3JE4hNw"
+    },
+    {
+      "title": "What the Haxe! - Juraj Kircheim",
+      "where": "HaxeUp Sessions Januari 2019, Luxembourg",
+      "description": "",
+      "date": "2019-01-29",
+      "youtubeId": "gsq1YeJOotE"
+    },
+    {
+      "title": Next Level Type Safety - Dan Korostelev",
+      "where": "HaxeUp Sessions Januari 2019, Luxembourg",
+      "description": "Links: <br\/><a href='https:\/\/github.com\/HeapsIO\/heaps'>https:\/\/github.com\/HeapsIO\/heaps\/<\/a> (see hxsl and hxd.res)<br\/><a href='https:\/\/github.com\/ncannasse\/hxbit'>https:\/\/github.com\/ncannasse\/hxbit<\/a><br\/><a href='https:\/\/github.com\/ncannasse\/castle'>https:\/\/github.com\/ncannasse\/castle<\/a> (see cdb)<br\/><a href='https:\/\/github.com\/haxetink\/tink_json'>https:\/\/github.com\/haxetink\/tink_json<\/a><br\/><a href='https:\/\/github.com\/haxetink\/tink_sql'>https:\/\/github.com\/haxetink\/tink_sql<\/a><br\/><a href='https:\/\/github.com\/haxetink\/tink_template'>https:\/\/github.com\/haxetink\/tink_template<\/a><br\/><a href='https:\/\/github.com\/Simn\/hxargs'>https:\/\/github.com\/Simn\/hxargs<\/a><br\/><a href='https:\/\/github.com\/nadako\/stiletto'>https:\/\/github.com\/nadako\/stiletto<\/a><br\/><a href='https:\/\/github.com\/nadako\/hxlocalize'>https:\/\/github.com\/nadako\/hxlocalize<\/a>",
+      "date": "2019-01-29",
+      "youtubeId": "i6yOT69rSc0"
+    },
+    {
+      "title": "DOMKit : strictly typed marco based UI components framework - Nicolas Cannasse",
+      "where": "HaxeUp Sessions Januari 2019, Luxembourg",
+      "description": "<a href='https:\/\/github.com\/ncannasse\/uikit\/'>https:\/\/github.com\/ncannasse\/uikit\/<\/a><br\/>Heaps samples: <a href='https:\/\/github.com\/HeapsIO\/heaps\/blob\/master\/samples\/Uikit.hx'>https:\/\/github.com\/HeapsIO\/heaps\/blob\/master\/samples\/Uikit.hx<\/a>",
+      "date": "2019-01-29",
+      "youtubeId": "nQVx56cqOeQ"
+    }
+  ]
+}
