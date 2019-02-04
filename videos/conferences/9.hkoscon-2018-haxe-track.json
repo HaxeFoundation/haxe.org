@@ -1,0 +1,22 @@
+{
+	"title": "Hong Kong Open Source Conference 2018 Haxe track",
+	"description": "Hong Kong Open Source Conference (HKOSCon) is the biggest annual open source event in Hong Kong.",
+	"videos": [
+    {
+      "title": "Haxe as a better JavaScript: a practical guide for making front end development fun, fast and less overwhelming - Jason O'Neil",
+      "where": "Hong Kong Open Source Conference 2018",
+      "description": "\"JavaScript Fatigure\" is real. In the last 5 years JS has moved from being something used to progressively enhance a web page, to being the driving engine that powers entire web apps. And as we try to do more with JavaScript, we need more tooling. Webpack, Babel, CSS Modules and type checking. And we needed more frameworks: we went from jQuery everywhere to Backbone, Angular, React and Redux and MobX and Preact and more. It some point, it got really, really complex, hard to get started, easy to break, and less fun to build.<br/><br/>In this talk I explore how Haxe, a mature programming language that compiles to (among other things) JavaScript, is a great way to make front end development fun, fast, and less overwhelming.<br/><br/>I'll give a fair comparison of the strengths and weaknesses compared to JavaScript, and then explore how Haxe's unique strengths can make for happy web development, how you can happily interact with JS tooling (like Webpack!) and frameworks (like React!) while avoiding feeling like you're drowning in front-end complexity.",
+      "date": "2018-06-16",
+      "youtubeId": "5qHBbhwqTb0",
+      "featured": true
+    },
+    {
+      "title": "Type-safe REST API with Haxe - Kevin Leung",
+      "where": "Hong Kong Open Source Conference 2018",
+      "description": "RESTful API is arguably the most used standard of the web today. This talk will give you a taste on how it could be seamlessly integrated with the type-safe programming language - Haxe.",
+      "date": "2018-06-16",
+      "youtubeId": "vHF7JwBg3hU",
+      "featured": true
+    }
+  ]
+}
