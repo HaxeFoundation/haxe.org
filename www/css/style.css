@@ -1317,7 +1317,7 @@ a.partner-logo {
 	font-family: "Open Sans", sans-serif;
 	font-weight: 400;
 	font-size: 13px;
-	height: 5em;
+	min-height: 5em;
 	line-height: 1.3;
 	margin: 0;
 	padding: 0 8px;
