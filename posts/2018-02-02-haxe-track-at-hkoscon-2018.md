@@ -26,3 +26,7 @@ Now, we are calling on you for proposals for the Haxe Track at HKOSCon 2018. We 
 The tentative date of HKOSCon 2018 is 2-3 June (Saturday - Sunday). The venue is to be confirmed (in Hong Kong for sure).
 
 To submit a proposal, please fill out [this form](https://docs.google.com/forms/d/e/1FAIpQLSdEA_221T_GZr2icxNrfgvR_PUq4uc9coDJZJeM2v5G5VnU2Q/viewform?usp=sf_link) on or before <s>28 Feb 2018</s> 08 Mar 2018.
+
+# Update: Video recordings
+
+We had 2 talks in the Haxe track, and their video recordings can now be found at our [video page](https://haxe.org/videos/conferences/hkoscon-2018-haxe-track/)!
