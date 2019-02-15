@@ -13,6 +13,51 @@ On the website there is a "Contribute" link on the footer of each page.  Clickin
 
 You can then edit using Github's online file editor and submit a pull request. You can also fork the repo and edit on your local machine with your preferred text editor, which may be easier for large integrations.
 
+### Adding a blog post
+
+Add a file named `YEAR-MONTH-DAY-name.md` in `posts/`.
+
+The first part of the file contains the post metadata:
+```yml
+title: The title of your post
+author: Author id
+description: The description of your post
+background: Optional image filename used as background for the post header
+published: true/false, if true it'll apear in the blog post list/rss feed
+tags: Comma separated of tags id
+disqusID: Unique id number used for comments, take the number of the last post and increment it by one
+---
+ 
+```
+
+The author id should be listed in `people.json`:
+```json
+{
+  "username": "the user id used in the post",
+  "name": "Your Name",
+  "bio": "One line bio about you"
+}
+```
+
+The background image should be stored in `www/img/blog/backgrounds/`.
+
+The tags should be listed in `posts/tags.json`:
+```json
+{
+  "tag": "the tag id",
+  "name": "the tag display name",
+  "description": "the tag description, shown on the tag post list"
+}
+```
+
+The post needs to have the `---` and the blank line between the metadata and the content.
+
+The content of a post is in markdown, but you can include some html.
+If you do it needs to be valid xml, so all tags needs to be closed: `<br />` is okay but `<br>` is not, and you can't have value-less attributes: `<tag fullscreen="" />` is okay but `<tag fullscren />` is not.
+
+To include an image in markdown: `![Title](name.png)`.
+The image should be stored in `www/img/blob/YEAR-MONTH-DAY-name/`.
+
 ## Issues, bugs and suggestions
 
 If you find a bug, have an issue, suggestion, or want to contribute in some other way, please use the Github Issue Tracker.
