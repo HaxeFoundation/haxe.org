@@ -1338,3 +1338,44 @@ a.partner-logo {
 	opacity: 1;
 	transition: opacity .1s ease-out;
 }
+
+
+/**
+ Steps
+ **/
+.step-item {
+	display: block;
+	max-width: 800px;
+	margin: 0 auto;
+	padding-bottom: 20px;
+	white-space: normal;
+}
+.step-number {
+	display: block;
+	font-family: "Open Sans", sans-serif;
+	font-size:40px;
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	border: 4px solid #ff932d;
+	color: #f48821;
+	line-height: 80px;
+	text-align: center;
+	float: left;
+}
+.step-title {
+	display: block;
+	margin-left: 120px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.step-info {
+	display: block;
+	margin-left: 120px;
+	padding-bottom: 20px;
+}
+.step-item p {
+	padding-left: 20px;
+	border-left: solid 3px #ddd;
+}
+
