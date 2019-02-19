@@ -1,8 +1,5 @@
 <div class="step-item">
-	<h1>
-		<img src="/img/platforms/csharp.png"/>
-		C# Platform Support
-	</h1>
+	<h1>C# Platform Support</h1>
 </div>
 
 <div class="step-item">
@@ -68,6 +65,13 @@
 		Install a C# compiler
 	</h2>
 	<div class="step-info">
+		<h4>.NET Core Compiler</h4>
+		<p>
+			1. Install the <a href=https://lib.haxe.org/p/hxcs>hxcs</a> haxelib (run <code>haxelib install hxcs</code> on your project directory) <br>
+			2. Install the latest <a href="https://dotnet.microsoft.com/download">.NET Core SDK</a> and the <a href="https://dotnet.microsoft.com/download">.NET Core Runtime</a> <br>
+			3. If on Windows, add the environment variable <code>MSBuildSDKsPath</code> with the value of your SDK directory path (typically <code>C:\Program Files\dotnet\</code> or <code>C:\Program Files (x86)\dotnet\</code>) <br>
+			4. If on Windows, update the environment variable <code>PATH</code> with the same value<br>
+		</p>
 		<h4>.NET Framework Compiler</h4>
 		<p>
 			1. Install the <a href=https://lib.haxe.org/p/hxcs>hxcs</a> haxelib (run <code>haxelib install hxcs</code> on your project directory) <br>

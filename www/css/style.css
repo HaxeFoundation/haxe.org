@@ -1378,4 +1378,9 @@ a.partner-logo {
 	padding-left: 20px;
 	border-left: solid 3px #ddd;
 }
-
+.step-item img {
+	width: 30px;
+}
+.step-item h1 {
+	vertical-align: middle;
+}
