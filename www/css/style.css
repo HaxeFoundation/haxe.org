@@ -1379,8 +1379,13 @@ a.partner-logo {
 	border-left: solid 3px #ddd;
 }
 .step-item img {
-	width: 30px;
+	width: 100px;
 }
 .step-item h1 {
 	vertical-align: middle;
+}
+.step-info h4 span {
+	font-size:20px;
+	color: #f48821;
+	font-weight: 600;
 }
