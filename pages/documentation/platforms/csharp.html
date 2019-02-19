@@ -51,10 +51,11 @@
 		1. Create a new Haxe project in your IDE <br/>
 		2. Create a <code>.hxml</code> to store compiler config for your project <br/>
 		3. Add the following into the file:  <br/>
-		<pre>
--cp src
--main src/Main.hx
--cs cs</pre>
+		<div class="step-code">
+			-cp src				<br/>
+			-main src/Main.hx	<br/>
+			-cs cs
+		</div>
 		The configuration above, specifies that your source code is stored in <code>/src</code>, your main haxe file is <code>src/Main.hx</code>, and that you want haxe to output the C# source code in <code>/cs</code>. After code generation, haxe will automatically detect the installed C#/Mono compiler and use it to compile your project into <code>/bin</code>.
 	</div>
 </div>
@@ -89,15 +90,17 @@
 			3. If on Windows, add the environment variable <code>MSBuildSDKsPath</code> with the value of your SDK directory path (typically <code>C:\Program Files\dotnet\</code> or <code>C:\Program Files (x86)\dotnet\</code>) <br/>
 			4. If on Windows, update the environment variable <code>PATH</code> with the same value<br/>
 			5. Add the following into your <code>.hxml</code> file:
-			<pre>
---net-std ./netstd
--D net-ver=47
--D net-target=net</pre>
+			<div class="step-code">
+				--net-std ./netstd		<br/>
+				-D net-ver=47			<br/>
+				-D net-target=net
+			</div>
 			6. Add the following files into the <code>net-std</code> directory, that must be created in your project directory:
-			<pre>
-mscorlib.dll
-System.Core.dll
-System.dll</pre>
+			<div class="step-code">
+				mscorlib.dll		<br/>
+				System.Core.dll		<br/>
+				System.dll
+			</div>
 			7. Compile and run your app with the <code>dotnet</code> or <code>dotnet.exe</code> CLI.
 		</p>
 	</div>

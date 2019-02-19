@@ -1379,10 +1379,6 @@ a.partner-logo {
 	margin-bottom: 10px;
 	border-left: solid 3px #ddd;
 }
-.step-item pre {
-	padding-left: 20px;
-	border-left: solid 3px #ddd;
-}
 .step-item img {
 	width: 100px;
 }
@@ -1393,4 +1389,24 @@ a.partner-logo {
 	font-size:12px;
 	color: #f48821;
 	font-weight: 600;
+}
+.step-code {
+	padding-left: 20px;
+    border-left: solid 3px #ddd;
+	color: #333;
+    margin: 15px 0;
+    padding: 0.5em;
+	display: block;
+    font-size: 13px;
+    line-height: 20px;
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: pre;
+    white-space: pre-wrap;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
 }
