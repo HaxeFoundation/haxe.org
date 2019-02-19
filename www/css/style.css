@@ -1376,6 +1376,7 @@ a.partner-logo {
 }
 .step-item p {
 	padding-left: 20px;
+	margin-bottom: 10px;
 	border-left: solid 3px #ddd;
 }
 .step-item pre {
