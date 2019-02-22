@@ -1,0 +1,146 @@
+<div class="step-item">
+	<h1>
+		<img src="/img/platforms/csharp.png"/>
+		Getting started with Haxe for C#
+	</h1>
+</div>
+
+<div class="step-item">
+	<div class="step-number">
+		1
+	</div>
+	<h2 class="step-title">
+		Install Haxe
+	</h2>
+	<div class="step-info">
+		Download and install the <a href="/download">Haxe SDK and Runtime</a>.
+	</div>
+</div>
+
+<div class="step-item">
+	<div class="step-number">
+		2
+	</div>
+	<h2 class="step-title">
+		Install a compatible IDE
+	</h2>
+	<div class="step-info">
+		Recommended IDEs:
+		<ul>
+			<li><a href="https://code.visualstudio.com/">Visual Studio Code</a>
+				<ul>
+					<li>Install the <a href="https://marketplace.visualstudio.com/items?itemName=vshaxe.haxe-extension-pack">Haxe Extension Pack</a></li>
+				</ul>
+			</li>
+			<li><a href="https://www.jetbrains.com/idea/">IntelliJ IDEA</a>
+				<ul>
+					<li>Install the <a href="https://plugins.jetbrains.com/plugin/6873?pr=idea">Haxe Plugin</a></li>
+				</ul>
+			</li>
+			<li><a href="/documentation/introduction/editors-and-ides.html">Other IDEs</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="step-item">
+	<div class="step-number">
+		3
+	</div>
+	<h2 class="step-title">
+		Create your project
+	</h2>
+	<div class="step-info">
+		1. Create a new Haxe project in your IDE <br/>
+		2. Create a <code>.hxml</code> to store compiler config for your project <br/>
+		3. Add the following into the file:  <br/>
+		<div class="step-code">
+-cp src
+-main src/Main.hx
+-cs cs
+		</div>
+		The configuration above, specifies that your source code is stored in <code>/src</code>, your main Haxe file is <code>src/Main.hx</code>, and that you want Haxe to output the C# source code in <code>/cs</code>. After code generation, Haxe will automatically detect the installed C#/Mono compiler and use it to compile your project into <code>/bin</code>.
+	</div>
+</div>
+
+<div class="step-item">
+	<div class="step-number">
+		4
+	</div>
+	<h2 class="step-title">
+		Install a C# compiler
+	</h2>
+	<div class="step-info">
+		<h4>.NET Framework Compiler</h4>
+		<p>
+			1. Install the <a href="https://lib.haxe.org/p/hxcs">hxcs</a> haxelib (run <code>haxelib install hxcs</code> on your project directory) <br/>
+			2. Install the latest <a href="https://dotnet.microsoft.com/download">.NET Framework Dev Pack</a> and the <a href="https://dotnet.microsoft.com/download">.NET Framework Runtime</a> <br/>
+		</p>
+		<h4>Mono Compiler</h4>
+		<p>
+			1. Install the <a href="https://lib.haxe.org/p/hxcs">hxcs</a> haxelib (run <code>haxelib install hxcs</code> on your project directory) <br/>
+			2. Install the latest <a href="https://www.mono-project.com/download/stable/">Mono Compiler</a> <br/>
+		</p>
+		<h4>Visual Studio Compiler</h4>
+		<p>
+			If you want to use Visual Studio or MSBuild to compile your project, you can disable the automatic compilation and simply ask Haxe to generate the <code>.cs</code> codefiles. <br/>
+			To do this, add <code>-D no-compilation</code> to the end of your <code>.hxml</code> file.
+		</p>
+		<h4>.NET Core Compiler <span>BETA</span></h4>
+		<p>
+			1. Install the <a href="https://lib.haxe.org/p/hxcs">hxcs</a> haxelib (run <code>haxelib install hxcs</code> on your project directory) <br/>
+			2. Install the latest <a href="https://dotnet.microsoft.com/download">.NET Core SDK</a> and the <a href="https://dotnet.microsoft.com/download">.NET Core Runtime</a> <br/>
+			3. If on Windows, add the environment variable <code>MSBuildSDKsPath</code> with the value of your SDK directory path (typically <code>C:\Program Files\dotnet\</code> or <code>C:\Program Files (x86)\dotnet\</code>) <br/>
+			4. If on Windows, update the environment variable <code>PATH</code> with the same value<br/>
+			5. Add the following into your <code>.hxml</code> file:
+			<div class="step-code">
+--net-std ./netstd
+-D net-ver=47
+-D net-target=net
+			</div>
+			6. Add the following files into the <code>net-std</code> directory, that must be created in your project directory:
+			<div class="step-code">
+mscorlib.dll
+System.Core.dll
+System.dll
+			</div>
+			7. Compile and run your app with the <code>dotnet</code> or <code>dotnet.exe</code> CLI.
+		</p>
+	</div>
+</div>
+
+<div class="step-item">
+	<div class="step-number">
+		5
+	</div>
+	<h2 class="step-title">
+		Develop your project
+	</h2>
+	<div class="step-info">
+		<h4>Haxe project</h4>
+		<p>
+			Refer to <a href="/manual/target-cs-getting-started.html">this guide</a> to create a basic Haxe C# project.
+		</p>
+		<h4>Haxe libraries</h4>
+		<p>
+			Browse the <a href="https://lib.haxe.org/">haxelib</a> for community-developed libraries that you can add to your project. <br/>
+			Browse the <a href="https://api.haxe.org/">Haxe API website</a> for the core Haxe platform API that you can use in your project, which replaces all <code>System.*</code> classes that you would typically use in a C# project.
+		</p>
+		<h4>Third-party DLLs and assemblies</h4>
+		<p>
+			Refer to <a href="/manual/target-cs-external-libraries.html">this guide</a> to add third-party DLLs and assemblies. <br/>
+			If you use VS Code, the Haxe extension will find these dependencies and enable IntelliSense (code completion) for their classes and objects. <br/>
+		</p>
+	</div>
+</div>
+
+<div class="step-item">
+	<div class="step-number">
+		6
+	</div>
+	<h2 class="step-title">
+		Ask the community
+	</h2>
+	<div class="step-info">
+		If you need help with anything, visit the vibrant <a href="https://community.haxe.org/">Haxe community</a> and simply ask for help with the details of your project. We have a helpful and active community and you should get your answers in a few hours!
+	</div>
+</div>
