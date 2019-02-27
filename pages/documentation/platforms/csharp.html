@@ -92,17 +92,21 @@
 			3. If on Windows, add the environment variable <code>MSBuildSDKsPath</code> with the value of your SDK directory path (typically <code>C:\Program Files\dotnet\</code> or <code>C:\Program Files (x86)\dotnet\</code>) <br/>
 			4. If on Windows, update the environment variable <code>PATH</code> with the same value<br/>
 			5. Add the following into your <code>.hxml</code> file:
-			<div class="step-code">
+		</p>
+		<div class="step-code">
 --net-std ./netstd
 -D net-ver=47
 -D net-target=net
-			</div>
+		</div>
+		<p>
 			6. Add the following files into the <code>net-std</code> directory, that must be created in your project directory:
-			<div class="step-code">
+		</p>
+		<div class="step-code">
 mscorlib.dll
 System.Core.dll
 System.dll
-			</div>
+		</div>
+		<p>
 			7. Compile and run your app with the <code>dotnet</code> or <code>dotnet.exe</code> CLI.
 		</p>
 	</div>
