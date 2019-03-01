@@ -27,7 +27,7 @@ published: true/false, if true it'll apear in the blog post list/rss feed
 tags: Comma separated of tags id
 disqusID: Unique id number used for comments, take the number of the last post and increment it by one
 ---
- 
+
 ```
 
 The author id should be listed in `people.json`:
@@ -56,7 +56,7 @@ The content of a post is in markdown, but you can include some html.
 If you do it needs to be valid xml, so all tags needs to be closed: `<br />` is okay but `<br>` is not, and you can't have value-less attributes: `<tag fullscreen="" />` is okay but `<tag fullscren />` is not.
 
 To include an image in markdown: `![Title](name.png)`.
-The image should be stored in `www/img/blob/YEAR-MONTH-DAY-name/`.
+The image should be stored in `www/img/blog/YEAR-MONTH-DAY-name/`.
 
 ## Issues, bugs and suggestions
 
