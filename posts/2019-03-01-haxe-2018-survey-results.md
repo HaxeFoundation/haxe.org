@@ -27,7 +27,7 @@ It had 603 answers with the following distribution:
 ![question 1 base graph](pie-base-usetype.png)
 
 We can see that 22% of participants don't yet use Haxe.
-If we look at the results only for those wo do we haxe:
+If we look at the results only for those who do use Haxe:
 
 ![question 1 extended graph](pie-extended-usetype.png)
 
@@ -54,7 +54,7 @@ If we look only at those who use Haxe we get:
 
 Which is almost the same distribution.
 
-Haxe is mostly used by experienced people. Which can be explained by the fact that it's not taught in schools, making it mostly a language learned after knowing programming.
+Haxe is mostly used by experienced people, which could be explained by the fact that it's not taught in schools, making it mostly a language learned after knowing programming.
 
 ## How long have you been using Haxe?
 
@@ -71,7 +71,7 @@ It had 600 answers with the following distribution:
 
 ![question 3 base graph](pie-base-haxelength.png)
 
-Taking again only the participant who answered using Haxe:
+Taking again only the participants who answered using Haxe:
 
 ![question 3 extended graph](pie-extended-haxelength.png)
 
@@ -106,11 +106,11 @@ Looking at the Haxe users who use it professionally:
 
 ![question 4 extended 2 graph](pie-base-orgsizepro.png)
 
-We have less people working alone and more of small organization.
+We have less people working alone and more small organizations.
 
 ## Where are you geographically located?
 
-It had 541 answers, with 63 different country mentioned!
+It had 541 answers, with 63 different countries mentioned!
 
 The top 10 is as follows:
 
@@ -159,7 +159,7 @@ It had 582 answers and the following distribution:
 
 ![question 7 base graph](pie-base-mobileos.png)
 
-Same as the previous question, without surprise the majority of user use Android.
+Same as the previous question, without surprise the majority of users use Android.
 
 The others are people who don't own a phone.
 
@@ -181,7 +181,7 @@ It had 593 answers and the following distribution:
 
 Yet again the distribution is similar to the global distribution of users.
 
-The others mentioned the use of the Vivaldi web browser, which is a chromium based browser.
+The others mentioned the use of the Vivaldi web browser, which is a Chromium based browser.
 
 ## What is your annual salary (U.S. Dollars)?
 
@@ -199,7 +199,7 @@ It had 567 answers and the following distribution:
 
 ![question 9 base graph](pie-base-salary.png)
 
-A third chose to not say, if we remove them from the graph we get the following distribution:
+A third chose not to say, if we remove them from the graph we get the following distribution:
 
 ![question 9 extended graph](pie-extended-salary.png)
 
@@ -227,7 +227,7 @@ It had 604 answers and the following distribution:
 
 ![question 10 base graph](bar-base-usages.png)
 
-Which gives us if we group by type:
+Grouping by type, this gives us:
 
 ![question 10 group graph](pie-group-usages.png)
 
@@ -258,11 +258,11 @@ It had 604 answers and the following distribution:
 
 ![question 11 base graph](bar-base-targets.png)
 
-And we can see the distribution of the number of target selected:
+And we can see the distribution of the number of targets selected:
 
 ![question 11 histogram graph](histogram-targets.png)
 
-There is a large of amount of people who use more than one target, which is one of Haxe's strength.
+There is a large amount of people who use more than one target, which is one of Haxe's main strengths.
 
 ## Do you use macros?
 
@@ -270,15 +270,15 @@ The options were:
 
 * Yes
 * No
-* What's a macro
+* What's a macro?
 
 It had 574 answers and the following distribution:
 
 ![question 12 base graph](pie-base-macros.png)
 
-There is a big amount of macro user, and still a lot of people who don't know what it is. Being one of the most powerful but also most complex part of the language it's not surprising.
+There is a big amount of macro users, and still a lot of people who don't know what it is. Being one of the most powerful but also most complex parts of the language it's not surprising.
 
-If you want to learn or know more about macros, we have a [section about them](https://haxe.org/manual/macro.html) in the manual.
+If you want to learn more about macros, we have a sections about them in the [Manual](https://haxe.org/manual/macro.html) as well as the [Code Cookbook](https://code.haxe.org/category/macros/).
 
 ## How do you install Haxe?
 
@@ -307,7 +307,7 @@ The others:
 | [Docker image](https://hub.docker.com/_/haxe/) | 2 |
 | [Development Snapshot](http://build.haxe.org/builds/haxe/) | 1 |
 
-Haxe is bundled in several IDE/project, including: [Kha](http://kha.tech/), [Armory3D](https://armory3d.org/) and [FlashDevelop](http://www.flashdevelop.org/).
+Haxe is bundled with several IDE/projects, including [Kha](http://kha.tech/) and [Armory3D](https://armory3d.org/). [HaxeDevelop](https://haxedevelop.org/) allows installing it from its built-in App Manager.
 
 Did you know that Haxe has official [docker images](https://hub.docker.com/_/haxe/)?
 
@@ -335,15 +335,15 @@ It had 604 answers and the following distribution:
 
 ![question 14 base graph](bar-base-publish.png)
 
-We can see the number of publication selected:
+We can see the number of publishing options selected:
 
 ![question 14 histogram](histogram-publish.png)
 
-Most people only publish to one or two places. And there is a lot of people who don't publish anywhere, which was one of the others, the rest being:
+Most people only publish to one or two places. And there are a lot of people who don't publish anywhere, which was one of the others, the rest being:
 
 | Publish | Count |
 | --- | --- |
-| Github | 9 |
+| GitHub | 9 |
 | Web Portals | 9 |
 | Internal | 5 |
 | Facebook | 5 |
@@ -393,28 +393,28 @@ It had 603 answers and the following distribution:
 
 ![question 16 base graph](bar-base-communication.png)
 
-This question had a lot of other responses which gives us an interesting knowledge about the available communication option for the Haxe community.
+This question had a lot of other responses, which gives us an interesting picture of the available communication options for the Haxe community.
 
 | Communication | Count |
 | --- | --- |
-| Discord [openfl](https://discord.gg/tDgq8EE) and [haxeflixel](https://discord.gg/0uEuWH3spjck73Lo) | 34 |
+| Discord [OpenFL](https://discord.gg/tDgq8EE) and [Haxe](https://discord.gg/0uEuWH3spjck73Lo) | 34 |
 | Nothing | 18 |
 | Slack | 14 |
 | [Telegram](https://t.me/haxe_ru) | 12 |
-| [Openfl forum](https://community.openfl.org/) | 7 |
-| Github | 6 |
+| [OpenFL forum](https://community.openfl.org/) | 7 |
+| GitHub | 6 |
 | [Stack Overflow](https://stackoverflow.com/questions/tagged/haxe) | 5 |
 | Skype | 4 |
 | [Reddit](https://www.reddit.com/r/haxe/) | 3 |
 | Email | 2 |
 | Other | 2 |
 | Other Forum | 2 |
-| Youtube | 2 |
+| YouTube | 2 |
 | QQ | 1 |
 | GoogleGroup | 1 |
 
-The answers mention a strong russian community, and someone who is looking for a french forum.
-This show the importance of local communities to go beyond the english requirement.
+The answers mention a strong Russian community, and someone who is looking for a French forum.
+This shows the importance of local communities to go beyond the requirement of good English knowledge.
 
 There's also a lot of people who didn't know, or don't use any of these.
 
@@ -442,7 +442,7 @@ It had 577 answers and the following distribution:
 
 ![question 18 base graph](pie-base-partner.png)
 
-This question is mostly for an internal usage of non anonymous data, and unsurprisingly the vast majority aren't Haxe Foundation partners :)
+This question is mostly for internal usage of non-anonymous data, and unsurprisingly the vast majority aren't Haxe Foundation partners. :)
 
 ## Which of the following support plans would you be interested in?
 
@@ -491,9 +491,9 @@ It had 522 answers and the following distribution:
 
 ## What are the Haxe libraries you use?
 
-There wasn't any option for this question, only a free form input.
+There wasn't any pre-made option for this question, only a free form input.
 
-It had 604 answers and there was 226 libraries mentioned!
+It had 604 answers and 226 unique libraries were mentioned!
 
 The top ten:
 
@@ -504,22 +504,22 @@ The top ten:
 | [Lime](https://github.com/openfl/lime) | 44 |
 | [Heaps](https://heaps.io/) | 44 |
 | [Kha](http://kha.tech/) | 43 |
-| [Tink](https://github.com/haxetink) | 42 |
+| [Tink](https://haxetink.github.io/) | 42 |
 | [Actuate](https://lib.haxe.org/p/actuate/) | 28 |
 | [HaxeUI](http://haxeui.org/) | 25 |
 | [hxcpp](https://lib.haxe.org/p/hxcpp) | 23 |
 | [hxnodejs](https://lib.haxe.org/p/hxnodejs/) | 15 |
 
-The list is game programming heavy, but it includes the tink ecosystem, the HaxeUI library and the support library for the NodeJS target.
+The list is game programming heavy, but it includes the [Tinkerbell ecosystem](https://haxetink.github.io/#/), the HaxeUI library and the support library for the NodeJS target.
 
 See the [full list](https://github.com/ibilon/haxe-2018-survey-results/blob/master/generated/tables/base-libraries.txt).
 
-And to discover more libraries go to [lib.haxe.org](https://lib.haxe.org/).
+To discover more libraries go to [lib.haxe.org](https://lib.haxe.org/).
 
 ## Conclusion
 
 There's a lot to unpack here, a lot of interesting information. But it's great to see the Haxe community growing and evolving.
 
-You can find all the data on [github](https://github.com/ibilon/haxe-2018-survey-results/), you can find the [full dump](https://github.com/ibilon/haxe-2018-survey-results/blob/master/data.csv) and a [cleaned](https://github.com/ibilon/haxe-2018-survey-results/blob/master/generated/clean.csv) version which is easier to process but doesn't have all the details in the open answers. Both are under the [Open Database License](https://opendatacommons.org/licenses/odbl/index.html).
+You can find all the data on [GitHub](https://github.com/ibilon/haxe-2018-survey-results/), you can find the [full dump](https://github.com/ibilon/haxe-2018-survey-results/blob/master/data.csv) and a [cleaned](https://github.com/ibilon/haxe-2018-survey-results/blob/master/generated/clean.csv) version which is easier to process but doesn't have all the details in the open answers. Both are under the [Open Database License](https://opendatacommons.org/licenses/odbl/index.html).
 
-Want to see how Haxe is changing in 2019? Participate in the [community 2019 survey](https://community.haxe.org/t/haxe-survey-2019-open-results/1521) and its [early results](https://community.haxe.org/t/haxe-survey-2019-final-results-and-discussion/1536).
+Want to see how Haxe is changing in 2019? Participate in the [community 2019 survey](https://community.haxe.org/t/haxe-survey-2019-open-results/1521) or view its [early results](https://community.haxe.org/t/haxe-survey-2019-final-results-and-discussion/1536).
