@@ -41,7 +41,7 @@ The options were:
 * 3-5 years
 * 7-10 years
 * 10-15 years
-* \> 15 years
+<li>&gt; 15 years</li>
 
 It had 602 answers with the following distribution:
 
@@ -65,7 +65,7 @@ The options were:
 * 2-4 years
 * 4-6 years
 * 6-8 years
-* \> 8 years
+<li>&gt; 8 years</li>
 
 It had 600 answers with the following distribution:
 
@@ -75,7 +75,8 @@ Taking again only the participant who answered using Haxe:
 
 ![question 3 extended graph](pie-extended-haxelength.png)
 
-Half have used Haxe for 2 years or less, and 12% have used it for more than 6 years, which means they've used it since Haxe 2!
+Half have used Haxe for 2 years or less which is a sign that the Haxe community is growing.
+And 12% have used it for more than 6 years, which means they've used it since Haxe 2!
 
 ## How big is your organization?
 
@@ -88,8 +89,8 @@ The options were:
 * 101-500
 * 501-1500
 * 1501-10000
-* \> 10000
-* Not Applicable
+<li>&gt; 10000</li>
+<li>Not Applicable</li>
 
 It had 597 answers and the following distribution:
 
@@ -100,6 +101,12 @@ If we remove those who answered "Not Applicable":
 ![question 4 extended graph](pie-extended-orgsize.png)
 
 Almost half, 47%, are only themselves. The other big half, 44%, are in organizations with less than 500 people. And a couple are in really big ones.
+
+Looking at the Haxe users who use it professionally:
+
+![question 4 extended 2 graph](pie-base-orgsizepro.png)
+
+We have less people working alone and more of small organization.
 
 ## Where are you geographically located?
 
@@ -120,7 +127,7 @@ The top 10 is as follows:
 | Japan | 14 |
 | Ukraine | 13 |
 
-You can find the full list at %TODO%.
+See the [full list](https://github.com/ibilon/haxe-2018-survey-results/blob/master/generated/tables/base-country.txt).
 
 ## What is your primary desktop operating system?
 
@@ -185,8 +192,8 @@ The options were:
 * $50,001-$70,000
 * $70,001-$100,000
 * $100,001-$150,000
-* \> $150,000
-* I'd rather not say
+<li>&gt; $150,000</li>
+<li>I'd rather not say</li>
 
 It had 567 answers and the following distribution:
 
@@ -226,22 +233,26 @@ Which gives us if we group by type:
 
 Haxe has been historically used for games and while it's still the biggest category it's not the majority anymore.
 
+Among the other answers we have people using Haxe for data processing, prototyping and educational software.
+
+If you want to know more about Haxe's use cases we have [a page about them](https://haxe.org/use-cases/) on the haxe.org website.
+
 ## Which Haxe targets do you use?
 
 The options were:
 
-* JavaScript
-* C++
-* HashLink
-* Lua
-* PHP
-* Java
-* C#
+* [JavaScript](https://haxe.org/manual/target-javascript.html)
+* [C++](https://haxe.org/manual/target-cpp.html)
+* [HashLink](https://haxe.org/blog/hashlink-indepth/)
+* [Lua](https://haxe.org/manual/target-lua.html)
+* [PHP](https://haxe.org/manual/target-php.html)
+* [Java](https://haxe.org/manual/target-java.html)
+* [C\#](https://haxe.org/manual/target-cs.html)
 * Neko
-* Flash (SWF)
+* [Flash (SWF)](https://haxe.org/manual/target-flash.html)
 * AS3 Source
 * Python
-* --interp
+* [--interp](https://haxe.org/blog/eval/)
 
 It had 604 answers and the following distribution:
 
@@ -267,16 +278,18 @@ It had 574 answers and the following distribution:
 
 There is a big amount of macro user, and still a lot of people who don't know what it is. Being one of the most powerful but also most complex part of the language it's not surprising.
 
+If you want to learn or know more about macros, we have a [section about them](https://haxe.org/manual/macro.html) in the manual.
+
 ## How do you install Haxe?
 
 The options were:
 
-* Official installer
-* Linux package manager
-* NPM
-* Chocolatey
-* Build from source
-* Homebrew
+* [Official installer](https://haxe.org/download/)
+* [Linux package manager](https://haxe.org/download/linux/)
+* [NPM](https://www.npmjs.com/package/haxe)
+* [Chocolatey](https://chocolatey.org/packages/haxe)
+* [Build from source](https://github.com/HaxeFoundation/haxe)
+* [Homebrew](https://formulae.brew.sh/formula/haxe)
 * Other
 
 It had 601 answers and the following distribution:
@@ -287,12 +300,18 @@ The others:
 
 | Install method | Count |
 | --- | --- |
-| Lix | 10 |
+| [Lix](https://github.com/lix-pm) | 10 |
 | Bundled with an IDE | 7 |
 | Manually | 4 |
-| HVM | 2 |
-| Docker image | 2 |
-| Development Snapshot | 1 |
+| [HVM](https://github.com/dpeek/hvm) | 2 |
+| [Docker image](https://hub.docker.com/_/haxe/) | 2 |
+| [Development Snapshot](http://build.haxe.org/builds/haxe/) | 1 |
+
+Haxe is bundled in several IDE/project, including: [Kha](http://kha.tech/), [Armory3D](https://armory3d.org/) and [FlashDevelop](http://www.flashdevelop.org/).
+
+Did you know that Haxe has official [docker images](https://hub.docker.com/_/haxe/)?
+
+Using [development snapshots](http://build.haxe.org/builds/haxe/) is an easy way to test the latest Haxe without having to compile it yourself.
 
 ## Where do you publish your Haxe applications?
 
@@ -335,25 +354,39 @@ Most people only publish to one or two places. And there is a lot of people who 
 
 The options were:
 
-* FlashDevelop/HaxeDevelop
-* IntelliJ
-* Visual Studio Code
-* VIM
-* Sublime Text
+* [FlashDevelop](http://www.flashdevelop.org/) / [HaxeDevelop](https://haxedevelop.org/)
+* [IntelliJ](http://intellij-haxe.org/)
+* [Visual Studio Code](https://github.com/vshaxe/vshaxe)
+* [VIM](https://github.com/jdonaldson/vaxe)
+* [Sublime Text](https://github.com/clemos/haxe-sublime-bundle)
 
 It had 515 answers and the following distribution:
 
 ![question 15 base graph](pie-base-ide.png)
 
+The others:
+
+| IDE | Count |
+| --- | --- |
+| Atom | 19 |
+| Emacs | 9 |
+| [Kode Studio](https://github.com/Kode/KodeStudio) | 6 |
+| None | 4 |
+| Geany | 3 |
+| Multiple | 2 |
+| Notepad++ | 2 |
+| TextMate | 1 |
+| Web Based | 1 |
+
 ## How do you communicate with other Haxe users?
 
 The options were:
 
-* Official Forum
-* Twitter
-* Gitter.im
-* Facebook
-* #haxe on irc
+* [Official Forum](https://community.haxe.org/)
+* [Twitter](https://twitter.com/haxe_org)
+* [Gitter.im](https://gitter.im/HaxeFoundation/haxe)
+* [Facebook](https://www.facebook.com/haxe.org)
+* \#haxe on irc
 * Other
 
 It had 603 answers and the following distribution:
@@ -362,20 +395,28 @@ It had 603 answers and the following distribution:
 
 This question had a lot of other responses which gives us an interesting knowledge about the available communication option for the Haxe community.
 
-* Telegram
-* Slack
-* Github
-* Discord
-* Reddit
-* Email
-* Skype
-* Openfl's Forum
-* StackOverflow
-* Youtube
-* None
-* Google Groups
-* QQ
-* Other Forum
+| Communication | Count |
+| --- | --- |
+| Discord [openfl](https://discord.gg/tDgq8EE) and [haxeflixel](https://discord.gg/0uEuWH3spjck73Lo) | 34 |
+| Nothing | 18 |
+| Slack | 14 |
+| [Telegram](https://t.me/haxe_ru) | 12 |
+| [Openfl forum](https://community.openfl.org/) | 7 |
+| Github | 6 |
+| [Stack Overflow](https://stackoverflow.com/questions/tagged/haxe) | 5 |
+| Skype | 4 |
+| [Reddit](https://www.reddit.com/r/haxe/) | 3 |
+| Email | 2 |
+| Other | 2 |
+| Other Forum | 2 |
+| Youtube | 2 |
+| QQ | 1 |
+| GoogleGroup | 1 |
+
+The answers mention a strong russian community, and someone who is looking for a french forum.
+This show the importance of local communities to go beyond the english requirement.
+
+There's also a lot of people who didn't know, or don't use any of these.
 
 ## Do you know that the Haxe Foundation offers paid support plans?
 
@@ -388,7 +429,7 @@ It had 576 answers and the following distribution:
 
 ![question 17 base graph](pie-base-knowpaid.png)
 
-It seems like the majority aren't aware of those, which is a point to improve for the Haxe Foundation.
+It seems like the majority aren't aware of the [support plans](https://haxe.org/foundation/support-plans.html), which is a point to improve for the Haxe Foundation.
 
 ## Are you currently a Haxe Foundation support partner?
 
@@ -423,10 +464,13 @@ We had some interesting answers in the other category:
 
 | Plan | Count |
 | --- | --- |
-| Bounty based, or for a specific target |  4 |
-| If I could in the futur |  3 |
-| Something affordable by an individual|  2 |
-| A paid plan |  2 |
+| Bounty based, or for a specific target | 4 |
+| If I could in the future | 3 |
+| Something affordable by an individual | 2 |
+| A paid plan | 2 |
+
+Several of the other answers talk about having something more affordable for an individual, which could be done through a bounty program.
+A target isn't a practical way of allocating money since most of the work is common to all targets.
 
 ## How much would you be willing to give to the Haxe Foundation to support them financially (U.S. Dollars)?
 
@@ -439,7 +483,7 @@ The options were:
 * $1001-$5000
 * $5001-$20,000
 * $20,001-$100,000
-* \>$100,000
+<li>&gt; $100,000</li>
 
 It had 522 answers and the following distribution:
 
@@ -450,3 +494,32 @@ It had 522 answers and the following distribution:
 There wasn't any option for this question, only a free form input.
 
 It had 604 answers and there was 226 libraries mentioned!
+
+The top ten:
+
+| Library | Count |
+| --- | --- |
+| [OpenFL](https://www.openfl.org/) | 173 |
+| [HaxeFlixel](http://haxeflixel.com/) | 94 |
+| [Lime](https://github.com/openfl/lime) | 44 |
+| [Heaps](https://heaps.io/) | 44 |
+| [Kha](http://kha.tech/) | 43 |
+| [Tink](https://github.com/haxetink) | 42 |
+| [Actuate](https://lib.haxe.org/p/actuate/) | 28 |
+| [HaxeUI](http://haxeui.org/) | 25 |
+| [hxcpp](https://lib.haxe.org/p/hxcpp) | 23 |
+| [hxnodejs](https://lib.haxe.org/p/hxnodejs/) | 15 |
+
+The list is game programming heavy, but it includes the tink ecosystem, the HaxeUI library and the support library for the NodeJS target.
+
+See the [full list](https://github.com/ibilon/haxe-2018-survey-results/blob/master/generated/tables/base-libraries.txt).
+
+And to discover more libraries go to [lib.haxe.org](https://lib.haxe.org/).
+
+## Conclusion
+
+There's a lot to unpack here, a lot of interesting information. But it's great to see the Haxe community growing and evolving.
+
+You can find all the data on [github](https://github.com/ibilon/haxe-2018-survey-results/), you can find the [full dump](https://github.com/ibilon/haxe-2018-survey-results/blob/master/data.csv) and a [cleaned](https://github.com/ibilon/haxe-2018-survey-results/blob/master/generated/clean.csv) version which is easier to process but doesn't have all the details in the open answers. Both are under the [Open Database License](https://opendatacommons.org/licenses/odbl/index.html).
+
+Want to see how Haxe is changing in 2019? Participate in the [community 2019 survey](https://community.haxe.org/t/haxe-survey-2019-open-results/1521) and its [early results](https://community.haxe.org/t/haxe-survey-2019-final-results-and-discussion/1536).
