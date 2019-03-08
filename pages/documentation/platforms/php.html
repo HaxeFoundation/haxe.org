@@ -1,0 +1,149 @@
+<div class="step-item">
+	<h1>
+		<img src="/img/platforms/php.png"/>
+		Getting started with Haxe for PHP
+	</h1>
+</div>
+
+<div class="step-item">
+	<div class="step-number">
+		1
+	</div>
+	<h2 class="step-title">
+		Install Haxe
+	</h2>
+	<div class="step-info">
+		Download and install the <a href="/download">Haxe SDK and Runtime</a>.
+	</div>
+</div>
+
+<div class="step-item">
+	<div class="step-number">
+		2
+	</div>
+	<h2 class="step-title">
+		Install a compatible IDE
+	</h2>
+	<div class="step-info">
+		Recommended IDEs:
+		<ul>
+			<li><a href="https://code.visualstudio.com/">Visual Studio Code</a>
+				<ul>
+					<li>Install the <a href="https://marketplace.visualstudio.com/items?itemName=vshaxe.haxe-extension-pack">Haxe Extension Pack</a></li>
+				</ul>
+			</li>
+			<li><a href="https://www.jetbrains.com/idea/">IntelliJ IDEA</a>
+				<ul>
+					<li>Install the <a href="https://plugins.jetbrains.com/plugin/6873?pr=idea">Haxe Plugin</a></li>
+				</ul>
+			</li>
+			<li><a href="/documentation/introduction/editors-and-ides.html">Other IDEs</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="step-item">
+	<div class="step-number">
+		3
+	</div>
+	<h2 class="step-title">
+		Create your project
+	</h2>
+	<div class="step-info">
+		1. Create a new Haxe project in your IDE <br/>
+		2. Create a <code>compile.hxml</code> file in your project directory to store compiler config for your project <br/>
+		3. Add the following into the file:  <br/>
+		<div class="step-code">
+-cp src
+-main src/Main.hx
+-php bin
+		</div>
+		The configuration above, specifies that your source code is stored in <code>/src</code>, your main Haxe file is <code>src/Main.hx</code>, and that you want Haxe to output the PHP source code in <code>/bin</code>.
+	</div>
+</div>
+
+<div class="step-item">
+	<div class="step-number">
+		4
+	</div>
+	<h2 class="step-title">
+		Install a PHP runtime
+	</h2>
+	<div class="step-info">
+		<h4>XAMPP</h4>
+		<p>
+			Install <a href="https://www.apachefriends.org/download.html">XAMPP with PHP 7+</a> if you want a user-friendly user interface to manage your local webserver.
+		</p>
+		<h4>Standalone PHP</h4>
+		<p>
+			Install <a href="http://php.net/manual/en/install.php">PHP 7+</a> if you don't mind running PHP from the console.
+		</p>
+	</div>
+</div>
+
+<div class="step-item">
+	<div class="step-number">
+		5
+	</div>
+	<h2 class="step-title">
+		Develop your project
+	</h2>
+	<div class="step-info">
+		<h4>Haxe project</h4>
+		<p>
+			Refer to <a href="/manual/target-php-getting-started.html">this guide</a> to create a basic Haxe PHP project.
+		</p>
+		<h4>Haxe libraries</h4>
+		<p>
+			You can use <a href="https://haxetink.github.io/#/">Tinkerbell</a> to boost your development. <br/>
+			You can use <a href="https://api.haxe.org/php/">PHP platform specific API</a> in addition to the core Haxe API. <br/>
+			Browse the <a href="https://lib.haxe.org/">haxelib</a> for community-developed libraries that you can add to your project. <br/>
+			Browse the <a href="https://api.haxe.org/">Haxe API website</a> for the core Haxe platform API that you can use in your project, which replaces all PHP methods that you would typically use in a PHP project.
+		</p>
+	</div>
+</div>
+
+<div class="step-item">
+	<div class="step-number">
+		6
+	</div>
+	<h2 class="step-title">
+		Run your project
+	</h2>
+	<div class="step-info">
+		<h4>In a Web Browser</h4>
+		<p>
+			1. Navigate to your webserver's <code>www</code> or <code>htdocs</code> directory and create a sub-directory for your project (for example <code>"myproject"</code>) <br/>
+			2. Enter that directory path in your <code>compile.xml</code> file to have Haxe generate PHP files directly into your webserver's directory.
+		<div class="step-code">
+-cp src
+-main src/Main.hx
+-php C:/xampp/htdocs/myproject/
+		</div>
+			3. Start your PHP webserver (if you are using XAMPP, open the control panel and Start the Apache webserver) <br/>
+			4. Navigate to <code>http://localhost/myproject/</code> and you should see the output of your PHP project in your browser
+		</p>
+		<h4>On the Command-line</h4>
+		<p>
+			1. Open your console and navigate to your Haxe project directory <br/>
+			2. Ensure that your PHP runtime is added to your <a href="https://www.sitepoint.com/how-to-install-php-on-windows/">Environment Variables</a> (For Windows users only) <br/>
+			2. Open your console and navigate to your Haxe project directory <br/>
+			4. Run this command to execute your program with the PHP runtime:
+			<div class="step-code">
+$ php bin/index.php
+			</div>
+		</p>
+	</div>
+</div>
+
+<div class="step-item">
+	<div class="step-number">
+		7
+	</div>
+	<h2 class="step-title">
+		Ask the community
+	</h2>
+	<div class="step-info">
+		If you need help with anything, visit the vibrant <a href="https://community.haxe.org/">Haxe community</a> and simply ask for help with the details of your project. We have a helpful and active community and you should get your answers in a few hours!
+	</div>
+</div>
