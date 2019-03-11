@@ -67,7 +67,7 @@
 		4
 	</div>
 	<h2 class="step-title">
-		Install a PHP runtime
+		Install a PHP runtime (optional)
 	</h2>
 	<div class="step-info">
 		<h4>XAMPP</h4>
@@ -95,10 +95,9 @@
 		</p>
 		<h4>Haxe libraries</h4>
 		<p>
-			You can use <a href="https://haxetink.github.io/#/">Tinkerbell</a> to boost your development. <br/>
 			You can use <a href="https://api.haxe.org/php/">PHP platform specific API</a> in addition to the core Haxe API. <br/>
 			Browse the <a href="https://lib.haxe.org/">haxelib</a> for community-developed libraries that you can add to your project. <br/>
-			Browse the <a href="https://api.haxe.org/">Haxe API website</a> for the core Haxe platform API that you can use in your project, which replaces all PHP methods that you would typically use in a PHP project.
+			Browse the <a href="https://api.haxe.org/">Haxe API website</a> for the core Haxe platform API that you can use in your project, which replaces some of the PHP methods that you would typically use in a PHP project.
 		</p>
 	</div>
 </div>
@@ -112,6 +111,7 @@
 	</h2>
 	<div class="step-info">
 		<h4>In a Web Browser</h4>
+		<p><b>If you installed a PHP runtime locally:</b></p>
 		<p>
 			1. Navigate to your webserver's <code>www</code> or <code>htdocs</code> directory and create a sub-directory for your project (for example <code>"myproject"</code>) <br/>
 			2. Enter that directory path in your <code>compile.xml</code> file to have Haxe generate PHP files directly into your webserver's directory.
@@ -122,6 +122,11 @@
 		</div>
 			3. Start your PHP webserver (if you are using XAMPP, open the control panel and Start the Apache webserver) <br/>
 			4. Navigate to <code>http://localhost/myproject/</code> and you should see the output of your PHP project in your browser
+		</p>
+		<p><b>If you are using an online PHP web server:</b></p>
+		<p>
+			1. Upload the contents of the <code>/bin</code> folder to your webserver.
+			2. Navigate to your domain or webserver's IP address in your browser to see the output of your PHP project.
 		</p>
 		<h4>On the Command-line</h4>
 		<p>
