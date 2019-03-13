@@ -110,22 +110,23 @@
 		Run your project
 	</h2>
 	<div class="step-info">
-		<h4>In a Web Browser</h4>
-		<p><b>If you installed a PHP runtime locally:</b></p>
+		<h4>On a local PHP Runtime</h4>
 		<p>
 			1. Navigate to your webserver's <code>www</code> or <code>htdocs</code> directory and create a sub-directory for your project (for example <code>"myproject"</code>) <br/>
 			2. Enter that directory path in your <code>compile.xml</code> file to have Haxe generate PHP files directly into your webserver's directory.
+		</p>
 		<div class="step-code">
 -cp src
 -main src/Main.hx
 -php C:/xampp/htdocs/myproject/
 		</div>
+		<p>
 			3. Start your PHP webserver (if you are using XAMPP, open the control panel and Start the Apache webserver) <br/>
 			4. Navigate to <code>http://localhost/myproject/</code> and you should see the output of your PHP project in your browser
 		</p>
-		<p><b>If you are using an online PHP web server:</b></p>
+		<h4>On a PHP Web Host</h4>
 		<p>
-			1. Upload the contents of the <code>/bin</code> folder to your webserver.
+			1. Upload the contents of the <code>/bin</code> folder to your web host's <code>www</code> or <code>htdocs</code> folder. <br/>
 			2. Navigate to your domain or webserver's IP address in your browser to see the output of your PHP project.
 		</p>
 		<h4>On the Command-line</h4>
@@ -134,10 +135,10 @@
 			2. Ensure that your PHP runtime is added to your <a href="https://www.sitepoint.com/how-to-install-php-on-windows/">Environment Variables</a> (For Windows users only) <br/>
 			2. Open your console and navigate to your Haxe project directory <br/>
 			4. Run this command to execute your program with the PHP runtime:
-			<div class="step-code">
-$ php bin/index.php
-			</div>
 		</p>
+		<div class="step-code">
+$ php bin/index.php
+		</div>
 	</div>
 </div>
 
