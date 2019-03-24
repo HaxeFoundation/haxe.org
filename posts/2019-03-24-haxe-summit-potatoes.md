@@ -11,17 +11,21 @@ I love potatoes. I love them with the kind of passion that frequently makes me t
 
 The most exciting thing about growing potatoes is that while you eat the large ones, you keep the smallest and healthiest ones as seeds. Three kilograms of seed potatoes can yield 24 to 30 kilograms of new fruit. Talk about a return on investment! Even if you take out the 3kg of seed potatoes you need for the next year, you still have a nifty profit of 700 - 900 %.
 
-_**Why am I telling you this?**_
+Why am I telling you this?
 
-Because the Haxe Summit is like small potatoes. 
+## Because the Haxe Summit is like small potatoes. 
 
 Well, one small potato anyway. It does not look like much, and it is way down there as far as size and attendee numbers of tech conferences go.
 
 And still, every year, we put on this small event even though the demand is not always that big. This year, for example, some of the European Haxians are staying home, and the American community is still in its early stages. Another small potato looking to grow.
 
+## Growing potatoes 
+
 When you want to grow potatoes, you pick the small ones. Then you go and bury them underground for a long time. You wait. Maybe you water them a little if it is a very dry summer, but mostly, you wait. When it's autumn, you dig up the field and, if you are anything like me, do a happy dance because man, I gotta tell you, those things look **SO GOOD** when they are fresh out of the ground.
 
 When you come to the Haxe Summit, we will give you super healthy seed potatoes (information, ideas, inspiration, connections, new people, vodka). We will also help you plant them. And then we will lean back together, enjoy the rest of the year and have some vodka-based cocktails until it is time to dig them up again. After that: _**Happy Dance**_!!!
+
+## Haxian poatatoes
 
 Here are some of the haxian potatoes people have dug up:
 
