@@ -132,12 +132,16 @@ System.dll
 		Develop your project
 	</h2>
 	<div class="step-info">
-		<h4>Haxe libraries</h4>
+		<h4>Haxe API</h4>
 		<p>
 			You can use <a href="https://api.haxe.org/cs/">C# platform specific API</a> in addition to the core Haxe API. <br/>
-			Browse the <a href="https://lib.haxe.org/">haxelib</a> website for community-developed libraries that you can add to your project. <br/>
-			You can install haxelib libraries by running <code>haxelib install &lt;library&gt;</code> in your Haxe project directory. <br/>
 			Browse the <a href="https://api.haxe.org/">Haxe API website</a> for the core Haxe platform API that you can use in your project, which replaces all <code>System.*</code> classes that you would typically use in a C# project.
+		</p>
+		<h4>Haxe libraries</h4>
+		<p>
+			Browse the <a href="https://lib.haxe.org/">haxelib</a> website for community-developed libraries that you can add to your project. <br/>
+			You can install haxelib libraries globally by running <code>haxelib install &lt;library&gt;</code>. <br/>
+			You can specify that your project uses a haxelib library by adding this <code>-lib &lt;library&gt;</code> to your <code>.hxml</code> file.
 		</p>
 		<h4>Third-party DLLs and assemblies</h4>
 		<p>
