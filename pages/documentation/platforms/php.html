@@ -13,7 +13,7 @@
 		Install Haxe
 	</h2>
 	<div class="step-info">
-		Download and install the <a href="/download">Haxe SDK and Runtime</a>.
+		Download and install the <a href="/download">Haxe Compiler</a>.
 	</div>
 </div>
 
@@ -50,15 +50,32 @@
 		Create your project
 	</h2>
 	<div class="step-info">
-		1. Create a new Haxe project in your IDE <br/>
-		2. Create a <code>compile.hxml</code> file in your project directory to store compiler config for your project <br/>
-		3. Add the following into the file:  <br/>
+		1. Create a new directory for your Haxe project, with this structure:<br/>
+		<div class="step-code">
+project
+└---src
+│   │   Main.hx
+│
+└---bin
+		</div>
+		2. Insert the following code into the <code>Main.hx</code> file:<br/>
+		<div class="step-code">
+import php.Lib;
+
+class Main {
+  static function main() {
+    Lib.println('Haxe is great!');
+  }
+}
+		</div>
+		3. Create a <code>compile.hxml</code> file in your project directory to store compiler config for your project <br/>
+		4. Add the following into the file:  <br/>
 		<div class="step-code">
 -cp src
--main src/Main.hx
+-main src/Main
 -php bin
 		</div>
-		The configuration above, specifies that your source code is stored in <code>/src</code>, your main Haxe file is <code>src/Main.hx</code>, and that you want Haxe to output the PHP source code in <code>/bin</code>.
+		The configuration above specifies that your source code is stored in <code>/src</code>, your main Haxe file is <code>src/Main.hx</code>, and that you want Haxe to output the PHP source code in <code>/bin</code>.
 	</div>
 </div>
 
@@ -89,16 +106,16 @@
 		Develop your project
 	</h2>
 	<div class="step-info">
-		<h4>Haxe project</h4>
+		<h4>Haxe API</h4>
 		<p>
-			Refer to <a href="/manual/target-php-getting-started.html">this guide</a> to create a basic Haxe PHP project.
+			You can use <a href="https://api.haxe.org/php/">PHP platform specific API</a> in addition to the core Haxe API. <br/>
+			Browse the <a href="https://api.haxe.org/">Haxe API website</a> for the core Haxe platform API that you can use in your project, which replaces some of the PHP methods that you would typically use in a PHP project.
 		</p>
 		<h4>Haxe libraries</h4>
 		<p>
-			You can use <a href="https://api.haxe.org/php/">PHP platform specific API</a> in addition to the core Haxe API. <br/>
-			You can use third-party PHP libraries, for instance this code that uses <a href="https://gist.github.com/RealyUniqueName/e0c6a3c051c790c0cfae58eeebdd7fae">Zend/Json</a>. <br/>
-			Browse the <a href="https://lib.haxe.org/">haxelib</a> for community-developed libraries that you can add to your project. <br/>
-			Browse the <a href="https://api.haxe.org/">Haxe API website</a> for the core Haxe platform API that you can use in your project, which replaces some of the PHP methods that you would typically use in a PHP project.
+			Browse the <a href="https://lib.haxe.org/">haxelib</a> website for community-developed libraries that you can add to your project. <br/>
+			You can install haxelib libraries globally by running <code>haxelib install &lt;library&gt;</code>. <br/>
+			You can specify that your project uses a haxelib by adding <code>-lib &lt;library&gt;</code> to your <code>.hxml</code> file.
 		</p>
 	</div>
 </div>
@@ -151,6 +168,6 @@ $ php bin/index.php
 		Ask the community
 	</h2>
 	<div class="step-info">
-		If you need help with anything, visit the vibrant <a href="https://community.haxe.org/">Haxe community</a> and simply ask for help with the details of your project. We have a helpful and active community and you should get your answers in a few hours!
+		If you need help with anything, visit the vibrant <a href="https://community.haxe.org/">Haxe community</a> and simply ask for help with the details of your project. We have a helpful and active community and you should get your answers quickly!
 	</div>
 </div>
