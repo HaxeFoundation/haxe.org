@@ -1,0 +1,170 @@
+<div class="step-item">
+	<h1>
+		<img src="/img/platforms/java.png"/>
+		Getting started with Haxe for Java
+	</h1>
+</div>
+
+<div class="step-item">
+	<div class="step-number">
+		1
+	</div>
+	<h2 class="step-title">
+		Install Haxe
+	</h2>
+	<div class="step-info">
+		Download and install the <a href="/download">Haxe Compiler</a>.
+	</div>
+</div>
+
+<div class="step-item">
+	<div class="step-number">
+		2
+	</div>
+	<h2 class="step-title">
+		Install a compatible Haxe IDE
+	</h2>
+	<div class="step-info">
+		You will need one of these to develop your Haxe projects.
+		<ul>
+			<li><a href="https://www.jetbrains.com/idea/">IntelliJ IDEA</a>
+				<ul>
+					<li>Install the <a href="https://plugins.jetbrains.com/plugin/6873?pr=idea">Haxe Plugin</a></li>
+				</ul>
+			</li>
+			<li><a href="https://code.visualstudio.com/">Visual Studio Code</a>
+				<ul>
+					<li>Install the <a href="https://marketplace.visualstudio.com/items?itemName=vshaxe.haxe-extension-pack">Haxe Extension Pack</a></li>
+				</ul>
+			</li>
+			<li><a href="/documentation/introduction/editors-and-ides.html">Other IDEs</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="step-item">
+	<div class="step-number">
+		3
+	</div>
+	<h2 class="step-title">
+		Create your project
+	</h2>
+	<div class="step-info">
+		1. Create a new directory for your Haxe project, with this structure:<br/>
+		<div class="step-code">
+project
+└---src
+│   │   Main.hx
+│
+└---bin
+    └---java
+		</div>
+		2. Insert the following code into the <code>Main.hx</code> file:<br/>
+		<div class="step-code">
+import php.Lib;
+
+class Main {
+  static function main() {
+    Lib.println('Haxe is great!');
+  }
+}
+		</div>
+		3. Install the <code>hxjava</code> haxelib by running <code>haxelib install hxjava</code> in your Haxe project directory.
+		4. Create a <code>.hxml</code> to store compiler config for your project <br/>
+		5. Add the following into the file:  <br/>
+		<div class="step-code">
+-cp src
+-java bin/java
+-main Main
+		</div>
+		The configuration above specifies that your source code is stored in <code>/src</code>, your main Haxe file is <code>src/Main.hx</code>, and that you want Haxe to output the Java source code into the <code>bin/java</code> directory. After code generation, Haxe will try <code>javac</code> to compile the generated Java program into a <code>.jar</code> file. You can debug this Java program using a specialized Java IDE. <br/>
+	</div>
+</div>
+
+<div class="step-item">
+	<div class="step-number">
+		4
+	</div>
+	<h2 class="step-title">
+		Install the Java runtime
+	</h2>
+	<div class="step-info">
+		Haxe requires Java 6. Due to security fixes and new features Java 8 or later is recommended. <br/><br/>
+		
+		1. Install the latest Java Runtime Environment (JRE) and Software Development Kit (SDK).
+		<ul>
+			<li>The Java SDK is required for development as Haxe can only output Java source code, not the final <code>.jar</code> file</li>
+			<li>The Java SDK includes the <code>javac</code> compiler that converts <code>.java</code> sources into a <code>.jar</code> file</li>
+			<li>Android Studio would be recommended if targeting mobile platforms, and it comes with its own JRE and JDK installed.</li>
+		</ul>
+		2. Test your installation by opening a command prompt and typing "java -showversion". <br/>
+		<ul>
+			<li>If your console cannot find <code>java</code>, you have an issue with your installation or the JRE is not added into the PATH environment variable.</li>
+			<li>You should see something like the following snippet.</li>
+		</ul>
+		<div class="step-code">
+java version "1.8.0_201"
+Java(TM) SE Runtime Environment (build 1.8.0_201-b09)
+Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)
+		</div>
+	</div>
+</div>
+
+<div class="step-item">
+	<div class="step-number">
+		5
+	</div>
+	<h2 class="step-title">
+		Develop your project
+	</h2>
+	<div class="step-info">
+		<h4>Haxe API</h4>
+		<p>
+			Browse the <a href="https://api.haxe.org/java/index.html">Haxe Java API website</a> for the Java-specific API available. <br/>
+			Browse the <a href="https://api.haxe.org/">Haxe API website</a> for the core Haxe platform API that you can use in your project.
+		</p>
+		<h4>Haxe libraries</h4>
+		<p>
+			Browse the <a href="https://lib.haxe.org/t/java/">haxelib</a> website for community-developed libraries that you can add to your project. <br/>
+			You can install haxelib libraries globally by running <code>haxelib install &lt;library&gt;</code>. <br/>
+			You can specify that your project uses a haxelib by adding <code>-lib &lt;library&gt;</code> to your <code>.hxml</code> file.
+		</p>
+	</div>
+</div>
+
+<div class="step-item">
+	<div class="step-number">
+		6
+	</div>
+	<h2 class="step-title">
+		Debug your project
+	</h2>
+	<div class="step-info">
+		<h4>Running and debugging</h4>
+		<p>
+			After compiling your project with Haxe and Java, you'll need to open a console in the <code>bin/java</code> directory and run the command <code>java -jar Main.jar</code> <br/>
+			You can alternatively use a full-fledged Java IDE like the ones given below to run and debug your project easily.
+		</p>
+		<h4>Install a Java IDE</h4>
+		If you want a better debugging experience, you can install a dedicated Java IDE to run and debug your Java programs generated from your Haxe project.
+		<ul>
+			<li><a href="https://www.jetbrains.com/idea/">IntelliJ IDEA</a></li>
+			<li><a href="https://netbeans.apache.org/download/">Netbeans</a></li>
+			<li><a href="https://www.eclipse.org/downloads/">Eclipse</a></li>
+			<li><a href="https://developer.android.com/studio">Android Studio</a> if you are targeting Android</li>
+			<li><a href="https://raygun.com/blog/java-debugging-tools/">More debugging tools</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="step-item">
+	<div class="step-number">
+		7
+	</div>
+	<h2 class="step-title">
+		Ask the community
+	</h2>
+	<div class="step-info">
+		If you need help with anything, visit the vibrant <a href="https://community.haxe.org/">Haxe community</a> and simply ask for help with the details of your project. We have a helpful and active community and you should get your answers quickly!
+	</div>
+</div>
