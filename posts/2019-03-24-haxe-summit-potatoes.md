@@ -26,9 +26,9 @@ When you want to grow potatoes, you pick the small ones. Then you go and bury th
 
 When you come to the Haxe Summit, we will give you super healthy seed potatoes (information, ideas, inspiration, connections, new people, vodka). We will also help you plant them. And then we will lean back together, enjoy the rest of the year and have some vodka-based cocktails until it is time to dig them up again. After that: _**Happy Dance**_!!!
 
-## Haxian poatatoes
+## Haxian potatoes
 
-Here are some of the haxian potatoes people have dug up:
+Here are some of the Haxian potatoes people have dug up:
 
 - jobs where Haxe is a thing
 - employees who know how to use Haxe
@@ -36,7 +36,7 @@ Here are some of the haxian potatoes people have dug up:
 - hair colours that complement the logo (that was me)
 - relationships with Haxe in them (I think this is the big one!)
 
-I don’t know about you but my feet are starting to tap-taps-dance just looking at that list. A lot happens at our small event and seeing haxian potatoes grow is one of the coolest things ever. So, if you like Haxe or potatoes or both:
+I don’t know about you but my feet are starting to tap-taps-dance just looking at that list. A lot happens at our small event and seeing Haxian potatoes grow is one of the coolest things ever. So, if you like Haxe or potatoes or both:
 
 [Come to the Haxe Summit!](https://summit.haxe.org/us/2019/)
 
