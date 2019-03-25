@@ -13,7 +13,7 @@
 		Install Haxe
 	</h2>
 	<div class="step-info">
-		Download and install the <a href="/download">Haxe SDK and Runtime</a>.
+		Download and install the <a href="/download">Haxe Compiler</a>.
 	</div>
 </div>
 
@@ -50,15 +50,31 @@
 		Create your project
 	</h2>
 	<div class="step-info">
-		1. Create a new Haxe project in your IDE <br/>
+		1. Create a new directory for your Haxe project, with this structure:<br/>
+		<div class="step-code">
+project
+└---src
+│   │   Main.hx
+│
+└---bin
+    └---cs
+		</div>
+		2. Insert the following code into the <code>Main.hx</code> file:<br/>
+		<div class="step-code">
+class Main {
+  static public function main():Void {
+    trace("Hello World");
+  }
+}
+		</div>
 		2. Create a <code>.hxml</code> to store compiler config for your project <br/>
 		3. Add the following into the file:  <br/>
 		<div class="step-code">
 -cp src
--main src/Main.hx
--cs cs
+-main src/Main
+-cs bin/cs
 		</div>
-		The configuration above, specifies that your source code is stored in <code>/src</code>, your main Haxe file is <code>src/Main.hx</code>, and that you want Haxe to output the C# source code in <code>/cs</code>. After code generation, Haxe will automatically detect the installed C#/Mono compiler and use it to compile your project into <code>/bin</code>.
+		The configuration above specifies that your source code is stored in <code>/src</code>, your main Haxe file is <code>src/Main.hx</code>, and that you want Haxe to output the C# source code in <code>/bin/cs</code>. After code generation, Haxe will automatically detect the installed C#/Mono compiler and use it to compile your project into <code>/bin</code>.
 	</div>
 </div>
 
@@ -116,13 +132,11 @@ System.dll
 		Develop your project
 	</h2>
 	<div class="step-info">
-		<h4>Haxe project</h4>
-		<p>
-			Refer to <a href="/manual/target-cs-getting-started.html">this guide</a> to create a basic Haxe C# project.
-		</p>
 		<h4>Haxe libraries</h4>
 		<p>
-			Browse the <a href="https://lib.haxe.org/">haxelib</a> for community-developed libraries that you can add to your project. <br/>
+			You can use <a href="https://api.haxe.org/cs/">C# platform specific API</a> in addition to the core Haxe API. <br/>
+			Browse the <a href="https://lib.haxe.org/">haxelib</a> website for community-developed libraries that you can add to your project. <br/>
+			You can install haxelib libraries by running <code>haxelib install &lt;library&gt;</code> in your Haxe project directory. <br/>
 			Browse the <a href="https://api.haxe.org/">Haxe API website</a> for the core Haxe platform API that you can use in your project, which replaces all <code>System.*</code> classes that you would typically use in a C# project.
 		</p>
 		<h4>Third-party DLLs and assemblies</h4>
@@ -141,6 +155,6 @@ System.dll
 		Ask the community
 	</h2>
 	<div class="step-info">
-		If you need help with anything, visit the vibrant <a href="https://community.haxe.org/">Haxe community</a> and simply ask for help with the details of your project. We have a helpful and active community and you should get your answers in a few hours!
+		If you need help with anything, visit the vibrant <a href="https://community.haxe.org/">Haxe community</a> and simply ask for help with the details of your project. We have a helpful and active community and you should get your answers quickly!
 	</div>
 </div>
