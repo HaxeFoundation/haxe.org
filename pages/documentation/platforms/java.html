@@ -13,7 +13,11 @@
 		Install Haxe
 	</h2>
 	<div class="step-info">
-		Download and install the <a href="/download">Haxe Compiler</a>.
+		1. Download and install the <a href="/download">Haxe Compiler</a>. <br/>
+		2. Run this command in your console to globally install Java support in Haxe.
+		<div class="step-code">
+haxelib install hxjava
+		</div>
 	</div>
 </div>
 
@@ -25,7 +29,7 @@
 		Install a compatible Haxe IDE
 	</h2>
 	<div class="step-info">
-		You will need one of these to develop your Haxe projects.
+		It is recommended to install one of these to develop your Haxe projects.
 		<ul>
 			<li><a href="https://www.jetbrains.com/idea/">IntelliJ IDEA</a>
 				<ul>
@@ -61,17 +65,14 @@ project
 		</div>
 		2. Insert the following code into the <code>Main.hx</code> file:<br/>
 		<div class="step-code">
-import php.Lib;
-
 class Main {
   static function main() {
     Lib.println('Haxe is great!');
   }
 }
 		</div>
-		3. Install the <code>hxjava</code> haxelib by running <code>haxelib install hxjava</code> in your Haxe project directory.
-		4. Create a <code>.hxml</code> to store compiler config for your project <br/>
-		5. Add the following into the file:  <br/>
+		3. Create a <code>.hxml</code> to store compiler config for your project <br/>
+		4. Add the following into the file:  <br/>
 		<div class="step-code">
 -cp src
 -java bin/java
@@ -97,7 +98,7 @@ class Main {
 			<li>The Java SDK includes the <code>javac</code> compiler that converts <code>.java</code> sources into a <code>.jar</code> file</li>
 			<li>Android Studio would be recommended if targeting mobile platforms, and it comes with its own JRE and JDK installed.</li>
 		</ul>
-		2. Test your installation by opening a command prompt and typing "java -showversion". <br/>
+		2. Test your installation by opening a command prompt and typing "java -showversion".
 		<ul>
 			<li>If your console cannot find <code>java</code>, you have an issue with your installation or the JRE is not added into the PATH environment variable.</li>
 			<li>You should see something like the following snippet.</li>
