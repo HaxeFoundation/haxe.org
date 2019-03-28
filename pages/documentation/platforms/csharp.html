@@ -87,9 +87,20 @@ class Main {
 		4
 	</div>
 	<h2 class="step-title">
-		Install a C# compiler
+		Compile and run your project
 	</h2>
 	<div class="step-info">
+		<h4>Visual Studio Compiler</h4>
+		<p>
+			1. If you want to use Visual Studio to compile and debug your project, you can disable the automatic compilation and simply ask Haxe to generate the <code>.cs</code> codefiles. <br/>
+			To do this, add <code>-D no-compilation real-position</code> to the end of your <code>.hxml</code> file. <br/>
+			2. Build your Haxe project by running <code>haxe build.hxml</code> in a console in your project directory. <br/>
+			3. Install <a href="https://visualstudio.microsoft.com/downloads/">Visual Studio Community Edition</a> if you don't already have VS installed. <br/>
+			4. Open the <code>bin/cs/Main.csproj</code> C# project in Visual Studio. If you are prompted about the .NET Framework version being unsupported, select the option to "Change the target to .NET Framework...". <br/>
+			5. Open up the <code>.cs</code> that corresponds to the <code>.hx</code> file that you want to debug, for example <code>Main.cs</code> for the Main class file. <br/>
+			6. Add breakpoints into your C# code as you wish and Start Debugging your project (press F5). <br/>
+			7. Visual Studio should compile the project and enter debugging mode, allowing you to easily fix problems in your Haxe code.
+		</p>
 		<h4>.NET Framework Compiler</h4>
 		<p>
 			1. Install the latest <a href="https://dotnet.microsoft.com/download">.NET Framework Dev Pack</a> <br/>
@@ -98,13 +109,7 @@ class Main {
 		</p>
 		<h4>Mono Compiler</h4>
 		<p>
-			1. Install the latest <a href="https://www.mono-project.com/download/stable/">Mono Compiler</a> <br/> <br/>
-			2. Build your Haxe project by running <code>haxe build.hxml</code> in a console in your project directory. <br/>
-		</p>
-		<h4>Visual Studio Compiler</h4>
-		<p>
-			1. If you want to use Visual Studio or MSBuild to compile your project, you can disable the automatic compilation and simply ask Haxe to generate the <code>.cs</code> codefiles. <br/>
-			To do this, add <code>-D no-compilation</code> to the end of your <code>.hxml</code> file. <br/>
+			1. Install the latest <a href="https://www.mono-project.com/download/stable/">Mono Compiler</a> <br/>
 			2. Build your Haxe project by running <code>haxe build.hxml</code> in a console in your project directory. <br/>
 		</p>
 		<h4>.NET Core Compiler <span>BETA</span></h4>
