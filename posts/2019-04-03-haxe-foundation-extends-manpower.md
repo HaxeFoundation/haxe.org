@@ -1,6 +1,7 @@
 title: class HaxeFoundation extends Manpower
 author: simn
 description: Powerful forces arrive from the East to support us
+background: we-are-growing.jpg
 published: true
 disqusID: 44
 ---
