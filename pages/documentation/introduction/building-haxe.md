@@ -12,8 +12,15 @@ git clone --recursive https://github.com/HaxeFoundation/haxe.git
 
 Alternatively, source .zip archives or tarballs can be obtained from the [GitHub Haxe release overview](https://github.com/HaxeFoundation/haxe/releases). However, the git submodules are not included, so you will have to manually place the source code of [submodules](https://github.com/HaxeFoundation/haxe/blob/development/.gitmodules) into appropreate sub-folders.
 
-Building on OS X
+Building
 -------
+
+For Haxe 4 and later, please read the `README.md` file in the source folder.
+
+For Haxe 3.x, read below.
+
+
+### Building on OS X
 
 The dependencies can be easily installed by [Homebrew](http://brew.sh/). In fact, if you only want to use the latest development branch of Haxe, without modifying the source, simply run:
 
@@ -34,8 +41,7 @@ make
 make install
 ```
 
-Building on Linux
--------
+### Building on Linux
 
 1. Install Neko, which is available in the repositories of many Linux distributions. e.g. On Ubuntu, just `sudo apt-get install neko`.
 2. Install OCaml (4.02 or above), camlp4, pcre, and zlib. Again, try to find such packages in the Linux repositories.
@@ -46,10 +52,9 @@ make
 make install
 ```
 
-Building on Windows (mingw)
--------
+### Building on Windows (mingw)
 
-### Installation
+#### Installation
 
   - Download 32-bit installer from the fdopen's fork: <https://fdopen.github.io/opam-repository-mingw/installation/>
   - Install it, in Cygwin package selection also check `mingw64-i686-zlib` and `mingw64-i686-pcre` (used by Haxe). 
@@ -58,7 +63,7 @@ Building on Windows (mingw)
   
     - Install dependencies through opam: `opam install camlp4 sedlex ocamlfind xml-light extlib rope ptmap sha`
 
-### Running from cmd/powershell
+#### Running from cmd/powershell
 
   - Add these to the start of your PATH (actual paths may differ depending on your install path, username, and OCaml version):
   
@@ -74,19 +79,18 @@ Building on Windows (mingw)
     
   - I couldn't get `opam` itself running through cmd/powershell because it needs some more environment that's inited in `.bashrc`, but I think installing opam packages from within Cygwin terminal is acceptable.
 
-### Testing
+#### Testing
 
   - Haxe should compile: `make ADD_REVISION=1 -f Makefile.win`
   - VSCode OCaml extension features should work: <https://marketplace.visualstudio.com/items?itemName=hackwaly.ocaml>
 
-### Troubleshoot
+#### Troubleshoot
 
  - If you have issues compiling in cmd.exe (worked fine in ocaml32) and get `Interrupt/Exception caught (code = 0xc00000fd, addr = 0x4227d3`, this helps: <http://hdrlab.org.nz/articles/windows-development/make-interrupt-exception-caught-code-0xc00000fd-addr-0x4217b/>
 TL;DR: put the environment variables at the start of your PATH, not at the end.
  - Run `where make`. It should print out the path of the command that will execute (should be `C:\OCaml32\bin\make.exe`).
 
-Building on FreeBSD
--------
+### Building on FreeBSD
 
 1. Become root to install packages: `su -`
 2. Install the build dependencies: `pkg install ocaml ocaml-camlp4 ocaml-findlib pcre gmake git neko`
