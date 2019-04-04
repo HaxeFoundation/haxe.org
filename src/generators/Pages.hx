@@ -18,7 +18,7 @@ class Pages {
 			path.shift();
 			var folder = path.length > 1 ? path.shift() : "/";
 			var file = path.join("/");
-			if (Path.extension(file) == "scripts" || Path.extension(file) == "styles") {
+			if (Path.extension(file) == "scripts" || Path.extension(file) == "styles" || file.indexOf(".fragment.") >= 0) {
 				Sys.println("\tSkipping script page '"+ file + "'");
 				continue;
 			}
@@ -36,8 +36,14 @@ class Pages {
 			var scriptsPath = Path.join([Config.pagesPath, folder, fileName + ".scripts"]);
 			var additionalScripts = Utils.readContentFile(scriptsPath);
 
+			// include fragments, put the file content in place
+			// ::fragment "pages/community.fragment.html"::
+			var fragment = ~/::fragment ("|')(.+?)\1::/g;
+			while (fragment.match(content)) {
+				content = fragment.matchedLeft() + Utils.readContentFile(fragment.matched(2)) + fragment.matchedRight();
+			}
 
-			genPage(folder, root, sitepage, content, file, editLink,additionalStyles,additionalScripts);
+			genPage(folder, root, sitepage, content, file, editLink, additionalStyles, additionalScripts);
 		}
 
 		genWhoIsWho();
