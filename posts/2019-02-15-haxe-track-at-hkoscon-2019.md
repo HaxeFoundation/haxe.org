@@ -30,3 +30,17 @@ Now, we are calling on you to be our speakers. We welcome any Haxe-related topic
 The tentative date of the conference is 14-15 June 2019 (Fri-Sat). The venue is to be confirmed (in Hong Kong for sure).
 
 To submit a proposal, please fill out [this form](http://hkoscon.org/2019/cfp/) on or before 25 February 2019.
+
+-----
+
+<a name="update-2019-04-04"></a>
+
+# Update (2019-04-04):
+
+I'm happy to announce that we have [2 talks accepted by the HKOSCon Program Committee](https://hkoscon.org/2019/topics/):
+
+ 1. "Haxe transpilation to PHP: static typing, arrow functions, metaprogramming and more", by Aleksandr Kuzmenko, who [just became HF's full-time compiler dev](https://haxe.org/blog/haxe-foundation-extends-manpower/)!
+
+ 2. "What’s new in Haxe 4", by Andy Li (yeah, that's me).
+
+The conference venue has been finalized to be Hong Kong Science Park. Both talks will be given on 15/6 (Sat) afternoon. We look forward to seeing you there!
