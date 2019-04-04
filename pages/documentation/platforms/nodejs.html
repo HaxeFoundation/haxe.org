@@ -1,0 +1,132 @@
+<div class="step-item">
+	<h1>
+		<img src="/img/platforms/javascript.png"/>
+		Getting started with Haxe for Node.js
+	</h1>
+</div>
+
+<div class="step-item">
+	<div class="step-number">
+		1
+	</div>
+	<h2 class="step-title">
+		Install Haxe
+	</h2>
+	<div class="step-info">
+		Download and install the <a href="/download">Haxe Compiler</a>.
+	</div>
+</div>
+
+<div class="step-item">
+	<div class="step-number">
+		2
+	</div>
+	<h2 class="step-title">
+		Install a compatible Haxe IDE
+	</h2>
+	<div class="step-info">
+		It is recommended to install one of these to develop your Haxe projects.
+		<ul>
+			<li><a href="https://code.visualstudio.com/">Visual Studio Code</a>
+				<ul>
+					<li>Install the <a href="https://marketplace.visualstudio.com/items?itemName=vshaxe.haxe-extension-pack">Haxe Extension Pack</a></li>
+				</ul>
+			</li>
+			<li><a href="https://www.jetbrains.com/idea/">IntelliJ IDEA</a>
+				<ul>
+					<li>Install the <a href="https://plugins.jetbrains.com/plugin/6873?pr=idea">Haxe Plugin</a></li>
+				</ul>
+			</li>
+			<li><a href="/documentation/introduction/editors-and-ides.html">Other IDEs</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="step-item">
+	<div class="step-number">
+		3
+	</div>
+	<h2 class="step-title">
+		Create your project
+	</h2>
+	<div class="step-info">
+		1. Create a new directory for your Haxe project, with this structure:<br/>
+		<pre class="step-code">
+project
+└---src
+│   │   Main.hx
+│
+└---bin
+		</pre>
+		2. Insert the following code into the <code>src/Main.hx</code> file:<br/>
+		<pre class="step-code">
+class Main {
+  static function main() {
+    trace('Haxe is great!');
+  }
+}
+		</pre>
+		3. Create a <code>build.hxml</code> file in your project directory to store compiler configuration.  Add the following into the file:  <br/>
+		<pre class="step-code">
+-cp src
+-main Main
+-js bin/main.js
+-lib hxnodejs
+		</pre>
+		The configuration above specifies that you are using the <code>hxnodejs</code> haxelib (required for node.js), that your source code is stored in <code>/src</code>, your main Haxe file is <code>src/Main.hx</code>, and that you want Haxe to output the JavaScript source code into <code>bin/main.js</code>. After code generation, you can run / debug the node.js application. 
+	</div>
+</div>
+
+<div class="step-item">
+	<div class="step-number">
+		4
+	</div>
+	<h2 class="step-title">
+		Develop your project
+	</h2>
+	<div class="step-info">
+		<h4>Haxe API</h4>
+		<p>
+			Browse the <a href="https://api.haxe.org/javascript/">Haxe JavaScript API website</a> for the JavaScript-specific API available. <br/> 
+			Browse the <a href="https://api.haxe.org/">Haxe API website</a> for the core Haxe platform API that you can use in your project.
+			Browse the <a href="http://haxefoundation.github.io/hxnodejs/js/Node.html">Haxe/Node.js API documentation</a> for the available functionality in node.js.
+		</p>
+		<h4>Haxe libraries</h4>
+			Browse the <a href="https://lib.haxe.org/t/nodejs/">haxelib</a> website for community-developed libraries that you can add to your project. <br/>
+		<p>
+			You can install haxelib libraries globally by running <code>haxelib install &lt;library&gt;</code>. <br/>
+			You can specify that your project uses a haxelib by adding <code>-lib &lt;library&gt;</code> to the <code>build.hxml</code> file.
+		</p>
+	</div>
+</div>
+
+<div class="step-item">
+	<div class="step-number">
+		6
+	</div>
+	<h2 class="step-title">
+		Compile and run your project
+	</h2>
+	<div class="step-info">
+		<h4>Compilation</h4>
+		<p>
+			Build the Haxe project by running <code>haxe build.hxml</code> in a console in the project directory. <br/>
+			This compiles your <code>.hx</code> source code into Python scripts which you can run and debug next.
+		</p>
+		<h4>Running and debugging</h4>
+		<p>
+			After compiling your project with Haxe, you'll need to open a console in the <code>bin/</code> directory and run the command <code>node main.js</code> and you'll see the 'Haxe is great!' log message. 
+	</div>
+</div>
+
+<div class="step-item">
+	<div class="step-number">
+		7
+	</div>
+	<h2 class="step-title">
+		Ask the community
+	</h2>
+	<div class="step-info">
+		If you need help with anything, visit the vibrant <a href="/community/community-support.html">Haxe community</a> and simply ask for help with the details of your project. We have a helpful and active community and you should get your answers quickly!
+	</div>
+</div>
