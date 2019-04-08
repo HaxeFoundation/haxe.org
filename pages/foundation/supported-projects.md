@@ -25,4 +25,4 @@ The following software is supported by the Haxe Foundation:
   
 * __Neko and HashLink__
 
-	[Neko](https://nekovm.org) and [HashLink](https://hashlink.haxe.org) are virtual machines created and maintained by the Haxe Foundation. 
+	[HashLink](https://hashlink.haxe.org) and [Neko](https://nekovm.org) are virtual machines created and maintained by the Haxe Foundation. 
