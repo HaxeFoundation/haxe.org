@@ -1431,9 +1431,44 @@ a.partner-logo {
 		width: 0;
 	}
 
+	.summit-player {
+		padding-left: 150px;
+	}
+
 	.summit-schedule {
 		width: auto;
 		float: right;
+		padding-right: 150px;
+	}
+}
+
+@media(max-width: 1490px) {
+	.summit-player {
+		padding-left: 100px;
+	}
+
+	.summit-schedule {
+		padding-right: 100px;
+	}
+}
+
+@media(max-width: 1380px) {
+	.summit-player {
+		padding-left: 50px;
+	}
+
+	.summit-schedule {
+		padding-right: 50px;
+	}
+}
+
+@media(max-width: 1280px) {
+	.summit-player {
+		padding-left: 0;
+	}
+
+	.summit-schedule {
+		padding-right: 0;
 	}
 }
 
