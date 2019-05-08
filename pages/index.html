@@ -1,4 +1,63 @@
 <div class="homepage">
+
+	<div class="section text-center" style="background-color: #0d0f0e; padding-top: 50px; padding-bottom: 30px; color: white">
+		<img src="/img/summit-2019.jpg" width="760" height="250" />
+
+		<br /><br />
+
+		<div>
+			<div style="float: left; width: 14%">&nbsp;</div>
+
+			<div style="float: left; width: 38%">
+				<iframe src="https://player.twitch.tv/?channel=haxesummit" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620">
+				</iframe>
+			</div>
+
+			<div style="float: left; width: 32%; text-align: left">
+				<p style="font-weight: bold; text-align: center">
+					Today's schedule (Seattle time: <span id="seattle-time"></span>)
+				</p>
+
+				<div style="font-style: italic; padding-bottom: 8px">08:00 - 09:00 Breakfast</div>
+				09:00 - 09:30 Opening address - Josefiene Pertosa<br />
+				09:30 - 10:30 Haxe 4: What's New - Aleksandr Kuzmenko<br />
+				10:30 - 11:00 Titan: Macro-Powered FFI for Haxe/LuaJit - Justin Donaldson<br />
+				<div style="font-style: italic; padding: 8px 0">11:00 - 11:30 Coffee Break</div>
+				11:30 - 12:30 Declarative UI Programming - Juraj Kirchheim<br />
+				<div style="font-style: italic; padding: 8px 0">12:30 - 13:30 Lunch Break</div>
+				13:30 - 15:30 Declarative UI Programming (Workshop) - Juraj Kirchheim<br />
+				<div style="font-style: italic; padding: 8px 0">15:30 - 16:00 Coffee Break</div>
+				16:00 - 17:00 XhX: 10 Years of Haxe - Hugh Sanderson<br />
+				<div style="font-style: italic; padding-top: 8px">18:00 - 21:00 Conference party</div>
+			</div>
+
+			<br style="clear: both" />
+
+			<div style="float: left; width: 14%">&nbsp;</div>
+
+			<div style="float: left; width: 38%">
+				<a href="https://www.twitch.tv/haxesummit?tt_content=text_link&tt_medium=live_embed">Watch live video from HaxeSummit on www.twitch.tv</a>
+			</div>
+
+			<div style="float: left; width: 32%">
+				<a href="https://drive.google.com/file/d/1FWRjjWB9j4PYDMYY27KO8XuU-cOntAxy/view">See the full schedule</a>
+			</div>
+
+			<br style="clear: both" />
+		</div>
+	</div>
+
+	<script>
+	function seattleTime() {
+		var d = new Date();
+		var utc = d.getTime() + (d.getTimezoneOffset() * 60000);
+		var nd = new Date(utc + (3600000*-7));
+		document.getElementById("seattle-time").textContent = nd.toLocaleTimeString();
+		setTimeout(seattleTime, 1000);
+	}
+	seattleTime();
+	</script>
+
 	<div class="section dark head">
 
 		<div class="container">
