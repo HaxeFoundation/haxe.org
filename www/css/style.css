@@ -1409,3 +1409,43 @@ a.partner-logo {
     -moz-border-radius: 4px;
     border-radius: 4px;
 }
+
+/* Summit */
+
+.summit-margin {
+	width: 14%;
+}
+
+.summit-player {
+	float: left;
+	width: 38%;
+}
+
+.summit-schedule {
+	float: left;
+	width: 34%;
+}
+
+@media(max-width: 1650px) {
+	.summit-margin {
+		width: 0;
+	}
+
+	.summit-schedule {
+		width: auto;
+		float: right;
+	}
+}
+
+@media(max-width: 1170px) {
+	.summit-schedule {
+		width: 37%;
+	}
+}
+
+@media(max-width: 1000px) {
+	.summit-player, .summit-schedule {
+		width: auto;
+		float: none;
+	}
+}
