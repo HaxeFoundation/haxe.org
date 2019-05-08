@@ -54,6 +54,7 @@ typedef VideoSection = {
 		https://try.haxe.org/#2dA2f
 **/
 class Videos {
+
 	public static function generate () {
 		Sys.println("Generating videos ...");
 
@@ -95,7 +96,9 @@ class Videos {
 
 					// assign extra/missing data to video
 					for (video in videos) {
-						if (!Reflect.hasField(video, "featured")) video.featured = false;
+						if (!Reflect.hasField(video, "featured")) {
+							video.featured = false;
+						}
 						if (video.featured && category.featuredVideos.length <= 5) {
 							category.userFeaturedVideos.push(video);
 							category.featuredVideos.push(video);
@@ -119,7 +122,9 @@ class Videos {
 				var i = 0;
 				while (category.featuredVideos.length < 5 && category.videos.length >= 5) {
 					var v = category.videos[i++];
-					if (category.featuredVideos.indexOf(v) < 0) category.featuredVideos.push(v);
+					if (category.featuredVideos.indexOf(v) < 0) {
+						category.featuredVideos.push(v);
+					}
 				}
 				category.userFeaturedVideos.sort(function(a, b) return a.date < b.date ? 1 : -1);
 				category.featuredVideos.sort(function(a, b) return a.date < b.date ? 1 : -1);
@@ -131,7 +136,7 @@ class Videos {
 		// assign next/prev videos
 		for (section in sections) {
 			for (category in section.categories) {
-				for (i in 0 ... category.videos.length) {
+				for (i in 0...category.videos.length) {
 					var video = category.videos[i];
 					video.prev = category.videos[i - 1];
 					video.next = category.videos[i + 1];
@@ -160,7 +165,7 @@ class Videos {
 
 				// generate video pages
 				for (video in category.videos) {
-					totalVideos ++;
+					totalVideos++;
 					Utils.save(Path.join([Config.outputFolder, video.path]), Views.VideoPage(
 						video,
 						section.categories,
@@ -175,16 +180,22 @@ class Videos {
 
 	static function getName(value:String):String {
 		var name = stripAccents(value.toLowerCase()).replace(" ", "-").replace("&", "-").replace(".", "-").replace("/", "-").replace(",", "").replace('"', "").replace("'", "").replace(":", "").replace("?", "").replace("(", "").replace(")", "").replace("#", "");
-		while (name.indexOf("--") != -1) name = name.replace("--", "-");
-		if (name.startsWith("-")) name = name.substr(1);
-		if (name.endsWith("-")) name = name.substr(0, name.length-1);
+		while (name.indexOf("--") != -1) {
+			name = name.replace("--", "-");
+		}
+		if (name.startsWith("-")) {
+			name = name.substr(1);
+		}
+		if (name.endsWith("-")) {
+			name = name.substr(0, name.length - 1);
+		}
 		return name;
 	}
 
-	static function stripAccents(value:String) {
+	static function stripAccents(value:String):String {
 		var inChars   = ["à", "á", "â", "ã", "ä", "ç", "è", "é", "ê", "ë", "ì", "í", "î", "ï", "ñ", "ò", "ó", "ô", "õ", "ö", "ù", "ú", "û", "ü", "ý", "ÿ"];
 		var outChars  = ["a", "a", "a", "a", "a", "c", "e", "e", "e", "e", "i", "i", "i", "i", "n", "o", "o", "o", "o", "o", "u", "u", "u", "u", "y", "y"];
-		for (i in 0 ... inChars.length) {
+		for (i in 0...inChars.length) {
 			value = value.replace(inChars[i], outChars[i]);
 		}
 		return value;

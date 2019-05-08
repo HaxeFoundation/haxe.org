@@ -21,9 +21,9 @@ class Redirections {
 			"/foundation/shop.html" => "/foundation/shop/",
 			"/api/index.html" => "https://api.haxe.org/",
 		];
-		
+
 		// fix some old links to toplevel api classes. 
-		for(oldName in "reflect,array,date,sys,type,map,int,math,dynamic,enum,float,class,xml".split(",")) {
+		for (oldName in "reflect,array,date,sys,type,map,int,math,dynamic,enum,float,class,xml".split(",")) {
 			var newName = oldName.charAt(0).toUpperCase() + oldName.substr(1);
 			list.set('/api/$oldName/index.html', 'https://api.haxe.org/$newName.html');
 		}

@@ -158,7 +158,7 @@ class Blog {
 		}
 	}
 
-	static function list (title:String, posts:Array<Post>, description:String, path:String, ?avatar:String) {
+	static function list (title:String, posts:Array<Post>, description:String, path:String, avatar:String = null) {
 		var content = Views.BlogList(title, description, posts, avatar);
 
 		Utils.save(path, content, null, null);
@@ -247,7 +247,6 @@ class Blog {
 			}
 		}
 
-
 		try {
 			var xml = Xml.parse(Markdown.markdownToHtml(blogContent));
 			changeHtml('${data.date}-${data.name}', xml);
@@ -280,7 +279,7 @@ class Blog {
 		}
 
 		if (xml.nodeType == Xml.Element && xml.nodeName == "table") {
-			xml.set("class", 'table');
+			xml.set("class", "table");
 		}
 
 		if (xml.nodeType == Xml.Document || xml.nodeType == Xml.Element) {

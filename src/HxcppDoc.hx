@@ -25,8 +25,7 @@ class HxcppDoc {
 			"../../../../hxcpp/docs/build_xml/XmlInjection" => "Xml Injection",
 		];
 
-		for (path in newDoc.keys())
-		{
+		for (path in newDoc.keys()) {
 			var label = newDoc[path];
 
 			cppSection.sub.push({
@@ -44,18 +43,13 @@ class HxcppDoc {
 		return sections;
 	}
 
-	static function findCppSection (inSections:Array<Section>) {
-		for (section in inSections)
-		{
-			if (section.label == "target-cpp")
-			{
+	static function findCppSection (inSections:Array<Section>) : Section {
+		for (section in inSections) {
+			if (section.label == "target-cpp") {
 				return section;
-			}
-			else
-			{
+			} else {
 				var sub = findCppSection(section.sub);
-				if (sub != null)
-				{
+				if (sub != null) {
 					return sub;
 				}
 			}

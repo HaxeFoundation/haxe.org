@@ -39,7 +39,7 @@ typedef Page = {
 
 class Manual {
 
-	static var inPath = Path.join(["manual", "output", "HaxeManual", "website"]);
+	static var inPath:String = Path.join(["manual", "output", "HaxeManual", "website"]);
 
 	public static function getDefaultSections () : Array<Section> {
 		return Json.parse(File.getContent(Path.join([inPath, "sections.txt"])));
@@ -109,7 +109,7 @@ class Manual {
 
 		// Create dictionary page
 		var dictionaryPage = {
-			url: '/manual/dictionary.html',
+			url: "/manual/dictionary.html",
 			title: "Dictionary",
 			sub: [],
 			editLink: null,

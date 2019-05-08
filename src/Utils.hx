@@ -24,7 +24,7 @@ class Utils {
 	}
 
 	public static function readContentFile (path:String) : String {
-		if(!FileSystem.exists(path)){			
+		if (!FileSystem.exists(path)){
 			return null;
 		}
 		var content = File.getContent(path);
