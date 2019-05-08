@@ -1424,6 +1424,7 @@ a.partner-logo {
 .summit-schedule {
 	float: left;
 	width: 34%;
+	padding-left: 40px;
 }
 
 @media(max-width: 1650px) {
@@ -1442,6 +1443,16 @@ a.partner-logo {
 	}
 }
 
+@media(max-width: 1570px) {
+	.summit-player {
+		padding-left: 125px;
+	}
+
+	.summit-schedule {
+		padding-right: 125px;
+	}
+}
+
 @media(max-width: 1490px) {
 	.summit-player {
 		padding-left: 100px;
@@ -1454,6 +1465,16 @@ a.partner-logo {
 
 @media(max-width: 1380px) {
 	.summit-player {
+		padding-left: 70px;
+	}
+
+	.summit-schedule {
+		padding-right: 70px;
+	}
+}
+
+@media(max-width: 1330px) {
+	.summit-player {
 		padding-left: 50px;
 	}
 
@@ -1463,6 +1484,26 @@ a.partner-logo {
 }
 
 @media(max-width: 1280px) {
+	.summit-player {
+		padding-left: 35px;
+	}
+
+	.summit-schedule {
+		padding-right: 35px;
+	}
+}
+
+@media(max-width: 1240px) {
+	.summit-player {
+		padding-left: 15px;
+	}
+
+	.summit-schedule {
+		padding-right: 15px;
+	}
+}
+
+@media(max-width: 1200px) {
 	.summit-player {
 		padding-left: 0;
 	}
