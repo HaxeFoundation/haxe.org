@@ -1,0 +1,12 @@
+{
+	"title": "ACCU 2019",
+	"description": "Conference held by ACCU, a non-profit user group of people interested in software development.",
+	"videos": [{
+			"title": "Haxe: An understated powerhouse for software development - George Corney",
+			"where": null,
+			"description": "<p>Haxe is a strictly-typed (and type-inferring) programming language with a diverse set of influences, including OCaml, Java and ActionScript. Its syntax will be familiar to anyone who’s worked with modern OO languages, however it has features you’d expect in a meta language, such as: everything’s-an-expression, compile-time code manipulation and pattern matching. In addition, it boasts an unusual talent; it can generate code in other programming languages.</p><p>In this talk I discuss the language’s killer features (and how I use them in GPU programming work), I explain the benefits of blending your static data with your code via haxe’s compile-time code generation, and I aim answer questions including:</p><ul><li><p>What is haxe useful for?</p></li><li><p>Who’s using it?</p></li><li><p>What are the drawbacks and weaknesses?</p></li></ul>",
+			"date": "2019-04-13",
+			"featured": true,
+			"youtubeId": "TbhkHrcslrE"
+		}]
+}
