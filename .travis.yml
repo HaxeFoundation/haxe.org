@@ -4,9 +4,7 @@ haxe:
   - "3.4.7"
   - "development"
 
-dist: trusty
-
-sudo: false
+dist: xenial
 
 addons:
   apt:
