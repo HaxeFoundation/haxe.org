@@ -10,10 +10,12 @@ addons:
   apt:
     packages:
     - nodejs
+    - python3-pip
+    - python3-setuptools
 
 install:
   # install awscli
-  - pip install --user awscli
+  - pip3 install --user awscli
   - aws --version
   # install haxelibs
   - yes | haxelib install all
