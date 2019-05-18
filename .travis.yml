@@ -34,6 +34,6 @@ deploy:
   script: haxe deploy.hxml
   on:
     all_branches: true
-    condition: $TRAVIS_BRANCH =~ ^staging|master$
+    condition: $TRAVIS_BRANCH =~ ^staging|master$ && $TRAVIS_EVENT_TYPE != "cron"
     haxe: "3.4.7"
   skip_cleanup: true
