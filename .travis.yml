@@ -4,18 +4,18 @@ haxe:
   - "3.4.7"
   - "development"
 
-dist: trusty
-
-sudo: false
+dist: xenial
 
 addons:
   apt:
     packages:
     - nodejs
+    - python3-pip
+    - python3-setuptools
 
 install:
   # install awscli
-  - pip install --user awscli
+  - pip3 install --user awscli
   - aws --version
   # install haxelibs
   - yes | haxelib install all
@@ -34,6 +34,6 @@ deploy:
   script: haxe deploy.hxml
   on:
     all_branches: true
-    condition: $TRAVIS_BRANCH =~ ^staging|master$
+    condition: $TRAVIS_BRANCH =~ ^staging|master$ && $TRAVIS_EVENT_TYPE != "cron"
     haxe: "3.4.7"
   skip_cleanup: true

@@ -34,7 +34,14 @@ class Deploy {
         }
 
         // Sync all the files to S3 and delete the removed files.
-        aws(["s3", "sync", "out", 's3://${S3_BUCKET}/${BRANCH}', "--delete"]);
+        aws([
+            "s3", "sync", "out", 's3://${S3_BUCKET}/${BRANCH}',
+            "--delete",
+
+            // Do not delete the download redirections.
+            // Although they will be recreated below, but we don't want any download to fail in the mean time.
+            "--exclude", "website-content/downloads/*", 
+        ]);
 
         // Set up redirections of the download files to GitHub releases.
         for (version in downloadsData.versions) {
