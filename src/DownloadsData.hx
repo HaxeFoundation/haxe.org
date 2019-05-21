@@ -113,7 +113,8 @@ class DownloadsData {
 		var releases:Array<GithubRelease> = Json.parse(data.stdout.readAll().toString());
 		data.close();
 		#end
-		releases;
+		// Github API will return an object instead when there is an error (rate limit, etc.)
+		Std.is(releases, Array) ? releases : [];
 	}
 
 	static function getDownloadInfo (version:Version) {
@@ -127,10 +128,20 @@ class DownloadsData {
 		function getInfo (title:String, url:String) : Download {
 			return { title: title, url:url, filename: Path.withoutDirectory(url) };
 		}
+
+		var downloadUrls = [];
 		var githubRelease = githubReleases.find(function(r) return r.tag_name == version.tag);
-		if (githubRelease == null)
-			throw 'missing github release for version ${version.tag}';
-		var downloadUrls = githubRelease.assets.map(function(a) return a.browser_download_url);
+
+		if (githubRelease != null) {
+			downloadUrls = githubRelease.assets.map(function(a) return a.browser_download_url);
+		} else {
+			var prEnv = Sys.getEnv("TRAVIS_PULL_REQUEST");
+			if (prEnv != null && prEnv != "false") {
+				trace('Warning: failed to retrieve download links for version ${version.tag}; skipping assets for this build.');
+			} else {
+				throw 'missing github release for version ${version.tag}';
+			}
+		}
 
 		//TODO: make something a little less horrible here
 		for (url in downloadUrls) {
