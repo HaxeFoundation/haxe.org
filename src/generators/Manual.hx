@@ -92,7 +92,7 @@ class Manual {
 				Config.manualBaseEditLink + page.page.editLink, {
 					repo: '${Config.repoOrganisation}/haxe.org-comments',
 					branch: Config.manualRepoBranch,
-					title: '[haxe.org/manual] ${page.page.title}',
+					title: '[haxe.org/manual] ${page.page.disambiguation != null ? page.page.disambiguation : page.page.title}',
 				}
 			);
 
