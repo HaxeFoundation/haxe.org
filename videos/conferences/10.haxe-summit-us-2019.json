@@ -1,0 +1,130 @@
+{
+	"title": "Haxe US Summit 2019",
+	"description": "The summit was held 8-10 May 2019 in Seattle, United States. <a href='https://summit.haxe.org/us/2019/'>summit.haxe.org/us/2019</a>",
+	"videos": [
+		{
+			"title": "Opening address - Josefiene Pertosa",
+			"where": "Haxe US Summit 2019 Day 1",
+			"description": "",
+			"date": "2019-05-08",
+			"youtubeId": "szYBbE9JrdM"
+		},
+		{
+			"title": "Haxe 4: What's New - Aleksandr Kuzmenko",
+			"where": "Haxe US Summit 2019 Day 1",
+			"description": "Overview of new features and breaking changes.",
+			"date": "2019-05-08",
+            "youtubeId": "24m6C0BDK_s",
+            "featured": true
+		},
+		{
+			"title": "Titan: Macro-Powered FFI for Haxe/LuaJit - Justin Donaldson",
+			"where": "Haxe US Summit 2019 Day 1",
+			"description": "Titan is a Haxe library for LuaJIT that enables automatic type translations from Haxe function externs into LuaJIT FFI calls. Applications include enabling fast applications utilizing the speed of LuaJIT combined with raw C code.",
+			"date": "2019-05-08",
+			"youtubeId": "xsx2_DxagTs"
+		},
+		{
+			"title": "Declarative UI Programming - Juraj Kirchheim",
+			"where": "Haxe US Summit 2019 Day 1",
+			"description": "Has this ever happened to you? You have crafted the most beautiful UI that has all the right information arranged in the most elegant way, when suddenly, the user clicks around in the most unexpected way and before you know it the UI and application states are two worlds apart. Then you need to build your UI in a declarative way and leave the tedious details of making this declaration come alive to the machine.",
+			"date": "2019-05-08",
+			"youtubeId": "XPLXGkrt1Zc"
+		},
+		{
+			"title": "Declarative UI Programming (Workshop) - Juraj Kirchheim",
+			"where": "Haxe US Summit 2019 Day 1",
+			"description": "Building on the ideas and tools presented in the talk about declarative UI programming, we'll build a UI heavy application from scratch, to see them applied in a little more depth.",
+			"date": "2019-05-08",
+			"youtubeId": "4r2vDnlpp-g"
+		},
+		{
+			"title": "XhX: 10 Years of Haxe - Hugh Sanderson",
+			"where": "Haxe US Summit 2019 Day 1",
+			"description": "This talk will cover recent changes to hxcpp in the lead up to haxe version 4, as well as a look at how I got there and where I might be going. A bit like the Dickensian Christmas Carol, but without the turkey. And with computers. Actually, maybe it will be more like Back To The Future, but without the DeLorean. Or a hoverboard. Well, you get the picture.",
+			"date": "2019-05-08",
+            "youtubeId": "lgFDTZfsc5Q",
+            "featured": true
+		},
+		{
+			"title": "OpenFL Next - Joshua Granick",
+			"where": "Haxe US Summit 2019 Day 2",
+			"description": "Gain deeper insight into the vision that drives the OpenFL project, while taking a closer look at new features introduced in the latest release. This session will help bring clarity to the roadmap, focus areas for the team and why the future of OpenFL is so bright.",
+			"date": "2019-05-09",
+			"youtubeId": "oCk4LExLKdI",
+			"featured": true
+		},
+		{
+			"title": "Audio Development with Haxe - Thomas J Webb",
+			"where": "Haxe US Summit 2019 Day 2",
+			"description": "Thomas will cover the features of the open source haxe based library he made for working with audio and midi, grig, and go over how he leveraged haxe's features to make it possible. Also covers general advice for making audio applications whether or not you use grig in doing so.",
+			"date": "2019-05-09",
+			"youtubeId": "IQs2a2KHlpk"
+		},
+		{
+			"title": "forGL: Any Language Does Computer Programming - Randy Maxwell",
+			"where": "Haxe US Summit 2019 Day 2",
+			"description": "forGL is an application that allows people to program computers without knowing English OR Programming. English knowledge is OK also :)",
+			"date": "2019-05-09",
+			"youtubeId": "vgcHKTxVPMY"
+		},
+		{
+			"title": "OpenFL Interactive - Joshua Granick",
+			"where": "Haxe US Summit 2019 Day 2",
+			"description": "Expand your knowledge and expertise as Joshua Granick, creator of OpenFL, takes you through features and techniques valuable for intermediate and advanced developers alike! Find new ways to share OpenFL content online, to interact with multiple OpenFL applications, bring new confidence to any size codebase by integrating testing, and more.",
+			"date": "2019-05-09",
+			"youtubeId": "oFkhyopFwh8"
+		},
+		{
+			"title": "Building Giffon with Serverless and Haxe - Andy Li",
+			"where": "Haxe US Summit 2019 Day 2",
+			"description": "It is an experience sharing session on the journey of building Giffon, a crowd-gifting platform where you can state what you want and let your friends collectively buy it as a gift for you.",
+			"date": "2019-05-09",
+			"youtubeId": "8NocSeHNdEY"
+		},
+		{
+			"title": "Scaling Well With Others - Adam Breece",
+			"where": "Haxe US Summit 2019 Day 2",
+			"description": "Technical solutions to some of the problems of a moderately-sized team.",
+			"date": "2019-05-09",
+			"youtubeId": "cW3AelBAgwQ"
+		},
+		{
+			"title": "Macro workshop - Juraj Kirchheim",
+			"where": "Haxe US Summit 2019 Day 3",
+			"description": "An improvised Haxe macro workshop",
+			"date": "2019-05-10",
+			"youtubeId": "nid4m4UnqCE",
+            "featured": true
+		},
+		{
+			"title": "Retooling the Lime Stack to Embed an OpenFL App into a .NET Control - David Hamiter and Alex Rothman",
+			"where": "Haxe US Summit 2019 Day 3",
+			"description": "David and Alex will discuss why they decided to port a Windows .NET control that's been in deployment for nearly a decade to Haxe/OpenFL. They will cover in detail their action-packed journey and accompanying struggles. Starting with no knowledge of the technology stack, they're working to host a fully featured graphical application in a .NET wrapper that exposes a rich external API.",
+			"date": "2019-05-10",
+			"youtubeId": "7pEUosXcEzA"
+		},
+		{
+			"title": "Feathers UI - Josh Tynjala",
+			"where": "Haxe US Summit 2019 Day 3",
+			"description": "Feathers UI powered by OpenFL and Haxe.",
+			"date": "2019-05-10",
+			"youtubeId": "OwmVVBgZQQo",
+            "featured": true
+		},
+		{
+			"title": "Closing Address - Josefiene Pertosa",
+			"where": "Haxe US Summit 2019 Day 3",
+			"description": "",
+			"date": "2019-05-10",
+			"youtubeId": "9ZMIHddpJLk"
+		},
+		{
+			"title": "Haxe Roundup - Randy Maxwell",
+			"where": "Haxe US Summit 2019 Day 3",
+			"description": "",
+			"date": "2019-05-10",
+			"youtubeId": "zlWQe9VXhBk"
+		}
+	]
+}
