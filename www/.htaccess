@@ -6,3 +6,6 @@ DirectoryIndex index.html
 
 # Block .git directory from Apache
 RedirectMatch 404 /\.git
+
+# Serve SVG images with the correct content-type
+AddType image/svg+xml .svg

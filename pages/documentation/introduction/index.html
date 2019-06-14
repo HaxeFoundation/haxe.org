@@ -4,8 +4,9 @@
 
 <div class="row-fluid marketing-row">
 	<div class="span4">
-		<div class="header"><a href="/documentation/introduction/toolkit-introduction.html" class="fa fa-info-circle"></a></div>
-		<h5><a href="/documentation/introduction/toolkit-introduction.html">Introduction</a></h5>
+		<div class="header"><a href="/documentation/introduction/toolkit-introduction.html" class="fa fa-info-circle"></a>
+			<h5><a href="/documentation/introduction/toolkit-introduction.html">Introduction</a></h5>
+		</div>
 		<p>Basic introduction to the Haxe language, the compiler, the standard library and anything else you need to get started.</p>
 		<p>
 			&raquo; <a href="/documentation/introduction/toolkit-introduction.html">Toolkit introduction</a><br />
@@ -14,8 +15,9 @@
 		</p>
 	</div>
 	<div class="span4">
-		<div class="header"><a href="/manual/introduction.html" class="fa fa-book"></a></div>
-		<h5><a href="/manual/introduction.html">Manual</a></h5>
+		<div class="header"><a href="/manual/introduction.html" class="fa fa-book"></a>
+			<h5><a href="/manual/introduction.html">Manual</a></h5>
+		</div>
 		<p>A comprehensive manual for Haxe 3.  (This assumes a familiarity with general programming concepts, it is not a beginner's tutorial.)</p>
 		<p>
 			&raquo; <a href="/manual/introduction.html">Haxe Manual</a><br />		
@@ -23,8 +25,9 @@
 		</p>
 	</div>
 	<div class="span4">
-		<div class="header"><a href="/api/" class="fa fa-cogs"></a></div>
-		<h5><a href="/api/">API Docs</a></h5>
+		<div class="header"><a href="/api/" class="fa fa-cogs"></a>
+			<h5><a href="/api/">API Docs</a></h5>
+		</div>
 		<p>Complete API documentation for the <a href="/documentation/introduction/stdlib-introduction.html">Haxe 3 Standard Library</a>.</p>
 		<p>
 			&raquo; <a href="/api/">API Documentation</a><br />
@@ -33,12 +36,105 @@
 	</div>
 </div>
 
-<h5>Want to know more?</h5>
+<div class="row-fluid marketing-row">
 
-<ul>
-	<li><p><strong>Looking for tutorials/code snippets?</strong> Check out our <a href="https://code.haxe.org">Haxe Code Cookbook</a>.</p></li>
-	<li><p><strong>Looking for videos?</strong> Check out <a href="https://haxe.org/videos/">Haxe video</a> section.</p></li>
-	<li><p><strong>Want to ask a question?</strong> See the different ways to <a href="/community/community-support.html">get in contact with the community</a>.</p></li>
-	<li><p><strong>Looking for documentation on Haxe libraries?</strong> Look on the <a href="https://lib.haxe.org">Haxelib website</a> to find the project website for each library.</p></li>
-	<li><p><strong>Want to automatically generate API documentation?</strong> Check out <a href="https://github.com/HaxeFoundation/dox/">Dox</a>, which can generate API docs from Haxe source code.</p></li>
-</ul>
+	<div class="span6">
+		<div class="header"><a href="#" class="fa fa-users"></a>
+			<h5><u>Want to know more?</u></h5>
+		</div>
+		<ul>
+			<li><p><strong>Looking for tutorials/code snippets?</strong> Check out our <a href="https://code.haxe.org">Haxe Code Cookbook</a>.</p></li>
+			<li><p><strong>Looking for videos?</strong> Check out <a href="https://haxe.org/videos/">Haxe video</a> section.</p></li>
+			<li><p><strong>Want to ask a question?</strong> See the different ways to <a href="/community/community-support.html">get in contact with the community</a>.</p></li>
+			<li><p><strong>Looking for documentation on Haxe libraries?</strong> Look on the <a href="https://lib.haxe.org">Haxelib website</a> to find the project website for each library.</p></li>
+			<li><p><strong>Want to automatically generate API documentation?</strong> Check out <a href="https://github.com/HaxeFoundation/dox/">Dox</a>, which can generate API docs from Haxe source code.</p></li>
+		</ul>
+	</div>
+	
+	<div class="span6">
+	
+		<div class="header"><a href="#" class="fa fa-desktop"></a>
+			<h5><u>Setup your development environment</u></h5>
+		</div>
+		<p>Now that you've downloaded Haxe, you can get started with a specific platform. Click on a logo to learn how to set up the development environment and how to proceed from there:</p>
+
+		<div class="platformLogos">
+			<style>
+				.platformLogos{
+					display: block;
+					width: 100%;
+					margin: 10px auto;
+					margin-left: 20px;
+					margin-top: 20px;
+				}
+				.platformLogos .row{
+					display: inline-block;
+				}
+				.platformLogos .cell{
+					display: inline-block;
+					margin-right: 15px;
+				}
+				.platformLogos .cell a {
+					display: inline-block;
+					background-color: #f48821;
+					padding: 15px;
+					width: 140px;
+					text-decoration: none;
+					color: #fff;
+					text-align: center;
+					border-radius: 6px;
+					margin-bottom: 20px;
+				}
+				.platformLogos .cell a:hover {
+					background-color: #ca6b12;
+				}
+				.platformLogos .cell img{
+					margin-top: 10px;
+					margin-bottom: 10px;
+					height: 35px;
+					filter: brightness(10);
+				}
+				.platformLogos .cell span {
+				}
+			</style>
+			<div class="row">
+				<div class="cell">
+					<a href="/documentation/platforms/csharp.html">
+						<span>Get started with</span>
+						<img src="/img/targets/icons/csharp.svg" onerror="this.src='/img/targets/icons/csharp.png'" alt="C# Support" title="C# Support" />
+					</a>
+				</div>
+				<div class="cell">
+					<a href="/documentation/platforms/java.html">
+						<span>Get started with</span>
+						<img src="/img/targets/icons/java-2.svg" onerror="this.src='/img/targets/icons/java-2.png'" alt="Java Support" title="Java Support" />
+					</a>
+				</div>
+				<div class="cell">
+					<a href="/documentation/platforms/python.html">
+						<span>Get started with</span>
+						<img src="/img/targets/icons/python.svg" onerror="this.src='/img/targets/icons/python.png'" alt="Python Support" title="Python Support" />
+					</a>
+				</div>
+				<div class="cell">
+					<a href="/documentation/platforms/php.html">
+						<span>Get started with</span>
+						<img src="/img/targets/icons/php.svg" onerror="this.src='/img/targets/icons/php.png'" alt="PHP Support" title="PHP Support" />
+					</a>
+				</div>
+				<div class="cell">
+					<a href="/documentation/platforms/javascript.html">
+						<span>Get started with</span>
+						<img src="/img/targets/icons/javascript.svg" onerror="this.src='/img/targets/icons/javascript.png'" alt="Javascript Support" title="Javascript Support" />
+					</a>
+				</div>
+				<div class="cell">
+					<a href="/documentation/platforms/nodejs.html">
+						<span>Get started with</span>
+						<img src="/img/targets/icons/nodejs.svg" onerror="this.src='/img/targets/icons/nodejs.png'" alt="Node.js Support" title="Node.js Support" />
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
