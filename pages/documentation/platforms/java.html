@@ -13,11 +13,9 @@
 		Install Haxe
 	</h2>
 	<div class="step-info">
-		1. Download and install the <a href="/download">Haxe Compiler</a>. <br/>
-		2. Run this command in your console to globally install Java support in Haxe.
-		<div class="step-code">
-haxelib install hxjava
-		</div>
+		1. Download and install the <a href="/download">Haxe Compiler</a>.<br/>
+		2. Run this command in your console to globally install Java support in Haxe:
+		<pre class="step-code">haxelib install hxjava</pre>
 	</div>
 </div>
 
@@ -26,19 +24,19 @@ haxelib install hxjava
 		2
 	</div>
 	<h2 class="step-title">
-		Install a compatible Haxe IDE
+		Install a Haxe-compatible IDE
 	</h2>
 	<div class="step-info">
 		It is recommended to install one of these to develop your Haxe projects.
 		<ul>
-			<li><a href="https://www.jetbrains.com/idea/">IntelliJ IDEA</a>
-				<ul>
-					<li>Install the <a href="https://plugins.jetbrains.com/plugin/6873?pr=idea">Haxe Plugin</a></li>
-				</ul>
-			</li>
 			<li><a href="https://code.visualstudio.com/">Visual Studio Code</a>
 				<ul>
 					<li>Install the <a href="https://marketplace.visualstudio.com/items?itemName=vshaxe.haxe-extension-pack">Haxe Extension Pack</a></li>
+				</ul>
+			</li>
+			<li><a href="https://www.jetbrains.com/idea/">IntelliJ IDEA</a>
+				<ul>
+					<li>Install the <a href="https://plugins.jetbrains.com/plugin/6873?pr=idea">Haxe Plugin</a></li>
 				</ul>
 			</li>
 			<li><a href="/documentation/introduction/editors-and-ides.html">Other IDEs</a></li>
@@ -55,28 +53,25 @@ haxelib install hxjava
 	</h2>
 	<div class="step-info">
 		1. Create a new directory for your Haxe project, with this structure:<br/>
-		<div class="step-code">
-project
-└---src
-│   │   Main.hx
+		<pre class="step-code">project/
+├── src/
+│   └── Main.hx
 │
-└---bin
-    └---java
-		</div>
-		2. Insert the following code into the <code>Main.hx</code> file:<br/>
+├── bin/
+│   └── java/
+│
+└── build.hxml</pre>
+		2. Add the following code into the <code>src/Main.hx</code> file:<br/>
 		<pre><code class="prettyprint haxe">class Main {
   static function main() {
-    Lib.println('Haxe is great!');
+    Sys.println("Haxe is great!");
   }
 }</code></pre>
-		3. Create a <code>build.hxml</code> file in your project directory to store compiler configuration <br/>
-		4. Add the following into the file:  <br/>
-		<div class="step-code">
--cp src
+		3. Add the following build configuration into the <code>build.hxml</code> file:<br/>
+		<pre class="step-code">-cp src
 -main Main
--java bin/java
-		</div>
-		The configuration above specifies that your source code is stored in <code>/src</code>, your main Haxe file is <code>src/Main.hx</code>, and that you want Haxe to output the Java source code into the <code>bin/java</code> directory. After code generation, Haxe will try <code>javac</code> to compile the generated Java program into a <code>.jar</code> file. You can debug this Java program using a specialized Java IDE. <br/>
+-java bin/java</pre>
+		The configuration above specifies that your source code is stored in <code>src/</code>, that your main Haxe file is <code>src/Main.hx</code>, and that you want Haxe to output the Java source code into <code>bin/java/</code>. After code generation, Haxe will automatically detect the installed Java compiler and use it to compile your project into a JAR file in <code>bin/java/</code>.
 	</div>
 </div>
 
@@ -101,11 +96,9 @@ project
 			<li>If your console cannot find <code>java</code>, you have an issue with your installation or the JRE is not added into the PATH environment variable.</li>
 			<li>You should see something like the following snippet.</li>
 		</ul>
-		<div class="step-code">
-java version "1.8.0_201"
+		<pre class="step-code">java version "1.8.0_201"
 Java(TM) SE Runtime Environment (build 1.8.0_201-b09)
-Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)
-		</div>
+Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)</pre>
 	</div>
 </div>
 

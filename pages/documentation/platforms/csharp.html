@@ -13,11 +13,9 @@
 		Install Haxe
 	</h2>
 	<div class="step-info">
-		1. Download and install the <a href="/download">Haxe Compiler</a>. <br/>
-		2. Run this command in your console to globally install C# support in Haxe.
-		<div class="step-code">
-haxelib install hxcs
-		</div>
+		1. Download and install the <a href="/download">Haxe Compiler</a>.<br/>
+		2. Run this command in your console to globally install C# support in Haxe:
+		<pre class="step-code">haxelib install hxcs</pre>
 	</div>
 </div>
 
@@ -26,7 +24,7 @@ haxelib install hxcs
 		2
 	</div>
 	<h2 class="step-title">
-		Install a compatible IDE
+		Install a Haxe-compatible IDE
 	</h2>
 	<div class="step-info">
 		It is recommended to install one of these to develop your Haxe projects.
@@ -55,28 +53,25 @@ haxelib install hxcs
 	</h2>
 	<div class="step-info">
 		1. Create a new directory for your Haxe project, with this structure:<br/>
-		<div class="step-code">
-project
-└---src
-│   │   Main.hx
+		<pre class="step-code">project/
+├── src/
+│   └── Main.hx
 │
-└---bin
-    └---cs
-		</div>
-		2. Insert the following code into the <code>Main.hx</code> file:<br/>
+├── bin/
+│   └── cs/
+│
+└── build.hxml</pre>
+		2. Add the following code into the <code>src/Main.hx</code> file:<br/>
 		<pre><code class="prettyprint haxe">class Main {
-  static public function main():Void {
-    trace("Hello World");
+  static function main() {
+    Sys.println("Haxe is great!");
   }
 }</code></pre>
-		3. Create a <code>build.hxml</code> file in your project directory to store compiler configuration <br/>
-		4. Add the following into the file:  <br/>
-		<div class="step-code">
--cp src
+		3. Add the following build configuration into the <code>build.hxml</code> file:<br/>
+		<pre class="step-code">-cp src
 -main Main
--cs bin/cs
-		</div>
-		The configuration above specifies that your source code is stored in <code>/src</code>, your main Haxe file is <code>src/Main.hx</code>, and that you want Haxe to output the C# source code in <code>/bin/cs</code>. After code generation, Haxe will automatically detect the installed C#/Mono compiler and use it to compile your project into <code>/bin</code>.
+-cs bin/cs</pre>
+		The configuration above specifies that your source code is stored in <code>src/</code>, that your main Haxe file is <code>src/Main.hx</code>, and that you want Haxe to output the C# source code into <code>bin/cs/</code>. After code generation, Haxe will automatically detect the installed C#/Mono compiler and use it to compile your project into <code>bin/cs/bin/</code>.
 	</div>
 </div>
 
@@ -116,17 +111,17 @@ project
 			2. If on Windows, add the environment variable <code>MSBuildSDKsPath</code> with the value of your SDK directory path (typically <code>C:\Program Files\dotnet\</code> or <code>C:\Program Files (x86)\dotnet\</code>) <br/>
 			3. If on Windows, update the environment variable <code>PATH</code> with the same value<br/>
 			4. Add the following into your <code>.hxml</code> file:
-			<div class="step-code">
---net-std ./netstd
+		</p>
+			<pre class="step-code">--net-std ./netstd
 -D net-ver=47
--D net-target=net
-			</div>
+-D net-target=net</pre>
+		<p>
 			5. Add the following files into the <code>net-std</code> directory, that must be created in your project directory:
-			<div class="step-code">
-mscorlib.dll
+		</p>
+			<pre class="step-code">mscorlib.dll
 System.Core.dll
-System.dll
-			</div>
+System.dll</pre>
+		<p>
 			6. Build your Haxe project by running <code>haxe build.hxml</code> in a console in your project directory. <br/>
 			7. Compile and run your app with the <code>dotnet</code> or <code>dotnet.exe</code> CLI.
 		</p>

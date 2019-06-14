@@ -22,7 +22,7 @@
 		2
 	</div>
 	<h2 class="step-title">
-		Install a compatible IDE
+		Install a Haxe-compatible IDE
 	</h2>
 	<div class="step-info">
 		It is recommended to install one of these to develop your Haxe projects.
@@ -51,29 +51,25 @@
 	</h2>
 	<div class="step-info">
 		1. Create a new directory for your Haxe project, with this structure:<br/>
-		<div class="step-code">
-project
-└---src
-│   │   Main.hx
+		<pre class="step-code">project/
+├── src/
+│   └── Main.hx
 │
-└---bin
-		</div>
-		2. Insert the following code into the <code>Main.hx</code> file:<br/>
-		<pre><code class="prettyprint haxe">import php.Lib;
-
-class Main {
+├── bin/
+│   └── php/
+│
+└── build.hxml</pre>
+		2. Insert the following code into the <code>src/Main.hx</code> file:<br/>
+		<pre><code class="prettyprint haxe">class Main {
   static function main() {
-    Lib.println('Haxe is great!');
+    Sys.println("Haxe is great!");
   }
 }</code></pre>
-		3. Create a <code>build.hxml</code> file in your project directory to store compiler configuration <br/>
-		4. Add the following into the file:  <br/>
-		<div class="step-code">
--cp src
+		3. Add the following build configuration into the <code>build.hxml</code> file:<br/>
+		<pre class="step-code">-cp src
 -main Main
--php bin
-		</div>
-		The configuration above specifies that your source code is stored in <code>/src</code>, your main Haxe file is <code>src/Main.hx</code>, and that you want Haxe to output the PHP source code in <code>/bin</code>.
+-php bin/php</pre>
+		The configuration above specifies that your source code is stored in <code>src/</code>, that your main Haxe file is <code>src/Main.hx</code>, and that you want Haxe to output the PHP source code into <code>bin/php/</code>.
 	</div>
 </div>
 
@@ -132,11 +128,9 @@ class Main {
 			2. Navigate to your webserver's <code>www</code> or <code>htdocs</code> directory and create a sub-directory for your project (for example <code>"myproject"</code>) <br/>
 			3. Enter that directory path in your <code>compile.xml</code> file to have Haxe generate PHP files directly into your webserver's directory.
 		</p>
-		<div class="step-code">
--cp src
+		<pre class="step-code">-cp src
 -main src/Main.hx
--php C:/xampp/htdocs/myproject/
-		</div>
+-php C:/xampp/htdocs/myproject/</pre>
 		<p>
 			4. Start your PHP webserver (if you are using XAMPP, open the control panel and Start the Apache webserver) <br/>
 			5. Navigate to <code>http://localhost/myproject/</code> and you should see the output of your PHP project in your browser
@@ -150,14 +144,11 @@ class Main {
 		<h4>On the Command-line</h4>
 		<p>
 			1. Build your Haxe project by running <code>haxe build.hxml</code> in a console in your project directory. <br/>
-			2. Open your console and navigate to your Haxe project directory <br/>
-			3. Ensure that your PHP runtime is added to your <a href="https://www.sitepoint.com/how-to-install-php-on-windows/">Environment Variables</a> (For Windows users only) <br/>
-			4. Open your console and navigate to your Haxe project directory <br/>
-			5. Run this command to execute your program with the PHP runtime:
+			2. Ensure that your PHP runtime is added to your <a href="https://www.sitepoint.com/how-to-install-php-on-windows/">Environment Variables</a> (For Windows users only) <br/>
+			3. Open your console and navigate to your Haxe project directory <br/>
+			4. Run this command to execute your program with the PHP runtime:
 		</p>
-		<div class="step-code">
-$ php bin/index.php
-		</div>
+		<pre class="step-code">php bin/index.php</pre>
 	</div>
 </div>
 
