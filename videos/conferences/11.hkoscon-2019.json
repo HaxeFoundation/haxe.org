@@ -1,0 +1,22 @@
+{
+	"title": "Hong Kong Open Source Conference 2019",
+	"description": "Hong Kong Open Source Conference (HKOSCon) is the biggest annual open source event in Hong Kong.",
+	"videos": [
+    {
+      "title": "What's new in Haxe 4 - Andy Li",
+      "where": "Hong Kong Open Source Conference 2019 - Day 2 - Track 2 (Hall 05)",
+      "description": "An overview of the major version update from Haxe 3 to Haxe 4: New function syntaxes, null-safey, unicode, final keyword, interpreter rewrite (eval), HashLink VM, call-site inlining, inline markup… and more!",
+      "date": "2019-06-15",
+      "youtubeId": "4JEALOckB4M",
+      "featured": true
+    },
+    {
+      "title": "Haxe transpilation to PHP: static typing, arrow functions, metaprogramming and more - Aleksandr Kuzmenko",
+      "where": "Hong Kong Open Source Conference 2019 - Day 2 - Track 2 (Hall 05)",
+      "description": "Using Haxe as a replacement for PHP language on PHP server. Benefits, flaws, implementation details. Interoperation between Haxe and PHP. Code sharing between client and server.",
+      "date": "2019-06-15",
+      "youtubeId": "IeXgTkh9NAs",
+      "featured": true
+    }
+  ]
+}
