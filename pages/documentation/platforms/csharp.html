@@ -80,36 +80,35 @@
 		4
 	</div>
 	<h2 class="step-title">
-		Compile and run your project
+		Install a C# compiler
 	</h2>
 	<div class="step-info">
 		<h4>Visual Studio Compiler</h4>
 		<p>
-			1. If you want to use Visual Studio to compile and debug your project, you can disable the automatic compilation and simply ask Haxe to generate the <code>.cs</code> codefiles. <br/>
-			To do this, add <code>-D no-compilation real-position</code> to the end of your <code>.hxml</code> file. <br/>
-			2. Build your Haxe project by running <code>haxe build.hxml</code> in a console in your project directory. <br/>
-			3. Install <a href="https://visualstudio.microsoft.com/downloads/">Visual Studio Community Edition</a> if you don't already have VS installed. <br/>
-			4. Open the <code>bin/cs/Main.csproj</code> C# project in Visual Studio. If you are prompted about the .NET Framework version being unsupported, select the option to "Change the target to .NET Framework...". <br/>
-			5. Open up the <code>.cs</code> that corresponds to the <code>.hx</code> file that you want to debug, for example <code>Main.cs</code> for the Main class file. <br/>
-			6. Add breakpoints into your C# code as you wish and Start Debugging your project (press F5). <br/>
+			1. If you want to use Visual Studio to compile and debug your project, you can disable the automatic compilation and simply use Haxe to generate the <code>.cs</code> files.<br/>
+			To do this, add <code>-D no-compilation -D real-position</code> to the end of your <code>.hxml</code> file.<br/>
+			2. Build your Haxe project by running <code>haxe build.hxml</code> in a console in your project directory.<br/>
+			3. Install <a href="https://visualstudio.microsoft.com/downloads/">Visual Studio Community Edition</a>.<br/>
+			4. Open the <code>bin/cs/Main.csproj</code> C# project in Visual Studio. If you are prompted about the .NET Framework version being unsupported, select the option to "Change the target to .NET Framework...".<br/>
+			5. Open the <code>.cs</code> file that corresponds to the <code>.hx</code> file that you want to debug, for example <code>Main.cs</code> for the <code>Main</code> class.<br/>
+			6. Add breakpoints into your C# code as you wish and Start Debugging your project (press F5).<br/>
 			7. Visual Studio should compile the project and enter debugging mode, allowing you to easily fix problems in your Haxe code.
 		</p>
 		<h4>.NET Framework Compiler</h4>
 		<p>
-			1. Install the latest <a href="https://dotnet.microsoft.com/download">.NET Framework Dev Pack</a> <br/>
-			2. Install the latest <a href="https://dotnet.microsoft.com/download">.NET Framework Runtime</a> <br/>
-			3. Build your Haxe project by running <code>haxe build.hxml</code> in a console in your project directory. <br/>
+			1. Install the latest <a href="https://dotnet.microsoft.com/download">.NET Framework Dev Pack</a> and the <a href="https://dotnet.microsoft.com/download">.NET Framework Runtime</a>.<br/>
+			3. Build your Haxe project by running <code>haxe build.hxml</code> in a console in your project directory.<br/>
 		</p>
 		<h4>Mono Compiler</h4>
 		<p>
-			1. Install the latest <a href="https://www.mono-project.com/download/stable/">Mono Compiler</a> <br/>
-			2. Build your Haxe project by running <code>haxe build.hxml</code> in a console in your project directory. <br/>
+			1. Install the latest <a href="https://www.mono-project.com/download/stable/">Mono Compiler</a><br/>
+			2. Build your Haxe project by running <code>haxe build.hxml</code> in a console in your project directory.<br/>
 		</p>
 		<h4>.NET Core Compiler <span>BETA</span></h4>
 		<p>
-			1. Install the latest <a href="https://dotnet.microsoft.com/download">.NET Core SDK</a> and the <a href="https://dotnet.microsoft.com/download">.NET Core Runtime</a> <br/>
-			2. If on Windows, add the environment variable <code>MSBuildSDKsPath</code> with the value of your SDK directory path (typically <code>C:\Program Files\dotnet\</code> or <code>C:\Program Files (x86)\dotnet\</code>) <br/>
-			3. If on Windows, update the environment variable <code>PATH</code> with the same value<br/>
+			1. Install the latest <a href="https://dotnet.microsoft.com/download">.NET Core SDK</a> and the <a href="https://dotnet.microsoft.com/download">.NET Core Runtime</a>.<br/>
+			2. If on Windows, add the environment variable <code>MSBuildSDKsPath</code> with the value of your SDK directory path (typically <code>C:\Program Files\dotnet\</code> or <code>C:\Program Files (x86)\dotnet\</code>).<br/>
+			3. If on Windows, update the environment variable <code>PATH</code> with the same value.<br/>
 			4. Add the following into your <code>.hxml</code> file:
 		</p>
 			<pre class="step-code">--net-std ./netstd
@@ -122,7 +121,7 @@
 System.Core.dll
 System.dll</pre>
 		<p>
-			6. Build your Haxe project by running <code>haxe build.hxml</code> in a console in your project directory. <br/>
+			6. Build your Haxe project by running <code>haxe build.hxml</code> in a console in your project directory.<br/>
 			7. Compile and run your app with the <code>dotnet</code> or <code>dotnet.exe</code> CLI.
 		</p>
 	</div>
@@ -138,19 +137,19 @@ System.dll</pre>
 	<div class="step-info">
 		<h4>Haxe API</h4>
 		<p>
-			You can use <a href="https://api.haxe.org/cs/">C# platform specific API</a> in addition to the core Haxe API. <br/>
+			You can use <a href="https://api.haxe.org/cs/">C# platform specific API</a> in addition to the core Haxe API.<br/>
 			Browse the <a href="https://api.haxe.org/">Haxe API website</a> for the core Haxe platform API that you can use in your project, which replaces all <code>System.*</code> classes that you would typically use in a C# project.
 		</p>
 		<h4>Haxe libraries</h4>
 		<p>
-			Browse the <a href="https://lib.haxe.org/t/cs/">haxelib</a> website for community-developed libraries that you can add to your project. <br/>
-			You can install haxelib libraries globally by running <code>haxelib install &lt;library&gt;</code>. <br/>
+			Browse the <a href="https://lib.haxe.org/t/cs/">haxelib</a> website for community-developed libraries that you can add to your project.<br/>
+			You can install haxelib libraries globally by running <code>haxelib install &lt;library&gt;</code>.<br/>
 			You can specify that your project uses a haxelib by adding <code>-lib &lt;library&gt;</code> to your <code>.hxml</code> file.
 		</p>
 		<h4>Third-party DLLs and assemblies</h4>
 		<p>
-			Refer to <a href="/manual/target-cs-external-libraries.html">this guide</a> to add third-party DLLs and assemblies. <br/>
-			If you use VS Code, the Haxe extension will find these dependencies and enable IntelliSense (code completion) for their classes and objects. <br/>
+			Refer to <a href="/manual/target-cs-external-libraries.html">this guide</a> to add third-party DLLs and assemblies.<br/>
+			If you use VS Code, the Haxe extension will find these dependencies and enable IntelliSense (code completion) for their classes and objects.<br/>
 		</p>
 	</div>
 </div>

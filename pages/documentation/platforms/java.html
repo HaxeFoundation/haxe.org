@@ -80,25 +80,27 @@
 		4
 	</div>
 	<h2 class="step-title">
-		Install the Java runtime
+		Install the Java runtime and SDK
 	</h2>
 	<div class="step-info">
-		Haxe requires Java 6. Due to security fixes and new features Java 8 or later is recommended. <br/><br/>
+		Haxe requires Java 6 or later. Due to security fixes and new features Java 8 or later is recommended.<br/><br/>
 		
-		1. Install the latest Java Runtime Environment (JRE) and Software Development Kit (SDK).
+		1. Install the latest Java Runtime Environment (JRE).
+		2. Test your installation by opening a command prompt and typing <code>java -showversion</code>.
 		<ul>
-			<li>The Java SDK is required for development as Haxe can only output Java source code, not the final <code>.jar</code> file</li>
-			<li>The Java SDK includes the <code>javac</code> compiler that converts <code>.java</code> sources into a <code>.jar</code> file</li>
-			<li>Android Studio would be recommended if targeting mobile platforms, and it comes with its own JRE and JDK installed.</li>
-		</ul>
-		2. Test your installation by opening a command prompt and typing "java -showversion".
-		<ul>
-			<li>If your console cannot find <code>java</code>, you have an issue with your installation or the JRE is not added into the PATH environment variable.</li>
-			<li>You should see something like the following snippet.</li>
+			<li>If your console cannot find <code>java</code>, you have an issue with your installation or the JRE is not added into the <code>PATH</code> environment variable.</li>
+			<li>If the installation was successful, you should see something like the following:</li>
 		</ul>
 		<pre class="step-code">java version "1.8.0_201"
 Java(TM) SE Runtime Environment (build 1.8.0_201-b09)
 Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)</pre>
+		3. (Optional in Haxe 4) Install the Java Software Development Kit (SDK).
+		<ul>
+			<li>The Java SDK is required for development in Haxe 3, since it can only output Java source code, not the final <code>.jar</code> file.</li>
+			<li>The Java SDK includes the <code>javac</code> compiler that converts <code>.java</code> sources into a <code>.jar</code> file.</li>
+			<li>Since Haxe 4, the Java source code step can be skipped entirely by using the <code>-D jvm</code> define to output <code>.jar</code> files directly.</li>
+		</ul>
+		4. (Optional) If you are intending to develop mobile applications for Android, install the SDK of the target Android version.
 	</div>
 </div>
 
@@ -112,13 +114,13 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)</pre>
 	<div class="step-info">
 		<h4>Haxe API</h4>
 		<p>
-			Browse the <a href="https://api.haxe.org/java/index.html">Haxe Java API website</a> for the Java-specific API available. <br/>
+			Browse the <a href="https://api.haxe.org/java/index.html">Haxe Java API website</a> for the Java-specific API available.<br/>
 			Browse the <a href="https://api.haxe.org/">Haxe API website</a> for the core Haxe platform API that you can use in your project.
 		</p>
 		<h4>Haxe libraries</h4>
 		<p>
-			Browse the <a href="https://lib.haxe.org/t/java/">haxelib</a> website for community-developed libraries that you can add to your project. <br/>
-			You can install haxelib libraries globally by running <code>haxelib install &lt;library&gt;</code>. <br/>
+			Browse the <a href="https://lib.haxe.org/t/java/">haxelib</a> website for community-developed libraries that you can add to your project.<br/>
+			You can install haxelib libraries globally by running <code>haxelib install &lt;library&gt;</code>.<br/>
 			You can specify that your project uses a haxelib by adding <code>-lib &lt;library&gt;</code> to your <code>.hxml</code> file.
 		</p>
 	</div>
@@ -134,12 +136,12 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)</pre>
 	<div class="step-info">
 		<h4>Compilation</h4>
 		<p>
-			Build your Haxe project by running <code>haxe build.hxml</code> in a console in your project directory. <br/>
+			Build your Haxe project by running <code>haxe build.hxml</code> in a console in your project directory.<br/>
 			This compiles your <code>.hx</code> source code into a Java program which you can run and debug next.
 		</p>
 		<h4>Running and debugging</h4>
 		<p>
-			After compiling your project with Haxe and Java, you'll need to open a console in the <code>bin/java</code> directory and run the command <code>java -jar Main.jar</code> <br/>
+			After compiling your project with Haxe and Java, you'll need to open a console in the <code>bin/java</code> directory and run the command <code>java -jar Main.jar</code><br/>
 			You can alternatively use a full-fledged Java IDE like the ones given below to run and debug your project easily.
 		</p>
 		<h4>Install a Java IDE</h4>

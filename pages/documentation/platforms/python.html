@@ -81,24 +81,15 @@
 		Install the Python runtime
 	</h2>
 	<div class="step-info">
-		Haxe requires Python 3.x. Due to security fixes and new features Python 3.6 or later is recommended. <br/><br/>
+		Haxe requires Python 3.x. Due to security fixes and new features Python 3.7 or later is recommended.<br/><br/>
 		
-		1. Install <a href="https://www.python.org/downloads/">Python 3.7</a> or later.
+		1. Install <a href="https://www.python.org/downloads/">Python 3.7</a> or later.<br/>
+		2. Test your installation by opening a command prompt and typing <code>python --version</code> or <code>python3 --version</code>.<br/>
 		<ul>
-			<li>Tested workflow on Windows: Install Python 3.7 64-bit for All Users</li>
-			<li>Python installer does not change any Registry values.</li>
-			<li>Python installer adds the installed Python directory to the PATH environment variable.</li>
+			<li>If your console cannot find <code>python</code>, you have an issue with your installation or <code>python</code> is not added into the <code>PATH</code> environment variable.</li>
+			<li>You should see something like the following:</li>
 		</ul>
-		2. Test your installation by opening a command prompt and typing "python". <br/>
-		<ul>
-			<li>If your console cannot find <code>python</code>, you have an issue with your installation or python is not added into the PATH environment variable.</li>
-			<li>You should see something like the following snippet.</li>
-		</ul>
-		<pre class="step-code">Python 3.7.2 (tags/v3.7.2:9a3ffc0492, Dec 23 2018, 23:09:28) [MSC v.1916 64 bit
-(AMD64)] on win32
-Type "help", "copyright", "credits" or "license" for more information.
->>></pre>
-		The <code>&gt;&gt;&gt;</code> prompt is from the Python interpreter and shows it is ready to run <code>.py</code> scripts. <br/>
+		<pre class="step-code">Python 3.7.2</pre>
 	</div>
 </div>
 
@@ -112,13 +103,13 @@ Type "help", "copyright", "credits" or "license" for more information.
 	<div class="step-info">
 		<h4>Haxe API</h4>
 		<p>
-			Browse the <a href="https://api.haxe.org/python/index.html">Haxe Python API website</a> for the Python-specific API available. <br/>
+			Browse the <a href="https://api.haxe.org/python/index.html">Haxe Python API website</a> for the Python-specific API available.<br/>
 			Browse the <a href="https://api.haxe.org/">Haxe API website</a> for the core Haxe platform API that you can use in your project.
 		</p>
 		<h4>Haxe libraries</h4>
 		<p>
-			Browse the <a href="https://lib.haxe.org/t/python/">haxelib</a> website for community-developed libraries that you can add to your project. <br/>
-			You can install haxelib libraries globally by running <code>haxelib install &lt;library&gt;</code>. <br/>
+			Browse the <a href="https://lib.haxe.org/t/python/">haxelib</a> website for community-developed libraries that you can add to your project.<br/>
+			You can install haxelib libraries globally by running <code>haxelib install &lt;library&gt;</code>.<br/>
 			You can specify that your project uses a haxelib by adding <code>-lib &lt;library&gt;</code> to your <code>.hxml</code> file.
 		</p>
 	</div>
@@ -134,12 +125,12 @@ Type "help", "copyright", "credits" or "license" for more information.
 	<div class="step-info">
 		<h4>Compilation</h4>
 		<p>
-			Build your Haxe project by running <code>haxe build.hxml</code> in a console in your project directory. <br/>
+			Build your Haxe project by running <code>haxe build.hxml</code> in a console in your project directory.<br/>
 			This compiles your <code>.hx</code> source code into Python scripts which you can run and debug next.
 		</p>
 		<h4>Running and debugging</h4>
 		<p>
-			After compiling your project with Haxe, you'll need to open a console in the <code>bin/python</code> directory and run the command <code>python main.py</code> <br/>
+			After compiling your project with Haxe, you'll need to open a console in the <code>bin/python</code> directory and run the command <code>python main.py</code><br/>
 			You can alternatively use a full-fledged Python IDE like the ones given below to run and debug your script easily.
 		</p>
 		<h4>Install a Python IDE</h4>
