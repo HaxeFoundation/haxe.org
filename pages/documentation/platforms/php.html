@@ -102,8 +102,8 @@
 	<div class="step-info">
 		<h4>Haxe API</h4>
 		<p>
-			You can use <a href="https://api.haxe.org/php/">PHP platform specific API</a> in addition to the core Haxe API.<br/>
-			Browse the <a href="https://api.haxe.org/">Haxe API website</a> for the core Haxe platform API that you can use in your project, which replaces some of the PHP methods that you would typically use in a PHP project.
+			Browse the <a href="https://api.haxe.org/">Haxe API website</a> for the core Haxe APIs that you can use in your project.<br/>
+			You can use <a href="https://api.haxe.org/php/">PHP-specific APIs</a> in addition to the core Haxe APIs.
 		</p>
 		<h4>Haxe libraries</h4>
 		<p>
@@ -122,33 +122,32 @@
 		Compile and run your project
 	</h2>
 	<div class="step-info">
-		<h4>On a local PHP Runtime</h4>
+		<h4>On a local PHP runtime</h4>
 		<p>
 			1. Build your Haxe project by running <code>haxe build.hxml</code> in a console in your project directory.<br/>
-			2. Navigate to your webserver's <code>www</code> or <code>htdocs</code> directory and create a sub-directory for your project (for example <code>"myproject"</code>)<br/>
-			3. Enter that directory path in your <code>compile.xml</code> file to have Haxe generate PHP files directly into your webserver's directory.
+			2. Navigate to your webserver's <code>www</code> or <code>htdocs</code> directory and create a sub-directory for your project (for example <code>myproject</code>).<br/>
+			3. Enter that directory path in your <code>build.hxml</code> file to have Haxe generate PHP files directly into your webserver's directory.
 		</p>
 		<pre class="step-code">-cp src
 -main src/Main.hx
 -php C:/xampp/htdocs/myproject/</pre>
 		<p>
-			4. Start your PHP webserver (if you are using XAMPP, open the control panel and Start the Apache webserver)<br/>
-			5. Navigate to <code>http://localhost/myproject/</code> and you should see the output of your PHP project in your browser
+			4. Start your PHP webserver (if you are using XAMPP, open the control panel and Start the Apache webserver).<br/>
+			5. Navigate to <code>http://localhost/myproject/</code> and you should see the output of your PHP project in your browser.
 		</p>
-		<h4>On a PHP Web Host</h4>
+		<h4>On a PHP web host</h4>
 		<p>
 			1. Build your Haxe project by running <code>haxe build.hxml</code> in a console in your project directory.<br/>
-			2. Upload the contents of the <code>/bin</code> folder to your web host's <code>www</code> or <code>htdocs</code> folder.<br/>
+			2. Upload the contents of the <code>bin/php</code> folder to your web host <code>www</code> or <code>htdocs</code> folder.<br/>
 			3. Navigate to your domain or webserver's IP address in your browser to see the output of your PHP project.
 		</p>
-		<h4>On the Command-line</h4>
+		<h4>On the command line</h4>
 		<p>
 			1. Build your Haxe project by running <code>haxe build.hxml</code> in a console in your project directory.<br/>
-			2. Ensure that your PHP runtime is added to your <a href="https://www.sitepoint.com/how-to-install-php-on-windows/">Environment Variables</a> (For Windows users only)<br/>
 			3. Open your console and navigate to your Haxe project directory<br/>
-			4. Run this command to execute your program with the PHP runtime:
+			2. Run this command to execute your program with the PHP runtime:
 		</p>
-		<pre class="step-code">php bin/index.php</pre>
+		<pre class="step-code">php bin/php/index.php</pre>
 	</div>
 </div>
 

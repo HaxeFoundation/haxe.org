@@ -1,7 +1,7 @@
 <div class="step-item">
 	<h1>
 		<img src="/img/platforms/javascript.png"/>
-		Getting started with Haxe for Node.js
+		Getting started with Haxe for Node.JS
 	</h1>
 </div>
 
@@ -14,7 +14,7 @@
 	</h2>
 	<div class="step-info">
 		1. Download and install the <a href="/download">Haxe Compiler</a>.<br/>
-		2. Run this command in your console to globally install Node.js support in Haxe:
+		2. Run this command in your console to globally install Node.JS support in Haxe:
 		<pre class="step-code">haxelib install hxnodejs</pre>
 	</div>
 </div>
@@ -81,10 +81,10 @@
 		4
 	</div>
 	<h2 class="step-title">
-		Install the Node.js runtime
+		Install the Node.JS runtime
 	</h2>
 	<div class="step-info">
-		1. Install <a href="https://nodejs.org/">Node.js</a>.<br/>
+		1. Install <a href="https://nodejs.org/">Node.JS</a>.<br/>
 		2. Test your installation by opening a command prompt and typing <code>node --version</code>.<br/>
 		<ul>
 			<li>If your console cannot find <code>node</code>, you have an issue with your installation or <code>node</code> is not added into the <code>PATH</code> environment variable.</li>
@@ -104,13 +104,12 @@
 	<div class="step-info">
 		<h4>Haxe API</h4>
 		<p>
-			Browse the <a href="https://api.haxe.org/javascript/">Haxe JavaScript API website</a> for the JavaScript-specific API available.<br/> 
-			Browse the <a href="https://api.haxe.org/">Haxe API website</a> for the core Haxe platform API that you can use in your project.
-			Browse the <a href="http://haxefoundation.github.io/hxnodejs/js/Node.html">Haxe/Node.js API documentation</a> for the available functionality in node.js.
+			Browse the <a href="https://api.haxe.org/">Haxe API website</a> for the core Haxe APIs that you can use in your project.<br/>
+			You can use <a href="https://api.haxe.org/js/">JavaScript-specific APIs</a> in addition to the core Haxe APIs, as well as <a href="http://haxefoundation.github.io/hxnodejs/js/Node.html">Node.JS-specific APIs</a>.
 		</p>
 		<h4>Haxe libraries</h4>
-			Browse the <a href="https://lib.haxe.org/t/nodejs/">haxelib</a> website for community-developed libraries that you can add to your project.<br/>
 		<p>
+			Browse the <a href="https://lib.haxe.org/t/nodejs/">haxelib</a> website for community-developed libraries that you can add to your project.<br/>
 			You can install haxelib libraries globally by running <code>haxelib install &lt;library&gt;</code>.<br/>
 			You can specify that your project uses a haxelib by adding <code>-lib &lt;library&gt;</code> to the <code>build.hxml</code> file.
 		</p>
@@ -128,11 +127,12 @@
 		<h4>Compilation</h4>
 		<p>
 			Build the Haxe project by running <code>haxe build.hxml</code> in a console in the project directory.<br/>
-			This compiles your <code>.hx</code> source code into Python scripts which you can run and debug next.
+			This compiles your <code>.hx</code> source code into JavaScript code which you can run and debug next.
 		</p>
 		<h4>Running and debugging</h4>
 		<p>
-			After compiling your project with Haxe, you'll need to open a console in the <code>bin/</code> directory and run the command <code>node main.js</code> and you'll see the 'Haxe is great!' log message. 
+			After compiling your project with Haxe, you'll need to open a console in the <code>bin/js</code> directory and run the command <code>node main.js</code>. If you haven't changed the example from step 3, you should see the 'Haxe is great!' log message.
+			Node.JS provides a <a href="https://nodejs.org/api/debugger.html">built-in debugger</a>. To output a <code>debugger</code> statement, use <code>js.Lib.debug()</code>.
 		</p>
 	</div>
 </div>
