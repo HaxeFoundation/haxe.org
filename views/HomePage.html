@@ -1,0 +1,216 @@
+<div class="homepage">
+	<div class="section dark head" style='background:#343442; padding-top:5em; padding-bottom: 5em;'>
+		<div class="container">
+			<div class="row">
+				<div class="span3">
+					<img src="img/haxe-logo.svg" class="logo" onerror="this.src='/img/haxe-logo.png'" /><br/><br/>
+				</div>
+				<div class="span7"> 
+					<h1 class="homepage-title">Haxe 4 is here!</h1>
+					<p class="lead">
+						Haxe is an open source high-level strictly-typed programming language with a fast optimizing cross-compiler.
+					</p>
+					::if (currentVersion != null)::
+					<a href="download/" class=" btn btn-haxe">Download ::currentVersion.version::<i class="fa fa-caret-right"></i></a><br/>
+					<small class="release-date">Released: ::currentVersion.date::</small> 
+					::end::
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="section">
+		<div class="container">
+			<div class="row">
+				<div class="span6">
+					<a href="/documentation/introduction/compiler-targets.html"><img class="target-logos" src="https://haxe.org/img/targets/all-targets.svg" onerror="this.src='/img/targets/all-targets.png'" alt="Supported Platforms: iOS, C++, Android, HTML5, NodeJS, PHP, Neko, Java, C#, Python" title="Supported Platforms: iOS, C++, Android, HTML5, NodeJS, PHP, Neko, Java, C#, Python" /></a>
+				</div>
+				<div class="span6">
+					<blockquote>
+						<p><b>Haxe</b> can build cross-platform applications targeting JavaScript, C++, C#, Java, JVM, Python, Lua, PHP, Flash and allows access to each platform native capabilities.
+						Haxe has its own VMs (HashLink and NekoVM) but can also run in interpreted mode.</p>
+						<small><cite title="Source Title">Code written in Haxe can be compiled to any target Haxe supports. </cite></small>
+					</blockquote>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="section dark head orange">
+		<div class="container">
+			<div class="row">
+				<div class="span3">
+					<h3>When Haxe?</h3>
+					<p>
+						<b>Haxe</b> is useful in a wide variety of domains; games, web, mobile, desktop, command-line and cross-platform APIs. Take a look at who is using Haxe and explore the use cases.
+					</p>
+					<p><a href="use-cases/" class="btn btn-haxe btn-haxe-small"><i class="fa fa-mobile"></i> Use Cases</a></p>
+				</div>
+				<div class="span3">
+					<h3>Open Source</h3>
+					<p>
+						<b>Haxe</b> is a reliable open source technology and is free to use. Become contributor on <a href="https://github.com/HaxeFoundation">GitHub</a>, join our community on our <a href="https://discordapp.com/invite/0uEuWH3spjck73Lo">Discord chat</a> and <a href="https://community.haxe.org">forum</a> and find us on <a href="https://www.facebook.com/haxe.org">Facebook</a>, <a href="https://twitter.com/haxe_org">Twitter</a> and <a href="https://stackoverflow.com/questions/tagged/haxe">StackOverflow</a>.
+					</p>
+					<p>
+						<a class="github-button" href="https://github.com/HaxeFoundation/haxe" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star HaxeFoundation/haxe on GitHub">Star</a>
+					</p>
+				</div>
+				<div class="span3">
+					<h3>Many libraries</h3>
+					<p><a href="https://lib.haxe.org/">Haxelib</a> is the package manager for Haxe, which offers <i>many free</i> libraries powered by the Haxe community. Manage your project dependencies and distribute libraries. </p>
+					<p><a href="https://lib.haxe.org/" class="btn btn-haxe btn-haxe-small"><i class="fa fa-folder-open-o"></i> Haxelib</a></p>
+				</div>
+				<div class="span3">
+					<h3>Learn Haxe</h3>
+					<ul class="learn-list">
+						<li><a href="/documentation/introduction/">Introduction</a></li>
+						<li><a href="/manual/introduction.html">Manual</a></li>
+						<li><a href="https://api.haxe.org/">API Documentation</a></li>
+						<li><a href="/videos">Latest videos</a></li>
+						<li><a href="https://code.haxe.org/">Code Cookbook</a></li>
+						<li><a href="/blog">Haxe Blog</a></li>
+						<li><a href="https://haxe.io/">Community news</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+	<div class="section">
+		<div class="container">
+			<div class="row">
+				<div class="span8">
+					<h3>A taste of Haxe</h3>
+					<iframe src="https://try.haxe.org/embed/44ddE" width="100%" height="750" frameborder="no" allowfullscreen>
+						<a href="https://try.haxe.org/#44ddE">Try Haxe !</a>
+					</iframe>
+				</div>
+				<div class="span4">
+					<h3>Haxe features</h3>
+					<ul class="unstyled">
+						<li><i class="fa fa-check"></i> <a href="manual/std.html">Cross-platform standard library</a></li>
+						<li><i class="fa fa-check"></i> <a href="manual/introduction-hello-world.html">Fast compiler / Interpreted mode</a></li>
+						<li><i class="fa fa-check"></i> <a href="manual/type-system-type-inference.html">Type inference</a></li>
+						<li><i class="fa fa-check"></i> <a href="manual/lf-condition-compilation.html">Conditional Compilation</a></li>
+						<li><i class="fa fa-check"></i> <a href="manual/types-enum-instance.html">Enums / Generalized Algebraic Data Types</a></li>
+						<li><i class="fa fa-check"></i> <a href="manual/lf-pattern-matching.html">Pattern matching</a></li>
+						<li><i class="fa fa-check"></i> <a href="manual/type-system.html">Type parameters, constraints, variance</a></li>
+						<li><i class="fa fa-check"></i> <a href="manual/types-class-instance.html">Classes, Interfaces, and Inheritance</a></li>
+						<li><i class="fa fa-check"></i> <a href="manual/types-abstract.html">Abstract Types</a></li>
+						<li><i class="fa fa-check"></i> <a href="manual/class-field-inline.html">Inlined Calls</a></li>
+						<li><i class="fa fa-check"></i> <a href="manual/lf-array-comprehension.html">Array Comprehension</a></li>
+						<li><i class="fa fa-check"></i> <a href="manual/lf-metadata.html">Metadata</a></li>
+						<li><i class="fa fa-check"></i> <a href="manual/lf-static-extension.html">Static Extensions / Mixin functions</a></li>
+						<li><i class="fa fa-check"></i> <a href="manual/lf-string-interpolation.html">String Interpolation</a></li>
+						<li><i class="fa fa-check"></i> <a href="manual/macro.html">Syntax-transformation / macros</a></li>
+						<li><i class="fa fa-check"></i> <a href="manual/cr-static-analyzer.html">Static Analysis</a> / <a href="manual/cr-dce.html">Dead code removal</a></li>
+						<li><i class="fa fa-check"></i> <a href="manual/lf-externs.html">Access to native features</a></li>
+						<li><i class="fa fa-check"></i> <a href="manual/std-String.html">Unicode</a></li>
+						<li><i class="fa fa-check"></i> <a href="foundation/open-source.html">Open Source</a></li>
+						<li><i class="fa fa-cross"></i> No negation</li>
+					</ul>
+					<a href="manual/lf.html" class="btn">Language features</a>
+					<a href="manual/cr-features.html" class="btn">Compiler features</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<hr/>
+	
+<div class="section">
+	<div class="container">
+		<h3>Latest news</a></h3>
+		<div class="video-listing">
+			<div class="video-listing">
+				<div class="video-item"><small id="haxeio-date"></small><br/><strong>Haxe.io news</strong><br/><span id="haxeio-link"></span></div>
+				::for post in blogs::
+					<div class="video-item"><small>::post.date::</small><br/><a href="/blog/::post.name::/"><strong>::post.title::</strong></a><br/><em>::post.description::</em></div>
+				::end::
+				<div class="video-item button-next">
+					<a href="blog/">&raquo;</a>
+				</div>
+			</div>
+		</div>
+		
+		<script>
+		document.addEventListener('DOMContentLoaded', function(event) {
+		fetch("https://api.rss2json.com/v1/api.json?rss_url=https://blog.skialbainn.com/rss")
+			.then(response => response.text())
+			.then((data) => {
+				var item = JSON.parse(data).items[0];
+				var div = document.getElementById("haxeio-link");
+				div.innerHTML = item.description;
+				var div = document.getElementById("haxeio-date");
+				div.innerText = item.pubDate.split(" ")[0];
+			});
+		});
+		</script>
+		
+		<h3>Latest videos</h3>
+		<div class="video-listing">
+			::for video in videos::
+				<div class="video-item">
+					<a href="/::video.path::">
+						<img src="https://img.youtube.com/vi/::video.youtubeId::/mqdefault.jpg" alt="::video.title::" class="thumbnail"  />
+					</a>
+					<h3>::video.title::</h3>
+				</div>
+			::end::
+			<div class="video-item button-next">
+				<a href="videos/">&raquo;</a>
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+<hr/>
+	<div class="section hf">
+		<div class="container">
+			<a class="anch" name="haxe-foundation"></a>
+			<div class="row">
+				<div class="span4">
+					<h2>The Haxe Foundation</h2>
+					<p>The goals of the <a href="foundation/">Haxe Foundation</a> are to support the Haxe ecosystem
+						by <a href="foundation/supported-projects.html">funding core technologies</a>, 
+						organizing events, helping the open-source community.
+					</p>
+					<h3>Haxe for your business?</h3>
+					<p>
+						If you are currently evaluating Haxe from either a business or technical point of view, you can <a href="/foundation/contact.html">contact us</a>. We can help you either directly, or by putting you in touch with a consultant that will be able to help you understand how your company can benefit from using Haxe.
+					</p>
+					<a href="foundation/support-plans.html" class='btn btn-default'>Partner program page</a>
+					<br/><br/>
+					<blockquote>
+						<p>Haxe is what JavaScript should be: a lightweight, easy to learn, statically typed language with a real and useful compiler.</p>
+						<small><cite title="Source Title">Peter Halacsy, Co-Founder &amp; CTO at Prezi</cite></small>
+					</blockquote>
+				</div>
+				<div class="span8">
+					<h3>Enterprise Partners</h3>
+					<ul class="logos strategic clearfix">
+						<li title="TiVo"><a href="https://www.tivo.com/" target="_blank"><img src="/img/partners/tivo-logo.png" alt="TiVo" /></a></li>
+						<li title="Flowplay"><a href="http://www.flowplay.com/" target="_blank"><img src="/img/partners/flowplay.png" alt="Flowplay" /></a></li>
+						<li title="Playtika"><a href="https://www.playtika.com/" target="_blank"><img src="/img/partners/playtika.png" alt="Playtika" /></a></li>
+						<li title="Docler Holding"><a href="https://www.doclerholding.com/en/main/" target="_blank"><img src="/img/partners/docler.png" alt="Docler Holding" /></a></li>
+						<li title="Spiele Palast"><a href="https://www.spiele-palast.de/" target="_blank"><img src="/img/partners/SpielePalast.png" alt="Spiele Palast" /></a></li>
+					</ul>
+					<h3 class="clearfix">Professional Partners</h3>
+					<ul class="logos clearfix">
+						<li title="Area 9"><a href="http://area9learning.com/" target="_blank"><img src="/img/partners/area-9-logo.png" alt="Area 9" /></a></li>
+						<li title="iv247 Design Studio"><a href="http://iv247.com/" target="_blank"><img src="/img/partners/iv247-logo.png" alt="iv247 Design Studio" /></a></li>
+						<li title="Veith System"><a href="http://www.veith-system.de" target="_blank"><img src="/img/partners/veith-system.png" alt="Veith System" /></a></li>
+						<li title="Gamesys"><a href="http://www.gamesyscorporate.com/" target="_blank"><img src="/img/partners/gamesys.png" alt="Gamesys" /></a></li>
+						<li title="InnoGames"><a href="https://www.innogames.com/" target="_blank"><img src="/img/partners/innogames.png" alt="InnoGames" /></a></li>
+						<li title="Blue Mammoth Games"><a href="http://www.bluemammoth.com/" target="_blank"><img src="/img/partners/bluemammoth.png" alt="Blue Mammoth Games" /></a></li>
+						<li title="Motion-Twin"><a href="https://motion-twin.com/" target="_blank"><img src="/img/partners/motion-twin-logo.png" alt="Motion-Twin" /></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+	
+<script async defer src="https://buttons.github.io/buttons.js"></script>

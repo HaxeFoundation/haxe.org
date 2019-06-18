@@ -1,11 +1,15 @@
 package generators;
 
+import generators.Videos.Video;
 import haxe.Json;
 import haxe.io.Path;
 import sys.io.File;
 import tink.template.Html;
+using Lambda;
 
 class Pages {
+	public static inline var TOTAL_BLOGS:Int = 4;
+	public static inline var TOTAL_VIDEOS:Int = 5;
 
 	public static function generate () {
 		Sys.println("Generating pages ...");
@@ -47,8 +51,43 @@ class Pages {
 		}
 
 		genWhoIsWho();
+		genHomepage ();
 	}
 
+	static function genHomepage () {
+		var folder = "";
+		var fileName = "index.html";
+		
+		// take selection latest video of each category
+		function getVideos(max:Int) {
+			var videos = [];
+			for (section in Videos.sections) {
+				for (category in section.categories) {
+					if (category.featuredVideos.length > 0) {
+						videos.push(category.featuredVideos[0]);
+						if (videos.length >= max) return videos;
+					}
+				}
+			}
+			return videos;
+		}
+		var videos = getVideos(TOTAL_VIDEOS);
+		var blogPosts = Blog.posts.splice(0, TOTAL_BLOGS);
+		var currentVersion = Downloads.data.versions.find(function(v) return v.version == Downloads.data.current);
+		
+		var content = Views.HomePage(currentVersion, blogPosts, videos);
+		var editLink = Config.baseEditLink + "views/HomePage.html";
+		
+		var stylesPath = Path.join([Config.pagesPath, folder, "index.styles"]);
+		var additionalStyles = Utils.readContentFile(stylesPath);
+
+		var scriptsPath = Path.join([Config.pagesPath, folder, "index.scripts"]);
+		var additionalScripts = Utils.readContentFile(scriptsPath);
+		
+		Utils.save(Path.join([Config.outputFolder, folder, fileName]), content, null, editLink, null, null, additionalStyles, additionalScripts);
+	}
+	
+	
 	static function genWhoIsWho () {
 		// Auto generate the who is who page
 		var authors:Array<Blog.Author> = Json.parse(File.getContent("people.json"));
@@ -96,7 +135,7 @@ class Pages {
 					null
 				);
 			} else { // Not in sitemap, so can't make sidebar
-				content = Views.PageWithoutSidebar(new Html(content), editLink);
+				content = Views.PageWithoutSidebar(new Html(content), editLink, Downloads.data);
 			}
 		}
 

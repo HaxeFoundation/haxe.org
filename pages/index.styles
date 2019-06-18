@@ -1,14 +1,96 @@
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"/>
+
 <style>
-.companyQuote{
-    text-align:center;
+/* homepage download button */
+.section.head .btn-haxe {
+	font-size: 26.5px;
+	border-radius: 9px;
+	position: relative;
+	bottom: 3px;
+	background: none;
+	box-shadow: none;
+	border: 2px solid #f89c0e;
+	color: #f89c0e;
+	width: 204px;
+	height: 54px;
+	line-height: 54px;
+	text-shadow: none;
+	padding-right: 33px; /* 12px default + some space for our caret */
 }
-.companyQuote img{
-    margin:0px auto;
-    margin-bottom:20px;
+.section.head .btn-haxe:hover, .section.head .btn-haxe:active {
+	color: rgb(208, 116, 28);
+	border-color: rgb(208, 116, 28);
+	background: rgba(0,0,0,0.1);
 }
-.homepage .section.sub-head .companyQuote blockquote{
-    margin-bottom:0px;
+.section.head .btn-haxe .fa {
+	position: absolute;
+	right: 15px;
+	top: 23px;
+	font-size: 16px;
 }
+
+/* partner logos */
+.section.hf ul li {
+    margin-bottom: 5px;
+}
+ul.logos li {
+    list-style: none;
+    display: block;
+    float: left;
+    margin: 10px 20px 0 0;
+    width: 150px;
+    height: 100px;
+    border: 1px solid #ccc;
+    position: relative;
+}
+ul.logos li img {
+    max-height: 100%;
+    max-height: calc(100% - 15px);
+    max-width: 100%;
+    max-width: calc(100% - 15px);
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 5px;
+    bottom: 5px;
+    left: 5px;
+    right: 5px;
+    margin: auto;
+}
+ul.logos.strategic li {
+    width: 330px;
+}
+
+/* sections */
+.release-date {
+	opacity: 0.75;
+}
+.homepage-title {
+	color: #fff;
+}
+
+.section.dark.head.orange {
+	background: #f68712;
+}
+.section.dark.head.orange a, .section.dark.head.orange a:hover {
+	color:#fff;
+	text-decoration:underline;
+}
+
+.section.dark .btn-haxe.btn-haxe-small {
+	width:100px;
+	height:25px;
+	line-height:25px;
+	font-size:18px;
+	border-color:#fff;
+	color:#fff;
+}
+
+.section.dark .btn-haxe.btn-haxe-small .fa {
+	top:10px;
+}
+
+ul.learn-list { 
+	color:#f1471d;
+}
+
 </style>

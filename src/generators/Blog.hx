@@ -38,6 +38,7 @@ typedef Author = {
 }
 
 class Blog {
+	public static var posts:Array<Post> = [];
 
 	static function getAuthorID (author:String) : String {
 		return author.replace(" ", "");
@@ -59,7 +60,6 @@ class Blog {
 			name2author.set(author.username, author);
 		}
 
-		var posts = [];
 		var authorsPages = new Map<String, Array<Post>>();
 		var tagsPages = new Map<String, Array<Post>>();
 
@@ -127,10 +127,11 @@ class Blog {
 		var path = Path.join([Config.outputFolder, Config.blogOutput, Config.index]);
 		list(Config.blogTitle, posts, Config.blogDescription, path);
 
+		var posts = posts;
 		// Author pages
 		for (author in authorsPages.keys()) {
 			var path = Path.join([Config.outputFolder, Config.blogOutput, "author", getAuthorID(author), Config.index]);
-			var posts = authorsPages.get(author);
+			posts = authorsPages.get(author);
 			posts.sort(postSorter);
 
 			var authorInfo = name2author.get(author);
@@ -145,7 +146,7 @@ class Blog {
 		// Tag pages
 		for (tag in tagsPages.keys()) {
 			var path = Path.join([Config.outputFolder, Config.blogOutput, "tag", tag, Config.index]);
-			var posts = tagsPages.get(tag);
+			posts = tagsPages.get(tag);
 			posts.sort(postSorter);
 
 			var tagInfo = name2tag.get(tag);
