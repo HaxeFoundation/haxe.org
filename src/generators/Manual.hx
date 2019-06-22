@@ -11,10 +11,6 @@ import SiteMap.SitePage;
 
 using StringTools;
 
-typedef Flags = {
-	@:optionnal var folded : Bool;
-}
-
 typedef Source = {
 	file : String,
 	lineMax : Int,
@@ -25,11 +21,13 @@ typedef Section = {
 	label : String,
 	id : String,
 	sub : Array<Section>,
-	flags : Flags,
-	state : Int,
+	depth : Int,
 	title : String,
-	source : Source,
-	index : Int
+	file : String,
+	startLine : Int,
+	endLine : Int,
+	content : String,
+	page : SitePage
 }
 
 typedef Page = {
@@ -38,25 +36,45 @@ typedef Page = {
 }
 
 class Manual {
+	static var inPath = Path.join(["manual", "content"]);
+	static var labelMap:Map<String, Section> = [];
+	static var subLabelMap:Map<String, Section> = [];
 
-	static var inPath = Path.join(["manual", "output", "HaxeManual", "website"]);
-
-	public static function getDefaultSections () : Array<Section> {
-		return Json.parse(File.getContent(Path.join([inPath, "sections.txt"])));
+	static function getFile(name:String):String {
+		return File.getContent(Path.join([inPath, name]));
 	}
 
-	public static function generate (patchedSections:Array<Section> = null) {
+	static function slug(name:String):String {
+		return name.toLowerCase()
+			.replace(" ", "-")
+			.replace("\"", "")
+			.replace(":", "")
+			.replace("<", "")
+			.replace(">", "")
+			.replace("$", "");
+	}
+
+	public static function generate () {
 		Sys.println("Generating manual ...");
 
-		// Data
-		var sections = patchedSections != null ? patchedSections : getDefaultSections();
-		var sections = processSections(sections, inPath);
+		// Parse sections
+		var chapterFiles = FileSystem.readDirectory(inPath).filter(f -> ~/^[0-9]{2}-([^\.]+)\.md$/.match(f));
+		chapterFiles.sort(Reflect.compare);
+		var allSections = [];
+		var sections = [for (chapter in 0...chapterFiles.length) {
+			processChapter(allSections, chapter + 1, chapterFiles[chapter]);
+		}];
 
+		// Process special commands once the tree is complete
+		for (section in allSections) {
+			processSection(section);
+		}
+
+		// Create pages from sections
 		var sitemap = [];
-		var pages = [];
 		var titleToSection = new Map<String, Array<SitePage>>();
 		for (section in sections) {
-			addSection(section, sitemap, pages, titleToSection, inPath);
+			generatePages(section, sitemap, titleToSection, inPath);
 		}
 		SiteMap.annotateGroup(sitemap);
 
@@ -81,22 +99,28 @@ class Manual {
 
 		var menuRoot = SiteMap.pageForUrl("/manual/introduction.html", true, false);
 
-		// Generate pages
-		for (page in pages) {
-			var content = processMarkdown(page.file, File.getContent(page.file));
+		// Output pages
+		for (section in allSections) {
+			var content = processMarkdown(section);
 
 			content = Views.PageWithSidebar(
-				SiteMap.prevNextLinks(sitemap, page.page),
-				new Html(SiteMap.sideBar(sitemap, page.page)),
+				SiteMap.prevNextLinks(sitemap, section.page),
+				new Html(SiteMap.sideBar(sitemap, section.page)),
 				new Html(content),
-				Config.manualBaseEditLink + page.page.editLink, {
+				Config.manualBaseEditLink + section.page.editLink, {
 					repo: '${Config.repoOrganisation}/haxe.org-comments',
 					branch: Config.manualRepoBranch,
-					title: '[haxe.org/manual] ${page.page.disambiguation != null ? page.page.disambiguation : page.page.title}',
+					title: '[haxe.org/manual] ${section.page.disambiguation != null ? section.page.disambiguation : section.page.title}',
 				}
 			);
 
-			Utils.save(Path.join([Config.outputFolder, page.page.url]), content, menuRoot, Config.manualBaseEditLink + page.page.editLink, page.page.disambiguation != null ? page.page.disambiguation : page.page.title);
+			Utils.save(
+				Path.join([Config.outputFolder, section.page.url]),
+				content,
+				menuRoot,
+				Config.manualBaseEditLink + section.page.editLink,
+				section.page.disambiguation != null ? section.page.disambiguation : section.page.title
+			);
 		}
 
 		// Copy images
@@ -106,43 +130,28 @@ class Manual {
 
 			File.copy(inPath, outPath);
 		}
-
-		// Create dictionary page
-		var dictionaryPage = {
-			url: '/manual/dictionary.html',
-			title: "Dictionary",
-			sub: [],
-			editLink: null,
-		};
-		//sitemap.push(dictionaryPage);
-		var dictionaryFile = Path.join([inPath, "dictionary.md"]);
-		var dictionaryContent = processMarkdown(dictionaryFile, File.getContent(dictionaryFile));
-		var dictionaryContent = Views.PageWithSidebar(
-			SiteMap.prevNextLinks(sitemap, dictionaryPage),
-			new Html(SiteMap.sideBar(sitemap, dictionaryPage)),
-			new Html(dictionaryContent),
-			Config.manualBaseEditLink + dictionaryPage.editLink,
-			null
-		);
-		Utils.save(Path.join([Config.outputFolder, dictionaryPage.url]), dictionaryContent, menuRoot, null);
 	}
 
-	static function addSection (section:Section, sitemap:Array<SitePage>, pages:Array<Page>, titleToSection:Map<String, Array<SitePage>>, inPath:String) {
+	static function generatePages(
+		section:Section,
+		sitemap:Array<SitePage>,
+		titleToSection:Map<String, Array<SitePage>>,
+		inPath:String
+	):Void {
 		var subs = [];
 
 		for (subsection in section.sub) {
-			addSection(subsection, subs, pages, titleToSection, inPath);
+			generatePages(subsection, subs, titleToSection, inPath);
 		}
 
 		var sitePage = {
 			url: '/manual/${section.label.replace("../", "")}.html',
 			title: section.title,
 			sub: subs,
-			editLink: section.source == null ? null : '${section.source.file}#L${section.source.lineMin}-L${section.source.lineMax}'
+			editLink: section.file == null ? null : '${section.file}#L${section.startLine}-L${section.endLine}'
 		};
 		sitemap.push(sitePage);
-
-		pages.push({ file: Path.join([inPath, '${section.label}.md']), page: sitePage });
+		section.page = sitePage;
 
 		var title = section.title.toLowerCase();
 
@@ -154,22 +163,101 @@ class Manual {
 	}
 
 	/**
-		Return an array of sections, but only including those that exist, so that in our menu we only display those that exist.
+		Processes raw .md files into sections.
 	**/
-	static function processSections (sections:Array<Section>, inPath:String) : Array<Section> {
-		var validSections = [];
+	static function processChapter(allSections:Array<Section>, chapterNum:Int, chapterPath:String):Section {
+		var markdown = getFile(chapterPath);
 
-		for (section in sections) {
-			if (FileSystem.exists(Path.join([inPath, '${section.label}.md']))) {
-				validSections.push(section);
+		// Split into sections and subsections
+		var labelRE = ~/<!--label:([a-zA-Z0-9_-]+)-->\n(#+) ([^\n]+)\n/;
+		var currentSection:Section = null;
+		var chapter:Section = null;
+		var sectionStack = [];
+		var currentLine = 1;
+		while (labelRE.match(markdown)) {
+			var matchedLeft = labelRE.matchedLeft();
+			currentLine += matchedLeft.split("\n").length + 1;
+			if (currentSection != null) {
+				currentSection.content = matchedLeft;
+				currentSection.endLine = currentLine - 3;
 			}
 
-			if (section.sub != null) {
-				section.sub = processSections(section.sub, inPath);
+			// ## is a chapter (depth 0)
+			var depth = labelRE.matched(2).length - 2;
+			while (sectionStack.length > depth) sectionStack.pop();
+			var parent = null;
+			if (depth > 0) {
+				parent = sectionStack[sectionStack.length - 1];
 			}
+
+			currentSection = {
+				label: labelRE.matched(1),
+				id: null,
+				sub: [],
+				depth: depth,
+				title: labelRE.matched(3),
+				file: chapterPath,
+				startLine: currentLine - 2,
+				endLine: -1,
+				content: null,
+				page: null
+			};
+			labelMap[currentSection.label] = currentSection;
+			allSections.push(currentSection);
+
+			if (depth == 0) {
+				if (chapter != null) throw "multiple chapters in md file";
+				currentSection.id = '$chapterNum';
+				chapter = currentSection;
+			} else {
+				currentSection.id = '${parent.id}.${parent.sub.length + 1}';
+				parent.sub.push(currentSection);
+			}
+			sectionStack.push(currentSection);
+
+			markdown = labelRE.matchedRight();
+		}
+		if (currentSection != null) {
+			currentSection.content = markdown;
+			currentSection.endLine = currentSection.startLine + markdown.split("\n").length;
 		}
 
-		return validSections;
+		return chapter;
+	}
+
+	/**
+		Add header, process special Markdown commands
+	**/
+	static function processSection(section:Section):Void {
+		// Add header
+		section.content = '## ${section.id} ${section.title}\n${section.content}';
+
+		// Include generated files
+		section.content = ~/<!--include:([^-]+)-->/g.map(section.content, re -> getFile(re.matched(1)));
+
+		// Include Haxe code assets
+		section.content = ~/\[code asset\]\(([^#]+)#L([0-9]+)-L([0-9]+)\)\n/g.map(section.content, re ->
+			"```haxe\n" +
+			getFile("../" + re.matched(1))
+				.split("\n")
+				.slice(Std.parseInt(re.matched(2)) - 1, Std.parseInt(re.matched(3)))
+				.join("\n") +
+			"\n```\n"
+		);
+		section.content = ~/\[code asset\]\(([^\)]+)\)\n/g.map(section.content, re ->
+			"```haxe\n" +
+			getFile("../" + re.matched(1)) +
+			"\n```\n"
+		);
+
+		// Identify definition labels
+		~/> ##### Define: ([^\n]+)/g.map(section.content, re -> {
+			subLabelMap["define-" + slug(re.matched(1))] = section;
+			"";
+		});
+
+		// Include a ToC of subsections
+		section.content = ~/<!--subtoc-->/g.map(section.content, re -> section.sub.map(sub -> '${sub.id}: [${sub.title}](${sub.label})').join("\n\n"));
 	}
 
 	/**
@@ -180,21 +268,10 @@ class Manual {
 		* Class for tables
 		* Relative url for links (and changing .md to .html) and images
 	**/
-	static function processMarkdown (filename:String, markdown:String) : String {
-		// Remove the footer
-		var sb = new StringBuf();
-		for (line in markdown.split("\n")) {
-			if (line == "---") {
-				break;
-			}
-
-			sb.add(line);
-			sb.add("\n");
-		}
-
+	static function processMarkdown(section:Section):String {
 		// Get html from markdown and post process it
 		try {
-			var xml = Xml.parse(Markdown.markdownToHtml(sb.toString()));
+			var xml = Xml.parse(Markdown.markdownToHtml(section.content));
 			processNode(xml);
 			return xml.toString();
 		} catch (e:Dynamic) {
@@ -208,17 +285,27 @@ class Manual {
 			}
 
 			Sys.println(haxe.CallStack.toString(haxe.CallStack.exceptionStack()));
-			throw('Error when parsing "$filename"');
+			throw('Error when parsing ${section.label}');
 			return "Couldn't parse manual file";
 		}
 	}
 
-	static function processNode (xml:Xml) {
+	static function processNode(xml:Xml):Void {
 		if (xml.nodeType == Xml.Element) {
 			switch (xml.nodeName) {
 				case "a":
 					if (xml.exists("href")) {
-						xml.set("href", xml.get("href").replace(".md", ".html"));
+						var href = xml.get("href");
+						var splitHref = href.split("#");
+						if (labelMap.exists(href)) {
+							xml.set("href", labelMap[href].page.url);
+						} else if (subLabelMap.exists(href)) {
+							xml.set("href", '${subLabelMap[href].page.url}#${href}');
+						} else if (splitHref.length == 2 && labelMap.exists(splitHref[0])) {
+							xml.set("href", '${labelMap[splitHref[0]].page.url}#${splitHref[1]}');
+						} else if (!href.startsWith("http:") && !href.startsWith("https:")) {
+							trace('invalid reference to ${href}');
+						}
 					}
 
 				case "table":
@@ -238,12 +325,10 @@ class Manual {
 					xml.parent.removeChild(xml);
 
 				case "h3", "h4", "h5", "h6":
-					var bookmarkID = getText(xml).toLowerCase().replace(" ", "-").replace("\"", "");
+					var bookmarkID = slug(getText(xml));
 					var link = Xml.parse('<a id="$bookmarkID" class="anch" />').firstElement();
-					var h = Xml.parse('<${xml.nodeName}><a href="#$bookmarkID"></a></${xml.nodeName}>').firstElement();
-					for (child in xml) {
-						h.firstElement().addChild(child);
-					}
+					var content = [ for (child in xml) child.toString() ].join("");
+					var h = Xml.parse('<${xml.nodeName}><a href="#$bookmarkID">${content}</a></${xml.nodeName}>').firstElement();
 					insertBefore(link, xml);
 					insertBefore(h, xml);
 					xml.parent.removeChild(xml);
