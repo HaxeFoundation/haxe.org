@@ -14,15 +14,15 @@ class Main {
 
 		// Generating the content
 		SiteMap.init();
-		//generators.Assets.generate();
-		//generators.Blog.generate();
-		//generators.Videos.generate();
-		//generators.Downloads.generate();
-		//generators.Javascript.generate();
-		generators.Manual.generate(); // Patch the manual content with the doc from hxcpp
-		//generators.Pages.generate();
-		//generators.Redirections.generate();
-		//generators.RobotsTxt.generate();
+		generators.Assets.generate();
+		generators.Blog.generate();
+		generators.Videos.generate();
+		generators.Downloads.generate();
+		generators.Javascript.generate();
+		generators.Manual.generate();
+		generators.Pages.generate();
+		generators.Redirections.generate();
+		generators.RobotsTxt.generate();
 
 		// Patch as post process the html file with syntax highlighting
 		SyntaxHighlighter.patch();
