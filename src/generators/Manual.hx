@@ -58,7 +58,7 @@ class Manual {
 		Sys.println("Generating manual ...");
 
 		// Parse sections
-		var chapterFiles = FileSystem.readDirectory(inPath).filter(f -> ~/^[0-9]{2}-([^\.]+)\.md$/.match(f));
+		var chapterFiles = FileSystem.readDirectory(inPath).filter(~/^[0-9]{2}-([^\.]+)\.md$/);
 		chapterFiles.sort(Reflect.compare);
 		var allSections = [];
 		var sections = [for (chapter in 0...chapterFiles.length) {
@@ -233,31 +233,33 @@ class Manual {
 		section.content = '## ${section.id} ${section.title}\n${section.content}';
 
 		// Include generated files
-		section.content = ~/<!--include:([^-]+)-->/g.map(section.content, re -> getFile(re.matched(1)));
+		section.content = ~/<!--include:([^-]+)-->/g.map(section.content, function (re) return getFile(re.matched(1)));
 
 		// Include Haxe code assets
-		section.content = ~/\[code asset\]\(([^#]+)#L([0-9]+)-L([0-9]+)\)\n/g.map(section.content, re ->
-			"```haxe\n" +
-			getFile("../" + re.matched(1))
+		section.content = ~/\[code asset\]\(([^#]+)#L([0-9]+)-L([0-9]+)\)\n/g.map(section.content, function (re)
+			return "```haxe\n" +
+				getFile("../" + re.matched(1))
 				.split("\n")
 				.slice(Std.parseInt(re.matched(2)) - 1, Std.parseInt(re.matched(3)))
 				.join("\n") +
-			"\n```\n"
+				"\n```\n"
 		);
-		section.content = ~/\[code asset\]\(([^\)]+)\)\n/g.map(section.content, re ->
-			"```haxe\n" +
-			getFile("../" + re.matched(1)) +
-			"\n```\n"
+		section.content = ~/\[code asset\]\(([^\)]+)\)\n/g.map(section.content, function (re)
+			return "```haxe\n" +
+				getFile("../" + re.matched(1)) +
+				"\n```\n"
 		);
 
 		// Identify definition labels
-		~/> ##### Define: ([^\n]+)/g.map(section.content, re -> {
+		~/> ##### Define: ([^\n]+)/g.map(section.content, function (re) {
 			subLabelMap["define-" + slug(re.matched(1))] = section;
-			"";
+			return "";
 		});
 
 		// Include a ToC of subsections
-		section.content = ~/<!--subtoc-->/g.map(section.content, re -> section.sub.map(sub -> '${sub.id}: [${sub.title}](${sub.label})').join("\n\n"));
+		section.content = ~/<!--subtoc-->/g.map(section.content, function (re)
+			return section.sub.map(function (sub) return '${sub.id}: [${sub.title}](${sub.label})')
+		).join("\n\n"));
 	}
 
 	/**
