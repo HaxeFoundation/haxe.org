@@ -19,7 +19,7 @@ class Main {
 		generators.Videos.generate();
 		generators.Downloads.generate();
 		generators.Javascript.generate();
-		generators.Manual.generate(HxcppDoc.patchSections()); // Patch the manual content with the doc from hxcpp
+		generators.Manual.generate();
 		generators.Pages.generate();
 		generators.Redirections.generate();
 		generators.RobotsTxt.generate();

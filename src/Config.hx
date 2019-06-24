@@ -17,8 +17,8 @@ class Config {
 	public static inline var index : String = 'index.html';
 	public static inline var manualRepo : String = 'HaxeManual';
 	public static inline var manualRepoBranch : String = 'master';
-	public static inline var manualBaseEditLink : String = 'https://github.com/$repoOrganisation/$manualRepo/tree/$manualRepoBranch/HaxeManual/';
-	public static inline var manualImageDir : String = 'manual/HaxeManual/assets/graphics/generated';
+	public static inline var manualBaseEditLink : String = 'https://github.com/$repoOrganisation/$manualRepo/tree/$manualRepoBranch/content/';
+	public static inline var manualImageDir : String = 'manual/assets/graphics/generated';
 	public static inline var pagesPath : String = 'pages';
 	public static inline var postsPath : String = 'posts';
 	public static inline var videosPath : String = 'videos';
