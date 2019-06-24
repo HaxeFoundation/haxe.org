@@ -58,7 +58,7 @@ class Manual {
 		Sys.println("Generating manual ...");
 
 		// Parse sections
-		var chapterFiles = FileSystem.readDirectory(inPath).filter(~/^[0-9]{2}-([^\.]+)\.md$/);
+		var chapterFiles = FileSystem.readDirectory(inPath).filter(~/^[0-9]{2}-([^\.]+)\.md$/.match);
 		chapterFiles.sort(Reflect.compare);
 		var allSections = [];
 		var sections = [for (chapter in 0...chapterFiles.length) {
@@ -258,8 +258,8 @@ class Manual {
 
 		// Include a ToC of subsections
 		section.content = ~/<!--subtoc-->/g.map(section.content, function (re)
-			return section.sub.map(function (sub) return '${sub.id}: [${sub.title}](${sub.label})')
-		).join("\n\n"));
+			return section.sub.map(function (sub) return '${sub.id}: [${sub.title}](${sub.label})').join("\n\n")
+		);
 	}
 
 	/**
