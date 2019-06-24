@@ -37,8 +37,8 @@ typedef Page = {
 
 class Manual {
 	static var inPath = Path.join(["manual", "content"]);
-	static var labelMap:Map<String, Section> = [];
-	static var subLabelMap:Map<String, Section> = [];
+	static var labelMap = new Map<String, Section>();
+	static var subLabelMap = new Map<String, Section>();
 
 	static function getFile(name:String):String {
 		return File.getContent(Path.join([inPath, name]));
