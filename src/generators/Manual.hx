@@ -37,8 +37,8 @@ typedef Page = {
 
 class Manual {
 	static var inPath = Path.join(["manual", "content"]);
-	static var labelMap = new Map<String, Section>();
-	static var subLabelMap = new Map<String, Section>();
+	static var labelMap:Map<String, Section> = [];
+	static var subLabelMap:Map<String, Section> = [];
 
 	static function getFile(name:String):String {
 		return File.getContent(Path.join([inPath, name]));
@@ -233,32 +233,32 @@ class Manual {
 		section.content = '## ${section.id} ${section.title}\n${section.content}';
 
 		// Include generated files
-		section.content = ~/<!--include:([^-]+)-->/g.map(section.content, function (re) return getFile(re.matched(1)));
+		section.content = ~/<!--include:([^-]+)-->/g.map(section.content, re -> getFile(re.matched(1)));
 
 		// Include Haxe code assets
-		section.content = ~/\[code asset\]\(([^#]+)#L([0-9]+)-L([0-9]+)\)\n/g.map(section.content, function (re)
-			return "```haxe\n" +
-				getFile("../" + re.matched(1))
+		section.content = ~/\[code asset\]\(([^#]+)#L([0-9]+)-L([0-9]+)\)\n/g.map(section.content, re ->
+			"```haxe\n" +
+			getFile("../" + re.matched(1))
 				.split("\n")
 				.slice(Std.parseInt(re.matched(2)) - 1, Std.parseInt(re.matched(3)))
 				.join("\n") +
-				"\n```\n"
+			"\n```\n"
 		);
-		section.content = ~/\[code asset\]\(([^\)]+)\)\n/g.map(section.content, function (re)
-			return "```haxe\n" +
-				getFile("../" + re.matched(1)) +
-				"\n```\n"
+		section.content = ~/\[code asset\]\(([^\)]+)\)\n/g.map(section.content, re ->
+			"```haxe\n" +
+			getFile("../" + re.matched(1)) +
+			"\n```\n"
 		);
 
 		// Identify definition labels
-		~/> ##### Define: ([^\n]+)/g.map(section.content, function (re) {
+		~/> ##### Define: ([^\n]+)/g.map(section.content, re -> {
 			subLabelMap["define-" + slug(re.matched(1))] = section;
-			return "";
+			"";
 		});
 
 		// Include a ToC of subsections
-		section.content = ~/<!--subtoc-->/g.map(section.content, function (re)
-			return section.sub.map(function (sub) return '${sub.id}: [${sub.title}](${sub.label})').join("\n\n")
+		section.content = ~/<!--subtoc-->/g.map(section.content, re ->
+			section.sub.map(sub -> '${sub.id}: [${sub.title}](${sub.label})').join("\n\n")
 		);
 	}
 
