@@ -20,7 +20,9 @@ install:
   # install haxelibs
   - yes | haxelib install all
   # get hxnodejs from git, haxelib's is outdated
-  - haxelib git hxnodejs https://github.com/HaxeFoundation/hxnodejs
+  - haxelib git hxnodejs https://github.com/HaxeFoundation/hxnodejs.git
+  # get markdown from git, haxelib's is outdated
+  - haxelib git markdown https://github.com/HaxeFoundation/haxe-markdown.git
   # get tink_syntaxhub from git, fix compile error with haxe dev
   - haxelib git tink_syntaxhub https://github.com/haxetink/tink_syntaxhub.git
   # Get vscode-textmate
