@@ -15,7 +15,7 @@ Alternatively, source .zip archives or tarballs can be obtained from the [GitHub
 Building
 -------
 
-For Haxe 4 and later, please read the `README.md` file in the source folder.
+For Haxe 4 and later, please read the [`extra/BUILDING.md` file](https://github.com/HaxeFoundation/haxe/blob/development/extra/BUILDING.md) in the source folder.
 
 For Haxe 3.x, read below.
 
