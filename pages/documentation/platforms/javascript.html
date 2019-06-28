@@ -22,7 +22,7 @@
 		2
 	</div>
 	<h2 class="step-title">
-		Install a compatible Haxe IDE
+		Install a Haxe-compatible IDE
 	</h2>
 	<div class="step-info">
 		It is recommended to install one of these to develop your Haxe projects.
@@ -51,25 +51,23 @@
 	</h2>
 	<div class="step-info">
 		1. Create a new directory for your Haxe project, with this structure:<br/>
-		<pre class="step-code">
-project
-└---src
-│   │   Main.hx
+		<pre class="step-code">project/
+├── src/
+│   └── Main.hx
 │
-└---bin
-    └---index.html
-		</pre>
+├── bin/
+│   └── js/
+│       └── index.html
+│
+└── build.hxml</pre>
 		2. Insert the following code into the <code>src/Main.hx</code> file:<br/>
-		<pre class="step-code">
-class Main {
+		<pre><code class="prettyprint haxe">class Main {
   static function main() {
-    trace('Haxe is great!');
+    trace("Haxe is great!");
   }
-}
-		</pre>
-		3. Insert the following code into the <code>bin/index.html</code> file:<br/>
-		<pre class="step-code">
-&lt;!DOCTYPE html>
+}</code></pre>
+		3. Insert the following code into the <code>bin/js/index.html</code> file:<br/>
+		<pre><code class="prettyprint xml">&lt;!DOCTYPE html>
 &lt;html lang="en">
 &lt;head>
 	&lt;meta charset="utf-8">
@@ -78,14 +76,12 @@ class Main {
 &lt;body>
 	&lt;script src="main.js">&lt;/script>
 &lt;/body>
-&lt;/html>	</pre>
-		4. Create a <code>build.hxml</code> file in your project directory to store compiler configuration.  Add the following into the file:  <br/>
-		<pre class="step-code">
--cp src
+&lt;/html></code></pre>
+		4. Add the following build configuration into the <code>build.hxml</code> file:<br/>
+		<pre class="step-code">-cp src
 -main Main
--js bin/main.js
-		</pre>
-		The configuration above specifies that your source code is stored in <code>/src</code>, your main Haxe file is <code>src/Main.hx</code>, and that you want Haxe to output the JavaScript source code into <code>bin/main.js</code>.
+-js bin/js/main.js</pre>
+		The configuration above specifies that your source code is stored in <code>src/</code>, that your main Haxe file is <code>src/Main.hx</code>, and that you want Haxe to output the JavaScript source code into <code>bin/js/main.js</code>.
 	</div>
 </div>
 
@@ -99,13 +95,13 @@ class Main {
 	<div class="step-info">
 		<h4>Haxe API</h4>
 		<p>
-			Browse the <a href="https://api.haxe.org/javascript/">Haxe JavaScript API website</a> for the JavaScript-specific API available. <br/>
-			Browse the <a href="https://api.haxe.org/">Haxe API website</a> for the core Haxe platform API that you can use in your project.
+			Browse the <a href="https://api.haxe.org/">Haxe API website</a> for the core Haxe APIs that you can use in your project.<br/>
+			You can use <a href="https://api.haxe.org/js/">JavaScript-specific APIs</a> in addition to the core Haxe APIs.
 		</p>
 		<h4>Haxe libraries</h4>
 		<p>
-			Browse the <a href="https://lib.haxe.org/t/javascript/">haxelib</a> website for community-developed libraries that you can add to your project. <br/>
-			You can install haxelib libraries globally by running <code>haxelib install &lt;library&gt;</code>. <br/>
+			Browse the <a href="https://lib.haxe.org/t/javascript/">haxelib</a> website for community-developed libraries that you can add to your project.<br/>
+			You can install haxelib libraries globally by running <code>haxelib install &lt;library&gt;</code>.<br/>
 			You can specify that your project uses a haxelib by adding <code>-lib &lt;library&gt;</code> to the <code>build.hxml</code> file.
 		</p>
 	</div>
@@ -121,19 +117,19 @@ class Main {
 	<div class="step-info">
 		<h4>Compilation</h4>
 		<p>
-			Build the Haxe project by running <code>haxe build.hxml</code> in a console in the project directory. <br/>
-			This compiles your <code>.hx</code> source code to JavaScript which you can run and debug next.
+			Build the Haxe project by running <code>haxe build.hxml</code> in a console in the project directory.<br/>
+			This compiles your <code>.hx</code> source code to JavaScript code which you can run and debug next.
 		</p>
 		<h4>Running and debugging</h4>
 		<p>
-			After compiling your project with Haxe, you can open and debug the index.html file in your browser. Open your browser devtools console to see the 'Haxe is great!' log message. Beside the build-in <a href="/manual/debugging.html">debugging</a> features you can use the devtools to debug/inspect your application. 
+			After compiling your project with Haxe, you can open and debug the <code>index.html</code> file in your browser. Open the developer tools in the browser to see log output. If you haven't changed the example from step 3, you should see the 'Haxe is great!' log message.
 		</p>
 	</div>
 </div>
 
 <div class="step-item">
 	<div class="step-number">
-		7
+		6
 	</div>
 	<h2 class="step-title">
 		Ask the community
