@@ -128,8 +128,20 @@ class Manual {
 			var inPath = Path.join([Config.manualImageDir, image]);
 			var outPath = Path.join([Config.outputFolder, "manual", image]);
 
-			File.copy(inPath, outPath);
-			Sys.command("inkscape", [outPath, '--export-png=$outPath.png']);
+			Sys.command("inkscape", [inPath, '--export-png=$outPath.png']);
+
+			// Path the svg figure to include the link to the font css
+			var xml = Xml.parse(File.getContent(inPath));
+
+			for (el in xml.firstElement())
+			{
+				if (el.nodeType == Element && el.nodeName == "defs")
+				{
+					el.addChild(Xml.parse('<style type="text/css">@import url(/css/noto_sans.css);</style>'));
+				}
+			}
+
+			File.saveContent(outPath, xml.toString());
 		}
 	}
 
