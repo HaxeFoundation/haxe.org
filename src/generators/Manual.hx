@@ -123,12 +123,13 @@ class Manual {
 			);
 		}
 
-		// Copy images
+		// Copy svg images and make fallback svg
 		for (image in FileSystem.readDirectory(Config.manualImageDir)) {
 			var inPath = Path.join([Config.manualImageDir, image]);
 			var outPath = Path.join([Config.outputFolder, "manual", image]);
 
 			File.copy(inPath, outPath);
+			Sys.command("inkscape", [outPath, '--export-png=$outPath.png']);
 		}
 	}
 
@@ -315,9 +316,9 @@ class Manual {
 					processChildren(xml);
 
 				case "img":
-					var src = xml.get("src");
-					src = "/manual/" + Path.withoutDirectory(src);
-					xml.set("src", src);
+					var src = "/manual/" + Path.withoutDirectory(xml.get("src"));
+					insertBefore(Xml.parse('<object data="$src" type="image/svg+xml"><img src="$src.png" /></object>').firstElement(), xml);
+					xml.parent.removeChild(xml);
 
 				case "h2":
 					var text = xml.firstChild().nodeValue.trim();

@@ -8,6 +8,7 @@ dist: xenial
 addons:
   apt:
     packages:
+    - inkscape
     - nodejs
     - python3-pip
     - python3-setuptools
