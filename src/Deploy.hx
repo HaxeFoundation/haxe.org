@@ -40,7 +40,8 @@ class Deploy {
 
             // Do not delete the download redirections.
             // Although they will be recreated below, but we don't want any download to fail in the mean time.
-            "--exclude", "website-content/downloads/*", 
+            // Be careful not to exclude downloads/versions.json.
+            "--exclude", "website-content/downloads/*/*", 
         ]);
 
         // Set up redirections of the download files to GitHub releases.
