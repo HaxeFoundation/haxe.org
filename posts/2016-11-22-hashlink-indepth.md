@@ -47,7 +47,7 @@ For each Haxe Float (same as `double` in C), NekoVM needs to allocate a block of
 
 NekoVM is optimized for Int calculations. If the Int only needs 31 bits (between -0x3FFFFFFF and +0x3FFFFFFF), then instead of allocating a "box" for it, we will simply shift it by one bit on the left and add 1. For instance, the Int 58 would be stored as a Neko value equal to 117 (58 x 2 + 1). Since all boxes are always aligned on even memory addresses, we can distinguish between an Int value and a boxed value by looking at its lowest address bit.
 
-In HashLink there would be no occurrence of boxing because I'm using strictly typed registers, unless of course you would store basic types into either `Dynamic` (in which case you need to store the type anyway) or `Null<Int|Float|Bool>`. In that case we need to distinguish between `null` and `0`, which requires a "box"
+In HashLink there would be no occurrence of boxing because I'm using strictly typed registers, unless of course you would store basic types into either `Dynamic` (in which case you need to store the type anyway) or `Null<Int or Float or Bool>`. In that case we need to distinguish between `null` and `0`, which requires a "box"
 
 ### 2. Polymorphism
 
