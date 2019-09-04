@@ -1,62 +1,63 @@
 
-## 2019-06-13: 4.0.0-rc.3
-
-__New features__:
-
-* all : added JVM target
-
-__General improvements and optimizations__:
-
-* all : create temp vars in pattern matcher to avoid duplicate access ([#8064](https://github.com/HaxeFoundation/haxe/issues/8064))
-* all : support parsing dots in conditional compilation, e.g. `#if target.sys`
-* all : added `@:bypassAccessor`
-* all : improved various aspects of the display API
-* all : properly error on `@:op(a = b)` ([#6903](https://github.com/HaxeFoundation/haxe/issues/6903))
-* all : made `@:using` actually work
-* all : properly disallowed some modifier combinations related to `final` ([#8335](https://github.com/HaxeFoundation/haxe/issues/8335))
-* all : support `@:pure(false)` on variable fields ([#8338](https://github.com/HaxeFoundation/haxe/issues/8338))
-* flash : updated Flash externs to version 32.0 (now using `final`, `enum abstract` and `haxe.extern.Rest`)
-* flash : rework support for native Flash properties ([#8241](https://github.com/HaxeFoundation/haxe/issues/8241))
-* php : improved performance of various parser implementations ([#8083](https://github.com/HaxeFoundation/haxe/issues/8083))
-* cs : support .NET core target ([#8391](https://github.com/HaxeFoundation/haxe/issues/8391))
-* cs : generate native type parameter constraints (#8311, #7863)
+## 2019-09-04: 4.0.0-rc.4
 
 __Standard Library__:
 
-* all : added StringTools.contains ([#7608](https://github.com/HaxeFoundation/haxe/issues/7608))
-* all : turned sys.thread.Thread into abstracts ([#8130](https://github.com/HaxeFoundation/haxe/issues/8130))
-* all : introduced `Std.downcast` as replacement for `Std.instance` ([#8301](https://github.com/HaxeFoundation/haxe/issues/8301))
-* all : introduced `UnicodeString`, deprecated `haxe.Utf8` ([#8298](https://github.com/HaxeFoundation/haxe/issues/8298))
-* java : added java.NativeString ([#8163](https://github.com/HaxeFoundation/haxe/issues/8163))
-* cs : added sys.thread implementations ([#8166](https://github.com/HaxeFoundation/haxe/issues/8166))
-* js : moved various classes to js.lib ([#7390](https://github.com/HaxeFoundation/haxe/issues/7390))
-* Bugfixes
-* all : fixed issue with `@:generic` type parameters not being bound to Dynamic ([#8102](https://github.com/HaxeFoundation/haxe/issues/8102))
-* all : fixed various issues related to `@:structInit`
-* all : fixed top-down inference on abstract setters ([#7674](https://github.com/HaxeFoundation/haxe/issues/7674))
-* all : fixed DCE issue related to closures ([#8200](https://github.com/HaxeFoundation/haxe/issues/8200))
-* all : fixed and restricted various Unicode-related issues in String literals
-* all : fixed various priority issues regarding loops and iterators
-* all : fixed cast handling in try-catch expressions ([#8257](https://github.com/HaxeFoundation/haxe/issues/8257))
-* all : fixed `inline new` handling ([#8240](https://github.com/HaxeFoundation/haxe/issues/8240))
-* all : fixed pattern matcher issue with wildcards in or-patterns ([#8296](https://github.com/HaxeFoundation/haxe/issues/8296))
-* all : fixed `@:allow(package)` allowing too much ([#8306](https://github.com/HaxeFoundation/haxe/issues/8306))
-* all : fixed various issues with startIndex handling on String.indexOf and String.lastIndexOf
-* all : fixed infinite recursion related to printing of objects with circular references ([#8113](https://github.com/HaxeFoundation/haxe/issues/8113))
-* sys : fixed various Unicode issues ([#8135](https://github.com/HaxeFoundation/haxe/issues/8135))
-* macro : fixed Array.pop handling ([#8075](https://github.com/HaxeFoundation/haxe/issues/8075))
-* macro : fixed assertion failure when throwing exception ([#8039](https://github.com/HaxeFoundation/haxe/issues/8039))
-* macro : fixed various uncatchable exceptions being thrown
-* php : error on case-insensitive name clashes ([#8219](https://github.com/HaxeFoundation/haxe/issues/8219))
-* lua : fixed issue where Process output occasionally is missing some data
-* hl : fixed various String Unicode issues
-* java : fixed null exception in CallStack.exceptionStack ([#8322](https://github.com/HaxeFoundation/haxe/issues/8322))
-* js : fixed code generation issue related to negative abstract values ([#8318](https://github.com/HaxeFoundation/haxe/issues/8318))
-* flash : fix various issues, including native `protected` handling and method overloading
+* all : added Map.clear ([#8681](https://github.com/HaxeFoundation/haxe/issues/8681))
+* all : improved Date API ([#8508](https://github.com/HaxeFoundation/haxe/issues/8508))
+* all : added JSON-RPC protocol types to haxe.display package ([#8610](https://github.com/HaxeFoundation/haxe/issues/8610))
+* all : added default timeout to HTTP sockets ([#8646](https://github.com/HaxeFoundation/haxe/issues/8646))
+* macro : added Context.info ([#8478](https://github.com/HaxeFoundation/haxe/issues/8478))
+* macro : added Context.getMessages and Context.filterMessages ([#8471](https://github.com/HaxeFoundation/haxe/issues/8471))
+* macro : added function kind to EFunction ([#8653](https://github.com/HaxeFoundation/haxe/issues/8653))
+* macro : added string literal kind to CString ([#8668](https://github.com/HaxeFoundation/haxe/issues/8668))
+* flash : added flash.AnyType ([#8549](https://github.com/HaxeFoundation/haxe/issues/8549))
 
-__Removals__:
+__General improvements and optimizations__:
 
-* all : remove support for `@:fakeEnum` enums
-* all : disallowed `\x` with values > 0x7F ([#8141](https://github.com/HaxeFoundation/haxe/issues/8141))
-* all : consistently disallowed metadata in lambda function arguments ([#7800](https://github.com/HaxeFoundation/haxe/issues/7800))
-* all : removed `--gen-hx-classes` ([#8237](https://github.com/HaxeFoundation/haxe/issues/8237))
+* all : allowed enum constructors without arguments as static inline var ([#8187](https://github.com/HaxeFoundation/haxe/issues/8187))
+* all : improved handling of default values when inlining ([#8397](https://github.com/HaxeFoundation/haxe/issues/8397))
+* all : made various improvements to the display API as usual
+* all : detect invalid #tokens in inactive code ([#7108](https://github.com/HaxeFoundation/haxe/issues/7108))
+* all : allowed function types in @:generic ([#3697](https://github.com/HaxeFoundation/haxe/issues/3697))
+* all : improved --help-defines and --help-metas
+* all : improved overall file finding ([#8202](https://github.com/HaxeFoundation/haxe/issues/8202))
+* all : improved server reaction to added and removed files ([#8451](https://github.com/HaxeFoundation/haxe/issues/8451))
+* all : improved memory handling of the compilation server (8727)
+* all : improved handling of native libraries on the compilation server ([#8629](https://github.com/HaxeFoundation/haxe/issues/8629))
+* all : support partial completion results ([#8642](https://github.com/HaxeFoundation/haxe/issues/8642))
+* all : improved support of hovering over inactive conditional compilation blocks
+* all : improved completion support in .platform.hx files
+* all : support hovering conditional compilation identifiers
+* all : improved and unified identifier checks for names, fields and types ([#8708](https://github.com/HaxeFoundation/haxe/issues/8708))
+* all : improved --times performance ([#8733](https://github.com/HaxeFoundation/haxe/issues/8733))
+* all : remove some redundant cast expressions ([#8725](https://github.com/HaxeFoundation/haxe/issues/8725))
+* all : added --server-connect ([#8730](https://github.com/HaxeFoundation/haxe/issues/8730))
+* lua : improved -D lua-vanilla
+* js : improved HTML externs
+
+__Bugfixes __:
+
+* all : fixed various position and replace ranges in the display API
+* all : fixed compiler hang related to @:arrayAccess ([#5525](https://github.com/HaxeFoundation/haxe/issues/5525))
+* all : fixed bug regarding abstract `this` modification in inline methods ([#8454](https://github.com/HaxeFoundation/haxe/issues/8454))
+* all : fixed `from Dynamic` on abstracts ([#8425](https://github.com/HaxeFoundation/haxe/issues/8425))
+* all : fixed overeager recursive inline check ([#8489](https://github.com/HaxeFoundation/haxe/issues/8489))
+* all : fixed the pattern matcher allowing inexhaustive switches in value-places ([#8277](https://github.com/HaxeFoundation/haxe/issues/8277))
+* all : fixed pattern matcher allowing invalid abstract unification ([#8579](https://github.com/HaxeFoundation/haxe/issues/8579))
+* all : fixed local variable type information being lost on the compilation server ([#8511](https://github.com/HaxeFoundation/haxe/issues/8511))
+* all : don't generate return expressions in Void lambda functions ([#6503](https://github.com/HaxeFoundation/haxe/issues/6503))
+* all : fixed unification of recursive typedefs again ([#8523](https://github.com/HaxeFoundation/haxe/issues/8523))
+* all : fixed various hangs related to abstracts ([#8588](https://github.com/HaxeFoundation/haxe/issues/8588))
+* all : fixed various GADT-related problems ([#7672](https://github.com/HaxeFoundation/haxe/issues/7672))
+* all : fixed macro `@:from` methods allowing any return type ([#8463](https://github.com/HaxeFoundation/haxe/issues/8463))
+* macro : fixed Sys.programPath assertion failure ([#8466](https://github.com/HaxeFoundation/haxe/issues/8466))
+* js : fixed typed array APIs ([#8422](https://github.com/HaxeFoundation/haxe/issues/8422))
+* java : fixed Std.is on non-reference and unrelated types ([#5168](https://github.com/HaxeFoundation/haxe/issues/5168))
+* java/macro : fixed null-pointer exception in Reflect.getProperty ([#4934](https://github.com/HaxeFoundation/haxe/issues/4934))
+* java/jvm : fix switch on null string ([#4481](https://github.com/HaxeFoundation/haxe/issues/4481))
+* jvm : fixed boxed vs. unboxed comparison ([#8577](https://github.com/HaxeFoundation/haxe/issues/8577))
+* jvm : generate toplevel types to haxe.root like genjava does ([#8590](https://github.com/HaxeFoundation/haxe/issues/8590))
+* jvm : improved 32bit support ([#8601](https://github.com/HaxeFoundation/haxe/issues/8601))
+* cs/python : fixed various issues with code generation
+* cs : fixed NativeArray casting ([#3949](https://github.com/HaxeFoundation/haxe/issues/3949))
