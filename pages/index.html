@@ -138,8 +138,7 @@
             "Joel" => "Design"
         ];
 
-        for (name in people.keys()) {
-            var job = people[name];
+        for (name => job in people) {
             trace('$name does $job for a living!');
         }
     }
