@@ -43,5 +43,4 @@ deploy:
   on:
     all_branches: true
     condition: $TRAVIS_BRANCH =~ ^staging|master$ && $TRAVIS_EVENT_TYPE != "cron"
-    haxe: "4.0.0-rc.3"
   skip_cleanup: true
