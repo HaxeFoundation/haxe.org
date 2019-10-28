@@ -137,8 +137,8 @@
 		<script>
 		document.addEventListener('DOMContentLoaded', function(event) {
 		fetch("https://api.rss2json.com/v1/api.json?rss_url=https://blog.skialbainn.com/rss")
-			.then(response => response.text())
-			.then((data) => {
+			.then(function(response) { return response.text(); })
+			.then(function(data) {
 				var item = JSON.parse(data).items[0];
 				var div = document.getElementById("haxeio-link");
 				div.innerHTML = item.description;
