@@ -1,0 +1,57 @@
+{
+	"title": "Haxe EU Summit 2019",
+	"description": "HaxeUp Sessions is an online streamed event, which was held 26th October 2019",
+	"videos": [
+	  {
+		"title": "Simon Krajewski - Haxe Status Report",
+		"where": "HaxeUp Sessions October 2019",
+		"description": "",
+		"date": "2019-10-26",
+		"youtubeId": "9zWO-X77jAI", 
+		"featured": true
+	  },
+	  {
+		"title": "Dan Korostelev - Migration of Empires",
+		"where": "HaxeUp Sessions October 2019",
+		"description": "",
+		"date": "2019-10-26",
+		"youtubeId": "vni1GxM_7p0"
+	  },
+	  {
+		"title": "Aleksandr Kuzmenko - Compiler Plugins",
+		"where": "HaxeUp Sessions October 2019",
+		"description": "<a href='https://docs.google.com/presentation/d/1SWiBKIOSWLDZkca9SoNWOcjF9QSgi1xv-T0gN0TlIG4/edit#slide=id.p'>Slides for the presentation</a><br/><a href='https://github.com/RealyUniqueName/haxe/tree/tco/plugins/tco'>Source code for Tail Call Optimization plugin showed in the talk</a>",
+		"date": "2019-10-26",
+		"youtubeId": "4Iy1_HcMuIk"
+	  },
+	  {
+		"title": "Robert Kondrad - Kha v HTML5",
+		"where": "HaxeUp Sessions October 2019",
+		"description": "",
+		"date": "2019-10-26",
+		"youtubeId": "KfBzlzvt8RU"
+	  },
+	  {
+		"title": "Aurel Bily - Internship at Haxe",
+		"where": "HaxeUp Sessions October 2019",
+		"description": "",
+		"date": "2019-10-26",
+		"youtubeId": "vfss5AYWCNM"
+	  },
+	  {
+		"title": "Juraj Kirchheim - Weaving a Better Web with Haxe",
+		"where": "HaxeUp Sessions October 2019",
+		"description": "",
+		"date": "2019-10-26",
+		"youtubeId": "Fot0MwM6hFg",
+		"featured": true
+	  },
+	  {
+		"title": "Josefiene Pertosa - Closing Address",
+		"where": "HaxeUp Sessions October 2019",
+		"description": "",
+		"date": "2019-10-26",
+		"youtubeId": "qy0-lp-NYaI"
+	  }
+	]
+}
