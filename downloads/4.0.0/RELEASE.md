@@ -19,6 +19,8 @@ Haxe 4.0.0 includes some of our most highly-requested features:
  - New high-performance run-time [HashLink](https://github.com/HaxeFoundation/haxe/wiki/What's-new-in-Haxe-4#hashlink), a successor of Neko
 - .. and much more!
 
-See the changelog below for further details. If you have any suggestions or run into any problems, don’t hesitate to [open an issue on GitHub](https://github.com/HaxeFoundation/haxe/issues).
+To migrate from Haxe 3, read the overview of [breaking changes](https://github.com/HaxeFoundation/haxe/wiki/Breaking-changes-in-Haxe-4.0.0). 
 
-We want to thank everyone involved and hope to see your codebases transition to Haxe 4 soon!
+See the changelog below for further details. If you have any suggestions or run into any problems, don’t hesitate to [open an issue on GitHub](https://github.com/HaxeFoundation/haxe/issues). 
+
+We want to thank everyone involved and hope to see your codebases transition to Haxe 4 soon! 
