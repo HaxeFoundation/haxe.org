@@ -1,11 +1,15 @@
 package generators;
 
+import generators.Videos.Video;
 import haxe.Json;
 import haxe.io.Path;
 import sys.io.File;
 import tink.template.Html;
+using Lambda;
 
 class Pages {
+	public static inline var TOTAL_BLOGS:Int = 4;
+	public static inline var TOTAL_VIDEOS:Int = 5;
 
 	public static function generate () {
 		Sys.println("Generating pages ...");
@@ -18,7 +22,7 @@ class Pages {
 			path.shift();
 			var folder = path.length > 1 ? path.shift() : "/";
 			var file = path.join("/");
-			if (Path.extension(file) == "scripts" || Path.extension(file) == "styles") {
+			if (Path.extension(file) == "scripts" || Path.extension(file) == "styles" || file.indexOf(".fragment.") >= 0) {
 				Sys.println("\tSkipping script page '"+ file + "'");
 				continue;
 			}
@@ -36,13 +40,54 @@ class Pages {
 			var scriptsPath = Path.join([Config.pagesPath, folder, fileName + ".scripts"]);
 			var additionalScripts = Utils.readContentFile(scriptsPath);
 
+			// include fragments, put the file content in place
+			// ::fragment "pages/community.fragment.html"::
+			var fragment = ~/::fragment ("|')(.+?)\1::/g;
+			while (fragment.match(content)) {
+				content = fragment.matchedLeft() + Utils.readContentFile(fragment.matched(2)) + fragment.matchedRight();
+			}
 
-			genPage(folder, root, sitepage, content, file, editLink,additionalStyles,additionalScripts);
+			genPage(folder, root, sitepage, content, file, editLink, additionalStyles, additionalScripts);
 		}
 
 		genWhoIsWho();
+		genHomepage ();
 	}
 
+	static function genHomepage () {
+		var folder = "";
+		var fileName = "index.html";
+		
+		// take selection latest video of each category
+		function getVideos(max:Int) {
+			var videos = [];
+			for (section in Videos.sections) {
+				for (category in section.categories) {
+					if (category.featuredVideos.length > 0) {
+						videos.push(category.featuredVideos[0]);
+						if (videos.length >= max) return videos;
+					}
+				}
+			}
+			return videos;
+		}
+		var videos = getVideos(TOTAL_VIDEOS);
+		var blogPosts = Blog.posts.splice(0, TOTAL_BLOGS);
+		var currentVersion = Downloads.data.versions.find(function(v) return v.version == Downloads.data.current);
+		
+		var content = Views.HomePage(currentVersion, blogPosts, videos);
+		var editLink = Config.baseEditLink + "views/HomePage.html";
+		
+		var stylesPath = Path.join([Config.pagesPath, folder, "index.styles"]);
+		var additionalStyles = Utils.readContentFile(stylesPath);
+
+		var scriptsPath = Path.join([Config.pagesPath, folder, "index.scripts"]);
+		var additionalScripts = Utils.readContentFile(scriptsPath);
+		
+		Utils.save(Path.join([Config.outputFolder, folder, fileName]), content, null, editLink, null, null, additionalStyles, additionalScripts);
+	}
+	
+	
 	static function genWhoIsWho () {
 		// Auto generate the who is who page
 		var authors:Array<Blog.Author> = Json.parse(File.getContent("people.json"));
@@ -90,7 +135,7 @@ class Pages {
 					null
 				);
 			} else { // Not in sitemap, so can't make sidebar
-				content = Views.PageWithoutSidebar(new Html(content), editLink);
+				content = Views.PageWithoutSidebar(new Html(content), editLink, Downloads.data);
 			}
 		}
 

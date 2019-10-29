@@ -54,10 +54,11 @@ typedef VideoSection = {
 		https://try.haxe.org/#2dA2f
 **/
 class Videos {
+	public static var sections:Array<VideoSection> = [];
+	
 	public static function generate () {
 		Sys.println("Generating videos ...");
 
-		var sections:Array<VideoSection> = [];
 
 		// Step 1: read jsons in videos-directory, parse the data
 		function read(videosPath:String) {

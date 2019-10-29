@@ -8,12 +8,13 @@ import tink.template.Html;
 using Lambda;
 
 class Downloads {
+	public static var data:DownloadsData.Data;
 
 	public static function generate () {
 		Sys.println("Generating downloads ...");
 
 		// Data
-		var data = DownloadsData.getData();
+		data = DownloadsData.getData();
 		var downloadFilesOut = Path.join(["website-content", "downloads"]);
 
 		// The list
