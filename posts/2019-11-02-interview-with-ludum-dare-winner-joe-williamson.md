@@ -8,9 +8,9 @@ disqusID: 46
 
 # Interview with Ludum Dare 45 winner Joe Williamson
 
-Twice a year, game developers across the world lock themselves into their rooms, basements, offices or sheds in order to participate in the [Ludum Dare](https://ldjam.com/) game jam. They get a theme and 48 hours, and then proceed to develop a game under these constraints. Many don't make it, many more end up creating something which can best be described (usually by their own admission) as mediocre. But there are always a few gems, and being crowned the Ludum Dare winner after creating one of those is a prestigious honor.
+Three times a year, game developers across the world lock themselves into their rooms, basements, offices or sheds in order to participate in the [Ludum Dare](https://ldjam.com/) game jam. They get a theme and 48 hours, and then proceed to develop a game under these constraints. Many don't make it, many more end up creating something which can best be described (usually by their own admission) as mediocre. But there are always a few gems, and being crowned the Ludum Dare winner after creating one of those is a prestigious honor.
 
-I had to opportunity to talk to [Joe Williamson](https://twitter.com/joecreates), a long-time Haxe user and the winner of Ludum Dare 45, about himself, his game [World Collector](https://ldjam.com/events/ludum-dare/45/world-collector) and, of course, Haxe.
+I had the opportunity to talk to [Joe Williamson](https://twitter.com/joecreates), a long-time Haxe user and the winner of Ludum Dare 45, about himself, his game [World Collector](https://ldjam.com/events/ludum-dare/45/world-collector) and, of course, Haxe.
 
 
 ## About Joe
