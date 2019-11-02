@@ -1,6 +1,7 @@
 title: Interview with Ludum Dare 45 winner Joe Williamson
 author: simn
 description: We asked Joe how to become a Ludum Dare winner. Read this to find out!
+background: joe-williamson.png
 published: true
 disqusID: 46
 ---
