@@ -23,7 +23,7 @@ Thank you! I'd been finishing Ludum Dare consistently up until a few years ago, 
 
 I'm a game developer from Bristol, UK, mainly doing freelance pixel art, occasionally programming and audio, alongside working on my own projects. Over the last couple of years I've done a lot of work for Kongregate and most recently I'm doing art for the cyberpunk JRPG, Jack Move.
 
-During my Computer Science at degree I took part in a few game jams, including one with my good friend Sam Twidale using FlashPunk. Sam raised my attention to Haxe as a good option for getting up and running quickly in future jams, with the option to migrate existing AS3 projects, while also being cross platform for larger projects. We later collaborated on Werewolf Tycoon, which seemed to benefit greatly from a simultaneous release on mobile and web, as the web release made it very accessible to Youtubers.
+During my Computer Science degree I took part in a few game jams, including one with my good friend Sam Twidale using FlashPunk. Sam raised my attention to Haxe as a good option for getting up and running quickly in future jams, with the option to migrate existing AS3 projects, while also being cross platform for larger projects. We later collaborated on [Werewolf Tycoon](https://joecreates.co.uk/werewolftycoon/), which seemed to benefit greatly from a simultaneous release on mobile and web, as the web release made it very accessible to Youtubers.
 
 I'm also a close-up magician, which is something I did part-time through university and continue to do as a hobby. I especially love to create my own effects and routines.
 
@@ -73,7 +73,7 @@ I gave heaps a try a while back. There was a lot I really liked about it, but so
 
 > Haxe games tend to do quite well in game jams. What do you think makes Haxe a good choice for these?
 
-Frameworks such as HaxeFlixel and heaps certainly make it easy to put small games together very quickly, and there is a wealth of libraries and examples available. It may also be that frameworks such as Unity and GameMaker see higher use by beginners, whereas Haxe has a higher proportion of more experiences users who know what a great thing haxe is!
+Frameworks such as HaxeFlixel and heaps certainly make it easy to put small games together very quickly, and there is a wealth of libraries and examples available. It may also be that frameworks such as Unity and GameMaker see higher use by beginners, whereas Haxe has a higher proportion of more experienced users who know what a great thing haxe is!
 
 > Do you have something like a favorite Haxe language feature?
 
