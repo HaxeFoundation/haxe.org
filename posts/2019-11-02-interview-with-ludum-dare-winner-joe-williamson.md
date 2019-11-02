@@ -74,11 +74,11 @@ I gave heaps a try a while back. There was a lot I really liked about it, but so
 
 **Haxe games tend to do quite well in game jams. What do you think makes Haxe a good choice for these?**
 
-Frameworks such as HaxeFlixel and heaps certainly make it easy to put small games together very quickly, and there is a wealth of libraries and examples available. It may also be that frameworks such as Unity and GameMaker see higher use by beginners, whereas Haxe has a higher proportion of more experienced users who know what a great thing haxe is!
+Frameworks such as HaxeFlixel and heaps certainly make it easy to put small games together very quickly, and there is a wealth of libraries and examples available. It may also be that frameworks such as Unity and GameMaker see higher use by beginners, whereas Haxe has a higher proportion of more experienced users who know what a great thing Haxe is!
 
 **Do you have something like a favorite Haxe language feature?**
 
-[Macros](https://haxe.org/manual/macro.html). Also [abstracts](https://haxe.org/manual/types-abstract.html). They make it possible to do things that feel like magic. Macros can help to remove huge amounts of boilerplate, or to repurpose syntax to make highly tailored for specific uses with concise code. I discovered the power of abstracts when writing a color (int) abstract for HaxeFlixel, in which color had previously been represented throughout as an int. This made it possible to manipulate and transform the color in terms of a variety of color spaces, including easily accessing their individual components, all without any significant changes to the existing code.
+[Macros](https://haxe.org/manual/macro.html). Also [abstracts](https://haxe.org/manual/types-abstract.html). They make it possible to do things that feel like magic. Macros can help to remove huge amounts of boilerplate, or to repurpose syntax to achieve concise code for specific uses. I discovered the power of abstracts when writing a color (int) abstract for HaxeFlixel, in which color had previously been represented throughout as an int. This made it possible to manipulate and transform the color in terms of a variety of color spaces, including easily accessing their individual components, all without any significant changes to the existing code.
 
 **Conversely, is there anything that Haxe is missing or could do better?**
 
