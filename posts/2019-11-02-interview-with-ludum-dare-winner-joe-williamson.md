@@ -43,7 +43,7 @@ Nobuo Umatsu comes to mind, not only for his emotive and diverse style, but beca
 
 ## About World Collector
 
-![World Collector](26aef.png)
+![World Collector](full.png)
 
 **Let's turn out attention to your Ludum Dare entry World Collector now. I just played through it and really enjoy the concept. What gave you the idea for this game?**
 
