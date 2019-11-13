@@ -1,9 +1,12 @@
 Dear Community,
 
-On behalf of the Haxe Foundation we are proud to announce that Haxe 4.0.2 is now officially released! It is available along with the changelog at <https://haxe.org/download>.
+On behalf of the Haxe Foundation we are proud to announce that Haxe 4.0.2 is now officially released! 
 
-This is a bugfix release the main purpose of which is to address issues with private libraries and haxelib.
+This is a bugfix release the main purpose of which is to address issues with private libraries and haxelib. 
 
-Please test your Haxe code with this version and let us know if you come across any problems at <https://github.com/HaxeFoundation/haxe/issues>.
+- [What's new in Haxe 4](https://github.com/HaxeFoundation/haxe/wiki/What's-new-in-Haxe-4)
+- To migrate from Haxe 3, read the overview of [breaking changes](https://github.com/HaxeFoundation/haxe/wiki/Breaking-changes-in-Haxe-4.0.0). 
 
-Thank you for your support.
+See the changelog below for further details. If you have any suggestions or run into any problems, don’t hesitate to [open an issue on GitHub](https://github.com/HaxeFoundation/haxe/issues). 
+
+We want to thank everyone involved and hope to see your codebases transition to Haxe 4 soon! 
