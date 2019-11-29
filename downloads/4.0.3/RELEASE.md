@@ -2,7 +2,7 @@ Dear Community,
 
 On behalf of the Haxe Foundation we are proud to announce that Haxe 4.0.3 is now officially released!
 
-In this bugfix release we focused on fixing regressions and reworking windows installer to avoid false positive treat detections from anti-virus software.
+In this bugfix release we focused on fixing regressions and reworked the windows installer to avoid false positives from anti-virus software.
 
 See the changelog below for further details. If you have any suggestions or run into any problems, don’t hesitate to [open an issue on GitHub](https://github.com/HaxeFoundation/haxe/issues).
 
