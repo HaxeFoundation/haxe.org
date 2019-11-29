@@ -1,6 +1,6 @@
 Dear Community,
 
-On behalf of the Haxe Foundation we are proud to announce that Haxe 4.0.2 is now officially released!
+On behalf of the Haxe Foundation we are proud to announce that Haxe 4.0.3 is now officially released!
 
 In this bugfix release we focused on fixing regressions and reworking windows installer to avoid false positive treat detections from anti-virus software.
 
