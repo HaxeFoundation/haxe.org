@@ -1,6 +1,6 @@
 Dear Community,
 
-On behalf of the Haxe Foundation we are proud to announce that Haxe 4.0.2 is now officially released!
+On behalf of the Haxe Foundation we are proud to announce that Haxe 4.0.5 is now officially released!
 
 This is a bugfix release.
 
