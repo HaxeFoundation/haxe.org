@@ -17,6 +17,7 @@ Lua | source | No | Yes | 3.3 (2016)
 PHP7 | source | No | Yes | 3.4 (2016)
 [Neko](https://nekovm.org/) | byte code | No | Yes | alpha (2005)
 [HashLink](https://hashlink.haxe.org/) | byte code + source | Yes | Yes | 3.4 (2016)
+JVM | byte code | Yes | Yes | 4.0 (2019)
 
 > **Note:**
 > 
