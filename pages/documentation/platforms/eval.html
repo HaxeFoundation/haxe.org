@@ -1,0 +1,122 @@
+<div class="step-item">
+	<h1>
+		<img src="/img/platforms/eval.png"/>
+		Getting started with Haxe
+	</h1>
+</div>
+
+<p>The quickest way to get started with Haxe is to use its very own
+built-in interpreter.</p>
+
+<div class="step-item">
+	<div class="step-number">
+		1
+	</div>
+	<h2 class="step-title">
+		Install Haxe
+	</h2>
+	<div class="step-info">
+		Download and install the <a href="/download">Haxe Compiler</a>.
+	</div>
+</div>
+
+<div class="step-item">
+	<div class="step-number">
+		2
+	</div>
+	<h2 class="step-title">
+		Install a Haxe-compatible IDE
+	</h2>
+	<div class="step-info">
+	    Although you can indeed use only a simple text editor,
+		it is recommended to install one of these to develop your Haxe projects.
+		<ul>
+			<li><a href="https://code.visualstudio.com/">Visual Studio Code</a>
+				<ul>
+					<li>Install the <a href="https://marketplace.visualstudio.com/items?itemName=vshaxe.haxe-extension-pack">Haxe Extension Pack</a></li>
+				</ul>
+			</li>
+			<li><a href="https://www.jetbrains.com/idea/">IntelliJ IDEA</a>
+				<ul>
+					<li>Install the <a href="https://plugins.jetbrains.com/plugin/6873?pr=idea">Haxe Plugin</a></li>
+				</ul>
+			</li>
+			<li><a href="/documentation/introduction/editors-and-ides.html">Other IDEs</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="step-item">
+	<div class="step-number">
+		3
+	</div>
+	<h2 class="step-title">
+		Create your project
+	</h2>
+	<div class="step-info">
+		1. Create a new directory for your Haxe project, with this structure:<br/>
+		<pre class="step-code">project/
+├── src/
+│   └── Main.hx
+│
+└── build.hxml</pre>
+		2. Insert the following code into the <code>src/Main.hx</code> file:<br/>
+		<pre><code class="prettyprint haxe">class Main {
+  static function main() {
+    Sys.println("Haxe is great!");
+  }
+}</code></pre>
+		3. Add the following build configuration into the <code>build.hxml</code> file:<br/>
+		<pre class="step-code">-cp src
+-main Main
+--interp</pre>
+		The configuration above specifies that your source code is stored in <code>src/</code>, that your main Haxe file is <code>src/Main.hx</code>, and that you want Haxe to execute your code using its built-in interpreter.
+	</div>
+</div>
+
+<div class="step-item">
+	<div class="step-number">
+		4
+	</div>
+	<h2 class="step-title">
+		Develop your project
+	</h2>
+	<div class="step-info">
+		<h4>Haxe API</h4>
+		<p>
+			Browse the <a href="https://api.haxe.org/">Haxe API website</a> for the core Haxe APIs that you can use in your project.
+		</p>
+		<h4>Haxe libraries</h4>
+		<p>
+			Browse the <a href="https://lib.haxe.org/t/python/">haxelib</a> website for community-developed libraries that you can add to your project.<br/>
+			You can install haxelib libraries globally by running <code>haxelib install &lt;library&gt;</code>.<br/>
+			You can specify that your project uses a haxelib by adding <code>-lib &lt;library&gt;</code> to your <code>.hxml</code> file.
+		</p>
+	</div>
+</div>
+
+<div class="step-item">
+	<div class="step-number">
+		5
+	</div>
+	<h2 class="step-title">
+		Run your project
+	</h2>
+	<div class="step-info">
+	    <p>Build and run your project in one step by running <code>haxe build.hxml</code> in a console in your project directory.</p>
+	</div>
+</div>
+
+<div class="step-item">
+	<div class="step-number">
+		6
+	</div>
+	<h2 class="step-title">
+		Ask the community
+	</h2>
+	<div class="step-info">
+		<p>If you need help with anything, visit the vibrant <a href="/community/community-support.html">Haxe community</a> and simply ask for help with the details of your project. We have a helpful and active community and you should get your answers quickly!</p>
+		
+		::fragment "pages/community.fragment.html"::
+	</div>
+</div>
