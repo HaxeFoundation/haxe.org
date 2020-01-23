@@ -96,7 +96,8 @@ The haxe.org website was designed to be easy to generate, to run a local copy fo
 ### Setting up
 
 * Install the dependencies `haxelib install all` and `npm install` in the root directory.
-* Update submodule dependencies `git submodule init && git submodule update`
+* Update submodule dependencies `git submodule init && git submodule update`.
+* Clone the manual into the `manual` directory with `git clone https://github.com/HaxeFoundation/HaxeManual.git manual`.
 * Generate the website by running `haxe generate.hxml`.
 
 The website is now available in the `out/` folder, you can launch it with `nekotools server -d out` and access it at `http://localhost:2000/`.
