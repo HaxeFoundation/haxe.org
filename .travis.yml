@@ -20,6 +20,8 @@ install:
   - mkdir -p ~/.fonts
   - cp NotoSans-Regular.ttf ~/.fonts
   - fc-cache -f -v
+  # checkout HaxeManual
+  - git checkout https://github.com/HaxeFoundation/HaxeManual.git manual
   # install awscli
   - pip3 install --user awscli
   - aws --version
