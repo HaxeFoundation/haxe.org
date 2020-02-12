@@ -1,0 +1,48 @@
+{
+	"title": "HaxeUp Sessions Hamburg February 2020",
+	"description": "The summit was held 7 Feb 2020 in Hamburg (Germany) at the <a href='https://www.innogames.com/'>InnoGames</a> office.",
+	"videos": [
+    {
+      "title": "Welcome to the HaxeUp - Dan Korostelev",
+      "where": "Hamburg, Germany",
+      "description": "",
+      "date": "2020-02-12",
+      "youtubeId": "krRyWVHBL-Y"
+    },
+    {
+      "title": "Forge of Empires AS3-to-Haxe: Postmortem - Nenad Bojkovski",
+      "where": "Hamburg, Germany",
+      "description": "",
+      "date": "2020-02-12",
+      "youtubeId": "f5n4PCb9hjo"
+    },
+    {
+      "title": "Haxe and PHP - Aleksandr Kuzmenko",
+      "where": "Hamburg, Germany",
+      "description": "",
+      "date": "2020-02-12",
+      "youtubeId": "OkyMPkUEZxo"
+    },
+    {
+      "title": "Haxe Winter Report - Simon Krajewski",
+      "where": "Hamburg, Germany",
+      "description": "",
+      "date": "2020-02-12",
+      "youtubeId": "eIv7pQJ5MhU"
+    },
+    {
+      "title": "HaxeUp for the Future - Josefiene Pertosa",
+      "where": "Hamburg, Germany",
+      "description": "",
+      "date": "2020-02-12",
+      "youtubeId": "Em7fVf7xpPg"
+    },
+    {
+      "title": "Closing words - Dan Korostelev",
+      "where": "Hamburg, Germany",
+      "description": "",
+      "date": "2020-02-12",
+      "youtubeId": "aFRB_PIqC4U"
+    }
+  ]
+}
