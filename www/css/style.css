@@ -1172,9 +1172,23 @@ a.full-size-link {
 	color: #555;
 }
 
+article p, article figure {
+    margin: 1.5em 0;
+}
+
+article h1 {
+	margin-bottom: 1em;
+}
+
+article h2 {
+	margin: 1.75em 0 1em;
+}
+
 article figcaption {
-	text-align: center;
-	font-style: italic;
+    text-align: center;
+    margin-top: 1em;
+    font-size: 90%;
+	opacity: .75;
 }
 
 article figure {
