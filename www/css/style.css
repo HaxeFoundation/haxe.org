@@ -1172,6 +1172,16 @@ a.full-size-link {
 	color: #555;
 }
 
+article figcaption {
+	text-align: center;
+	font-style: italic;
+}
+
+article figure {
+	margin-bottom: 20px;
+	text-align: center;
+}
+
 /** partner logos **/
 a.partner-logo img {
 	max-height: 100%;
