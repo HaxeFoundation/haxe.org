@@ -1,7 +1,7 @@
 title: Shiro Games Technology Stack
 author: nicolas
 description: A complete introduction to the technology stack used to make games at Shiro
-background: haxe-tips.jpg
+background: NorthgardWallpaper.jpg
 published: true
 tags: tech
 disqusID: 48
