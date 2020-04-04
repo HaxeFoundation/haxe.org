@@ -44,7 +44,7 @@ Because of the nature of the VM, it means that unless you compile your code to C
 
 **Native libraries**
 
-While HashLink alone does come with only a small standard library, it can be extended with additional libraries (written in C) to expose new APIs. This requires a bit of knowledge of the VM and to how deal with the Garbage Collector, but it's quite a smooth process. If done right it allows us to isolate bugs that might come from the low level layer from bugs in application logic.
+While HashLink alone does come with only a small standard library, it can be extended with additional libraries (written in C) to expose new APIs. This requires a bit of knowledge of the VM and how to deal with the Garbage Collector, but it's quite a smooth process. If done right it allows us to isolate bugs that might come from the low level layer from bugs in application logic.
 
 So far we have various native libraries that get distributed with HashLink such as SDL2, DirectX11, OpenAL(sound), LibUV(sockets), SSL(encryption), and FMT which deals with Zip, Ogg, Png, Jpg and a few other low level file format libraries.
 
