@@ -116,7 +116,7 @@ Heaps.io also abstracts [Resources Management](https://heaps.io/documentation/re
 
 You can learn more about Heaps.io on its dedicated website, for instance by browsing its [Documentation](https://heaps.io/documentation/home.html).
 
-# HIDE Editor
+## HIDE Editor
 
 ![](stack-hide.png)
 
@@ -146,7 +146,7 @@ The Prefab model being extensible, and HIDE having the ability to load plugins, 
 
 At the moment HIDE usage is sadly not documented very well, this is something I want to work at some point.
 
-# DomKit UI Toolkit
+## DomKit UI Toolkit
 
 ![image](stack-domkit.png)
 
@@ -164,7 +164,7 @@ Additionally, the DomKit library itself is fully standalone so it can be used fo
 
 You can read more about DomKit in the [documentation](https://heaps.io/documentation/domkit.html). 
 
-# Castle DB
+## Castle DB
 
 ![image](stack-castledb.png)
 
@@ -187,7 +187,7 @@ Castle DB used to be a standalone editor (you can download an old version of it 
 
 You can read more about Castle DB on [castledb.org](http://castledb.org/).
 
-# HScript
+## HScript
 
 ![image](stack-hscript.png)
 
@@ -203,7 +203,7 @@ HScript is also integrated within CDB/Hide, so one can have per-item scripts etc
 
 Full [sources](https://github.com/haxeFoundation/hscript) are available, and you can install the library with `haxelib install hscript`.
 
-# HxBit
+## HxBit
 
 ![image](stack-hxbit.png)
 
@@ -226,7 +226,7 @@ It covers the following:
 - DLCs detection and shop popups
 - storage (cross platform user saves handling)
 
-# Final Words
+## Final Words
 
 That's about it (for now). I hope this gave a better understanding on how we make games at Shiro, and hopefully you would be interested in trying out some - if not all - of the tools presented here.
 
