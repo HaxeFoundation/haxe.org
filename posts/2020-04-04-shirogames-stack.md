@@ -20,6 +20,7 @@ Since I often get asked about how we are making games, I thought it would be nic
 **Haxe/Heaps Community**
 
 In case you have any question or want to discuss parts of what I'm presenting here, you can get in touch with the Haxe/Heaps Community:
+
 - Using [Discord](https://discord.gg/sWCGm33) **#heaps** channel
 - With the [Haxe Forum](https://community.haxe.org/) for Haxe language questions
 - With the [Heaps Forum](https://community.heaps.io/) for Heaps specific questions
