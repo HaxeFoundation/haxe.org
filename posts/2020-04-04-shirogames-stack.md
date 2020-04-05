@@ -7,7 +7,7 @@ tags: tech
 disqusID: 48
 ---
 
-# Shiro Games Stack
+# Shiro Games Technology Stack
 
 Our game engine Heaps.io and the underlying technology and toolset are born from twenty years spent creating games, before at [Motion-Twin](https://motion-twin.com) (the makers of [Dead Cells](https://dead-cells.com/)) and since 2012 at [Shiro Games](https://shirogames.com) ([Evoland](http://evoland.shirogames.com/), [Northgard](http://northgard.net/), [Darksburg](http://darksburg.com/)).
 
