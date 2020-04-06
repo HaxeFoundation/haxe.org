@@ -236,4 +236,4 @@ I also believe in collaboration, and making things open source helps even if no 
 
 All of the tools in this technology stack have been used in real projects and are still used for developing ongoing yet-unannounced games at Shiro. They are quite stable with no big issues, but of course you might eventually find bugs for your particular usage. Since I deal with many different projects I might sometimes be slow to answer over pull requests or reported issues, but you always have the whole sources to improve things when you need it. One of things I personally dislike the most is when there's a bug and I have no way to understand/fix it.
 
-Enjoy, and don't forget that while good tools _help_ making good games, they are not the games themselves. 
+Finally, as a side note, we are actively recruiting developers to work on exciting yet unannounced projects at Shiro Games. You can reach me on [Twitter](https://twitter.com/ncannasse) or see our [open positions](http://shirogames.com/jobs/).
