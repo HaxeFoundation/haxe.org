@@ -16,7 +16,7 @@ The Haxe programming language is a very modern, high-level programming language.
   * Haxe the language is purposely kept fairly simple, elegant, and practical to
     accommodate compilation to the large number of different target platforms.
 
-As the Haxe Language has been specially designed for the Haxe Toolkit, we have paid extra attention to its flexibility. As such, the language easily adapts the native behaviours of the different platforms you have targeted in your development project.  This enables extremely efficient cross-platform development, ultimately saving time and resources.
+As the Haxe Language has been specially designed for the Haxe Toolkit, we have paid extra attention to its flexibility. As such, the language easily adapts the native behaviours of the different platforms you have targeted in your development project. This enables extremely efficient cross-platform development, ultimately saving time and resources.
 
 See the [Haxe Language Features Introduction](https://haxe.org/documentation/introduction/language-features.html)
 for a tour of some major language features.
@@ -35,7 +35,7 @@ class HelloWorld {
 }
 ```
 
-With Haxe installed and this program saved in a file called "HelloWorld.hx", this can be compiled from the commandline, for example to JavaScript:
+With Haxe installed and this program saved in a file called "HelloWorld.hx", this can be compiled from the command line, for example to JavaScript:
 
 	haxe --main HelloWorld --js HelloWorld.js
 
