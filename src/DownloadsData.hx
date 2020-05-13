@@ -106,22 +106,15 @@ class DownloadsData {
 				["-u", githubAuth];
 		}
 		#if nodejs
-		var page1_data = js.node.ChildProcess.execSync("curl " + authArgs.concat(["https://api.github.com/repos/haxefoundation/haxe/releases?per_page=50"]).join(" "));
-		var page1_releases:Array<GithubRelease> = Json.parse(page1_data);
-		var page2_data = js.node.ChildProcess.execSync("curl " + authArgs.concat(["https://api.github.com/repos/haxefoundation/haxe/releases?per_page=50&page=2"]).join(" "));
-		var page2_releases:Array<GithubRelease> = Json.parse(page2_data);
+		var data = js.node.ChildProcess.execSync("curl " + authArgs.concat(["https://api.github.com/repos/haxefoundation/haxe/releases?per_page=50"]).join(" "));
+		var releases:Array<GithubRelease> = Json.parse(data);
 		#else
-		var page1_data = new Process("curl", authArgs.concat(["https://api.github.com/repos/haxefoundation/haxe/releases?per_page=50"]));
-		var page1_releases:Array<GithubRelease> = Json.parse(page1_data.stdout.readAll().toString());
-		page1_data.close();
-		var page2_data = new Process("curl", authArgs.concat(["https://api.github.com/repos/haxefoundation/haxe/releases?per_page=50&page=2"]));
-		var page2_releases:Array<GithubRelease> = Json.parse(page2_data.stdout.readAll().toString());
-		page2_data.close();
+		var data = new Process("curl", authArgs.concat(["https://api.github.com/repos/haxefoundation/haxe/releases?per_page=50"]));
+		var releases:Array<GithubRelease> = Json.parse(data.stdout.readAll().toString());
+		data.close();
 		#end
 		// Github API will return an object instead when there is an error (rate limit, etc.)
-		var page1_releases = Std.is(page1_releases, Array) ? page1_releases : [];
-		var page2_releases = Std.is(page2_releases, Array) ? page2_releases : [];
-		page1_releases.concat(page2_releases);
+		Std.is(releases, Array) ? releases : [];
 	}
 
 	static function getDownloadInfo (version:Version) {
