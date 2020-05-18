@@ -502,10 +502,10 @@ pre {
 **/
 
 html code {
-	color: rgb(75,75,75)
+	color: rgb(75,75,75);
 }
 a code {
-	color: rgb(3, 102, 214)
+	color: #3369bc;
 }
 .download-source {
 	margin-top: 16px;
