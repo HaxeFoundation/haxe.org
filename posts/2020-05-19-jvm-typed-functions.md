@@ -188,7 +188,7 @@ Our examples so far always knew the number of arguments and could generate `invo
         case 1:
             return this.invoke(args[0]);
         default:
-            throw Exception.wrap("Invalid call");
+            throw new IllegalArgumentException();
         }
     }
 ```
