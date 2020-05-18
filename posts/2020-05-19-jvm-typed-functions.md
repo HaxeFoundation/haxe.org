@@ -45,24 +45,24 @@ function main() {
 The important part here is that with the `f(12)` call, we don't know what exactly we are calling. It could be a static function, or a method closure on some instance, or an anonymous function, or perhaps something else. Even worse, we don't necessarily know the exact *signature* of what we're calling. The call-site thinks that it's a function which accept a single argument of type `Int` and returns nothing. However, Haxe's type system allows assigning functions with a different type to this:
 
 ```haxe
-	// broader argument type
-	callMe((value:Float) -> trace(value));
-	// broadest argument type
-	callMe((value:Dynamic) -> trace(value));
-	// non-Void return type
-	callMe(function(value:Dynamic) return "foo");
+// broader argument type
+callMe((value:Float) -> trace(value));
+// broadest argument type
+callMe((value:Dynamic) -> trace(value));
+// non-Void return type
+callMe(function(value:Dynamic) return "foo");
 ```
 
 Any call in the JVM run-time needs an exact type at bytecode-level. This is encoded as something called a [descriptor](https://docs.oracle.com/javase/specs/jvms/se7/html/jvms-4.html#jvms-4.3). As an example, the `Int -> Void` function from the example would have a `(I)V` descriptor. We can verify this by looking at the decompiled bytecode of the `callMe` function:
 
-```
-  public static callMe(Lhaxe/jvm/Function;)V
-   L0
-    LINENUMBER 2 L0
-    ALOAD 0
-    BIPUSH 12
-    INVOKEVIRTUAL haxe/jvm/Function.invoke (I)V
-    RETURN
+```java
+public static callMe(Lhaxe/jvm/Function;)V
+ L0
+  LINENUMBER 2 L0
+  ALOAD 0
+  BIPUSH 12
+  INVOKEVIRTUAL haxe/jvm/Function.invoke (I)V
+  RETURN
 ```
 
 Don't worry if you aren't familiar with bytecode instructions. The main point here is that we have to call something that *actually* has the `(I)V` descriptor. In our case, that something is the method `invoke` on the class `haxe.jvm.Function`.
@@ -71,7 +71,7 @@ Don't worry if you aren't familiar with bytecode instructions. The main point he
 
 The base class for all typed functions is `haxe.jvm.Function`. It utilizes information collected during compilation by generating a whole bunch of `invoke` methods, which call other `invoke` methods. This is done by classifying types as one of 9 possible classifications:
 
-```
+```ocaml
 type signature_classification =
 	| CBool
 	| CByte
@@ -113,18 +113,18 @@ This is achieved through the next step in our `invoke` quest chain: If the arity
 
 Here's how the Object Freeway parts of `haxe.jvm.Function` look in the decompiled code for our small example:
 
-```
-    public Object invoke() {
-        return this.invoke((Object)null);
-    }
+```java
+public Object invoke() {
+    return this.invoke((Object)null);
+}
 
-    public Object invoke(Object arg0) {
-        return this.invoke(arg0, (Object)null);
-    }
+public Object invoke(Object arg0) {
+    return this.invoke(arg0, (Object)null);
+}
 
-    public Object invoke(Object arg0, Object arg1) {
-        return null;
-    }
+public Object invoke(Object arg0, Object arg1) {
+    return null;
+}
 ```
 
 ### The exit
@@ -148,26 +148,26 @@ function main() {
 
 The local function `f` is generated like this:
 
-```
-    public static class Closure_main_0 extends Function {
-        public static Main_Statics_.Closure_main_0 Main_Statics_$Closure_main_0 = new Main_Statics_.Closure_main_0();
+```java
+public static class Closure_main_0 extends Function {
+    public static Main_Statics_.Closure_main_0 Main_Statics_$Closure_main_0 = new Main_Statics_.Closure_main_0();
 
-        Closure_main_0() {
-        }
-
-        public void invoke(int value) {
-            Log.trace.invoke(value, new Anon0("_Main.Main_Statics_", "source/Main.hx", 7, "main"));
-        }
-
-        public void invoke(java.lang.Object arg0) {
-            this.invoke(Jvm.toInt(arg0));
-        }
-
-        public java.lang.Object invoke(java.lang.Object arg0) {
-            this.invoke(arg0);
-            return null;
-        }
+    Closure_main_0() {
     }
+
+    public void invoke(int value) {
+        Log.trace.invoke(value, new Anon0("_Main.Main_Statics_", "source/Main.hx", 7, "main"));
+    }
+
+    public void invoke(java.lang.Object arg0) {
+        this.invoke(Jvm.toInt(arg0));
+    }
+
+    public java.lang.Object invoke(java.lang.Object arg0) {
+        this.invoke(arg0);
+        return null;
+    }
+}
 ```
 
 The bottommost `invoke` method is the one on the freeway and starts our exit ramp. It invokes the `invoke` method above it, which has a `void` return type (note that this looks like a self-call in the decompiled code, but the actual bytecode has a different descriptor `(Ljava/lang/Object;)V`). Finally, that one then invokes our concrete implementation, which has our original types.
@@ -180,17 +180,17 @@ As mentioned initially, the bytecode at the call-site is ` INVOKEVIRTUAL haxe/jv
 
 Our examples so far always knew the number of arguments and could generate `invoke` calls accordingly. When using the aforementioned `Reflect.callMethod` function, we have to dispatch to the correct `invoke` method depending on the number of arguments provided. This is generated exactly as dumb as it sounds and is also part of `haxe.jvm.Function`:
 
-```
-    public Object invokeDynamic(Object[] args) {
-        switch(args.length) {
-        case 0:
-            return this.invoke();
-        case 1:
-            return this.invoke(args[0]);
-        default:
-            throw new IllegalArgumentException();
-        }
+```java
+public Object invokeDynamic(Object[] args) {
+    switch(args.length) {
+    case 0:
+        return this.invoke();
+    case 1:
+        return this.invoke(args[0]);
+    default:
+        throw new IllegalArgumentException();
     }
+}
 ```
 
 The number of cases depends on the maximum determined arity mentioned before. This is crude, but effective.
@@ -203,7 +203,7 @@ This is handled by `haxe.jvm.Closure` which carries an instance of `java.lang.re
 
 That's already enough to support calls through `Reflect.callMethod` as those invoke `invokeDynamic`. However, as we demonstrated initially, our properly typed call-sites actually emit concrete `invoke` calls. In order to connect those to `invokeDynamic`, `Closure` extends a generated class `ClosureDispatch` which simply re-routes these calls:
 
-```
+```java
 public class ClosureDispatch extends Function {
     public ClosureDispatch() {
     }
