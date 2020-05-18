@@ -8,6 +8,8 @@ disqusID: 50
 
 # JVM Typed Functions
 
+## Previously on haxe.org
+
 It's been about a week since I've [announced the Haxe 4.1.0 release](https://haxe.org/blog/haxe-4.1.0-release/) and made the bold claim that the JVM target went from being experimental to being the fastest Haxe target. Just as planned, this got the attention of various people, among which was Hugh. He flipped some switch in hxcpp and this happened:
 
 <figure>
@@ -105,7 +107,7 @@ The last `invoke` method is part of the freeway: It is a method with a given num
 
 ### The Object Freeway itself
 
-In order to support optional arguments, the implementation has to make room for the possibility that a given call-site might not provide enough arguments to satisfy a given method descriptor. This becomes particularly relevant when working with [Reflect.callMethod](https://api.haxe.org/Reflect.html#callMethod), where users commonly expect that optional arguments can be omitted.
+In order to support optional arguments, the implementation has to make room for the possibility that a given call-site might not provide enough arguments to satisfy a given method descriptor. This becomes particularly relevant when working with [`Reflect.callMethod`](https://api.haxe.org/Reflect.html#callMethod), where users commonly expect that optional arguments can be omitted.
 
 [Default values in Haxe](https://haxe.org/manual/types-function-default-values.html) are not part of the call-site, but are implemented in the functions itself by checking something along the lines of `if (arg == null) arg = defaultValue`. This has some advantages and disadvantages. A big advantage is that this can work even for call-sites that don't know what they are calling, such as `Reflect.callMethod`. The only problem is that the call has to make sure that there are enough arguments. The compiler itself does that by appending `null` values to the argument list, so dynamic call-sites have to do something similar.
 
@@ -197,9 +199,9 @@ The number of cases depends on the maximum determined arity mentioned before. Th
 
 ### Native closures
 
-Finally, we have to deal with actual run-time closures in some way. This refers to cases where the compiler doesn't know that a closure of a field is taken, which can happen through the reflection API or liberal usage of the `Dynamic` type. In cases like this we have to tie our elaborate `haxe.jvm.Function` framework together with the reflection information we get from Java itself, which is mostly about [java.lang.reflect.Method](https://docs.oracle.com/javase/8/docs/api/java/lang/reflect/Method.html).
+Finally, we have to deal with actual run-time closures in some way. This refers to cases where the compiler doesn't know that a closure of a field is taken, which can happen through the reflection API or liberal usage of the `Dynamic` type. In cases like this we have to tie our elaborate `haxe.jvm.Function` framework together with the reflection information we get from Java itself, which is mostly about [`java.lang.reflect.Method`](https://docs.oracle.com/javase/8/docs/api/java/lang/reflect/Method.html).
 
-This is handled by `haxe.jvm.Closure` which carries an instance of `java.lang.reflect.Method` and an optional context typed as `java.lang.Object`. The just mentioned `invokeDynamic` method is compatible with [Method.invoke](https://docs.oracle.com/javase/8/docs/api/java/lang/reflect/Method.html#invoke-java.lang.Object-java.lang.Object...-), which is what we want to call. To that end, `Closure` overrides `invokeDynamic` in order to make that call. This requires some more work regarding function arguments, but that is uninteresting in the scope of this discussion.
+This is handled by `haxe.jvm.Closure` which carries an instance of `java.lang.reflect.Method` and an optional context typed as `java.lang.Object`. The just mentioned `invokeDynamic` method is compatible with [`Method.invoke`](https://docs.oracle.com/javase/8/docs/api/java/lang/reflect/Method.html#invoke-java.lang.Object-java.lang.Object...-), which is what we want to call. To that end, `Closure` overrides `invokeDynamic` in order to make that call. This requires some more work regarding function arguments, but that is uninteresting in the scope of this discussion.
 
 That's already enough to support calls through `Reflect.callMethod` as those invoke `invokeDynamic`. However, as we demonstrated initially, our properly typed call-sites actually emit concrete `invoke` calls. In order to connect those to `invokeDynamic`, `Closure` extends a generated class `ClosureDispatch` which simply re-routes these calls:
 
@@ -228,6 +230,6 @@ This approach is certainly not going to win any Java awards for exceptional eleg
 
 * Usage of the Object Freeway requires boxing of basic types. In theory, there could also be a Double Freeway to avoid that. However, it is unclear if there are scenarios where this could actually be relevant and significant.
 * I'm not sure how well native interoperability works with all this. We briefly discussed the idea of providing one interface per invoke-signature, which is what some other Java generators do. The problem here is that we need a common base class in the API anyway, so the advantage of juggling individual interfaces over just extending `haxe.jvm.Function` and implementing your favorite `invoke` method seems dubious.
-* Another idea was to automatically implement some [java functional interfaces](https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html). In fact, I got started with that out of curiosity and then completely forgot about it. As of  Haxe 4.1.0, only the interfaces for [Consumer](https://docs.oracle.com/javase/8/docs/api/java/util/function/Consumer.html) and [BiConsumer](https://docs.oracle.com/javase/8/docs/api/java/util/function/BiConsumer.html) are inferred automatically. It remains to be seen if this has any value.
+* Another idea was to automatically implement some [java functional interfaces](https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html). In fact, I got started with that out of curiosity and then completely forgot about it. As of  Haxe 4.1.0, only the interfaces for [`Consumer`](https://docs.oracle.com/javase/8/docs/api/java/util/function/Consumer.html) and [`BiConsumer`](https://docs.oracle.com/javase/8/docs/api/java/util/function/BiConsumer.html) are inferred automatically. It remains to be seen if this has any value.
 
 Please let us know if you have any questions or comments!
