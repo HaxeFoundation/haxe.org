@@ -152,13 +152,15 @@ The local function `f` is generated like this:
 
 ```java
 public static class Closure_main_0 extends Function {
-    public static Main_Statics_.Closure_main_0 Main_Statics_$Closure_main_0 = new Main_Statics_.Closure_main_0();
+    public static Main_Statics_.Closure_main_0 Main_Statics_$Closure_main_0 =
+        new Main_Statics_.Closure_main_0();
 
     Closure_main_0() {
     }
 
     public void invoke(int value) {
-        Log.trace.invoke(value, new Anon0("_Main.Main_Statics_", "source/Main.hx", 7, "main"));
+        Log.trace.invoke(value,
+            new Anon0("_Main.Main_Statics_", "source/Main.hx", 7, "main"));
     }
 
     public void invoke(java.lang.Object arg0) {
