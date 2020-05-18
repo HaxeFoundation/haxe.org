@@ -1,7 +1,7 @@
 title: JVM Typed Functions
 author: simn
 description: More details on how the JVM target got so fast with regards to anonymous functions and closures
-background: x1KElsXNet0.jpg
+background: 1bJPp0l.jpg
 published: true
 disqusID: 50
 ---
