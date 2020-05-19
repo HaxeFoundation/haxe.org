@@ -7,7 +7,6 @@ Name | Kind | Static typing | Sys | Since
 --- | --- | --- | --- | --- 
 Flash | byte code | Yes | No | alpha (2005)
 JavaScript | source | No | No |  beta (2006)
-ActionScript 3 | source | Yes | No |  1.12 (2007)
 PHP | source | No | Yes |  2.0 (2008)
 C++ | source | Yes | Yes |  2.04 (2009)
 Java | source | Yes | Yes |  2.10 (2012)
