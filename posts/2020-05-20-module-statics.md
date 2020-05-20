@@ -90,7 +90,7 @@ Almost any codebase has helper methods that don't belong to a data type and now 
 
 ### Scripts
 
-Did you know it is possible to use Haxe as a scripting language? It only makes sense: Haxe compiler already has a built-in interpreter (`eval`) for running macros, so why not use it for general scripting? That is exactly what `--run` compiler argument is for! And with the addition of module-statics it's much easier to write such scripts. Here's one:
+Did you know it is possible to use Haxe as a scripting language? It only makes sense: the Haxe compiler already has a built-in interpreter for running macros (`eval`), so why not use it for general scripting? That is exactly what the `--run` compiler argument is for! And with the addition of module-statics it's much easier to write such scripts. Here's one:
 
 ```haxe
 function main() {
@@ -100,7 +100,7 @@ function main() {
 
 Run it with `haxe --run Script hello world` and you'll get a `hello world`. Neat! 👌
 
-*One particularly active member of Haxe and Flixel communities is already making use of module-statics for scripting, check out [setup-flixel](https://github.com/HaxeFlixel/setup-flixel) for some inspiration!*
+*One particularly active member of the Haxe and Flixel communities is already making use of module-statics for scripting, check out [setup-flixel](https://github.com/HaxeFlixel/setup-flixel) for some inspiration!*
 
 ## Closing words
 
