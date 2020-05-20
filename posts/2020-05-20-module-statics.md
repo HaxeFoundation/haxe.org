@@ -1,6 +1,7 @@
 title: Module-level statics are here!
 author: nadako
 description: It is now possible to define functions and variables directly in Haxe modules
+background: module-statics.jpg
 published: true
 disqusID: 51
 ---
