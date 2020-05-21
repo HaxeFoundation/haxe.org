@@ -2,7 +2,7 @@ title: Module-level fields are here!
 author: nadako
 description: It is now possible to define functions and variables directly in Haxe modules
 background: module-level-fields.jpg
-published: true
+published: false
 disqusID: 51
 ---
 # Module-level fields are here!
