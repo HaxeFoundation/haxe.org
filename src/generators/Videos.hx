@@ -55,7 +55,7 @@ typedef VideoSection = {
 **/
 class Videos {
 	public static var sections:Array<VideoSection> = [];
-	
+
 	public static function generate () {
 		Sys.println("Generating videos ...");
 
@@ -97,7 +97,7 @@ class Videos {
 					// assign extra/missing data to video
 					for (video in videos) {
 						if (!Reflect.hasField(video, "featured")) video.featured = false;
-						if (video.featured && category.featuredVideos.length <= 5) {
+						if (video.featured && category.featuredVideos.length < 5) {
 							category.userFeaturedVideos.push(video);
 							category.featuredVideos.push(video);
 						}
@@ -121,9 +121,8 @@ class Videos {
 				while (category.featuredVideos.length < 5 && category.videos.length >= 5) {
 					var v = category.videos[i++];
 					if (category.featuredVideos.indexOf(v) < 0) category.featuredVideos.push(v);
+					if (category.userFeaturedVideos.indexOf(v) < 0) category.userFeaturedVideos.push(v);
 				}
-				category.userFeaturedVideos.sort(function(a, b) return a.date < b.date ? 1 : -1);
-				category.featuredVideos.sort(function(a, b) return a.date < b.date ? 1 : -1);
 			}
 			// highest sort index on front
 			section.categories.sort(function(a, b) return a.sortIndex < b.sortIndex ? 1 : -1);

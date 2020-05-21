@@ -5,14 +5,14 @@
 				<div class="span3">
 					<img src="img/haxe-logo.svg" class="logo" onerror="this.src='/img/haxe-logo.png'" /><br/><br/>
 				</div>
-				<div class="span7"> 
+				<div class="span7">
 					<h1 class="homepage-title">Haxe 4 is here!</h1>
 					<p class="lead">
 						Haxe is an open source high-level strictly-typed programming language with a fast optimizing cross-compiler.
 					</p>
 					::if (currentVersion != null)::
 					<a href="download/" class=" btn btn-haxe">Download ::currentVersion.version::<i class="fa fa-caret-right"></i></a><br/>
-					<small class="release-date">Released: ::currentVersion.date::</small> 
+					<small class="release-date">Released: ::currentVersion.date::</small>
 					::end::
 				</div>
 			</div>
@@ -76,7 +76,7 @@
 		</div>
 	</div>
 
-	
+
 	<div class="section">
 		<div class="container">
 			<div class="row">
@@ -105,6 +105,7 @@
 						<li><i class="fa fa-check"></i> <a href="manual/lf-static-extension.html">Static Extensions / Mixin functions</a></li>
 						<li><i class="fa fa-check"></i> <a href="manual/lf-string-interpolation.html">String Interpolation</a></li>
 						<li><i class="fa fa-check"></i> <a href="manual/macro.html">Syntax-transformation / macros</a></li>
+						<li><i class="fa fa-check"></i> <a href="manual/cr-null-safety.html">Null Safety</a> <small>(opt-in)</small></li>
 						<li><i class="fa fa-check"></i> <a href="manual/cr-static-analyzer.html">Static Analysis</a> / <a href="manual/cr-dce.html">Dead code removal</a></li>
 						<li><i class="fa fa-check"></i> <a href="manual/lf-externs.html">Access to native features</a></li>
 						<li><i class="fa fa-check"></i> <a href="manual/std-String-unicode.html">Unicode</a></li>
@@ -117,7 +118,7 @@
 		</div>
 	</div>
 	<hr/>
-	
+
 <div class="section">
 	<div class="container">
 		<a class="anch" name="news"></a>
@@ -133,7 +134,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<script>
 		document.addEventListener('DOMContentLoaded', function(event) {
 		fetch("https://api.rss2json.com/v1/api.json?rss_url=https://blog.skialbainn.com/rss")
@@ -147,7 +148,7 @@
 			});
 		});
 		</script>
-		
+
 		<h3>Latest videos</h3>
 		<div class="video-listing">
 			::for video in videos::
@@ -162,7 +163,7 @@
 				<a href="videos/">&raquo;</a>
 			</div>
 		</div>
-		
+
 	</div>
 </div>
 
@@ -174,7 +175,7 @@
 				<div class="span4">
 					<h2>The Haxe Foundation</h2>
 					<p>The goals of the <a href="foundation/">Haxe Foundation</a> are to support the Haxe ecosystem
-						by <a href="foundation/supported-projects.html">funding core technologies</a>, 
+						by <a href="foundation/supported-projects.html">funding core technologies</a>,
 						organizing events, helping the open-source community.
 					</p>
 					<h3>Haxe for your business?</h3>
@@ -196,16 +197,14 @@
 						<li title="Playtika"><a href="https://www.playtika.com/" target="_blank"><img src="/img/partners/playtika.png" alt="Playtika" /></a></li>
 						<li title="Docler Holding"><a href="https://www.doclerholding.com/en/main/" target="_blank"><img src="/img/partners/docler.png" alt="Docler Holding" /></a></li>
 						<li title="Spiele Palast"><a href="https://www.spiele-palast.de/" target="_blank"><img src="/img/partners/SpielePalast.png" alt="Spiele Palast" /></a></li>
+						<li title="InnoGames"><a href="https://www.innogames.com/" target="_blank"><img src="/img/partners/innogames.png" alt="InnoGames" /></a></li>
 					</ul>
 					<h3 class="clearfix">Professional Partners</h3>
 					<ul class="logos clearfix">
 						<li title="Area 9"><a href="http://area9learning.com/" target="_blank"><img src="/img/partners/area-9-logo.png" alt="Area 9" /></a></li>
 						<li title="iv247 Design Studio"><a href="http://iv247.com/" target="_blank"><img src="/img/partners/iv247-logo.png" alt="iv247 Design Studio" /></a></li>
 						<li title="Veith System"><a href="http://www.veith-system.de" target="_blank"><img src="/img/partners/veith-system.png" alt="Veith System" /></a></li>
-						<li title="Gamesys"><a href="http://www.gamesyscorporate.com/" target="_blank"><img src="/img/partners/gamesys.png" alt="Gamesys" /></a></li>
-						<li title="InnoGames"><a href="https://www.innogames.com/" target="_blank"><img src="/img/partners/innogames.png" alt="InnoGames" /></a></li>
-						<li title="Blue Mammoth Games"><a href="http://www.bluemammoth.com/" target="_blank"><img src="/img/partners/bluemammoth.png" alt="Blue Mammoth Games" /></a></li>
-						<li title="Motion-Twin"><a href="https://motion-twin.com/" target="_blank"><img src="/img/partners/motion-twin-logo.png" alt="Motion-Twin" /></a></li>
+						<li title="Proletariat"><a href="https://www.proletariat.com/" target="_blank"><img src="/img/partners/proletariat-logo.png" alt="Proletariat" /></a></li>
 					</ul>
 				</div>
 			</div>
@@ -213,5 +212,4 @@
 	</div>
 </div>
 
-	
 <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script>

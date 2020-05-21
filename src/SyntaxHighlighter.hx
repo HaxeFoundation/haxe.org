@@ -17,6 +17,8 @@ class SyntaxHighlighter
 		var xmlGrammar = new Highlighter("grammars/xml.tmbundle/Syntaxes/XML.plist");
 		var cppGrammar = new Highlighter("grammars/c.tmbundle/Syntaxes/C++.plist");
 		var as3Grammar = new Highlighter("grammars/actionscript3-tmbundle/Syntaxes/ActionScript 3.tmLanguage");
+		var javaGrammar = new Highlighter("grammars/Java.plist"); // from https://github.com/textmate/java.tmbundle
+		var ocamlGrammar = new Highlighter("grammars/OCaml.plist"); // from https://github.com/textmate/ocaml.tmbundle
 		var jsGrammar = new Highlighter("bin/javascript.json");
 		var shGrammar = new Highlighter("bin/shell-unix-bash.json");
 
@@ -28,6 +30,8 @@ class SyntaxHighlighter
 			"cpp" => cppGrammar,
 			"as3" => as3Grammar,
 			"js" => jsGrammar,
+			"java" => javaGrammar,
+			"ocaml" => ocamlGrammar,
 			"javascript" => jsGrammar,
 			"sh" => shGrammar,
 		];

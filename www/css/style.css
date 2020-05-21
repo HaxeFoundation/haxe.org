@@ -502,7 +502,10 @@ pre {
 **/
 
 html code {
-	color: rgb(75,75,75)
+	color: rgb(75,75,75);
+}
+a code {
+	color: #3369bc;
 }
 .download-source {
 	margin-top: 16px;
@@ -1170,6 +1173,30 @@ a.full-size-link {
 
 .tags .fa {
 	color: #555;
+}
+
+article p, article figure {
+    margin: 1.5em 0;
+}
+
+article h1 {
+	margin-bottom: 1em;
+}
+
+article h2 {
+	margin: 1.75em 0 1em;
+}
+
+article figcaption {
+    text-align: center;
+    margin-top: 1em;
+    font-size: 90%;
+	opacity: .75;
+}
+
+article figure {
+	margin-bottom: 20px;
+	text-align: center;
 }
 
 /** partner logos **/

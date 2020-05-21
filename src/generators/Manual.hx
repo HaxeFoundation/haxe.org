@@ -57,6 +57,12 @@ class Manual {
 	public static function generate () {
 		Sys.println("Generating manual ...");
 
+		if (!FileSystem.exists(inPath)) {
+			Sys.println("Manual content not found!");
+			Sys.println("Please clone the manual with: git clone https://github.com/HaxeFoundation/HaxeManual.git manual");
+			return;
+		}
+
 		// Parse sections
 		var chapterFiles = FileSystem.readDirectory(inPath).filter(~/^[0-9]{2}-([^\.]+)\.md$/.match);
 		chapterFiles.sort(Reflect.compare);
