@@ -3,22 +3,22 @@ Compiler Targets
 
 The following table gives an overview of available Haxe targets:
 
-Name | Tier | Kind | Static typing | Sys  | Since
---- | --- | --- | --- | --- | ---
-Flash | 3 | byte code | Yes | No | alpha (2005)
-[Neko](https://nekovm.org/) | 3 | byte code | No | Yes  | alpha (2005)
-**JavaScript** | **1** | source | No | No | beta (2006)
-ActionScript 3 | 4 | source | Yes | No | 1.12 (2007)
-PHP5 | -  | source | No | Yes | 2.0 (2008), deprecated in 4.0 (2019)
-C++ | 2 | source | Yes | Yes | 2.4 (2009)
-Java | 2 | source | Yes | Yes | 2.10 (2012)
-C# | 3 | source | Yes | Yes | 2.10 (2012)
-Python | 3 | source | No | Yes | 3.2 (2015)
+Name | Tier | Kind | Static typing | Sys  | Since Haxe version
+--- | --- | --- | --- | --- | --- 
+JavaScript | 1 | source | No | No | beta (2006) 
+[HashLink](https://hashlink.haxe.org/) | 1 | byte code + source | Yes | Yes | 3.4 (2016)
+Eval | 1 | interpreter | Yes | Yes | 4.0 (2019)
+C++ | 2 | source | Yes | Yes | 2.4 (2009) 
+JVM | 2 | byte code | Yes | Yes | 4.0 (2019)
 Lua | 2 | source | No | Yes | 3.3 (2016)
 PHP7 | 2 | source | No | Yes | 3.4 (2016)
-[**HashLink**](https://hashlink.haxe.org/) | **1** | byte code + source | Yes | Yes | 3.4 (2016)
-JVM | 2 | byte code | Yes | Yes | 4.0 (2019)
-**Eval** | **1** | interpreter | Yes | Yes | 4.0 (2019)
+C# | 3 | source | Yes | Yes | 2.10 (2012)
+Python | 3 | source | No | Yes | 3.2 (2015)
+Java | 3 | source | Yes | Yes | 2.10 (2012) 
+Flash | 3 | byte code | Yes | No | alpha (2005) 
+[Neko](https://nekovm.org/) | 3 | byte code | No | Yes  | alpha (2005) 
+ActionScript 3 | - | source | Yes | No | 1.12 (2007), removed in 4.0 (2019)
+PHP5 | -  | source | No | Yes | 2.0 (2008), removed in 4.0 (2019)
 
 > **Note:**
 > 
@@ -31,4 +31,3 @@ JVM | 2 | byte code | Yes | Yes | 4.0 (2019)
 > - Tier 1 - actively maintained by the core compiler team with a strong focus from the Haxe Foundation
 > - Tier 2 - mostly maintained by individuals in their free time
 > - Tier 3 - kept up-to-date, but not much active development
-> - Tier 4 - will be deprecated soon
