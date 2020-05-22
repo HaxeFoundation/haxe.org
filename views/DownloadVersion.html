@@ -16,11 +16,10 @@
 
 				<p><em>Released: ::version.date::</em></p>
 				<p class="lead">Thank you for choosing Haxe!<br/>Download for your platform and start developing today.</p>
-
 				::if (current != version.version && current < version.version)::
-				<p>This is a pre-release, the current stable release version is <a href="/download/">Haxe ::current::</a>.</p>
+				<p class="alert alert-error"><strong>This is a pre-release</strong><br/>The current stable release version is <a href="/download/" style="color:#13110f">Haxe ::current::</a>.</p>
 				::elseif (current != version.version && current > version.version)::
-				<p>A newer version is available! The latest stable version is <a href="/download/">Haxe ::current::</a>.</p>
+				<p class="alert alert-error"><strong>A newer version is available!</strong><br/>The latest stable version is <a href="/download/" style="color:#13110f">Haxe ::current::</a>.</p>
 				::end::
 			</div>
 			<div class="span6">
