@@ -7,9 +7,9 @@ Name | Tier | Kind | Static typing | Sys  | Since Haxe version
 --- | --- | --- | --- | --- | ---
 JavaScript | 1 | source | No | No | beta (2006)
 [HashLink](https://hashlink.haxe.org/) | 1 | byte code + source | Yes | Yes | 3.4 (2016)
-Eval | 1 | interpreter | Yes | Yes | 4.0 (2019)
+Eval | 1 | interpreter | No | Yes | 4.0 (2019)
+JVM | 1 | byte code | Yes | Yes | 4.0 (2019)
 C++ | 2 | source | Yes | Yes | 2.4 (2009)
-JVM | 2 | byte code | Yes | Yes | 4.0 (2019)
 Lua | 2 | source | No | Yes | 3.3 (2016)
 PHP7 | 2 | source | No | Yes | 3.4 (2016)
 C# | 3 | source | Yes | Yes | 2.10 (2012)
@@ -29,5 +29,5 @@ PHP5 | -  | source | No | Yes | 2.0 (2008), removed in 4.0 (2019)
 > **Tiers:**
 >
 > - Tier 1 - actively maintained by the core compiler team with a strong focus from the Haxe Foundation
-> - Tier 2 - mostly maintained by individuals in their free time
+> - Tier 2 - mostly maintained by individuals, but still managed by the Haxe Foundation
 > - Tier 3 - kept up-to-date, but not much active development
