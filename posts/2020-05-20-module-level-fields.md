@@ -2,12 +2,12 @@ title: Module-level fields are here!
 author: nadako
 description: It is now possible to define functions and variables directly in Haxe modules
 background: module-level-fields.jpg
-published: false
+published: true
 disqusID: 51
 ---
 # Module-level fields are here!
 
-I am happy to announce that we've [just merged](https://github.com/HaxeFoundation/haxe/pull/8460) a new Haxe feature: module-level functions and variables (AKA module-level fields)!
+I am happy to announce that we've [just merged](https://github.com/HaxeFoundation/haxe/pull/8460) a new Haxe feature: module-level functions and variables (module fields, in short)!
 
 This means that Haxe now supports declaring static fields outside of classes, directly in modules next to type declarations:
 
@@ -47,7 +47,7 @@ In fact, the compiler internally transforms such module-level declarations into 
 
 ## Using module-level fields
 
-From the usage standpoint, module-level fields are as well not very different from static fields. However since they are declared at the _module-level_, they share some rules with the other kind of module-level declarations: _types_, the most important to keep in mind being:
+From the usage standpoint, module-level fields are as well not very different from static fields. However since they are declared at the _module-level_, they share some rules with the other kind of module-level declarations: types, the most important to keep in mind being:
 
  - module-level fields are publicly available by default, but can be explicitly made `private`
  - importing a module will import all its fields (together with all its types)
@@ -56,17 +56,29 @@ From the usage standpoint, module-level fields are as well not very different fr
 
 We can also spot this duality if we take a look at the new macro structures:
 
-In the *untyped* AST (`haxe.macro.Expr`) there is a new [`TypeDefKind`](https://api.haxe.org/v/development/haxe/macro/TypeDefKind.html) variant: `TDStatic(kind:FieldType, ?access:Array<Access>)`. Basically we use the old [`TypeDefinition`](https://api.haxe.org/v/development/haxe/macro/TypeDefinition.html) structure together with [`Context.defineType`](https://api.haxe.org/v/development/haxe/macro/Context.html#defineType) or [`Context.defineModule`](https://api.haxe.org/v/development/haxe/macro/Context.html#defineModule) to define a module-level field in a macro.
+In the *untyped* AST (`haxe.macro.Expr`) there is a new [`TypeDefKind`](https://api.haxe.org/v/development/haxe/macro/TypeDefKind.html) variant:
 
-> *It may be argued that with the introduction of module-level fields, the naming is a bit confusing, since it's not only about **type** definitions anymore, but it is not worth breaking existing macro code by changing the structures*.
+```
+TDField(kind:FieldType, ?access:Array<Access>)
+```
 
-In the *typed* AST (`haxe.macro.Type`) there is a new [`ClassKind`](https://api.haxe.org/v/development/haxe/macro/ClassKind.html) variant: `KModuleStatics(module:String)`, which indicates that the class in question is the one containing all the module-level fields defined for this `module`.
+So we define module-level fields in macros using the same [`TypeDefinition`](https://api.haxe.org/v/development/haxe/macro/TypeDefinition.html) structure and together with [`Context.defineType`](https://api.haxe.org/v/development/haxe/macro/Context.html#defineType) or [`Context.defineModule`](https://api.haxe.org/v/development/haxe/macro/Context.html#defineModule).
+
+It may be argued that with the introduction of module-level fields, the naming is a bit confusing, since it's not only about **type** definitions anymore, but at this point it is not worth breaking existing macro code by changing this.
+
+In the *typed* AST (`haxe.macro.Type`) there is a new [`ClassKind`](https://api.haxe.org/v/development/haxe/macro/ClassKind.html) variant:
+
+```
+KModuleFields(module:String)
+```
+
+It is one of the possible values of the [`ClassType.kind`](https://api.haxe.org/v/development/haxe/macro/ClassType.html#kind) field, indicating that the class in question is a container for module-level fields defined for this `module`. And the fields themselves are available in the [`statics`](https://api.haxe.org/v/development/haxe/macro/ClassType.html#statics) array.
 
 This implementation allowed for introducing this feature in the least invasive and breaking way and it automatically works on all targets!
 
 ## Code generation
 
-Speaking of the targets, on the generator side, they can choose to "flatten" `KModuleStatics` classes back into series of function/variable declarations. This is already implemented for the JavaScript target, so if our example module is actually called "MyModule", the generated code for the module-level fields from the example above will be:
+Speaking of the targets, on the generator side, they can choose to "flatten" `KModuleFields` classes back into series of function/variable declarations. This is already implemented for the JavaScript target, so if our example module is actually called "MyModule", the generated code for the module-level fields from the example above will be:
 
 ```js
 function MyModule_main() {
