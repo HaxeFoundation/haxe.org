@@ -47,7 +47,7 @@ In fact, the compiler internally transforms such module-level declarations into 
 
 ## Using module-level fields
 
-From the usage standpoint, module-level fields are as well not very different from static fields. However since they are declared at the _module-level_, they share some rules with the other kind of module-level declarations: types, the most important to keep in mind being:
+From the usage standpoint, module-level fields are as well not very different from static fields. However since they are declared at the _module_ level, they share some rules with the other kind of module-level declarations: types, the most important to keep in mind being:
 
  - module-level fields are publicly available by default, but can be explicitly made `private`
  - importing a module will import all its fields (together with all its types)
