@@ -58,7 +58,7 @@ We can also spot this duality if we take a look at the new macro structures:
 
 In the *untyped* AST (`haxe.macro.Expr`) there is a new [`TypeDefKind`](https://api.haxe.org/v/development/haxe/macro/TypeDefKind.html) variant:
 
-```
+```haxe
 TDField(kind:FieldType, ?access:Array<Access>)
 ```
 
@@ -68,7 +68,7 @@ It may be argued that with the introduction of module-level fields, the naming i
 
 In the *typed* AST (`haxe.macro.Type`) there is a new [`ClassKind`](https://api.haxe.org/v/development/haxe/macro/ClassKind.html) variant:
 
-```
+```haxe
 KModuleFields(module:String)
 ```
 
