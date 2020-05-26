@@ -47,7 +47,7 @@ In fact, the compiler internally transforms such module-level declarations into 
 
 ## Using module-level fields
 
-From the usage standpoint, module-level fields are as well not very different from static fields. However since they are declared at the _module_ level, they share some rules with the other kind of module-level declarations: types, the most important to keep in mind being:
+From a usage standpoint, module-level fields are not very different from static fields. However, since they are declared at the *module* level, they share some rules with the other kind of module-level declarations: types. The most important to keep in mind being:
 
  - module-level fields are publicly available by default, but can be explicitly made `private`
  - importing a module will import all its fields (together with all its types)
@@ -62,7 +62,7 @@ In the *untyped* AST (`haxe.macro.Expr`) there is a new [`TypeDefKind`](https://
 TDField(kind:FieldType, ?access:Array<Access>)
 ```
 
-So we define module-level fields in macros using the same [`TypeDefinition`](https://api.haxe.org/v/development/haxe/macro/TypeDefinition.html) structure and together with [`Context.defineType`](https://api.haxe.org/v/development/haxe/macro/Context.html#defineType) or [`Context.defineModule`](https://api.haxe.org/v/development/haxe/macro/Context.html#defineModule).
+So we can define module-level fields in macros using the same [`TypeDefinition`](https://api.haxe.org/v/development/haxe/macro/TypeDefinition.html) structure, together with [`Context.defineType`](https://api.haxe.org/v/development/haxe/macro/Context.html#defineType) or [`Context.defineModule`](https://api.haxe.org/v/development/haxe/macro/Context.html#defineModule).
 
 It may be argued that with the introduction of module-level fields, the naming is a bit confusing, since it's not only about **type** definitions anymore, but at this point it is not worth breaking existing macro code by changing this.
 
@@ -78,7 +78,7 @@ This implementation allowed for introducing this feature in the least invasive a
 
 ## Code generation
 
-Speaking of the targets, on the generator side, they can choose to "flatten" `KModuleFields` classes back into series of function/variable declarations. This is already implemented for the JavaScript target, so if our example module is actually called "MyModule", the generated code for the module-level fields from the example above will be:
+Speaking of targets, on the generator side, they can choose to "flatten" `KModuleFields` classes back into series of function/variable declarations. This is already implemented for the JavaScript target, so if our example module is actually called `MyModule`, the generated code for the module-level fields from the example above will be:
 
 ```js
 function MyModule_main() {
@@ -90,7 +90,7 @@ function MyModule_greet(greeting) {
 var MyModule_defaultGreeting = { phrase : "Hello, world!"};
 ```
 
-## Use-cases
+## Use cases
 
 We believe this feature will make it more pleasant to develop code in non-OOP paradigms. An obvious example would be functional programming, which focuses more on functions and passive data structures, but there is room for class-less functions in any code, no matter the style.
 
