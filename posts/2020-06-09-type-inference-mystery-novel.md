@@ -1,6 +1,7 @@
 title: The type inference mystery novel
 author: simn
 description: Detective Haxe is on the case but meets an unexpected adversary
+background: SsoKppt2pqY.jpg
 published: true
 disqusID: 53
 ---
