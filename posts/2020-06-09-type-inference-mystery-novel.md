@@ -7,7 +7,7 @@ disqusID: 53
 
 # The type inference mystery novel
 
-Recently I've spent some time investigating our type inference again. A few years back, type inference was one of our selling points. We would commonly describe Haxe as "Kind of like ActionScript3, but with _type inference_." The concept is vast, but most programmers are content with knowing that they can just write `var a = new Array()` without having to add an explicit type-hint for the local variable `a`.
+Recently I've spent some time investigating our type inference again. A few years back, type inference was one of our selling points. We would commonly describe Haxe as "Kind of like ActionScript 3, but with _type inference_." The concept is vast, but most programmers are content with knowing that they can just write `var a = new Array()` without having to add an explicit type-hint for the local variable `a`.
 
 Of course there has been a lot of development in this regard. Type inference used to be something functional programming wizards would channel, creating enchanted code in languages such as Haskell or ML. Nowadays, many of the programming languages used by the proletariat support it as well. It is no longer special, which means this is the perfect time to talk about it in more detail.
 
@@ -77,7 +77,7 @@ function main() {
 
 ```
 
-Clearly we intend to call the middle function again, but Detective Haxe is lead astray and finds the wrong culprit in the `a` case. This happens because it looks at the `itWasYou(i1:Int, i2:Int)` function first. Upon comparing the first argument, it unifies `Unknown<0>` with `Int`, and just like before that leads to the monomorph being bound to `Int`. It is only when comparing the second argument that a harsh realization is made: The type `String` of value `"foo"` cannot be assigned to `i2:Int`.
+Clearly we intend to call the middle function again, but Detective Haxe is led astray and finds the wrong culprit in the `a` case. This happens because it looks at the `itWasYou(i1:Int, i2:Int)` function first. Upon comparing the first argument, it unifies `Unknown<0>` with `Int`, and just like before that leads to the monomorph being bound to `Int`. It is only when comparing the second argument that a harsh realization is made: The type `String` of value `"foo"` cannot be assigned to `i2:Int`.
 
 At this point the compiler knows that it went wrong, but it's already too late: Because the monomorph has been bound to `Int`, it fails to unify the call arguments when attempting to make the call to the `itWasYou(s1:String, s2:String)` function. This causes the `Int should be String` error, as `a` is now bound to `Int`. Our compiler is so locked into thinking that the culprit is `Int` that it never reconsiders.
 
