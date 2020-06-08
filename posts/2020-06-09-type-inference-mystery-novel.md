@@ -16,7 +16,7 @@ Of course there has been a lot of development in this regard. Type inference use
 
 When you work on something for a long time, related terminology becomes very natural and you sometimes forget that not everyone is familiar with it. In the context of Haxe's type inference, it is impossible to not get used to the term "monomorph", which surprisingly only gets you raised eyebrows at dinner conversations. The [Haxe Manual page on type inference](https://haxe.org/manual/type-system-type-inference.html) describes it as "a type that is not yet known". Let us unpack that!
 
-First of all, we're talking about "a type". Even if you can't always see them, [Types](https://haxe.org/manual/types.html) are everywhere in Haxe because we're a proper programming language. The purpose of a type is to let the compiler know what one can do with a value of that type. Some types allow arithmetic operations, others support structural access and many of them are related to each other in various ways, like families in Alabama.
+First of all, we're talking about "a type". Even if you can't always see them, [types](https://haxe.org/manual/types.html) are everywhere in Haxe because we're a proper programming language. The purpose of a type is to let the compiler know what one can do with a value of that type. Some types allow arithmetic operations, others support structural access and many of them are related to each other in various ways, like families in Alabama.
 
 Then there is the "not yet known" part. The "not yet" suggests that there is temporal flow, which we can easily verify in a simple example:
 
