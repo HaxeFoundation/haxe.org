@@ -42,9 +42,9 @@ In chapter 4, we assemble everyone in a room to prove via `$type(a)` that we fou
 
 ## Overloading the detective
 
-Mystery novels often contain a lot of distractions. We need plenty of characters and motives in order to keep the mystery alive and various possibilities open. In a good story, the reader is encouraged to pursue multiple lines of thought, eliminating them one by one as more information is discovered. This is also true for the detective himself, as both he and the reader are mislead in various ways. A clever culprit might even manage to create enough diversions to _overload_ his pursuer.
+Mystery novels often contain a lot of distractions. We need plenty of characters and motives in order to keep the mystery alive and various possibilities open. In a good story, the reader is encouraged to pursue multiple lines of thought, eliminating them one by one as more information is discovered. This is also true for the detective himself, as both he and the reader are misled in various ways. A clever culprit might even manage to create enough diversions to _overload_ his pursuer.
 
-Naturally, the same can happen to the compiler. Haxe supports overloaded functions for extern definition, which is necessary to interact with native APIs on targets like Java and C#. Overloads represent a choice: Depending on what types we call a function with, the compiler could pick one function or another. We can see that in a simple example:
+Naturally, the same can happen to the compiler. Haxe supports overloaded functions for extern definition, which is necessary to interact with native APIs on targets like Java and C#. Overloads represent a choice: Depending on which types we call a function with, the compiler could pick one function or another. We can see that in a simple example:
 
 ```haxe
 extern class Extern {
