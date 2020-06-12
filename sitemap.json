@@ -114,15 +114,15 @@
 	},
 	{
 		"title": "Learn Haxe",
-		"url": "/documentation/introduction/",
+		"url": "/documentation/introduction",
 		"sub": [
 			{
 				"title": "Introduction",
 				"url": "/documentation/introduction/",
 				"sub": [
 					{
-						"title": "Toolkit Introduction",
-						"url": "/documentation/introduction/toolkit-introduction.html"
+						"title": "Haxe introduction",
+						"url": "/documentation/introduction/"
 					},
 					{
 						"title": "Language Introduction",
@@ -145,12 +145,16 @@
 						"url": "/documentation/introduction/editors-and-ides.html"
 					},
 					{
-						"title": "Building Haxe",
+						"title": "Building Haxe compiler",
 						"url": "/documentation/introduction/building-haxe.html"
 					},
+					{ 
+						"title": null, "url": "#divider" 
+					},
 					{
-						"title": "Compiler Usage",
-						"url": "/manual/compiler-usage.html"
+						"title": "Manual",
+						"url": "/manual/",
+						"sub": []
 					}
 				]
 			},

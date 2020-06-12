@@ -6,6 +6,7 @@ import haxe.io.Path;
 import sys.io.File;
 import tink.template.Html;
 using Lambda;
+using StringTools;
 
 class Pages {
 	public static inline var TOTAL_BLOGS:Int = 4;
@@ -73,7 +74,7 @@ class Pages {
 		}
 		var videos = getVideos(TOTAL_VIDEOS);
 		var blogPosts = Blog.posts.splice(0, TOTAL_BLOGS);
-		var currentVersion = Downloads.data.versions.find(function(v) return v.version == Downloads.data.current);
+		var currentVersion = Downloads.data !=null ? Downloads.data.versions.find(function(v) return v.version == Downloads.data.current) : null;
 		
 		var content = Views.HomePage(currentVersion, blogPosts, videos);
 		var editLink = Config.baseEditLink + "views/HomePage.html";
@@ -124,8 +125,26 @@ class Pages {
 		genPage("foundation", root, sitepage, content, "people.md", null, null,null);
 	}
 
-	static function genPage (folder, root, sitepage, content, file, editLink,additionalStyles,additionalScripts) {
-		if (folder != "/") { // Not top level
+	static function genPage (folder:String, root, sitepage, content, file:String, editLink,additionalStyles,additionalScripts) {
+		if (file.startsWith("introduction")) {
+			// Shows menu for introduction section. I have no idea why I need this combo of booleans
+			// Changing those bools hides the menu in some cases.
+			var dir = Path.directory(Path.join([folder, file]));
+			var isIndex = file.endsWith("index.html");
+			var root = SiteMap.pageForUrl(dir, true, !isIndex);
+			var sitepage = SiteMap.pageForUrl(Path.join([folder, file]), false, true);
+			content = Views.PageWithSidebar(
+				SiteMap.prevNextLinks(root.sub, sitepage),
+				new Html(SiteMap.sideBar(root.sub, sitepage)),
+				new Html(content),
+				editLink,
+				if (isIndex) null else {
+					repo: '${Config.repoOrganisation}/haxe.org-comments',
+					branch: Config.manualRepoBranch,
+					title: '[haxe.org/introduction] ${file.replace("introduction/","").replace(".md", "").replace(".html", "")}',
+				}
+			);
+		} else if (folder != "/") { // Not top level
 			if (root != null && sitepage != null) {
 				content = Views.PageWithSidebar(
 					SiteMap.prevNextLinks(root.sub, sitepage),

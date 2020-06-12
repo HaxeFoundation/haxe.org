@@ -1,4 +1,4 @@
-Introduction to the Haxe Toolkit
+The Haxe toolkit components
 =======
 
 The **Haxe Toolkit** is a powerful open source toolkit which will help you take your development to the next level. Instead of developing a separate optimized version of your application, software, game or framework for each platform you target, you can have Haxe compile your project directly into your target language or platform. 
