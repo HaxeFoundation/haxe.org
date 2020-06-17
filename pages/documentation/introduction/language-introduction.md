@@ -18,7 +18,7 @@ The Haxe programming language is a very modern, high-level programming language.
 
 As the Haxe Language has been specially designed for the Haxe Toolkit, we have paid extra attention to its flexibility. As such, the language easily adapts the native behaviours of the different platforms you have targeted in your development project. This enables extremely efficient cross-platform development, ultimately saving time and resources.
 
-See the [Haxe Language Features Introduction](https://haxe.org/documentation/introduction/language-features.html)
+See the [Haxe Language Features Introduction](language-features.html)
 for a tour of some major language features.
 
 
@@ -45,4 +45,4 @@ or to Java:
 
 Most Haxe code is organized in **classes** and **functions**, making Haxe an object-oriented language reminiscent of Java, ActionScript 3 and C#. However, Haxe has been designed with expressiveness in mind, yielding a powerful language through easily readable syntax.
 
-See [Introduction](https://haxe.org/manual/introduction-hello-world.html) chapter in Haxe manual for more info.
+See [Introduction](/manual/introduction-hello-world.html) chapter in Haxe manual for more info.
