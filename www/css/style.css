@@ -1186,6 +1186,9 @@ article h1 {
 article h2 {
 	margin: 1.75em 0 1em;
 }
+article h2 code {
+	font-size: 23px;
+}
 
 article figcaption {
     text-align: center;

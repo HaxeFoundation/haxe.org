@@ -138,5 +138,11 @@
 		"username": "pchertok",
 		"name": "Phil Chertok",
 		"bio": "Marketing Director at the Haxe Foundation"
+	},
+	{
+		"username": "aurel300",
+		"name": "Aurel Bílý",
+		"bio": "Haxe contributor",
+		"country": "sk"
 	}
 ]
