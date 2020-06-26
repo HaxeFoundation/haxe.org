@@ -1,7 +1,7 @@
 title: Haxe Evolution meeting 2020
 author: aurel300
 description: Discussing the recent Haxe Evolution proposals
-background: SsoKppt2pqY.jpg
+background: johannes-plenio-aWDgqexSxA0-unsplash.jpg
 published: true
 disqusID: 55
 ---
@@ -29,7 +29,7 @@ Constructing such an object seems fine, but an issue immediately arises when one
 
 The ["`Void` as unit type"](https://github.com/HaxeFoundation/haxe-evolution/pull/76) proposal aims to address this issue by making `Void` officially a [unit type](https://en.wikipedia.org/wiki/Unit_type), just like the `Noise` type from haxetink linked above. With this change, the `Signal<Void>` example would work fine, and we would emit events with `signal.emit(Void)` – `Void` would become the one valid expression of type `Void`.
 
-Some open questions remain, however. The old Haxe syntax for functions taking 0 arguments is `Void->...`, and making `(Void)->...` behave differently could be confusing to users and potentially a breaking change. This problem may be addressable by making `Void` arguments always skippable. Other questions include:
+Some open questions remain, however. The old Haxe syntax for functions taking no arguments is `Void->...`, and the fact that `(Void)->...` behaves differently might be a bit confusing to users. This problem may be addressable by making `Void` arguments always skippable. Other questions include:
 
  - Shall we allow variables of type `Void`? Should they be eliminated by the compiler since they never contain any data?
  - What is the result of `Array.map` with a `Void`-returning function?
@@ -107,12 +107,6 @@ The ["Macro instances"](https://github.com/HaxeFoundation/haxe-evolution/pull/71
 
 Verdict: **rejected**.
 
-## [Default implementation in interfaces](https://github.com/HaxeFoundation/haxe-evolution/pull/70)
-
-This proposal is an alternative to the abstract classes proposal discussed further below. We decided to accept the latter proposal, so this one was rejected. Some of the preference stems from the fact that we believe interfaces should be completely independent from implementations. Although the detailed design document suggests generating "implementation" classes on the targets that don't natively support interface implementations, it is not clear how this would interact with classes that implement multiple interfaces.
-
-Verdict: **rejected**.
-
 ## [Abstract classes](https://github.com/HaxeFoundation/haxe-evolution/pull/69)
 
 There are often cases when the user has multiple classes that have a very similar interface, and share a lot of the same code. Such situations can be solved using base classes and inheritance.
@@ -180,6 +174,12 @@ We like this idea and we accepted the proposal. We hope it will make some parts 
 
 Verdict: **accepted**.
 
+## [Default implementation in interfaces](https://github.com/HaxeFoundation/haxe-evolution/pull/70)
+
+This proposal is an alternative to the abstract classes proposal above. We decided to accept abstract classes, so this one was rejected. Some of the preference stems from the fact that we believe interfaces should be completely independent from implementations. Although the detailed design document suggests generating "implementation" classes on the targets that don't natively support interface implementations, it is not clear how this would interact with classes that implement multiple interfaces.
+
+Verdict: **rejected**.
+
 ## [`ReadOnlyArray` optimisation](https://github.com/HaxeFoundation/haxe-evolution/pull/68)
 
 The Haxe compiler has an analyser that can generate more efficient code by folding constants, unrolling loops, inlining function calls, and more. The ["`ReadOnlyArray` optimisation"](https://github.com/HaxeFoundation/haxe-evolution/pull/68) proposal suggests an additional, simple optimisation in the specific case of a `ReadOnlyArray` that is declared `final`.
@@ -196,7 +196,7 @@ class Foo {
 
 The semantics of `final` prevent the array from being re-assigned, and the `ReadOnlyArray` type does not allow modifying its elements. In other words, unless reflection is (mis)used, `someArray[x]` will always be the same value throughout the lifetime of the program. As such, it should be safe to inline values in these cases.
 
-A similar optimisation could be useful for `ReadOnlyMap` fields, particularly for maps with enum instances as keys. However, the Haxe AST does not have a dedicated node for map literals, which would make it more difficult to figure out whether a map field is actually constant and what its values are.
+A similar optimisation could be useful for a future `ReadOnlyMap` type, particularly for maps with enum instances as keys. However, the Haxe AST does not have a dedicated node for map literals, which would make it more difficult to figure out whether a map field is actually constant and what its values are.
 
 Verdict: **accepted**.
 
@@ -385,4 +385,4 @@ Verdict: **rejected**.
 
 ## Summary
 
-That's it for now! We hope to have Haxe Evolution meetings more often, since they are very encouraging to keep taking the language further. If you saw anything you liked or disliked, feel free to join the discussion in the links above. Once again, anyone can [create proposals](https://github.com/HaxeFoundation/haxe-evolution/#what-needs-a-proposal), so don't hesitate to suggest improvements to Haxe. We look forward to seeing you there.
+That's it for now! We hope to have Haxe Evolution meetings more often, since they are very encouraging to keep taking the language further. If you saw anything you liked or disliked, feel free to join the discussion in the links above. Once again, anyone can [create proposals](https://github.com/HaxeFoundation/haxe-evolution/#what-needs-a-proposal), so don't hesitate to suggest improvements to Haxe. If you don't have all the details of your idea worked out yet, you are welcome to [create an issue](https://github.com/HaxeFoundation/haxe-evolution/issues) to talk about it. We look forward to seeing you there.
