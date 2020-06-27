@@ -1,7 +1,7 @@
 title: Haxe Evolution meeting 2020
 author: aurel300
 description: Discussing the recent Haxe Evolution proposals
-background: johannes-plenio-aWDgqexSxA0-unsplash.jpg
+background: dna-1811955_1920.jpg
 published: true
 disqusID: 55
 ---
