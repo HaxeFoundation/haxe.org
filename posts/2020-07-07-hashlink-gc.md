@@ -1,7 +1,7 @@
 title: The new HashLink garbage collector
 author: aurel300
-description: TODO
-background: dna-1811955_1920.jpg
+description: Immix-based GC improves HashLink performance
+background: garbage.jpg
 published: true
 tags: tech
 disqusID: 56
