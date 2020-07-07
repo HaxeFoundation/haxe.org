@@ -18,14 +18,14 @@ For one, it's a very interesting engineering problem! A large part of my thesis 
 But personal interest aside, HashLink has the potential for great performance. This is especially visible with the HL/C target, which can be optimised by powerful compilers such as GCC or Clang. We can see this on the [N-body](https://benchs.haxe.org/nbody) benchmark:
 
 <figure>
-	<img src="behch-old-nbody.png" alt="Haxe N-body benchmark" />
+	<img src="bench-old-nbody.png" alt="Haxe N-body benchmark" />
 	<figcaption>The N-body benchmark times for some of Haxe targets</figcaption>
 </figure>
 
 HL/C actually beats all Haxe targets in this benchmark except for C++. However, the compilation time is much faster for HL/C, and much faster still for HL/JIT, which is very useful for debug builds. On the other hand, HashLink performs measurably worse when memory allocation is involved. We can see this on the [Mandelbrot](https://benchs.haxe.org/mandelbrot) benchmark, which performs thousands and thousands of object allocations:
 
 <figure>
-	<img src="behch-old-mandelbrot.png" alt="Haxe Mandelbrot benchmark" />
+	<img src="bench-old-mandelbrot.png" alt="Haxe Mandelbrot benchmark" />
 	<figcaption>The Mandelbrot benchmark times for some of Haxe targets</figcaption>
 </figure>
 
