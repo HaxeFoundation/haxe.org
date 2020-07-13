@@ -10,7 +10,7 @@ disqusID: 57
 
 [Last time we spoke](https://haxe.org/blog/type-inference-mystery-novel/), Detective Haxe was in a bad spot. The villains had managed to lead him astray by overloading his deductive process. There was a misconception, a glaring contradiction that could only mean that an invalid assumption had been made. And although there was a glimmer of hope at the end, the audience was left wondering if our protagonist would persevere.
 
-Now, a month later, Detective Haxe has again assembled everyone in the room and is about to announce the culprit. It seems like a déjà vu, the recurrence of an event that took place in the past. This would be about the same case, the same suspects, and the and same detective. But something had changed... In order to understand what transpired, we have to travel back in time.
+Now, a month later, Detective Haxe has again assembled everyone in the room and is about to announce the culprit. It seems like a déjà vu, the recurrence of an event that took place in the past. This would be about the same case, the same suspects, and the same detective. But something had changed... In order to understand what transpired, we have to travel back in time.
 
 No monomorphs were harmed during the making of this article.
 
@@ -54,14 +54,14 @@ class Main {
 
 Again, we don't know what exactly the type is, but it is _at least_ `Float`. It could be `Int`, or something else that can be assigned to `Float`. In general, constraints are very useful whenever we want to describe some sort of lower bound.
 
-There is, however, a slight risk here: If our constraints are too liberal, they could <strike>enroll in an American college campus</strike> create a type-hole. Imagine if, in the open structure example, we would just allow further and further structural constraints to be added, even outside the function in question. This would, obviously, weaken our typing, as a typo like `agee` would create a new field constraint instead of a compilation error. Intuitively, we have to stop allowing additional constraints once we're done typing the function.
+There is, however, a slight risk here: If our constraints are too liberal, they could <strike>enroll in an American college campus</strike> create a type-hole. Imagine if, in the open structure example, we would just allow further and further structural constraints to be added, even outside the function in question. This would weaken our typing, as a typo like `agee` would create a new field constraint instead of a compilation error. Intuitively, we have to stop allowing additional constraints once we're done typing the function.
 
 
 ## Free Spirits
 
 Honestly, Detective Haxe is a bit of a dolt sometimes. He conducts all these fancy investigations, weaves this beautiful web of relationships between various actors, and grows trees that reach the heavens and span the horizon - and yet he never even kept a proper list of the monomorphic suspects he's observing. They are free spirits that roam the Haxian Plains, which is very romantic, but not very pratical when you actually want to get a hold of them.
 
-And we do want to get a hold of them. We just established that we have to stop allowing additional inference - that the constrained monomorph has to _closed_. In order to do so, we need to know how to contact it so that we can turn towards them after typing a function and say "Just one more thing..." Fortunately, this was straightforward for the open structure case because there's only a single place where these monomorphs are created, so it was [part of the original pull request](https://github.com/HaxeFoundation/haxe/pull/9549/files#diff-7751fb5a214587d52bb38306d17d7dbbR518).
+And we do want to get a hold of them. We just established that we have to stop allowing additional inference - that the constrained monomorph has to be _closed_. In order to do so, we need to know how to contact it so that we can turn towards them after typing a function and say "Just one more thing..." Fortunately, this was straightforward for the open structure case because there's only a single place where these monomorphs are created, so it was [part of the original pull request](https://github.com/HaxeFoundation/haxe/pull/9549/files#diff-7751fb5a214587d52bb38306d17d7dbbR518).
 
 We can observe that this works as advertised:
 
@@ -137,10 +137,10 @@ And with that, the mystery was solved.
 
 ## Aftermath
 
-In the end, the actual change was quite minor: once we had a list of all the monomorphs, all we needed to do is remembering their state before unifying the call to an overloaded function and then resetting it upon failure. I already had this idea when writing the last article, but actually finding these dreaded monomorphs was more annoying than I thought.
+In the end, the actual change was quite minor: once we had a list of all the monomorphs, all we needed to do is remember their state before unifying the call to an overloaded function and then resetting it upon failure. I already had this idea when writing the last article, but actually finding these dreaded monomorphs was more annoying than I thought.
 
 Technically, the whole constrained monomorph business is not strictly related to this overload reset problem. However, reorganizing monomorph handling like that made it a lot simpler to deal with this problem, too. We also got [type parameter constraints on local function](https://github.com/HaxeFoundation/haxe/issues/9559) as a fallout from this change, and there are some [plans](https://github.com/HaxeFoundation/haxe/issues/9553) to further extend this.
 
-Overall, I think Haxe's type inference is heading in the right direction and I look forward to further improvements (and writing about them)! If you have suggestion for future articles, please let me know.
+Overall, I think Haxe's type inference is heading in the right direction and I look forward to further improvements (and writing about them)! If you have suggestions for future articles, please let me know.
 
 ... and if you see Detective Haxe at the bar, don't buy him a drink. Last time somebody did that, he ended up hopping through the precinct with his pants at his ankles while repeatedly yelling "Int should be Int!"
