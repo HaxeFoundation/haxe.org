@@ -54,7 +54,7 @@ class Main {
 
 Again, we don't know what exactly the type is, but it is _at least_ `Float`. It could be `Int`, or something else that can be assigned to `Float`. In general, constraints are very useful whenever we want to describe some sort of lower bound.
 
-There is, however, a slight risk here: If our constraints are too liberal, they could <strike>enroll in an American college campus</strike> create a type-hole. Imagine if, in the open structure example, we would just allow further and further structural constraints to be added, even outside the function in question. This would weaken our typing, as a typo like `agee` would create a new field constraint instead of a compilation error. Intuitively, we have to stop allowing additional constraints once we're done typing the function.
+There is, however, a slight risk here: If our constraints are too liberal, they could <strike>enroll in an American college</strike> create a type-hole. Imagine if, in the open structure example, we would just allow further and further structural constraints to be added, even outside the function in question. This would weaken our typing, as a typo like `agee` would create a new field constraint instead of a compilation error. Intuitively, we have to stop allowing additional constraints once we're done typing the function.
 
 
 ## Free Spirits
@@ -89,7 +89,7 @@ We assign the monomorph that belongs to `x` to the argument of the `test` functi
 Closing a monomorph means looking at its constraints and determining a type that it should be bound to. Currently, this happens in two situations:
 
 1. If the monomorph is structurally constrained like in the example here, bind it to a structure type that contains all the structural constraint fields.
-2. If the monomorph is constrained to a single type, bind it do that type.
+2. If the monomorph is constrained to a single type, bind it to that type.
 
 This is all that was needed for these open structure monomorphs. But there are others. Monomorphs are everywhere. One might be right behind you as you're reading this, waiting for you to be so immersed in this story that you stop paying attention to your surroundings, and then...
 
