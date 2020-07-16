@@ -39,11 +39,11 @@ With Haxe installed and this program saved in a file called "HelloWorld.hx", thi
 
     haxe --main HelloWorld --js HelloWorld.js
 
-to Java:
+to JVM bytecode (a jar file):
 
-    haxe --main HelloWorld --java path/to/java/out
+    haxe --main HelloWorld --jvm HelloWorld.jar
 
-or just run directly by Haxe's built-in interpreter:
+or HelloWorld.hx can be run directly by Haxe's built-in interpreter:
 
     haxe --main HelloWorld --interp
 
