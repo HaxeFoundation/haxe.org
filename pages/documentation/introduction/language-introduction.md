@@ -37,11 +37,15 @@ class HelloWorld {
 
 With Haxe installed and this program saved in a file called "HelloWorld.hx", this can be compiled from the command line, for example to JavaScript:
 
-	haxe --main HelloWorld --js HelloWorld.js
+    haxe --main HelloWorld --js HelloWorld.js
 
-or to Java:
+to JVM bytecode (a jar file):
 
-	haxe --main HelloWorld --java path/to/java/out
+    haxe --main HelloWorld --jvm HelloWorld.jar
+
+or HelloWorld.hx can be run directly by Haxe's built-in interpreter:
+
+    haxe --main HelloWorld --interp
 
 Most Haxe code is organized in **classes** and **functions**, making Haxe an object-oriented language reminiscent of Java, ActionScript 3 and C#. However, Haxe has been designed with expressiveness in mind, yielding a powerful language through easily readable syntax.
 
