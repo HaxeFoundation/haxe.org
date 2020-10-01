@@ -19,13 +19,13 @@ Add a file named `YEAR-MONTH-DAY-name.md` in `posts/`.
 
 The first part of the file contains the post metadata:
 ```yml
-title: The title of your post
-author: Author id
-description: The description of your post
-background: Optional image filename used as background for the post header
-published: true/false, if true it'll apear in the blog post list/rss feed
-tags: Comma separated of tags id
-disqusID: Unique id number used for comments, take the number of the last post and increment it by one
+Title: The title of your post
+Author: Author id
+Description: The description of your post
+Background: Optional image filename used as background for the post header
+Published: true/false, if true it'll apear in the blog post list/rss feed
+Tags: Comma separated of tags id
+DisqusID: Unique id number used for comments, take the number of the last post and increment it by one
 ---
 
 ```
