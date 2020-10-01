@@ -11,7 +11,7 @@ This is the code base for the <https://haxe.org> website.
 
 On the website there is a "Contribute" link on the footer of each page.  Clicking this link will take you to the relevant file in this repository, or the relevant file in the [HaxeManual repository](https://github.com/HaxeFoundation/HaxeManual).
 
-You can then edit using Github's online file editor and submit a pull request. You can also fork the repo and edit on your local machine with your preferred text editor, which may be easier for large integrations.
+You can then edit using Github's online file editor and submit a pull request. You can also fork the repository and edit on your local machine with your preferred text editor, which may be easier for large integrations.
 
 ### Adding a blog post
 
@@ -53,7 +53,7 @@ The tags should be listed in `posts/tags.json`:
 The post needs to have the `---` and the blank line between the metadata and the content.
 
 The content of a post is in markdown, but you can include some html.
-If you do it needs to be valid xml, so all tags needs to be closed: `<br />` is okay but `<br>` is not, and you can't have value-less attributes: `<tag fullscreen="" />` is okay but `<tag fullscren />` is not.
+If you do it needs to be valid xml, so all tags needs to be closed: `<br />` is okay but `<br>` is not, and you can't have value-less attributes: `<tag fullscreen="" />` is okay but `<tag fullscren />` is not.Using upper-case or lower-case won't affect your outputs.So it would be always be same.
 
 To include an image in markdown: `![Title](name.png)`.
 The image should be stored in `www/img/blog/YEAR-MONTH-DAY-name/`.
