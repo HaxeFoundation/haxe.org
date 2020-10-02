@@ -5,13 +5,13 @@ haxe.org
 [![Code Climate](https://codeclimate.com/github/HaxeFoundation/haxe.org/badges/gpa.svg)](https://codeclimate.com/github/HaxeFoundation/haxe.org)
 [![Issue Count](https://codeclimate.com/github/HaxeFoundation/haxe.org/badges/issue_count.svg)](https://codeclimate.com/github/HaxeFoundation/haxe.org)
 
-This is the code base for the <https://haxe.org> website.
+This is the codebase for the <https://haxe.org> website.
 
 ## Contributing Content
 
-On the website there is a "Contribute" link on the footer of each page.  Clicking this link will take you to the relevant file in this repository, or the relevant file in the [HaxeManual repository](https://github.com/HaxeFoundation/HaxeManual).
+On this website, there is a "Contribute" link at the footer of each page.  Clicking on this link will take you to the relevant file in this repository, or the relevant file in the [HaxeManual repository](https://github.com/HaxeFoundation/HaxeManual).
 
-You can then edit using Github's online file editor and submit a pull request. You can also fork the repo and edit on your local machine with your preferred text editor, which may be easier for large integrations.
+Then, You can edit using Github's online file editor and submit a pull request. You can also fork the repo and edit on your local machine with your preferred text editor, which may be easier for large integrations.
 
 ### Adding a blog post
 
@@ -62,7 +62,7 @@ The image should be stored in `www/img/blog/YEAR-MONTH-DAY-name/`.
 
 If you find a bug, have an issue, suggestion, or want to contribute in some other way, please use the Github Issue Tracker.
 
-Any bugs we will attempt to address promptly. New content or subjective issues (colours, fonts, marketing material etc) will be considered on a case by case basis.
+If Any bugs were there, we will attempt to address promptly. New content or subjective issues (colours, fonts, marketing material etc) will be considered on a case by case basis.
 
 If you are a designer and want to help freshen up the look of the site, please open an issue or contact <contact@haxe.org>. We'd love your input!
 
