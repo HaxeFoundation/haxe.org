@@ -9,7 +9,7 @@ The most notable changes:
 - the JVM target is no longer experimental
 - we reworked exception handling.
 
-We've gone into more detail about that in [this blog post](haxe.org/blog/haxe-4.1.0-release/).
+We've gone into more detail about that in [this blog post](https://haxe.org/blog/haxe-4.1.0-release/).
 
 Haxe 4.1.0 also includes over one hundred other additions, optimizations, improvements, and bugfixes.
 
