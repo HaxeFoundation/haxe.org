@@ -1,0 +1,65 @@
+{
+	"title": "HaxeIn 2020",
+	"description": "HaxeIn is an online streamed event, which was held 14th October 2020",
+	"videos": [
+	  {
+		"title": "Simon Krajewski & Josefiene Pertosa - Welcome!",
+		"where": "HaxeIn 2020",
+		"description": "",
+		"date": "2020-10-14",
+		"youtubeId": "hpOIrRrCAjA"
+	  },
+	  {
+		"title": "Aleksandr Kuzmenko - News from the Haxiverse",
+		"where": "HaxeIn 2020",
+		"description": "<a href='https://docs.google.com/presentation/d/1KWc2qUaH2JWhtF2axyagYrAZ1JiZwrSkKkM01maF8pU/edit#slide=id.p'>Slides for the presentation</a>",
+		"date": "2020-10-14",
+		"youtubeId": "wTYvfVb7Q2E",
+    "featured": true
+	  },
+	  {
+		"title": "Hugh Sanderson - Getting Haxe into all your Crevasses",
+		"where": "HaxeIn 2020",
+		"description": "",
+		"date": "2020-10-14",
+		"youtubeId": "QEdrILf88g0",
+    "featured": true
+	  },
+	  {
+		"title": "Matthijs Kamstra - Creative Coding the Hard Way",
+		"where": "HaxeIn 2020",
+		"description": "",
+		"date": "2020-10-14",
+		"youtubeId": "oAWX6Jez2kk"
+	  },
+	  {
+		"title": "Nicolas Cannasse - HIDE - A Heaps IDE",
+		"where": "HaxeIn 2020",
+		"description": "",
+		"date": "2020-10-14",
+		"youtubeId": "8-ncXXU3Bas"
+	  },
+	  {
+		"title": "Justin Donaldson - Parsing Expression Grammars in Haxe",
+		"where": "HaxeIn 2020",
+		"description": "",
+		"date": "2020-10-14",
+		"youtubeId": "CtNQvjyioGQ"
+	  },
+    {
+		"title": "Thomas J. Webb - Real-Time Audio Programming in Haxe",
+		"where": "HaxeIn 2020",
+		"description": "",
+		"date": "2020-10-14",
+		"youtubeId": "4leDPgO5N2o",
+    "featured": true
+	  },
+	  {
+		"title": "Josefiene Pertosa - Haxe On!",
+		"where": "HaxeIn 2020",
+		"description": "",
+		"date": "2020-10-14",
+		"youtubeId": "yp146lguE7I"
+	  }
+	]
+}
