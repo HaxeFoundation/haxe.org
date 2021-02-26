@@ -24,6 +24,7 @@ install:
   - git clone https://github.com/HaxeFoundation/HaxeManual.git manual
   # install awscli
   - pip3 install --user awscli
+  - pip3 install rsa
   - aws --version
   # install haxelibs
   - yes | haxelib install all
