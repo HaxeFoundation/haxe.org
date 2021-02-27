@@ -1,0 +1,228 @@
+{
+	"title": "How to make your first game in HaxeFlixel",
+	"description": "Learn how to use Haxe and HaxeFlixel to make simple game. Ideal for game jammers, Java, Javascript or Typescript devs. - Richard Oliver Bray",
+	"videos": [
+		{
+			"featured": true,
+			"title": "1. What make up HaxeFlixel? (Haxe, OpenFL, Lime, Flixel)",
+			"where": null,
+			"description": "HaxeFlixel is a great simple 2D engine, but there are a few core things that are used to build them. This video covers the core which will give a better understanding of what they do.",
+			"date": "2020-08-06",
+			"youtubeId": "wyB5fIBtR3g"
+		},
+		{
+			"featured": true,
+			"title": "2. Setting up your first game in HaxeFlixel - Part 1 - Using the game jam template repo",
+			"where": null,
+			"description": "How to install a simple Haxeflixel project using the game-jam-template repository in github. This is helpful for those who don't want to use lix.",
+			"date": "2020-08-13",
+			"youtubeId": "bBVNYUjNFto"
+		},
+		{
+			"featured": true,
+			"title": "3. Setting up your first game in HaxeFlixel - Part 2 - Using the lix game jam template repo",
+			"where": null,
+			"description": "How to install a simple Haxeflixel project using a lix version game-jam-template repository in github. This is more useful for those who don't want to install dependencies globally and is my preferred way of developing games with HaxeFlixel",
+			"date": "2020-08-20",
+			"youtubeId": "SG6JEC1BkXw"
+		},
+		{
+			"featured": true,
+			"title": "4. Setting up your first game in HaxeFlixel - Part 3 - Automatically rebuilding the game on file save",
+			"where": null,
+			"description": "One of the things I love about HaxeFlixel is its customisability. In this video, I talk through using NPM scripts to automatically rebuild the game each time a file has been saved.",
+			"date": "2020-08-27",
+			"youtubeId": "k8c9lj5KeTk"
+		},
+		{
+			"featured": true,
+			"title": "5. Setting up your first game in HaxeFlixel - Part 4 - Finishing up",
+			"where": null,
+			"description": "I've actually realised throughout the product we're always making weeks to the setup so this isn't exactly the last video but this is the final setup we'll do before we actually start making the game.",
+			"date": "2020-08-27",
+			"youtubeId": "oB5pMtvSG4A"
+		},
+		{
+			"title": "6. How to add/load a 2D sprite to a game in Haxeflixel",
+			"where": null,
+			"description": "This video makes it look like a long process to add a sprite to a HaxeFlixel project but it's actually quite quick. After you do it once you'll see how easy it is to add it again.",
+			"date": "2020-09-03",
+			"youtubeId": "Zjk0LAJZG4E"
+		},
+		{
+			"title": "7. How to make sprite move with keyboard controls in Haxeflixel",
+			"where": null,
+			"description": "The next most logical step after getting a character/sprite on the screen is to get them to move, in our case with a keyboard. This video also shows how easy that is to do with Haxeflixel.",
+			"date": "2020-09-10",
+			"youtubeId": "gt-sxLdU3e8"
+		},
+		{
+			"title": "8. How to add sprite sheet animations in Haxeflixel",
+			"where": null,
+			"description": "2D games are so fun to make, and adding animations it what adds to that. Spritesheet animations are so easy to add in Haxeflixel and this video shows you how to do them.",
+			"date": "2020-09-17",
+			"youtubeId": "kiZCsJ_NgdM"
+		},
+		{
+			"title": "9. How to add gravity to a sprite and collisions in Haxeflixel - Part 1",
+			"where": null,
+			"description": "We finally get to make the character jump, but jumping doesn't really work without collisions and gravity. This video will show you how to add all three of those things, well half of this video does.",
+			"date": "2020-09-24",
+			"youtubeId": "cvaBlCP9cT8"
+		},
+		{
+      "title": "10. How to add gravity to a sprite and collisions in Haxeflixel - Part 2",
+      "where": null,
+      "description": "This is a continuation from the previous sprite jump, gravity, and collisions video and this will end this sprite section of creating your first game in Haxeflixel. Hope to see you in the next video.",
+      "date": "2020-09-24",
+      "youtubeId": "Lh9KgykpF-0"
+    },
+		{
+      "title": "11. How to use Tiled Map Editor to create a level in HaxeFlixel",
+      "where": null,
+      "description": "When it comes to making level in HaxeFlixel, Ogmo3 is the defacto choice for most developers. When I learnt HaxeFlixel a while back I used Tiled Map Editor, so I thought I'd show you how I do it.",
+      "date": "2020-10-01",
+      "youtubeId": "Wu-FdQZKBHk"
+    },
+		{
+      "title": "12. How to load a Tiled Map level into a HaxeFlixel game",
+      "where": null,
+      "description": "We talked about creating a level for HaxeFlixel in the Tiled Map editor. In this video, we'll talk about loading the level we created into our game.",
+      "date": "2020-10-08",
+      "youtubeId": "DF1r5XurRss"
+    },
+		{
+      "title": "13. How to add collisions to our Tiled Map Editor level in HaxeFlixel",
+      "where": null,
+      "description": "We've loaded up a simple level with Tiled Map editor into our HaxeFlixel game. Now we're going to add some collectables to our game.",
+      "date": "2020-10-15",
+      "youtubeId": "h_dBcYSiiFk"
+    },
+		{
+      "title": "14. Adding collectables with Tiled Map editor to a HaxeFlixel game - Part 1",
+      "where": null,
+      "description": "We've loaded up a simple level with Tiled Map editor into our HaxeFlixel game. Now we're going to add some collectables.",
+      "date": "2020-10-22",
+      "youtubeId": "-rztnAMHjAY"
+    },
+		{
+      "title": "15. Adding collectables with Tiled Map editor to a HaxeFlixel game - Part 2",
+      "where": null,
+      "description": "In our last video, we added the collectables and in this video, we are going to add a method to track each star that the player collects.",
+      "date": "2020-10-22",
+      "youtubeId": "Sw7JwjVZLVM"
+    },
+		{
+      "title": "16. Using FlxText to create a HUD in Haxeflixel",
+      "where": null,
+      "description": "After collecting the score we need to fin a way of showing it to the user. FlxText is the best way to do that, and in this video I will show you how to complete this very simple task.",
+      "date": "2020-10-29",
+      "youtubeId": "0pTnaV3nU84"
+    },
+		{
+      "title": "17. How to format FlxText and change fonts globally in Haxeflixel",
+      "where": null,
+      "description": "We use Figma in this tutorial to format the text. I'm not sure if there is a way to do this directly in HaxeFlixel with Flixel-studio or something but Figma, (or Photosjop, Sketch, or Adobe XD) are great ways of getting values to format text.",
+      "date": "2020-11-05",
+      "youtubeId": "yQeBUvk8O-o"
+    },
+		{
+      "title": "18. Adding a goal to our level in Haxeflixel",
+      "where": null,
+      "description": "Now we're getting somewhere. Let's make a goal for our game so the player knows when they have finished and can move on to the next level.",
+      "date": "2020-11-12",
+      "youtubeId": "SUV4kPc1gqE"
+    },
+		{
+      "title": "19. How to use FlxSubState to create a level complete screen in HaxeFlixel",
+      "where": null,
+      "description": "Instead of creating a completely new screen to let the player know they've completed the level, we'll show a substate. I talk a bit about that in this video.",
+      "date": "2020-11-19",
+      "youtubeId": "86mR84jmZ9s"
+    },
+		{
+      "title": "20. Linking states/level together in HaxeFlixel - Part 1",
+      "where": null,
+      "description": "In this video, we will focus on linking our level two to our level one so that the player can progress through the game.",
+      "date": "2020-11-26",
+      "youtubeId": "nDfXeVMbRjA"
+    },
+		{
+      "title": "21. Linking states/levels together in Haxeflixel - Part 2",
+      "where": null,
+      "description": "For some reason, I wasn't able to finish the linking part in the previous video, loads of issues in that one. So I wrap things up in this video.",
+      "date": "2020-11-26",
+      "youtubeId": "vgTXmAmL-mk"
+    },
+		{
+      "title": "22. Adding music and sound effects to a game in HaxeFlixel",
+      "where": null,
+      "description": "Okay, now we're getting into the polishing phase. In this video, I demonstrate how easy it is to add sounds and music to games with HaxeFlixel.",
+      "date": "2020-12-03",
+      "youtubeId": "qR1OntJJVKk"
+    },
+		{
+      "title": "23. How to remove the HaxeFlixel branding i.e. splash screen, auto pause. mouse cursor",
+      "where": null,
+      "description": "There's a lot of stuff that comes with HaxeFlixel by default and although it's all great, in case you'd like to remove it this video goes through how to do that.",
+      "date": "2020-12-10",
+      "youtubeId": "kEXeCx2W18g"
+    },
+		{
+      "title": "24. How to create a custom preloader in HaxeFlixel",
+      "where": null,
+      "description": "There isn't much out there on the web to help people create custom loaders in HaxeFlixel. I have created this video which is heavily based on the article I add below by GamePooper. Please check that out if you want to know more.",
+      "date": "2020-12-17",
+      "youtubeId": "XHTkOKROebc"
+    },
+		{
+      "title": "25. How to export and publish your game in Haxeflixel",
+      "where": null,
+      "description": "This is the final video of our getting started with HaxeFlixel video and will show you how to export your game the web, so html5 and natively on the Mac.",
+      "date": "2020-12-24",
+      "youtubeId": "hazPGvI5DfA"
+    },
+		{
+      "title": "26. Mac system build notifications for HaxeFlixel",
+      "where": null,
+      "description": "This is something I find very useful when developing a game. It saves me a lot of time when creating to know when a build has finished and I will show you how to do it.",
+      "date": "2020-08-16",
+      "youtubeId": "hazPGvI5DfA"
+    },
+		{
+      "title": "27. How to use a custom game icon in HaxeFlixel",
+      "where": null,
+      "description": "This video explains how to add a custom icon for your project made in HaxeFlixel. It's something that's easy to do but not well documented.",
+      "date": "2020-11-27",
+      "youtubeId": "MYkMKQn6TnQ"
+    },
+		{
+      "title": "28. Adding a finite state machine (FSM) to a HaxeFlixel sprite - Part 1 - setting up",
+      "where": null,
+      "description": "Finite state machines are more of an advanced thing to do in HaxeFlixel or in game development full stop. It is a way of inherently restricting your game object to prevent unnecessary errors. This is the first and most important step for your state machine, figuring out how it will work.",
+      "date": "2020-12-31",
+      "youtubeId": "z3qQpGHozso"
+    },
+		{
+      "title": "29. Adding a finite state machine (FSM) to a HaxeFlixel sprite - Part 2 - using switch case and enums",
+      "where": null,
+      "description": "Using enums and a switch case statement is possibly the simplest way to add an FSM. Remember, this is only beneficial if a sprite has a lot of different states, if they're just jumping and running you won't need this, but it's good to know nevertheless.",
+      "date": "2021-01-07",
+      "youtubeId": "hNgXIlCHEls"
+    },
+		{
+      "title": "30. Adding a finite state machine (FSM) to a HaxeFlixel sprite - Part 3 - using FlxFSM",
+      "where": null,
+      "description": "Conveniently Haxe`flixel comes with an addon built for doing FSMs called FlxFSM. It provides a lot of helpful things like transitions and states which, although increase the number of lines in our code, it makes the code way more manageable when it comes to states.",
+      "date": "2021-01-14",
+      "youtubeId": "VsuQmvjHYYQ"
+    },
+		{
+      "title": "31. Adding a finite state machine (FSM) to a HaxeFlixel sprite - Part 4 - fixing FlxFSM bugs",
+      "where": null,
+      "description": "This is somewhat of an optional video. Due to the lack of IntelliSense I ran into more bugs than expected. This video is basically me addressing them.",
+      "date": "2021-01-14",
+      "youtubeId": "A8kD7Kx6q0Q"
+    }
+	]
+}
