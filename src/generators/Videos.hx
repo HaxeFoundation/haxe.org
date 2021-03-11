@@ -114,8 +114,7 @@ class Videos {
 		// sort videos from new to old date
 		for (section in sections) {
 			for (category in section.categories) {
-				// yep, that is string compare and I don't care
-				category.videos.sort(function(a, b) return a.date < b.date ? 1 : -1);
+				category.videos.sort(function(a, b) return Date.fromString(a.date).getTime() < Date.fromString(b.date).getTime() ? 1 : -1);
 
 				var i = 0;
 				while (category.featuredVideos.length < 5 && category.videos.length >= 5) {
