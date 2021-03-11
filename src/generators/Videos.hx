@@ -111,10 +111,14 @@ class Videos {
 		}
 		read(Config.videosPath);
 
-		// sort videos from new to old date
+		// sort videos from new to old date. if same date, it's sorted on title
 		for (section in sections) {
 			for (category in section.categories) {
-				category.videos.sort(function(a, b) return Date.fromString(a.date).getTime() < Date.fromString(b.date).getTime() ? 1 : -1);
+				category.videos.sort(function(a, b) {
+					return 
+						if (a == b) Reflect.compare(a.title, b.title)
+						else Date.fromString(a.date).getTime() < Date.fromString(b.date).getTime() ? 1 : -1;
+				});
 
 				var i = 0;
 				while (category.featuredVideos.length < 5 && category.videos.length >= 5) {
