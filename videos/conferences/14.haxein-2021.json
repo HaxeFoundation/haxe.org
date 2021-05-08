@@ -1,0 +1,37 @@
+{
+	"title": "HaxeIn 2021",
+	"description": "HaxeIn is an online streamed event, which was held 15th April 2021",
+	"videos": [
+	  {
+		"title": "Welcoming the community - Josefiene Pertosa, Maximilian Kaeding, Simon Krajewski",
+		"where": "HaxeIn 2021",
+		"description": "",
+		"date": "2021-04-15",
+		"youtubeId": "VJ33_Wp0FYQ"
+	  },
+	  {
+		"title": "[Re]Evolution of Forge of Empires with Haxe - Ricardo Neves & Nikolas Banspach",
+		"where": "HaxeIn 2021",
+		"description": "",
+		"date": "2021-04-15",
+		"youtubeId": "uG34XghYk0c",
+		"featured": true
+	  },
+	  {
+		"title": "Haxe Spring Report - Simon Krajewski",
+		"where": "HaxeIn 2021",
+		"description": "",
+		"date": "2021-04-15",
+		"youtubeId": "Q7Hrih2hyEk",
+		"featured": true
+	  },
+	  {
+		"title": "Community Q&A with InnoGames and the Haxe Foundation",
+		"where": "HaxeIn 2021",
+		"description": "",
+		"date": "2021-04-15",
+		"youtubeId": "ThqpxQdlh7Q",
+		"featured": true
+	  }
+	]
+}
