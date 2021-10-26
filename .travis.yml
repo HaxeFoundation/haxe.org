@@ -3,7 +3,7 @@ language: haxe
 haxe:
   - "4.2.2"
 
-dist: xenial
+dist: bionic
 
 addons:
   apt:
