@@ -7,9 +7,14 @@ dist: bionic
 
 addons:
   apt:
+    update:
+      true
+    sources:
+    - deadsnakes
     packages:
     - inkscape
     - nodejs
+    - python3.7
     - python3-pip
     - python3-setuptools
 
@@ -22,6 +27,8 @@ install:
   - fc-cache -f -v
   # checkout HaxeManual
   - git clone https://github.com/HaxeFoundation/HaxeManual.git manual
+  # update pip
+  - python3.7 -m pip install pip
   # install awscli
   - pip3 install --user awscli
   - pip3 install rsa
