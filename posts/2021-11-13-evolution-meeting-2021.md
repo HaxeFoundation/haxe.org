@@ -25,7 +25,7 @@ This can be awkward when one wants to simply write a large number that would fit
 
 There are multiple issues coming to light here:
 
-- Haxe does not take the expected type into account when parsing number literals,
+- Haxe does not take the expected type into account when typing number literals,
 - there is no syntax for `Int64` literals at all (instead, `Int64.make` or similar workarounds must be used), and
 - there is no syntax to indicate that a particular literal should be forced to be of a particular type.
 
@@ -34,11 +34,11 @@ The ["`haxe.Int64` numeric literal suffix"](https://github.com/HaxeFoundation/ha
 ```haxe
 10000i32;       // Int
 2147483648u32;  // UInt
-10000000000i32; // haxe.Int64
+10000000000i64; // haxe.Int64
 5f64;           // Float
 ```
 
-The complete list includes more suffixes (e.g. `u8` for an unsigned byte), but until we have a better variety of integer types in the Haxe standard library, these will probably not be parsed yet.
+The complete list includes more suffixes (e.g. `u8` for an unsigned byte), but until we have a better variety of integer types in the Haxe standard library, these will probably not be accepted yet.
 
 Verdict: **accepted**.
 
@@ -53,7 +53,7 @@ final VERY_MUCH = 123000987456123i64;
 The ["Number separators"](https://github.com/HaxeFoundation/haxe-evolution/pull/90) proposal suggests a way to make number literals more readable by allowing underscores as optional separators in any position:
 
 ```haxe
-final VERY_MUCH = 123_000_987_456_123i64;
+final VERY_MUCH = 123_000_987_456_123_i64;
 ```
 
 This syntax could also be combined with hexadecimal literals to make ARGB colour literals easier to read:
@@ -232,7 +232,7 @@ a ??= b;
 a = (a != null ? a : b);
 ```
 
-We have decided to accept this proposal as well. In fact, a [PR implemething this operator](https://github.com/HaxeFoundation/haxe/pull/10428) is already in the works!
+We have decided to accept this proposal as well. In fact, a [PR implementing this operator](https://github.com/HaxeFoundation/haxe/pull/10428) is already in the works!
 
 Verdict: **accepted**.
 
@@ -332,7 +332,7 @@ This makes naming `enum` constructors a bit tricky. Constructor names without un
 
 [The proposal](https://github.com/HaxeFoundation/haxe-evolution/pull/83) suggests that the `enum` could be marked with a new metadata (`@:qualified_enum_access`) to opt out of this behaviour.
 
-While we agree that this is a problem in Haxe, we have decided to reject this proposal, as we feel that the proposed solution is not general enough. We would like to see a cleaner approach, and probably one that lets the programmer decide how the `enum` should be imported at the *import* site, not the *declaration* site.
+While we agree that this is a problem in Haxe, we have decided to reject this proposal, as we feel that the proposed solution is not general enough. We would like to see a cleaner approach, and probably one that lets the programmer decide how the `enum` should be imported at the *import* site, not just at the *declaration* site.
 
 Verdict: **rejected**.
 
@@ -428,3 +428,7 @@ Verdict: **accepted**.
 Although the proposal shows a "nice to have" feature, it has remained open for a long time with relatively little activity and some unresolved questions. Given that we are unsure how exactly to proceed with an implementation, we have decided to reject the proposal in the current form. A PR implementing the feature or a more detailed proposal for it would still be considered.
 
 Verdict: **rejected** (in the proposed form).
+
+## Summary
+
+That's it for this year. If you feel there is anything to be added to the proposals, please join the discussion in the PR links above. We encourage you to [create proposals](https://github.com/HaxeFoundation/haxe-evolution/#what-needs-a-proposal) to suggest new additions or improvements to Haxe. For the less complete ideas, you could [open an issue](https://github.com/HaxeFoundation/haxe-evolution/issues) or brainstorm about it in the [forum](https://community.haxe.org/). Until next time!
