@@ -122,7 +122,7 @@ Verdict: **accepted**.
 
 ## [Destructors](https://github.com/HaxeFoundation/haxe-evolution/pull/88)
 
-[Destructors](https://en.wikipedia.org/wiki/Destructor_(computer_programming)) are user-defined functions that run just before an object is "cleaned up" or goes out of scope. In targets with a garbage collector this feature would typically be used to clean up auxiliary resources that the garbage collector does not manage. As an example, you might imagine a [`FileOutput`](https://api.haxe.org/sys/io/FileOutput.html) that automatically closes the file it refers to when it goes out of scope. The goal is generally to make a language safer to use – it is less likely that programmers will forget to release resources.
+[Destructors](https://en.wikipedia.org/wiki/Destructor_%28computer_programming%29) are user-defined functions that run just before an object is "cleaned up" or goes out of scope. In targets with a garbage collector this feature would typically be used to clean up auxiliary resources that the garbage collector does not manage. As an example, you might imagine a [`FileOutput`](https://api.haxe.org/sys/io/FileOutput.html) that automatically closes the file it refers to when it goes out of scope. The goal is generally to make a language safer to use – it is less likely that programmers will forget to release resources.
 
 The ["Destructors"](https://github.com/HaxeFoundation/haxe-evolution/pull/88) suggests a syntax to define destructors in Haxe classes.
 
@@ -343,14 +343,14 @@ Yet another one to do with nullable types and yet again involving a `?`.
 The [Shorthand nullable-type syntax](https://github.com/HaxeFoundation/haxe-evolution/pull/77) proposal suggests a shorter syntax to define nullable types:
 
 ```haxe
-var a: Int?;
-var b: Array<Int?>?;
-var c: (Foo?, Bar?)->String;
+var a:Int?;
+var b:Array<Int?>?;
+var c:(Foo?, Bar?)->String;
 
 // equivalent to
-var a: Null<Int>;
-var b: Null<Array<Null<Int>>>;
-var c: (Null<Foo>, Null<Bar>)->String;
+var a:Null<Int>;
+var b:Null<Array<Null<Int>>>;
+var c:(Null<Foo>, Null<Bar>)->String;
 ```
 
 We have decided to reject this proposal. Its only benefit is saving a couple of characters, and the explicit `Null` syntax might even be easier to understand (it is harder to miss that the type might be `null`). Accepting this proposal might also lead to some syntactic ambiguities when combined with the other null-safety operators mentioned above, or when dealing with functions types returning nullable values (is `()->Int?` a nullable function or is it a function that returns a nullable `Int`?).
@@ -363,7 +363,7 @@ The remaining 6 proposals were already discussed in the last meeting and have no
 
 ## [`Void` as unit type](https://github.com/HaxeFoundation/haxe-evolution/pull/76)
 
-In the end, we have decided to reject this proposal. The fact that `Void` was ever accepted as a type parameter has cause many issues, including the one motivating the original proposal (e.g. a `Signal<Void>` type). Due to `Void` semantics in Haxe, the following two functions types accept a different number of arguments:
+In the end, we have decided to reject this proposal. The fact that `Void` was ever accepted as a type parameter has caused many issues, including the one motivating the original proposal (e.g. a `Signal<Void>` type). Due to `Void` semantics in Haxe, the following two functions types accept a different number of arguments:
 
 ```haxe
 Void->Int; // 0 arguments
