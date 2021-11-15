@@ -384,6 +384,8 @@ So, to not make the problem any deeper than it has to be, we will not be making 
 
 Verdict: **rejected**.
 
+As an alternative we have submitted [a new proposal](https://github.com/HaxeFoundation/haxe-evolution/pull/95)
+
 ## [Multiple argument array access](https://github.com/HaxeFoundation/haxe-evolution/pull/72)
 
 Although parsing array accesses with multiple arguments should be possible without changing too much of the parser, this feature would still require significant changes to our AST representation. In particular, should array access with a single argument remain as its own variant of `ExprDef` (`EArray`), as opposed to anything with multiple arguments? This is less breaking for macros, but also not great design overall.
