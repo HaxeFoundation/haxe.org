@@ -1,0 +1,37 @@
+{
+	"title": "HaxeIn 2021 Winter Edition with InnoGames",
+	"description": "HaxeIn is an online streamed event, which was held December 2nd 2021",
+	"videos": [
+	  {
+		"title": "Welcome to the HaxeIn - Fiene & Nenad Bojkovski",
+		"where": "HaxeIn 2021 Winter Edition",
+		"description": "",
+		"date": "2021-12-02",
+		"youtubeId": "dXwlHkZ056U"
+	  },
+	  {
+		"title": "Elvenar - Haxe: Switching to Haxe During Production - Alexander Rotter",
+		"where": "HaxeIn 2021 Winter Edition",
+		"description": "",
+		"date": "2021-12-02",
+		"youtubeId": "NtEY9lXK4iA",
+		"featured": true
+	  },
+	  {
+		"title": "Introduction to the Glory Framework - Allan Dowdeswell",
+		"where": "HaxeIn 2021 Winter Edition",
+		"description": "",
+		"date": "2021-12-02",
+		"youtubeId": "mAeYqW0u7mY",
+		"featured": true
+	  },
+	  {
+		"title": "Haxe Winter Report - Simon Krajewski",
+		"where": "HaxeIn 2021 Winter Edition",
+		"description": "",
+		"date": "2021-12-02",
+		"youtubeId": "wEPpszrMY3g",
+		"featured": true
+	  }
+	]
+}
