@@ -95,7 +95,7 @@ Target Specific APIs:
 	* [js.Lib](https://api.haxe.org/js/Lib.html): Provides some platform-specific functions for the JavaScript target.
 	* [js.Browser](https://api.haxe.org/js/Browser.html): Shortcuts for common browser functions.
 	* [js.html](https://api.haxe.org/js/html/): Externs for interacting with the native JavaScript API's / DOM.
-	* [js.html](https://api.haxe.org/js/Syntax.html): Helper for low-level JavaScript specific code generation.
+	* [js.Syntax](https://api.haxe.org/js/Syntax.html): Helper for low-level JavaScript specific code generation.
 
 * [php](https://api.haxe.org/php/): 
 
