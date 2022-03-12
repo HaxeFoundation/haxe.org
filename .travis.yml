@@ -16,6 +16,7 @@ addons:
     - python3-setuptools
 
 install:
+  - haxelib setup ~/haxelib
   # fonts for svg to png conversion
   - wget https://noto-website-2.storage.googleapis.com/pkgs/NotoSans-hinted.zip
   - unzip NotoSans-hinted.zip
