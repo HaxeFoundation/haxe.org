@@ -1,9 +1,4 @@
-language: haxe
-
-haxe:
-  - "4.2.2"
-
-dist: bionic
+dist: focal
 
 addons:
   apt:
@@ -14,11 +9,14 @@ addons:
     packages:
     - inkscape
     - nodejs
-    - python3.7
+    - haxe
+    - neko
+    - python3
     - python3-pip
     - python3-setuptools
 
 install:
+  - haxelib setup ~/haxelib
   # fonts for svg to png conversion
   - wget https://noto-website-2.storage.googleapis.com/pkgs/NotoSans-hinted.zip
   - unzip NotoSans-hinted.zip
@@ -28,7 +26,7 @@ install:
   # checkout HaxeManual
   - git clone https://github.com/HaxeFoundation/HaxeManual.git manual
   # update pip
-  - python3.7 -m pip install pip
+  - python3 -m pip install pip
   # install awscli
   - pip3 install --user awscli
   - pip3 install rsa
