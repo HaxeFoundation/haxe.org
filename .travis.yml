@@ -1,9 +1,4 @@
-language: haxe
-
-haxe:
-  - "4.2.2"
-
-dist: bionic
+dist: focal
 
 addons:
   apt:
@@ -14,6 +9,8 @@ addons:
     packages:
     - inkscape
     - nodejs
+    - haxe
+    - neko
     - python3.11
     - python3-pip
     - python3-setuptools
