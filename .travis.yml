@@ -11,7 +11,7 @@ addons:
     - nodejs
     - haxe
     - neko
-    - python3.11
+    - python3
     - python3-pip
     - python3-setuptools
 
