@@ -1,0 +1,51 @@
+{
+	"title": "HaxeIn 2022 - September",
+	"description": "HaxeIn is an online streamed event, which was held September 22nd 2022",
+	"videos": [
+	  {
+		"title": "Welcome to the HaxeIn - Josefiene Pertosa & Nenad Bojkovski",
+		"where": "HaxeIn 2022 - September",
+		"description": "",
+		"date": "2022-09-22",
+		"youtubeId": "Mdlh-89-WZY"
+	  },
+	  {
+		"title": "Haxe Checkstyle In Continious Integration - Nicolas Banspach",
+		"where": "HaxeIn 2022 - September",
+		"description": "",
+		"date": "2022-09-22",
+		"youtubeId": "_JPe2YbOYKs",
+		"featured": true
+	  },
+	  {
+		"title": "5 Times Haxe Macros Made Coding Fun Again - Robert Borghese",
+		"where": "HaxeIn 2022 - September",
+		"description": "",
+		"date": "2022-09-22",
+		"youtubeId": "qod6NGa6NB4",
+		"featured": true
+	  },
+	  {
+		"title": "Haxe Web Development In A React World - Jonas Nyström",
+		"where": "HaxeIn 2022 - September",
+		"description": "",
+		"date": "2022-09-22",
+		"youtubeId": "U7WOlaoVROc"
+	  },
+	  {
+		"title": "Haxelib Update Haxelib - Tobiasz Laskowski",
+		"where": "HaxeIn 2022 - September",
+		"description": "",
+		"date": "2022-09-22",
+		"youtubeId": "7Yk_Bld_wf8"
+	  },
+	  {
+		"title": "Caching Up With Haxe Development - Simon Krajewski",
+		"where": "HaxeIn 2022 - September",
+		"description": "",
+		"date": "2022-09-22",
+		"youtubeId": "AtcyOB40V-E",
+		"featured": true
+	  }
+	]
+}
