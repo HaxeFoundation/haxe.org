@@ -16,7 +16,7 @@ addons:
     - python3-setuptools
 
 before_install:
-- nvm install 8
+- nvm install 10
 
 install:
   - haxelib setup ~/haxelib
