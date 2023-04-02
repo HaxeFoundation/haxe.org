@@ -1,0 +1,42 @@
+name: CI
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: 'true'
+
+      - uses: krdlab/setup-haxe@v1
+        with:
+          haxe-version: 4.2.5
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 10
+          cache: npm
+
+      - name: Download Fonts
+        run: |
+          wget https://noto-website-2.storage.googleapis.com/pkgs/NotoSans-hinted.zip
+          unzip NotoSans-hinted.zip
+          mkdir -p ~/.fonts
+          cp NotoSans-Regular.ttf ~/.fonts
+          fc-cache -f -v
+
+      - name: Clone HaxeManual
+        run: git clone https://github.com/HaxeFoundation/HaxeManual.git manual
+
+      - name: Install Dependencies
+        run: |
+          # install haxelibs
+          haxelib install all --always
+          # Get vscode-textmate
+          npm ci
+
+      - name: Build
+        run: |
+          haxe generate.hxml
