@@ -24,7 +24,7 @@ npm-install:
     COPY package.json package-lock.json .
     RUN npm i
     SAVE ARTIFACT node_modules
-    SAVE ARTIFACT package-lock.json AS LOCAL .
+    SAVE ARTIFACT --keep-ts package-lock.json AS LOCAL .
 
 haxelib-install:
     FROM haxe:$HAXE_VERSION
@@ -56,13 +56,15 @@ generator.js:
     COPY +haxelib-install/.haxelib .haxelib
     RUN mkdir -p bin
     RUN haxe generator.hxml
-    SAVE ARTIFACT bin/generator.js AS LOCAL bin/generator.js
+    SAVE ARTIFACT --keep-ts bin/generator.js AS LOCAL bin/generator.js
 
 generate:
     RUN apt-get update \
         && apt-get install -qqy --no-install-recommends \
             curl \
             ca-certificates \
+            inkscape \
+            fonts-noto-core \
         # Clean up
         && apt-get autoremove -y \
         && apt-get clean -y \
@@ -82,5 +84,5 @@ generate:
 
     COPY +client.min.js/client.min.js out/js/client.min.js
     COPY +generator.js/generator.js bin/generator.js
-    RUN node bin/generator.js
-    SAVE ARTIFACT out AS LOCAL ./out
+    RUN --no-cache node bin/generator.js
+    SAVE ARTIFACT --keep-ts out AS LOCAL ./out

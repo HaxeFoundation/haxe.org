@@ -3,6 +3,7 @@ package generators;
 import haxe.io.Path;
 import sys.FileSystem;
 import sys.io.File;
+import Main.*;
 
 class Javascript {
 
@@ -18,12 +19,11 @@ class Javascript {
 
 		var filename = "client.min.js";
 		var outFile = Path.join([outPath, filename]);
-		trace(outFile);
 		if (FileSystem.exists(outFile)) {
 			Sys.println('$outFile exists, skip compilation');
 			return;
 		}
-		Sys.command("haxe", ["client.hxml"]);
+		cmd("haxe", ["client.hxml"]);
 		File.copy(filename, outFile);
 		FileSystem.deleteFile(filename);
 		FileSystem.deleteFile("client.js");

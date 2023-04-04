@@ -6,6 +6,7 @@ import haxe.xml.Parser.XmlParserException;
 import sys.FileSystem;
 import sys.io.File;
 import tink.template.Html;
+import Main.*;
 
 import SiteMap.SitePage;
 
@@ -134,7 +135,7 @@ class Manual {
 			var inPath = Path.join([Config.manualImageDir, image]);
 			var outPath = Path.join([Config.outputFolder, "manual", image]);
 
-			Sys.command("inkscape", [inPath, '--export-png=$outPath.png']);
+			cmd("inkscape", [inPath, '--export-png=$outPath.png']);
 
 			// Path the svg figure to include the link to the font css
 			var xml = Xml.parse(File.getContent(inPath));
