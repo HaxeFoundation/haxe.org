@@ -1,3 +1,5 @@
+/manual
+
 # Generated content
 doc/
 deploy/
@@ -9,6 +11,7 @@ client.js
 
 # Private content
 .env
+.envrc
 .haxelib
 
 # Editor files etc

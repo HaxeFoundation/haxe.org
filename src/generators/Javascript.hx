@@ -16,9 +16,15 @@ class Javascript {
 			FileSystem.createDirectory(outPath);
 		}
 
-		Sys.command("haxe", ["client.hxml"]);
 		var filename = "client.min.js";
-		File.copy(filename, Path.join([outPath, filename]));
+		var outFile = Path.join([outPath, filename]);
+		trace(outFile);
+		if (FileSystem.exists(outFile)) {
+			Sys.println('$outFile exists, skip compilation');
+			return;
+		}
+		Sys.command("haxe", ["client.hxml"]);
+		File.copy(filename, outFile);
 		FileSystem.deleteFile(filename);
 		FileSystem.deleteFile("client.js");
 	}
