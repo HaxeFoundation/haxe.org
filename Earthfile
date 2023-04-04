@@ -28,6 +28,7 @@ npm-install:
 
 haxelib-install:
     FROM haxe:$HAXE_VERSION
+    WORKDIR /workspace
     COPY client.hxml generator.hxml generate.hxml .
     RUN haxelib newrepo
     RUN haxelib install all --always
@@ -35,6 +36,7 @@ haxelib-install:
 
 client.min.js:
     FROM haxe:$HAXE_VERSION
+    WORKDIR /workspace
     RUN apt-get update \
         && apt-get install -qqy --no-install-recommends \
             openjdk-11-jre \
@@ -50,6 +52,7 @@ client.min.js:
 
 generator.js:
     FROM haxe:$HAXE_VERSION
+    WORKDIR /workspace
     COPY src src
     COPY views views
     COPY generator.hxml .
@@ -86,3 +89,23 @@ generate:
     COPY +generator.js/generator.js bin/generator.js
     RUN --no-cache node bin/generator.js
     SAVE ARTIFACT --keep-ts out AS LOCAL ./out
+
+deploy:
+    FROM haxe:$HAXE_VERSION
+    WORKDIR /workspace
+    RUN apt-get update \
+        && apt-get install -qqy --no-install-recommends \
+            awscli \
+        # Clean up
+        && apt-get autoremove -y \
+        && apt-get clean -y \
+        && rm -rf /var/lib/apt/lists/*
+    COPY --keep-ts +generate/out out
+    COPY src src
+    COPY downloads downloads
+    COPY deploy.hxml .
+    RUN --no-cache ls -lah
+    RUN --no-cache \
+        --mount=type=secret,id=+secrets/.envrc,target=.envrc \
+        . ./.envrc \
+        && haxe deploy.hxml

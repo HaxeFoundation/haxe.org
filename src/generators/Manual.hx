@@ -6,7 +6,7 @@ import haxe.xml.Parser.XmlParserException;
 import sys.FileSystem;
 import sys.io.File;
 import tink.template.Html;
-import Main.*;
+import Cmd.cmd;
 
 import SiteMap.SitePage;
 

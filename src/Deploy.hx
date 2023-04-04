@@ -1,28 +1,23 @@
 using StringTools;
+import Cmd.cmd;
 
 /**
  *  Deploy the generated site to S3 using aws cli.
  *
  *  It use the following enviroment variables:
  *   - S3_BUCKET
- *   - TRAVIS_BRANCH
+ *   - GIT_BRANCH
  *   - AWS_ACCESS_KEY_ID
  *   - AWS_SECRET_ACCESS_KEY
  *   - AWS_DEFAULT_REGION
  */
 class Deploy {
-    static function cmd(cmd:String, ?params:Array<String>):Void {
-        Sys.println('run: $cmd $params');
-        var exitCode = Sys.command(cmd, params);
-        if (exitCode != 0)
-            throw 'Error running $cmd $params';
-    }
     static function aws(params:Array<String>):Void {
         cmd("aws", params);
     }
     static function main() {
         var S3_BUCKET = Sys.getEnv("S3_BUCKET");
-        var BRANCH = Sys.getEnv("TRAVIS_BRANCH");
+        var BRANCH = Sys.getEnv("GIT_BRANCH");
         var downloadsData = DownloadsData.getData();
 
         switch([Sys.getEnv("AWS_ACCESS_KEY_ID"), Sys.getEnv("AWS_SECRET_ACCESS_KEY")]) {

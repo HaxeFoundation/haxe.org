@@ -1,0 +1,42 @@
+name: CI
+on: ["push", "pull_request"]
+
+env:
+  FORCE_COLOR: 1
+  EARTHLY_STRICT: "true"
+  DEPLOY: "${{ ( github.repository_owner == 'HaxeFoundation' ) && ( github.event_name == 'push' ) && ( ( github.ref == 'refs/heads/staging' ) || ( github.ref == 'refs/heads/master' ) ) }}"
+
+jobs:
+  job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+      - uses: actions/checkout@v3
+        with:
+          repository: HaxeFoundation/HaxeManual
+          path: manual
+      - uses: earthly/actions-setup@v1
+        with:
+          version: "0.7.2"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build
+        run: earthly +generate
+      - name: Create .envrc
+        if: success() && env.DEPLOY == 'true'
+        run: |
+          cat > .envrc <<EOT
+          export AWS_DEFAULT_REGION='${{ vars.AWS_DEFAULT_REGION }}'
+          export AWS_ACCESS_KEY_ID='${{ vars.AWS_ACCESS_KEY_ID }}'
+          export AWS_SECRET_ACCESS_KEY='$AWS_SECRET_ACCESS_KEY'
+          export S3_BUCKET='${{ vars.S3_BUCKET }}'
+          export GIT_BRANCH='${{ github.ref_name }}'
+          EOT
+        env:
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      - name: Deploy
+        if: success() && env.DEPLOY == 'true'
+        run: earthly +deploy
+        env:
+          EARTHLY_SECRET_FILES: .envrc=.envrc
