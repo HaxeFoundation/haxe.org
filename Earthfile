@@ -21,7 +21,7 @@ npm-install:
         && apt-get autoremove -y \
         && apt-get clean -y \
         && rm -rf /var/lib/apt/lists/*
-    COPY package.json .
+    COPY package.json package-lock.json .
     RUN npm i
     SAVE ARTIFACT node_modules
     SAVE ARTIFACT package-lock.json AS LOCAL .
