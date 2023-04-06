@@ -6,6 +6,7 @@ import haxe.xml.Parser.XmlParserException;
 import sys.FileSystem;
 import sys.io.File;
 import tink.template.Html;
+import Cmd.cmd;
 
 import SiteMap.SitePage;
 
@@ -134,7 +135,7 @@ class Manual {
 			var inPath = Path.join([Config.manualImageDir, image]);
 			var outPath = Path.join([Config.outputFolder, "manual", image]);
 
-			Sys.command("inkscape", [inPath, '--export-png=$outPath.png']);
+			cmd("inkscape", [inPath, '--export-png=$outPath.png']);
 
 			// Path the svg figure to include the link to the font css
 			var xml = Xml.parse(File.getContent(inPath));
@@ -325,7 +326,12 @@ class Manual {
 						} else if (splitHref.length == 2 && labelMap.exists(splitHref[0])) {
 							xml.set("href", '${labelMap[splitHref[0]].page.url}#${splitHref[1]}');
 						} else if (!href.startsWith("http:") && !href.startsWith("https:")) {
-							trace('invalid reference to ${href}');
+							if (href == "lf-markup") {
+								// TODO: figure out where is lf-markup... 
+								trace('invalid reference to ${href}');
+							} else {
+								throw 'invalid reference to ${href}';
+							}
 						}
 					}
 

@@ -1,14 +1,16 @@
+/manual
+
 # Generated content
 doc/
 deploy/
 out/
 bin/
 node_modules/
-package-lock.json
 client.js
 
 # Private content
 .env
+.envrc
 .haxelib
 
 # Editor files etc

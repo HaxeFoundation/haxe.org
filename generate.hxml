@@ -2,13 +2,5 @@
 # Launch the website generation
 # optional define: "-D out=path", changes the output folder
 #
--main Main
--cp src
--lib markdown
--lib highlighter
--lib tink_template
--cp views
---macro tink.Template.addFlavor('html', '::', '::', false)
--js bin/generator.js
--lib hxnodejs
+generator.hxml
 -cmd node bin/generator.js

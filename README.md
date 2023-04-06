@@ -1,5 +1,4 @@
-haxe.org
-========
+# haxe.org
 
 [![Build Status](https://travis-ci.org/HaxeFoundation/haxe.org.svg?branch=staging)](https://travis-ci.org/HaxeFoundation/haxe.org)
 [![Code Climate](https://codeclimate.com/github/HaxeFoundation/haxe.org/badges/gpa.svg)](https://codeclimate.com/github/HaxeFoundation/haxe.org)
@@ -18,6 +17,7 @@ You can then edit using Github's online file editor and submit a pull request. Y
 Add a file named `YEAR-MONTH-DAY-name.md` in `posts/`.
 
 The first part of the file contains the post metadata:
+
 ```yml
 title: The title of your post
 author: Author id
@@ -31,6 +31,7 @@ disqusID: Unique id number used for comments, take the number of the last post a
 ```
 
 The author id should be listed in `people.json`:
+
 ```json
 {
   "username": "the user id used in the post",
@@ -42,6 +43,7 @@ The author id should be listed in `people.json`:
 The background image should be stored in `www/img/blog/backgrounds/`.
 
 The tags should be listed in `posts/tags.json`:
+
 ```json
 {
   "tag": "the tag id",
@@ -91,9 +93,16 @@ The haxe.org website was designed to be easy to generate, to run a local copy fo
 * Haxelib
 * Neko
 * cUrl
-* NodeJS
+* NodeJS 10 (via `nvm`: <https://github.com/nvm-sh/nvm>)
 
 ### Setting up
+
+* Set up node using nvm:
+
+```sh
+nvm install 10
+npm config set node_gyp $(npm prefix -g)/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js
+```
 
 * Install the dependencies `haxelib install all` and `npm install` in the root directory.
 * Update submodule dependencies `git submodule init && git submodule update`.

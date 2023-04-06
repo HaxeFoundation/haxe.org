@@ -1,8 +1,7 @@
 import sys.FileSystem;
 
 class Main {
-
-	public static function main () {
+	static function main () {
 		Sys.println("== haxe.org generation ==");
 		Sys.println('Output folder: "${Config.outputFolder}"');
 		var start = Date.now().getTime();
