@@ -32,6 +32,8 @@ jobs:
           export AWS_SECRET_ACCESS_KEY='$AWS_SECRET_ACCESS_KEY'
           export S3_BUCKET='${{ vars.S3_BUCKET }}'
           export GIT_BRANCH='${{ github.ref_name }}'
+          export CLOUDFRONT_DISTRIBUTION_ID_STAGING='${{ vars.CLOUDFRONT_DISTRIBUTION_ID_STAGING }}'
+          export CLOUDFRONT_DISTRIBUTION_ID_MASTER='${{ vars.CLOUDFRONT_DISTRIBUTION_ID_MASTER }}'
           EOT
         env:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
