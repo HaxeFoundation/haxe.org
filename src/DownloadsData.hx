@@ -163,7 +163,7 @@ class DownloadsData {
 				downloads.osx.archives.push(current = getInfo("OS X Binaries", url));
 				downloads.all.unshift(current);
 			} else if (filename.endsWith("-win.exe")) {
-				downloads.windows.installers.unshift(current = getInfo("Windows 32-bit Installer", url));
+				downloads.windows.installers.push(current = getInfo("Windows 32-bit Installer", url));
 				downloads.all.unshift(current);
 			} else if (filename.endsWith("-win.zip")) {
 				downloads.windows.archives.push(current = getInfo("Windows 32-bit Binaries", url));
@@ -172,7 +172,7 @@ class DownloadsData {
 				downloads.windows.installers.unshift(current = getInfo("Windows 64-bit Installer", url));
 				downloads.all.unshift(current);
 			} else if (filename.endsWith("-win64.zip")) {
-				downloads.windows.archives.push(current = getInfo("Windows 64-bit Binaries", url));
+				downloads.windows.archives.unshift(current = getInfo("Windows 64-bit Binaries", url));
 				downloads.all.unshift(current);
 			} else if (filename == 'api-${version.version}.zip') {
 				version.api = getInfo("API Documentation", url);
