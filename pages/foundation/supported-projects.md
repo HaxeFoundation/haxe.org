@@ -12,6 +12,10 @@ The following software is supported by the Haxe Foundation:
 
 	The [API Documentation](http://api.haxe.org) contains detailed specification of the expected behaviour of each class in the Standard Library.
 
+* __The Haxe Visual Studio Code Extension__
+
+  [VSHaxe](https://github.com/vshaxe/vshaxe) is supported by Haxe Foundation in order to get the best developer experience while writing Haxe code.
+
 * __Haxelib__
 
 	Haxelib enables developers to share simple re-usable libraries between Haxe projects.
@@ -23,6 +27,6 @@ The following software is supported by the Haxe Foundation:
 	The [Haxelib website](https://lib.haxe.org) provides a way to browse available Haxelibs through a web interface.
   
   
-* __Neko and HashLink__
+* __Neko and HashLink__ VMs
 
 	[HashLink](https://hashlink.haxe.org) and [Neko](https://nekovm.org) are virtual machines created and maintained by the Haxe Foundation. 
