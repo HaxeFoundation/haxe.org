@@ -25,8 +25,8 @@ The following software is supported by the Haxe Foundation:
 	The Haxelib repository stores all uploaded libraries on a centralized server so they can be made available to other developers.
 
 	The [Haxelib website](https://lib.haxe.org) provides a way to browse available Haxelibs through a web interface.
-  
-  
-* __Neko and HashLink__ VMs
 
-	[HashLink](https://hashlink.haxe.org) and [Neko](https://nekovm.org) are virtual machines created and maintained by the Haxe Foundation. 
+
+* __Neko and HashLink VMs__
+
+	[HashLink](https://hashlink.haxe.org) and [Neko](https://nekovm.org) are virtual machines created and maintained by the Haxe Foundation.
