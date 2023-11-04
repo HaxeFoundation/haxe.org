@@ -38,7 +38,7 @@ Of Course, the Haxe Foundation will help sponsor the event like we did the last 
 
 ###2. Giving a Speech
 
-During the last years, Nicolas has always opened the event with a keynote about what is new in Haxe. This year, though, he will not be able to make it due to already planned family holidays and we will have to find a different solution. He will probably record a keynote for us to enjoy. There are also some other new things, like the [Haxe Blog](https://haxe.org/blog/), the [Haxe Code Cookbook](http://code.haxe.org) and [HaxeDevelop](http://haxedevelop.org) as well as some stats about the community and web presence that we could talk about. We still need to settle on topics and coordinate this with Silex Labs (Hey, Antonin!).
+During the last years, Nicolas has always opened the event with a keynote about what is new in Haxe. This year, though, he will not be able to make it due to already planned family holidays and we will have to find a different solution. He will probably record a keynote for us to enjoy. There are also some other new things, like the [Haxe Blog](https://haxe.org/blog/), the [Haxe Code Cookbook](http://code.haxe.org) and [HaxeDevelop](https://haxefoundation.github.io/haxedevelop.org/) as well as some stats about the community and web presence that we could talk about. We still need to settle on topics and coordinate this with Silex Labs (Hey, Antonin!).
 
 
 ###3. A Place To Stay

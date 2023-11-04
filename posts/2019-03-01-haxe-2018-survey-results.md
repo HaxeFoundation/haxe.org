@@ -307,7 +307,7 @@ The others:
 | [Docker image](https://hub.docker.com/_/haxe/) | 2 |
 | [Development Snapshot](http://build.haxe.org/builds/haxe/) | 1 |
 
-Haxe is bundled with several IDE/projects, including [Kha](http://kha.tech/) and [Armory3D](https://armory3d.org/). [HaxeDevelop](https://haxedevelop.org/) allows installing it from its built-in App Manager.
+Haxe is bundled with several IDE/projects, including [Kha](http://kha.tech/) and [Armory3D](https://armory3d.org/). [HaxeDevelop](https://haxefoundation.github.io/haxedevelop.org/) allows installing it from its built-in App Manager.
 
 Did you know that Haxe has official [docker images](https://hub.docker.com/_/haxe/)?
 
@@ -354,7 +354,7 @@ Most people only publish to one or two places. And there are a lot of people who
 
 The options were:
 
-* [FlashDevelop](http://www.flashdevelop.org/) / [HaxeDevelop](https://haxedevelop.org/)
+* [FlashDevelop](http://www.flashdevelop.org/) / [HaxeDevelop](https://haxefoundation.github.io/haxedevelop.org/)
 * [IntelliJ](http://intellij-haxe.org/)
 * [Visual Studio Code](https://github.com/vshaxe/vshaxe)
 * [VIM](https://github.com/jdonaldson/vaxe)

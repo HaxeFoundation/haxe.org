@@ -22,7 +22,7 @@ The avid follower will also point out that last week's episode was actually epis
 
 ###Some News
 
-Before diving into the topic of the week, Nicolas quickly commented on the launch of the [Haxe Blog](https://haxe.org/blog/) and the release of [HaxeDevelop](http://haxedevelop.org). He also showed off the blog's other two articles, a reposting of his [update on the Haxe Foundation](https://haxe.org/blog/some-words-about-the-haxe-foundation/) and a [case study about TiVo](https://haxe.org/blog/tivo-using-haxe-to-improve-user-experience-for-millions-of-customers/) that I wrote last year. Head on over and check them out.
+Before diving into the topic of the week, Nicolas quickly commented on the launch of the [Haxe Blog](https://haxe.org/blog/) and the release of [HaxeDevelop](https://haxefoundation.github.io/haxedevelop.org/). He also showed off the blog's other two articles, a reposting of his [update on the Haxe Foundation](https://haxe.org/blog/some-words-about-the-haxe-foundation/) and a [case study about TiVo](https://haxe.org/blog/tivo-using-haxe-to-improve-user-experience-for-millions-of-customers/) that I wrote last year. Head on over and check them out.
 
 ### How to use the Compilation Server
 

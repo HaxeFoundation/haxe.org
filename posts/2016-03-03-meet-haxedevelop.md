@@ -11,9 +11,9 @@ disqusID: 4
 
 Every year after the WWX we all go home with lots of ideas, promises, plans and happy thoughts of the future. While not all of these things make it into reality, some of them do. One of the projects that came up at WWX 2015 was a Haxe-specific version of FlashDevelop. After some back and forth and a lot of help from the founders of the FlashDevelop Project, [Mika](http://meychi.com) and [Philippe](https://github.com/elsassph), as well as our design go-to guy, [Mark](http://blog.stroep.nl), we are happy to share the result with you!
 
-[Meet HaxeDevelop - a custom FlashDevelop distribution for Haxe](http://haxedevelop.org/)
+[Meet HaxeDevelop - a custom FlashDevelop distribution for Haxe](https://haxefoundation.github.io/haxedevelop.org/)
 
-[![haxedevelop-interface.jpg](haxedevelop-interface.jpg)](http://haxedevelop.org/)
+[![haxedevelop-interface.jpg](haxedevelop-interface.jpg)](https://haxefoundation.github.io/haxedevelop.org/)
 
 Being a custom version of FlashDevelop, HaxeDevelop maintains the great features of FlashDevelop; including its extensibility with plugins and custom themes that are available via AppMan.
 
@@ -27,7 +27,7 @@ Some of the features are:
 * Snippets
 
 
-Head over to the [website](http://haxedevelop.org/) to check out all the features and get the latest build.
+Head over to the [website](https://haxefoundation.github.io/haxedevelop.org/) to check out all the features and get the latest build.
 
 
 

@@ -86,7 +86,7 @@ I haven't yet found an ideal way of managing library versions across different p
 
 **What IDE do you use?**
 
-I'm currently mainly using [Visual Studio Code](https://code.visualstudio.com/), but occasionally opening a project in [HaxeDevelop](https://haxedevelop.org/) for some types of refactoring such as renaming fields through multiple files, which still seems to be missing in the vscode environment.
+I'm currently mainly using [Visual Studio Code](https://code.visualstudio.com/), but occasionally opening a project in [HaxeDevelop](https://haxefoundation.github.io/haxedevelop.org/) for some types of refactoring such as renaming fields through multiple files, which still seems to be missing in the vscode environment.
 
 **Alright, thanks a lot again for doing this interview! Anything you'd like to add?**
 
