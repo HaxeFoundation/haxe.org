@@ -92,6 +92,7 @@ generate:
     SAVE ARTIFACT --keep-ts out AS LOCAL ./out
 
 deploy:
+    ARG GIT_BRANCH
     FROM haxe:$HAXE_VERSION
     WORKDIR /workspace
     RUN apt-get update \

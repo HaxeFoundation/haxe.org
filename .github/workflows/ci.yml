@@ -39,6 +39,6 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       - name: Deploy
         if: success() && env.DEPLOY == 'true'
-        run: earthly +deploy
+        run: earthly +deploy --GIT_BRANCH=${{ github.ref_name }}
         env:
           EARTHLY_SECRET_FILES: .envrc=.envrc
