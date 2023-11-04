@@ -23,8 +23,6 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Build
         run: earthly +generate
-        env:
-          GIT_BRANCH: ${{ github.ref_name }}
       - name: Create .envrc
         if: success() && env.DEPLOY == 'true'
         run: |
