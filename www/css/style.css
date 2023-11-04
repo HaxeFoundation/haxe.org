@@ -344,7 +344,7 @@ ul.logos li {
 	list-style: none;
 	display: inline-block;
 	zoom: 1;
-	*display: inline;
+	display: inline;
 	margin: 10px 20px 0 0;
 }
 ul.logos li.target {
@@ -1200,6 +1200,10 @@ article figcaption {
 article figure {
 	margin-bottom: 20px;
 	text-align: center;
+}
+
+object[type="image/svg+xml"] {
+	max-width: 100%;
 }
 
 /** partner logos **/
