@@ -135,7 +135,7 @@ class DownloadsData {
 		if (githubRelease != null) {
 			downloadUrls = githubRelease.assets.map(function(a) return a.browser_download_url);
 		} else {
-			if (Sys.getEnv("EARTHLY_GIT_BRANCH") != "master") {
+			if (Sys.getEnv("GIT_BRANCH") != "master") {
 				trace('Warning: failed to retrieve download links for version ${version.tag}; skipping assets for this build.');
 			} else {
 				throw 'missing github release for version ${version.tag}';

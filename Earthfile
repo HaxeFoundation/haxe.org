@@ -62,6 +62,7 @@ generator.js:
     SAVE ARTIFACT --keep-ts bin/generator.js AS LOCAL bin/generator.js
 
 generate:
+    ARG GIT_BRANCH
     RUN apt-get update \
         && apt-get install -qqy --no-install-recommends \
             curl \
