@@ -14,7 +14,7 @@ The following software is supported by the Haxe Foundation:
 
 * __The Haxe Visual Studio Code Extension__
 
-  [VSHaxe](https://github.com/vshaxe/vshaxe) is supported by Haxe Foundation in order to get the best developer experience while writing Haxe code.
+	[VSHaxe](https://github.com/vshaxe/vshaxe) is supported by Haxe Foundation in order to get the best developer experience while writing Haxe code.
 
 * __Haxelib__
 
