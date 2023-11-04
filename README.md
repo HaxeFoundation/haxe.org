@@ -1,6 +1,6 @@
 # haxe.org
 
-[![Build Status](https://travis-ci.org/HaxeFoundation/haxe.org.svg?branch=staging)](https://travis-ci.org/HaxeFoundation/haxe.org)
+[![Build Status](https://github.com/HaxeFoundation/haxe.org/actions/workflows/ci.yml/badge.svg)](https://github.com/HaxeFoundation/haxe.org/actions)
 [![Code Climate](https://codeclimate.com/github/HaxeFoundation/haxe.org/badges/gpa.svg)](https://codeclimate.com/github/HaxeFoundation/haxe.org)
 [![Issue Count](https://codeclimate.com/github/HaxeFoundation/haxe.org/badges/issue_count.svg)](https://codeclimate.com/github/HaxeFoundation/haxe.org)
 
