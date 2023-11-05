@@ -10,13 +10,10 @@ class Cmd {
 			throw 'Error running $cmd $params';
 		}
 		#else
-		var process = new sys.io.Process(cmd, params);
-		if (process.exitCode() != 0) {
-			Sys.println(process.stdout.readAll().toString());
-			Sys.println(process.stderr.readAll().toString());
+		var exitCode = Sys.command(cmd, params);
+		if (exitCode != 0) {
 			throw 'Error running $cmd $params';
 		}
-		process.close();
 		#end
 	}
 }
