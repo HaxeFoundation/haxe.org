@@ -106,7 +106,7 @@ class DownloadsData {
 				["-u", githubAuth];
 		}
 		#if nodejs
-		var data = js.node.ChildProcess.execSync("curl " + authArgs.concat(["https://api.github.com/repos/haxefoundation/haxe/releases?per_page=100"]).join(" "));
+		var data = js.node.ChildProcess.spawnSync("curl", authArgs.concat(["https://api.github.com/repos/haxefoundation/haxe/releases?per_page=100"])).stdout;
 		var releases:Array<GithubRelease> = Json.parse(data);
 		#else
 		var data = new Process("curl", authArgs.concat(["https://api.github.com/repos/haxefoundation/haxe/releases?per_page=100"]));

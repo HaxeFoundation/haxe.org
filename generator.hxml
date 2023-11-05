@@ -11,3 +11,4 @@
 --macro tink.Template.addFlavor('html', '::', '::', false)
 -js bin/generator.js
 -lib hxnodejs
+-w -WDeprecated
