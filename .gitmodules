@@ -19,3 +19,6 @@
 [submodule "grammars/language-shellscript"]
 	path = grammars/language-shellscript
 	url = https://github.com/atom/language-shellscript.git
+[submodule "grammars/python.tmbundle"]
+	path = grammars/python.tmbundle
+	url = https://github.com/textmate/python.tmbundle.git
