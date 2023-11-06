@@ -1,0 +1,37 @@
+{
+	"title": "HaxeUp 2023 at Shiro Games",
+	"description": "HaxeUp is an online streamed event, which was held April 6th 2023",
+	"videos": [
+	  {
+  		"title": "Welcome to the HaxeUp 2023 at Shiro Games - Simon Krajewski & Nicolas Cannasse",
+  		"where": "HaxeUp 2023",
+  		"description": "",
+  		"date": "2023-04-06",
+  		"youtubeId": "L_MNcf9IUvk"
+	  },
+	  {
+  		"title": "Haxe Spring Report - Simon Krajewski",
+  		"where": "HaxeUp 2023",
+  		"description": "",
+  		"date": "2023-04-06",
+  		"youtubeId": "lkpoTcHKjSE",
+  		"featured": true
+	  },
+	  {
+  		"title": "Performance Haxe in Dune: Spice Wars - Tom Rethaller",
+  		"where": "HaxeUp 2023",
+  		"description": "",
+  		"date": "2023-04-06",
+  		"youtubeId": "pZcKyqLcjzc",
+  		"featured": true
+	  },
+	  {
+  		"title": "Creating Indie Games: An Overview of the Shiro Tech Stack - Nicolas Cannasse",
+  		"where": "HaxeUp 2023",
+  		"description": "",
+  		"date": "2023-04-06",
+  		"youtubeId": "gazZSJFGnck",
+      "featured": true
+	  }
+	]
+}
