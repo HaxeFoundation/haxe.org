@@ -1,5 +1,5 @@
 {
-	"title": HaxeUp 2023 at Shiro Games",
+	"title": "HaxeUp 2023 at Shiro Games",
 	"description": "HaxeUp is an online streamed event, which was held April 6th 2023",
 	"videos": [
 	  {
@@ -18,7 +18,7 @@
   		"featured": true
 	  },
 	  {
-  		"title": "Performance Haxe in "Dune: Spice Wars" - Tom Rethaller",
+  		"title": "Performance Haxe in Dune: Spice Wars - Tom Rethaller",
   		"where": "HaxeUp 2023",
   		"description": "",
   		"date": "2023-04-06",
