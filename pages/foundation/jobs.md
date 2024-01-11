@@ -1,15 +1,15 @@
-# Jobs 
+# Jobs
 
 **The following Haxe Foundation partners are open for Haxe developer positions:**
 
-## Gamesys
-<img src="/img/partners/gamesys.png" align="right" style="margin:1em"/>
+## InnoGames
+<img src="/img/partners/innogames.png" align="right" style="margin:1em"/>
 
-Gamesys is on a mission to become the world’s most entertaining online gaming company. It all started with Jackpotjoy but along the way we have grown into the award-winning team of designers, developers and operators behind some of the leading gaming sites and apps including Virgin Games and Caesar’s Casino. But, we haven’t stopped there... we’re also behind Bingo Lane, Jackpotjoy Slots and other great free-to-play games. 
+InnoGames is one of the leading German developers of mobile and browser games and a certified Great Place to Work®. The climate-neutral company based in Hamburg was founded in 2007 and is now part of the Modern Times Group (MTG). Together with 350+ employees from over 40 nations, the company founders develop unique games that provide years of fun for millions of players around the world.
 
-Born in 2001 with just a handful of developers, we are now over 900 employees strong across 7 group offices worldwide with our headquarters in Central London.  Over 25 million players enjoy our 258 games, generating on average 6,028 chat messages every 15 minutes!
+Join our agile and cross-functional team at **Forge of Empires** as our new **Frontend Developer**: You will become an integral part of our Forge of Empires project's feature team, working towards enhancing the growth, technical stability, and longevity of our flagship game. Your main focus will be on the browser frontend, using the modern cross-platform language, Haxe.
 
-**Apply now: <http://www.gamesyscorporate.com/careers/jobs/>**
+**Apply now: <https://jobs.eu.lever.co/innogames/aa326233-da1e-49af-95b7-2950f37cb7d0>**
 
 ---
 
