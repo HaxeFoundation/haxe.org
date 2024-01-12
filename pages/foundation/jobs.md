@@ -9,7 +9,7 @@ InnoGames is one of the leading German developers of mobile and browser games an
 
 Join our agile and cross-functional team at **Forge of Empires** as our new **Frontend Developer**: You will become an integral part of our Forge of Empires project's feature team, working towards enhancing the growth, technical stability, and longevity of our flagship game. Your main focus will be on the browser frontend, using the modern cross-platform language, Haxe.
 
-**Apply now: <https://jobs.eu.lever.co/innogames/aa326233-da1e-49af-95b7-2950f37cb7d0>**
+**[Apply now](https://jobs.eu.lever.co/innogames/aa326233-da1e-49af-95b7-2950f37cb7d0)**
 
 ---
 
