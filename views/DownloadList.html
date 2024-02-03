@@ -15,7 +15,7 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td><a href="http://build.haxe.org" target="_blank">Development Builds</a></td>
+					<td><a href="/download/nightlies/" target="_blank">Development Builds</a></td>
 					<td><a href="http://build.haxe.org" target="_blank">Download from S3</a></td>
 					<td></td>
 					<td></td>
@@ -25,7 +25,7 @@
 					<tr ::if (version.version == current):: class="success" ::end::>
 						<td><a href="/download/version/::version.version::/">::version.version::</a> ::if (version.version == current):: (Current Release) ::end::</td>
 						<td><a href="/download/version/::version.version::/">Download Page</a></td>
-						<td>::if (version.api != null)::<a href="::version.api.url::">API Documentation (ZIP)</a>::end::</td>
+						<td>::if (version.api != null)::<a href="https://api.haxe.org/v/::version.api::/">API Documentation</a>::end::</td>
 						<td>::version.date::</td>
 						<td><a href="::Config.tagBaseUrl::/::version.tag::/" target="_blank" title="View tag ::version.tag:: on Github">::version.tag::</a></td>
 					</tr>

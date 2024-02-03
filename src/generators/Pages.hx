@@ -144,6 +144,8 @@ class Pages {
 					title: '[haxe.org/introduction] ${file.replace("introduction/","").replace(".md", "").replace(".html", "")}',
 				}
 			);
+		} else if (file.endsWith(".raw.html")) { // Skip wrapper
+			file = file.substr(0, file.length - ".raw.html".length) + ".html";
 		} else if (folder != "/") { // Not top level
 			if (root != null && sitepage != null) {
 				content = Views.PageWithSidebar(
