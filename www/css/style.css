@@ -503,6 +503,7 @@ pre {
 
 html code {
 	color: rgb(75,75,75);
+	font-size: inherit;
 }
 a code {
 	color: #3369bc;
