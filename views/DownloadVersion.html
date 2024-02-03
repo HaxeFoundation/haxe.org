@@ -72,7 +72,7 @@
 					</div>
 					<div class="span5">
 						<ul class="nav nav-tabs nav-stacked">
-							::if (api != null)::<li><a href="::api::" target="_blank"><i class="fa fa-book"></i> API Documentation</a></li>::end::
+							::if (version.api != null)::<li><a href="https://api.haxe.org/v/::version.api::/" target="_blank"><i class="fa fa-book"></i> API Documentation</a></li>::end::
 							<li><a href="::Config.tagBaseUrl::/::version.tag::" target="_blank"><i class="fa fa-github"></i> Source Code</a></li>
 							::if (prev != null)::<li><a href="::Config.compareBaseUrl::/::prevTag::...::version.tag::" target="_blank"><i class="fa fa-github"></i> Commits between tags ::prevTag:: and ::version.tag::</a></li>::end::
 						</ul>
