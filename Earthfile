@@ -38,8 +38,7 @@ client.min.js:
     FROM haxe:$HAXE_VERSION
     WORKDIR /workspace
     RUN apt-get update \
-        && apt-get install -qqy --no-install-recommends \
-            openjdk-11-jre \
+        && apt-get install -qqy --no-install-recommends default-jre \
         # Clean up
         && apt-get autoremove -y \
         && apt-get clean -y \
