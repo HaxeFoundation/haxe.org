@@ -11,47 +11,37 @@ class SyntaxHighlighter
 		File.saveContent("bin/javascript.json", Json.stringify(CSON.parse(File.getContent("grammars/language-javascript/grammars/javascript.cson"))));
 		File.saveContent("bin/shell-unix-bash.json", Json.stringify(CSON.parse(File.getContent("grammars/language-shellscript/grammars/shell-unix-bash.cson"))));
 
-		var haxeGrammar = new Highlighter("grammars/haxe-TmLanguage/haxe.tmLanguage");
-		var hxmlGrammar = new Highlighter("grammars/haxe-TmLanguage/hxml.tmLanguage");
-		var luaGrammar = new Highlighter("grammars/lua.tmbundle/Syntaxes/Lua.plist");
-		var xmlGrammar = new Highlighter("grammars/xml.tmbundle/Syntaxes/XML.plist");
-		var cppGrammar = new Highlighter("grammars/c.tmbundle/Syntaxes/C++.plist");
-		var as3Grammar = new Highlighter("grammars/actionscript3-tmbundle/Syntaxes/ActionScript 3.tmLanguage");
-		var pythonGrammar = new Highlighter("grammars/python.tmbundle/Syntaxes/Python.tmLanguage");
-		var javaGrammar = new Highlighter("grammars/Java.plist"); // from https://github.com/textmate/java.tmbundle
-		var ocamlGrammar = new Highlighter("grammars/OCaml.plist"); // from https://github.com/textmate/ocaml.tmbundle
-		var jsGrammar = new Highlighter("bin/javascript.json");
-		var shGrammar = new Highlighter("bin/shell-unix-bash.json");
-
-		var grammars = [
-			"haxe" => haxeGrammar,
-			"hxml" => hxmlGrammar,
-			"lua" => luaGrammar,
-			"xml" => xmlGrammar,
-			"cpp" => cppGrammar,
-			"as3" => as3Grammar,
-			"python" => pythonGrammar,
-			"js" => jsGrammar,
-			"java" => javaGrammar,
-			"ocaml" => ocamlGrammar,
-			"javascript" => jsGrammar,
-			"sh" => shGrammar,
+		var grammarFiles = [
+			"haxe" => "grammars/haxe-TmLanguage/haxe.tmLanguage",
+			"hxml" => "grammars/haxe-TmLanguage/hxml.tmLanguage",
+			"lua" => "grammars/lua.tmbundle/Syntaxes/Lua.plist",
+			"xml" => "grammars/xml.tmbundle/Syntaxes/XML.plist",
+			"cpp" => "grammars/c.tmbundle/Syntaxes/C++.plist",
+			"as3" => "grammars/actionscript3-tmbundle/Syntaxes/ActionScript 3.tmLanguage",
+			"python" => "grammars/python.tmbundle/Syntaxes/Python.tmLanguage",
+			"js" => "bin/javascript.json",
+			"javascript" => "bin/javascript.json",
+			"java" => "grammars/Java.plist", // from https://github.com/textmate/java.tmbundle
+			"ocaml" => "grammars/OCaml.plist", // from https://github.com/textmate/ocaml.tmbundle
+			"sh" => "bin/shell-unix-bash.json",
 		];
 
-		// Go over the generated HTML file and apply syntax highlighting
-		var missingGrammars = Highlighter.patchFolder(Config.outputFolder, grammars, function (classList) {
-			return classList.substr(12);
+		Highlighter.loadHighlighters(grammarFiles, function(highlighters) {
+			// Go over the generated HTML file and apply syntax highlighting
+			var missingGrammars = Highlighter.patchFolder(Config.outputFolder, highlighters, function(classList) {
+				return classList.substr(12);}
+			);
+
+			for (g in missingGrammars) {
+				Sys.println('Missing grammar for "${g}"');
+			}
+
+			// Add CSS rules for highlighting
+			var path = Config.outputFolder + "/css/style.css";
+			var baseStyle = File.getContent(path);
+			var syntaxStyle = highlighters["haxe"].runCss();
+			File.saveContent(path, baseStyle + syntaxStyle);
 		});
-
-		for (g in missingGrammars) {
-			Sys.println('Missing grammar for "${g}"');
-		}
-
-		// Add CSS rules for highlighting
-		var path = Config.outputFolder + "/css/style.css";
-		var baseStyle = File.getContent(path);
-		var syntaxStyle = haxeGrammar.runCss();
-		File.saveContent(path, baseStyle + syntaxStyle);
 	}
 }
 
