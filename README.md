@@ -93,16 +93,10 @@ The haxe.org website was designed to be easy to generate, to run a local copy fo
 * Haxelib
 * Neko
 * cUrl
-* NodeJS 10 (via `nvm`: <https://github.com/nvm-sh/nvm>)
+* NodeJS
+* npm
 
 ### Setting up
-
-* Set up node using nvm:
-
-```sh
-nvm install 10
-npm config set node_gyp $(npm prefix -g)/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js
-```
 
 * Install the dependencies `haxelib install all` and `npm install` in the root directory.
 * Update submodule dependencies `git submodule init && git submodule update`.
