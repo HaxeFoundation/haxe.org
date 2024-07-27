@@ -4,7 +4,7 @@ import sys.io.File;
 
 class SyntaxHighlighter
 {
-	public static function patch () {
+	public static function patch (onComplete:()->Void) {
 		Sys.println("Applying syntax highlighting ...");
 
 		// Convert CSON grammar to json for vscode-textmate
@@ -41,6 +41,8 @@ class SyntaxHighlighter
 			var baseStyle = File.getContent(path);
 			var syntaxStyle = highlighters["haxe"].runCss();
 			File.saveContent(path, baseStyle + syntaxStyle);
+
+			onComplete();
 		});
 	}
 }
