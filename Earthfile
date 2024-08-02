@@ -1,5 +1,5 @@
 VERSION 0.6
-FROM ubuntu:focal
+FROM ubuntu:noble
 WORKDIR /workspace
 RUN apt-get update \
     && apt-get install -qqy --no-install-recommends \
