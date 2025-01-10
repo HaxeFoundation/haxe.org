@@ -117,7 +117,7 @@ nav .navbar .nav>li>.dropdown-menu:after {
 	background: linear-gradient(to bottom,  #39332d 50%,#2c2722 51%); /* W3C */
 	padding:14px 20px 13px 20px;
 	margin:0 10px 0 0;
-	font:bold 18px "arial black", "open sans";
+	font:bold 18px "arial black", "open sans", sans-serif;
 	line-height:22px;
 	color:rgb(255,255,255);
 }
