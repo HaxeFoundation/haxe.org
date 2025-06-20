@@ -5,7 +5,7 @@
 ## InnoGames
 <img src="/img/partners/innogames.png" align="right" style="margin:1em"/>
 
-InnoGames is one of the leading German developers of mobile and browser games and a certified Great Place to Work®. The climate-neutral company based in Hamburg was founded in 2007 and is now part of the Modern Times Group (MTG). Together with 350+ employees from over 40 nations, the company founders develop unique games that provide years of fun for millions of players around the world.
+[InnoGames](https://www.innogames.com/) is one of the leading German developers and publishers of mobile and browser games and a certified Great Place to Work®. The Hamburg-based company was founded in 2007 and is now part of Modern Times Group (MTG). Together with about 350 employees from over 40 nations, the company founders develop unique games that provide many years of fun for millions of players around the world. InnoGames is best known for Forge of Empires, Elvenar and Tribal Wars, but the company is continually expanding its now 9-game portfolio across platforms and genres. Most recently, InnoGames launched Heroes of History, a novel combination of city builder and hero collection RPG.
 
 Join our agile and diverse team at **Forge of Empires** as our new **Cross-Functional Developer**!
 
