@@ -8,7 +8,7 @@ RUN apt-get update \
     && apt-get autoremove -y \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
-ARG HAXE_VERSION=5.0.0-preview.1
+ARG HAXE_VERSION=4.2.5
 
 npm-install:
     RUN apt-get update \
