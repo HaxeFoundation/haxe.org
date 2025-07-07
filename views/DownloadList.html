@@ -3,7 +3,7 @@
 		<h1>::title::</h1>
 
 		<p>The current stable version is <a href="/download/version/::current::/">::current::</a>.</p>
-		<p>If you want to see what's coming next for Haxe, you can try <a href="http://build.haxe.org" target="_blank">the latest development builds</a>, which are created for every commit on our development branch on Github.</p>
+		<p>If you want to see what's coming next for Haxe, you can try <a href="/download/nightlies/">the latest development builds</a>, which are created for every commit on our development branch on Github.</p>
 
 		<table class="table table-hover">
 			<thead>
@@ -15,9 +15,9 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td><a href="http://build.haxe.org" target="_blank">Development Builds</a></td>
+					<td><a href="/download/nightlies/" target="_blank">Development Builds</a></td>
 					<td><a href="http://build.haxe.org" target="_blank">Download from S3</a></td>
-					<td></td>
+					<td><a href="https://api.haxe.org/v/development/" target="_blank">API Documentation</a></td>
 					<td></td>
 					<td><a href="https://github.com/HaxeFoundation/Haxe" target="_blank" title="View branch `development` on Github">development</a></td>
 				</tr>
@@ -25,7 +25,7 @@
 					<tr ::if (version.version == current):: class="success" ::end::>
 						<td><a href="/download/version/::version.version::/">::version.version::</a> ::if (version.version == current):: (Current Release) ::end::</td>
 						<td><a href="/download/version/::version.version::/">Download Page</a></td>
-						<td>::if (version.api != null)::<a href="::version.api.url::">API Documentation (ZIP)</a>::end::</td>
+						<td>::if (version.api != null)::<a href="https://api.haxe.org/v/::version.api::/" target="_blank">API Documentation</a>::end::</td>
 						<td>::version.date::</td>
 						<td><a href="::Config.tagBaseUrl::/::version.tag::/" target="_blank" title="View tag ::version.tag:: on Github">::version.tag::</a></td>
 					</tr>

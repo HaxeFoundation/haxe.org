@@ -4,7 +4,7 @@
 		<div class='prev-next-links top clearfix'>
 			::if (prev != null)::<a href="/download/version/::prev::/" class="prev-link">::prev::</a>::end::
 			::if (next != null)::<a href="/download/version/::next::/" class="next-link">::next::</a>::end::
-			::if (next == null)::<a href="http://build.haxe.org" class="next-link">Nightly Builds</a>::end::
+			::if (next == null)::<a href="/download/nightlies/" class="next-link">Nightly Builds</a>::end::
 			<a href="/download/list/">(View all versions)</a>
 		</div>
 
@@ -215,14 +215,14 @@
 
 		::if (api != null)::
 			<p class="alert alert-success">
-				<strong><i class="fa fa-book"></i> API Documentation: </strong> Download the API documentation for this version as <a href="::api::">a ZIP file</a>.
+				<strong><i class="fa fa-book"></i> API Documentation: </strong> Read the <a href="https://api.haxe.org/v/::api::/">API documentation</a> for this version.
 			</p>
 		::end::
 
 		<div class='prev-next-links bottom clearfix'>
 			::if (prev != null)::<a href="/download/version/::prev::/" class="prev-link">::prev::</a>::end::
 			::if (next != null)::<a href="/download/version/::next::/" class="next-link">::next::</a>::end::
-			::if (next == null)::<a href="http://build.haxe.org" class="next-link">Nightly Builds</a>::end::
+			::if (next == null)::<a href="/download/nightlies/" class="next-link">Nightly Builds</a>::end::
 			<a href="/download/list/">(View all versions)</a>
 		</div>
 

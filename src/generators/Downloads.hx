@@ -42,8 +42,7 @@ class Downloads {
 				version.prev != null ? version.prev.version : null,
 				version.next != null ? version.next.version : null,
 				title,
-				version.downloads,				
-				version.api != null ? version.api.url : null,
+				version.downloads,
 				data.current,
 				new Html(releaseNotes),
 				new Html(changes),
@@ -67,7 +66,7 @@ class Downloads {
 					asset.url,
 					new Html(releaseNotes),
 					new Html(changes),
-					version.api != null ? version.api.url : null
+					version.api
 				), null, null, title);
 			}
 		}
@@ -96,7 +95,7 @@ class Downloads {
 					'/$link/$filename',
 					new Html(releaseNotes),
 					new Html(changes),
-					version.api != null ? version.api.url : null
+					version.api
 			), null, null, title);
 		}
 	}

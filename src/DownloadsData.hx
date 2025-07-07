@@ -27,7 +27,7 @@ typedef Version = {
 	var version : String;
 	var tag : String;
 	var date : String;
-	@:optional var api : Download;
+	@:optional var api : String;
 	@:optional var next : Version;
 	@:optional var prev : Version;
 	@:optional var downloads : DownloadList;
@@ -177,7 +177,7 @@ class DownloadsData {
 				downloads.windows.archives.unshift(current = getInfo("Windows 64-bit Binaries", url));
 				downloads.all.unshift(current);
 			} else if (filename == 'api-${version.version}.zip') {
-				version.api = getInfo("API Documentation", url);
+				// Ignored, as we link to api docs instead
 			} else {
 				throw('Unknown download type for "$filename"');
 			}

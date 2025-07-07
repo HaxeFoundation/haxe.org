@@ -198,7 +198,8 @@ a.anch {
 	font-weight: 400;
 }
 
-.section.head .btn-haxe {
+.section.head .btn-haxe,
+.section.sub-head .btn-haxe {
 	font-size: 26.5px;
 	border-radius: 9px;
 	position: relative;
@@ -207,18 +208,23 @@ a.anch {
 	box-shadow: none;
 	border: 2px solid rgb(234, 130, 32);
 	color: rgb(234, 130, 32);
-	width: 204px;
+	min-width: 204px;
+	width: auto;
 	height: 54px;
 	line-height: 54px;
 	text-shadow: none;
 	padding-right: 33px; /* 12px default + some space for our caret */
 }
-.section.head .btn-haxe:hover, .section.head .btn-haxe:active {
+.section.head .btn-haxe:hover,
+.section.head .btn-haxe:active,
+.section.sub-head .btn-haxe:hover,
+.section.sub-head .btn-haxe:active {
 	color: rgb(208, 116, 28);
 	border-color: rgb(208, 116, 28);
 	background: rgba(0,0,0,0.1);
 }
-.section.head .btn-haxe .fa {
+.section.head .btn-haxe .fa,
+.section.sub-head .btn-haxe .fa {
 	position: absolute;
 	right: 15px;
 	top: 23px;
@@ -503,6 +509,7 @@ pre {
 
 html code {
 	color: rgb(75,75,75);
+	font-size: inherit;
 }
 a code {
 	color: #3369bc;

@@ -1,0 +1,174 @@
+<div class="section">
+	<div class="container">
+		<div class='prev-next-links top clearfix'>
+			<a href="/download/version/5.0.0-preview.1/" class="prev-link">5.0.0-preview.1</a>
+			<a href="/download/list/">(View all versions)</a>
+		</div>
+	</div>
+</div>
+<div class="section dark head downloads">
+	<div class="container">
+		<div class="row">
+			<div class="span5">
+				<h1>Haxe development builds</h1>
+
+				<p class="lead">Thank you for choosing Haxe!<br/>Download for your platform and start developing today.</p>
+				<p class="alert alert-error">
+					<strong>These are automated development builds</strong><br/>
+					The current preview version is <a href="/download/version/5.0.0-preview.1/" style="color:#13110f">Haxe 5.0.0-preview.1</a>.<br/>
+					The current stable release version is <a href="/download/" style="color:#13110f">Haxe 4.3.7</a>.
+				</p>
+			</div>
+			<div class="span6">
+				<div class="row">
+					<div class="span1 header">
+						<i class="fa fa-windows" title="Windows"></i>
+					</div>
+					<div class="span5">
+						<ul class="nav nav-tabs nav-stacked">
+							<li><a href="https://build.haxe.org/builds/haxe/windows64-installer/"><i class="fa fa-download"></i> Windows 64-bit installer</a></li>
+							<li><a href="https://build.haxe.org/builds/haxe/windows64/"><i class="fa fa-download"></i> Windows 64-bit Binaries</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="row downloads">
+					<div class="span1 header">
+						<i class="fa fa-apple" title="Mac OS X"></i>
+					</div>
+					<div class="span5">
+						<ul class="nav nav-tabs nav-stacked">
+							<li><a href="https://build.haxe.org/builds/haxe/mac-installer/"><i class="fa fa-download"></i> OSX Installer</a></li>
+							<li><a href="https://build.haxe.org/builds/haxe/mac/"><i class="fa fa-download"></i> OSX Binaries</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="row downloads">
+					<div class="span1 header">
+						<i class="fa fa-linux" title="Linux"></i>
+					</div>
+					<div class="span5">
+						<ul class="nav nav-tabs nav-stacked">
+							<li><a href="https://build.haxe.org/builds/haxe/linux64/"><i class="fa fa-download"></i> Linux 64-bit Binaries</a></li>
+							<li><a href="https://build.haxe.org/builds/haxe/linux-arm64/"><i class="fa fa-download"></i> Linux Arm64 Binaries</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="row downloads">
+					<div class="span1 header">
+						<i class="fa fa-download"></i>
+					</div>
+					<div class="span5">
+						<ul class="nav nav-tabs nav-stacked">
+							<li><a href="https://api.haxe.org/v/development/" target="_blank"><i class="fa fa-book"></i> API Documentation</a></li>
+							<li><a href="https://github.com/HaxeFoundation/haxe/tree/development/" target="_blank"><i class="fa fa-github"></i> Source Code</a></li>
+							<li><a href="https://github.com/HaxeFoundation/haxe/compare/5.0.0-preview.1...development" target="_blank"><i class="fa fa-github"></i> Commits since 5.0.0-preview.1</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="span1"></div>
+		</div>
+	</div>
+</div>
+<div class="section">
+	<div class="container">
+		<div class="row">
+			<div class="span1"></div>
+			<div class="span9">
+				<h2>Road to Haxe 5.0</h2>
+
+				<p>
+					Dear Community,
+				</p>
+
+				<p>
+					We are currently working towards Haxe 5.0 which, as a major version, will include a number of breaking change.
+				</p>
+
+				<p>
+					To ease the migration from Haxe 4, we introduced <code>-D haxe-next</code> in Haxe 4.3.
+					This <a href="/manual/lf-condition-compilation.html">define</a> activates a number of warnings about things that will not work anymore in Haxe 5.0.
+				</p>
+			</div>
+			<div class="span2"></div>
+		</div>
+
+		<div class="row">
+			<div class="span1"></div>
+			<div class="span9">
+				<h2>Roadmap</h2>
+
+				<p><strong>Main features that are currently being worked on</strong>:</p>
+				<ul>
+					<li>Haxe Coroutines (<a href="https://github.com/HaxeFoundation/haxe/pull/12168">#12168</a>)</li>
+					<li>IDE integration improvements</li>
+				</ul>
+
+				<p><strong>See also</strong>:</p>
+				<ul>
+					<li><a href="https://github.com/HaxeFoundation/haxe/milestone/20">Release 5.0</a> Milestone</li>
+					<li><a href="https://github.com/HaxeFoundation/haxe/milestone/25">5.0 preview 2</a> Milestone</li>
+				</ul>
+			</div>
+			<div class="span2"></div>
+		</div>
+
+		<div class="row">
+			<div class="span1"></div>
+			<div class="span9">
+				<h2>Change Log</h2>
+
+				<p><strong>Removal</strong>:</p>
+				<ul>
+					<li>all : remove 32 bit windows builds (<a href="https://github.com/HaxeFoundation/haxe/issues/11541">#11541</a>)</li>
+					<li>all : move <code>sys.db</code>, <code>php.Web</code> and <code>neko.Web</code> to <code>hx4compat</code> lib (<a href="https://github.com/HaxeFoundation/haxe/issues/11385">#11385</a>)</li>
+					<li>all : move <code>haxe.remoting</code> to <code>hx4compat</code> lib (<a href="https://github.com/HaxeFoundation/haxe/issues/11387">#11387</a>)</li>
+					<li>all : remove haxe.Ucs2 (<a href="https://github.com/HaxeFoundation/haxe/issues/12103">#12103</a>)</li>
+					<li>hl : move some hl.Format into lib format/heaps (<a href="https://github.com/HaxeFoundation/haxe/issues/11869">#11869</a>)</li>
+					<li>java/cs : remove C# and Java targets (<a href="https://github.com/HaxeFoundation/haxe/issues/11551">#11551</a>)</li>
+					<li>macro : remove some API from haxe.macro.Compiler (<a href="https://github.com/HaxeFoundation/haxe/issues/11540">#11540</a>)</li>
+					<li>macro : remove CompilationServer.setModuleCheckPolicy options (<a href="https://github.com/HaxeFoundation/haxe/issues/11615">#11615</a>)</li>
+				</ul>
+
+				<p><strong>Breaking changes</strong>:</p>
+				<ul>
+					<li>all : rework module resolution (<a href="https://github.com/HaxeFoundation/haxe/issues/11168">#11168</a>)</li>
+					<li>all : don't infer string on concat (<a href="https://github.com/HaxeFoundation/haxe/issues/11318">#11318</a>)</li>
+					<li>all : delay typer creation to after init macros (<a href="https://github.com/HaxeFoundation/haxe/issues/11323">#11323</a>)</li>
+					<li>all : disallow partial resolution (pack.SubType access when module is imported) (<a href="https://github.com/HaxeFoundation/haxe/issues/11338">#11338</a>)</li>
+					<li>all : don't create a class field for every enum field (<a href="https://github.com/HaxeFoundation/haxe/issues/11452">#11452</a>)</li>
+					<li>all : only set cf_expr_unoptimized if we think we need it (<a href="https://github.com/HaxeFoundation/haxe/issues/11462">#11462</a>)</li>
+					<li>all : fix the way optional arguments are handled when using <code>bind</code> (<a href="https://github.com/HaxeFoundation/haxe/issues/11533">#11533</a>)</li>
+					<li>all : don't bind foreign type parameters in definition mode (<a href="https://github.com/HaxeFoundation/haxe/issues/11658">#11658</a>)</li>
+					<li>all : disallow duplicate argument name (<a href="https://github.com/HaxeFoundation/haxe/issues/11978">#11978</a>)</li>
+					<li>all : fix types in null coal null check (<a href="https://github.com/HaxeFoundation/haxe/issues/11726">#11726</a>)</li>
+					<li>macro : Build macro order vs inheritance (<a href="https://github.com/HaxeFoundation/haxe/issues/11582">#11582</a>)</li>
+					<li>macro : disallow defining types into existing modules (<a href="https://github.com/HaxeFoundation/haxe/issues/11845">#11845</a>)</li>
+				</ul>
+
+				<p><strong>Other changes</strong>:</p>
+
+				<p>
+					The full list of released changes is available on preview release pages:
+				</p>
+
+				<ul>
+					<li><a href="/download/version/5.0.0-preview.1/">Haxe 5.0.0-preview.1</a></li>
+				</ul>
+
+				<p>
+					For the changes that are only available on nightlies for now, a changelog draft
+					is available on <a href="https://github.com/HaxeFoundation/haxe/wiki/Nightlies-changelog" target="_blank">Haxe repository wiki</a>
+					and is being updated as we add major changes to <code>development</code> branch.
+				</p>
+			</div>
+			<div class="span2"></div>
+		</div>
+
+		<div class='prev-next-links bottom clearfix'>
+			<a href="/download/version/5.0.0-preview.1/" class="prev-link">5.0.0-preview.1</a>
+			<a href="/download/list/">(View all versions)</a>
+		</div>
+
+	</div>
+</div>
