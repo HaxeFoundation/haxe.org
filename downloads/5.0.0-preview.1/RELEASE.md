@@ -19,7 +19,7 @@ It means that you are using an older `haxelib` version that is not compatible wi
 
 You can either update it:
 ```
-haxelib install haxelib
+haxelib update haxelib
 ```
 
 Or remove it (and use the version shipped with Haxe):
