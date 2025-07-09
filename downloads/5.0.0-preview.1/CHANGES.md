@@ -8,6 +8,7 @@ __Removal__:
 * all : move `haxe.remoting` to `hx4compat` lib ([#11387](https://github.com/HaxeFoundation/haxe/issues/11387))
 * all : remove haxe.Ucs2 ([#12103](https://github.com/HaxeFoundation/haxe/issues/12103))
 * hl : move some hl.Format into lib format/heaps ([#11869](https://github.com/HaxeFoundation/haxe/issues/11869))
+* js : remove previously deprecated `untyped __js__` and friends ([#11471](https://github.com/HaxeFoundation/haxe/issues/11471))
 * java/cs : remove C# and Java targets ([#11551](https://github.com/HaxeFoundation/haxe/issues/11551))
 * macro : remove some API from haxe.macro.Compiler ([#11540](https://github.com/HaxeFoundation/haxe/issues/11540))
 * macro : remove CompilationServer.setModuleCheckPolicy options ([#11615](https://github.com/HaxeFoundation/haxe/issues/11615))
