@@ -134,8 +134,11 @@ class Manual {
 		for (image in FileSystem.readDirectory(Config.manualImageDir)) {
 			var inPath = Path.join([Config.manualImageDir, image]);
 			var outPath = Path.join([Config.outputFolder, "manual", image]);
-
-			cmd("inkscape", [inPath, '--export-png=$outPath.png']);
+			try {
+				cmd("inkscape", [inPath, '--export-png=$outPath.png']);
+			}catch(_) {
+				continue;
+			}
 
 			// Path the svg figure to include the link to the font css
 			var xml = Xml.parse(File.getContent(inPath));
