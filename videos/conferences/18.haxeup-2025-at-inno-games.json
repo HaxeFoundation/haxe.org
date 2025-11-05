@@ -1,0 +1,36 @@
+{
+	"title": "HaxeUp 2025 at InnoGames",
+	"description": "HaxeUp is an online streamed event, which was held July 4th 2025",
+	"videos": [
+		{
+			"title": "Hello, It Has Been A While - Josefiene Pertosa and Tobias Jansing",
+			"where": "HaxeUp 2025",
+			"description": "",
+			"date": "2025-07-04",
+			"youtubeId": "0yA6JGLVKOU"
+		},
+		{
+			"title": "Haxe Summer Report - Simon Krajewski",
+			"where": "HaxeUp 2025",
+			"description": "",
+			"date": "2025-07-04",
+			"youtubeId": "fjFbB1ewlLs",
+			"featured": true
+		},
+		{
+			"title": "Reactive Programming with tink_state - Michael Engel",
+			"where": "HaxeUp 2025",
+			"description": "",
+			"date": "2025-07-04",
+			"youtubeId": "nhruu_vjImE",
+			"featured": true
+		},
+		{
+			"title": "Goodbye",
+			"where": "HaxeUp 2025",
+			"description": "",
+			"date": "2025-07-04",
+			"youtubeId": "j5qYNxVWZnA"
+		}
+	]
+}
