@@ -1,0 +1,74 @@
+digraph G {
+    graph     [fontname = "clearsans"; rankdir="LR"];
+    node      [shape=box; style=filled; fillcolor="#E8E8E7";
+               color=gray; fontsize=11; fontname = "clearsans"];
+    edge      [arrowsize=0.5; fontsize=11; fontname = "clearsans"];
+
+    // ByteCode
+    Neko     [fillcolor="#B5E1AC"];
+    HashLink [fillcolor="#B5E1AC"];
+    SWF      [fillcolor="#B5E1AC"];
+    JVM      [fillcolor="#B5E1AC"];
+    CIL      [fillcolor="#B5E1AC"];
+
+    // Haxe Generates these
+    ActionScript    [color="#53A5EC"; penwidth=2];
+    C               [color="#53A5EC"; penwidth=2];
+    "C++"           [color="#53A5EC"; penwidth=2];
+    "C#"            [color="#53A5EC"; penwidth=2];
+    Cppia           [color="#53A5EC"; penwidth=2];
+    JavaScript      [color="#53A5EC"; penwidth=2];
+    HashLink        [color="#53A5EC"; penwidth=2];
+    Java            [color="#53A5EC"; penwidth=2];
+    Lua             [color="#53A5EC"; penwidth=2];
+    Neko            [color="#53A5EC"; penwidth=2];
+    PHP             [color="#53A5EC"; penwidth=2];
+    Python          [color="#53A5EC"; penwidth=2];
+    SWF             [color="#53A5EC"; penwidth=2];
+
+    // Execution Environments
+    VM          [fillcolor="#E1ACAE"];
+    Executable  [fillcolor="#E1ACAE"];
+    Browser     [fillcolor="#E1ACAE"];
+    Interpreter [fillcolor="#E1ACAE"];
+
+    {rank=same; Haxe;}
+    {rank=same; ActionScript; C; "C++"; Cppia; "C#"; JavaScript;
+                Java; Lua; PHP; Python;}
+    {rank=same; Neko; HashLink; SWF; JVM; CIL;}
+    {rank=same; Browser; Executable; Interpreter; VM;}
+
+    Haxe -> ActionScript;
+    Haxe -> C [label="HL/C"];
+    Haxe -> "C++";
+    Haxe -> Cppia;
+    Haxe -> "C#";
+    Haxe -> JavaScript;
+    Haxe -> HashLink [label="HL/JIT"];
+    Haxe -> Java;
+    Haxe -> Lua;
+    Haxe -> Neko;
+    Haxe -> PHP;
+    Haxe -> Python;
+    Haxe -> SWF;
+    Haxe -> Interpreter [label="--interp"];
+
+    C -> Executable [label="cc"];
+    PHP -> Interpreter;
+    JavaScript -> Interpreter;
+    JavaScript -> Browser;
+    Java -> JVM [label="javac"]
+    JVM -> VM;
+    Neko -> VM;
+    ActionScript -> VM;
+    SWF -> VM;
+
+    Lua -> Interpreter;
+    "C++" -> Executable [label="cpp"];
+    Cppia -> Executable [label="cpp"];
+    Cppia -> Interpreter;
+    "C#" -> CIL [label="csc"];
+    CIL -> VM;
+    Python -> Interpreter;
+    HashLink -> VM;
+}
