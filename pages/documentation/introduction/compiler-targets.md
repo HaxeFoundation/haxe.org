@@ -1,6 +1,14 @@
 Compiler Targets
 =======
 
+![Haxe Targets at a glance](haxe-targets.png)
+
+Key:
+
+  * blue border: Haxe compiler target
+  * green background: bytecode
+  * red background: execution environment
+
 The following table gives an overview of available Haxe targets:
 
 Name | Tier | Kind | Static typing | Sys  | Since Haxe version
