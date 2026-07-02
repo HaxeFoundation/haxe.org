@@ -210,7 +210,7 @@ a.anch {
 	color: rgb(234, 130, 32);
 	min-width: 204px;
 	width: auto;
-	height: 54px;
+	min-height: 54px;
 	line-height: 54px;
 	text-shadow: none;
 	padding-right: 33px; /* 12px default + some space for our caret */
