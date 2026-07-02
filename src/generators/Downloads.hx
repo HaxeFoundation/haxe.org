@@ -81,7 +81,7 @@ class Downloads {
 		var releaseNotes = getNotes(data.current, "RELEASE");
 		var changes = getNotes(data.current, "CHANGES");
 
-		for (url in ["win.exe", "win.zip", "osx-installer.pkg", "osx.tar.gz", "linux32.tar.gz", "linux64.tar.gz"]) {
+		for (url in ["win.exe", "win.zip", "osx-installer.pkg", "osx.tar.gz", "linux32.tar.gz", "linux64.tar.gz", "linux-arm64.tar.gz"]) {
 			var filename = 'haxe-latest-${url}';
 			var link = Path.join([downloadFilesOut, "latest", "downloads"]);
 			var title = 'latest: ${data.current}';

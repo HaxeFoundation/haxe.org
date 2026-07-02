@@ -155,6 +155,9 @@ class DownloadsData {
 			} else if (filename.endsWith("-linux64.tar.gz")) {
 				downloads.linux.archives.push(current = getInfo("Linux 64-bit Binaries", url));
 				downloads.all.unshift(current);
+			} else if (filename.endsWith("-linux-arm64.tar.gz")) {
+				downloads.linux.archives.push(current = getInfo("Linux arm64 Binaries", url));
+				downloads.all.unshift(current);
 			} else if (filename.endsWith("-raspi.tar.gz")) {
 				downloads.linux.archives.push(current = getInfo("Raspberry Pi", url));
 				downloads.all.unshift(current);
