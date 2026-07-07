@@ -5,18 +5,18 @@ The following table gives an overview of available Haxe targets:
 
 Name | Tier | Kind | Static typing | Sys  | Since Haxe version
 --- | --- | --- | --- | --- | ---
-JavaScript | 1 | source | No | No | beta (2006)
-[HashLink](https://hashlink.haxe.org/) | 1 | byte code + source | Yes | Yes | 3.4 (2016)
+[JavaScript](/manual/target-javascript-getting-started.html) | 1 | source | No | No | beta (2006)
+[HashLink](/manual/target-hl-getting-started.html) | 1 | byte code + source | Yes | Yes | 3.4 (2016)
 Eval | 1 | interpreter | No | Yes | 4.0 (2019)
-JVM | 1 | byte code | Yes | Yes | 4.0 (2019)
-PHP7 | 1 | source | No | Yes | 3.4 (2016)
-C++ | 2 | source | Yes | Yes | 2.4 (2009)
-Lua | 2 | source | No | Yes | 3.3 (2016)
+[JVM](/manual/target-jvm-getting-started.html) | 1 | byte code | Yes | Yes | 4.0 (2019)
+[PHP7](/manual/target-php-getting-started.html) | 1 | source | No | Yes | 3.4 (2016)
+[C++](/manual/target-cpp-getting-started.html) | 2 | source | Yes | Yes | 2.4 (2009)
+[Lua](/manual/target-lua-getting-started.html) | 2 | source | No | Yes | 3.3 (2016)
 C# | 3 | source | Yes | Yes | 2.10 (2012)
-Python | 3 | source | No | Yes | 3.2 (2015)
+[Python](/manual/target-python-getting-started.html) | 3 | source | No | Yes | 3.2 (2015)
 Java | 3 | source | Yes | Yes | 2.10 (2012)
 Flash | 3 | byte code | Yes | No | alpha (2005)
-[Neko](https://nekovm.org/) | 3 | byte code | No | Yes  | alpha (2005)
+[Neko](/manual/target-neko-getting-started.html) | 3 | byte code | No | Yes  | alpha (2005)
 ActionScript 3 | - | source | Yes | No | 1.12 (2007), removed in 4.0 (2019)
 PHP5 | -  | source | No | Yes | 2.0 (2008), removed in 4.0 (2019)
 
